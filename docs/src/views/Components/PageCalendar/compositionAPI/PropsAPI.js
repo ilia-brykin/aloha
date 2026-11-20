@@ -43,6 +43,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "isDraggable",
+      description: "_A_CALENDAR_PROPS_IS_DRAGGABLE_",
+      type: "Boolean | Function",
+      default: "false",
+      required: false,
+    },
+    {
       name: "keyColor",
       description: "_A_CALENDAR_PROPS_KEY_COLOR_",
       type: "String | Function",

@@ -5,6 +5,7 @@ import {
 import AButton from "../AButton/AButton";
 
 import ClickAPI from "./compositionAPI/ClickAPI";
+import DragAPI from "./compositionAPI/DragAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PeriodAPI from "./compositionAPI/PeriodAPI";
@@ -60,6 +61,11 @@ export default {
       type: String,
       required: false,
       default: () => uniqueId("a_calendar_"),
+    },
+    isDraggable: {
+      type: [Boolean, Function],
+      required: false,
+      default: false,
     },
     keyColor: {
       type: [String, Function],
@@ -127,6 +133,7 @@ export default {
   emits: [
     "day-click",
     "event-click",
+    "event-drop",
     "more-click",
     "range-change",
     "time-click",
@@ -160,8 +167,11 @@ export default {
     } = EventsAPI(props, { weeks });
 
     const {
+      getMinutesAtY,
       getTimedStyle,
       hours,
+      minuteStart,
+      minutesCount,
       nowStyle,
       onClickTime,
       setTimeScrollElement,
@@ -171,6 +181,24 @@ export default {
       eventsNormalized,
       isTimeGridView,
       timeGridDays,
+    });
+
+    const {
+      draggingKey,
+      dropPreview,
+      dropTargetKey,
+      isEventDraggable,
+      onDragoverDay,
+      onDragoverTime,
+      onDragstartEvent,
+      onDropDay,
+      onDropTime,
+      resetDrag,
+    } = DragAPI(props, {
+      emit,
+      getMinutesAtY,
+      minuteStart,
+      minutesCount,
     });
 
     const {
@@ -220,6 +248,9 @@ export default {
 
     return {
       changeView,
+      draggingKey,
+      dropPreview,
+      dropTargetKey,
       getDayAriaLabel,
       getEventAriaLabel,
       getEventColorAttributes,
@@ -234,6 +265,7 @@ export default {
       goToPrevious,
       goToToday,
       hours,
+      isEventDraggable,
       isTimeGridView,
       modelValueKey,
       nowStyle,
@@ -241,9 +273,15 @@ export default {
       onClickEvent,
       onClickMore,
       onClickTime,
+      onDragoverDay,
+      onDragoverTime,
+      onDragstartEvent,
+      onDropDay,
+      onDropTime,
       onFocusDay,
       onKeydownDay,
       range,
+      resetDrag,
       setDayElement,
       setTimeScrollElement,
       tabbableKey,
@@ -324,6 +362,26 @@ export default {
       ]);
     },
 
+    // An event that can be dragged: dayKeys are the days of the bar, isTimed for the time grid
+    getDragAttributes(event, { dayKeys, isTimed = false }) {
+      if (!this.isEventDraggable(event)) {
+        return {};
+      }
+      return {
+        draggable: "true",
+        onDragstart: $event => this.onDragstartEvent({ event, dayKeys, isTimed, $event }),
+        onDragend: this.resetDrag,
+      };
+    },
+
+    // A day where an event can be dropped: it keeps its time
+    getDropDayAttributes(day) {
+      return {
+        onDragover: $event => this.onDragoverDay({ day, $event }),
+        onDrop: $event => this.onDropDay({ day, $event }),
+      };
+    },
+
     // The day as a button: in the month a cell, in the week the head of a column
     renderDay(day, index, { className = "a_calendar__day", gridColumn = index + 1, content } = {}) {
       const IS_SELECTED = day.key === this.modelValueKey;
@@ -336,10 +394,12 @@ export default {
           a_calendar__day_selected: IS_SELECTED,
           a_calendar__day_today: day.isToday,
           a_calendar__day_weekend: day.isWeekend,
+          a_calendar__drop_target: this.dropTargetKey === day.key,
         }],
         style: {
           gridColumn,
         },
+        ...this.getDropDayAttributes(day),
         tabindex: day.key === this.tabbableKey ? 0 : -1,
         "aria-label": this.getDayAriaLabel(day),
         "aria-pressed": IS_SELECTED ? "true" : "false",
@@ -375,7 +435,7 @@ export default {
     },
 
     // A bar in a week of the month or in the all-day row of the week view (gridColumnOffset: the column of the hours)
-    renderEvent(segment, { gridColumnOffset = 0 } = {}) {
+    renderEvent(segment, { days, gridColumnOffset = 0 }) {
       const EVENT = segment.event;
       const COLOR = this.getEventColorAttributes(EVENT);
       return h("button", {
@@ -384,6 +444,7 @@ export default {
         class: ["a_calendar__event", COLOR.class, {
           a_calendar__event_continues_before: !segment.isStart,
           a_calendar__event_continues_after: !segment.isEnd,
+          a_calendar__event_dragging: this.draggingKey === EVENT.key,
         }],
         style: {
           gridColumn: `${ segment.start + 1 + gridColumnOffset } / span ${ segment.span }`,
@@ -392,6 +453,9 @@ export default {
         },
         title: this.getEventAriaLabel(EVENT),
         "aria-label": this.getEventAriaLabel(EVENT),
+        ...this.getDragAttributes(EVENT, {
+          dayKeys: days.slice(segment.start, segment.start + segment.span).map(day => day.key),
+        }),
         onClick: $event => this.onClickEvent({ event: EVENT, $event }),
       }, this.renderEventContent({
         event: EVENT,
@@ -438,7 +502,7 @@ export default {
           },
         }, [
           ...week.days.map((day, index) => this.renderDay(day, index)),
-          ...week.segments.map(segment => this.renderEvent(segment)),
+          ...week.segments.map(segment => this.renderEvent(segment, { days: week.days })),
           ...week.days.map((day, index) => day.hiddenCount > 0 ? this.renderMore(day, index, week.lanesCount) : null),
         ])),
       ]);
@@ -454,6 +518,7 @@ export default {
         type: "button",
         class: ["a_calendar__event a_calendar__event_timed", COLOR.class, {
           a_calendar__event_short: IS_SHORT,
+          a_calendar__event_dragging: this.draggingKey === EVENT.key,
         }],
         style: {
           ...this.getTimedStyle(item),
@@ -461,6 +526,7 @@ export default {
         },
         title: this.getEventAriaLabel(EVENT),
         "aria-label": this.getEventAriaLabel(EVENT),
+        ...this.getDragAttributes(EVENT, { dayKeys: [EVENT.startDay], isTimed: true }),
         onClick: $event => this.onClickEvent({ event: EVENT, $event }),
       }, this.renderEventContent({
         event: EVENT,
@@ -513,13 +579,15 @@ export default {
             key: day.key,
             class: ["a_calendar__all_day_cell", {
               a_calendar__day_weekend: day.isWeekend,
+              a_calendar__drop_target: this.dropTargetKey === day.key,
             }],
             style: {
               gridColumn: index + 2,
             },
             "aria-hidden": "true",
+            ...this.getDropDayAttributes(day),
           })),
-          ...VIEW.allDaySegments.map(segment => this.renderEvent(segment, { gridColumnOffset: 1 })),
+          ...VIEW.allDaySegments.map(segment => this.renderEvent(segment, { days: VIEW.days, gridColumnOffset: 1 })),
         ]),
         h("div", {
           ref: this.setTimeScrollElement,
@@ -543,10 +611,19 @@ export default {
               key: day.key,
               class: ["a_calendar__time_column", {
                 a_calendar__day_weekend: day.isWeekend,
+                a_calendar__drop_target: this.dropTargetKey === `time_${ day.key }`,
               }],
               onClick: $event => this.onClickTime({ day, $event }),
+              onDragover: $event => this.onDragoverTime({ day, $event }),
+              onDrop: $event => this.onDropTime({ day, $event }),
             }, [
               ...day.timed.map(item => this.renderTimedEvent(item)),
+              // Where the dragged event would land
+              this.dropPreview?.dayKey === day.key && h("div", {
+                class: "a_calendar__drop_preview",
+                style: this.dropPreview.style,
+                "aria-hidden": "true",
+              }, this.getEventTimeRangeText(this.dropPreview)),
               day.isToday && this.nowStyle && h("div", {
                 class: "a_calendar__now",
                 style: this.nowStyle,
@@ -561,7 +638,9 @@ export default {
   render() {
     return h("div", {
       id: this.id,
-      class: ["a_calendar", `a_calendar_${ this.viewLocal }`],
+      class: ["a_calendar", `a_calendar_${ this.viewLocal }`, {
+        a_calendar_dragging: this.draggingKey !== undefined,
+      }],
     }, [
       this.renderHeader(),
       this.isTimeGridView ? this.renderTimeGrid() : this.renderMonth(),

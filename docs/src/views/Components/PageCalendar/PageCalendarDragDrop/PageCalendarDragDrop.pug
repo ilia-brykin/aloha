@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_DRAG_HEADER_"
+  description="_A_CALENDAR_DRAG_DESCRIPTION_"
+  :props="['is-draggable']"
+)
+  a-calendar(
+    v-model="model"
+    v-model:view="view"
+    :events="events"
+    :is-draggable="isDraggable"
+    @event-drop="onEventDrop"
+  )
+  p.a_mt_3.a_mb_0(
+    v-if="lastDrop"
+  )
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_DRAG_LAST_"
+    )
+    | : {{ lastDrop }}

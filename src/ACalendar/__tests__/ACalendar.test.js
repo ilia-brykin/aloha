@@ -330,6 +330,113 @@ describe("ACalendar", () => {
     wrapper.unmount();
   });
 
+  describe("drag and drop", () => {
+    const dataTransfer = () => ({ setData: () => {}, effectAllowed: "", dropEffect: "" });
+    const findEvent = (wrapper, label, selector = ".a_calendar__event") => wrapper.findAll(selector).find(event => event.text().includes(label));
+    const findDay = (wrapper, number) => wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === String(number));
+    const mockRect = (element, rect) => {
+      element.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 20, ...rect });
+    };
+
+    it("is off by default, isDraggable can be a function", () => {
+      expect(mountCalendar().find(".a_calendar__event[draggable]").exists()).toBe(false);
+      const wrapper = mountCalendar({ isDraggable: item => item.id !== 1 });
+      expect(findEvent(wrapper, "Trip").attributes("draggable")).toBeUndefined();
+      expect(findEvent(wrapper, "Meeting").attributes("draggable")).toBe("true");
+      wrapper.unmount();
+    });
+
+    it("month: an event moves to another day and keeps its time", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      const MEETING = findEvent(wrapper, "Meeting");
+      mockRect(MEETING.element, {});
+      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 10, clientY: 10 });
+      await new Promise(resolve => setTimeout(resolve));
+      expect(wrapper.get(".a_calendar").classes()).toContain("a_calendar_dragging");
+      expect(findEvent(wrapper, "Meeting").classes()).toContain("a_calendar__event_dragging");
+
+      const DAY_12 = findDay(wrapper, 12);
+      await DAY_12.trigger("dragover", { dataTransfer: dataTransfer() });
+      expect(DAY_12.classes()).toContain("a_calendar__drop_target");
+      await DAY_12.trigger("drop", { dataTransfer: dataTransfer() });
+      const DROP = wrapper.emitted("event-drop")[0][0];
+      expect(DROP.event).toEqual(EVENTS[1]);
+      expect(DROP.start).toEqual(new Date(2026, 2, 12, 9, 0));
+      expect(DROP.end).toEqual(new Date(2026, 2, 12, 10, 30));
+      expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_dragging");
+      wrapper.unmount();
+    });
+
+    it("month: an event over several days moves from the day where it was grabbed", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      // The bar 09.03. - 15.03. is grabbed on the third day (11.03.)
+      const TRIP = findEvent(wrapper, "Trip");
+      mockRect(TRIP.element, { width: 700 });
+      await TRIP.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 250 });
+      await findDay(wrapper, 13).trigger("drop", { dataTransfer: dataTransfer() });
+      const DROP = wrapper.emitted("event-drop")[0][0];
+      expect(DROP.start).toEqual(new Date(2026, 2, 11));
+      expect(DROP.end).toEqual(new Date(2026, 2, 19));
+      wrapper.unmount();
+    });
+
+    it("no event-drop if the event stays at its place", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      const MEETING = findEvent(wrapper, "Meeting");
+      mockRect(MEETING.element, {});
+      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer() });
+      await findDay(wrapper, 10).trigger("drop", { dataTransfer: dataTransfer() });
+      expect(wrapper.emitted("event-drop")).toBeUndefined();
+      wrapper.unmount();
+    });
+
+    it("week view: an event with a time gets the day and the time of the place, a preview shows it", async() => {
+      const wrapper = mountCalendar({ isDraggable: true, view: "week" });
+      const MEETING = findEvent(wrapper, "Meeting", ".a_calendar__event_timed");
+      // Grabbed 10 px below its top
+      mockRect(MEETING.element, { top: 540, height: 90 });
+      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer(), clientY: 550 });
+
+      const COLUMN = wrapper.findAll(".a_calendar__time_column")[3];
+      mockRect(COLUMN.element, { top: 0, height: 1440 });
+      await COLUMN.trigger("dragover", { dataTransfer: dataTransfer(), clientY: 790 });
+      expect(wrapper.get(".a_calendar__drop_preview").text()).toBe("13:00 – 14:30");
+      expect(wrapper.get(".a_calendar__drop_preview").attributes("style")).toContain("top: 54.1666");
+
+      await COLUMN.trigger("drop", { dataTransfer: dataTransfer(), clientY: 790 });
+      const DROP = wrapper.emitted("event-drop")[0][0];
+      expect(DROP.start).toEqual(new Date(2026, 2, 12, 13, 0));
+      expect(DROP.end).toEqual(new Date(2026, 2, 12, 14, 30));
+      expect(wrapper.find(".a_calendar__drop_preview").exists()).toBe(false);
+      // The drop does not create an event
+      expect(wrapper.emitted("time-click")).toBeUndefined();
+      wrapper.unmount();
+    });
+
+    it("week view: an all-day event moves by days in the all-day row", async() => {
+      const wrapper = mountCalendar({ isDraggable: true, view: "week" });
+      const TRIP = wrapper.get(".a_calendar__all_day .a_calendar__event");
+      mockRect(TRIP.element, { width: 700 });
+      await TRIP.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 50 });
+      await wrapper.findAll(".a_calendar__all_day_cell")[2].trigger("drop", { dataTransfer: dataTransfer() });
+      expect(wrapper.emitted("event-drop")[0][0].start).toEqual(new Date(2026, 2, 11));
+      wrapper.unmount();
+    });
+
+    it("dragend without a drop resets the drag", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      const MEETING = findEvent(wrapper, "Meeting");
+      mockRect(MEETING.element, {});
+      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer() });
+      await new Promise(resolve => setTimeout(resolve));
+      await MEETING.trigger("dragend");
+      expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_dragging");
+      await findDay(wrapper, 12).trigger("drop", { dataTransfer: dataTransfer() });
+      expect(wrapper.emitted("event-drop")).toBeUndefined();
+      wrapper.unmount();
+    });
+  });
+
   it("ignores events without a valid start", () => {
     const wrapper = mountCalendar({ events: [{ id: 1, label: "No start" }, { id: 2, label: "Invalid", start: "Aloha" }] });
     expect(wrapper.findAll(".a_calendar__event")).toHaveLength(0);
