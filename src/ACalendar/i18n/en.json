@@ -12,5 +12,6 @@
   "_A_CALENDAR_ALL_DAY_": "All day",
   "_A_CALENDAR_PREVIOUS_DAY_": "Previous day",
   "_A_CALENDAR_NEXT_DAY_": "Next day",
-  "_A_CALENDAR_VIEW_DAY_": "Day"
+  "_A_CALENDAR_VIEW_DAY_": "Day",
+  "_A_CALENDAR_RECURRING_": "recurring"
 }

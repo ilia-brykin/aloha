@@ -3,6 +3,7 @@ import {
   nextTick,
 } from "vue";
 import {
+  afterEach,
   describe,
   expect,
   it,
@@ -12,10 +13,12 @@ import {
 } from "@vue/test-utils";
 
 import {
+  getOccurrences,
   getTimedLayout,
   getWeekDays,
   getWeeks,
   getWeekSegments,
+  normalizeRecurrence,
 } from "../utils/utils";
 
 import ACalendar from "../ACalendar";
@@ -103,6 +106,48 @@ describe("ACalendar utils", () => {
     // At least 15 minutes, cut by the visible hours
     expect(BY_KEY.short).toMatchObject({ start: 840, end: 855 });
     expect(BY_KEY.early).toMatchObject({ start: 360, end: 420 });
+  });
+});
+
+describe("ACalendar recurrence", () => {
+  const occurrences = ({ start = "2026-03-02T09:00:00", end = "2026-03-02T10:00:00", rangeStart = "2026-03-01", rangeEnd = "2026-03-31", ...recurrence }) => {
+    return getOccurrences({
+      start: new Date(start),
+      end: new Date(end),
+      recurrence: normalizeRecurrence(recurrence),
+      rangeStart,
+      rangeEnd,
+    }).map(item => item.date);
+  };
+
+  it("normalizeRecurrence: a wrong rule is no series", () => {
+    expect(normalizeRecurrence(undefined)).toBeUndefined();
+    expect(normalizeRecurrence({ frequency: "hourly" })).toBeUndefined();
+    expect(normalizeRecurrence({ frequency: "weekly", interval: 0, weekdays: [5, 1, 9, 1] })).toMatchObject({ interval: 1, weekdays: [1, 5] });
+  });
+
+  it("daily, weekly, monthly and yearly with interval", () => {
+    expect(occurrences({ frequency: "daily", rangeEnd: "2026-03-05" })).toEqual(["2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05"]);
+    expect(occurrences({ frequency: "weekly", interval: 2 })).toEqual(["2026-03-02", "2026-03-16", "2026-03-30"]);
+    expect(occurrences({ frequency: "monthly", rangeEnd: "2026-06-30" })).toEqual(["2026-03-02", "2026-04-02", "2026-05-02", "2026-06-02"]);
+    expect(occurrences({ frequency: "yearly", rangeStart: "2028-01-01", rangeEnd: "2028-12-31" })).toEqual(["2028-03-02"]);
+  });
+
+  it("weekly on weekdays: Monday to Friday", () => {
+    expect(occurrences({ frequency: "weekly", weekdays: [1, 2, 3, 4, 5], rangeEnd: "2026-03-10" })).toEqual([
+      "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-09", "2026-03-10",
+    ]);
+  });
+
+  it("count, until and exceptions", () => {
+    expect(occurrences({ frequency: "daily", count: 3 })).toEqual(["2026-03-02", "2026-03-03", "2026-03-04"]);
+    expect(occurrences({ frequency: "daily", until: "2026-03-04" })).toEqual(["2026-03-02", "2026-03-03", "2026-03-04"]);
+    // An exception counts: count 3 ends on the 4th, without the 3rd
+    expect(occurrences({ frequency: "daily", count: 3, exceptions: ["2026-03-03"] })).toEqual(["2026-03-02", "2026-03-04"]);
+  });
+
+  it("only the occurrences of the range, also one that starts before it", () => {
+    expect(occurrences({ frequency: "weekly", end: "2026-03-04T10:00:00", rangeStart: "2026-03-10", rangeEnd: "2026-03-20" })).toEqual(["2026-03-09", "2026-03-16"]);
   });
 });
 
@@ -438,6 +483,9 @@ describe("ACalendar", () => {
   });
 
   describe("resize", () => {
+    // After pointerup the next click is blocked until the next task: it must not reach the next test
+    afterEach(() => new Promise(resolve => setTimeout(resolve)));
+
     const pointer = (type, init) => window.dispatchEvent(new MouseEvent(type, { bubbles: true, ...init }));
     const findTimed = (wrapper, label) => wrapper.findAll(".a_calendar__event_timed").find(event => event.text().includes(label));
 
@@ -569,6 +617,55 @@ describe("ACalendar", () => {
       pointer("pointercancel", {});
       await nextTick();
       expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_resizing");
+      wrapper.unmount();
+    });
+  });
+
+  describe("recurring events", () => {
+    const SERIES = { id: "standup", label: "Standup", start: "2026-03-02T09:00:00", end: "2026-03-02T09:15:00", recurrence: { frequency: "weekly", weekdays: [1, 3], exceptions: ["2026-03-11"] } };
+
+    it("shows every occurrence on the shown days with the sign of a series", () => {
+      const wrapper = mountCalendar({ events: [SERIES] });
+      const STANDUPS = wrapper.findAll(".a_calendar__event");
+      // Mondays and Wednesdays from the 2nd of March to the 5th of April, without the 11th
+      expect(STANDUPS).toHaveLength(9);
+      expect(STANDUPS[0].find(".a_calendar__event_recurring").exists()).toBe(true);
+      expect(STANDUPS[0].attributes("aria-label")).toBe("Standup, 2. März 09:00 – 09:15, _A_CALENDAR_RECURRING_");
+      wrapper.unmount();
+    });
+
+    it("the events of the calendar get the occurrence and the item of the series", async() => {
+      const wrapper = mountCalendar({ events: [SERIES], isDraggable: true });
+      // 02., 04., 09., 16., 18. (the 11th is an exception)
+      const EVENT_18 = wrapper.findAll(".a_calendar__event")[4];
+      await EVENT_18.trigger("click");
+      const CLICK = wrapper.emitted("event-click")[0][0];
+      expect(CLICK.event).toEqual(SERIES);
+      expect(CLICK.occurrence).toEqual({ date: "2026-03-18", start: new Date(2026, 2, 18, 9, 0), end: new Date(2026, 2, 18, 9, 15) });
+
+      EVENT_18.element.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 20 });
+      await EVENT_18.trigger("dragstart", { dataTransfer: { setData: () => {} } });
+      await wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === "19").trigger("drop", { dataTransfer: {} });
+      const DROP = wrapper.emitted("event-drop")[0][0];
+      expect(DROP.start).toEqual(new Date(2026, 2, 19, 9, 0));
+      expect(DROP.occurrence.date).toBe("2026-03-18");
+      wrapper.unmount();
+    });
+
+    it("the other months and the week view get their own occurrences", async() => {
+      const wrapper = mountCalendar({ events: [SERIES] });
+      await wrapper.findAll(".a_calendar__header_actions > button")[2].trigger("click");
+      // April 2026: 30.03. - 10.05.
+      expect(wrapper.findAll(".a_calendar__event")).toHaveLength(12);
+      await wrapper.setProps({ view: "week", modelValue: "2026-03-17" });
+      expect(wrapper.findAll(".a_calendar__event_timed")).toHaveLength(2);
+      wrapper.unmount();
+    });
+
+    it("a single event has no occurrence", async() => {
+      const wrapper = mountCalendar();
+      await wrapper.findAll(".a_calendar__event").find(event => event.text().includes("Meeting")).trigger("click");
+      expect(wrapper.emitted("event-click")[0][0].occurrence).toBeUndefined();
       wrapper.unmount();
     });
   });

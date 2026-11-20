@@ -149,6 +149,17 @@
   flex: 0 0 auto;
   font-weight: var(--a_calendar_title_font_weight);
 }
+// The sign of a recurring event
+.a_calendar__event_recurring {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: var(--a_calendar_recurring_icon_size);
+  height: var(--a_calendar_recurring_icon_size);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
 .a_calendar__event_label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -476,5 +487,6 @@
   // drag and drop
   --a_calendar_drop_color: var(--a_color_primary); // Border of the day and of the place where a dragged event lands.
   --a_calendar_drop_bg: var(--a_color_primary_bg_subtle); // Background of the day and of the place where a dragged event lands.
+  --a_calendar_recurring_icon_size: .75rem; // Size of the sign of a recurring event.
   --a_calendar_resize_handle_size: 6px; // Size of the edges that change the start and the end of an event.
 }

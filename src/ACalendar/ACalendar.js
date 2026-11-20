@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AButton from "../AButton/AButton";
+import AIcon from "../AIcon/AIcon";
 
 import ClickAPI from "./compositionAPI/ClickAPI";
 import DragAPI from "./compositionAPI/DragAPI";
@@ -17,12 +18,13 @@ import {
   ADatepickerPluginOptions,
 } from "../plugins/ADatepickerPlugin";
 import {
-  CALENDAR_VIEWS,
-} from "./const";
-import {
+  ArrowRepeat,
   ChevronLeft,
   ChevronRight,
 } from "./utils/icons";
+import {
+  CALENDAR_VIEWS,
+} from "./const";
 import {
   uniqueId,
 } from "lodash-es";
@@ -98,6 +100,11 @@ export default {
       required: false,
       default: "label",
     },
+    keyRecurrence: {
+      type: [String, Function],
+      required: false,
+      default: "recurrence",
+    },
     keyStart: {
       type: [String, Function],
       required: false,
@@ -171,7 +178,10 @@ export default {
       getEventColorAttributes,
       getEventsForDay,
       weeksWithEvents,
-    } = EventsAPI(props, { weeks });
+    } = EventsAPI(props, {
+      range,
+      weeks,
+    });
 
     const {
       getMinutesAtY,
@@ -467,9 +477,16 @@ export default {
           end: event.end,
           isStart,
           isEnd,
+          isRecurring: !!event.isRecurring,
         });
       }
       return [
+        // The screen readers get "recurring" from aria-label of the event
+        event.isRecurring && h(AIcon, {
+          class: "a_calendar__event_recurring",
+          icon: ArrowRepeat,
+          "aria-hidden": "true",
+        }),
         time && h("span", {
           class: "a_calendar__event_time",
         }, time),

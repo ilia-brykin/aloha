@@ -5,8 +5,10 @@ import {
 } from "../const";
 import {
   get,
+  isArray,
   isFunction,
   isNil,
+  isPlainObject,
 } from "lodash-es";
 
 moment.suppressDeprecationWarnings = true;
@@ -185,4 +187,104 @@ export function getWeekSegments({ week, events }) {
 
 export function getItemValue(item, key) {
   return isFunction(key) ? key(item) : get(item, key);
+}
+
+const RECURRENCE_UNITS = {
+  daily: "days",
+  weekly: "weeks",
+  monthly: "months",
+  yearly: "years",
+};
+
+// A series that runs for years must not block the page
+const RECURRENCE_MAX_STEPS = 10000;
+
+/**
+ * Checks the rule of a recurring event. Returns undefined for a wrong rule, the event is then shown once.
+ *
+ * @param {Object} recurrence - { frequency: "daily" | "weekly" | "monthly" | "yearly", interval, weekdays, until, count, exceptions }
+ */
+export function normalizeRecurrence(recurrence) {
+  if (!isPlainObject(recurrence) || !RECURRENCE_UNITS[recurrence.frequency]) {
+    return undefined;
+  }
+  const WEEKDAYS = recurrence.frequency === "weekly" && isArray(recurrence.weekdays) ?
+    [...new Set(recurrence.weekdays.filter(day => Number.isInteger(day) && day >= 0 && day <= 6))].sort() :
+    [];
+  return {
+    frequency: recurrence.frequency,
+    interval: Math.max(1, Math.floor(recurrence.interval) || 1),
+    weekdays: WEEKDAYS,
+    until: toDayKey(recurrence.until),
+    count: recurrence.count > 0 ? Math.floor(recurrence.count) : undefined,
+    exceptions: new Set((isArray(recurrence.exceptions) ? recurrence.exceptions : []).map(toDayKey).filter(Boolean)),
+  };
+}
+
+/**
+ * The starts of a series in order: every interval days, weeks, months or years after the first start.
+ * Weekly with weekdays: these weekdays of every interval-th week (the week of the first start counts from its first day).
+ * Monthly on the 31st: moment uses the last day of shorter months.
+ */
+function *getRecurrenceStarts({ start, recurrence }) {
+  const UNIT = RECURRENCE_UNITS[recurrence.frequency];
+  if (!recurrence.weekdays.length) {
+    for (let step = 0; step < RECURRENCE_MAX_STEPS; step++) {
+      yield start.clone().add(step * recurrence.interval, UNIT);
+    }
+    return;
+  }
+  const WEEK_START = start.clone().startOf("day").subtract(start.day(), "days");
+  for (let week = 0; week < RECURRENCE_MAX_STEPS; week++) {
+    for (const WEEKDAY of recurrence.weekdays) {
+      const DATE = WEEK_START.clone().add(week * recurrence.interval, "weeks").add(WEEKDAY, "days")
+        .hours(start.hours()).minutes(start.minutes()).seconds(start.seconds());
+      if (!DATE.isBefore(start)) {
+        yield DATE;
+      }
+    }
+  }
+}
+
+/**
+ * The occurrences of a series that touch the days from rangeStart to rangeEnd ("YYYY-MM-DD").
+ * count and until count from the first start, exceptions ("YYYY-MM-DD") are skipped but counted.
+ *
+ * @returns {Array<{ start: Date, end: Date, date: string }>} - date: the day of the start of the occurrence
+ */
+export function getOccurrences({ start, end, recurrence, rangeStart, rangeEnd }) {
+  const START = moment(start);
+  const DURATION = moment(end).diff(START);
+  const OCCURRENCES = [];
+  let number = 0;
+  for (const DATE of getRecurrenceStarts({ start: START, recurrence })) {
+    const DAY_KEY = DATE.format(CALENDAR_DAY_FORMAT);
+    number++;
+    if (DAY_KEY > rangeEnd || (recurrence.until && DAY_KEY > recurrence.until) || (recurrence.count && number > recurrence.count)) {
+      break;
+    }
+    const END = DATE.clone().add(DURATION, "ms");
+    if (END.format(CALENDAR_DAY_FORMAT) >= rangeStart && !recurrence.exceptions.has(DAY_KEY)) {
+      OCCURRENCES.push({
+        start: DATE.toDate(),
+        end: END.toDate(),
+        date: DAY_KEY,
+      });
+    }
+  }
+  return OCCURRENCES;
+}
+
+/**
+ * The occurrence for the events of the calendar (event-click, event-drop, event-resize), undefined for a single event.
+ */
+export function getOccurrenceInfo(event) {
+  if (!event.isRecurring) {
+    return undefined;
+  }
+  return {
+    date: event.occurrenceDate,
+    start: event.start,
+    end: event.end,
+  };
 }

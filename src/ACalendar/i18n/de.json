@@ -12,5 +12,6 @@
   "_A_CALENDAR_ALL_DAY_": "Ganztägig",
   "_A_CALENDAR_PREVIOUS_DAY_": "Vorheriger Tag",
   "_A_CALENDAR_NEXT_DAY_": "Nächster Tag",
-  "_A_CALENDAR_VIEW_DAY_": "Tag"
+  "_A_CALENDAR_VIEW_DAY_": "Tag",
+  "_A_CALENDAR_RECURRING_": "Serie"
 }

@@ -1,3 +1,7 @@
+import {
+  getOccurrenceInfo,
+} from "../utils/utils";
+
 export default function ClickAPI(props, {
   emit,
   getEventsForDay = () => [],
@@ -26,6 +30,7 @@ export default function ClickAPI(props, {
       event: event.item,
       start: event.start,
       end: event.end,
+      occurrence: getOccurrenceInfo(event),
       $event,
     });
   };

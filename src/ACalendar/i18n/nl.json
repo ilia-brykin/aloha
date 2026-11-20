@@ -12,5 +12,6 @@
   "_A_CALENDAR_ALL_DAY_": "Hele dag",
   "_A_CALENDAR_PREVIOUS_DAY_": "Vorige dag",
   "_A_CALENDAR_NEXT_DAY_": "Volgende dag",
-  "_A_CALENDAR_VIEW_DAY_": "Dag"
+  "_A_CALENDAR_VIEW_DAY_": "Dag",
+  "_A_CALENDAR_RECURRING_": "terugkerend"
 }

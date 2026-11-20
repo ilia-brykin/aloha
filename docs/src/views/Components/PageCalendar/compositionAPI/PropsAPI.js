@@ -92,6 +92,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "keyRecurrence",
+      description: "_A_CALENDAR_PROPS_KEY_RECURRENCE_",
+      type: "String | Function",
+      default: "\"recurrence\"",
+      required: false,
+    },
+    {
       name: "keyStart",
       description: "_A_CALENDAR_PROPS_KEY_START_",
       type: "String | Function",

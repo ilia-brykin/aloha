@@ -4,6 +4,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  getOccurrenceInfo,
+} from "../utils/utils";
+
 import moment from "moment";
 import {
   isFunction,
@@ -83,6 +87,7 @@ export default function DragAPI(props, {
         event: EVENT.item,
         start,
         end: new Date(start.getTime() + getDuration(EVENT)),
+        occurrence: getOccurrenceInfo(EVENT),
         $event,
       });
     }

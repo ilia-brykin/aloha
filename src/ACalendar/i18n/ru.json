@@ -12,5 +12,6 @@
   "_A_CALENDAR_ALL_DAY_": "Весь день",
   "_A_CALENDAR_PREVIOUS_DAY_": "Предыдущий день",
   "_A_CALENDAR_NEXT_DAY_": "Следующий день",
-  "_A_CALENDAR_VIEW_DAY_": "День"
+  "_A_CALENDAR_VIEW_DAY_": "День",
+  "_A_CALENDAR_RECURRING_": "повторяется"
 }

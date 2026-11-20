@@ -53,6 +53,16 @@ export default function CreateAPI() {
       id: "isAllDay",
       label: "_A_CALENDAR_CREATE_ALL_DAY_",
     },
+    {
+      type: "select",
+      id: "repeat",
+      label: "_A_CALENDAR_CREATE_REPEAT_",
+      translateData: true,
+      data: ["", "daily", "weekly", "monthly", "yearly"].map(frequency => ({
+        label: `_A_CALENDAR_CREATE_REPEAT_${ (frequency || "none").toUpperCase() }_`,
+        value: frequency,
+      })),
+    },
   ];
 
   const isEditing = computed(() => editedId.value !== undefined);
@@ -71,6 +81,7 @@ export default function CreateAPI() {
       end: moment(end).format(DATETIME_FORMAT),
       color: "primary",
       isAllDay: false,
+      repeat: "",
     };
     isModalVisible.value = true;
   };
@@ -94,9 +105,10 @@ export default function CreateAPI() {
     openModalForDate(new Date());
   };
 
+  // An occurrence of a series opens the whole series
   const onEventClick = ({ event }) => {
     editedId.value = event.id;
-    model.value = { ...event };
+    model.value = { ...event, repeat: event.recurrence?.frequency || "" };
     isModalVisible.value = true;
   };
 
@@ -104,11 +116,21 @@ export default function CreateAPI() {
     isModalVisible.value = false;
   };
 
+  // "repeat" of the form becomes the rule of the series (recurrence)
+  const getEventFromModel = id => {
+    const { repeat, ...EVENT } = model.value;
+    return {
+      ...EVENT,
+      id,
+      recurrence: repeat ? { ...EVENT.recurrence, frequency: repeat } : undefined,
+    };
+  };
+
   const save = () => {
     if (!isEditing.value) {
-      events.value = [...events.value, { ...model.value, id: Date.now() }];
+      events.value = [...events.value, getEventFromModel(Date.now())];
     } else {
-      events.value = events.value.map(event => event.id === editedId.value ? { ...model.value, id: editedId.value } : event);
+      events.value = events.value.map(event => event.id === editedId.value ? getEventFromModel(editedId.value) : event);
     }
     closeModal();
   };
