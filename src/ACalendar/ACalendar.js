@@ -8,6 +8,7 @@ import AIcon from "../AIcon/AIcon";
 import ClickAPI from "./compositionAPI/ClickAPI";
 import DragAPI from "./compositionAPI/DragAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ExportAPI from "./compositionAPI/ExportAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PeriodAPI from "./compositionAPI/PeriodAPI";
 import ResizeAPI from "./compositionAPI/ResizeAPI";
@@ -177,6 +178,7 @@ export default {
       eventsNormalized,
       getEventColorAttributes,
       getEventsForDay,
+      keys,
       weeksWithEvents,
     } = EventsAPI(props, {
       range,
@@ -268,8 +270,15 @@ export default {
       getText,
     } = TextsAPI();
 
+    const {
+      downloadIcs,
+      getIcs,
+    } = ExportAPI(props, { keys });
+
     expose({
       changeView,
+      downloadIcs,
+      getIcs,
       focusDay,
       goToDate,
       goToNext,

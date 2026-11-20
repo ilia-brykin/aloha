@@ -6,8 +6,18 @@ export default function ExposesAPI() {
       type: "Function",
     },
     {
+      name: "downloadIcs",
+      description: "_A_CALENDAR_EXPOSES_DOWNLOAD_ICS_",
+      type: "Function",
+    },
+    {
       name: "focusDay",
       description: "_A_CALENDAR_EXPOSES_FOCUS_DAY_",
+      type: "Function",
+    },
+    {
+      name: "getIcs",
+      description: "_A_CALENDAR_EXPOSES_GET_ICS_",
       type: "Function",
     },
     {
