@@ -1,0 +1,92 @@
+export default function PropsAPI() {
+  const dataProps = [
+    {
+      name: "colorDefault",
+      description: "_A_CALENDAR_PROPS_COLOR_DEFAULT_",
+      type: "String",
+      default: "\"primary\"",
+      required: false,
+    },
+    {
+      name: "events",
+      description: "_A_CALENDAR_PROPS_EVENTS_",
+      type: "Array",
+      default: "[]",
+      required: false,
+    },
+    {
+      name: "firstDayOfWeek",
+      description: "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_",
+      type: "Number",
+      default: "1",
+      required: false,
+    },
+    {
+      name: "id",
+      description: "_A_CALENDAR_PROPS_ID_",
+      type: "String",
+      default: "uniqueId(\"a_calendar_\")",
+      required: false,
+    },
+    {
+      name: "keyColor",
+      description: "_A_CALENDAR_PROPS_KEY_COLOR_",
+      type: "String | Function",
+      default: "\"color\"",
+      required: false,
+    },
+    {
+      name: "keyEnd",
+      description: "_A_CALENDAR_PROPS_KEY_END_",
+      type: "String | Function",
+      default: "\"end\"",
+      required: false,
+    },
+    {
+      name: "keyId",
+      description: "_A_CALENDAR_PROPS_KEY_ID_",
+      type: "String | Function",
+      default: "\"id\"",
+      required: false,
+    },
+    {
+      name: "keyIsAllDay",
+      description: "_A_CALENDAR_PROPS_KEY_IS_ALL_DAY_",
+      type: "String | Function",
+      default: "\"isAllDay\"",
+      required: false,
+    },
+    {
+      name: "keyLabel",
+      description: "_A_CALENDAR_PROPS_KEY_LABEL_",
+      type: "String | Function",
+      default: "\"label\"",
+      required: false,
+    },
+    {
+      name: "keyStart",
+      description: "_A_CALENDAR_PROPS_KEY_START_",
+      type: "String | Function",
+      default: "\"start\"",
+      required: false,
+    },
+    {
+      name: "maxEventsPerDay",
+      description: "_A_CALENDAR_PROPS_MAX_EVENTS_PER_DAY_",
+      type: "Number",
+      default: "3",
+      required: false,
+    },
+    {
+      name: "modelValue",
+      description: "_A_CALENDAR_PROPS_MODEL_VALUE_",
+      type: "String | Date | Number",
+      default: "undefined",
+      required: false,
+    },
+  ];
+
+  return {
+    dataProps,
+  };
+}

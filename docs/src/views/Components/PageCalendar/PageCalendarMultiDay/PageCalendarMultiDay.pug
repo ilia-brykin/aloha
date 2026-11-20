@@ -1,0 +1,11 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_MULTI_DAY_HEADER_"
+  description="_A_CALENDAR_MULTI_DAY_DESCRIPTION_"
+  :props="['max-events-per-day', 'color-default']"
+)
+  a-calendar(
+    :events="events"
+    :max-events-per-day="0"
+  )
