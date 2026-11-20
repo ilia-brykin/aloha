@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Volgende maand",
   "_A_CALENDAR_TODAY_": "Vandaag",
   "_A_CALENDAR_MORE_{{count}}_": "+{{count}} meer",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Afspraken: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Afspraken: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Vorige week",
+  "_A_CALENDAR_NEXT_WEEK_": "Volgende week",
+  "_A_CALENDAR_VIEW_": "Weergave",
+  "_A_CALENDAR_VIEW_MONTH_": "Maand",
+  "_A_CALENDAR_VIEW_WEEK_": "Week",
+  "_A_CALENDAR_ALL_DAY_": "Hele dag"
 }

@@ -20,6 +20,8 @@ export default function ClickAPI(props, {
   };
 
   const onClickEvent = ({ event, $event }) => {
+    // In the week view the event lies in the time column, a click there creates a time
+    $event.stopPropagation();
     emit("event-click", {
       event: event.item,
       start: event.start,

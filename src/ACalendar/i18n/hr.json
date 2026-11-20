@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Sljedeći mjesec",
   "_A_CALENDAR_TODAY_": "Danas",
   "_A_CALENDAR_MORE_{{count}}_": "+{{count}} više",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Termini: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Termini: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Prethodni tjedan",
+  "_A_CALENDAR_NEXT_WEEK_": "Sljedeći tjedan",
+  "_A_CALENDAR_VIEW_": "Prikaz",
+  "_A_CALENDAR_VIEW_MONTH_": "Mjesec",
+  "_A_CALENDAR_VIEW_WEEK_": "Tjedan",
+  "_A_CALENDAR_ALL_DAY_": "Cijeli dan"
 }

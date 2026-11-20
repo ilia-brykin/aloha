@@ -12,6 +12,8 @@ import {
 } from "@vue/test-utils";
 
 import {
+  getTimedLayout,
+  getWeekDays,
   getWeeks,
   getWeekSegments,
 } from "../utils/utils";
@@ -69,6 +71,38 @@ describe("ACalendar utils", () => {
     // The lane of "short" is free again on Wednesday
     expect(BY_KEY.next).toMatchObject({ start: 2, span: 2, lane: 1 });
     expect(countsByDay).toEqual([1, 2, 2, 2, 1, 1, 1]);
+  });
+
+  it("getWeekDays: the week of the date", () => {
+    expect(getWeekDays({ date: "2026-03-12", firstDayOfWeek: 1 }).map(day => day.key)).toEqual([
+      "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-14", "2026-03-15",
+    ]);
+    expect(getWeekDays({ date: "2026-03-12", firstDayOfWeek: 0 })[0].key).toBe("2026-03-08");
+  });
+
+  it("getTimedLayout: overlapping events share the width, the others get the full width", () => {
+    const EVENT = (key, start, end) => ({ key, start: new Date(`2026-03-12T${ start }:00`), end: new Date(`2026-03-12T${ end }:00`) });
+    const LAYOUT = getTimedLayout({
+      events: [
+        EVENT("a", "09:00", "10:00"),
+        EVENT("b", "09:30", "11:00"),
+        EVENT("c", "10:00", "10:30"),
+        EVENT("d", "12:00", "13:00"),
+        EVENT("short", "14:00", "14:00"),
+        EVENT("early", "05:00", "07:00"),
+      ],
+      minuteStart: 6 * 60,
+      minuteEnd: 20 * 60,
+    });
+    const BY_KEY = Object.fromEntries(LAYOUT.map(item => [item.event.key, item]));
+    expect(BY_KEY.a).toMatchObject({ start: 540, end: 600, column: 0, columns: 2 });
+    expect(BY_KEY.b).toMatchObject({ column: 1, columns: 2 });
+    // "a" has ended, so "c" takes its column
+    expect(BY_KEY.c).toMatchObject({ column: 0, columns: 2 });
+    expect(BY_KEY.d).toMatchObject({ column: 0, columns: 1 });
+    // At least 15 minutes, cut by the visible hours
+    expect(BY_KEY.short).toMatchObject({ start: 840, end: 855 });
+    expect(BY_KEY.early).toMatchObject({ start: 360, end: 420 });
   });
 });
 
@@ -129,8 +163,8 @@ describe("ACalendar", () => {
 
   it("changes the month with the buttons and emits range-change", async() => {
     const wrapper = mountCalendar();
-    expect(wrapper.emitted("range-change")[0][0]).toEqual({ start: "2026-02-23", end: "2026-04-05", month: "2026-03" });
-    const BUTTONS = wrapper.findAll(".a_calendar__header_actions button");
+    expect(wrapper.emitted("range-change")[0][0]).toEqual({ start: "2026-02-23", end: "2026-04-05", month: "2026-03", view: "month" });
+    const BUTTONS = wrapper.findAll(".a_calendar__header_actions > button");
     await BUTTONS[2].trigger("click");
     expect(wrapper.get(".a_calendar__title").text()).toBe("April 2026");
     expect(wrapper.emitted("range-change").at(-1)[0].month).toBe("2026-04");
@@ -172,6 +206,84 @@ describe("ACalendar", () => {
     expect(wrapper.get(".own_header").text()).toBe("März 2026");
     expect(wrapper.findAll(".own_day").find(day => day.text().startsWith("10:")).text()).toBe("10:3");
     expect(wrapper.findAll(".a_calendar__event strong").map(item => item.text())).toContain("Trip (…)");
+    wrapper.unmount();
+  });
+
+  it("week view: the time grid with all-day bars and timed events", () => {
+    const wrapper = mountCalendar({ view: "week" });
+    expect(wrapper.get(".a_calendar__title").text()).toBe("9.–15. März 2026");
+    expect(wrapper.findAll(".a_calendar__week_day")).toHaveLength(7);
+    expect(wrapper.findAll(".a_calendar__hour")).toHaveLength(24);
+    expect(wrapper.find(".a_calendar__month").exists()).toBe(false);
+
+    const TRIP = wrapper.get(".a_calendar__all_day .a_calendar__event");
+    expect(TRIP.text()).toBe("Trip");
+    expect(TRIP.attributes("style")).toContain("grid-column: 2 / span 7");
+    expect(TRIP.classes()).toContain("a_calendar__event_continues_after");
+
+    const TIMED = wrapper.findAll(".a_calendar__event_timed");
+    expect(TIMED).toHaveLength(2);
+    expect(TIMED[0].text()).toBe("09:00 – 10:30Meeting");
+    expect(TIMED[0].attributes("style")).toContain("top: 37.5%");
+    expect(TIMED[0].attributes("style")).toContain("height: 6.25%");
+    // The custom event has no end: 15 minutes
+    expect(TIMED[1].attributes("style")).toContain("top: 50%");
+    wrapper.unmount();
+  });
+
+  it("week view: hourStart and hourEnd", () => {
+    const wrapper = mountCalendar({ view: "week", hourStart: 8, hourEnd: 18 });
+    expect(wrapper.findAll(".a_calendar__hour").map(hour => hour.text())).toHaveLength(10);
+    expect(wrapper.get(".a_calendar__hour").text()).toBe("08:00");
+    expect(wrapper.get(".a_calendar__event_timed").attributes("style")).toContain("top: 10%");
+    wrapper.unmount();
+  });
+
+  it("week view: the buttons change the week, the switch changes the view", async() => {
+    const wrapper = mountCalendar();
+    const VIEW_BUTTONS = wrapper.findAll(".a_calendar__views button");
+    expect(VIEW_BUTTONS.map(button => button.attributes("aria-pressed"))).toEqual(["true", "false"]);
+    await VIEW_BUTTONS[1].trigger("click");
+    expect(wrapper.emitted("update:view")[0]).toEqual(["week"]);
+    // The week of the selected day
+    expect(wrapper.get(".a_calendar__title").text()).toBe("9.–15. März 2026");
+    expect(wrapper.emitted("range-change").at(-1)[0]).toEqual({ start: "2026-03-09", end: "2026-03-15", month: "2026-03", view: "week" });
+
+    const BUTTONS = wrapper.findAll(".a_calendar__header_actions > button");
+    await BUTTONS[2].trigger("click");
+    expect(wrapper.get(".a_calendar__title").text()).toBe("16.–22. März 2026");
+    expect(BUTTONS[0].get(".a_sr_only").text()).toBe("_A_CALENDAR_PREVIOUS_WEEK_");
+
+    await wrapper.setProps({ view: "week" });
+    await wrapper.setProps({ view: "month" });
+    expect(wrapper.find(".a_calendar__month").exists()).toBe(true);
+    wrapper.unmount();
+  });
+
+  it("week view: a click on an empty place emits time-click, a click on an event does not", async() => {
+    const wrapper = mountCalendar({ view: "week" });
+    const COLUMN = wrapper.findAll(".a_calendar__time_column")[2];
+    COLUMN.element.getBoundingClientRect = () => ({ top: 0, height: 1440 });
+    await COLUMN.trigger("click", { clientY: 615 });
+    const TIME = wrapper.emitted("time-click")[0][0];
+    expect(TIME.date).toBe("2026-03-11");
+    expect(TIME.start).toEqual(new Date(2026, 2, 11, 10, 0));
+    expect(TIME.end).toEqual(new Date(2026, 2, 11, 10, 30));
+
+    await wrapper.get(".a_calendar__event_timed").trigger("click");
+    expect(wrapper.emitted("event-click")).toHaveLength(1);
+    expect(wrapper.emitted("time-click")).toHaveLength(1);
+    wrapper.unmount();
+  });
+
+  it("week view: Page Down moves the focus one week", async() => {
+    const wrapper = mountCalendar({ view: "week" });
+    await wrapper.get(".a_calendar__week_day[tabindex='0']").trigger("keydown", { key: "PageDown" });
+    await nextTick();
+    await nextTick();
+    expect(wrapper.get(".a_calendar__title").text()).toBe("16.–22. März 2026");
+    expect(document.activeElement.classList.contains("a_calendar__week_day")).toBe(true);
+    expect(document.activeElement.textContent).toContain("17");
     wrapper.unmount();
   });
 

@@ -53,10 +53,23 @@ export default function TextsAPI() {
     return getTranslatedText({ placeholder: "_A_CALENDAR_MORE_{{count}}_", extra: { count } });
   };
 
+  const getEventTimeRangeText = event => {
+    return `${ formatTime.value.format(event.start) } – ${ formatTime.value.format(event.end) }`;
+  };
+
+  const getHourText = hour => {
+    return formatTime.value.format(new Date(2000, 0, 1, hour));
+  };
+
+  const getText = placeholder => getTranslatedText({ placeholder });
+
   return {
     getDayAriaLabel,
     getEventAriaLabel,
+    getEventTimeRangeText,
     getEventTimeText,
+    getHourText,
     getMoreText,
+    getText,
   };
 }

@@ -27,32 +27,106 @@ export function toDayKey(value) {
   return DATE ? DATE.format(CALENDAR_DAY_FORMAT) : undefined;
 }
 
+function getWeekStart({ date, firstDayOfWeek }) {
+  const DATE = moment(date).startOf("day");
+  return DATE.subtract((DATE.day() - firstDayOfWeek + 7) % 7, "days");
+}
+
+function getDay({ date, month, today }) {
+  const KEY = date.format(CALENDAR_DAY_FORMAT);
+  return {
+    key: KEY,
+    date: date.toDate(),
+    day: date.date(),
+    isCurrentMonth: month === undefined || date.month() === month,
+    isToday: KEY === today,
+    isWeekend: date.day() === 0 || date.day() === 6,
+  };
+}
+
 /**
  * The days shown for a month: always 6 full weeks, so the height does not jump between months.
  */
 export function getWeeks({ month, firstDayOfWeek = 1 }) {
-  const MONTH_START = moment(month).startOf("month");
-  const OFFSET = (MONTH_START.day() - firstDayOfWeek + 7) % 7;
-  const DAY = MONTH_START.clone().subtract(OFFSET, "days");
+  const MONTH = moment(month).month();
+  const DAY = getWeekStart({ date: moment(month).startOf("month"), firstDayOfWeek });
   const TODAY = moment().format(CALENDAR_DAY_FORMAT);
   const WEEKS = [];
   for (let week = 0; week < CALENDAR_WEEKS_COUNT; week++) {
     const DAYS = [];
     for (let weekday = 0; weekday < 7; weekday++) {
-      const KEY = DAY.format(CALENDAR_DAY_FORMAT);
-      DAYS.push({
-        key: KEY,
-        date: DAY.toDate(),
-        day: DAY.date(),
-        isCurrentMonth: DAY.month() === MONTH_START.month(),
-        isToday: KEY === TODAY,
-        isWeekend: DAY.day() === 0 || DAY.day() === 6,
-      });
+      DAYS.push(getDay({ date: DAY, month: MONTH, today: TODAY }));
       DAY.add(1, "day");
     }
     WEEKS.push(DAYS);
   }
   return WEEKS;
+}
+
+/**
+ * The 7 days of the week that contains the date.
+ */
+export function getWeekDays({ date, firstDayOfWeek = 1 }) {
+  const DAY = getWeekStart({ date, firstDayOfWeek });
+  const TODAY = moment().format(CALENDAR_DAY_FORMAT);
+  const DAYS = [];
+  for (let weekday = 0; weekday < 7; weekday++) {
+    DAYS.push(getDay({ date: DAY, today: TODAY }));
+    DAY.add(1, "day");
+  }
+  return DAYS;
+}
+
+export function getMinutesOfDay(date) {
+  return date.getHours() * 60 + date.getMinutes();
+}
+
+/**
+ * Places the events of one day in the time grid. Overlapping events share the width of the day like in Outlook:
+ * a group of events that overlap each other gets as many columns as needed, every event takes the first free column.
+ *
+ * @param {Array} events - Events of one day with start and end (Date)
+ * @param {number} minuteStart - The first visible minute of the day
+ * @param {number} minuteEnd - The last visible minute of the day
+ * @param {number} minDuration - The minimal duration in minutes, so short events stay readable and clickable
+ *
+ * @returns {Array<{ event, start, end, column, columns }>} - start and end in minutes of the day
+ */
+export function getTimedLayout({ events, minuteStart = 0, minuteEnd = 1440, minDuration = 15 }) {
+  const ITEMS = events.map(event => {
+    const START = Math.min(Math.max(getMinutesOfDay(event.start), minuteStart), minuteEnd - minDuration);
+    const END = Math.min(Math.max(getMinutesOfDay(event.end), START + minDuration), minuteEnd);
+    return { event, start: START, end: END, column: 0, columns: 1 };
+  }).sort((a, b) => a.start - b.start || b.end - a.end);
+
+  let group = [];
+  let groupEnd = -1;
+  let columnsEnd = [];
+  const closeGroup = () => {
+    group.forEach(item => {
+      item.columns = columnsEnd.length;
+    });
+    group = [];
+    columnsEnd = [];
+  };
+
+  ITEMS.forEach(item => {
+    if (group.length && item.start >= groupEnd) {
+      closeGroup();
+      groupEnd = -1;
+    }
+    let column = columnsEnd.findIndex(end => end <= item.start);
+    if (column === -1) {
+      column = columnsEnd.length;
+    }
+    columnsEnd[column] = item.end;
+    item.column = column;
+    group.push(item);
+    groupEnd = Math.max(groupEnd, item.end);
+  });
+  closeGroup();
+
+  return ITEMS;
 }
 
 /**

@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Next month",
   "_A_CALENDAR_TODAY_": "Today",
   "_A_CALENDAR_MORE_{{count}}_": "+{{count}} more",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Events: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Events: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Previous week",
+  "_A_CALENDAR_NEXT_WEEK_": "Next week",
+  "_A_CALENDAR_VIEW_": "View",
+  "_A_CALENDAR_VIEW_MONTH_": "Month",
+  "_A_CALENDAR_VIEW_WEEK_": "Week",
+  "_A_CALENDAR_ALL_DAY_": "All day"
 }

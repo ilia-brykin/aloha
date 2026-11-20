@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "الشهر التالي",
   "_A_CALENDAR_TODAY_": "اليوم",
   "_A_CALENDAR_MORE_{{count}}_": "+{{count}} أخرى",
-  "_A_CALENDAR_EVENTS_{{count}}_": "المواعيد: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "المواعيد: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "الأسبوع السابق",
+  "_A_CALENDAR_NEXT_WEEK_": "الأسبوع التالي",
+  "_A_CALENDAR_VIEW_": "العرض",
+  "_A_CALENDAR_VIEW_MONTH_": "شهر",
+  "_A_CALENDAR_VIEW_WEEK_": "أسبوع",
+  "_A_CALENDAR_ALL_DAY_": "طوال اليوم"
 }

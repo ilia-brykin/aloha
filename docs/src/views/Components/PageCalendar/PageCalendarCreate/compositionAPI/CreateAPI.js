@@ -63,24 +63,34 @@ export default function CreateAPI() {
 
   const isSaveDisabled = computed(() => !model.value.label || !model.value.start);
 
-  const openModalForDate = date => {
-    const START = moment(date).hours(9).minutes(0);
+  const openModalNew = ({ start, end }) => {
     editedId.value = undefined;
     model.value = {
       label: "",
-      start: START.format(DATETIME_FORMAT),
-      end: START.clone().add(1, "hour").format(DATETIME_FORMAT),
+      start: moment(start).format(DATETIME_FORMAT),
+      end: moment(end).format(DATETIME_FORMAT),
       color: "primary",
       isAllDay: false,
     };
     isModalVisible.value = true;
   };
 
+  const openModalForDate = date => {
+    const START = moment(date).hours(9).minutes(0);
+    openModalNew({ start: START, end: START.clone().add(1, "hour") });
+  };
+
+  // Month view and the heads of the days in the week view
   const onDayClick = ({ date }) => {
     openModalForDate(date);
   };
 
-  const openModalNew = () => {
+  // Week view: a click on a time (the event lasts one hour, not one timeStep)
+  const onTimeClick = ({ start }) => {
+    openModalNew({ start, end: moment(start).add(1, "hour") });
+  };
+
+  const openModalToday = () => {
     openModalForDate(new Date());
   };
 
@@ -144,7 +154,8 @@ export default function CreateAPI() {
     model,
     onDayClick,
     onEventClick,
-    openModalNew,
+    onTimeClick,
+    openModalToday,
     save,
   };
 }
