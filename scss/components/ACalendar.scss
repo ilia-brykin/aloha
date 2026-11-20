@@ -346,7 +346,45 @@
   }
 }
 
+// Drag and drop
+.a_calendar__event[draggable="true"] {
+  cursor: grab;
+}
+.a_calendar__event_dragging {
+  opacity: .5;
+}
+// While an event is dragged, the events and "+N" let the drop through to the day or the time column below them
+.a_calendar_dragging {
+  .a_calendar__event,
+  .a_calendar__more {
+    pointer-events: none;
+  }
+}
+.a_calendar__drop_target:not(.a_calendar__time_column) {
+  background-color: var(--a_calendar_drop_bg);
+  box-shadow: inset 0 0 0 2px var(--a_calendar_drop_color);
+}
+.a_calendar__drop_preview {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 2px;
+  overflow: hidden;
+  padding: .125rem .375rem;
+  border: 2px dashed var(--a_calendar_drop_color);
+  border-radius: var(--a_calendar_event_border_radius);
+  background: var(--a_calendar_drop_bg);
+  color: var(--a_calendar_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1.2;
+  pointer-events: none;
+}
+
 @media (forced-colors: active) {
+  .a_calendar__drop_target:not(.a_calendar__time_column),
+  .a_calendar__drop_preview {
+    outline: 2px dashed Highlight;
+    outline-offset: -2px;
+  }
   .a_calendar__now {
     background: Highlight;
   }
@@ -401,4 +439,7 @@
   --a_calendar_hour_font_size: .75rem; // Font size of the hours, the times of the events and "All day".
   --a_calendar_week_max_height: 36rem; // Maximal height of the time grid, it scrolls inside.
   --a_calendar_now_color: var(--a_color_danger); // Color of the line of the current time.
+  // drag and drop
+  --a_calendar_drop_color: var(--a_color_primary); // Border of the day and of the place where a dragged event lands.
+  --a_calendar_drop_bg: var(--a_color_primary_bg_subtle); // Background of the day and of the place where a dragged event lands.
 }

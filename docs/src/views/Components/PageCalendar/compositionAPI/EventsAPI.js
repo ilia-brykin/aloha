@@ -9,6 +9,10 @@ export default function EventsAPI() {
       description: "_A_CALENDAR_EVENTS_EVENT_CLICK_",
     },
     {
+      name: "event-drop",
+      description: "_A_CALENDAR_EVENTS_EVENT_DROP_",
+    },
+    {
       name: "more-click",
       description: "_A_CALENDAR_EVENTS_MORE_CLICK_",
     },

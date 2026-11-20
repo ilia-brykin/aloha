@@ -79,13 +79,24 @@ export default function WeekViewAPI(props, {
     };
   };
 
+  const timeStepLocal = computed(() => Math.max(1, timeStep.value));
+
+  /**
+   * The minute of the day at a height of a time column, rounded down to timeStep.
+   * duration keeps an event of this length inside the visible hours.
+   */
+  const getMinutesAtY = ({ rect, clientY, duration = timeStepLocal.value }) => {
+    const RATIO = rect.height ? (clientY - rect.top) / rect.height : 0;
+    const STEP = timeStepLocal.value;
+    const MINUTES = Math.floor((minuteStart.value + RATIO * minutesCount.value) / STEP) * STEP;
+    return Math.min(Math.max(MINUTES, minuteStart.value), Math.max(minuteStart.value, minuteEnd.value - duration));
+  };
+
   // The click on an empty place of a day: the start is rounded down to timeStep
   const onClickTime = ({ day, $event }) => {
-    const RECT = $event.currentTarget.getBoundingClientRect();
-    const RATIO = RECT.height ? ($event.clientY - RECT.top) / RECT.height : 0;
-    const STEP = Math.max(1, timeStep.value);
-    const MINUTES = Math.floor((minuteStart.value + RATIO * minutesCount.value) / STEP) * STEP;
-    const START = moment(day.key).add(Math.min(Math.max(MINUTES, minuteStart.value), minuteEnd.value - STEP), "minutes");
+    const MINUTES = getMinutesAtY({ rect: $event.currentTarget.getBoundingClientRect(), clientY: $event.clientY });
+    const START = moment(day.key).add(MINUTES, "minutes");
+    const STEP = timeStepLocal.value;
     emit("time-click", {
       date: day.key,
       start: START.toDate(),
@@ -143,8 +154,11 @@ export default function WeekViewAPI(props, {
   });
 
   return {
+    getMinutesAtY,
     getTimedStyle,
     hours,
+    minuteStart,
+    minutesCount,
     nowStyle,
     onClickTime,
     setTimeScrollElement,
