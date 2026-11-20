@@ -1,0 +1,133 @@
+import{t as e}from"./chunk.AlohaPage.ByBnVwRd.js";import{Bt as t,Ft as n,It as r,Pt as i,Zt as a,an as o,pn as s,sn as c,tn as l}from"./chunk.vendor.H0cZuFAV.js";import{t as u}from"./chunk.AlohaExample.DG3heSnw.js";import{Jt as d,i as f}from"./bundle.index.DCWk6bs4.js";import{l as p}from"./chunk.vendor-lodash.BfU-HRrF.js";import{t as m}from"./chunk._plugin-vue_export-helper.BDNMzG2s.js";function h(){return{codeHtml:`<a-table
+  :columns="columns"
+  :data="data"
+  label="_A_TABLE_GROUP_SIMPLE_LABEL_"
+  key-id="id"
+>
+</a-table>`}}function g(){return{codeJs:`import {
+  ref,
+} from "vue";
+
+import { ATable } from "aloha-vue";
+    
+export default {
+  name: "PageTablePreviewRight",
+  components: {
+    ATable,
+  },
+  setup() {
+     const columns = [
+      {
+        id: "column1",
+        keyLabel: "id",
+        label: "_A_TABLE_COLUMN_1_",
+      },
+      {
+        id: "column2",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_2_",
+      },
+      {
+        id: "column3",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_3_",
+      },
+      {
+        id: "column4",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_4_",
+      },
+      {
+        id: "column5",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_5_",
+      },
+    ];
+
+    const data = ref([]);
+
+    const setData = () => {
+      const DATA = [];
+      times(20, item => {
+        DATA.push({
+          id: item,
+          aloha: \`aloha \${ item }\`,
+        });
+      });
+      data.value = DATA;
+    };
+
+    setData();
+    
+    return {
+      columns,
+      data,
+    };
+  },
+};`}}var _={name:`PageTablePreviewRight`,components:{AlohaExample:u,ATable:f},setup(){let{codeHtml:e}=h(),{codeJs:t}=g(),n=[{id:`column1`,keyLabel:`id`,label:`_A_TABLE_COLUMN_1_`},{id:`column2`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_2_`},{id:`column3`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_3_`},{id:`column4`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_4_`},{id:`column5`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_5_`}],r=c([]);return(()=>{let e=[];p(20,t=>{e.push({id:t,aloha:`aloha ${t}`})}),r.value=e})(),{codeHtml:e,codeJs:t,columns:n,data:r,disableRowPreview:({row:e})=>e.id===2||e.id===4}}};function v(e,i,c,u,d,f){let p=l(`a-table`),m=l(`aloha-example`);return a(),r(m,{"code-html":e.codeHtml,"code-js":e.codeJs,header:`_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_`,description:`_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_`},{default:o(()=>[n(`div`,null,[t(p,{columns:e.columns,data:e.data,label:`_A_TABLE_GROUP_SIMPLE_LABEL_`,"key-id":`id`,preview:`right`,"disabled-preview-row-callback":e.disableRowPreview},{preview:o(e=>[n(`pre`,null,s(e),1)]),_:1},8,[`columns`,`data`,`disabled-preview-row-callback`])])]),_:1},8,[`code-html`,`code-js`])}var y=m(_,[[`render`,v]]);function b(){return{codeHtml:`<a-table
+  :columns="columns"
+  :data="data"
+  label="_A_TABLE_GROUP_SIMPLE_LABEL_"
+  key-id="id"
+>
+</a-table>`}}function x(){return{codeJs:`import {
+  ref,
+} from "vue";
+
+import { ATable } from "aloha-vue";
+    
+export default {
+  name: "PageTablePreviewRightPagination",
+  components: {
+    ATable,
+  },
+  setup() {
+     const columns = [
+      {
+        id: "column1",
+        keyLabel: "id",
+        label: "_A_TABLE_COLUMN_1_",
+      },
+      {
+        id: "column2",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_2_",
+      },
+      {
+        id: "column3",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_3_",
+      },
+      {
+        id: "column4",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_4_",
+      },
+      {
+        id: "column5",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_5_",
+      },
+    ];
+
+    const data = ref([]);
+
+    const setData = () => {
+      const DATA = [];
+      times(20, item => {
+        DATA.push({
+          id: item,
+          aloha: \`aloha \${ item }\`,
+        });
+      });
+      data.value = DATA;
+    };
+
+    setData();
+    
+    return {
+      columns,
+      data,
+    };
+  },
+};`}}var S={name:`PageTablePreviewRight`,components:{AlohaExample:u,ATable:f},setup(){let{codeHtml:e}=b(),{codeJs:t}=x(),n=[{id:`column1`,keyLabel:`id`,label:`_A_TABLE_COLUMN_1_`},{id:`column2`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_2_`},{id:`column3`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_3_`},{id:`column4`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_4_`},{id:`column5`,keyLabel:`aloha`,label:`_A_TABLE_COLUMN_5_`}],r=c([]);return(()=>{let e=[];p(20,t=>{e.push({id:t,aloha:`aloha ${t}`})}),r.value=e})(),{codeHtml:e,codeJs:t,columns:n,data:r}}};function C(e,i,c,u,d,f){let p=l(`a-table`),m=l(`aloha-example`);return a(),r(m,{"code-html":e.codeHtml,"code-js":e.codeJs,header:`_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_`,description:`_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_`,props:[`preview`,`pagination.use`]},{default:o(()=>[n(`div`,null,[t(p,{columns:e.columns,data:e.data,label:`_A_TABLE_GROUP_SIMPLE_LABEL_`,"key-id":`id`,preview:`right`,pagination:{use:!0}},{preview:o(e=>[n(`pre`,null,s(e),1)]),_:1},8,[`columns`,`data`])])]),_:1},8,[`code-html`,`code-js`])}var w=m(S,[[`render`,C]]);function T(){let e=i(()=>d({placeholder:`_A_TABLE_SIMPLE_`}));return{pageTitle:i(()=>`ATable ${e.value}`)}}var E={name:`PageTablePreview`,components:{AlohaPage:e,PageTablePreviewRight:y,PageTablePreviewRightPagination:w},setup(){let{pageTitle:e}=T();return{pageTitle:e}}};function D(e,n,i,s,c,u){let d=l(`page-table-preview-right`),f=l(`page-table-preview-right-pagination`),p=l(`aloha-page`);return a(),r(p,{"page-title":e.pageTitle},{body:o(()=>[t(d),t(f)]),_:1},8,[`page-title`])}var O=m(E,[[`render`,D]]);export{O as default};
