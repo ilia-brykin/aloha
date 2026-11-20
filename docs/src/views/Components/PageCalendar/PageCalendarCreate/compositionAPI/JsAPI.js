@@ -28,7 +28,9 @@ export default {
       model,
       onDayClick,
       onEventClick,
+      onDaySelect,
       onTimeClick,
+      onTimeSelect,
       openModalToday,
       save,
     } = CreateAPI();
@@ -46,7 +48,9 @@ export default {
       model,
       onDayClick,
       onEventClick,
+      onDaySelect,
       onTimeClick,
+      onTimeSelect,
       openModalToday,
       save,
     };
@@ -131,6 +135,16 @@ export default function CreateAPI() {
     openModalForDate(date);
   };
 
+  // Pulling the mouse over a time or over several days (isRangeSelectable)
+  const onTimeSelect = ({ start, end }) => {
+    openModalNew({ start, end });
+  };
+
+  const onDaySelect = ({ start, end }) => {
+    openModalNew({ start, end });
+    model.value.isAllDay = true;
+  };
+
   // Week view: a click on a time (the event lasts one hour, not one timeStep)
   const onTimeClick = ({ start }) => {
     openModalNew({ start, end: moment(start).add(1, "hour") });
@@ -211,7 +225,9 @@ export default function CreateAPI() {
     model,
     onDayClick,
     onEventClick,
+    onDaySelect,
     onTimeClick,
+    onTimeSelect,
     openModalToday,
     save,
   };

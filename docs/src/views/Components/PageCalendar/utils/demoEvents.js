@@ -24,14 +24,14 @@ export function getDemoEvents() {
   };
 
   return [
-    { id: 1, label: "Team meeting", start: day(3, "10:00"), end: day(3, "11:00"), color: "primary" },
+    { id: 1, label: "Team meeting", start: day(3, "10:00"), end: day(3, "11:00"), color: "primary", location: "Room 3" },
     { id: 2, label: "Vacation", start: day(8), end: day(14), color: "success", isAllDay: true },
     { id: 3, label: "Dentist", start: day(12, "08:30"), end: day(12, "09:15"), color: "warning" },
-    { id: 4, label: "Workshop", start: day(12, "09:00"), end: day(13, "17:00"), color: "info" },
+    { id: 4, label: "Workshop", start: day(12, "09:00"), end: day(13, "17:00"), color: "info", location: "Hamburg", description: "Bring the laptop.\nLunch is included." },
     { id: 5, label: "Sprint review", start: day(12, "14:00"), end: day(12, "15:00"), color: "secondary" },
     { id: 6, label: "Release", start: day(12, "16:00"), end: day(12, "16:30"), color: "danger" },
     { id: 9, label: "Lunch", start: day(11, "12:00"), end: day(11, "13:00"), color: "success" },
-    { id: 10, label: "Customer call", start: day(11, "12:30"), end: day(11, "13:30"), color: "info" },
+    { id: 10, label: "Customer call", start: day(11, "12:30"), end: day(11, "13:30"), color: "info", location: "Zoom" },
     { id: 11, label: "Planning", start: day(11, "12:45"), end: day(11, "14:00"), color: "#8e44ad" },
     { id: 7, label: "Birthday", start: day(20), color: "#8e44ad", isAllDay: true },
     { id: 8, label: "Conference", start: day(26), end: day(33), color: "tertiary", isAllDay: true },

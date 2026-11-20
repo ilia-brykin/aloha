@@ -148,16 +148,19 @@ describe("parseCalendarIcs", () => {
     expect(events[1]).toEqual({ id: "standup_2026-03-04", label: "Standup (later)", start: "2026-03-04T11:00:00", end: "2026-03-04T11:15:00" });
   });
 
-  it("cancelled events and events without a start are skipped, ids are unique", () => {
+  it("STATUS becomes the status, events without a start are skipped, ids are unique", () => {
     const { events, skipped } = parseCalendarIcs(calendar(
       ["UID:x", "SUMMARY:Cancelled", "STATUS:CANCELLED", "DTSTART:20260310T090000"],
+      ["UID:t", "SUMMARY:Maybe", "STATUS:TENTATIVE", "DTSTART:20260310T100000"],
+      ["UID:c", "SUMMARY:Sure", "STATUS:CONFIRMED", "DTSTART:20260310T110000"],
       ["UID:y", "SUMMARY:No start"],
       ["UID:same", "DTSTART:20260310T090000"],
       ["UID:same", "DTSTART:20260311T090000"],
       ["DTSTART:20260312T090000"],
     ));
-    expect(skipped).toEqual([{ uid: "x", label: "Cancelled", code: "cancelled" }, { uid: "y", label: "No start", code: "noStart" }]);
-    expect(events.map(event => event.id)).toEqual(["same", "same_2", "ics_2"]);
+    expect(skipped).toEqual([{ uid: "y", label: "No start", code: "noStart" }]);
+    expect(events.slice(0, 3).map(event => event.status)).toEqual(["cancelled", "tentative", undefined]);
+    expect(events.map(event => event.id)).toEqual(["x", "t", "c", "same", "same_2", "ics_5"]);
   });
 
   it("other keys of the events", () => {
@@ -178,6 +181,7 @@ describe("parseCalendarIcs", () => {
       { id: 2, label: "Vacation", start: "2026-03-08", end: "2026-03-14", isAllDay: true },
       { id: "standup", label: "Standup", start: "2026-03-02T09:00:00", end: "2026-03-02T09:15:00", recurrence: { frequency: "weekly", weekdays: [1, 2, 3, 4, 5], exceptions: ["2026-03-12"], until: "2026-06-30" } },
       { id: 4, label: "Report", start: "2026-03-15", end: "2026-03-15", isAllDay: true, recurrence: { frequency: "monthly", interval: 2, count: 6 } },
+      { id: 5, label: "Maybe", start: "2026-03-16T14:00:00", end: "2026-03-16T15:00:00", status: "tentative", location: "Raum 3", description: "Agenda, Punkt 1" },
     ];
     const { events, warnings } = parseCalendarIcs(getCalendarIcs({ events: EVENTS }));
     expect(warnings).toEqual([]);
@@ -186,6 +190,7 @@ describe("parseCalendarIcs", () => {
       { ...EVENTS[1], id: "2@aloha-vue" },
       { ...EVENTS[2], id: "standup@aloha-vue" },
       { ...EVENTS[3], id: "4@aloha-vue" },
+      { ...EVENTS[4], id: "5@aloha-vue" },
     ]);
   });
 

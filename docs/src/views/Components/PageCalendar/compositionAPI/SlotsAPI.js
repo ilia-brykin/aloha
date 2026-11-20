@@ -12,6 +12,14 @@ export default function SlotsAPI() {
       name: "header",
       description: "_A_CALENDAR_SLOT_HEADER_",
     },
+    {
+      name: "popover",
+      description: "_A_CALENDAR_SLOT_POPOVER_",
+    },
+    {
+      name: "popoverActions",
+      description: "_A_CALENDAR_SLOT_POPOVER_ACTIONS_",
+    },
   ];
 
   return {

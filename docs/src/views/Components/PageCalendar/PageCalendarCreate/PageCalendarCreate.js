@@ -39,7 +39,9 @@ export default {
       model,
       onDayClick,
       onEventClick,
+      onDaySelect,
       onTimeClick,
+      onTimeSelect,
       openModalToday,
       save,
     } = CreateAPI();
@@ -59,7 +61,9 @@ export default {
       model,
       onDayClick,
       onEventClick,
+      onDaySelect,
       onTimeClick,
+      onTimeSelect,
       openModalToday,
       save,
     };

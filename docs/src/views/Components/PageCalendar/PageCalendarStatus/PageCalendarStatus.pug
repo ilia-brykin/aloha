@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_STATUS_HEADER_"
+  description="_A_CALENDAR_STATUS_DESCRIPTION_"
+  :props="['key-status']"
+)
+  a-calendar(
+    v-model="model"
+    view="week"
+    :events="events"
+  )

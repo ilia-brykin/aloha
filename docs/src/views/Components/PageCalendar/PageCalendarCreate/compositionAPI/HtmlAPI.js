@@ -9,6 +9,9 @@ export default function HtmlAPI() {
   @day-click="onDayClick"
   @event-click="onEventClick"
   @time-click="onTimeClick"
+  :is-range-selectable="true"
+  @time-select="onTimeSelect"
+  @day-select="onDaySelect"
 />
 <a-modal-form
   v-if="isModalVisible"

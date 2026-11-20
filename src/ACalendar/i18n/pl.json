@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "Poprzedni dzień",
   "_A_CALENDAR_NEXT_DAY_": "Następny dzień",
   "_A_CALENDAR_VIEW_DAY_": "Dzień",
-  "_A_CALENDAR_RECURRING_": "cykliczny"
+  "_A_CALENDAR_RECURRING_": "cykliczny",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "Tydzień roboczy",
+  "_A_CALENDAR_VIEW_AGENDA_": "Lista",
+  "_A_CALENDAR_AGENDA_EMPTY_": "Brak terminów",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "Tydz.",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "Tydzień {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "niedostępny",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "wstępny",
+  "_A_CALENDAR_STATUS_CANCELLED_": "odwołany",
+  "_A_CALENDAR_LOADING_": "Wczytywanie terminów…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "Zamknij",
+  "_A_CALENDAR_POPOVER_TIME_": "Czas",
+  "_A_CALENDAR_POPOVER_LOCATION_": "Miejsce",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "Opis",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt i strzałki: przenieś termin, Alt, Shift i strzałki: zmień koniec.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "Przeniesiono „{{label}}”: {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "Zmieniono czas trwania „{{label}}”: {{time}}"
 }

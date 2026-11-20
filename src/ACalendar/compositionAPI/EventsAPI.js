@@ -21,6 +21,9 @@ export default function EventsAPI(props, {
   const colorDefault = toRef(props, "colorDefault");
   const events = toRef(props, "events");
   const keyColor = toRef(props, "keyColor");
+  const keyDescription = toRef(props, "keyDescription");
+  const keyLocation = toRef(props, "keyLocation");
+  const keyStatus = toRef(props, "keyStatus");
   const keyEnd = toRef(props, "keyEnd");
   const keyId = toRef(props, "keyId");
   const keyIsAllDay = toRef(props, "keyIsAllDay");
@@ -31,6 +34,9 @@ export default function EventsAPI(props, {
 
   const keys = computed(() => ({
     keyColor: keyColor.value,
+    keyDescription: keyDescription.value,
+    keyLocation: keyLocation.value,
+    keyStatus: keyStatus.value,
     keyEnd: keyEnd.value,
     keyId: keyId.value,
     keyIsAllDay: keyIsAllDay.value,
@@ -46,6 +52,8 @@ export default function EventsAPI(props, {
       if (!EVENT) {
         return;
       }
+      // baseKey: the key of the item (an occurrence of a series has its own key with the day)
+      EVENT.baseKey = EVENT.key;
       const RECURRENCE = EVENT.recurrence;
       if (!RECURRENCE) {
         EVENTS.push(EVENT);

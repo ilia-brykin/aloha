@@ -6,6 +6,12 @@ export { default as AAvatarGroup } from "./AAvatarGroup/AAvatarGroup";
 export { default as ACalendar } from "./ACalendar/ACalendar";
 export { getCalendarIcs } from "./ACalendar/utils/ics";
 export { parseCalendarIcs } from "./ACalendar/utils/icsParse";
+export {
+  addCalendarException,
+  detachCalendarOccurrence,
+  moveCalendarSeries,
+  splitCalendarSeries,
+} from "./ACalendar/utils/series";
 export { default as AButton } from "./AButton/AButton";
 export { default as ACheckbox } from "./ui/ACheckbox/ACheckbox";
 export { default as ACheckboxRadioGroups } from "./ui/ACheckboxRadioGroups/ACheckboxRadioGroups";

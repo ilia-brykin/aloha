@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "Vorheriger Tag",
   "_A_CALENDAR_NEXT_DAY_": "Nächster Tag",
   "_A_CALENDAR_VIEW_DAY_": "Tag",
-  "_A_CALENDAR_RECURRING_": "Serie"
+  "_A_CALENDAR_RECURRING_": "Serie",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "Arbeitswoche",
+  "_A_CALENDAR_VIEW_AGENDA_": "Liste",
+  "_A_CALENDAR_AGENDA_EMPTY_": "Keine Termine",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "KW",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "Kalenderwoche {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "nicht verfügbar",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "vorläufig",
+  "_A_CALENDAR_STATUS_CANCELLED_": "abgesagt",
+  "_A_CALENDAR_LOADING_": "Termine werden geladen…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "Schließen",
+  "_A_CALENDAR_POPOVER_TIME_": "Zeit",
+  "_A_CALENDAR_POPOVER_LOCATION_": "Ort",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "Beschreibung",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt und Pfeiltasten: Termin verschieben, Alt, Umschalt und Pfeiltasten: Ende ändern.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "\"{{label}}\" verschoben: {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "Dauer von \"{{label}}\" geändert: {{time}}"
 }

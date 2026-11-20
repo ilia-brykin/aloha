@@ -13,6 +13,7 @@ import {
 export default function FocusAPI(props, {
   goToDate = () => {},
   focusableDayKeys = computed(() => []),
+  isDayVisible = () => true,
   isTimeGridView = computed(() => false),
   modelValueKey = computed(() => undefined),
 }) {
@@ -74,12 +75,23 @@ export default function FocusAPI(props, {
     }
   };
 
+  // The work week hides days: the focus jumps over them in the direction of the key
+  const SKIP_DIRECTIONS = {
+    ArrowLeft: -1,
+    ArrowRight: 1,
+    Home: 1,
+    End: -1,
+  };
+
   const onKeydownDay = ({ day, $event }) => {
     const DATE = getKeyForKeydown({ key: $event.key, date: day.date });
     if (!DATE) {
       return;
     }
     $event.preventDefault();
+    for (let step = 0; step < 7 && !isDayVisible(DATE.format(CALENDAR_DAY_FORMAT)); step++) {
+      DATE.add(SKIP_DIRECTIONS[$event.key] || 1, "day");
+    }
     focusDay(DATE.format(CALENDAR_DAY_FORMAT));
   };
 
