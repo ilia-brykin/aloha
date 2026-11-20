@@ -1,7 +1,14 @@
 import {
   computed,
+  nextTick,
   ref,
 } from "vue";
+
+import {
+  AConfirmAPI,
+  filterEscapeHtml,
+  setFocusToElement,
+} from "aloha-vue";
 
 import moment from "moment";
 import {
@@ -9,6 +16,7 @@ import {
 } from "../../utils/demoEvents";
 
 const DATETIME_FORMAT = "YYYY-MM-DD[T]HH:mm:ss.SSSZ";
+const BTN_DELETE_ID = "page_calendar_create_btn_delete";
 
 export default function CreateAPI() {
   const events = ref(getDemoEvents().slice(0, 3));
@@ -95,12 +103,36 @@ export default function CreateAPI() {
     closeModal();
   };
 
+  const {
+    closeConfirm,
+    openConfirm,
+  } = AConfirmAPI();
+
+  // The title is typed by the user and the body of the confirm is HTML
   const deleteEvent = () => {
-    events.value = events.value.filter(event => event.id !== editedId.value);
-    closeModal();
+    openConfirm({
+      headerText: "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_",
+      bodyHtml: "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_",
+      extra: {
+        label: filterEscapeHtml(model.value.label),
+      },
+      saveButtonText: "_A_CALENDAR_CREATE_DELETE_",
+      saveButtonClass: "a_btn a_btn_danger",
+      save: () => {
+        events.value = events.value.filter(event => event.id !== editedId.value);
+        closeConfirm();
+        closeModal();
+      },
+      // Cancel: the focus goes back to the button "Delete" of the form
+      close: () => {
+        closeConfirm();
+        nextTick(() => setFocusToElement({ selector: `#${ BTN_DELETE_ID }` }));
+      },
+    });
   };
 
   return {
+    btnDeleteId: BTN_DELETE_ID,
     closeModal,
     dataForm,
     deleteEvent,

@@ -21,6 +21,8 @@
   "_A_CALENDAR_CREATE_COLOR_": "Колір",
   "_A_CALENDAR_CREATE_ALL_DAY_": "Увесь день",
   "_A_CALENDAR_CREATE_DELETE_": "Видалити",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_": "Видалити зустріч?",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_": "Видалити зустріч <strong>{{label}}</strong>?",
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "Колір зустрічей без кольору.",
   "_A_CALENDAR_PROPS_EVENTS_": "Зустрічі. Зустріч без коректного початку пропускається.",
   "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Перший день тижня: 0 — неділя, 1 — понеділок. Типове значення береться з ADatepickerPlugin.",

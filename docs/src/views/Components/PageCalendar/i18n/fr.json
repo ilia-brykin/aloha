@@ -21,6 +21,8 @@
   "_A_CALENDAR_CREATE_COLOR_": "Couleur",
   "_A_CALENDAR_CREATE_ALL_DAY_": "Toute la journée",
   "_A_CALENDAR_CREATE_DELETE_": "Supprimer",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_": "Supprimer le rendez-vous ?",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_": "Voulez-vous supprimer le rendez-vous <strong>{{label}}</strong> ?",
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "La couleur des rendez-vous sans couleur.",
   "_A_CALENDAR_PROPS_EVENTS_": "Les rendez-vous. Un rendez-vous sans début valide est ignoré.",
   "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Le premier jour de la semaine : 0 est dimanche, 1 est lundi. La valeur par défaut vient de ADatepickerPlugin.",

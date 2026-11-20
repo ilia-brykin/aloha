@@ -21,6 +21,8 @@
   "_A_CALENDAR_CREATE_COLOR_": "Color",
   "_A_CALENDAR_CREATE_ALL_DAY_": "Todo el día",
   "_A_CALENDAR_CREATE_DELETE_": "Eliminar",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_": "¿Eliminar la cita?",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_": "¿Desea eliminar la cita <strong>{{label}}</strong>?",
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "El color de las citas sin color.",
   "_A_CALENDAR_PROPS_EVENTS_": "Las citas. Una cita sin inicio válido se ignora.",
   "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "El primer día de la semana: 0 es domingo, 1 es lunes. El valor por defecto viene de ADatepickerPlugin.",

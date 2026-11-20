@@ -25,6 +25,7 @@ export default function HtmlAPI() {
     v-slot:modalFooterAppend
   >
     <a-button
+      :id="btnDeleteId"
       class="a_btn a_btn_outline_danger"
       text="_A_CALENDAR_CREATE_DELETE_"
       @click="deleteEvent"
