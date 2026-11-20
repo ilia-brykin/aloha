@@ -2,12 +2,13 @@ export default function HtmlAPI() {
   const codeHtml = `<a-button
   class="a_btn a_btn_primary"
   text="_A_CALENDAR_CREATE_BTN_"
-  @click="openModalNew"
+  @click="openModalToday"
 />
 <a-calendar
   :events="events"
   @day-click="onDayClick"
   @event-click="onEventClick"
+  @time-click="onTimeClick"
 />
 <a-modal-form
   v-if="isModalVisible"

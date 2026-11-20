@@ -12,8 +12,9 @@ import {
 
 export default function FocusAPI(props, {
   goToDate = () => {},
+  focusableDayKeys = computed(() => []),
+  isWeekView = computed(() => false),
   modelValueKey = computed(() => undefined),
-  weeks = computed(() => []),
 }) {
   const firstDayOfWeek = toRef(props, "firstDayOfWeek");
 
@@ -28,19 +29,15 @@ export default function FocusAPI(props, {
     }
   };
 
-  const daysCurrentMonth = computed(() => {
-    return weeks.value.flat().filter(day => day.isCurrentMonth).map(day => day.key);
-  });
-
   // Only one day is in the tab order (roving tabindex), the arrow keys move between the days
   const tabbableKey = computed(() => {
     const CANDIDATES = [focusedKey.value, modelValueKey.value, moment().format(CALENDAR_DAY_FORMAT)];
-    return CANDIDATES.find(key => daysCurrentMonth.value.indexOf(key) !== -1) || daysCurrentMonth.value[0];
+    return CANDIDATES.find(key => focusableDayKeys.value.indexOf(key) !== -1) || focusableDayKeys.value[0];
   });
 
   const focusDay = async key => {
     focusedKey.value = key;
-    if (daysCurrentMonth.value.indexOf(key) === -1) {
+    if (focusableDayKeys.value.indexOf(key) === -1) {
       goToDate(key);
     }
     await nextTick();
@@ -67,10 +64,11 @@ export default function FocusAPI(props, {
         return DATE.subtract(WEEKDAY_INDEX, "days");
       case "End":
         return DATE.add(6 - WEEKDAY_INDEX, "days");
+      // The previous or the next period: a month or a week
       case "PageUp":
-        return DATE.subtract(1, "month");
+        return DATE.subtract(1, isWeekView.value ? "week" : "month");
       case "PageDown":
-        return DATE.add(1, "month");
+        return DATE.add(1, isWeekView.value ? "week" : "month");
       default:
         return undefined;
     }

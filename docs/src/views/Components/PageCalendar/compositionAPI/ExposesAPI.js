@@ -1,6 +1,11 @@
 export default function ExposesAPI() {
   const dataExposes = [
     {
+      name: "changeView",
+      description: "_A_CALENDAR_EXPOSES_CHANGE_VIEW_",
+      type: "Function",
+    },
+    {
       name: "focusDay",
       description: "_A_CALENDAR_EXPOSES_FOCUS_DAY_",
       type: "Function",
@@ -11,8 +16,18 @@ export default function ExposesAPI() {
       type: "Function",
     },
     {
+      name: "goToNext",
+      description: "_A_CALENDAR_EXPOSES_GO_TO_NEXT_",
+      type: "Function",
+    },
+    {
       name: "goToNextMonth",
       description: "_A_CALENDAR_EXPOSES_GO_TO_NEXT_MONTH_",
+      type: "Function",
+    },
+    {
+      name: "goToPrevious",
+      description: "_A_CALENDAR_EXPOSES_GO_TO_PREVIOUS_",
       type: "Function",
     },
     {

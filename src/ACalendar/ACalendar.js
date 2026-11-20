@@ -7,12 +7,16 @@ import AButton from "../AButton/AButton";
 import ClickAPI from "./compositionAPI/ClickAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
-import MonthAPI from "./compositionAPI/MonthAPI";
+import PeriodAPI from "./compositionAPI/PeriodAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
+import WeekViewAPI from "./compositionAPI/WeekViewAPI";
 
 import {
   ADatepickerPluginOptions,
 } from "../plugins/ADatepickerPlugin";
+import {
+  CALENDAR_VIEWS,
+} from "./const";
 import {
   ChevronLeft,
   ChevronRight,
@@ -39,6 +43,18 @@ export default {
       required: false,
       default: () => ADatepickerPluginOptions.propsDefault.firstDayOfWeek,
       validator: value => value >= 0 && value <= 6,
+    },
+    hourEnd: {
+      type: Number,
+      required: false,
+      default: 24,
+      validator: value => value >= 1 && value <= 24,
+    },
+    hourStart: {
+      type: Number,
+      required: false,
+      default: 0,
+      validator: value => value >= 0 && value <= 23,
     },
     id: {
       type: String,
@@ -85,32 +101,76 @@ export default {
       required: false,
       default: undefined,
     },
+    scrollToHour: {
+      type: Number,
+      required: false,
+      default: 8,
+    },
+    timeStep: {
+      type: Number,
+      required: false,
+      default: 30,
+    },
+    view: {
+      type: String,
+      required: false,
+      default: "month",
+      validator: value => CALENDAR_VIEWS.indexOf(value) !== -1,
+    },
+    views: {
+      type: Array,
+      required: false,
+      default: () => CALENDAR_VIEWS,
+      validator: value => value.every(view => CALENDAR_VIEWS.indexOf(view) !== -1),
+    },
   },
   emits: [
     "day-click",
     "event-click",
     "more-click",
     "range-change",
+    "time-click",
     "update:modelValue",
+    "update:view",
   ],
   setup(props, { emit, expose }) {
     const {
+      changeView,
+      focusableDayKeys,
       goToDate,
-      goToNextMonth,
-      goToPreviousMonth,
+      goToNext,
+      goToPrevious,
       goToToday,
+      isWeekView,
       modelValueKey,
       range,
       title,
+      viewLocal,
+      weekDays,
       weekdays,
       weeks,
-    } = MonthAPI(props, { emit });
+    } = PeriodAPI(props, { emit });
 
     const {
+      eventsNormalized,
       getEventColorAttributes,
       getEventsForDay,
       weeksWithEvents,
     } = EventsAPI(props, { weeks });
+
+    const {
+      getTimedStyle,
+      hours,
+      nowStyle,
+      onClickTime,
+      setTimeScrollElement,
+      weekView,
+    } = WeekViewAPI(props, {
+      emit,
+      eventsNormalized,
+      isWeekView,
+      weekDays,
+    });
 
     const {
       focusDay,
@@ -119,9 +179,10 @@ export default {
       setDayElement,
       tabbableKey,
     } = FocusAPI(props, {
+      focusableDayKeys,
       goToDate,
+      isWeekView,
       modelValueKey,
-      weeks,
     });
 
     const {
@@ -137,40 +198,59 @@ export default {
     const {
       getDayAriaLabel,
       getEventAriaLabel,
+      getEventTimeRangeText,
       getEventTimeText,
+      getHourText,
       getMoreText,
+      getText,
     } = TextsAPI();
 
     expose({
+      changeView,
       focusDay,
       goToDate,
-      goToNextMonth,
-      goToPreviousMonth,
+      goToNext,
+      goToPrevious,
       goToToday,
+      // the names of the first version, they change the period of the current view
+      goToNextMonth: goToNext,
+      goToPreviousMonth: goToPrevious,
     });
 
     return {
+      changeView,
       getDayAriaLabel,
       getEventAriaLabel,
       getEventColorAttributes,
       getEventsForDay,
+      getEventTimeRangeText,
       getEventTimeText,
+      getHourText,
       getMoreText,
-      goToNextMonth,
-      goToPreviousMonth,
+      getText,
+      getTimedStyle,
+      goToNext,
+      goToPrevious,
       goToToday,
+      hours,
+      isWeekView,
       modelValueKey,
+      nowStyle,
       onClickDay,
       onClickEvent,
       onClickMore,
+      onClickTime,
       onFocusDay,
       onKeydownDay,
       range,
       setDayElement,
+      setTimeScrollElement,
       tabbableKey,
       title,
+      viewLocal,
       weekdays,
       weeksWithEvents,
+      weekView,
     };
   },
   methods: {
@@ -179,11 +259,18 @@ export default {
         return this.$slots.header({
           title: this.title,
           range: this.range,
-          goToNextMonth: this.goToNextMonth,
-          goToPreviousMonth: this.goToPreviousMonth,
+          view: this.viewLocal,
+          views: this.views,
+          changeView: this.changeView,
+          goToNext: this.goToNext,
+          goToPrevious: this.goToPrevious,
           goToToday: this.goToToday,
+          goToNextMonth: this.goToNext,
+          goToPreviousMonth: this.goToPrevious,
         });
       }
+      const TEXT_PREVIOUS = this.isWeekView ? "_A_CALENDAR_PREVIOUS_WEEK_" : "_A_CALENDAR_PREVIOUS_MONTH_";
+      const TEXT_NEXT = this.isWeekView ? "_A_CALENDAR_NEXT_WEEK_" : "_A_CALENDAR_NEXT_MONTH_";
       return h("div", {
         class: "a_calendar__header",
       }, [
@@ -195,13 +282,27 @@ export default {
         h("div", {
           class: "a_calendar__header_actions",
         }, [
+          this.views.length > 1 && h("div", {
+            class: "a_calendar__views",
+            role: "group",
+            "aria-label": this.getText("_A_CALENDAR_VIEW_"),
+          }, this.views.map(view => h(AButton, {
+            key: view,
+            class: ["a_btn a_btn_small", this.viewLocal === view ? "a_btn_secondary" : "a_btn_outline_secondary"],
+            text: `_A_CALENDAR_VIEW_${ view.toUpperCase() }_`,
+            type: "button",
+            attributes: {
+              "aria-pressed": this.viewLocal === view ? "true" : "false",
+            },
+            onClick: () => this.changeView(view),
+          }))),
           h(AButton, {
             class: "a_btn a_btn_outline_secondary a_btn_small",
             iconLeft: ChevronLeft,
-            textScreenReader: "_A_CALENDAR_PREVIOUS_MONTH_",
-            title: "_A_CALENDAR_PREVIOUS_MONTH_",
+            textScreenReader: TEXT_PREVIOUS,
+            title: TEXT_PREVIOUS,
             type: "button",
-            onClick: this.goToPreviousMonth,
+            onClick: this.goToPrevious,
           }),
           h(AButton, {
             class: "a_btn a_btn_outline_secondary a_btn_small",
@@ -212,29 +313,30 @@ export default {
           h(AButton, {
             class: "a_btn a_btn_outline_secondary a_btn_small",
             iconLeft: ChevronRight,
-            textScreenReader: "_A_CALENDAR_NEXT_MONTH_",
-            title: "_A_CALENDAR_NEXT_MONTH_",
+            textScreenReader: TEXT_NEXT,
+            title: TEXT_NEXT,
             type: "button",
-            onClick: this.goToNextMonth,
+            onClick: this.goToNext,
           }),
         ]),
       ]);
     },
 
-    renderDay(day, index) {
+    // The day as a button: in the month a cell, in the week the head of a column
+    renderDay(day, index, { className = "a_calendar__day", gridColumn = index + 1, content } = {}) {
       const IS_SELECTED = day.key === this.modelValueKey;
       return h("button", {
         key: day.key,
         ref: element => this.setDayElement(day.key, element),
         type: "button",
-        class: ["a_calendar__day", {
+        class: [className, {
           a_calendar__day_other_month: !day.isCurrentMonth,
           a_calendar__day_selected: IS_SELECTED,
           a_calendar__day_today: day.isToday,
           a_calendar__day_weekend: day.isWeekend,
         }],
         style: {
-          gridColumn: index + 1,
+          gridColumn,
         },
         tabindex: day.key === this.tabbableKey ? 0 : -1,
         "aria-label": this.getDayAriaLabel(day),
@@ -245,15 +347,35 @@ export default {
         onKeydown: $event => this.onKeydownDay({ day, $event }),
       }, this.$slots.day ?
         this.$slots.day({ day, events: this.getEventsForDay(day.key).map(event => event.item) }) :
-        h("span", {
+        content || h("span", {
           class: "a_calendar__day_number",
         }, day.day));
     },
 
-    renderEvent(segment) {
+    renderEventContent({ event, isStart = true, isEnd = true, time }) {
+      if (this.$slots.event) {
+        return this.$slots.event({
+          event: event.item,
+          start: event.start,
+          end: event.end,
+          isStart,
+          isEnd,
+        });
+      }
+      return [
+        time && h("span", {
+          class: "a_calendar__event_time",
+        }, time),
+        h("span", {
+          class: "a_calendar__event_label",
+        }, event.label),
+      ];
+    },
+
+    // A bar in a week of the month or in the all-day row of the week view (gridColumnOffset: the column of the hours)
+    renderEvent(segment, { gridColumnOffset = 0 } = {}) {
       const EVENT = segment.event;
       const COLOR = this.getEventColorAttributes(EVENT);
-      const TIME = segment.isStart ? this.getEventTimeText(EVENT) : "";
       return h("button", {
         key: `${ EVENT.key }_${ segment.start }`,
         type: "button",
@@ -262,29 +384,19 @@ export default {
           a_calendar__event_continues_after: !segment.isEnd,
         }],
         style: {
-          gridColumn: `${ segment.start + 1 } / span ${ segment.span }`,
+          gridColumn: `${ segment.start + 1 + gridColumnOffset } / span ${ segment.span }`,
           gridRow: segment.lane + 2,
           ...COLOR.style,
         },
         title: this.getEventAriaLabel(EVENT),
         "aria-label": this.getEventAriaLabel(EVENT),
         onClick: $event => this.onClickEvent({ event: EVENT, $event }),
-      }, this.$slots.event ?
-        this.$slots.event({
-          event: EVENT.item,
-          start: EVENT.start,
-          end: EVENT.end,
-          isStart: segment.isStart,
-          isEnd: segment.isEnd,
-        }) :
-        [
-          TIME && h("span", {
-            class: "a_calendar__event_time",
-          }, TIME),
-          h("span", {
-            class: "a_calendar__event_label",
-          }, EVENT.label),
-        ]);
+      }, this.renderEventContent({
+        event: EVENT,
+        isStart: segment.isStart,
+        isEnd: segment.isEnd,
+        time: segment.isStart ? this.getEventTimeText(EVENT) : "",
+      }));
     },
 
     renderMore(day, index, lanesCount) {
@@ -299,14 +411,9 @@ export default {
         onClick: $event => this.onClickMore({ day, $event }),
       }, this.getMoreText(day.hiddenCount));
     },
-  },
-  render() {
-    return h("div", {
-      id: this.id,
-      class: "a_calendar",
-    }, [
-      this.renderHeader(),
-      h("div", {
+
+    renderMonth() {
+      return h("div", {
         class: "a_calendar__month",
         role: "group",
         "aria-labelledby": this.$slots.header ? undefined : `${ this.id }_title`,
@@ -332,7 +439,126 @@ export default {
           ...week.segments.map(segment => this.renderEvent(segment)),
           ...week.days.map((day, index) => day.hiddenCount > 0 ? this.renderMore(day, index, week.lanesCount) : null),
         ])),
-      ]),
+      ]);
+    },
+
+    renderTimedEvent(item) {
+      const EVENT = item.event;
+      const COLOR = this.getEventColorAttributes(EVENT);
+      // A short event shows only the start, so the title fits in the line
+      const IS_SHORT = item.end - item.start <= 45;
+      return h("button", {
+        key: EVENT.key,
+        type: "button",
+        class: ["a_calendar__event a_calendar__event_timed", COLOR.class, {
+          a_calendar__event_short: IS_SHORT,
+        }],
+        style: {
+          ...this.getTimedStyle(item),
+          ...COLOR.style,
+        },
+        title: this.getEventAriaLabel(EVENT),
+        "aria-label": this.getEventAriaLabel(EVENT),
+        onClick: $event => this.onClickEvent({ event: EVENT, $event }),
+      }, this.renderEventContent({
+        event: EVENT,
+        time: IS_SHORT ? this.getEventTimeText(EVENT) : this.getEventTimeRangeText(EVENT),
+      }));
+    },
+
+    renderWeek() {
+      const VIEW = this.weekView;
+      return h("div", {
+        class: "a_calendar__week_view",
+        role: "group",
+        "aria-labelledby": this.$slots.header ? undefined : `${ this.id }_title`,
+      }, [
+        h("div", {
+          class: "a_calendar__week_head",
+        }, [
+          h("div", {
+            class: "a_calendar__gutter",
+            "aria-hidden": "true",
+          }),
+          ...VIEW.days.map((day, index) => this.renderDay(day, index, {
+            className: "a_calendar__week_day",
+            gridColumn: index + 2,
+            content: [
+              h("span", {
+                class: "a_calendar__week_day_name",
+                "aria-hidden": "true",
+              }, this.weekdays[index].short),
+              h("span", {
+                class: "a_calendar__day_number",
+              }, day.day),
+            ],
+          })),
+        ]),
+        h("div", {
+          class: "a_calendar__all_day",
+          style: {
+            "--a_calendar_lanes": VIEW.allDayLanesCount,
+          },
+        }, [
+          h("div", {
+            class: "a_calendar__gutter a_calendar__all_day_label",
+          }, this.getText("_A_CALENDAR_ALL_DAY_")),
+          ...VIEW.days.map((day, index) => h("div", {
+            key: day.key,
+            class: ["a_calendar__all_day_cell", {
+              a_calendar__day_weekend: day.isWeekend,
+            }],
+            style: {
+              gridColumn: index + 2,
+            },
+            "aria-hidden": "true",
+          })),
+          ...VIEW.allDaySegments.map(segment => this.renderEvent(segment, { gridColumnOffset: 1 })),
+        ]),
+        h("div", {
+          ref: this.setTimeScrollElement,
+          class: "a_calendar__time_scroll",
+        }, [
+          h("div", {
+            class: "a_calendar__time_grid",
+            style: {
+              "--a_calendar_hours": this.hours.length,
+            },
+          }, [
+            h("div", {
+              class: "a_calendar__gutter a_calendar__hours",
+              "aria-hidden": "true",
+            }, this.hours.map(hour => h("div", {
+              key: hour,
+              class: "a_calendar__hour",
+            }, this.getHourText(hour)))),
+            // A click on an empty place emits time-click. Keyboard: the head of the day emits day-click.
+            ...VIEW.days.map(day => h("div", {
+              key: day.key,
+              class: ["a_calendar__time_column", {
+                a_calendar__day_weekend: day.isWeekend,
+              }],
+              onClick: $event => this.onClickTime({ day, $event }),
+            }, [
+              ...day.timed.map(item => this.renderTimedEvent(item)),
+              day.isToday && this.nowStyle && h("div", {
+                class: "a_calendar__now",
+                style: this.nowStyle,
+                "aria-hidden": "true",
+              }),
+            ])),
+          ]),
+        ]),
+      ]);
+    },
+  },
+  render() {
+    return h("div", {
+      id: this.id,
+      class: ["a_calendar", `a_calendar_${ this.viewLocal }`],
+    }, [
+      this.renderHeader(),
+      this.isWeekView ? this.renderWeek() : this.renderMonth(),
     ]);
   },
 };

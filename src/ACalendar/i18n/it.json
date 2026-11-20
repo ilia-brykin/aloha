@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Mese successivo",
   "_A_CALENDAR_TODAY_": "Oggi",
   "_A_CALENDAR_MORE_{{count}}_": "+{{count}} altri",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Appuntamenti: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Appuntamenti: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Settimana precedente",
+  "_A_CALENDAR_NEXT_WEEK_": "Settimana successiva",
+  "_A_CALENDAR_VIEW_": "Vista",
+  "_A_CALENDAR_VIEW_MONTH_": "Mese",
+  "_A_CALENDAR_VIEW_WEEK_": "Settimana",
+  "_A_CALENDAR_ALL_DAY_": "Tutto il giorno"
 }

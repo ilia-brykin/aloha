@@ -82,14 +82,14 @@
   }
 }
 .a_calendar__day_weekend {
-  background: var(--a_calendar_weekend_bg);
+  background-color: var(--a_calendar_weekend_bg);
 }
 .a_calendar__day_other_month {
   color: var(--a_calendar_other_month_color);
 }
 .a_calendar__day_selected,
 .a_calendar__day_selected:hover {
-  background: var(--a_calendar_selected_bg);
+  background-color: var(--a_calendar_selected_bg);
 }
 .a_calendar__day_number {
   display: inline-flex;
@@ -192,7 +192,163 @@
   }
 }
 
+// View switch "Month / Week"
+.a_calendar__views {
+  display: flex;
+  gap: .25rem;
+  margin-inline-end: .5rem;
+}
+
+// Week view: a column for the hours and 7 columns for the days
+.a_calendar__week_view {
+  overflow: hidden;
+  border: 1px solid var(--a_calendar_border_color);
+  border-radius: var(--a_calendar_border_radius);
+  background: var(--a_calendar_bg);
+}
+.a_calendar__week_head,
+.a_calendar__all_day,
+.a_calendar__time_grid {
+  display: grid;
+  grid-template-columns: var(--a_calendar_gutter_width) repeat(7, minmax(0, 1fr));
+}
+.a_calendar__week_head,
+.a_calendar__all_day {
+  border-block-end: 1px solid var(--a_calendar_border_color);
+}
+// The time grid has a scrollbar: the rows above reserve the same space, so the columns stay aligned
+.a_calendar__week_head,
+.a_calendar__all_day,
+.a_calendar__time_scroll {
+  scrollbar-gutter: stable;
+}
+.a_calendar__week_head,
+.a_calendar__all_day {
+  overflow-y: hidden;
+}
+.a_calendar__week_day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .125rem;
+  margin: 0;
+  padding: .375rem .25rem;
+  border: 0;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  @include focus.focus-visible(true);
+  &:hover {
+    background-color: var(--a_calendar_day_hover_bg);
+  }
+}
+.a_calendar__week_day_name {
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_weekday_font_size);
+}
+
+// The all-day row: a small space above and below the bars (the bars start in the second row)
+.a_calendar__all_day {
+  grid-template-rows: .125rem repeat(var(--a_calendar_lanes), var(--a_calendar_event_height)) .25rem;
+  row-gap: var(--a_calendar_event_gap);
+}
+.a_calendar__all_day_label {
+  grid-row: 1 / -1;
+  align-self: center;
+  padding-inline: .25rem .5rem;
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1.2;
+  text-align: end;
+  overflow-wrap: normal;
+  hyphens: auto;
+}
+.a_calendar__all_day_cell {
+  grid-row: 1 / -1;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+}
+
+.a_calendar__time_scroll {
+  overflow-y: auto;
+  max-height: var(--a_calendar_week_max_height);
+}
+.a_calendar__time_grid {
+  height: calc(var(--a_calendar_hours) * var(--a_calendar_hour_height));
+}
+.a_calendar__hours {
+  display: grid;
+  grid-template-rows: repeat(var(--a_calendar_hours), minmax(0, 1fr));
+}
+.a_calendar__hour {
+  padding: .125rem .5rem 0;
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1;
+  text-align: end;
+}
+// A line for every hour
+.a_calendar__time_column {
+  position: relative;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+  background-image: repeating-linear-gradient(to bottom, var(--a_calendar_border_color) 0 1px, transparent 1px var(--a_calendar_hour_height));
+  cursor: pointer;
+}
+
+.a_calendar__event_timed {
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0;
+  padding: .125rem .375rem;
+  // A line in the color of the background separates overlapping events
+  box-shadow: 0 0 0 1px var(--a_calendar_bg);
+  .a_calendar__event_time {
+    font-size: var(--a_calendar_hour_font_size);
+    font-weight: normal;
+  }
+  // Narrow events (several at the same time) cut the text instead of breaking it in the middle of the time
+  .a_calendar__event_time,
+  .a_calendar__event_label {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+// A short event has the time and the title in one line
+.a_calendar__event_short {
+  flex-direction: row;
+  align-items: center;
+  gap: .25rem;
+  padding-block: 0;
+}
+
+// The current time
+.a_calendar__now {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  height: 2px;
+  background: var(--a_calendar_now_color);
+  pointer-events: none;
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -4px;
+    inset-inline-start: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: inherit;
+  }
+}
+
 @media (forced-colors: active) {
+  .a_calendar__now {
+    background: Highlight;
+  }
   .a_calendar__event {
     border: 1px solid CanvasText;
   }
@@ -238,4 +394,10 @@
   --a_calendar_event_color: var(--a_color_primary_text_emphasis); // Text color of an event (set by the color of the event).
   --a_calendar_more_height: 1.25rem; // Height of the "+N more" row.
   --a_calendar_more_color: var(--a_color_link); // Color of "+N more".
+  // week
+  --a_calendar_gutter_width: 4.5rem; // Width of the column with the hours.
+  --a_calendar_hour_height: 3rem; // Height of an hour.
+  --a_calendar_hour_font_size: .75rem; // Font size of the hours, the times of the events and "All day".
+  --a_calendar_week_max_height: 36rem; // Maximal height of the time grid, it scrolls inside.
+  --a_calendar_now_color: var(--a_color_danger); // Color of the line of the current time.
 }

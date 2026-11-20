@@ -104,6 +104,7 @@ export default function EventsAPI(props, { weeks }) {
   };
 
   return {
+    eventsNormalized,
     getEventColorAttributes,
     getEventsForDay,
     weeksWithEvents,

@@ -6,6 +6,7 @@ import PageCalendarCreate from "./PageCalendarCreate/PageCalendarCreate.vue";
 import PageCalendarMaxEvents from "./PageCalendarMaxEvents/PageCalendarMaxEvents.vue";
 import PageCalendarMultiDay from "./PageCalendarMultiDay/PageCalendarMultiDay.vue";
 import PageCalendarSlots from "./PageCalendarSlots/PageCalendarSlots.vue";
+import PageCalendarWeek from "./PageCalendarWeek/PageCalendarWeek.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -29,6 +30,7 @@ export default {
     PageCalendarMaxEvents,
     PageCalendarMultiDay,
     PageCalendarSlots,
+    PageCalendarWeek,
   },
   setup() {
     const {

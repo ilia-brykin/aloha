@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Следующий месяц",
   "_A_CALENDAR_TODAY_": "Сегодня",
   "_A_CALENDAR_MORE_{{count}}_": "ещё {{count}}",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Встречи: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Встречи: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Предыдущая неделя",
+  "_A_CALENDAR_NEXT_WEEK_": "Следующая неделя",
+  "_A_CALENDAR_VIEW_": "Вид",
+  "_A_CALENDAR_VIEW_MONTH_": "Месяц",
+  "_A_CALENDAR_VIEW_WEEK_": "Неделя",
+  "_A_CALENDAR_ALL_DAY_": "Весь день"
 }

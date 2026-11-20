@@ -17,8 +17,16 @@ export default function EventsAPI() {
       description: "_A_CALENDAR_EVENTS_RANGE_CHANGE_",
     },
     {
+      name: "time-click",
+      description: "_A_CALENDAR_EVENTS_TIME_CLICK_",
+    },
+    {
       name: "update:modelValue",
       description: "_A_CALENDAR_EVENTS_UPDATE_MODEL_VALUE_",
+    },
+    {
+      name: "update:view",
+      description: "_A_CALENDAR_EVENTS_UPDATE_VIEW_",
     },
   ];
 

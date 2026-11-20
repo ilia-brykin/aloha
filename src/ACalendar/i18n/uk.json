@@ -3,5 +3,11 @@
   "_A_CALENDAR_NEXT_MONTH_": "Наступний місяць",
   "_A_CALENDAR_TODAY_": "Сьогодні",
   "_A_CALENDAR_MORE_{{count}}_": "ще {{count}}",
-  "_A_CALENDAR_EVENTS_{{count}}_": "Зустрічі: {{count}}"
+  "_A_CALENDAR_EVENTS_{{count}}_": "Зустрічі: {{count}}",
+  "_A_CALENDAR_PREVIOUS_WEEK_": "Попередній тиждень",
+  "_A_CALENDAR_NEXT_WEEK_": "Наступний тиждень",
+  "_A_CALENDAR_VIEW_": "Вигляд",
+  "_A_CALENDAR_VIEW_MONTH_": "Місяць",
+  "_A_CALENDAR_VIEW_WEEK_": "Тиждень",
+  "_A_CALENDAR_ALL_DAY_": "Увесь день"
 }
