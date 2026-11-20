@@ -1,3 +1,11 @@
 {
-
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Colonnes groupées",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Les colonnes avec <code>children</code> reçoivent un en-tête commun au-dessus de leurs sous-colonnes. <code>:has-mobile=\"false\"</code> conserve la vue tableau sur les petits écrans.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Tableau avec colonnes groupées",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Tableau HTML simple",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> rend une <code>&lt;table&gt;</code> native sans la barre d'outils ni les fonctions supplémentaires de <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Tableau HTML simple",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slots de la vue mobile",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "Sur les petits écrans, chaque ligne est affichée comme une carte. Les slots <code>rowMobilePrepend</code> et <code>rowMobileAppend</code> ajoutent du contenu au début et à la fin de chaque carte.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Tableau avec slots de la vue mobile"
 }

@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Il testo del pulsante di chiusura da leggere dallo screen reader",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Testo normale da mostrare all'interno del componente",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Tipo di avviso",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenuto dell'avviso"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenuto dell'avviso",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icona del pulsante di chiusura."
 }

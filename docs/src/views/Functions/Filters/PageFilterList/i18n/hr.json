@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML oznaka za cijelu listu",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS klasa (Npr. a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "Ova funkcija kreira listu od niza.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura stabla isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura stabla isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Vrijednost koja se vraća ako je polje prazno ili nije polje",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML između elemenata, npr. prijelom retka (samo ako je <strong>isHtml=true</strong>)"
 }

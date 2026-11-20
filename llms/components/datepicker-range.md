@@ -1,4 +1,4 @@
-# ADatepickerRange (_A_DATEPICKER_RANGE_COMPONENT_NAME_)
+# ADatepickerRange (Date range)
 
 Allows interactive selection of a date range by providing two date fields to define 'From' and 'To' values.
 

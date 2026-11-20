@@ -1,3 +1,4 @@
 {
-
+  "_A_FILTERS_RIGHT_COMPONENT_NAME_": "Filters on the right",
+  "_A_FILTERS_RIGHT_COMPONENT_DESCRIPTION_": "With <code>view=\"right\"</code> the component <strong>AFilters</strong> shows the filters in a column on the right of the content instead of above it."
 }

@@ -1,8 +1,8 @@
 # ATable Table
 
-## _A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_
+## Preview on the right
 
-_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_
+The slot `preview` shows details of the clicked row next to the table. `disabled-preview-row-callback` switches the preview off for single rows.
 
 ```html
 <a-table
@@ -78,9 +78,9 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_
+## Preview with pagination
 
-_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_
+The preview also works with `pagination.use`: the arrows of the preview switch to the previous and next row.
 
 *props: `preview`, `pagination.use`*
 

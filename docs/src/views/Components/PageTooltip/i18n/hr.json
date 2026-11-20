@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Razmak strelice",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Postavlja razmak koji ograničava koliko se strelica može približiti rubovima tooltipa.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback za razmak strelice",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Razmak strelice može se izračunavati i dinamički pomoću callback funkcije."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Razmak strelice može se izračunavati i dinamički pomoću callback funkcije.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Najmanja udaljenost u px između strelice i rubova tooltipa. Funkcija prima dimenzije i vraća broj.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID tooltipa. Element dobiva aria-describedby s ovim ID-om.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "Tooltip se ne prikazuje, samo sadržaj zadanog slota.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Najveća širina tooltipa u px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Najmanja širina tooltipa u px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Udaljenost u px između tooltipa i elementa.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Pomak tooltipa u px duž elementa.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Položaj tooltipa u odnosu na element, npr. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID spremnika na kraju body u koji se renderira tooltip.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Prikazuje strelicu tooltipa.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "HTML oznaka elementa oko zadanog slota.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Vrijeme u ms prije zatvaranja tooltipa nakon što pokazivač napusti element ili tooltip.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Fiksna širina tooltipa u px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "Element ne dobiva aria-describedby, npr. ako se tekst tooltipa već čita na drugi način.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "Element koji prikazuje tooltip pri prelasku mišem i fokusu.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Sadržaj tooltipa."
 }

@@ -11,5 +11,10 @@
   "_A_TABLE_COLUMN_10_": "Столбец 10",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Строки-зебра",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "С <code>is-striped</code> каждая вторая строка получает фон <code>--a_table_row_striped_bg</code>. Hover, выбранные строки и открытый preview сохраняют свои цвета. Значение по умолчанию для всех таблиц задаётся в <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Таблица-зебра"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Таблица-зебра",
+  "_A_TABLE_COMPONENT_NAME_": "Таблица",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "Компонент <strong>ATable</strong> показывает данные в таблице с сортировкой, пагинацией, фильтрами, быстрым поиском, действиями для строк и таблицы, выбором строк, превью, скрытием и перемещением колонок, сохранёнными видами и мобильным видом.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Таблица со всеми возможностями",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Действия для строк, таблицы и нескольких строк, быстрый поиск, перемещение колонок, пагинация, строки футера, сортировка по нескольким колонкам и сохранённые виды в одной таблице.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Колонка Колонка Колонка Колонка Колонка Колонка Колонка Колонка"
 }

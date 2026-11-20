@@ -1306,9 +1306,9 @@ export default {
 };
 ```
 
-## _A_SELECT_GROUP_MODE_ONE_PER_GROUP_HEADER_
+## One item per group
 
-_A_SELECT_GROUP_MODE_ONE_PER_GROUP_DESCRIPTION_
+With `mode="one_per_group"` and `key-group` a multiselect allows only one item of each group: choosing an item deselects the other item of its group.
 
 *props: `mode='one_per_group'`*
 
@@ -1399,9 +1399,9 @@ export default {
 };
 ```
 
-## _A_SELECT_GROUP_LABEL_NOT_FOUND_HEADER_
+## Selected value not found
 
-_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_
+If the model contains a value that is not in `data`, the text `label-not-found` is shown instead (with `show-not-found`).
 
 *props: `labelNotFound`*
 

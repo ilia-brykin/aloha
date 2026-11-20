@@ -1,8 +1,8 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-alert>
+  const codeHtml = `<a-alert
   html="AAlert"
   :is-visible="true"
-</a-alert>`;
+></a-alert>`;
 
   return {
     codeHtml,

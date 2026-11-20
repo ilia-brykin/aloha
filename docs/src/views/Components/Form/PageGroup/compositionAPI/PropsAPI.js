@@ -212,14 +212,14 @@ export default function PropsAPI() {
     },
     {
       name: "use-flat-errors",
-      description: "_A_PROPS_USE_FLAT_ERRORS_DESCRIPTION_",
+      description: "_A_FORM_PROPS_USE_FLAT_ERRORS_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,
     },
     {
       name: "use-flat-model",
-      description: "_A_PROPS_USE_FLAT_MODEL_DESCRIPTION_",
+      description: "_A_FORM_PROPS_USE_FLAT_MODEL_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,

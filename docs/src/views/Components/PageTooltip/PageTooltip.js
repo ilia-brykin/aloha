@@ -14,7 +14,6 @@ import {
   ATranslation,
 } from "aloha-vue";
 
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
@@ -49,12 +48,7 @@ export default {
       dataSlots,
     } = SlotsAPI();
 
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
-      dataExposes,
       dataProps,
       dataSlots,
       pageTitle,

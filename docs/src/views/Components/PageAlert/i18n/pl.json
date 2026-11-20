@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Tekst przycisku zamykania odczytywany przez czytnik ekranu",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Zwykły tekst wyświetlany wewnątrz komponentu",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Typ alertu",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Zawartość alertu"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Zawartość alertu",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Ikona przycisku zamykania."
 }

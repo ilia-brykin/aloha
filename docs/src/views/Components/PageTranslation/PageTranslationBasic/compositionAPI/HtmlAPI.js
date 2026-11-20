@@ -1,6 +1,6 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-translation
-  text="_SHOW_MORE_"
+  text="_A_TRANSLATION_SHOW_MORE_"
 ></a-translation>`;
 
   return {

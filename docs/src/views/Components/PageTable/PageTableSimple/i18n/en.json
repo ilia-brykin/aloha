@@ -2,5 +2,14 @@
   "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "A component used for straightforward data presentation in a tabular format, without the inclusion of advanced features like sorting, filtering, or additional actions.",
   "_A_TABLE_GROUP_SIMPLE_HEADER_": "Simple Table",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Simple Table",
-  "_A_TABLE_SIMPLE_": "Table"
+  "_A_TABLE_SIMPLE_": "Table",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Grouped columns",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Columns with <code>children</code> get a common header above their sub-columns. <code>:has-mobile=\"false\"</code> keeps the table view on small screens.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Table with grouped columns",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Simple HTML table",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> renders a native <code>&lt;table&gt;</code> without the toolbar and the extra features of <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Simple HTML table",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slots of the mobile view",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "On small screens each row is shown as a card. The slots <code>rowMobilePrepend</code> and <code>rowMobileAppend</code> add content at the start and the end of each card.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Table with slots of the mobile view"
 }

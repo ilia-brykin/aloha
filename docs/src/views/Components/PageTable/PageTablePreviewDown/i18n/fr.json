@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Aperçu sous la ligne)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Aperçu sous la ligne",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "Avec <code>preview=\"down\"</code>, le slot <code>preview</code> s'ouvre juste sous la ligne cliquée."
 }

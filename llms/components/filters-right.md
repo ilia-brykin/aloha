@@ -1,6 +1,6 @@
-# AFilters (_A_FILTERS_RIGHT_COMPONENT_NAME_)
+# AFilters (Filters on the right)
 
-_A_FILTERS_RIGHT_COMPONENT_DESCRIPTION_
+With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
 
 ## Filters Component
 

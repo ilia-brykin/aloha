@@ -1,5 +1,10 @@
 {
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Righe alternate",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Con <code>is-striped</code> una riga su due riceve lo sfondo <code>--a_table_row_striped_bg</code>. Hover, righe selezionate e anteprima aperta mantengono i propri colori. Il valore predefinito per tutte le tabelle si imposta con <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabella a righe alternate"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabella a righe alternate",
+  "_A_TABLE_COMPONENT_NAME_": "Tabella",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "Il componente <strong>ATable</strong> mostra i dati in una tabella con ordinamento, paginazione, filtri, ricerca rapida, azioni di riga e di tabella, selezione delle righe, anteprima, nascondimento e spostamento delle colonne, viste salvate e vista mobile.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Tabella con tutte le funzioni",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Azioni di riga, di tabella e multiple, ricerca rapida, spostamento delle colonne, paginazione, righe di piè di pagina, ordinamento per più colonne e viste salvate in una tabella.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Colonna Colonna Colonna Colonna Colonna Colonna Colonna Colonna"
 }

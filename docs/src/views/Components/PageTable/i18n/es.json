@@ -1,5 +1,10 @@
 {
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Filas alternas",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Con <code>is-striped</code> cada segunda fila recibe el fondo <code>--a_table_row_striped_bg</code>. El hover, las filas seleccionadas y la vista previa abierta mantienen sus propios colores. El valor por defecto para todas las tablas se define con <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabla con filas alternas"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabla con filas alternas",
+  "_A_TABLE_COMPONENT_NAME_": "Tabla",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "El componente <strong>ATable</strong> muestra datos en una tabla con ordenación, paginación, filtros, búsqueda rápida, acciones de fila y de tabla, selección de filas, vista previa, ocultación y movimiento de columnas, vistas guardadas y vista móvil.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Tabla con todas las funciones",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Acciones de fila, de tabla y múltiples, búsqueda rápida, movimiento de columnas, paginación, filas de pie, ordenación por varias columnas y vistas guardadas en una tabla.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Columna Columna Columna Columna Columna Columna Columna Columna"
 }

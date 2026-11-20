@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Arrow padding",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Sets the padding that limits how close the arrow can get to the tooltip edges.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Arrow padding callback",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Arrow padding can also be calculated dynamically with a callback function."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Arrow padding can also be calculated dynamically with a callback function.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Minimum distance in px between the arrow and the edges of the tooltip. A function receives the sizes and returns the number.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID of the tooltip. The element gets aria-describedby with this ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "The tooltip is not shown, only the content of the default slot.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Maximum width of the tooltip in px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Minimum width of the tooltip in px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Distance in px between the tooltip and the element.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Shift in px of the tooltip along the element.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Position of the tooltip relative to the element, e.g. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID of the container at the end of the body in which the tooltip is rendered.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Shows the arrow of the tooltip.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "HTML tag of the element around the default slot.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Time in ms before the tooltip closes after the pointer leaves the element or the tooltip.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Fixed width of the tooltip in px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "The element does not get aria-describedby, e.g. if the text of the tooltip is already read otherwise.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "The element that shows the tooltip on hover and focus.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Content of the tooltip."
 }

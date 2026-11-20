@@ -1400,7 +1400,7 @@ The **AElement** component allows displaying additional text inside the element.
 ```html
 <a-element
   class="a_btn a_btn_primary"
-  text="_SHOW_MORE_"
+  text="_A_SHOW_MORE_MORE_"
   text-after=" €"
   text-before="$ "
   type="button"

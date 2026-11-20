@@ -848,7 +848,7 @@ A custom character or text can be added before of after the anchor text.
 ```html
 <a-link
   class="a_btn a_btn_primary"
-  text="_SHOW_MORE_"
+  text="_A_SHOW_MORE_MORE_"
   text-after=" €"
   text-before="$ "
   href="https://github.com/"

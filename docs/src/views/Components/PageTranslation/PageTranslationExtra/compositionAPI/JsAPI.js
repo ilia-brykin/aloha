@@ -1,7 +1,7 @@
 export default function JsAPI() {
   const codeJs = `import { 
   ATranslation,
-} from "aloha-vue";";
+} from "aloha-vue";
     
 export default {
   name: "PageTranslationExtra",

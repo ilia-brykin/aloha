@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Le texte du bouton de fermeture à lire par le lecteur d'écran",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Texte brut à afficher à l'intérieur du composant",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Type d'alerte",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenu de l'alerte"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenu de l'alerte",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icône du bouton de fermeture."
 }

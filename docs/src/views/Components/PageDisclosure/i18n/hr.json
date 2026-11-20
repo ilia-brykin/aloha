@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Ovaj slot omogućuje prilagodbu dužeg tekstualnog sadržaja koji će se prikazati kada korisnik klikne na \"Prikaži više\". Imate pristup vrijednostima <strong>isButtonVisible</strong> i <strong>isOpen</strong>, koje pružaju informacije o vidljivosti gumba i trenutačnom stanju.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Promjeni stanje komponente (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Promjeni stanje komponente (gumb)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ovaj događaj se aktivira kada korisnik klikne na gumb \"Prikaži više/Prikaži manje\". Vraća objekt koji sadrži informacije o trenutačnom stanju komponente, uključujući <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ovaj događaj se aktivira kada korisnik klikne na gumb \"Prikaži više/Prikaži manje\". Vraća objekt koji sadrži informacije o trenutačnom stanju komponente, uključujući <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Prikaži skraćeni tekst"
 }

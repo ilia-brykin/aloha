@@ -1,6 +1,6 @@
-# AInputNumberRange (_A_INPUT_NUMBER_RANGE_COMPONENT_NAME_)
+# AInputNumberRange (Number range)
 
-_A_INPUT_NUMBER_RANGE_COMPONENT_DESCRIPTION_
+The **AInputNumberRange** component consists of two number fields "from" and "to". The model is an object with the keys `min` and `max`.
 
 ## Basic usage
 
@@ -77,9 +77,9 @@ export default {
 };
 ```
 
-## _A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_HEADER_
+## Integers
 
-_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_DESCRIPTION_
+`type="integerRange"` allows only integers in both fields.
 
 *props: `type='integerRange'`*
 
@@ -117,9 +117,9 @@ export default {
 };
 ```
 
-## _A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_
+## Non-negative integers
 
-_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_
+`type="integerNonNegativeRange"` allows integers from 0.
 
 *props: `type='integerNonNegativeRange'`*
 
@@ -157,9 +157,9 @@ export default {
 };
 ```
 
-## _A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_HEADER_
+## Positive integers
 
-_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_DESCRIPTION_
+`type="integerPositiveRange"` allows integers from 1.
 
 *props: `type='integerPositiveRange'`*
 
@@ -197,9 +197,9 @@ export default {
 };
 ```
 
-## _A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_HEADER_
+## Placeholders
 
-_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_DESCRIPTION_
+`placeholder-min` and `placeholder-max` set the placeholder of each field.
 
 *props: `placeholder-max`, `placeholder-min`*
 

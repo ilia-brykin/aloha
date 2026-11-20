@@ -1,1 +1,5 @@
-{}
+{
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Podgląd pod wierszem)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Podgląd pod wierszem",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "Z <code>preview=\"down\"</code> slot <code>preview</code> otwiera się bezpośrednio pod klikniętym wierszem."
+}

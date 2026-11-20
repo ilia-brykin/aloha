@@ -7,10 +7,10 @@ Displays important alert messages.
 *props: `is-visible`*
 
 ```html
-<a-alert>
+<a-alert
   html="AAlert"
   :is-visible="true"
-</a-alert>
+></a-alert>
 ```
 
 ## Types
@@ -548,7 +548,7 @@ export default {
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
 | aria-atomic | Boolean | true |  | Specifies whether the entire alert region should be announced by assistive technologies when its content changes. |
 | btn-close-attributes | Object | {} |  | An object that defines the properties of the close button. |
-| btn-close-icon | String | XLg |  | _A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_ |
+| btn-close-icon | String | XLg |  | Icon of the close button. |
 | closable | Boolean | false |  | Whether alert can be dismissed |
 | extra | Object |  |  | An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like **"_WELCOME_{{foo}}_{{bar}}_"**, which is translated as **"Welcome {{ foo }}: {{ bar }}"**, you can pass an object like **{ foo: "abc", bar: "123" }**, and the result will be the translation **"Welcome abc: 123"**. |
 | html | String |  |  | HTML to be shown inside the component |
@@ -560,7 +560,7 @@ export default {
 | safe-html | String |  |  | Safe HTML to be shown inside the component |
 | show-icon | Boolean | false |  | Whether a type icon is displayed |
 | text | String |  |  | Plain Text to be shown inside the component |
-| text-close | String | _ALERT_CLOSE_ |  | The text for the close button to be read by the screen reader |
+| text-close | String | _A_ALERT_CLOSE_ |  | The text for the close button to be read by the screen reader |
 | type | String | danger |  | Alert type |
 
 ## Slots

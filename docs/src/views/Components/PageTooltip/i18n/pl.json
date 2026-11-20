@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Margines strzałki",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Ustawia margines, który ogranicza, jak blisko krawędzi podpowiedzi może znaleźć się strzałka.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Funkcja zwrotna marginesu strzałki",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Margines strzałki można także obliczać dynamicznie za pomocą funkcji zwrotnej (callback)."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Margines strzałki można także obliczać dynamicznie za pomocą funkcji zwrotnej (callback).",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Minimalna odległość w px między strzałką a krawędziami tooltipa. Funkcja otrzymuje rozmiary i zwraca liczbę.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID tooltipa. Element otrzymuje aria-describedby z tym ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "Tooltip nie jest pokazywany, tylko zawartość domyślnego slotu.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Maksymalna szerokość tooltipa w px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Minimalna szerokość tooltipa w px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Odległość w px między tooltipem a elementem.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Przesunięcie tooltipa w px wzdłuż elementu.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Położenie tooltipa względem elementu, np. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID kontenera na końcu body, w którym renderowany jest tooltip.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Pokazuje strzałkę tooltipa.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "Znacznik HTML elementu wokół domyślnego slotu.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Czas w ms do zamknięcia tooltipa po opuszczeniu elementu lub tooltipa przez wskaźnik.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Stała szerokość tooltipa w px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "Element nie otrzymuje aria-describedby, np. gdy tekst tooltipa jest już odczytywany inaczej.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "Element, który pokazuje tooltip po najechaniu i fokusie.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Zawartość tooltipa."
 }

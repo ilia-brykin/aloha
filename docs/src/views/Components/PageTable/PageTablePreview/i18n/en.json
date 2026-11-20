@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Preview on the right",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "The slot <code>preview</code> shows details of the clicked row next to the table. <code>disabled-preview-row-callback</code> switches the preview off for single rows.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Preview with pagination",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "The preview also works with <code>pagination.use</code>: the arrows of the preview switch to the previous and next row."
 }

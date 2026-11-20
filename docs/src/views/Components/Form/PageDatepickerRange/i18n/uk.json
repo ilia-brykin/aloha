@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "використання пропсів 'format' і 'formatSave' для користувацьких форматів відображення та збереження в компоненті вибору діапазону дат.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Довідковий текст у виборі діапазону дат",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Використання пропса 'helpText' для надання додаткового контексту або інструкцій для компонента вибору діапазону дат.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Перший день — четвер"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Перший день — четвер",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Діапазон дат"
 }

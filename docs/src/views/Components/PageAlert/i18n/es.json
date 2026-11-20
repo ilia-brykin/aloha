@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "El texto para el botón de cierre que será leído por el lector de pantalla",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Texto plano que se mostrará dentro del componente",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Tipo de alerta",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenido de la alerta"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenido de la alerta",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icono del botón de cierre."
 }

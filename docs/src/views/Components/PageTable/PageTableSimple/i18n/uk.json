@@ -2,5 +2,14 @@
   "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Компонент для простого подання даних у табличному форматі без розширених функцій, як-от сортування, фільтрація чи додаткові дії.",
   "_A_TABLE_GROUP_SIMPLE_HEADER_": "Проста таблиця",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Проста таблиця",
-  "_A_TABLE_SIMPLE_": "Таблиця"
+  "_A_TABLE_SIMPLE_": "Таблиця",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Згруповані колонки",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Колонки з <code>children</code> отримують спільний заголовок над підколонками. <code>:has-mobile=\"false\"</code> зберігає вигляд таблиці на малих екранах.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Таблиця зі згрупованими колонками",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Проста HTML-таблиця",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> рендерить нативну <code>&lt;table&gt;</code> без панелі інструментів і додаткових можливостей <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Проста HTML-таблиця",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Слоти мобільного вигляду",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "На малих екранах кожен рядок показується карткою. Слоти <code>rowMobilePrepend</code> і <code>rowMobileAppend</code> додають вміст на початок і в кінець кожної картки.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Таблиця зі слотами мобільного вигляду"
 }

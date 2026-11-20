@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "علامة HTML للقائمة بأكملها",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "فئة CSS مثال: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "تقوم الوظيفة بإنشاء قائمة من مصفوفة.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "بنية شجرة isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "بنية شجرة isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "القيمة المُعادة إذا كانت المصفوفة فارغة أو ليست مصفوفة",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML بين العناصر، مثل فاصل سطر (فقط إذا كان <strong>isHtml=true</strong>)"
 }

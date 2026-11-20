@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Pfeilabstand",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Legt den Abstand fest, der begrenzt, wie nah der Pfeil an die Ränder des Tooltips gelangen kann.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback für Pfeilabstand",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Der Pfeilabstand kann auch dynamisch mit einer Callback-Funktion berechnet werden."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Der Pfeilabstand kann auch dynamisch mit einer Callback-Funktion berechnet werden.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Mindestabstand in px zwischen dem Pfeil und den Rändern des Tooltips. Eine Funktion erhält die Größen und gibt die Zahl zurück.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID des Tooltips. Das Element erhält aria-describedby mit dieser ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "Der Tooltip wird nicht angezeigt, nur der Inhalt des Default-Slots.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Maximale Breite des Tooltips in px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Minimale Breite des Tooltips in px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Abstand in px zwischen dem Tooltip und dem Element.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Verschiebung des Tooltips in px entlang des Elements.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Position des Tooltips relativ zum Element, z. B. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID des Containers am Ende des Body, in dem der Tooltip gerendert wird.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Zeigt den Pfeil des Tooltips.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "HTML-Tag des Elements um den Default-Slot.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Zeit in ms, bevor sich der Tooltip schließt, nachdem der Zeiger das Element oder den Tooltip verlassen hat.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Feste Breite des Tooltips in px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "Das Element erhält kein aria-describedby, z. B. wenn der Text des Tooltips bereits anders vorgelesen wird.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "Das Element, das den Tooltip bei Hover und Fokus anzeigt.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Inhalt des Tooltips."
 }

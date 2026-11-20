@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Anteprima sotto la riga)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Anteprima sotto la riga",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "Con <code>preview=\"down\"</code> lo slot <code>preview</code> si apre subito sotto la riga cliccata."
 }

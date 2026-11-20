@@ -938,8 +938,8 @@ export default {
 | btn-icon-right-more | String |  |  | Right side icon for 'Show more' button. |
 | btn-id | String |  |  | ID for the button. |
 | btn-parent-class | String | a_text_center |  | CSS class for parent button tag. |
-| btn-text-less | String | _SHOW_LESS_ |  | Text for 'Show less' button. |
-| btn-text-more | String | _SHOW_MORE_ |  | Text for 'Show more' button. |
+| btn-text-less | String | _A_SHOW_MORE_LESS_ |  | Text for 'Show less' button. |
+| btn-text-more | String | _A_SHOW_MORE_MORE_ |  | Text for 'Show more' button. |
 | btn-title-less | String |  |  | Title for 'Show less' button. |
 | btn-title-more | String |  |  | Title for 'Show more' button. |
 | btn-title-placement | String |  |  | Title placement for the button, only works when is-btn-title-html is true. |

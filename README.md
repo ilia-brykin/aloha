@@ -80,6 +80,16 @@ export default {
 </script>
 ```
 
+## AI agents
+
+The package contains documentation for AI coding agents (Claude Code, Cursor, Copilot, Codex…): `node_modules/aloha-vue/AGENTS.md` (setup, translations, filters, styles) and one markdown file per docs page in `node_modules/aloha-vue/llms/`. Add this line to the `AGENTS.md` / `CLAUDE.md` of your project:
+
+```md
+UI library: aloha-vue. Before using it, read node_modules/aloha-vue/AGENTS.md.
+```
+
+After changes in the docs, regenerate the files with `npm run build-llms`.
+
 ## Development
 
 ### Documentation

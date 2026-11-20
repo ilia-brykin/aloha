@@ -1,12 +1,12 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-checkbox>
+  const codeHtml = `<a-checkbox
   v-model="modelCheckbox"
   :data="dataCheckbox"
   :translate-data="true"
   class="a_mb_4"
   key-id="value"
   key-label="label"
-</a-checkbox>
+></a-checkbox>
 <a-simple-table
   :add-row="addRow"
   :columns="columns"

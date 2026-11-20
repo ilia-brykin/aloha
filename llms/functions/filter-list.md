@@ -29,7 +29,7 @@ filterList(array, { [defaultValue=""], [isHtml=true], [isSimpleArray=false], [ke
 ```
 
 - **array** (Array): The array for the list
-- **[defaultValue=""]** (String): _PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_
+- **[defaultValue=""]** (String): Value returned if the array is empty or not an array
 - **[isHtml=true]** (Boolean): If **True**, an HTML list (<ul><li>...</li></ul>) is created. Otherwise, a text list is generated
 - **[isSimpleArray=false]** (Boolean): Indicates whether only a simple array without objects is used
 - **[keyChildren=""]** (String): Key for child elements (only if **isSimpleArray=false**)
@@ -38,7 +38,7 @@ filterList(array, { [defaultValue=""], [isHtml=true], [isSimpleArray=false], [ke
 - **[lastSeparator]** (String): Specifies the separator to be used before the final element in the list.
 - **[listClass=""]** (String): CSS class e.g.: (a_list_without_styles)
 - **[separator]** (String): Separator between elements (only if **isHtml=false**)
-- **[separatorHtml=""]** (String): _PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_
+- **[separatorHtml=""]** (String): HTML between the elements, e.g. a line break (only if **isHtml=true**)
 - **[tag="ul"]** (String): HTML tag for the entire list
 
 ## isSimpleArray=true

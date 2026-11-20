@@ -1,10 +1,10 @@
-# ATable (_A_TABLE_COMPONENT_NAME_)
+# ATable (Table)
 
-_A_TABLE_COMPONENT_DESCRIPTION_
+The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
 
-## _A_TABLE_GROUP_COMPLEX_HEADER_
+## Table with all features
 
-_A_TABLE_GROUP_COMPLEX_DESCRIPTION_
+Row, table and multiple actions, quick search, moving of columns, pagination, footer rows, sorting by several columns and saved views in one table.
 
 ```html
 <a-table
@@ -70,9 +70,9 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_COMPLEX_HEADER_
+## Table with all features
 
-_A_TABLE_GROUP_COMPLEX_DESCRIPTION_
+Row, table and multiple actions, quick search, moving of columns, pagination, footer rows, sorting by several columns and saved views in one table.
 
 *props: `dropdown`*
 

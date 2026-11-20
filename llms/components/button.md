@@ -1210,7 +1210,7 @@ The AButton component allows you to display additional text inside the button. T
 ```html
 <a-button
   class="a_btn a_btn_primary"
-  text="_SHOW_MORE_"
+  text="_A_SHOW_MORE_MORE_"
   text-after=" €"
   text-before="$ "
 ></a-button>
