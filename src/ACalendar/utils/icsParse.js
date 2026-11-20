@@ -3,6 +3,9 @@ import {
   WINDOWS_TIME_ZONES,
 } from "./windowsTimeZones";
 import {
+  normalizeStatus,
+} from "./utils";
+import {
   isFunction,
 } from "lodash-es";
 
@@ -223,9 +226,6 @@ function parseVevent(properties, warn) {
   const SOURCE = { uid: UID, label: LABEL };
   const warnEvent = (code, value) => warn({ ...SOURCE, code, value });
 
-  if ((getText("STATUS") || "").toUpperCase() === "CANCELLED") {
-    return { skipped: { ...SOURCE, code: "cancelled" } };
-  }
   const START = get("DTSTART") && parseDateValue(get("DTSTART"), (code, value) => warnEvent(code, value));
   if (!START) {
     return { skipped: { ...SOURCE, code: "noStart" } };
@@ -243,6 +243,8 @@ function parseVevent(properties, warn) {
     uid: UID,
     label: LABEL,
     isAllDay: START.isDate,
+    // TENTATIVE and CANCELLED become the status of the calendar, CONFIRMED is a normal event
+    status: normalizeStatus(getText("STATUS")),
   };
   if (START.isDate) {
     // The end of an all-day event is the day after its last day: the calendar needs the last day
@@ -307,6 +309,9 @@ function toItem(event, keys) {
   if (event.recurrence) {
     ITEM[keyName(keys.keyRecurrence, "recurrence")] = event.recurrence;
   }
+  if (event.status) {
+    ITEM[keyName(keys.keyStatus, "status")] = event.status;
+  }
   if (event.description) {
     ITEM.description = event.description;
   }
@@ -326,12 +331,12 @@ function toItem(event, keys) {
  * - RRULE: daily, weekly (also on weekdays), monthly, yearly with INTERVAL, COUNT, UNTIL. EXDATE becomes exceptions.
  *   Other rules (e.g. "the second Tuesday of the month"): the event is imported once and a warning is added.
  * - A changed occurrence (RECURRENCE-ID) becomes a single event and an exception of its series.
- * - DESCRIPTION and LOCATION are kept as description and location (the calendar does not show them).
+ * - DESCRIPTION and LOCATION are kept as description and location, STATUS (TENTATIVE, CANCELLED) as status.
  *
  * @param {string} text - The text of the .ics file
  * @param {Object} [options] - keyId, keyLabel, keyStart, keyEnd, keyIsAllDay, keyRecurrence: the keys of the events (like the props of ACalendar)
  *
- * @returns {{ events: Array, skipped: Array, warnings: Array }} - skipped: { uid, label, code: "cancelled" | "noStart" },
+ * @returns {{ events: Array, skipped: Array, warnings: Array }} - skipped: { uid, label, code: "noStart" },
  *   warnings: { uid, label, code: "rruleNotSupported" | "timeZoneUnknown", value }
  */
 export function parseCalendarIcs(text, {
@@ -341,8 +346,9 @@ export function parseCalendarIcs(text, {
   keyLabel = "label",
   keyRecurrence = "recurrence",
   keyStart = "start",
+  keyStatus = "status",
 } = {}) {
-  const KEYS = { keyEnd, keyId, keyIsAllDay, keyLabel, keyRecurrence, keyStart };
+  const KEYS = { keyEnd, keyId, keyIsAllDay, keyLabel, keyRecurrence, keyStart, keyStatus };
   const SKIPPED = [];
   const WARNINGS = [];
   const PARSED = [];

@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_WORKWEEK_HEADER_"
+  description="_A_CALENDAR_WORKWEEK_DESCRIPTION_"
+  :props="['work-week-days', 'is-week-numbers', 'working-hours']"
+)
+  a-calendar(
+    v-model="model"
+    view="workweek"
+    :views="['month', 'workweek']"
+    :events="events"
+    :is-week-numbers="true"
+    :working-hours="{ start: 8, end: 18 }"
+  )

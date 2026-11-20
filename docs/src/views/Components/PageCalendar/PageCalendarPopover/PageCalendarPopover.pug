@@ -1,0 +1,32 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_DETAILS_HEADER_"
+  description="_A_CALENDAR_DETAILS_DESCRIPTION_"
+  :props="['is-event-popover', 'key-location', 'key-description']"
+)
+  a-calendar(
+    :events="events"
+    :is-event-popover="true"
+  )
+    template(
+      v-slot:popoverActions="{ event, close }"
+    )
+      a-button(
+        class="a_btn a_btn_outline_danger a_btn_small"
+        text="_A_CALENDAR_DETAILS_DELETE_"
+        @click="deleteEvent({ event })"
+      )
+      a-button(
+        class="a_btn a_btn_primary a_btn_small"
+        text="_A_CALENDAR_DETAILS_EDIT_"
+        @click="editEvent({ event, close })"
+      )
+  p.a_mt_3.a_mb_0(
+    v-if="lastAction"
+  )
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_DETAILS_LAST_"
+    )
+    | : {{ lastAction }}

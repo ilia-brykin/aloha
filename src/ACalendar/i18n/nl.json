@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "Vorige dag",
   "_A_CALENDAR_NEXT_DAY_": "Volgende dag",
   "_A_CALENDAR_VIEW_DAY_": "Dag",
-  "_A_CALENDAR_RECURRING_": "terugkerend"
+  "_A_CALENDAR_RECURRING_": "terugkerend",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "Werkweek",
+  "_A_CALENDAR_VIEW_AGENDA_": "Lijst",
+  "_A_CALENDAR_AGENDA_EMPTY_": "Geen afspraken",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "Wk",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "Week {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "niet beschikbaar",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "voorlopig",
+  "_A_CALENDAR_STATUS_CANCELLED_": "geannuleerd",
+  "_A_CALENDAR_LOADING_": "Afspraken worden geladen…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "Sluiten",
+  "_A_CALENDAR_POPOVER_TIME_": "Tijd",
+  "_A_CALENDAR_POPOVER_LOCATION_": "Locatie",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "Beschrijving",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt en pijltoetsen: afspraak verplaatsen, Alt, Shift en pijltoetsen: einde wijzigen.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "\"{{label}}\" verplaatst: {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "Duur van \"{{label}}\" gewijzigd: {{time}}"
 }

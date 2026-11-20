@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_SMALL_HEADER_"
+  description="_A_CALENDAR_SMALL_DESCRIPTION_"
+)
+  div(
+    style="max-width: 22rem;"
+  )
+    a-calendar(
+      :events="events"
+      :views="['month', 'agenda']"
+      :is-event-popover="true"
+    )

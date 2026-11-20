@@ -6,6 +6,11 @@ export default function ExposesAPI() {
       type: "Function",
     },
     {
+      name: "closePopover",
+      description: "_A_CALENDAR_EXPOSES_CLOSE_POPOVER_",
+      type: "Function",
+    },
+    {
       name: "downloadIcs",
       description: "_A_CALENDAR_EXPOSES_DOWNLOAD_ICS_",
       type: "Function",

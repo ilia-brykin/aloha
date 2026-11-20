@@ -98,6 +98,15 @@ function getEventLines({ event, uidDomain, stamp }) {
     }
   }
   LINES.push(`SUMMARY:${ escapeText(event.label) }`);
+  if (event.status) {
+    LINES.push(`STATUS:${ event.status.toUpperCase() }`);
+  }
+  if (event.location) {
+    LINES.push(`LOCATION:${ escapeText(event.location) }`);
+  }
+  if (event.description) {
+    LINES.push(`DESCRIPTION:${ escapeText(event.description) }`);
+  }
   if (event.recurrence) {
     LINES.push(getRrule(event));
     LINES.push(...getExdates(event));
@@ -130,8 +139,11 @@ export function getCalendarIcs({
   keyLabel = "label",
   keyRecurrence = "recurrence",
   keyStart = "start",
+  keyStatus = "status",
+  keyLocation = "location",
+  keyDescription = "description",
 } = {}) {
-  const KEYS = { keyColor, keyEnd, keyId, keyIsAllDay, keyLabel, keyRecurrence, keyStart };
+  const KEYS = { keyColor, keyDescription, keyEnd, keyId, keyIsAllDay, keyLabel, keyLocation, keyRecurrence, keyStart, keyStatus };
   const STAMP = toUtc(now);
   const LINES = [
     "BEGIN:VCALENDAR",

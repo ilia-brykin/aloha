@@ -26,12 +26,15 @@ export default function TextsAPI() {
     return event.isAllDay ? "" : formatTime.value.format(event.start);
   };
 
-  const getDayAriaLabel = day => {
-    const TEXT = formatDay.value.format(day.date);
-    if (!day.eventsCount) {
-      return TEXT;
+  const getDayAriaLabel = (day, { isDisabled = false } = {}) => {
+    const PARTS = [formatDay.value.format(day.date)];
+    if (day.eventsCount) {
+      PARTS.push(getTranslatedText({ placeholder: "_A_CALENDAR_EVENTS_{{count}}_", extra: { count: day.eventsCount } }));
     }
-    return `${ TEXT }, ${ getTranslatedText({ placeholder: "_A_CALENDAR_EVENTS_{{count}}_", extra: { count: day.eventsCount } }) }`;
+    if (isDisabled) {
+      PARTS.push(getTranslatedText({ placeholder: "_A_CALENDAR_DAY_DISABLED_" }));
+    }
+    return PARTS.join(", ");
   };
 
   const getDateTimeText = (date, isAllDay) => {
@@ -47,7 +50,8 @@ export default function TextsAPI() {
       end = formatTime.value.format(event.end);
     }
     const RECURRING = event.isRecurring ? `, ${ getTranslatedText({ placeholder: "_A_CALENDAR_RECURRING_" }) }` : "";
-    return `${ event.label }, ${ getDateTimeText(event.start, event.isAllDay) }${ end ? ` – ${ end }` : "" }${ RECURRING }`;
+    const STATUS = event.status ? `, ${ getTranslatedText({ placeholder: `_A_CALENDAR_STATUS_${ event.status.toUpperCase() }_` }) }` : "";
+    return `${ event.label }, ${ getDateTimeText(event.start, event.isAllDay) }${ end ? ` – ${ end }` : "" }${ RECURRING }${ STATUS }`;
   };
 
   const getMoreText = count => {
@@ -62,9 +66,40 @@ export default function TextsAPI() {
     return formatTime.value.format(new Date(2000, 0, 1, hour));
   };
 
-  const getText = placeholder => getTranslatedText({ placeholder });
+  const getText = (placeholder, extra) => getTranslatedText({ placeholder, extra });
+
+  // Popover: "Dienstag, 10. März 2026, 09:00 – 10:30" or the days of an event over several days
+  const getPopoverTimeText = event => {
+    const TIME = date => event.isAllDay ? "" : `, ${ formatTime.value.format(date) }`;
+    if (event.startDay !== event.endDay) {
+      return `${ formatDay.value.format(event.start) }${ TIME(event.start) } – ${ formatDay.value.format(event.end) }${ TIME(event.end) }`;
+    }
+    const END = !event.isAllDay && event.end > event.start ? ` – ${ formatTime.value.format(event.end) }` : "";
+    return `${ formatDay.value.format(event.start) }${ TIME(event.start) }${ END }`;
+  };
+
+  const formatAgendaDay = computed(() => {
+    return new Intl.DateTimeFormat(language.value || undefined, { weekday: "short", day: "numeric", month: "short" });
+  });
+
+  // Agenda: the day of a group
+  const getAgendaDayText = day => formatAgendaDay.value.format(day.date);
+
+  // Agenda: "All day", the days of an event over several days or the time
+  const getAgendaTimeText = event => {
+    if (event.startDay !== event.endDay) {
+      return `${ formatDate.value.format(event.start) } – ${ formatDate.value.format(event.end) }`;
+    }
+    if (event.isAllDay) {
+      return getTranslatedText({ placeholder: "_A_CALENDAR_ALL_DAY_" });
+    }
+    return event.end > event.start ? getEventTimeRangeText(event) : formatTime.value.format(event.start);
+  };
 
   return {
+    getPopoverTimeText,
+    getAgendaDayText,
+    getAgendaTimeText,
     getDayAriaLabel,
     getEventAriaLabel,
     getEventTimeRangeText,

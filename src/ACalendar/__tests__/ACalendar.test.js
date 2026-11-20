@@ -7,6 +7,7 @@ import {
   describe,
   expect,
   it,
+  vi,
 } from "vitest";
 import {
   mount,
@@ -376,18 +377,45 @@ describe("ACalendar", () => {
   });
 
   describe("drag and drop", () => {
-    const dataTransfer = () => ({ setData: () => {}, effectAllowed: "", dropEffect: "" });
+    // After pointerup the next click is blocked until the next task: it must not reach the next test
+    afterEach(() => new Promise(resolve => setTimeout(resolve)));
+
     const findEvent = (wrapper, label, selector = ".a_calendar__event") => wrapper.findAll(selector).find(event => event.text().includes(label));
     const findDay = (wrapper, number) => wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === String(number));
     const mockRect = (element, rect) => {
       element.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 20, ...rect });
     };
+    const pointer = (type, init = {}) => window.dispatchEvent(new MouseEvent(type, { bubbles: true, ...init }));
+    // jsdom has no PointerEvent: a MouseEvent with pointerType
+    const pointerdown = async(wrapperElement, { pointerType = "mouse", ...init } = {}) => {
+      const EVENT = new MouseEvent("pointerdown", { bubbles: true, cancelable: true, ...init });
+      Object.defineProperty(EVENT, "pointerType", { value: pointerType });
+      wrapperElement.element.dispatchEvent(EVENT);
+      await nextTick();
+    };
+
+    /**
+     * Presses the event, moves the pointer to the target (document.elementFromPoint returns it) and releases it.
+     * isDrop false: stops before pointerup.
+     */
+    const drag = async({ event, target, from = { clientX: 10, clientY: 10 }, to = { clientX: 60, clientY: 60 }, isDrop = true }) => {
+      const ELEMENT_FROM_POINT = document.elementFromPoint;
+      document.elementFromPoint = () => target?.element;
+      await pointerdown(event, from);
+      pointer("pointermove", to);
+      await nextTick();
+      if (isDrop) {
+        pointer("pointerup", to);
+        await nextTick();
+      }
+      document.elementFromPoint = ELEMENT_FROM_POINT;
+    };
 
     it("is off by default, isDraggable can be a function", () => {
-      expect(mountCalendar().find(".a_calendar__event[draggable]").exists()).toBe(false);
+      expect(mountCalendar().find(".a_calendar__event_draggable").exists()).toBe(false);
       const wrapper = mountCalendar({ isDraggable: item => item.id !== 1 });
-      expect(findEvent(wrapper, "Trip").attributes("draggable")).toBeUndefined();
-      expect(findEvent(wrapper, "Meeting").attributes("draggable")).toBe("true");
+      expect(findEvent(wrapper, "Trip").classes()).not.toContain("a_calendar__event_draggable");
+      expect(findEvent(wrapper, "Meeting").classes()).toContain("a_calendar__event_draggable");
       wrapper.unmount();
     });
 
@@ -395,20 +423,35 @@ describe("ACalendar", () => {
       const wrapper = mountCalendar({ isDraggable: true });
       const MEETING = findEvent(wrapper, "Meeting");
       mockRect(MEETING.element, {});
-      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 10, clientY: 10 });
-      await new Promise(resolve => setTimeout(resolve));
+      const DAY_12 = findDay(wrapper, 12);
+      await drag({ event: MEETING, target: DAY_12, isDrop: false });
       expect(wrapper.get(".a_calendar").classes()).toContain("a_calendar_dragging");
       expect(findEvent(wrapper, "Meeting").classes()).toContain("a_calendar__event_dragging");
-
-      const DAY_12 = findDay(wrapper, 12);
-      await DAY_12.trigger("dragover", { dataTransfer: dataTransfer() });
       expect(DAY_12.classes()).toContain("a_calendar__drop_target");
-      await DAY_12.trigger("drop", { dataTransfer: dataTransfer() });
+
+      pointer("pointerup", { clientX: 60, clientY: 60 });
+      await nextTick();
       const DROP = wrapper.emitted("event-drop")[0][0];
       expect(DROP.event).toEqual(EVENTS[1]);
       expect(DROP.start).toEqual(new Date(2026, 2, 12, 9, 0));
       expect(DROP.end).toEqual(new Date(2026, 2, 12, 10, 30));
       expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_dragging");
+      // The click after the drop does not open the event
+      await findEvent(wrapper, "Meeting").trigger("click");
+      expect(wrapper.emitted("event-click")).toBeUndefined();
+      wrapper.unmount();
+    });
+
+    it("a click without moving is a click, not a drag", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      const MEETING = findEvent(wrapper, "Meeting");
+      mockRect(MEETING.element, {});
+      await pointerdown(MEETING, { clientX: 10, clientY: 10 });
+      pointer("pointermove", { clientX: 12, clientY: 11 });
+      pointer("pointerup", { clientX: 12, clientY: 11 });
+      await MEETING.trigger("click");
+      expect(wrapper.emitted("event-drop")).toBeUndefined();
+      expect(wrapper.emitted("event-click")).toHaveLength(1);
       wrapper.unmount();
     });
 
@@ -417,20 +460,20 @@ describe("ACalendar", () => {
       // The bar 09.03. - 15.03. is grabbed on the third day (11.03.)
       const TRIP = findEvent(wrapper, "Trip");
       mockRect(TRIP.element, { width: 700 });
-      await TRIP.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 250 });
-      await findDay(wrapper, 13).trigger("drop", { dataTransfer: dataTransfer() });
+      await drag({ event: TRIP, target: findDay(wrapper, 13), from: { clientX: 250, clientY: 10 }, to: { clientX: 400, clientY: 10 } });
       const DROP = wrapper.emitted("event-drop")[0][0];
       expect(DROP.start).toEqual(new Date(2026, 2, 11));
       expect(DROP.end).toEqual(new Date(2026, 2, 19));
       wrapper.unmount();
     });
 
-    it("no event-drop if the event stays at its place", async() => {
-      const wrapper = mountCalendar({ isDraggable: true });
+    it("no event-drop if the event stays at its place or lands on a disabled day", async() => {
+      const wrapper = mountCalendar({ isDraggable: true, disabledDates: ["2026-03-12"] });
       const MEETING = findEvent(wrapper, "Meeting");
       mockRect(MEETING.element, {});
-      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer() });
-      await findDay(wrapper, 10).trigger("drop", { dataTransfer: dataTransfer() });
+      await drag({ event: MEETING, target: findDay(wrapper, 10) });
+      await new Promise(resolve => setTimeout(resolve));
+      await drag({ event: findEvent(wrapper, "Meeting"), target: findDay(wrapper, 12) });
       expect(wrapper.emitted("event-drop")).toBeUndefined();
       wrapper.unmount();
     });
@@ -440,21 +483,18 @@ describe("ACalendar", () => {
       const MEETING = findEvent(wrapper, "Meeting", ".a_calendar__event_timed");
       // Grabbed 10 px below its top
       mockRect(MEETING.element, { top: 540, height: 90 });
-      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer(), clientY: 550 });
-
       const COLUMN = wrapper.findAll(".a_calendar__time_column")[3];
       mockRect(COLUMN.element, { top: 0, height: 1440 });
-      await COLUMN.trigger("dragover", { dataTransfer: dataTransfer(), clientY: 790 });
+      await drag({ event: MEETING, target: COLUMN, from: { clientX: 10, clientY: 550 }, to: { clientX: 300, clientY: 790 }, isDrop: false });
       expect(wrapper.get(".a_calendar__drop_preview").text()).toBe("13:00 – 14:30");
       expect(wrapper.get(".a_calendar__drop_preview").attributes("style")).toContain("top: 54.1666");
 
-      await COLUMN.trigger("drop", { dataTransfer: dataTransfer(), clientY: 790 });
+      pointer("pointerup", { clientX: 300, clientY: 790 });
+      await nextTick();
       const DROP = wrapper.emitted("event-drop")[0][0];
       expect(DROP.start).toEqual(new Date(2026, 2, 12, 13, 0));
       expect(DROP.end).toEqual(new Date(2026, 2, 12, 14, 30));
       expect(wrapper.find(".a_calendar__drop_preview").exists()).toBe(false);
-      // The drop does not create an event
-      expect(wrapper.emitted("time-click")).toBeUndefined();
       wrapper.unmount();
     });
 
@@ -462,21 +502,54 @@ describe("ACalendar", () => {
       const wrapper = mountCalendar({ isDraggable: true, view: "week" });
       const TRIP = wrapper.get(".a_calendar__all_day .a_calendar__event");
       mockRect(TRIP.element, { width: 700 });
-      await TRIP.trigger("dragstart", { dataTransfer: dataTransfer(), clientX: 50 });
-      await wrapper.findAll(".a_calendar__all_day_cell")[2].trigger("drop", { dataTransfer: dataTransfer() });
+      await drag({ event: TRIP, target: wrapper.findAll(".a_calendar__all_day_cell")[2], from: { clientX: 50, clientY: 10 } });
       expect(wrapper.emitted("event-drop")[0][0].start).toEqual(new Date(2026, 2, 11));
       wrapper.unmount();
     });
 
-    it("dragend without a drop resets the drag", async() => {
+    it("touch: the drag starts after a long press, a quick move scrolls", async() => {
+      vi.useFakeTimers();
       const wrapper = mountCalendar({ isDraggable: true });
       const MEETING = findEvent(wrapper, "Meeting");
       mockRect(MEETING.element, {});
-      await MEETING.trigger("dragstart", { dataTransfer: dataTransfer() });
-      await new Promise(resolve => setTimeout(resolve));
-      await MEETING.trigger("dragend");
+      const DAY_12 = findDay(wrapper, 12);
+      const ELEMENT_FROM_POINT = document.elementFromPoint;
+      document.elementFromPoint = () => DAY_12.element;
+
+      // A quick move: no drag
+      await pointerdown(MEETING, { clientX: 10, clientY: 10, pointerType: "touch" });
+      pointer("pointermove", { clientX: 10, clientY: 40 });
+      vi.advanceTimersByTime(500);
+      await nextTick();
       expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_dragging");
-      await findDay(wrapper, 12).trigger("drop", { dataTransfer: dataTransfer() });
+
+      // A long press, then a move: drag
+      await pointerdown(MEETING, { clientX: 10, clientY: 10, pointerType: "touch" });
+      vi.advanceTimersByTime(450);
+      await nextTick();
+      expect(wrapper.get(".a_calendar").classes()).toContain("a_calendar_dragging");
+      const TOUCHMOVE = new Event("touchmove", { cancelable: true });
+      window.dispatchEvent(TOUCHMOVE);
+      // The page does not scroll while the event is dragged
+      expect(TOUCHMOVE.defaultPrevented).toBe(true);
+      pointer("pointermove", { clientX: 200, clientY: 40 });
+      pointer("pointerup", { clientX: 200, clientY: 40 });
+      expect(wrapper.emitted("event-drop")[0][0].start).toEqual(new Date(2026, 2, 12, 9, 0));
+
+      document.elementFromPoint = ELEMENT_FROM_POINT;
+      vi.useRealTimers();
+      wrapper.unmount();
+    });
+
+    it("Escape stops the drag", async() => {
+      const wrapper = mountCalendar({ isDraggable: true });
+      const MEETING = findEvent(wrapper, "Meeting");
+      mockRect(MEETING.element, {});
+      await drag({ event: MEETING, target: findDay(wrapper, 12), isDrop: false });
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await nextTick();
+      expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_dragging");
+      pointer("pointerup", { clientX: 60, clientY: 60 });
       expect(wrapper.emitted("event-drop")).toBeUndefined();
       wrapper.unmount();
     });
@@ -643,9 +716,18 @@ describe("ACalendar", () => {
       expect(CLICK.event).toEqual(SERIES);
       expect(CLICK.occurrence).toEqual({ date: "2026-03-18", start: new Date(2026, 2, 18, 9, 0), end: new Date(2026, 2, 18, 9, 15) });
 
+      await new Promise(resolve => setTimeout(resolve));
       EVENT_18.element.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 20 });
-      await EVENT_18.trigger("dragstart", { dataTransfer: { setData: () => {} } });
-      await wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === "19").trigger("drop", { dataTransfer: {} });
+      const DAY_19 = wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === "19");
+      const ELEMENT_FROM_POINT = document.elementFromPoint;
+      document.elementFromPoint = () => DAY_19.element;
+      const DOWN = new MouseEvent("pointerdown", { bubbles: true, clientX: 10, clientY: 10 });
+      Object.defineProperty(DOWN, "pointerType", { value: "mouse" });
+      EVENT_18.element.dispatchEvent(DOWN);
+      window.dispatchEvent(new MouseEvent("pointermove", { clientX: 80, clientY: 10 }));
+      window.dispatchEvent(new MouseEvent("pointerup", { clientX: 80, clientY: 10 }));
+      document.elementFromPoint = ELEMENT_FROM_POINT;
+      await new Promise(resolve => setTimeout(resolve));
       const DROP = wrapper.emitted("event-drop")[0][0];
       expect(DROP.start).toEqual(new Date(2026, 2, 19, 9, 0));
       expect(DROP.occurrence.date).toBe("2026-03-18");

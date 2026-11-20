@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_LOADING_HEADER_"
+  description="_A_CALENDAR_LOADING_DESCRIPTION_"
+  :props="['is-loading']"
+)
+  a-calendar(
+    :events="events"
+    :is-loading="isLoading"
+    @range-change="loadEvents"
+  )

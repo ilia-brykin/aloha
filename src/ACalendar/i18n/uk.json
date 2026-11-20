@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "Попередній день",
   "_A_CALENDAR_NEXT_DAY_": "Наступний день",
   "_A_CALENDAR_VIEW_DAY_": "День",
-  "_A_CALENDAR_RECURRING_": "повторюється"
+  "_A_CALENDAR_RECURRING_": "повторюється",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "Робочий тиждень",
+  "_A_CALENDAR_VIEW_AGENDA_": "Список",
+  "_A_CALENDAR_AGENDA_EMPTY_": "Немає зустрічей",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "Тиж.",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "Тиждень {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "недоступний",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "під питанням",
+  "_A_CALENDAR_STATUS_CANCELLED_": "скасовано",
+  "_A_CALENDAR_LOADING_": "Завантаження зустрічей…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "Закрити",
+  "_A_CALENDAR_POPOVER_TIME_": "Час",
+  "_A_CALENDAR_POPOVER_LOCATION_": "Місце",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "Опис",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt і стрілки: перенести зустріч, Alt, Shift і стрілки: змінити її кінець.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "«{{label}}» перенесено: {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "Тривалість «{{label}}» змінено: {{time}}"
 }

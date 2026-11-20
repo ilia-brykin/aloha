@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "اليوم السابق",
   "_A_CALENDAR_NEXT_DAY_": "اليوم التالي",
   "_A_CALENDAR_VIEW_DAY_": "يوم",
-  "_A_CALENDAR_RECURRING_": "متكرر"
+  "_A_CALENDAR_RECURRING_": "متكرر",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "أسبوع العمل",
+  "_A_CALENDAR_VIEW_AGENDA_": "قائمة",
+  "_A_CALENDAR_AGENDA_EMPTY_": "لا توجد مواعيد",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "أسبوع",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "الأسبوع {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "غير متاح",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "مبدئي",
+  "_A_CALENDAR_STATUS_CANCELLED_": "ملغى",
+  "_A_CALENDAR_LOADING_": "جارٍ تحميل المواعيد…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "إغلاق",
+  "_A_CALENDAR_POPOVER_TIME_": "الوقت",
+  "_A_CALENDAR_POPOVER_LOCATION_": "المكان",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "الوصف",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt مع مفاتيح الأسهم: نقل الموعد، Alt وShift مع مفاتيح الأسهم: تغيير نهايته.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "نُقل \"{{label}}\": {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "تغيّرت مدة \"{{label}}\": {{time}}"
 }

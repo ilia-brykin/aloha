@@ -276,6 +276,20 @@ export function getOccurrences({ start, end, recurrence, rangeStart, rangeEnd })
 }
 
 /**
+ * The number of occurrences of a series before a day ("YYYY-MM-DD"), the exceptions count too (like count of the rule).
+ */
+export function countOccurrencesBefore({ start, recurrence, dayKey }) {
+  let count = 0;
+  for (const DATE of getRecurrenceStarts({ start: moment(start), recurrence })) {
+    if (DATE.format(CALENDAR_DAY_FORMAT) >= dayKey || (recurrence.count && count >= recurrence.count)) {
+      break;
+    }
+    count++;
+  }
+  return count;
+}
+
+/**
  * The occurrence for the events of the calendar (event-click, event-drop, event-resize), undefined for a single event.
  */
 export function getOccurrenceInfo(event) {
@@ -292,7 +306,7 @@ export function getOccurrenceInfo(event) {
 /**
  * Reads an event with the keys of the calendar. Returns undefined for an event without a valid start.
  *
- * @param {Object} keys - keyId, keyLabel, keyStart, keyEnd, keyColor, keyIsAllDay, keyRecurrence
+ * @param {Object} keys - keyId, keyLabel, keyStart, keyEnd, keyColor, keyIsAllDay, keyRecurrence, keyStatus, keyLocation, keyDescription
  *
  * @returns {Object} - the event with start and end (Date), the days ("YYYY-MM-DD") and the rule of a series (recurrence)
  */
@@ -316,6 +330,26 @@ export function normalizeEventItem({ item, index, keys, colorDefault }) {
     endDay: toDayKey(end),
     startTime: START.valueOf(),
     recurrence: normalizeRecurrence(getItemValue(item, keys.keyRecurrence)),
+    status: normalizeStatus(getItemValue(item, keys.keyStatus)),
+    location: getItemValue(item, keys.keyLocation),
+    description: getItemValue(item, keys.keyDescription),
     item,
   };
+}
+
+export const CALENDAR_STATUSES = ["tentative", "cancelled"];
+
+// "tentative" or "cancelled" (also in capitals like in iCalendar), every other value is a normal event
+export function normalizeStatus(status) {
+  const STATUS = String(status ?? "").toLowerCase();
+  return CALENDAR_STATUSES.indexOf(STATUS) !== -1 ? STATUS : undefined;
+}
+
+/**
+ * The calendar week (ISO 8601, like in Germany) of a row of days: the week of its Thursday.
+ * A row without a Thursday (e.g. one day) gets the week of its first day.
+ */
+export function getWeekNumber(days) {
+  const THURSDAY = days.find(day => day.date.getDay() === 4) || days[0];
+  return THURSDAY ? moment(THURSDAY.date).isoWeek() : undefined;
 }

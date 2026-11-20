@@ -6,6 +6,8 @@ export default function ClickAPI(props, {
   emit,
   getEventsForDay = () => [],
   goToDate = () => {},
+  isDayDisabled = () => false,
+  openPopover = () => {},
 }) {
   const selectDay = ({ day }) => {
     emit("update:modelValue", day.key);
@@ -14,7 +16,11 @@ export default function ClickAPI(props, {
     }
   };
 
+  // A disabled day is not chosen
   const onClickDay = ({ day, $event }) => {
+    if (isDayDisabled(day.key)) {
+      return;
+    }
     selectDay({ day });
     emit("day-click", {
       date: day.key,
@@ -33,6 +39,7 @@ export default function ClickAPI(props, {
       occurrence: getOccurrenceInfo(event),
       $event,
     });
+    openPopover({ event, $event });
   };
 
   const onClickMore = ({ day, $event }) => {

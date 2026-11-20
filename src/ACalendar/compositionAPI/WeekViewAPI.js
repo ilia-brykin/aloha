@@ -19,10 +19,14 @@ import moment from "moment";
 export default function WeekViewAPI(props, {
   emit,
   eventsNormalized = computed(() => []),
+  isDayDisabled = () => false,
   isTimeGridView = computed(() => false),
   timeGridDays = computed(() => []),
 }) {
   const hourEnd = toRef(props, "hourEnd");
+  const maxEventsPerDay = toRef(props, "maxEventsPerDay");
+  const workingHours = toRef(props, "workingHours");
+  const workWeekDays = toRef(props, "workWeekDays");
   const hourStart = toRef(props, "hourStart");
   const scrollToHour = toRef(props, "scrollToHour");
   const timeStep = toRef(props, "timeStep");
@@ -49,14 +53,24 @@ export default function WeekViewAPI(props, {
       events: eventsNormalized.value.filter(isEventInAllDayRow),
     });
     const TIMED = eventsNormalized.value.filter(event => !isEventInAllDayRow(event));
+    // maxEventsPerDay limits the all-day row like a day of the month, the others are counted in "+N"
+    const IS_LIMITED = maxEventsPerDay.value > 0;
+    const SEGMENTS_VISIBLE = IS_LIMITED ? segments.filter(segment => segment.lane < maxEventsPerDay.value) : segments;
+    const COUNTS_VISIBLE = DAYS.map(() => 0);
+    SEGMENTS_VISIBLE.forEach(segment => {
+      for (let index = segment.start; index < segment.start + segment.span; index++) {
+        COUNTS_VISIBLE[index]++;
+      }
+    });
 
     return {
-      allDaySegments: segments,
-      allDayLanesCount: Math.max(1, segments.reduce((max, segment) => Math.max(max, segment.lane + 1), 0)),
+      allDaySegments: SEGMENTS_VISIBLE,
+      allDayLanesCount: Math.max(1, SEGMENTS_VISIBLE.reduce((max, segment) => Math.max(max, segment.lane + 1), 0)),
       days: DAYS.map((day, index) => {
         const TIMED_OF_DAY = TIMED.filter(event => event.startDay === day.key);
         return {
           ...day,
+          allDayHiddenCount: countsByDay[index] - COUNTS_VISIBLE[index],
           eventsCount: countsByDay[index] + TIMED_OF_DAY.length,
           timed: getTimedLayout({
             events: TIMED_OF_DAY,
@@ -92,8 +106,29 @@ export default function WeekViewAPI(props, {
     return Math.min(Math.max(MINUTES, minuteStart.value), Math.max(minuteStart.value, minuteEnd.value - duration));
   };
 
+  // The working hours are light, the other hours and the days outside workWeekDays are shaded
+  const getWorkingHoursStyle = day => {
+    if (!workingHours.value) {
+      return undefined;
+    }
+    if (workWeekDays.value.indexOf(day.date.getDay()) === -1) {
+      return {
+        "--a_calendar_working_start": "100%",
+        "--a_calendar_working_end": "100%",
+      };
+    }
+    const limit = minutes => Math.min(Math.max(minutes, minuteStart.value), minuteEnd.value);
+    return {
+      "--a_calendar_working_start": toPercent(limit((workingHours.value.start ?? 0) * 60) - minuteStart.value),
+      "--a_calendar_working_end": toPercent(limit((workingHours.value.end ?? 24) * 60) - minuteStart.value),
+    };
+  };
+
   // The click on an empty place of a day: the start is rounded down to timeStep
   const onClickTime = ({ day, $event }) => {
+    if (isDayDisabled(day.key)) {
+      return;
+    }
     const MINUTES = getMinutesAtY({ rect: $event.currentTarget.getBoundingClientRect(), clientY: $event.clientY });
     const START = moment(day.key).add(MINUTES, "minutes");
     const STEP = timeStepLocal.value;
@@ -156,6 +191,7 @@ export default function WeekViewAPI(props, {
   return {
     getMinutesAtY,
     getTimedStyle,
+    getWorkingHoursStyle,
     hours,
     minuteStart,
     minuteEnd,

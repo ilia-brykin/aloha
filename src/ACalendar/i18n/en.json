@@ -13,5 +13,21 @@
   "_A_CALENDAR_PREVIOUS_DAY_": "Previous day",
   "_A_CALENDAR_NEXT_DAY_": "Next day",
   "_A_CALENDAR_VIEW_DAY_": "Day",
-  "_A_CALENDAR_RECURRING_": "recurring"
+  "_A_CALENDAR_RECURRING_": "recurring",
+  "_A_CALENDAR_VIEW_WORKWEEK_": "Work week",
+  "_A_CALENDAR_VIEW_AGENDA_": "List",
+  "_A_CALENDAR_AGENDA_EMPTY_": "No events",
+  "_A_CALENDAR_WEEK_NUMBER_SHORT_": "W",
+  "_A_CALENDAR_WEEK_NUMBER_{{week}}_": "Week {{week}}",
+  "_A_CALENDAR_DAY_DISABLED_": "not available",
+  "_A_CALENDAR_STATUS_TENTATIVE_": "tentative",
+  "_A_CALENDAR_STATUS_CANCELLED_": "cancelled",
+  "_A_CALENDAR_LOADING_": "Loading events…",
+  "_A_CALENDAR_POPOVER_CLOSE_": "Close",
+  "_A_CALENDAR_POPOVER_TIME_": "Time",
+  "_A_CALENDAR_POPOVER_LOCATION_": "Location",
+  "_A_CALENDAR_POPOVER_DESCRIPTION_": "Description",
+  "_A_CALENDAR_KEYBOARD_HINT_": "Alt and arrow keys: move the event, Alt, Shift and arrow keys: change its end.",
+  "_A_CALENDAR_KEYBOARD_MOVED_{{label}}_{{time}}_": "\"{{label}}\" moved: {{time}}",
+  "_A_CALENDAR_KEYBOARD_RESIZED_{{label}}_{{time}}_": "Duration of \"{{label}}\" changed: {{time}}"
 }

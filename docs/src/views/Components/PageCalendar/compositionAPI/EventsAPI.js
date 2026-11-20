@@ -5,6 +5,10 @@ export default function EventsAPI() {
       description: "_A_CALENDAR_EVENTS_DAY_CLICK_",
     },
     {
+      name: "day-select",
+      description: "_A_CALENDAR_EVENTS_DAY_SELECT_",
+    },
+    {
       name: "event-click",
       description: "_A_CALENDAR_EVENTS_EVENT_CLICK_",
     },
@@ -27,6 +31,10 @@ export default function EventsAPI() {
     {
       name: "time-click",
       description: "_A_CALENDAR_EVENTS_TIME_CLICK_",
+    },
+    {
+      name: "time-select",
+      description: "_A_CALENDAR_EVENTS_TIME_SELECT_",
     },
     {
       name: "update:modelValue",

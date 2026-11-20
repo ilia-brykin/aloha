@@ -11,6 +11,9 @@ import {
 
 import moment from "moment";
 import {
+  preventNextClick,
+} from "../utils/dom";
+import {
   isFunction,
 } from "lodash-es";
 
@@ -21,6 +24,7 @@ import {
  */
 export default function ResizeAPI(props, {
   emit,
+  isDayDisabled = () => false,
   minuteEnd = computed(() => 1440),
   minuteStart = computed(() => 0),
   minutesCount = computed(() => 1440),
@@ -72,6 +76,10 @@ export default function ResizeAPI(props, {
     }
     const EVENT = resizeState.event;
     const KEY = ELEMENT.dataset.calendarDay;
+    // A disabled day is no end and no start: the preview stays
+    if (isDayDisabled(KEY)) {
+      return undefined;
+    }
     if (resizeState.edge === "start") {
       const DAY_KEY = KEY > EVENT.endDay ? EVENT.endDay : KEY;
       return {
@@ -102,16 +110,6 @@ export default function ResizeAPI(props, {
     window.removeEventListener("pointermove", onPointermove);
     window.removeEventListener("pointerup", onPointerup);
     window.removeEventListener("pointercancel", onPointercancel);
-  };
-
-  // The click after pulling the edge must not open the event or create a new one (time-click)
-  const preventNextClick = () => {
-    const STOP = $event => {
-      $event.stopPropagation();
-      $event.preventDefault();
-    };
-    window.addEventListener("click", STOP, { capture: true, once: true });
-    setTimeout(() => window.removeEventListener("click", STOP, { capture: true }));
   };
 
   const stopResize = () => {
