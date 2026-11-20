@@ -21,6 +21,8 @@
   "_A_CALENDAR_CREATE_COLOR_": "اللون",
   "_A_CALENDAR_CREATE_ALL_DAY_": "طوال اليوم",
   "_A_CALENDAR_CREATE_DELETE_": "حذف",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_": "حذف الموعد؟",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_": "هل تريد حذف الموعد <strong>{{label}}</strong>؟",
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "لون المواعيد التي ليس لها لون.",
   "_A_CALENDAR_PROPS_EVENTS_": "المواعيد. يتم تجاهل الموعد الذي ليس له بداية صالحة.",
   "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "أول يوم في الأسبوع: 0 هو الأحد، 1 هو الاثنين. تأتي القيمة الافتراضية من ADatepickerPlugin.",

@@ -27,6 +27,7 @@ export default {
     } = JsAPI();
 
     const {
+      btnDeleteId,
       closeModal,
       dataForm,
       deleteEvent,
@@ -43,6 +44,7 @@ export default {
     } = CreateAPI();
 
     return {
+      btnDeleteId,
       closeModal,
       codeHtml,
       codeJs,

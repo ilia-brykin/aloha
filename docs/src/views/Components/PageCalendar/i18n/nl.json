@@ -21,6 +21,8 @@
   "_A_CALENDAR_CREATE_COLOR_": "Kleur",
   "_A_CALENDAR_CREATE_ALL_DAY_": "Hele dag",
   "_A_CALENDAR_CREATE_DELETE_": "Verwijderen",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_HEADER_": "Afspraak verwijderen?",
+  "_A_CALENDAR_CREATE_DELETE_CONFIRM_BODY_{{label}}_": "Wilt u de afspraak <strong>{{label}}</strong> verwijderen?",
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "De kleur van afspraken zonder kleur.",
   "_A_CALENDAR_PROPS_EVENTS_": "De afspraken. Een afspraak zonder geldig begin wordt genegeerd.",
   "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "De eerste dag van de week: 0 is zondag, 1 is maandag. De standaard komt uit ADatepickerPlugin.",
