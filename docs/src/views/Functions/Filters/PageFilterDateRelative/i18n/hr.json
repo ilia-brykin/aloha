@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "Funkcija <strong>filterDateRelative</strong> formatira datum u odnosu na sada, npr. \"prije 5 minuta\" ili \"za 2 dana\". Tekst je na trenutačnom jeziku (<code>Intl.RelativeTimeFormat</code>). Za apsolutni datum koristite <strong>filterDate</strong>.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "Datum",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "Datum s kojim se vrijednost uspoređuje",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"jučer\", \"sutra\") ili \"always\" (\"prije 1 dan\", \"za 1 dan\")"
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "La fonction <strong>filterStripHtml</strong> supprime les balises HTML d'une chaîne et renvoie son texte, p. ex. pour des aperçus ou l'attribut <code>title</code>. Le contenu de <code>&lt;script&gt;</code> et <code>&lt;style&gt;</code> est aussi supprimé. Utilisez <strong>filterEscapeHtml</strong> pour afficher du HTML comme texte.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "La chaîne avec du HTML"
+}

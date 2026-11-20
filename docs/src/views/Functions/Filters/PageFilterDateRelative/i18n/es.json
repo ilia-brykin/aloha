@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "La función <strong>filterDateRelative</strong> formatea una fecha en relación con el momento actual, p. ej. \"hace 5 minutos\" o \"dentro de 2 días\". El texto está en el idioma actual (<code>Intl.RelativeTimeFormat</code>). Use <strong>filterDate</strong> para una fecha absoluta.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "La fecha",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "La fecha con la que se compara el valor",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"ayer\", \"mañana\") o \"always\" (\"hace 1 día\", \"dentro de 1 día\")"
+}

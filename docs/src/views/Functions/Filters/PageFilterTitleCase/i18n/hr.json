@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "Funkcija <strong>filterTitleCase</strong> pretvara prvo slovo svake riječi u veliko slovo. Ostala slova ostaju nepromijenjena, pa se kratice poput \"NASA\" zadržavaju. Za promjenu samo prvog slova niza koristite <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "Niz za pretvorbu"
+}

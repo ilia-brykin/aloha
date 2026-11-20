@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "Функція <strong>filterTitleCase</strong> робить великою першу літеру кожного слова. Інші літери не змінюються, тому абревіатури на кшталт «NASA» зберігаються. Щоб змінити лише першу літеру рядка, використовуйте <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "Рядок, який потрібно перетворити"
+}

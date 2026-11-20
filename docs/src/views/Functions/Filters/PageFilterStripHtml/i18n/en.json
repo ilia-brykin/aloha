@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "The function <strong>filterStripHtml</strong> removes HTML tags from a string and returns its text, e.g. for previews or the <code>title</code> attribute. The contents of <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> are removed too. Use <strong>filterEscapeHtml</strong> to show HTML as text.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "The string with HTML"
+}

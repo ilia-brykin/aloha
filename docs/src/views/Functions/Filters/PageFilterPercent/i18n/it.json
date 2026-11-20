@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "La funzione <strong>filterPercent</strong> formatta un valore come percentuale, ad es. \"15,30 %\". Usa <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "Il valore da formattare",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "Il numero di cifre decimali",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "Se mostrare i separatori delle migliaia",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "Se il valore è una frazione (0.153 → 15,30 %) e non una percentuale (15.3 → 15,30 %)"
+}

@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "De functie <strong>filterDateRelative</strong> toont een datum ten opzichte van nu, bijv. \"5 minuten geleden\" of \"over 2 dagen\". De tekst is in de huidige taal (<code>Intl.RelativeTimeFormat</code>). Gebruik <strong>filterDate</strong> voor een absolute datum.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "De datum",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "De datum waarmee de waarde wordt vergeleken",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"gisteren\", \"morgen\") of \"always\" (\"1 dag geleden\", \"over 1 dag\")"
+}

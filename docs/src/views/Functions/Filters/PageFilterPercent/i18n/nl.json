@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "De functie <strong>filterPercent</strong> formatteert een waarde als percentage, bijv. \"15,30 %\". Ze gebruikt <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "De te formatteren waarde",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "Het aantal decimalen",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "Of scheidingstekens voor duizendtallen worden getoond",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "Of de waarde een fractie (0.153 → 15,30 %) is en geen percentage (15.3 → 15,30 %)"
+}

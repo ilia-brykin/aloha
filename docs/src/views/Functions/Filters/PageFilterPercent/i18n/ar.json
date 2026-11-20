@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "تقوم الدالة <strong>filterPercent</strong> بتنسيق القيمة كنسبة مئوية، مثل \"15,30 %\". وهي تستخدم <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "القيمة المراد تنسيقها",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "عدد المنازل العشرية",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "ما إذا كانت فواصل الآلاف تُعرض",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "ما إذا كانت القيمة كسرًا (0.153 → 15,30 %) وليست نسبة مئوية (15.3 → 15,30 %)"
+}

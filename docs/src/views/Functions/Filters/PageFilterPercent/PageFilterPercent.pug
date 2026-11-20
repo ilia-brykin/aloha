@@ -1,0 +1,34 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_PERCENT_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterPercent"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterPercent"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterPercent(value, { [digits=2], [digitGrouping=true], [isFraction=false] })"
+    )
+
+    page-filter-percent-example
+
+    page-filter-percent-digits
+
+    page-filter-percent-is-fraction
+
+    page-filter-test(
+      :test="test"
+    )

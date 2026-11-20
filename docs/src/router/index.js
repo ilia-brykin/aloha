@@ -563,6 +563,16 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
   },
   {
+    path: "/filter-strip-html",
+    name: "PageFilterStripHtml",
+    component: () => import("../views/Functions/Filters/PageFilterStripHtml/PageFilterStripHtml.vue"),
+  },
+  {
+    path: "/filter-title-case",
+    name: "PageFilterTitleCase",
+    component: () => import("../views/Functions/Filters/PageFilterTitleCase/PageFilterTitleCase.vue"),
+  },
+  {
     path: "/filter-truncate-middle",
     name: "PageFilterTruncateMiddle",
     component: () => import("../views/Functions/Filters/PageFilterTruncateMiddle/PageFilterTruncateMiddle.vue"),
@@ -581,6 +591,11 @@ const ROUTES = [
     path: "/filter-number-compact",
     name: "PageFilterNumberCompact",
     component: () => import("../views/Functions/Filters/PageFilterNumberCompact/PageFilterNumberCompact.vue"),
+  },
+  {
+    path: "/filter-percent",
+    name: "PageFilterPercent",
+    component: () => import("../views/Functions/Filters/PageFilterPercent/PageFilterPercent.vue"),
   },
   {
     path: "/filter-capitalize",
@@ -616,6 +631,11 @@ const ROUTES = [
     path: "/filter-date",
     name: "PageFilterDate",
     component: () => import("../views/Functions/Filters/PageFilterDate/PageFilterDate.vue"),
+  },
+  {
+    path: "/filter-date-relative",
+    name: "PageFilterDateRelative",
+    component: () => import("../views/Functions/Filters/PageFilterDateRelative/PageFilterDateRelative.vue"),
   },
   {
     path: "/filter-float",

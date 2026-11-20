@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "The function <strong>filterDateRelative</strong> formats a date relative to now, e.g. \"5 minutes ago\" or \"in 2 days\". The text is in the current language (<code>Intl.RelativeTimeFormat</code>). Use <strong>filterDate</strong> for an absolute date.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "The date",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "The date the value is compared to",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"yesterday\", \"tomorrow\") or \"always\" (\"1 day ago\", \"in 1 day\")"
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "Funkcja <strong>filterStripHtml</strong> usuwa znaczniki HTML z ciągu i zwraca jego tekst, np. do podglądów lub atrybutu <code>title</code>. Zawartość <code>&lt;script&gt;</code> i <code>&lt;style&gt;</code> również jest usuwana. Aby wyświetlić HTML jako tekst, użyj <strong>filterEscapeHtml</strong>.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "Ciąg z HTML"
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "تزيل الدالة <strong>filterStripHtml</strong> وسوم HTML من النص وتعيد النص فقط، مثلًا للمعاينات أو للسمة <code>title</code>. يُزال أيضًا محتوى <code>&lt;script&gt;</code> و<code>&lt;style&gt;</code>. لعرض HTML كنص استخدم <strong>filterEscapeHtml</strong>.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "النص الذي يحتوي على HTML"
+}

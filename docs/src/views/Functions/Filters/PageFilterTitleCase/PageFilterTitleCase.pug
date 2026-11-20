@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_TITLE_CASE_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterTitleCase"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterTitleCase"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterTitleCase(value)"
+    )
+
+    page-filter-title-case-example
+
+    page-filter-test(
+      :test="test"
+    )

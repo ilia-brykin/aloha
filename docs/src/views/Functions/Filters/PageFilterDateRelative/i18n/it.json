@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "La funzione <strong>filterDateRelative</strong> formatta una data rispetto a adesso, ad es. \"5 minuti fa\" o \"tra 2 giorni\". Il testo è nella lingua corrente (<code>Intl.RelativeTimeFormat</code>). Per una data assoluta usare <strong>filterDate</strong>.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "La data",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "La data con cui viene confrontato il valore",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"ieri\", \"domani\") o \"always\" (\"1 giorno fa\", \"tra 1 giorno\")"
+}
