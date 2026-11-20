@@ -1,0 +1,70 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_IMPORT_HEADER_"
+  description="_A_CALENDAR_IMPORT_DESCRIPTION_"
+)
+  .a_d_flex.a_flex_wrap.a_gap_3.a_align_items_end.a_mb_3
+    a-input-file(
+      v-model="file"
+      :is-dropzone="true"
+      accept=".ics,text/calendar"
+      label="_A_CALENDAR_IMPORT_FILE_"
+    )
+    a-button(
+      class="a_btn a_btn_outline_secondary"
+      text="_A_CALENDAR_IMPORT_SAMPLE_"
+      @click="useSample"
+    )
+  template(
+    v-if="imported.length || skipped.length || warnings.length"
+  )
+    .a_d_flex.a_align_items_center.a_gap_3.a_mb_3
+      a-translation(
+        tag="strong"
+        text="_A_CALENDAR_IMPORT_READ_{{count}}_"
+        :extra="{ count: imported.length }"
+      )
+      a-button(
+        v-if="imported.length"
+        class="a_btn a_btn_primary"
+        text="_A_CALENDAR_IMPORT_SAVE_"
+        @click="save"
+      )
+    div(
+      v-if="warnings.length"
+    )
+      a-translation(
+        tag="strong"
+        text="_A_CALENDAR_IMPORT_WARNINGS_"
+      )
+      ul
+        li(
+          v-for="(warning, index) in warnings"
+          :key="index"
+        )
+          a-translation(
+            tag="span"
+            :text="getCodeText(warning.code)"
+            :extra="{ label: warning.label, value: warning.value }"
+          )
+    div(
+      v-if="skipped.length"
+    )
+      a-translation(
+        tag="strong"
+        text="_A_CALENDAR_IMPORT_SKIPPED_"
+      )
+      ul
+        li(
+          v-for="(item, index) in skipped"
+          :key="index"
+        )
+          a-translation(
+            tag="span"
+            :text="getCodeText(item.code)"
+            :extra="{ label: item.label }"
+          )
+  a-calendar(
+    :events="calendarEvents"
+  )
