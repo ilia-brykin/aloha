@@ -1,0 +1,1 @@
+import{Qt as e,Rt as t}from"./chunk.vendor.CTxSDDRk.js";import{t as n}from"./chunk._plugin-vue_export-helper.BDNMzG2s.js";var r={};function i(n,r){return e(),t(`div`,null,`NOT FOUND`)}var a=n(r,[[`render`,i]]);export{a as default};
