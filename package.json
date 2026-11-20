@@ -39,6 +39,7 @@
   "scripts": {
     "build-lib": "vite build --config vite.lib.config.mjs",
     "build-styles": "sass scss/aloha-vue.scss dist/aloha-vue.css",
+    "build-llms": "cd docs && node scripts/build-llms.mjs",
     "pub": "npm publish --scope=@npm",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -78,7 +79,9 @@
     "vitest": "5.0.3"
   },
   "files": [
+    "AGENTS.md",
     "dist",
+    "llms",
     "src",
     "CHANGELOG.md",
     "LICENSE",
