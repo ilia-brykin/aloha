@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "La función <strong>filterStripHtml</strong> elimina las etiquetas HTML de una cadena y devuelve su texto, p. ej. para vistas previas o el atributo <code>title</code>. También se elimina el contenido de <code>&lt;script&gt;</code> y <code>&lt;style&gt;</code>. Use <strong>filterEscapeHtml</strong> para mostrar HTML como texto.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "La cadena con HTML"
+}

@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "Funkcija <strong>filterPercent</strong> formatira vrijednost kao postotak, npr. \"15,30 %\". Koristi <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "Vrijednost za formatiranje",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "Broj decimalnih mjesta",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "Prikazuju li se razdjelnici tisućica",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "Je li vrijednost udio (0.153 → 15,30 %), a ne postotak (15.3 → 15,30 %)"
+}

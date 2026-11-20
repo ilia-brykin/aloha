@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "Функция <strong>filterDateRelative</strong> показывает дату относительно текущего момента, например «5 минут назад» или «через 2 дня». Текст на текущем языке (<code>Intl.RelativeTimeFormat</code>). Для абсолютной даты используйте <strong>filterDate</strong>.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "Дата",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "Дата, с которой сравнивается значение",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" («вчера», «завтра») или \"always\" («1 день назад», «через 1 день»)"
+}

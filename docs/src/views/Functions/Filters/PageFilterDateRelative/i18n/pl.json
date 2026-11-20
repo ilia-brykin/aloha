@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "Funkcja <strong>filterDateRelative</strong> formatuje datę względem chwili obecnej, np. „5 minut temu” lub „za 2 dni”. Tekst jest w bieżącym języku (<code>Intl.RelativeTimeFormat</code>). Dla daty bezwzględnej użyj <strong>filterDate</strong>.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "Data",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "Data, z którą porównywana jest wartość",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" („wczoraj”, „jutro”) lub \"always\" („1 dzień temu”, „za 1 dzień”)"
+}

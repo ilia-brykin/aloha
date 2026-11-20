@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "De functie <strong>filterTitleCase</strong> zet de eerste letter van elk woord om in een hoofdletter. De andere letters blijven ongewijzigd, dus afkortingen zoals \"NASA\" blijven behouden. Gebruik <strong>filterCapitalize</strong> om alleen de eerste letter van de string te wijzigen.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "De om te zetten string"
+}

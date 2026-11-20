@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "Функция <strong>filterPercent</strong> форматирует значение как проценты, например «15,30 %». Она использует <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "Значение, которое нужно отформатировать",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "Количество знаков после запятой",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "Показывать ли разделители разрядов",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "Является ли значение долей (0.153 → 15,30 %), а не процентами (15.3 → 15,30 %)"
+}

@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_PERCENT_DESCRIPTION_": "Die Funktion <strong>filterPercent</strong> formatiert einen Wert als Prozentangabe, z. B. \"15,30 %\". Sie verwendet <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_VALUE_": "Der zu formatierende Wert",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGITS_": "Die Anzahl der Nachkommastellen",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_DIGIT_GROUPING_": "Ob Tausendertrennzeichen angezeigt werden",
+  "_PAGE_FILTER_PERCENT_ARGUMENTS_IS_FRACTION_": "Ob der Wert ein Anteil (0.153 → 15,30 %) und kein Prozentwert (15.3 → 15,30 %) ist"
+}

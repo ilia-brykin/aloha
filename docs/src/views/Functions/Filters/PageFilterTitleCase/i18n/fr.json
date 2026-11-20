@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "La fonction <strong>filterTitleCase</strong> met en majuscule la première lettre de chaque mot. Les autres lettres ne changent pas, les abréviations comme « NASA » sont donc conservées. Utilisez <strong>filterCapitalize</strong> pour ne changer que la première lettre de la chaîne.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "La chaîne à convertir"
+}

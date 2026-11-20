@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "The function <strong>filterTitleCase</strong> converts the first letter of every word to upper case. The other letters stay as they are, so abbreviations like \"NASA\" are kept. Use <strong>filterCapitalize</strong> to change only the first letter of the string.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "The string to convert"
+}

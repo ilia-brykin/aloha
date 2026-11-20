@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "Функция <strong>filterTitleCase</strong> делает заглавной первую букву каждого слова. Остальные буквы не меняются, поэтому аббревиатуры вроде «NASA» сохраняются. Чтобы изменить только первую букву строки, используйте <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "Строка, которую нужно преобразовать"
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "La funzione <strong>filterTitleCase</strong> rende maiuscola la prima lettera di ogni parola. Le altre lettere restano invariate, quindi le abbreviazioni come \"NASA\" vengono mantenute. Per cambiare solo la prima lettera della stringa usare <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "La stringa da convertire"
+}

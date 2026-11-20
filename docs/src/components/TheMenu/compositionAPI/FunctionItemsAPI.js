@@ -43,6 +43,14 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterDateRelative",
+            label: "filterDateRelative",
+            class: "test_menu_filter_daterelative",
+            to: {
+              name: "PageFilterDateRelative",
+            },
+          },
+          {
             id: "PageFilterDefaultForEmpty",
             label: "filterDefaultForEmpty",
             class: "test_menu_filter_default_for_empty",
@@ -163,6 +171,14 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterPercent",
+            label: "filterPercent",
+            class: "test_menu_filter_percent",
+            to: {
+              name: "PageFilterPercent",
+            },
+          },
+          {
             id: "PageFilterPropertyByValue",
             label: "filterPropertyByValue",
             class: "test_menu_filter_property_by_value",
@@ -176,6 +192,22 @@ export default function FunctionItemsAPI() {
             class: "test_menu_filter_search_highlight",
             to: {
               name: "PageFilterSearchHighlight",
+            },
+          },
+          {
+            id: "PageFilterStripHtml",
+            label: "filterStripHtml",
+            class: "test_menu_filter_striphtml",
+            to: {
+              name: "PageFilterStripHtml",
+            },
+          },
+          {
+            id: "PageFilterTitleCase",
+            label: "filterTitleCase",
+            class: "test_menu_filter_titlecase",
+            to: {
+              name: "PageFilterTitleCase",
             },
           },
           {

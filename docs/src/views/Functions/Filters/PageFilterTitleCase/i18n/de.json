@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "Die Funktion <strong>filterTitleCase</strong> wandelt den ersten Buchstaben jedes Wortes in einen Großbuchstaben um. Die anderen Buchstaben bleiben unverändert, Abkürzungen wie \"NASA\" bleiben also erhalten. Um nur den ersten Buchstaben des Strings zu ändern, verwenden Sie <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "Der umzuwandelnde String"
+}

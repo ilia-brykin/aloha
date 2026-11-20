@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "De functie <strong>filterStripHtml</strong> verwijdert HTML-tags uit een string en geeft de tekst terug, bijv. voor voorbeelden of het attribuut <code>title</code>. De inhoud van <code>&lt;script&gt;</code> en <code>&lt;style&gt;</code> wordt ook verwijderd. Gebruik <strong>filterEscapeHtml</strong> om HTML als tekst te tonen.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "De string met HTML"
+}
