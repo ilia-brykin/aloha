@@ -50,6 +50,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "isResizable",
+      description: "_A_CALENDAR_PROPS_IS_RESIZABLE_",
+      type: "Boolean | Function",
+      default: "false",
+      required: false,
+    },
+    {
       name: "keyColor",
       description: "_A_CALENDAR_PROPS_KEY_COLOR_",
       type: "String | Function",

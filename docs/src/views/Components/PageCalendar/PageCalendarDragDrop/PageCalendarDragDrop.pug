@@ -3,14 +3,16 @@ aloha-example(
   :code-js="codeJs"
   header="_A_CALENDAR_DRAG_HEADER_"
   description="_A_CALENDAR_DRAG_DESCRIPTION_"
-  :props="['is-draggable']"
+  :props="['is-draggable', 'is-resizable']"
 )
   a-calendar(
     v-model="model"
     v-model:view="view"
     :events="events"
     :is-draggable="isDraggable"
-    @event-drop="onEventDrop"
+    :is-resizable="isDraggable"
+    @event-drop="onEventChange"
+    @event-resize="onEventChange"
   )
   p.a_mt_3.a_mb_0(
     v-if="lastDrop"

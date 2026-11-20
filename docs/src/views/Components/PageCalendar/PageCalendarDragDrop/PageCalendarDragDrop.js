@@ -34,7 +34,7 @@ export default {
       isDraggable,
       lastDrop,
       model,
-      onEventDrop,
+      onEventChange,
       view,
     } = DragDropAPI({
       // The birthday is locked
@@ -49,7 +49,7 @@ export default {
       isDraggable,
       lastDrop,
       model,
-      onEventDrop,
+      onEventChange,
       view,
     };
   },

@@ -18,7 +18,7 @@ export default {
       isDraggable,
       lastDrop,
       model,
-      onEventDrop,
+      onEventChange,
       view,
     } = DragDropAPI({
       events: [
@@ -34,7 +34,7 @@ export default {
       isDraggable,
       lastDrop,
       model,
-      onEventDrop,
+      onEventChange,
       view,
     };
   },
@@ -58,8 +58,8 @@ export default function DragDropAPI({ events: eventsStart = [], date }) {
   // Events with isLocked cannot be dragged
   const isDraggable = event => !event.isLocked;
 
-  // The calendar does not change the events: the new start and end are saved here
-  const onEventDrop = ({ event, start, end }) => {
+  // event-drop and event-resize: the calendar does not change the events, the new start and end are saved here
+  const onEventChange = ({ event, start, end }) => {
     const FORMAT = event.isAllDay ? "YYYY-MM-DD" : DATETIME_FORMAT;
     events.value = events.value.map(item => item.id === event.id ? {
       ...item,
@@ -74,7 +74,7 @@ export default function DragDropAPI({ events: eventsStart = [], date }) {
     isDraggable,
     lastDrop,
     model,
-    onEventDrop,
+    onEventChange,
     view,
   };
 }`;

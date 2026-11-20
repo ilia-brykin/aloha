@@ -16,6 +16,7 @@ import {
 export default function DragAPI(props, {
   emit,
   getMinutesAtY = () => 0,
+  isResizing = () => false,
   minuteStart = computed(() => 0),
   minutesCount = computed(() => 1440),
 }) {
@@ -45,6 +46,11 @@ export default function DragAPI(props, {
    * @param {boolean} isTimed - The event lies in the time grid
    */
   const onDragstartEvent = ({ event, dayKeys, isTimed = false, $event }) => {
+    // The edge of the event is pulled: no drag of the whole event
+    if (isResizing()) {
+      $event.preventDefault();
+      return;
+    }
     const RECT = $event.currentTarget.getBoundingClientRect();
     const INDEX = dayKeys.length > 1 && RECT.width ?
       Math.min(dayKeys.length - 1, Math.max(0, Math.floor(($event.clientX - RECT.left) / RECT.width * dayKeys.length))) :

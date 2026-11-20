@@ -13,6 +13,10 @@ export default function EventsAPI() {
       description: "_A_CALENDAR_EVENTS_EVENT_DROP_",
     },
     {
+      name: "event-resize",
+      description: "_A_CALENDAR_EVENTS_EVENT_RESIZE_",
+    },
+    {
       name: "more-click",
       description: "_A_CALENDAR_EVENTS_MORE_CLICK_",
     },
