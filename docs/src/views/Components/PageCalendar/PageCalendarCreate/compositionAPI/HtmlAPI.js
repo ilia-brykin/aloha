@@ -19,7 +19,18 @@ export default function HtmlAPI() {
   :disabled-save="isSaveDisabled"
   class-columns="a_columns a_columns_count_12 a_columns_gap_3"
   class-column-default="a_column a_column_6 a_column_12_touch"
-/>`;
+>
+  <template
+    v-if="isEditing"
+    v-slot:modalFooterAppend
+  >
+    <a-button
+      class="a_btn a_btn_outline_danger"
+      text="_A_CALENDAR_CREATE_DELETE_"
+      @click="deleteEvent"
+    />
+  </template>
+</a-modal-form>`;
 
   return {
     codeHtml,
