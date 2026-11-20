@@ -9,5 +9,8 @@
   "_A_CALENDAR_VIEW_": "Ansicht",
   "_A_CALENDAR_VIEW_MONTH_": "Monat",
   "_A_CALENDAR_VIEW_WEEK_": "Woche",
-  "_A_CALENDAR_ALL_DAY_": "Ganztägig"
+  "_A_CALENDAR_ALL_DAY_": "Ganztägig",
+  "_A_CALENDAR_PREVIOUS_DAY_": "Vorheriger Tag",
+  "_A_CALENDAR_NEXT_DAY_": "Nächster Tag",
+  "_A_CALENDAR_VIEW_DAY_": "Tag"
 }

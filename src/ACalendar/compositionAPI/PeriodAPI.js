@@ -31,7 +31,8 @@ export default function PeriodAPI(props, { emit }) {
   watch(view, () => {
     viewLocal.value = view.value;
   });
-  const isWeekView = computed(() => viewLocal.value === "week");
+  // The week and the day show the hours, the month shows the days
+  const isTimeGridView = computed(() => viewLocal.value === "week" || viewLocal.value === "day");
 
   // A day of the shown period: the month or the week that contains it is shown
   const viewDate = ref(modelValueKey.value || moment().format(CALENDAR_DAY_FORMAT));
@@ -43,7 +44,7 @@ export default function PeriodAPI(props, { emit }) {
     }
   };
 
-  const unit = computed(() => isWeekView.value ? "week" : "month");
+  const unit = computed(() => viewLocal.value);
 
   const goToPrevious = () => {
     viewDate.value = moment(viewDate.value).subtract(1, unit.value).format(CALENDAR_DAY_FORMAT);
@@ -74,10 +75,18 @@ export default function PeriodAPI(props, { emit }) {
     });
   });
 
-  // The days that can get the focus: the days of the month (without the days of the other months) or of the week
+  // The columns of the time grid: the 7 days of the week or one day
+  const timeGridDays = computed(() => {
+    if (viewLocal.value === "day") {
+      return weekDays.value.filter(day => day.key === viewDate.value);
+    }
+    return weekDays.value;
+  });
+
+  // The days that can get the focus: the days of the month (without the days of the other months), of the week or the day
   const focusableDayKeys = computed(() => {
-    if (isWeekView.value) {
-      return weekDays.value.map(day => day.key);
+    if (isTimeGridView.value) {
+      return timeGridDays.value.map(day => day.key);
     }
     return weeks.value.flat().filter(day => day.isCurrentMonth).map(day => day.key);
   });
@@ -86,8 +95,8 @@ export default function PeriodAPI(props, { emit }) {
     if (viewNew === viewLocal.value) {
       return;
     }
-    // From the month to the week: the week of the selected day or of today, if it is in the shown month
-    if (viewNew === "week") {
+    // To the week or the day: the selected day or today, if it is shown, otherwise the first shown day
+    if (viewNew !== "month") {
       const KEYS = focusableDayKeys.value;
       viewDate.value = [modelValueKey.value, moment().format(CALENDAR_DAY_FORMAT)].find(key => KEYS.indexOf(key) !== -1) || KEYS[0];
     }
@@ -96,7 +105,11 @@ export default function PeriodAPI(props, { emit }) {
   };
 
   const title = computed(() => {
-    if (isWeekView.value) {
+    if (viewLocal.value === "day") {
+      return new Intl.DateTimeFormat(language.value || undefined, { weekday: "long", day: "numeric", month: "long", year: "numeric" })
+        .format(timeGridDays.value[0].date);
+    }
+    if (viewLocal.value === "week") {
       const FORMAT = new Intl.DateTimeFormat(language.value || undefined, { day: "numeric", month: "long", year: "numeric" });
       return FORMAT.formatRange(weekDays.value[0].date, weekDays.value[6].date);
     }
@@ -114,8 +127,13 @@ export default function PeriodAPI(props, { emit }) {
     }));
   });
 
+  const timeGridWeekdays = computed(() => {
+    const FORMAT = new Intl.DateTimeFormat(language.value || undefined, { weekday: viewLocal.value === "day" ? "long" : "short" });
+    return timeGridDays.value.map(day => FORMAT.format(day.date));
+  });
+
   const range = computed(() => {
-    const DAYS = isWeekView.value ? weekDays.value : weeks.value.flat();
+    const DAYS = isTimeGridView.value ? timeGridDays.value : weeks.value.flat();
     return {
       start: DAYS[0].key,
       end: DAYS[DAYS.length - 1].key,
@@ -136,12 +154,13 @@ export default function PeriodAPI(props, { emit }) {
     goToNext,
     goToPrevious,
     goToToday,
-    isWeekView,
+    isTimeGridView,
     modelValueKey,
     range,
     title,
     viewLocal,
-    weekDays,
+    timeGridDays,
+    timeGridWeekdays,
     weekdays,
     weeks,
   };

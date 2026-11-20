@@ -242,7 +242,7 @@ describe("ACalendar", () => {
   it("week view: the buttons change the week, the switch changes the view", async() => {
     const wrapper = mountCalendar();
     const VIEW_BUTTONS = wrapper.findAll(".a_calendar__views button");
-    expect(VIEW_BUTTONS.map(button => button.attributes("aria-pressed"))).toEqual(["true", "false"]);
+    expect(VIEW_BUTTONS.map(button => button.attributes("aria-pressed"))).toEqual(["true", "false", "false"]);
     await VIEW_BUTTONS[1].trigger("click");
     expect(wrapper.emitted("update:view")[0]).toEqual(["week"]);
     // The week of the selected day
@@ -284,6 +284,49 @@ describe("ACalendar", () => {
     expect(wrapper.get(".a_calendar__title").text()).toBe("16.–22. März 2026");
     expect(document.activeElement.classList.contains("a_calendar__week_day")).toBe(true);
     expect(document.activeElement.textContent).toContain("17");
+    wrapper.unmount();
+  });
+
+  it("day view: one column with the hours", () => {
+    const wrapper = mountCalendar({ view: "day" });
+    expect(wrapper.get(".a_calendar__title").text()).toBe("Dienstag, 10. März 2026");
+    expect(wrapper.get(".a_calendar__week_view").attributes("style")).toContain("--a_calendar_days: 1");
+    expect(wrapper.findAll(".a_calendar__week_day")).toHaveLength(1);
+    expect(wrapper.get(".a_calendar__week_day_name").text()).toBe("Dienstag");
+    expect(wrapper.findAll(".a_calendar__time_column")).toHaveLength(1);
+    // The trip in the all-day row over the one column, the two timed events of the day in the grid
+    expect(wrapper.get(".a_calendar__all_day .a_calendar__event").attributes("style")).toContain("grid-column: 2 / span 1");
+    expect(wrapper.findAll(".a_calendar__event_timed").map(event => event.get(".a_calendar__event_label").text())).toEqual(["Meeting", "Custom"]);
+    expect(wrapper.emitted("range-change")[0][0]).toEqual({ start: "2026-03-10", end: "2026-03-10", month: "2026-03", view: "day" });
+    wrapper.unmount();
+  });
+
+  it("day view: the buttons change the day, arrows move to the next day", async() => {
+    const wrapper = mountCalendar({ view: "day" });
+    const BUTTONS = wrapper.findAll(".a_calendar__header_actions > button");
+    expect(BUTTONS[0].get(".a_sr_only").text()).toBe("_A_CALENDAR_PREVIOUS_DAY_");
+    await BUTTONS[2].trigger("click");
+    expect(wrapper.get(".a_calendar__title").text()).toBe("Mittwoch, 11. März 2026");
+
+    await wrapper.get(".a_calendar__week_day").trigger("keydown", { key: "ArrowRight" });
+    await nextTick();
+    await nextTick();
+    expect(wrapper.get(".a_calendar__title").text()).toBe("Donnerstag, 12. März 2026");
+    expect(document.activeElement).toBe(wrapper.get(".a_calendar__week_day").element);
+    wrapper.unmount();
+  });
+
+  it("day view: from the month to the day of the selected day", async() => {
+    const wrapper = mountCalendar();
+    await wrapper.findAll(".a_calendar__views button")[2].trigger("click");
+    expect(wrapper.emitted("update:view")[0]).toEqual(["day"]);
+    expect(wrapper.get(".a_calendar__title").text()).toBe("Dienstag, 10. März 2026");
+    wrapper.unmount();
+  });
+
+  it("views: one view hides the switch", () => {
+    const wrapper = mountCalendar({ views: ["month"] });
+    expect(wrapper.find(".a_calendar__views").exists()).toBe(false);
     wrapper.unmount();
   });
 

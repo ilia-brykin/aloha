@@ -11,6 +11,9 @@ export default function TranslateAPI() {
     "_A_CALENDAR_VIEW_MONTH_",
     "_A_CALENDAR_VIEW_WEEK_",
     "_A_CALENDAR_ALL_DAY_",
+    "_A_CALENDAR_PREVIOUS_DAY_",
+    "_A_CALENDAR_NEXT_DAY_",
+    "_A_CALENDAR_VIEW_DAY_",
   ];
 
   return {

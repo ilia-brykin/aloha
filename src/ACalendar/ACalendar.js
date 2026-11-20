@@ -141,12 +141,13 @@ export default {
       goToNext,
       goToPrevious,
       goToToday,
-      isWeekView,
+      isTimeGridView,
       modelValueKey,
       range,
       title,
       viewLocal,
-      weekDays,
+      timeGridDays,
+      timeGridWeekdays,
       weekdays,
       weeks,
     } = PeriodAPI(props, { emit });
@@ -168,8 +169,8 @@ export default {
     } = WeekViewAPI(props, {
       emit,
       eventsNormalized,
-      isWeekView,
-      weekDays,
+      isTimeGridView,
+      timeGridDays,
     });
 
     const {
@@ -181,7 +182,7 @@ export default {
     } = FocusAPI(props, {
       focusableDayKeys,
       goToDate,
-      isWeekView,
+      isTimeGridView,
       modelValueKey,
     });
 
@@ -233,7 +234,7 @@ export default {
       goToPrevious,
       goToToday,
       hours,
-      isWeekView,
+      isTimeGridView,
       modelValueKey,
       nowStyle,
       onClickDay,
@@ -246,6 +247,7 @@ export default {
       setDayElement,
       setTimeScrollElement,
       tabbableKey,
+      timeGridWeekdays,
       title,
       viewLocal,
       weekdays,
@@ -269,8 +271,8 @@ export default {
           goToPreviousMonth: this.goToPrevious,
         });
       }
-      const TEXT_PREVIOUS = this.isWeekView ? "_A_CALENDAR_PREVIOUS_WEEK_" : "_A_CALENDAR_PREVIOUS_MONTH_";
-      const TEXT_NEXT = this.isWeekView ? "_A_CALENDAR_NEXT_WEEK_" : "_A_CALENDAR_NEXT_MONTH_";
+      const TEXT_PREVIOUS = `_A_CALENDAR_PREVIOUS_${ this.viewLocal.toUpperCase() }_`;
+      const TEXT_NEXT = `_A_CALENDAR_NEXT_${ this.viewLocal.toUpperCase() }_`;
       return h("div", {
         class: "a_calendar__header",
       }, [
@@ -466,10 +468,14 @@ export default {
       }));
     },
 
-    renderWeek() {
+    // The week and the day: a column for every day under the hours
+    renderTimeGrid() {
       const VIEW = this.weekView;
       return h("div", {
         class: "a_calendar__week_view",
+        style: {
+          "--a_calendar_days": VIEW.days.length,
+        },
         role: "group",
         "aria-labelledby": this.$slots.header ? undefined : `${ this.id }_title`,
       }, [
@@ -487,7 +493,7 @@ export default {
               h("span", {
                 class: "a_calendar__week_day_name",
                 "aria-hidden": "true",
-              }, this.weekdays[index].short),
+              }, this.timeGridWeekdays[index]),
               h("span", {
                 class: "a_calendar__day_number",
               }, day.day),
@@ -558,7 +564,7 @@ export default {
       class: ["a_calendar", `a_calendar_${ this.viewLocal }`],
     }, [
       this.renderHeader(),
-      this.isWeekView ? this.renderWeek() : this.renderMonth(),
+      this.isTimeGridView ? this.renderTimeGrid() : this.renderMonth(),
     ]);
   },
 };

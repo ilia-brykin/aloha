@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageCalendarBasic from "./PageCalendarBasic/PageCalendarBasic.vue";
 import PageCalendarCreate from "./PageCalendarCreate/PageCalendarCreate.vue";
+import PageCalendarDay from "./PageCalendarDay/PageCalendarDay.vue";
 import PageCalendarMaxEvents from "./PageCalendarMaxEvents/PageCalendarMaxEvents.vue";
 import PageCalendarMultiDay from "./PageCalendarMultiDay/PageCalendarMultiDay.vue";
 import PageCalendarSlots from "./PageCalendarSlots/PageCalendarSlots.vue";
@@ -27,6 +28,7 @@ export default {
     ATranslation,
     PageCalendarBasic,
     PageCalendarCreate,
+    PageCalendarDay,
     PageCalendarMaxEvents,
     PageCalendarMultiDay,
     PageCalendarSlots,

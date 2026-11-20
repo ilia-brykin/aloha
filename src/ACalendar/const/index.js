@@ -4,4 +4,4 @@ export const CALENDAR_DAY_FORMAT = "YYYY-MM-DD";
 
 export const CALENDAR_WEEKS_COUNT = 6;
 
-export const CALENDAR_VIEWS = ["month", "week"];
+export const CALENDAR_VIEWS = ["month", "week", "day"];

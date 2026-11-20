@@ -9,5 +9,8 @@
   "_A_CALENDAR_VIEW_": "العرض",
   "_A_CALENDAR_VIEW_MONTH_": "شهر",
   "_A_CALENDAR_VIEW_WEEK_": "أسبوع",
-  "_A_CALENDAR_ALL_DAY_": "طوال اليوم"
+  "_A_CALENDAR_ALL_DAY_": "طوال اليوم",
+  "_A_CALENDAR_PREVIOUS_DAY_": "اليوم السابق",
+  "_A_CALENDAR_NEXT_DAY_": "اليوم التالي",
+  "_A_CALENDAR_VIEW_DAY_": "يوم"
 }

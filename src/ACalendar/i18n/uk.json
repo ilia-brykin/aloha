@@ -9,5 +9,8 @@
   "_A_CALENDAR_VIEW_": "Вигляд",
   "_A_CALENDAR_VIEW_MONTH_": "Місяць",
   "_A_CALENDAR_VIEW_WEEK_": "Тиждень",
-  "_A_CALENDAR_ALL_DAY_": "Увесь день"
+  "_A_CALENDAR_ALL_DAY_": "Увесь день",
+  "_A_CALENDAR_PREVIOUS_DAY_": "Попередній день",
+  "_A_CALENDAR_NEXT_DAY_": "Наступний день",
+  "_A_CALENDAR_VIEW_DAY_": "День"
 }
