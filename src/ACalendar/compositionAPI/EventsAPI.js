@@ -5,7 +5,9 @@ import {
 
 import {
   getItemValue,
+  getOccurrences,
   getWeekSegments,
+  normalizeRecurrence,
   toDayKey,
   toMoment,
 } from "../utils/utils";
@@ -14,7 +16,10 @@ import {
   CALENDAR_COLORS,
 } from "../const";
 
-export default function EventsAPI(props, { weeks }) {
+export default function EventsAPI(props, {
+  range = computed(() => ({})),
+  weeks = computed(() => []),
+}) {
   const colorDefault = toRef(props, "colorDefault");
   const events = toRef(props, "events");
   const keyColor = toRef(props, "keyColor");
@@ -22,6 +27,7 @@ export default function EventsAPI(props, { weeks }) {
   const keyId = toRef(props, "keyId");
   const keyIsAllDay = toRef(props, "keyIsAllDay");
   const keyLabel = toRef(props, "keyLabel");
+  const keyRecurrence = toRef(props, "keyRecurrence");
   const keyStart = toRef(props, "keyStart");
   const maxEventsPerDay = toRef(props, "maxEventsPerDay");
 
@@ -36,7 +42,7 @@ export default function EventsAPI(props, { weeks }) {
       if (!end || end.isBefore(START)) {
         end = START;
       }
-      EVENTS.push({
+      const EVENT = {
         key: getItemValue(item, keyId.value) ?? index,
         label: getItemValue(item, keyLabel.value),
         color: getItemValue(item, keyColor.value) || colorDefault.value,
@@ -47,6 +53,31 @@ export default function EventsAPI(props, { weeks }) {
         endDay: toDayKey(end),
         startTime: START.valueOf(),
         item,
+      };
+      const RECURRENCE = normalizeRecurrence(getItemValue(item, keyRecurrence.value));
+      if (!RECURRENCE) {
+        EVENTS.push(EVENT);
+        return;
+      }
+      // A series: one event for every occurrence on the shown days, all with the same item
+      getOccurrences({
+        start: EVENT.start,
+        end: EVENT.end,
+        recurrence: RECURRENCE,
+        rangeStart: range.value.start,
+        rangeEnd: range.value.end,
+      }).forEach(occurrence => {
+        EVENTS.push({
+          ...EVENT,
+          key: `${ EVENT.key }__${ occurrence.date }`,
+          start: occurrence.start,
+          end: occurrence.end,
+          startDay: occurrence.date,
+          endDay: toDayKey(occurrence.end),
+          startTime: occurrence.start.getTime(),
+          isRecurring: true,
+          occurrenceDate: occurrence.date,
+        });
       });
     });
     return EVENTS;

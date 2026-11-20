@@ -5,6 +5,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  getOccurrenceInfo,
+} from "../utils/utils";
+
 import moment from "moment";
 import {
   isFunction,
@@ -124,6 +128,7 @@ export default function ResizeAPI(props, {
         event: EVENT.item,
         start: PREVIEW.start,
         end: PREVIEW.end,
+        occurrence: getOccurrenceInfo(EVENT),
         $event,
       });
     }

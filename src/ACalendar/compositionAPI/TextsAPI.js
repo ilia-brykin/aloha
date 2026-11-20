@@ -46,7 +46,8 @@ export default function TextsAPI() {
     } else if (!event.isAllDay && event.end > event.start) {
       end = formatTime.value.format(event.end);
     }
-    return `${ event.label }, ${ getDateTimeText(event.start, event.isAllDay) }${ end ? ` – ${ end }` : "" }`;
+    const RECURRING = event.isRecurring ? `, ${ getTranslatedText({ placeholder: "_A_CALENDAR_RECURRING_" }) }` : "";
+    return `${ event.label }, ${ getDateTimeText(event.start, event.isAllDay) }${ end ? ` – ${ end }` : "" }${ RECURRING }`;
   };
 
   const getMoreText = count => {

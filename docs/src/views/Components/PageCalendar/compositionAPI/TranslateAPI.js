@@ -14,6 +14,7 @@ export default function TranslateAPI() {
     "_A_CALENDAR_PREVIOUS_DAY_",
     "_A_CALENDAR_NEXT_DAY_",
     "_A_CALENDAR_VIEW_DAY_",
+    "_A_CALENDAR_RECURRING_",
   ];
 
   return {

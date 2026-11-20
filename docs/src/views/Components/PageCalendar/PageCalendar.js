@@ -7,6 +7,7 @@ import PageCalendarDay from "./PageCalendarDay/PageCalendarDay.vue";
 import PageCalendarDragDrop from "./PageCalendarDragDrop/PageCalendarDragDrop.vue";
 import PageCalendarMaxEvents from "./PageCalendarMaxEvents/PageCalendarMaxEvents.vue";
 import PageCalendarMultiDay from "./PageCalendarMultiDay/PageCalendarMultiDay.vue";
+import PageCalendarRecurring from "./PageCalendarRecurring/PageCalendarRecurring.vue";
 import PageCalendarSlots from "./PageCalendarSlots/PageCalendarSlots.vue";
 import PageCalendarWeek from "./PageCalendarWeek/PageCalendarWeek.vue";
 import {
@@ -33,6 +34,7 @@ export default {
     PageCalendarDragDrop,
     PageCalendarMaxEvents,
     PageCalendarMultiDay,
+    PageCalendarRecurring,
     PageCalendarSlots,
     PageCalendarWeek,
   },
