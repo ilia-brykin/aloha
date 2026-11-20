@@ -3,7 +3,6 @@ import {
 } from "vue";
 import {
   AFieldset,
-  ARouterLinkConfigPluginOptions,
   ASelect,
   UiAPI,
 } from "../../index";
@@ -15,8 +14,12 @@ import RouteAPI from "./compositionAPI/RouteAPI";
 
 import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 import {
+  getComponentOption,
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
+import {
+  getRoutesFromRouter,
+} from "./utils/routes";
 import {
   uniqueId,
 } from "lodash-es";
@@ -247,7 +250,10 @@ export default {
     routes: {
       type: Array,
       required: false,
-      default: () => getPropDefault("ARouterLinkConfig", "routes", ARouterLinkConfigPluginOptions.routes),
+      default: () => getPropDefault("ARouterLinkConfig", "routes", getRoutesFromRouter({
+        routes: getComponentOption("ARouterLinkConfig", "routes"),
+        excludedPathRoutes: getComponentOption("ARouterLinkConfig", "excludedPathRoutes"),
+      })),
     },
     slotName: {
       type: String,

@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "De kleur van afspraken zonder kleur.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Dagen die niet kunnen worden gekozen: een array van datums of een functie die de dag (\"YYYY-MM-DD\") krijgt en true teruggeeft.",
   "_A_CALENDAR_PROPS_EVENTS_": "De afspraken. Een afspraak zonder geldig begin wordt genegeerd.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "De eerste dag van de week: 0 is zondag, 1 is maandag. De standaard stelt u in met APropsDefaultPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "De eerste dag van de week: 0 is zondag, 1 is maandag. De standaard stelt u in met AComponentsPlugin (ook voor ADatepicker).",
   "_A_CALENDAR_PROPS_HOUR_END_": "Week- en dagweergave: het uur waarop het tijdraster eindigt (1 tot 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Week- en dagweergave: het uur waarop het tijdraster begint (0 tot 23).",
   "_A_CALENDAR_PROPS_ID_": "De id van de component. De titel heeft de id <code>{id}_title</code>.",

@@ -24,7 +24,7 @@ Big style refactoring. The JavaScript API of the components stays compatible, on
 - refactor!: remove the unused folder `src/PuxDatepicker` (it was not used by any component; breaking only for direct imports from it).
 - feat(icons)!: new icon `AIconClose`, used by all close buttons. `.a_btn_close` no longer draws the cross as background image. Default close icon of `AFormElementBtnClear` (`icon`) and `AAlertPlugin` (`btnCloseIcon`) changed from `x-lg` to `AIconClose`.
 - feat(ui)!: new prop `labelPosition` (`"float"` | `"inset"` | `"top"`) for `AInput`, `ATextarea`, `AInputNumber`, `AInputCurrency`, `ASelect`, `ASelectIcon`, `ASelectStyle`, `ADatepicker`, `AColorPicker` (`AMultiselectOrdered`: `selectLabelPosition`). Default is `"float"` for all form elements (in 2.x `AInputNumber`, `AInputCurrency`, `ADatepicker` had the label on top). Global default via `AFormPlugin` (`labelPosition`). `isLabelFloat` is deprecated and will be removed in 4.0.
-- feat(plugins)!: new `APropsDefaultPlugin` sets the prop defaults of all components: `app.use(APropsDefaultPlugin, { AModal: { useEscape: false }, ASelect: { keyId: "id" } })`, `getPropDefault(componentName, propName, defaultValue)` for own components. `propsDefault` was removed from all plugins. Removed plugins: `AAvatarPlugin`, `ACloakPlugin`, `AGroupButtonDropdownPlugin`, `AInputCurrencyPlugin`, `AInputNumberPlugin`, `ALoadingPlugin`, `AModalPlugin`, `AMultiselectOrderedPlugin`, `ASelectPlugin`, `ASkeletonPlugin`, `ASpinnerPlugin` and the exports `AInputCurrencyPluginOptions`, `AInputNumberPluginOptions`, `AMultiselectOrderedPluginOptions`. `AAlertPlugin`, `ACarouselPlugin`, `AFiltersPlugin`, `ASelectStylesPlugin`, `ATablePlugin` keep their other options. `ARouterLinkConfigPlugin` takes `routes` and `excludedPathRoutes` directly. A value applies only to the named component (2.x `AModalPlugin` also set `AModalForm` / `AModalWizard`, `ASelectPlugin` also `ASelectIcon` / `ASelectStyle`). The class `a_spinner` of `ASpinner` is fixed.
+- feat(plugins)!: new `AComponentsPlugin` holds the settings of all components, the key is the name of the component: `app.use(AComponentsPlugin, { AModal: { props: { useEscape: false } }, AAlert: { icons: { info } }, ATable: { props: { isStriped: true }, config: {} }, ASelectStyle: { cssClasses: [] }, ARouterLinkConfig: { routes, excludedPathRoutes } })`. `getPropDefault()` / `getComponentOption()` for own components. Prop defaults are inherited: `AModalForm`, `AModalWizard` → `AModal`; `ASelectIcon`, `ASelectStyle` → `ASelect` (`extends` for own components). `propsDefault` was removed. Removed plugins: `AAlertPlugin`, `AAvatarPlugin`, `ACarouselPlugin`, `ACloakPlugin`, `AFiltersPlugin` (its `config` was not used), `AGroupButtonDropdownPlugin`, `AInputCurrencyPlugin`, `AInputNumberPlugin`, `ALoadingPlugin`, `AModalPlugin`, `AMultiselectOrderedPlugin`, `ARouterLinkConfigPlugin`, `ASelectPlugin`, `ASelectStylesPlugin`, `ASkeletonPlugin`, `ASpinnerPlugin`, `ATablePlugin` and the exports `AInputCurrencyPluginOptions`, `AInputNumberPluginOptions`, `AMultiselectOrderedPluginOptions`, `ARouterLinkConfigPluginOptions`, `ASelectStylePluginOptions`. The class `a_spinner` of `ASpinner` is fixed.
 - fix(a11y)!: accessible names and valid ARIA by default (`AElement` / `AButton` / `ALink` icon-only title as `a_sr_only` text, `ADropdown` and `ASelect` screen reader texts, `aria-label` for `AProgress` / `AProgressCircle`, `ATabs` items `role="presentation"`, `AWizard` steps without `role="navigation"`, `ADatepicker` `aria-haspopup="dialog"` + `aria-controls`, `ASlider` `aria-labelledby`). Check tests that depend on the markup.
 
 ### Features
@@ -322,11 +322,9 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 
 - Feature: Add `teleportSelector` prop to `AModal` and `AModalForm` for customizable teleport target with default plugin option.
 
-
 ## 2.48.1
 
 - Fix: Add `class` binding to `ASelect` for dynamic class support.
-
 
 ## 2.48.0
 
@@ -338,7 +336,6 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 - Fix: Correct model handling when min and max are not set, thousandDivider validator adjusted `AInputCurrency`
 - Fix: Correct display value, when decimal part is not set in `AInputCurrency`
 - Fix: validator for thousandDivider now accepts empty string in `AInputCurrency`
-
 
 ## 2.47.2
 
@@ -380,11 +377,9 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 
 - Feature: Add `class` and `classMenuSearch` props to `ASelect`, with default values in `ASelectPluginOptions`. Enhance menu class binding to support conditional styling for search functionality.
 
-
 ## 2.43.1
 
 - Feature: `countAllRows` in ATableTopPanel multipleActionActiveSlot
-
 
 ## 2.43.0
 
@@ -392,7 +387,6 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 -  Feature: Add `aOrderBy` utility for extended ordering functionality with support for case-insensitive sorting, iteratee arrays, mixed orders, nested paths, and additional options. Include comprehensive test coverage.
 -  Refactor: Replace `lodash-es` `sortBy` with internal `aSortBy` utility across multiple components for consistency and enhanced functionality
 -  Refactor: Replace `lodash-es` `orderBy` with internal `aOrderBy` utility across composition APIs for consistency and extended functionality.
-
 
 ## 2.42.1
 
@@ -496,7 +490,6 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 - `ASlider`: enhanced dragging and keyboard accessibility, added support for `step`, and integrated proper focus management for accessible interactions.
 - `Documentation`: added new usage examples to the documentation, including `PageSliderVertical`, `PageSliderStops`, `PageSliderRange`, `PageSliderMinMax`, `PageSliderErrors`, `PageSliderHelpText`, `PageSliderLabelDescription`, and `PageSliderChange`, with accompanying Pug templates, JavaScript content, and i18n keys.
 
-
 ## 2.34.0
 
 - Add gap utilities for spacing, including `.a_gap_*`, `.a_gap_x_*`, and `.a_gap_y_*` classes based on `$a_spacing_values`.
@@ -593,7 +586,6 @@ Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for 
 ## 2.28.3
 
 - Refactor: Update component mappings to include `AValidatedJson` only in `AUiComponents`
-
 
 ## 2.28.2
 
@@ -1089,7 +1081,6 @@ An exclusive option can be defined as a special choice that, when selected, prev
 ## 1.2.281
 
 - Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `ADropdown` component to improve accessibility.
-
 
 ## 1.2.280
 

@@ -9,7 +9,7 @@ import {
 } from "../const";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";
@@ -20,7 +20,7 @@ export default function SizeAPI(props) {
 
   const group = inject(AVATAR_GROUP_KEY, undefined);
 
-  // Own prop > AAvatarGroup > APropsDefaultPlugin
+  // Own prop > AAvatarGroup > AComponentsPlugin
   const sizeLocal = computed(() => {
     return size.value ?? group?.size.value ?? getPropDefault("AAvatar", "size", "medium");
   });

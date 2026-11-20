@@ -15,7 +15,7 @@ import TypeAPI from "./compositionAPI/TypeAPI";
 import ChevronDown from "../../AIcon/Icons/ChevronDown";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";

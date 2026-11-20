@@ -9,7 +9,7 @@ import ActionsAPI from "./compositionAPI/ActionsAPI";
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "AGroupButtonDropdown",

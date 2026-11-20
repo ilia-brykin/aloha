@@ -183,15 +183,18 @@ export { default as AOnHooks } from "./directives/AOnHooks";
 export { default as ASafeHtml } from "./directives/ASafeHtml";
 
 // plugins
-export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
+export {
+  default as AComponentsPlugin,
+  COMPONENTS_PARENTS,
+  componentsPluginOptions,
+  getComponentOption,
+  getPropDefault,
+} from "./plugins/AComponentsPlugin";
 export {
   default as ADataRetrievePlugin,
   ADataRetrievePluginOptions,
   defaultRetrieve as ADataRetrievePlugin_defaultRetrieve,
 } from "./plugins/ADataRetrievePlugin";
-export {
-  default as AFiltersPlugin,
-} from "./plugins/AFiltersPlugin";
 export { default as ARemPxPlugin } from "./plugins/ARemPxPlugin";
 export {
   default as AFormPlugin,
@@ -203,20 +206,6 @@ export { default as AIconPlugin } from "./plugins/AIconPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
 export { default as APageTabTitlePlugin } from "./plugins/APageTabTitlePlugin";
-export {
-  default as APropsDefaultPlugin,
-  getPropDefault,
-  propsDefaultPluginOptions,
-} from "./plugins/APropsDefaultPlugin";
-export {
-  default as ARouterLinkConfigPlugin,
-  ARouterLinkConfigPluginOptions,
-} from "./plugins/ARouterLinkConfigPlugin";
-export {
-  default as ASelectStylesPlugin,
-  ASelectStylePluginOptions,
-} from "./plugins/ASelectStylesPlugin";
-export { default as ATablePlugin } from "./plugins/ATablePlugin";
 
 // filters
 export { default as filterBoolean } from "./filters/filterBoolean";

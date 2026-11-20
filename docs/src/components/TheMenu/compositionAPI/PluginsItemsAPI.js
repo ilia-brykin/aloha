@@ -6,14 +6,13 @@ export default function PluginsItemsAPI() {
     class: "test_menu_plugins",
     children: [
       {
-        id: "PageAlertPlugin",
-        label: "Alert plugin",
-        class: "test_menu_alert_plugin",
+        id: "PageComponentsPlugin",
+        label: "Components plugin",
+        class: "test_menu_components_plugin",
         to: {
-          name: "PageAlertPlugin",
+          name: "PageComponentsPlugin",
         },
       },
-
       {
         id: "PageIconsPlugin",
         label: "Icons plugin",
@@ -28,14 +27,6 @@ export default function PluginsItemsAPI() {
         class: "test_menu_mobile_plugin",
         to: {
           name: "PageMobilePlugin",
-        },
-      },
-      {
-        id: "PagePropsDefaultPlugin",
-        label: "Props default plugin",
-        class: "test_menu_props_default_plugin",
-        to: {
-          name: "PagePropsDefaultPlugin",
         },
       },
       {

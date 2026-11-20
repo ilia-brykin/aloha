@@ -7,7 +7,7 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "ASpinner",

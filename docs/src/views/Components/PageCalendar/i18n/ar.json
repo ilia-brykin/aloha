@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "لون المواعيد التي ليس لها لون.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "أيام لا يمكن اختيارها: مصفوفة تواريخ أو دالة تتلقى اليوم (\"YYYY-MM-DD\") وتعيد true.",
   "_A_CALENDAR_PROPS_EVENTS_": "المواعيد. يتم تجاهل الموعد الذي ليس له بداية صالحة.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "أول يوم في الأسبوع: 0 هو الأحد، 1 هو الاثنين. تُضبط القيمة الافتراضية عبر APropsDefaultPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "أول يوم في الأسبوع: 0 هو الأحد، 1 هو الاثنين. تُضبط القيمة الافتراضية عبر AComponentsPlugin (وكذلك لـ ADatepicker).",
   "_A_CALENDAR_PROPS_HOUR_END_": "عرضا الأسبوع واليوم: الساعة التي تنتهي عندها الشبكة (من 1 إلى 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "عرضا الأسبوع واليوم: الساعة التي تبدأ عندها الشبكة (من 0 إلى 23).",
   "_A_CALENDAR_PROPS_ID_": "معرّف المكوّن. للعنوان المعرّف <code>{id}_title</code>.",

@@ -20,7 +20,7 @@ import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";

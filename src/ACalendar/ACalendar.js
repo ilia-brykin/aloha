@@ -36,7 +36,7 @@ import {
 } from "./const";
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -62,7 +62,7 @@ export default {
     firstDayOfWeek: {
       type: Number,
       required: false,
-      default: () => getPropDefault("ACalendar", "firstDayOfWeek", 1),
+      default: () => getPropDefault("ACalendar", "firstDayOfWeek", getPropDefault("ADatepicker", "firstDayOfWeek", 1)),
       validator: value => value >= 0 && value <= 6,
     },
     hourEnd: {

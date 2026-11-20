@@ -7,18 +7,16 @@ import router from "./router/index";
 import ATest from "./components/ATest/ATest";
 import App from "./App/App.vue";
 import {
+  AComponentsPlugin,
   ADataRetrievePlugin,
   ADataRetrievePlugin_defaultRetrieve,
-  AFiltersPlugin,
   AFormPlugin,
   AHttpPlugin,
   AI18nPlugin,
   AIconPlugin,
   AMobilePlugin,
   APageTabTitlePlugin,
-  APropsDefaultPlugin,
   ARemPxPlugin,
-  ARouterLinkConfigPlugin,
   ASafeHtml,
 } from "aloha-vue";
 
@@ -75,36 +73,16 @@ APP.use(AMobilePlugin, {
   breakpoint: 1023,
 });
 APP.use(ARemPxPlugin);
-APP.use(APropsDefaultPlugin, {
+APP.use(AComponentsPlugin, {
   AModal: {
-    closeButtonClass: "a_btn a_btn_link",
+    props: {
+      closeButtonClass: "a_btn a_btn_link",
+    },
   },
-});
-APP.use(AFiltersPlugin, {
-  config: {
-    headerBottomGroups: [
-      {
-        props: {},
-        children: [
-          {
-            component: "addFilterSelect",
-            props: {
-              keyGroup: "group",
-            },
-          },
-          {
-            component: "buttonSearch",
-            props: {},
-          },
-        ],
-      },
-    ],
+  ARouterLinkConfig: {
+    routes: router.getRoutes(),
+    // excludedPathRoutes: ["/:catchAll(.*)"],
   },
-});
-
-APP.use(ARouterLinkConfigPlugin, {
-  routes: router.getRoutes(),
-  // excludedPathRoutes: ["/:catchAll(.*)"],
 });
 
 APP.use(APageTabTitlePlugin, "_PAGE_TITLE_BASE_");

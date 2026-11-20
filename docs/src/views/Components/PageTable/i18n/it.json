@@ -1,5 +1,5 @@
 {
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Righe alternate",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Con <code>is-striped</code> una riga su due riceve lo sfondo <code>--a_table_row_striped_bg</code>. Hover, righe selezionate e anteprima aperta mantengono i propri colori. Il valore predefinito per tutte le tabelle si imposta con <code>APropsDefaultPlugin</code> (<code>ATable: { isStriped: true }</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Con <code>is-striped</code> una riga su due riceve lo sfondo <code>--a_table_row_striped_bg</code>. Hover, righe selezionate e anteprima aperta mantengono i propri colori. Il valore predefinito per tutte le tabelle si imposta con <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabella a righe alternate"
 }

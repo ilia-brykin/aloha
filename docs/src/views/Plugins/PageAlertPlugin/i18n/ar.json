@@ -1,8 +1,0 @@
-{
-  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "الإضافة AAlertPlugin",
-  "_PAGE_PLUGIN_ALERT_H1_": "الإضافة <span lang=\"en\">AAlertPlugin</span>",
-  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">مقدمة</h2><p>تحدد <strong lang=\"en\">AAlertPlugin</strong> الأيقونات القياسية لأنواع المكوّن <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>. تُضبط القيم الافتراضية لخصائص <strong lang=\"en\">AAlert</strong> عبر <strong lang=\"en\">APropsDefaultPlugin</strong>.</p>",
-  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>للاتصال بالإضافة، استخدم الكود التالي:</p>",
-  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3>",
-  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>يعرض هذا الكود الأيقونات القياسية لأنواع التنبيهات.</p>"
-}

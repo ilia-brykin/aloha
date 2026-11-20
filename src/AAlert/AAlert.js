@@ -15,7 +15,7 @@ import IconAPI from "./compositionAPI/IconAPI";
 import Close from "../AIcon/Icons/Close";
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "AAlert",

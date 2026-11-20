@@ -1,8 +1,0 @@
-{
-  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Dodatak AAlertPlugin",
-  "_PAGE_PLUGIN_ALERT_H1_": "Dodatak <span lang=\"en\">AAlertPlugin</span>",
-  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Uvod</h2><p><strong lang=\"en\">AAlertPlugin</strong> određuje standardne ikone za vrste komponente <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>. Zadane vrijednosti propsa komponente <strong lang=\"en\">AAlert</strong> postavljaju se pomoću <strong lang=\"en\">APropsDefaultPlugin</strong>.</p>",
-  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Povezivanje</h2><p>Da biste povezali dodatak, koristite sljedeći kod:</p>",
-  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Napomene</h3>",
-  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Ovaj kod prikazuje standardne ikone za vrste upozorenja.</p>"
-}

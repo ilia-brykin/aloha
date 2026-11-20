@@ -31,7 +31,7 @@ import WidthAPI from "./compositionAPI/WidthAPI";
 import ASafeHtml from "../../directives/ASafeHtml";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
