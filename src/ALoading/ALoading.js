@@ -9,7 +9,7 @@ import ClassAPI from "../ACloak/compositionAPI/ClassAPI";
 import ASpinner from "../ASpinner/ASpinner.js";
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "ALoading",
@@ -49,12 +49,12 @@ export default {
     spinnerSafeHtml: {
       type: String,
       required: false,
-      default: () => getPropDefault("ALoading", "spinnerSafeHtml", ""),
+      default: () => getPropDefault("ALoading", "spinnerSafeHtml", getPropDefault("ASpinner", "safeHtml", "")),
     },
     spinnerTag: {
       type: String,
       required: false,
-      default: () => getPropDefault("ALoading", "spinnerTag", "span"),
+      default: () => getPropDefault("ALoading", "spinnerTag", getPropDefault("ASpinner", "tag", "span")),
     },
     tag: {
       type: String,

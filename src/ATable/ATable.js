@@ -47,7 +47,7 @@ import {
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   isInteger,
   uniqueId,

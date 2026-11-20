@@ -10,7 +10,7 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "ACloak",
@@ -44,12 +44,12 @@ export default {
     spinnerSafeHtml: {
       type: String,
       required: false,
-      default: () => getPropDefault("ACloak", "spinnerSafeHtml", ""),
+      default: () => getPropDefault("ACloak", "spinnerSafeHtml", getPropDefault("ASpinner", "safeHtml", "")),
     },
     spinnerTag: {
       type: String,
       required: false,
-      default: () => getPropDefault("ACloak", "spinnerTag", "span"),
+      default: () => getPropDefault("ACloak", "spinnerTag", getPropDefault("ASpinner", "tag", "span")),
     },
     tag: {
       type: String,

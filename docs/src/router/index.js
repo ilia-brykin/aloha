@@ -38,11 +38,6 @@ const ROUTES = [
   },
   // Plugins
   {
-    path: "/alert-plugin",
-    name: "PageAlertPlugin",
-    component: () => import("../views/Plugins/PageAlertPlugin/PageAlertPlugin.vue"),
-  },
-  {
     path: "/icon-plugin",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
@@ -53,9 +48,9 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),
   },
   {
-    path: "/props-default-plugin",
-    name: "PagePropsDefaultPlugin",
-    component: () => import("../views/Plugins/PagePropsDefaultPlugin/PagePropsDefaultPlugin.vue"),
+    path: "/components-plugin",
+    name: "PageComponentsPlugin",
+    component: () => import("../views/Plugins/PageComponentsPlugin/PageComponentsPlugin.vue"),
   },
   {
     path: "/page-tab-title-plugin",

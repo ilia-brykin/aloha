@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "Kolor terminów bez koloru.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Dni, których nie można wybrać: tablica dat lub funkcja, która dostaje dzień (\"YYYY-MM-DD\") i zwraca true.",
   "_A_CALENDAR_PROPS_EVENTS_": "Terminy. Termin bez poprawnego początku jest pomijany.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Pierwszy dzień tygodnia: 0 to niedziela, 1 to poniedziałek. Wartość domyślną ustawia się przez APropsDefaultPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Pierwszy dzień tygodnia: 0 to niedziela, 1 to poniedziałek. Wartość domyślną ustawia się przez AComponentsPlugin (również dla ADatepicker).",
   "_A_CALENDAR_PROPS_HOUR_END_": "Widoki tygodnia i dnia: godzina, na której kończy się siatka (od 1 do 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Widoki tygodnia i dnia: godzina, od której zaczyna się siatka (od 0 do 23).",
   "_A_CALENDAR_PROPS_ID_": "Id komponentu. Tytuł ma id <code>{id}_title</code>.",

@@ -14,6 +14,6 @@
   "_A_TABLE_FILTER_DATE_": "Datum",
   "_A_TABLE_FILTER_EXTRA_": "Dodatni filter",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Prugasti retci",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "S <code>is-striped</code> svaki drugi redak dobiva pozadinu <code>--a_table_row_striped_bg</code>. Hover, odabrani retci i otvoreni pregled zadržavaju svoje boje. Zadana vrijednost za sve tablice postavlja se u <code>APropsDefaultPlugin</code> (<code>ATable: { isStriped: true }</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "S <code>is-striped</code> svaki drugi redak dobiva pozadinu <code>--a_table_row_striped_bg</code>. Hover, odabrani retci i otvoreni pregled zadržavaju svoje boje. Zadana vrijednost za sve tablice postavlja se u <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Prugasta tablica"
 }

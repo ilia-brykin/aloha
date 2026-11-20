@@ -12,7 +12,7 @@ import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   isNil,
   uniqueId,

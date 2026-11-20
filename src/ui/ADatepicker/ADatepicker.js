@@ -37,7 +37,7 @@ import AOnHooks from "../../directives/AOnHooks";
 import UiMixinProps from "../mixins/UiMixinProps";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   isPlainObject,
   isValidDate,

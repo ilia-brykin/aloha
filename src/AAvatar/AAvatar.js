@@ -23,7 +23,7 @@ import {
 } from "./utils/icons";
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";

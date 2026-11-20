@@ -29,7 +29,7 @@ import ZIndexAPI from "./compositionAPI/ZIndexAPI";
 import Close from "../AIcon/Icons/Close";
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";

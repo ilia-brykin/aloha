@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "La couleur des rendez-vous sans couleur.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Jours qui ne peuvent pas être choisis : un tableau de dates ou une fonction qui reçoit le jour (\"YYYY-MM-DD\") et renvoie true.",
   "_A_CALENDAR_PROPS_EVENTS_": "Les rendez-vous. Un rendez-vous sans début valide est ignoré.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Le premier jour de la semaine : 0 est dimanche, 1 est lundi. La valeur par défaut se règle avec APropsDefaultPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Le premier jour de la semaine : 0 est dimanche, 1 est lundi. La valeur par défaut se règle avec AComponentsPlugin (aussi pour ADatepicker).",
   "_A_CALENDAR_PROPS_HOUR_END_": "Vues semaine et jour : l'heure où la grille se termine (de 1 à 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Vues semaine et jour : l'heure où la grille commence (de 0 à 23).",
   "_A_CALENDAR_PROPS_ID_": "L'id du composant. Le titre a l'id <code>{id}_title</code>.",

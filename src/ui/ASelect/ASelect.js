@@ -57,7 +57,7 @@ import ChevronDown from "../../AIcon/Icons/ChevronDown";
 import Close from "../../AIcon/Icons/Close";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   take,
   uniqueId,

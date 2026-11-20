@@ -27,7 +27,7 @@ function getLabelPositionFromBoolean(isLabelFloat) {
  * - "top": above the field
  *
  * Priority: prop labelPosition, deprecated prop isLabelFloat,
- * AFormPlugin labelPosition, "float". The default of the prop labelPosition can be set with APropsDefaultPlugin.
+ * AFormPlugin labelPosition, "float". The default of the prop labelPosition can be set with AComponentsPlugin.
  */
 export default function UiLabelPositionAPI(props) {
   const isLabelFloat = toRef(props, "isLabelFloat");

@@ -46,10 +46,10 @@ app.use(AFormPlugin, {
 });
 
 // 2.x look of AInputNumber, AInputCurrency and ADatepicker (label above the field)
-app.use(APropsDefaultPlugin, {
-  AInputNumber: { labelPosition: "top" },
-  AInputCurrency: { labelPosition: "top" },
-  ADatepicker: { labelPosition: "top" },
+app.use(AComponentsPlugin, {
+  AInputNumber: { props: { labelPosition: "top" } },
+  AInputCurrency: { props: { labelPosition: "top" } },
+  ADatepicker: { props: { labelPosition: "top" } },
 });`;
 
   const codePropsDefault = `// 2.x
@@ -69,22 +69,45 @@ app.use(ARouterLinkConfigPlugin, {
   },
   excludedPathRoutes: ["/:catchAll(.*)"],
 });
-
-// 3.x
-app.use(APropsDefaultPlugin, {
-  AModal: {
-    closeButtonClass: "a_btn a_btn_link",
-  },
-  AModalForm: {
-    closeButtonClass: "a_btn a_btn_link",
-  },
-  ASelect: {
-    keyId: "id",
+app.use(AAlertPlugin, {
+  icons: {
+    info: CheckLg,
   },
 });
-app.use(ARouterLinkConfigPlugin, {
-  routes: router.getRoutes(),
-  excludedPathRoutes: ["/:catchAll(.*)"],
+app.use(ATablePlugin, {
+  propsDefault: {
+    isStriped: true,
+  },
+});
+
+// 3.x
+app.use(AComponentsPlugin, {
+  // also for AModalForm and AModalWizard
+  AModal: {
+    props: {
+      closeButtonClass: "a_btn a_btn_link",
+    },
+  },
+  // also for ASelectIcon and ASelectStyle
+  ASelect: {
+    props: {
+      keyId: "id",
+    },
+  },
+  ARouterLinkConfig: {
+    routes: router.getRoutes(),
+    excludedPathRoutes: ["/:catchAll(.*)"],
+  },
+  AAlert: {
+    icons: {
+      info: CheckLg,
+    },
+  },
+  ATable: {
+    props: {
+      isStriped: true,
+    },
+  },
 });`;
 
   return {

@@ -1,8 +1,0 @@
-{
-  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Plugin AAlertPlugin",
-  "_PAGE_PLUGIN_ALERT_H1_": "Plugin <span lang=\"en\">AAlertPlugin</span>",
-  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introductie</h2><p><strong lang=\"en\">AAlertPlugin</strong> legt de standaardiconen vast voor de typen van de component <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>. De standaardwaarden van de props van <strong lang=\"en\">AAlert</strong> stelt u in met <strong lang=\"en\">APropsDefaultPlugin</strong>.</p>",
-  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Koppeling</h2><p>Gebruik de volgende code om de plugin te koppelen:</p>",
-  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Opmerkingen</h3>",
-  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Deze code toont de standaardiconen voor de typen meldingen.</p>"
-}

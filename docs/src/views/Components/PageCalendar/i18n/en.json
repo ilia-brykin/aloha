@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "The color of events without a color.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Days that cannot be chosen: an array of dates or a function that gets the day (\"YYYY-MM-DD\") and returns true.",
   "_A_CALENDAR_PROPS_EVENTS_": "The events. An event without a valid start is ignored.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "The first day of the week: 0 is Sunday, 1 is Monday. The default can be set with APropsDefaultPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "The first day of the week: 0 is Sunday, 1 is Monday. The default can be set with AComponentsPlugin (also for ADatepicker).",
   "_A_CALENDAR_PROPS_HOUR_END_": "Week and day view: the hour where the time grid ends (1 to 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Week and day view: the hour where the time grid starts (0 to 23).",
   "_A_CALENDAR_PROPS_ID_": "The id of the component. The title has the id <code>{id}_title</code>.",

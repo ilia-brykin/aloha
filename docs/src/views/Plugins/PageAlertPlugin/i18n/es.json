@@ -1,8 +1,0 @@
-{
-  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Plugin AAlertPlugin",
-  "_PAGE_PLUGIN_ALERT_H1_": "Plugin <span lang=\"en\">AAlertPlugin</span>",
-  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introducción</h2><p><strong lang=\"en\">AAlertPlugin</strong> define los iconos estándar para los tipos del componente <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>. Los valores por defecto de las props de <strong lang=\"en\">AAlert</strong> se definen con <strong lang=\"en\">APropsDefaultPlugin</strong>.</p>",
-  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Conexión</h2><p>Para conectar el plugin, use el siguiente código:</p>",
-  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Notas</h3>",
-  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Este código muestra los iconos estándar de los tipos de alertas.</p>"
-}

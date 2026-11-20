@@ -15,7 +15,6 @@ import {
 import FormI18n from "./views/Components/Form/i18n/FormI18n";
 import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI18n";
-import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageAvatarI18n from "./views/Components/PageAvatar/i18n/PageAvatarI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
@@ -26,6 +25,7 @@ import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageColorPickerI18n from "./views/Components/Form/PageColorPicker/i18n/PageColorPickerI18n";
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
+import PageComponentsPluginI18n from "./views/Plugins/PageComponentsPlugin/i18n/PageComponentsPluginI18n";
 import PageConfirmI18n from "./views/Components/PageConfirm/i18n/PageConfirmI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
@@ -99,7 +99,6 @@ import PagePaginationPagesI18n from "./views/Components/PagePaginationPages/i18n
 import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageProgressCircleI18n from "./views/Components/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 import PageProgressI18n from "./views/Components/Progress/PageProgress/i18n/PageProgressI18n";
-import PagePropsDefaultPluginI18n from "./views/Plugins/PagePropsDefaultPlugin/i18n/PagePropsDefaultPluginI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
 import PageRateI18n from "./views/Components/Form/PageRate/i18n/PageRateI18n";
@@ -160,7 +159,6 @@ export const mainTranslation = {
     ...ar,
     ...FormI18n.ar,
     ...PageAAlertI18n.ar,
-    ...PageAlertPluginI18n.ar,
     ...PageAvatarI18n.ar,
     ...PageCalendarI18n.ar,
     ...PageBadgeI18n.ar,
@@ -261,7 +259,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.ar,
     ...PageSliderI18n.ar,
     ...PageSpinnerI18n.ar,
-    ...PagePropsDefaultPluginI18n.ar,
+    ...PageComponentsPluginI18n.ar,
     ...PageStartI18n.ar,
     ...PageSwitchI18n.ar,
     ...PageColorPickerI18n.ar,
@@ -294,7 +292,6 @@ export const mainTranslation = {
     ...de,
     ...FormI18n.de,
     ...PageAAlertI18n.de,
-    ...PageAlertPluginI18n.de,
     ...PageAvatarI18n.de,
     ...PageCalendarI18n.de,
     ...PageBadgeI18n.de,
@@ -395,7 +392,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.de,
     ...PageSliderI18n.de,
     ...PageSpinnerI18n.de,
-    ...PagePropsDefaultPluginI18n.de,
+    ...PageComponentsPluginI18n.de,
     ...PageStartI18n.de,
     ...PageSwitchI18n.de,
     ...PageColorPickerI18n.de,
@@ -428,7 +425,6 @@ export const mainTranslation = {
     ...en,
     ...FormI18n.en,
     ...PageAAlertI18n.en,
-    ...PageAlertPluginI18n.en,
     ...PageAvatarI18n.en,
     ...PageCalendarI18n.en,
     ...PageBadgeI18n.en,
@@ -529,7 +525,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.en,
     ...PageSliderI18n.en,
     ...PageSpinnerI18n.en,
-    ...PagePropsDefaultPluginI18n.en,
+    ...PageComponentsPluginI18n.en,
     ...PageStartI18n.en,
     ...PageSwitchI18n.en,
     ...PageColorPickerI18n.en,
@@ -562,7 +558,6 @@ export const mainTranslation = {
     ...es,
     ...FormI18n.es,
     ...PageAAlertI18n.es,
-    ...PageAlertPluginI18n.es,
     ...PageAvatarI18n.es,
     ...PageCalendarI18n.es,
     ...PageBadgeI18n.es,
@@ -663,7 +658,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.es,
     ...PageSliderI18n.es,
     ...PageSpinnerI18n.es,
-    ...PagePropsDefaultPluginI18n.es,
+    ...PageComponentsPluginI18n.es,
     ...PageStartI18n.es,
     ...PageSwitchI18n.es,
     ...PageColorPickerI18n.es,
@@ -696,7 +691,6 @@ export const mainTranslation = {
     ...fr,
     ...FormI18n.fr,
     ...PageAAlertI18n.fr,
-    ...PageAlertPluginI18n.fr,
     ...PageAvatarI18n.fr,
     ...PageCalendarI18n.fr,
     ...PageBadgeI18n.fr,
@@ -797,7 +791,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.fr,
     ...PageSliderI18n.fr,
     ...PageSpinnerI18n.fr,
-    ...PagePropsDefaultPluginI18n.fr,
+    ...PageComponentsPluginI18n.fr,
     ...PageStartI18n.fr,
     ...PageSwitchI18n.fr,
     ...PageColorPickerI18n.fr,
@@ -830,7 +824,6 @@ export const mainTranslation = {
     ...hr,
     ...FormI18n.hr,
     ...PageAAlertI18n.hr,
-    ...PageAlertPluginI18n.hr,
     ...PageAvatarI18n.hr,
     ...PageCalendarI18n.hr,
     ...PageBadgeI18n.hr,
@@ -931,7 +924,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.hr,
     ...PageSliderI18n.hr,
     ...PageSpinnerI18n.hr,
-    ...PagePropsDefaultPluginI18n.hr,
+    ...PageComponentsPluginI18n.hr,
     ...PageStartI18n.hr,
     ...PageSwitchI18n.hr,
     ...PageColorPickerI18n.hr,
@@ -964,7 +957,6 @@ export const mainTranslation = {
     ...it,
     ...FormI18n.it,
     ...PageAAlertI18n.it,
-    ...PageAlertPluginI18n.it,
     ...PageAvatarI18n.it,
     ...PageCalendarI18n.it,
     ...PageBadgeI18n.it,
@@ -1065,7 +1057,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.it,
     ...PageSliderI18n.it,
     ...PageSpinnerI18n.it,
-    ...PagePropsDefaultPluginI18n.it,
+    ...PageComponentsPluginI18n.it,
     ...PageStartI18n.it,
     ...PageSwitchI18n.it,
     ...PageColorPickerI18n.it,
@@ -1098,7 +1090,6 @@ export const mainTranslation = {
     ...nl,
     ...FormI18n.nl,
     ...PageAAlertI18n.nl,
-    ...PageAlertPluginI18n.nl,
     ...PageAvatarI18n.nl,
     ...PageCalendarI18n.nl,
     ...PageBadgeI18n.nl,
@@ -1199,7 +1190,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.nl,
     ...PageSliderI18n.nl,
     ...PageSpinnerI18n.nl,
-    ...PagePropsDefaultPluginI18n.nl,
+    ...PageComponentsPluginI18n.nl,
     ...PageStartI18n.nl,
     ...PageSwitchI18n.nl,
     ...PageColorPickerI18n.nl,
@@ -1232,7 +1223,6 @@ export const mainTranslation = {
     ...pl,
     ...FormI18n.pl,
     ...PageAAlertI18n.pl,
-    ...PageAlertPluginI18n.pl,
     ...PageAvatarI18n.pl,
     ...PageCalendarI18n.pl,
     ...PageBadgeI18n.pl,
@@ -1333,7 +1323,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.pl,
     ...PageSliderI18n.pl,
     ...PageSpinnerI18n.pl,
-    ...PagePropsDefaultPluginI18n.pl,
+    ...PageComponentsPluginI18n.pl,
     ...PageStartI18n.pl,
     ...PageSwitchI18n.pl,
     ...PageColorPickerI18n.pl,
@@ -1366,7 +1356,6 @@ export const mainTranslation = {
     ...ru,
     ...FormI18n.ru,
     ...PageAAlertI18n.ru,
-    ...PageAlertPluginI18n.ru,
     ...PageAvatarI18n.ru,
     ...PageCalendarI18n.ru,
     ...PageBadgeI18n.ru,
@@ -1467,7 +1456,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.ru,
     ...PageSliderI18n.ru,
     ...PageSpinnerI18n.ru,
-    ...PagePropsDefaultPluginI18n.ru,
+    ...PageComponentsPluginI18n.ru,
     ...PageStartI18n.ru,
     ...PageSwitchI18n.ru,
     ...PageColorPickerI18n.ru,
@@ -1500,7 +1489,6 @@ export const mainTranslation = {
     ...uk,
     ...FormI18n.uk,
     ...PageAAlertI18n.uk,
-    ...PageAlertPluginI18n.uk,
     ...PageAvatarI18n.uk,
     ...PageCalendarI18n.uk,
     ...PageBadgeI18n.uk,
@@ -1601,7 +1589,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.uk,
     ...PageSliderI18n.uk,
     ...PageSpinnerI18n.uk,
-    ...PagePropsDefaultPluginI18n.uk,
+    ...PageComponentsPluginI18n.uk,
     ...PageStartI18n.uk,
     ...PageSwitchI18n.uk,
     ...PageColorPickerI18n.uk,

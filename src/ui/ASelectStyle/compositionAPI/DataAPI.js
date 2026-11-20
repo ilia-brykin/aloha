@@ -4,8 +4,11 @@ import {
 } from "vue";
 
 import {
-  ASelectStylePluginOptions,
-} from "../../../plugins/ASelectStylesPlugin";
+  SELECT_STYLE_CSS_CLASSES,
+} from "../utils/cssClasses";
+import {
+  getComponentOption,
+} from "../../../plugins/AComponentsPlugin";
 import {
   filter,
   includes,
@@ -27,7 +30,8 @@ export default function DataAPI(props) {
     }
 
     const STYLES = [
-      ...ASelectStylePluginOptions.cssClasses,
+      ...SELECT_STYLE_CSS_CLASSES,
+      ...getComponentOption("ASelectStyle", "cssClasses", []),
       ...dataExtended.value,
     ];
 

@@ -44,7 +44,7 @@ import {
 } from "./utils/texts";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";

@@ -33,7 +33,7 @@ import WidthAPI from "./compositionAPI/WidthAPI";
 import UiMixinProps from "../mixins/UiMixinProps";
 import {
   getPropDefault,
-} from "../../plugins/APropsDefaultPlugin";
+} from "../../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";

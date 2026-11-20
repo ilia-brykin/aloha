@@ -9,7 +9,7 @@ import ThrottleAPI from "./compositionAPI/ThrottleAPI";
 
 import {
   getPropDefault,
-} from "../plugins/APropsDefaultPlugin";
+} from "../plugins/AComponentsPlugin";
 import {
   times,
 } from "lodash-es";
