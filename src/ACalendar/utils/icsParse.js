@@ -1,5 +1,8 @@
 import moment from "moment";
 import {
+  WINDOWS_TIME_ZONES,
+} from "./windowsTimeZones";
+import {
   isFunction,
 } from "lodash-es";
 
@@ -136,8 +139,10 @@ function parseDateValue({ value, params }, warn) {
     return { isDate: false, date: new Date(Date.UTC(FIELDS.year, FIELDS.month, FIELDS.day, FIELDS.hours, FIELDS.minutes, FIELDS.seconds)) };
   }
   if (params.TZID) {
+    // Outlook writes the Windows names ("W. Europe Standard Time"), Intl needs the IANA names ("Europe/Berlin")
+    const TIME_ZONE = WINDOWS_TIME_ZONES[params.TZID.trim()] || params.TZID.trim();
     try {
-      return { isDate: false, date: zonedTimeToDate(FIELDS, params.TZID) };
+      return { isDate: false, date: zonedTimeToDate(FIELDS, TIME_ZONE) };
     } catch(error) {
       warn("timeZoneUnknown", params.TZID);
     }
@@ -315,7 +320,8 @@ function toItem(event, keys) {
  * Reads an iCalendar file (.ics, RFC 5545) into events of ACalendar, e.g. to save them.
  * The calendar knows less than iCalendar: what does not fit is reported.
  *
- * - Times in UTC and with TZID are converted into the local time, a time without a time zone is the local time.
+ * - Times in UTC and with TZID (IANA names or the Windows names of Outlook) are converted into the local time,
+ *   a time without a time zone is the local time.
  * - All-day events: the end is the last day (iCalendar has the day after it).
  * - RRULE: daily, weekly (also on weekdays), monthly, yearly with INTERVAL, COUNT, UNTIL. EXDATE becomes exceptions.
  *   Other rules (e.g. "the second Tuesday of the month"): the event is imported once and a warning is added.
