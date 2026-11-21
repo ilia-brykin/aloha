@@ -101,6 +101,13 @@ UI library: aloha-vue. Before using it, read node_modules/aloha-vue/AGENTS.md.
 
 The same docs are online for agents without the package: [llms.txt](https://ilia-brykin.github.io/aloha/llms.txt) (index) and [llms-full.txt](https://ilia-brykin.github.io/aloha/llms-full.txt) (all pages in one file).
 
+Reusable workflow skills are included in the package:
+
+- [client-aloha-vue](skills/client-aloha-vue/SKILL.md): using components, plugins, translations, HTTP helpers, and styles.
+- [client-aloha-vue-modal](skills/client-aloha-vue-modal/SKILL.md): building modal forms and confirmations.
+
+The skills complement the generated API documentation; register them with your coding agent to make them discoverable.
+
 After changes in the docs, regenerate the files with `npm run build-llms`.
 
 ## TypeScript
