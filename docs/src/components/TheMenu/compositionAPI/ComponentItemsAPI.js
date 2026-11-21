@@ -563,7 +563,7 @@ export default function ComponentItemsAPI() {
         id: "tooltip",
         label: "Tooltip",
         to: {
-          name: "PageTitle",
+          name: "PageTooltip",
         },
         titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
       },

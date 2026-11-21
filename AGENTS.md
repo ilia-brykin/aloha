@@ -192,7 +192,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Table tree](llms/components/table-tree.md)
   - [Table form](llms/components/table-form.md)
 - [Tabs](llms/components/tabs.md) — The **ATabs** component is used for organizing content through tabs.
-- [Tooltip](llms/components/title.md) — ATooltip displays additional information when the user hovers over or focuses an element.
+- [Tooltip](llms/components/tooltip.md) — ATooltip displays additional information when the user hovers over or focuses an element.
 - [Tree](llms/components/tree.md) — The **ATree** component shows hierarchical data: nodes can be expanded, selected and checked, searched and loaded lazily.
 - [Translation](llms/components/translation.md) — **ATranslation** is a powerful and versatile **Vue.js** component that allows developers to seamlessly integrate translations into **Vue.js** applications.
 - **Wizard**
