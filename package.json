@@ -1,20 +1,30 @@
 {
   "name": "aloha-vue",
   "version": "3.0.0-alpha.1",
-  "description": "Aloha-vue is a JavaScript library that provides a wide range of accessible components and directives for Vue.js. Accessibility is of paramount importance to us, and we have designed all our components to meet accessibility compliance criteria. This library is a valuable tool for frontend developers and has already been used in three projects, including two large-scale ones",
+  "description": "Accessible Vue 3 component library: 80+ components (table with filters and pagination, form builder, select, datepicker, modal, wizard, tree, calendar…), utility CSS, formatting filters and translations in 11 languages. Ships with TypeScript types and docs for AI coding agents (AGENTS.md).",
   "keywords": [
-    "accessibility compliance criteria",
+    "vue",
+    "vue3",
+    "vue-components",
+    "component-library",
+    "ui-library",
+    "accessibility",
     "accessible",
-    "Aloha-vue",
-    "components",
-    "directives",
-    "frontend developers",
-    "JavaScript library",
-    "large-scale projects",
-    "utility",
-    "Vue.js"
+    "a11y",
+    "wcag",
+    "datatable",
+    "table",
+    "form-builder",
+    "forms",
+    "datepicker",
+    "select",
+    "modal",
+    "i18n",
+    "typescript",
+    "ai-agents",
+    "aloha-vue"
   ],
-  "homepage": "https://github.com/ilia-brykin/aloha/#README.md",
+  "homepage": "https://ilia-brykin.github.io/aloha/",
   "bugs": {
     "url": "https://github.com/ilia-brykin/aloha/issues",
     "email": "aloha.vue@gmail.com"
@@ -40,6 +50,7 @@
     "build-lib": "vite build --config vite.lib.config.mjs",
     "build-styles": "sass scss/aloha-vue.scss dist/aloha-vue.css",
     "build-llms": "cd docs && node scripts/build-llms.mjs",
+    "build-types": "node scripts/build-types.mjs",
     "pub": "npm publish --scope=@npm",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -47,11 +58,17 @@
   },
   "main": "dist/aloha-vue.umd.js",
   "module": "dist/aloha-vue.es.js",
+  "types": "types/aloha-vue.d.ts",
+  "web-types": "web-types.json",
   "exports": {
     ".": {
+      "types": "./types/aloha-vue.d.ts",
       "import": "./dist/aloha-vue.es.js",
       "require": "./dist/aloha-vue.umd.js"
     },
+    "./dist/*": "./dist/*",
+    "./scss/*": "./scss/*",
+    "./package.json": "./package.json",
     "./*": "./dist/*"
   },
   "dependencies": {
@@ -60,8 +77,10 @@
     "dompurify": "3.4.17",
     "fecha": "4.2.3",
     "lodash-es": "4.18.1",
-    "moment": "2.31.0",
-    "vue": "3.5.43"
+    "moment": "2.31.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",
@@ -76,18 +95,21 @@
     "jsdom": "28.1.0",
     "sass": "1.105.1",
     "vite": "8.3.4",
-    "vitest": "5.0.3"
+    "vitest": "5.0.3",
+    "vue": "3.5.43"
   },
   "files": [
     "AGENTS.md",
-    "dist",
-    "llms",
-    "src",
     "CHANGELOG.md",
+    "dist",
     "LICENSE",
-    "README.md",
+    "llms",
     "package.json",
-    "scss"
+    "README.md",
+    "scss",
+    "src",
+    "types",
+    "web-types.json"
   ],
   "engines": {
     "node": "^22.12.0 || ^24.0.0 || >=26.0.0"

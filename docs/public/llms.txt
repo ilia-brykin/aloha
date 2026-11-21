@@ -1,0 +1,158 @@
+# aloha-vue
+
+> Accessible component library for Vue 3: components, utility CSS classes, formatting filters and translations in 11 languages. npm: `aloha-vue`.
+
+Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in main.js, translations, filters, styles and rules. Every page below has the props, slots, events, exposes, CSS variables and examples of a component. All pages in one file: [llms-full.txt](https://ilia-brykin.github.io/aloha/llms-full.txt).
+
+## Installation
+
+- [Quick start](https://ilia-brykin.github.io/aloha/llms/installation/quick-start.md)
+
+## Migrations
+
+- [Migration 2.x -> 3.0.x](https://ilia-brykin.github.io/aloha/llms/migrations/migrations-version2-to3.md): Version 3.0 changes the styles: all colors, sizes and the focus ring are configured with **CSS** custom properties, the components got a more modern look and are accessible by default.
+- [Migration 1.2.x -> 2.0.x](https://ilia-brykin.github.io/aloha/llms/migrations/migrations-version1-to2.md)
+
+## Plugins
+
+- [Components plugin](https://ilia-brykin.github.io/aloha/llms/plugins/components-plugin.md)
+- [Icons plugin](https://ilia-brykin.github.io/aloha/llms/plugins/icons-plugin.md)
+- [Mobile plugin](https://ilia-brykin.github.io/aloha/llms/plugins/mobile-plugin.md)
+- [Page tab title plugin](https://ilia-brykin.github.io/aloha/llms/plugins/page-tab-title-plugin.md)
+
+## Components
+
+- [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md)
+- [Alert](https://ilia-brykin.github.io/aloha/llms/components/alert.md): Displays important alert messages.
+- [Avatar](https://ilia-brykin.github.io/aloha/llms/components/avatar.md): The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
+- [Button](https://ilia-brykin.github.io/aloha/llms/components/button.md): The **AButton** component is a versatile button with extensive customization options via props.
+- [Calendar](https://ilia-brykin.github.io/aloha/llms/components/calendar.md): The **ACalendar** component shows a month, a week or a day with events, like Outlook.
+- [Carousel](https://ilia-brykin.github.io/aloha/llms/components/carousel.md): A carousel is a component for cyclically displaying elements (images, text, etc.) in a limited space.
+- [Cloak](https://ilia-brykin.github.io/aloha/llms/components/cloak.md): The **ACloak** component displays a loading indicator with text indicating the current loading of the page or a large component.
+- [Confirm](https://ilia-brykin.github.io/aloha/llms/components/confirm.md): AConfirm is a confirmation dialog API built on top of the modal system.
+- [Disclosure](https://ilia-brykin.github.io/aloha/llms/components/disclosure.md): The component allows users to show or hide text content by clicking on a button.
+- [filters](https://ilia-brykin.github.io/aloha/llms/components/filters.md): Allows filtering data by various criteria.
+- [filtersRight](https://ilia-brykin.github.io/aloha/llms/components/filters-right.md): With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
+- [Dropdown](https://ilia-brykin.github.io/aloha/llms/components/dropdown.md): The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
+- [Element](https://ilia-brykin.github.io/aloha/llms/components/element.md): The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
+- [Form: Checkbox](https://ilia-brykin.github.io/aloha/llms/components/checkbox.md): The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.
+- [Form: Color picker](https://ilia-brykin.github.io/aloha/llms/components/color-picker.md): The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors.
+- [Form: Datepicker](https://ilia-brykin.github.io/aloha/llms/components/datepicker.md): Allows interactive selection of a date and, depending on the configuration, also time.
+- [Form: DatepickerRange](https://ilia-brykin.github.io/aloha/llms/components/datepicker-range.md): Allows interactive selection of a date range by providing two date fields to define 'From' and 'To' values.
+- [Fieldset: Fieldset](https://ilia-brykin.github.io/aloha/llms/components/fieldset.md): The **AFieldset** component is used to group form elements into a logical set.
+- [Fieldset: Fieldset (children)](https://ilia-brykin.github.io/aloha/llms/components/fieldset-children.md): This page covers the use of **children** in the **AFieldset** component, as well as related properties such as **class-column-default** for customizing the classes of individual child elements, **class-columns** for the parent container, and **errors-all** for displaying child element errors.
+- [Form: Form](https://ilia-brykin.github.io/aloha/llms/components/form.md): The **AForm** component builds a complete form from a configuration array.
+- [Form: Form-Element](https://ilia-brykin.github.io/aloha/llms/components/form-element.md): A wrapper component for dynamically displaying various form elements based on the provided type.
+- [Form: Group](https://ilia-brykin.github.io/aloha/llms/components/group.md): AGroup is a component for displaying and managing grouped form elements or options.
+- [Form: Input](https://ilia-brykin.github.io/aloha/llms/components/input.md): The **AInput** component provides data input functionality with support for various data types such as **text**, **password**, **number**, **email**, and others.
+- [Form: Input currency](https://ilia-brykin.github.io/aloha/llms/components/input-currency.md): The **AInputCurrency** component provides the ability to input and format currency values.
+- [Form: Input number](https://ilia-brykin.github.io/aloha/llms/components/input-number.md): The **AInputNumber** component is a field for numbers: integers or decimals with a fixed number of digits, a minimum and a maximum and buttons to increase and decrease the value.
+- [Form: Input number range](https://ilia-brykin.github.io/aloha/llms/components/input-number-range.md): The **AInputNumberRange** component consists of two number fields "from" and "to".
+- [Form: Input file](https://ilia-brykin.github.io/aloha/llms/components/input-file.md): The **AInputFile** component chooses files with a button or a dropzone, checks the type, the size and the number of the files, shows them in a list and shows the upload status of every file.
+- [Form: Input OTP](https://ilia-brykin.github.io/aloha/llms/components/input-otp.md): The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
+- [Form: JSON](https://ilia-brykin.github.io/aloha/llms/components/json.md): **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
+- [Form: Multiselect ordered](https://ilia-brykin.github.io/aloha/llms/components/multiselect-ordered.md): The component allows selecting multiple items with the ability to set their order.
+- [Form: One checkbox](https://ilia-brykin.github.io/aloha/llms/components/one-checkbox.md): The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.
+- [Form: Radio](https://ilia-brykin.github.io/aloha/llms/components/radio.md): The **ARadio** component represents a set of radio buttons, where the user can select only one item from the given options.
+- [Form: Rate](https://ilia-brykin.github.io/aloha/llms/components/rate.md): The **ARate** component shows a rating with icons and lets the user choose a value from 1 to **max**.
+- [Form: RouterLinkConfig](https://ilia-brykin.github.io/aloha/llms/components/router-link-config.md): The **ARouterLinkConfig** component provides an interface for configuring navigation links with route, query, params, and target values.
+- [Form: Select](https://ilia-brykin.github.io/aloha/llms/components/select.md): ASelect is a component that allows users to make one or more choices from a predefined list of options.
+- [Form: Select icon](https://ilia-brykin.github.io/aloha/llms/components/select-icon.md): A component based on **ASelect** that allows selecting one or multiple icons available in the system.
+- [Form: Select style](https://ilia-brykin.github.io/aloha/llms/components/select-style.md): Component for selecting styles from a predefined set of styles
+- [Form: Slider](https://ilia-brykin.github.io/aloha/llms/components/slider.md): ASlider is a component for selecting a numeric value or a range within a specified interval.
+- [Form: Switch](https://ilia-brykin.github.io/aloha/llms/components/switch.md): The **ASwitch** component is a switch with support for various states that can be bound to a data model.
+- [Form: Template](https://ilia-brykin.github.io/aloha/llms/components/template.md): The **ATemplate** component is used as a universal slot for components such as **AFieldset** and **AForm**.
+- [Form: Textarea](https://ilia-brykin.github.io/aloha/llms/components/textarea.md): The **ATextarea** component provides the functionality of a text field with various settings such as scalability, a clear button, and the ability to resize.
+- [Form: Validated JSON](https://ilia-brykin.github.io/aloha/llms/components/validated-json.md): AValidatedJson is a component for editing structured data with validation rules.
+- [GroupButtonDropdown](https://ilia-brykin.github.io/aloha/llms/components/group-button-dropdown.md): This component allows you to flexibly configure a group of buttons and links.
+- [Link](https://ilia-brykin.github.io/aloha/llms/components/link.md): Provides a connection to an internal or external source that the user can access by clicking or keyboard tapping.
+- [Link copy](https://ilia-brykin.github.io/aloha/llms/components/link-copy.md): The ALinkCopy component is a Vue.js component that provides a user interface to present a link and offers a button to copy the link text to the clipboard.
+- [List](https://ilia-brykin.github.io/aloha/llms/components/list.md): The **AList** component allows easy rendering of lists with flexible configuration options for data presentation.
+- [Loading](https://ilia-brykin.github.io/aloha/llms/components/loading.md): The **ALoading** component displays a loading spinner with text over the content when the **is-loading** property is set to **true**.
+- [Menu: Menu basic](https://ilia-brykin.github.io/aloha/llms/components/menu-basic.md): AMenu provides navigation with nested panels, search, groups and disabled links.
+- [Modal](https://ilia-brykin.github.io/aloha/llms/components/modal.md): AModal is a component that enables the implementation of modal windows.
+- [Notification](https://ilia-brykin.github.io/aloha/llms/components/notification.md)
+- [Progress: Progress bar](https://ilia-brykin.github.io/aloha/llms/components/progress.md): AProgress component is a customisable progress bar for Vue.js applications.
+- [Progress: Progress circle](https://ilia-brykin.github.io/aloha/llms/components/progress-circle.md): The **AProgressCircle** component displays progress as a circular indicator.
+- [Show more](https://ilia-brykin.github.io/aloha/llms/components/show-more.md): The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
+- [Skeleton](https://ilia-brykin.github.io/aloha/llms/components/skeleton.md): The **ASkeleton** component shows gray placeholders in the shape of the content while it is loading.
+- [Spinner](https://ilia-brykin.github.io/aloha/llms/components/spinner.md): The **ASpinner** component is used to display a loading indicator.
+- [Pagination](https://ilia-brykin.github.io/aloha/llms/components/pagination.md): The **APagination** component renders navigation for large data sets.
+- [Pagination pages](https://ilia-brykin.github.io/aloha/llms/components/pagination-pages.md): The **APaginationPages** component renders page navigation only.
+- [Tables: Table complex](https://ilia-brykin.github.io/aloha/llms/components/table-complex.md): The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
+- [Tables: Table pagination](https://ilia-brykin.github.io/aloha/llms/components/table-pagination.md)
+- [Tables: Table simple](https://ilia-brykin.github.io/aloha/llms/components/table-simple.md)
+- [Tables: Table sort](https://ilia-brykin.github.io/aloha/llms/components/table-sort.md)
+- [Tables: Table preview](https://ilia-brykin.github.io/aloha/llms/components/table-preview.md)
+- [Tables: Table preview down](https://ilia-brykin.github.io/aloha/llms/components/table-preview-down.md)
+- [Tables: Table tree](https://ilia-brykin.github.io/aloha/llms/components/table-tree.md)
+- [Tables: Table form](https://ilia-brykin.github.io/aloha/llms/components/table-form.md)
+- [Tabs](https://ilia-brykin.github.io/aloha/llms/components/tabs.md): The **ATabs** component is used for organizing content through tabs.
+- [Tooltip](https://ilia-brykin.github.io/aloha/llms/components/tooltip.md): ATooltip displays additional information when the user hovers over or focuses an element.
+- [Tree](https://ilia-brykin.github.io/aloha/llms/components/tree.md): The **ATree** component shows hierarchical data: nodes can be expanded, selected and checked, searched and loaded lazily.
+- [Translation](https://ilia-brykin.github.io/aloha/llms/components/translation.md): **ATranslation** is a powerful and versatile **Vue.js** component that allows developers to seamlessly integrate translations into **Vue.js** applications.
+- [Wizard: Wizard normal](https://ilia-brykin.github.io/aloha/llms/components/wizard.md): A wizard is a sequential, step-by-step interface designed to guide users through complex tasks or processes by breaking them into manageable steps.
+- [Wizard: Modal Wizard](https://ilia-brykin.github.io/aloha/llms/components/modal-wizard.md): This component is a combination of a modal window (AModal) and a wizard (AWizard).
+
+## CSS
+
+- [Theming](https://ilia-brykin.github.io/aloha/llms/css/theming.md): All styles of **aloha-vue** are configured with **CSS** custom properties (tokens).
+- [Badge](https://ilia-brykin.github.io/aloha/llms/css/badge.md)
+- [Columns](https://ilia-brykin.github.io/aloha/llms/css/columns.md)
+- [Colors](https://ilia-brykin.github.io/aloha/llms/css/colors.md)
+- [Display](https://ilia-brykin.github.io/aloha/llms/css/display.md)
+- [Float](https://ilia-brykin.github.io/aloha/llms/css/float.md)
+- [Overflow](https://ilia-brykin.github.io/aloha/llms/css/overflow.md)
+- [Screen reader](https://ilia-brykin.github.io/aloha/llms/css/screenreader.md)
+- [Vertical align](https://ilia-brykin.github.io/aloha/llms/css/vertical-align.md)
+- [Position](https://ilia-brykin.github.io/aloha/llms/css/position.md)
+- [Spacing](https://ilia-brykin.github.io/aloha/llms/css/spacing.md)
+- [Text](https://ilia-brykin.github.io/aloha/llms/css/text.md)
+- [Utilities](https://ilia-brykin.github.io/aloha/llms/css/utilities.md)
+
+## Directives
+
+- [OnHooks](https://ilia-brykin.github.io/aloha/llms/directives/on-hooks.md): AOnHooks is a powerful Vue.js directive allowing for binding of the specific functions executions when different lifecycle stages of a Vue.js component or HTML tag are reached.
+
+## Functions
+
+- [Filters: filterBoolean](https://ilia-brykin.github.io/aloha/llms/functions/filter-boolean.md): The function **filterBoolean** is used to convert a **boolean value** into translated text.
+- [Filters: filterCapitalize](https://ilia-brykin.github.io/aloha/llms/functions/filter-capitalize.md): Converts the first character of string to upper case and the remaining to lower case.
+- [Filters: filterCurrency](https://ilia-brykin.github.io/aloha/llms/functions/filter-currency.md): The function **filterCurrency** is a specialized extension of the **filterFloat** function and serves to format numeric values as currency.
+- [Filters: filterDate](https://ilia-brykin.github.io/aloha/llms/functions/filter-date.md): The function **filterDate** uses the moment.js library to format dates and times.
+- [Filters: filterDateRelative](https://ilia-brykin.github.io/aloha/llms/functions/filter-date-relative.md): The function **filterDateRelative** formats a date relative to now, e.g.
+- [Filters: filterDefaultForEmpty](https://ilia-brykin.github.io/aloha/llms/functions/filter-default-for-empty.md): The function **filterDefaultForEmpty** is used to check a value and return a default value if the checked value is considered empty.
+- [Filters: filterDuration](https://ilia-brykin.github.io/aloha/llms/functions/filter-duration.md): The function **filterDuration** formats a duration, e.g.
+- [Filters: filterEmail](https://ilia-brykin.github.io/aloha/llms/functions/filter-email.md): The function **filterEmail** creates an HTML link for an email address.
+- [Filters: filterEscapeHTML](https://ilia-brykin.github.io/aloha/llms/functions/filter-escape-html.md): Escapes HTML special characters in a string to prevent XSS attacks.
+- [Filters: filterFileSize](https://ilia-brykin.github.io/aloha/llms/functions/filter-file-size.md): The function **filterFileSize** converts a size from a source unit (e.g., Bytes) to a target size in a specific unit (e.g., Kilobytes, Megabytes) and returns the result as a formatted string.
+- [Filters: filterFloat](https://ilia-brykin.github.io/aloha/llms/functions/filter-float.md): The function **filterFloat** formats numeric values according to the specified parameters.
+- [Filters: filterInitials](https://ilia-brykin.github.io/aloha/llms/functions/filter-initials.md): The function **filterInitials** returns the initials of a name, e.g.
+- [Filters: filterJson](https://ilia-brykin.github.io/aloha/llms/functions/filter-json.md): The function **filterJson** converts a JavaScript object or value into a formatted JSON string.
+- [Filters: filterKeyValue](https://ilia-brykin.github.io/aloha/llms/functions/filter-key-value.md): The function **filterKeyValue** creates a formatted string from the key-value pairs of a JavaScript object.
+- [Filters: filterLimitTo](https://ilia-brykin.github.io/aloha/llms/functions/filter-limit-to.md): The function **filterLimitTo** is used to limit an input string to a specific maximum length and optionally apply a special logic for ellipses at the end of the string.
+- [Filters: filterLink](https://ilia-brykin.github.io/aloha/llms/functions/filter-link.md): The function **filterLink** creates an HTML link based on the provided URL.
+- [Filters: filterList](https://ilia-brykin.github.io/aloha/llms/functions/filter-list.md): The function creates a list from an array.
+- [Filters: filterLowerCase](https://ilia-brykin.github.io/aloha/llms/functions/filter-lower-case.md): Converts the input string to lowercase.
+- [Filters: filterMask](https://ilia-brykin.github.io/aloha/llms/functions/filter-mask.md): Masks a given value, displaying only the last few characters.
+- [Filters: filterNumberCompact](https://ilia-brykin.github.io/aloha/llms/functions/filter-number-compact.md): The function **filterNumberCompact** shortens a large number with a unit (thousand, million, billion, trillion), e.g.
+- [Filters: filterPercent](https://ilia-brykin.github.io/aloha/llms/functions/filter-percent.md): The function **filterPercent** formats a value as a percentage, e.g.
+- [Filters: filterPropertyByValue](https://ilia-brykin.github.io/aloha/llms/functions/filter-property-by-value.md): The function **filterPropertyByValue** allows for mapping values to predefined properties in a mapping object.
+- [Filters: filterSearchHighlight](https://ilia-brykin.github.io/aloha/llms/functions/filter-search-highlight.md): The function **filterSearchHighlight** is used to mark a search term in a value by enclosing the search term with **HTML** tags.
+- [Filters: filterStripHtml](https://ilia-brykin.github.io/aloha/llms/functions/filter-strip-html.md): The function **filterStripHtml** removes HTML tags from a string and returns its text, e.g.
+- [Filters: filterTitleCase](https://ilia-brykin.github.io/aloha/llms/functions/filter-title-case.md): The function **filterTitleCase** converts the first letter of every word to upper case.
+- [Filters: filterTruncateMiddle](https://ilia-brykin.github.io/aloha/llms/functions/filter-truncate-middle.md): The function **filterTruncateMiddle** shortens a string in the middle and keeps its start and its end, e.g.
+- [Filters: filterUpperCase](https://ilia-brykin.github.io/aloha/llms/functions/filter-upper-case.md): Converts the input string to uppercase.
+- [Filters: filterValueByCondition](https://ilia-brykin.github.io/aloha/llms/functions/filter-value-by-condition.md): The function **filterValueByCondition** returns a result based on the first matching condition.
+- [Utils: aOrderBy](https://ilia-brykin.github.io/aloha/llms/functions/utils-aorder-by.md): Extends lodash's orderBy with case-insensitive comparison by default while preserving all iteratee and order combinations.
+- [Utils: aSortBy](https://ilia-brykin.github.io/aloha/llms/functions/utils-asort-by.md): Extends lodash's sortBy with case-insensitive comparison by default while keeping support for every iteratee shorthand.
+- [Utils: getTotalNestedCount](https://ilia-brykin.github.io/aloha/llms/functions/utils-get-total-nested-count.md): Calculates the total count of elements within a nested structure, including all children and sub-children, based on the specified child key.
+- [Utils: isArrayOfArrays](https://ilia-brykin.github.io/aloha/llms/functions/utils-is-array-of-arrays.md): Checks if the given input is an array of arrays.
+- [Utils: isArrayOfStrings](https://ilia-brykin.github.io/aloha/llms/functions/utils-is-array-of-strings.md): Checks if the given input is an array of strings.
+- [Utils math: isEven](https://ilia-brykin.github.io/aloha/llms/functions/utils-math-is-even.md): Determines if a given number is even.
+- [Utils math: isOdd](https://ilia-brykin.github.io/aloha/llms/functions/utils-math-is-odd.md): Determines if a given number is odd.
+
+## Rest
+
+- [Scale](https://ilia-brykin.github.io/aloha/llms/rest/scale.md)
+- [Svg](https://ilia-brykin.github.io/aloha/llms/rest/svg.md)

@@ -8,8 +8,21 @@
 - CSS classes start with `a_` (`a_btn`, `a_mt_3`), CSS custom properties with `--a_` (`--a_color_primary`).
 - Every page of the docs is in `llms/` (list below): props, slots, events, exposes, CSS variables and examples. **Read the page of a component before using it, do not guess props.**
 - The sources are in `src/`, the styles in `scss/`.
+- Types of all components and their props: `types/aloha-vue.d.ts` (TypeScript, Volar) and `web-types.json` (JetBrains).
+- The same docs online: https://ilia-brykin.github.io/aloha/llms.txt
 
 ## Setup
+
+New project with everything configured (Vite, translations, icons, a form and a table):
+
+```bash
+npx degit ilia-brykin/aloha/starter my-app
+cd my-app
+npm install
+npm run dev
+```
+
+Existing project:
 
 ```bash
 npm install aloha-vue aloha-svg
@@ -96,6 +109,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 
 ## Rules
 
+- In tables a column with `filter` (e.g. `filter: "date"`) also needs `slot: "get"`.
 - Use the components and props described in `llms/`. If something is missing, check the props in `src/<Component>/<Component>.js`.
 - Keep the accessibility: give buttons with only an icon a `title` or `aria-label`, give form elements a `label`.
 - Migration from 2.x: `llms/migrations/migrations-version2-to3.md`.

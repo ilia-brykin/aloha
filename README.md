@@ -10,6 +10,17 @@
 
 Aloha is a Vue.js-based, highly customizable, internationalized framework for helping developers write code faster and more efficiently, with a special focus on accessibility.
 
+## Quick start
+
+New project with Vite, translations, icons, a form and a table, ready to run:
+
+```bash
+npx degit ilia-brykin/aloha/starter my-app
+cd my-app
+npm install
+npm run dev
+```
+
 ## Installation
 
 Aloha-vue can be installed using npm, yarn, or pnpm:
@@ -88,7 +99,13 @@ The package contains documentation for AI coding agents (Claude Code, Cursor, Co
 UI library: aloha-vue. Before using it, read node_modules/aloha-vue/AGENTS.md.
 ```
 
+The same docs are online for agents without the package: [llms.txt](https://ilia-brykin.github.io/aloha/llms.txt) (index) and [llms-full.txt](https://ilia-brykin.github.io/aloha/llms-full.txt) (all pages in one file).
+
 After changes in the docs, regenerate the files with `npm run build-llms`.
+
+## TypeScript
+
+The package contains the types of all components and their props (`types/aloha-vue.d.ts`), so editors (Volar, vue-tsc) and agents see wrong or misspelled props. JetBrains IDEs read `web-types.json`. After changes in the props, regenerate both files with `npm run build-types`.
 
 ## Development
 

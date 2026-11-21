@@ -1,0 +1,10 @@
+{
+  "_APP_TITLE_": "Tasks",
+  "_APP_TASK_": "New task",
+  "_APP_ADD_": "Add",
+  "_APP_DELETE_": "Delete the task \"{{ title }}\"",
+  "_APP_TABLE_": "List of tasks",
+  "_APP_COLUMN_TITLE_": "Task",
+  "_APP_COLUMN_CREATED_": "Created",
+  "_APP_LANGUAGE_": "Deutsch"
+}
