@@ -1,6 +1,6 @@
 {
   "name": "aloha-vue",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "Accessible Vue 3 component library: 80+ components (table with filters and pagination, form builder, select, datepicker, modal, wizard, tree, calendar…), utility CSS, formatting filters and translations in 11 languages. Ships with TypeScript types and docs for AI coding agents (AGENTS.md).",
   "keywords": [
     "vue",
@@ -47,6 +47,7 @@
     "url": "https://github.com/ilia-brykin/aloha.git"
   },
   "scripts": {
+    "build": "npm run lint && npm test && npm run build-types && npm run build-llms && npm run build-lib && npm run build-styles",
     "build-lib": "vite build --config vite.lib.config.mjs",
     "build-styles": "sass scss/aloha-vue.scss dist/aloha-vue.css",
     "build-llms": "cd docs && node scripts/build-llms.mjs",

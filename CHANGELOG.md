@@ -7,6 +7,45 @@
 ---
 # Versions
 
+## 3.0.0-alpha.2
+
+Changes since 3.0.0-alpha.1. Migration notes: docs page **Migration 2.x → 3.0** (`PageMigrationsVersion2To3`).
+
+### Breaking
+
+- feat(plugins)!: new `AComponentsPlugin` holds the settings of all components, the key is the name of the component: `app.use(AComponentsPlugin, { AModal: { props: { useEscape: false } }, AAlert: { icons: { info } }, ATable: { props: { isStriped: true }, config: {} }, ASelectStyle: { cssClasses: [] }, ARouterLinkConfig: { routes, excludedPathRoutes } })`. `getPropDefault()` / `getComponentOption()` for own components. Prop defaults are inherited: `AModalForm`, `AModalWizard` → `AModal`; `ASelectIcon`, `ASelectStyle` → `ASelect` (`extends` for own components). `propsDefault` was removed. Removed plugins: `AAlertPlugin`, `ACarouselPlugin`, `ACloakPlugin`, `AFiltersPlugin` (its `config` was not used), `AGroupButtonDropdownPlugin`, `AInputCurrencyPlugin`, `AInputNumberPlugin`, `ALoadingPlugin`, `AModalPlugin`, `AMultiselectOrderedPlugin`, `ARouterLinkConfigPlugin`, `ASelectPlugin`, `ASelectStylesPlugin`, `ASpinnerPlugin`, `ATablePlugin` and the exports `AInputCurrencyPluginOptions`, `AInputNumberPluginOptions`, `AMultiselectOrderedPluginOptions`, `ARouterLinkConfigPluginOptions`, `ASelectStylePluginOptions`. The class `a_spinner` of `ASpinner` is fixed.
+- feat(ui)!: `ARate` rebuilt as a form element (`src/ui/ARate`, the export is unchanged). A double click no longer clears the rating (use `clearable`). Classes renamed (`.a_rate_container` → `.a_rate`, `.a_rate_icon` → `.a_rate__item`…), `scss/components/ARate.scss` → `scss/components/ui/ARate.scss`, `--a_rate_empty_color` → `--a_rate_void_color`. Old props (`rating`, `halfIcon`, `icon`, `iconFill`, `color`, `hoveredColor`, `text`, size `"medium"` / `"big"`) still work.
+- feat(AInputFile)!: classes renamed to `.a_file__label` / `.a_file__input`.
+- build!: `vue` is a peer dependency (`^3.5.0`) instead of the dependency `3.5.43`. Projects with another version of Vue no longer get a second copy of Vue (two Vue runtimes, broken types).
+
+### Features
+
+- feat: `ACalendar`, a calendar like Outlook: views month, week, work week, day and agenda; events on several days as bars, all-day events, colors; drag and drop and resize of events (mouse, touch, keyboard with Alt + arrows); recurring events with the helpers `detachCalendarOccurrence`, `splitCalendarSeries`, `moveCalendarSeries`, `addCalendarException`; iCal export `getCalendarIcs` and import `parseCalendarIcs` (also Windows time zones of Outlook); range selection, popover with the details of an event, working hours, `minDate` / `maxDate` / `disabledDates`, week numbers, print styles; WAI-ARIA keyboard navigation, translations in 11 languages.
+- feat: `ATree`: plain JSON data or any JSON value (json mode), selection, expanding, checkboxes with cascade and mixed state, search with highlight, lazy loading with retry, slots `node` and `empty`, methods `expandAll`, `collapseAll`, `focus`, `setSelected`, `getCheckedItems`…; WAI-ARIA tree pattern with full keyboard.
+- feat: `AAvatar` (image, initials or icon, fallback to the initials, color by the name, sizes, shapes, status dot) and `AAvatarGroup` (overlapping avatars, `max` with "+N").
+- feat: `ASkeleton` (default layout, `loading`, `count`, `animated`, `throttle`) and `ASkeletonItem` (text, heading, circle, rect, button, input, image).
+- feat(ui): `AInputOtp`, one-time code input with a cell per character: `length`, `charType`, `validator`, `mask`, `separator`, variants, paste and `autocomplete="one-time-code"`, event `finish`; AForm / AGroup type `"otp"`.
+- feat(ui): `ARate`: `max`, `allowHalf`, `clearable`, `size`, colors and icons per level, `showText`, `showScore`; one focusable `role="slider"` with full keyboard; AForm / AGroup type `"rate"`.
+- feat(AInputFile): dropzone (`isDropzone`), checks of `accept`, `maxSize`, `maxFiles` with the event `reject`, file list with remove button and image preview (`isPreview`), upload status per file (progress, status, `errorText`), `isAppend`; translations in 11 languages (the button text was always German before).
+- feat(ATable): modern styles (frame with rounded corners, muted header, more cell padding, tabular digits, selected and preview rows highlighted) and the new prop `isStriped` (global default: `AComponentsPlugin`, `ATable: { props: { isStriped: true } }`).
+- feat(filters): `filterInitials`, `filterTruncateMiddle`, `filterDuration`, `filterNumberCompact`, `filterDateRelative`, `filterPercent`, `filterStripHtml`, `filterTitleCase` (also in `AFiltersAPI`).
+- feat(css): utilities `a_text_monospace`, `a_text_tabular_nums`, `a_text_underline_offset`, `a_text_line_through_muted`, `a_cursor_*`, `a_pointer_events_none` / `_auto`, `a_text_select_all` / `_none`, `a_shadow_none` / `_sm` / `_md` / `_lg`, `a_visible`, `a_invisible`, `a_rounded_circle`; token `--a_text_underline_offset`.
+- feat: TypeScript types of all components and their props and events (`types/aloha-vue.d.ts`, also `GlobalComponents` for Volar) and `web-types.json` for JetBrains IDEs, generated with `npm run build-types`.
+- feat: docs for AI coding agents in the package: `AGENTS.md` (setup, translations, filters, styles, rules) and one markdown file per docs page in `llms/`, generated from the docs with `npm run build-llms`. On the docs site: `llms.txt`, `llms-full.txt` and `AGENTS.md`. `context7.json` for Context7.
+- feat: starter template `starter/` (Vite, translations, icons, a form and a table, `AGENTS.md` / `CLAUDE.md` for AI agents): `npx degit ilia-brykin/aloha/starter my-app`.
+
+### Fixes
+
+- fix(exports): `import "aloha-vue/dist/aloha-vue.css"` (the path in the docs) resolved to `dist/dist/aloha-vue.css` and was not loaded. New entries `./dist/*`, `./scss/*` and `./package.json`, the old path `aloha-vue/aloha-vue.css` still works.
+- fix(ASlider): register the form type `"slider"`, AForm, AFormElement, AFieldset, AGroup and the filters did not render it.
+
+### Docs
+
+- docs: pages for all new components and filters, the form types list links to the pages of `otp`, `rate` and `slider`, the filter pages show the right tests.
+- docs: missing translations and broken examples fixed, props and slots of `ATooltip` (the page showed the props of `ADisclosure`), route `PageTitle` → `PageTooltip`.
+- docs(migration): `cssClasses` of `ASelectStyle` are replaced on repeated install.
+- docs: README with quick start, TypeScript and AI agents, shorter description and keywords in `package.json`.
+
 ## 3.0.0-alpha.1
 
 Big style refactoring. The JavaScript API of the components stays compatible, only some defaults changed. Step-by-step guide: docs page **Migration 2.x → 3.0** (`PageMigrationsVersion2To3`). Includes all changes of 2.86.0 and 2.87.0.
@@ -24,7 +63,6 @@ Big style refactoring. The JavaScript API of the components stays compatible, on
 - refactor!: remove the unused folder `src/PuxDatepicker` (it was not used by any component; breaking only for direct imports from it).
 - feat(icons)!: new icon `AIconClose`, used by all close buttons. `.a_btn_close` no longer draws the cross as background image. Default close icon of `AFormElementBtnClear` (`icon`) and `AAlertPlugin` (`btnCloseIcon`) changed from `x-lg` to `AIconClose`.
 - feat(ui)!: new prop `labelPosition` (`"float"` | `"inset"` | `"top"`) for `AInput`, `ATextarea`, `AInputNumber`, `AInputCurrency`, `ASelect`, `ASelectIcon`, `ASelectStyle`, `ADatepicker`, `AColorPicker` (`AMultiselectOrdered`: `selectLabelPosition`). Default is `"float"` for all form elements (in 2.x `AInputNumber`, `AInputCurrency`, `ADatepicker` had the label on top). Global default via `AFormPlugin` (`labelPosition`). `isLabelFloat` is deprecated and will be removed in 4.0.
-- feat(plugins)!: new `AComponentsPlugin` holds the settings of all components, the key is the name of the component: `app.use(AComponentsPlugin, { AModal: { props: { useEscape: false } }, AAlert: { icons: { info } }, ATable: { props: { isStriped: true }, config: {} }, ASelectStyle: { cssClasses: [] }, ARouterLinkConfig: { routes, excludedPathRoutes } })`. `getPropDefault()` / `getComponentOption()` for own components. Prop defaults are inherited: `AModalForm`, `AModalWizard` → `AModal`; `ASelectIcon`, `ASelectStyle` → `ASelect` (`extends` for own components). `propsDefault` was removed. Removed plugins: `AAlertPlugin`, `AAvatarPlugin`, `ACarouselPlugin`, `ACloakPlugin`, `AFiltersPlugin` (its `config` was not used), `AGroupButtonDropdownPlugin`, `AInputCurrencyPlugin`, `AInputNumberPlugin`, `ALoadingPlugin`, `AModalPlugin`, `AMultiselectOrderedPlugin`, `ARouterLinkConfigPlugin`, `ASelectPlugin`, `ASelectStylesPlugin`, `ASkeletonPlugin`, `ASpinnerPlugin`, `ATablePlugin` and the exports `AInputCurrencyPluginOptions`, `AInputNumberPluginOptions`, `AMultiselectOrderedPluginOptions`, `ARouterLinkConfigPluginOptions`, `ASelectStylePluginOptions`. The class `a_spinner` of `ASpinner` is fixed.
 - fix(a11y)!: accessible names and valid ARIA by default (`AElement` / `AButton` / `ALink` icon-only title as `a_sr_only` text, `ADropdown` and `ASelect` screen reader texts, `aria-label` for `AProgress` / `AProgressCircle`, `ATabs` items `role="presentation"`, `AWizard` steps without `role="navigation"`, `ADatepicker` `aria-haspopup="dialog"` + `aria-controls`, `ASlider` `aria-labelledby`). Check tests that depend on the markup.
 
 ### Features
