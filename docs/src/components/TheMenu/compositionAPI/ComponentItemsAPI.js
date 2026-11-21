@@ -565,7 +565,6 @@ export default function ComponentItemsAPI() {
         to: {
           name: "PageTooltip",
         },
-        titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
       },
       {
         id: "tree",
