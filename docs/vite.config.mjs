@@ -35,6 +35,11 @@ export default defineConfig({
           src: "assets",
           dest: "./",
         },
+        // Docs for AI agents (npm run build-llms), AGENTS.md, llms.txt and llms-full.txt are in public/
+        {
+          src: "../llms",
+          dest: "./",
+        },
       ],
     }),
   ],

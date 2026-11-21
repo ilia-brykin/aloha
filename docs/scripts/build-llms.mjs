@@ -455,7 +455,40 @@ for (const page of INDEX) {
 }
 
 const TEMPLATE = fs.readFileSync(path.join(import.meta.dirname, "AGENTS.template.md"), "utf8").replace(/\r\n/g, "\n");
-fs.writeFileSync(path.join(ROOT, "AGENTS.md"), TEMPLATE.replace("{{INDEX}}", () => fixLinks(LINES.join("\n").trim(), "AGENTS.md")));
+const AGENTS_MD = TEMPLATE.replace("{{INDEX}}", () => fixLinks(LINES.join("\n").trim(), "AGENTS.md"));
+fs.writeFileSync(path.join(ROOT, "AGENTS.md"), AGENTS_MD);
+
+// ---------- llms.txt, llms-full.txt (https://llmstxt.org) on the docs site ----------
+
+// The docs build copies llms/ to the site (vite.config.mjs), AGENTS.md, llms.txt and llms-full.txt are in docs/public.
+
+const SITE = "https://ilia-brykin.github.io/aloha/";
+// Relative links of a file → absolute links on the site
+const toAbsoluteLinks = (text, file) => text.replace(/\]\((?![a-z]+:|#)([^)\s]+)\)/g, (match, link) => `](${ new URL(link, SITE + file).href })`);
+const LLMS_TXT = [
+  "# aloha-vue",
+  "",
+  "> Accessible component library for Vue 3: components, utility CSS classes, formatting filters and translations in 11 languages. npm: `aloha-vue`.",
+  "",
+  `Start with [AGENTS.md](${ SITE }AGENTS.md): setup in main.js, translations, filters, styles and rules. Every page below has the props, slots, events, exposes, CSS variables and examples of a component. All pages in one file: [llms-full.txt](${ SITE }llms-full.txt).`,
+];
+section = undefined;
+for (const page of INDEX) {
+  if (page.section !== section) {
+    section = page.section;
+    LLMS_TXT.push("", `## ${ section }`, "");
+  }
+  const SUMMARY = page.summary.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  LLMS_TXT.push(`- [${ page.group ? `${ page.group }: ` : "" }${ page.label }](${ SITE }${ page.file })${ SUMMARY ? `: ${ SUMMARY }` : "" }`);
+}
+const PUBLIC = path.join(DOCS, "public");
+fs.mkdirSync(PUBLIC, { recursive: true });
+fs.writeFileSync(path.join(PUBLIC, "AGENTS.md"), AGENTS_MD);
+fs.writeFileSync(path.join(PUBLIC, "llms.txt"), `${ LLMS_TXT.join("\n") }\n`);
+fs.writeFileSync(path.join(PUBLIC, "llms-full.txt"), [
+  toAbsoluteLinks(AGENTS_MD, "AGENTS.md"),
+  ...INDEX.map(page => `<!-- ${ SITE }${ page.file } -->\n\n${ toAbsoluteLinks(fs.readFileSync(path.join(ROOT, page.file), "utf8"), page.file) }`),
+].join("\n\n---\n\n"));
 
 await server.close();
 

@@ -1,0 +1,20 @@
+{
+  "name": "aloha-vue-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aloha-svg": "^1.8.0",
+    "aloha-vue": "^3.0.0-alpha.1",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "vite": "^8.0.0"
+  }
+}

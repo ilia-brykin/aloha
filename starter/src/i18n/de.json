@@ -1,0 +1,10 @@
+{
+  "_APP_TITLE_": "Aufgaben",
+  "_APP_TASK_": "Neue Aufgabe",
+  "_APP_ADD_": "Hinzufügen",
+  "_APP_DELETE_": "Aufgabe „{{ title }}“ löschen",
+  "_APP_TABLE_": "Liste der Aufgaben",
+  "_APP_COLUMN_TITLE_": "Aufgabe",
+  "_APP_COLUMN_CREATED_": "Erstellt",
+  "_APP_LANGUAGE_": "English"
+}

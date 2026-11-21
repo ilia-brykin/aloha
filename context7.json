@@ -1,0 +1,18 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "aloha-vue",
+  "description": "Accessible component library for Vue 3: table with filters and pagination, form builder, select, datepicker, modal, wizard, tree, calendar and more, utility CSS classes, formatting filters and translations in 11 languages.",
+  "folders": [
+    "llms"
+  ],
+  "rules": [
+    "Read the page of a component in llms/components/ before using it, do not guess props.",
+    "Components are imported from \"aloha-vue\" and used in kebab-case: AButton -> <a-button>.",
+    "Install the plugins in main.js: AI18nPlugin (translations), AIconPlugin (icons), AMobilePlugin.",
+    "Import the styles with import \"aloha-vue/dist/aloha-vue.css\".",
+    "Text props (text, label, title, placeholder) accept translation keys like \"_SAVE_\"; placeholders with :extra=\"{ name: 'Anna' }\".",
+    "Prefer the utility CSS classes (a_btn, a_mb_3, a_d_flex) to own CSS.",
+    "In ATable a column with filter (e.g. filter: \"date\") also needs slot: \"get\".",
+    "Give buttons with only an icon a title or text-screen-reader, give form elements a label."
+  ]
+}
