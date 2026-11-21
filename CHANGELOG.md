@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 3.0.0-alpha.3
+
+### Features
+
+- Skills for AI agents in the npm package (`skills/`), linked from the README:
+  - `client-aloha-vue`: using components, plugins, translations, icons, HTTP helpers and styles;
+  - `client-aloha-vue-modal`: modal forms and confirmations with `AModalForm`, `AModal` and `AConfirmAPI` (form model, fields, saving, validation errors, focus return).
+
 ## 3.0.0-alpha.2
 
 Changes since 3.0.0-alpha.1. Migration notes: docs page **Migration 2.x → 3.0** (`PageMigrationsVersion2To3`).

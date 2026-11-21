@@ -1,6 +1,6 @@
 {
   "name": "aloha-vue",
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "Accessible Vue 3 component library: 80+ components (table with filters and pagination, form builder, select, datepicker, modal, wizard, tree, calendar…), utility CSS, formatting filters and translations in 11 languages. Ships with TypeScript types and docs for AI coding agents (AGENTS.md).",
   "keywords": [
     "vue",
