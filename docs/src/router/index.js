@@ -304,7 +304,7 @@ const ROUTES = [
   },
   {
     path: "/title",
-    name: "PageTitle",
+    name: "PageTooltip",
     component: () => import("../views/Components/PageTooltip/PageTooltip.vue"),
   },
   {
