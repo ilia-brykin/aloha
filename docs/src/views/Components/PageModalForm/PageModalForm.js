@@ -1,6 +1,8 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageModalFormColumns from "./PageModalFormColumns/PageModalFormColumns.vue";
+import PageModalFormDelete from "./PageModalFormDelete/PageModalFormDelete.vue";
+import PageModalFormElements from "./PageModalFormElements/PageModalFormElements.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -17,6 +19,8 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageModalFormColumns,
+    PageModalFormDelete,
+    PageModalFormElements,
   },
   setup() {
     const {

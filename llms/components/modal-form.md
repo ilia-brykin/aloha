@@ -85,6 +85,296 @@ export default {
 };
 ```
 
+## AModalForm: different form elements
+
+A large modal window (`size="xl"`) with different form elements: text, email, date, select, currency, radio buttons, checkboxes, switch and textarea. The function `save` shows the save button and is called when it is clicked. Three columns on the desktop, two on the tablet, one on mobile devices.
+
+*props: `data-form`, `save`, `size`*
+
+```html
+<a-button
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :save="save"
+  header-text="_A_MODAL_FORM_ELEMENTS_HEADER_"
+  size="xl"
+  class-columns="a_columns a_columns_count_12 a_columns_gap_3"
+  class-column-default="a_column a_column_4 a_column_6_tablet a_column_12_mobile"
+/>
+<pre v-if="modelSaved">{{ modelSaved }}</pre>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalForm,
+  },
+  setup() {
+    const model = ref({
+      name: "Aloha",
+      email: "aloha@example.com",
+      birthday: undefined,
+      country: "de",
+      budget: 1500,
+      contact: "email",
+      interests: ["music"],
+      notifications: true,
+      notes: "",
+    });
+    const modelSaved = ref(undefined);
+    const dataForm = [
+      {
+        type: "text",
+        id: "name",
+        label: "_A_FORM_EXAMPLE_NAME_",
+        required: true,
+      },
+      {
+        type: "email",
+        id: "email",
+        label: "_A_FORM_EXAMPLE_EMAIL_",
+      },
+      {
+        type: "date",
+        id: "birthday",
+        label: "_A_MODAL_FORM_EXAMPLE_BIRTHDAY_",
+      },
+      {
+        type: "select",
+        id: "country",
+        label: "_A_FORM_EXAMPLE_COUNTRY_",
+        data: [
+          { label: "Deutschland", value: "de" },
+          { label: "France", value: "fr" },
+          { label: "Italia", value: "it" },
+        ],
+      },
+      {
+        type: "currency",
+        id: "budget",
+        label: "_A_MODAL_FORM_EXAMPLE_BUDGET_",
+      },
+      {
+        type: "radio",
+        id: "contact",
+        label: "_A_MODAL_FORM_EXAMPLE_CONTACT_",
+        data: [
+          { label: "_A_MODAL_FORM_EXAMPLE_CONTACT_EMAIL_", value: "email" },
+          { label: "_A_MODAL_FORM_EXAMPLE_CONTACT_PHONE_", value: "phone" },
+        ],
+      },
+      {
+        type: "checkbox",
+        id: "interests",
+        label: "_A_MODAL_FORM_EXAMPLE_INTERESTS_",
+        data: [
+          { label: "_A_MODAL_FORM_EXAMPLE_INTEREST_MUSIC_", value: "music" },
+          { label: "_A_MODAL_FORM_EXAMPLE_INTEREST_SPORT_", value: "sport" },
+          { label: "_A_MODAL_FORM_EXAMPLE_INTEREST_TRAVEL_", value: "travel" },
+        ],
+      },
+      {
+        type: "switch",
+        id: "notifications",
+        label: "_A_FORM_EXAMPLE_NOTIFICATIONS_",
+      },
+      {
+        type: "textarea",
+        id: "notes",
+        label: "_A_FORM_EXAMPLE_NOTES_",
+        classColumn: "a_column a_column_12",
+      },
+    ];
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    const save = () => {
+      modelSaved.value = { ...model.value };
+      closeModal();
+    };
+
+    return {
+      closeModal,
+      dataForm,
+      isModalVisible,
+      model,
+      modelSaved,
+      openModal,
+      save,
+    };
+  },
+};
+```
+
+## AModalForm: additional button
+
+Besides the save and the cancel button the footer has a delete button. It is added with the slot `modalFooterPrepend` (before the buttons) or `modalFooterAppend` (after the buttons). The form has a date range, a number, a slider and a single checkbox.
+
+*props: `save`, `size`*
+
+```html
+<a-button
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :save="save"
+  header-text="_A_MODAL_FORM_DELETE_HEADER_"
+  size="large"
+  class-columns="a_columns a_columns_count_12 a_columns_gap_3"
+  class-column-default="a_column a_column_6 a_column_12_mobile"
+>
+  <template v-slot:modalFooterPrepend>
+    <a-button
+      class="a_btn a_btn_outline_danger"
+      text="_A_MODAL_FORM_EXAMPLE_BTN_DELETE_"
+      @click="remove"
+    />
+  </template>
+</a-modal-form>
+
+<a-translation
+  v-if="status"
+  class="a_mt_3"
+  tag="p"
+  role="status"
+  :text="status"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalForm,
+  ATranslation,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalForm,
+    ATranslation,
+  },
+  setup() {
+    const model = ref({
+      title: "Release 3.0",
+      priority: "high",
+      period: undefined,
+      hours: 8,
+      progress: 40,
+      done: false,
+    });
+    const status = ref(undefined);
+    const dataForm = [
+      {
+        type: "text",
+        id: "title",
+        label: "_A_FORM_EXAMPLE_TITLE_",
+        required: true,
+      },
+      {
+        type: "select",
+        id: "priority",
+        label: "_A_MODAL_FORM_EXAMPLE_PRIORITY_",
+        data: [
+          { label: "_A_MODAL_FORM_EXAMPLE_PRIORITY_LOW_", value: "low" },
+          { label: "_A_MODAL_FORM_EXAMPLE_PRIORITY_MEDIUM_", value: "medium" },
+          { label: "_A_MODAL_FORM_EXAMPLE_PRIORITY_HIGH_", value: "high" },
+        ],
+      },
+      {
+        type: "dateRange",
+        id: "period",
+        label: "_A_FORM_EXAMPLE_PERIOD_",
+        classColumn: "a_column a_column_12",
+      },
+      {
+        type: "integerNonNegative",
+        id: "hours",
+        label: "_A_MODAL_FORM_EXAMPLE_HOURS_",
+      },
+      {
+        type: "slider",
+        id: "progress",
+        label: "_A_MODAL_FORM_EXAMPLE_PROGRESS_",
+        step: 10,
+      },
+      {
+        type: "oneCheckbox",
+        id: "done",
+        label: "_A_MODAL_FORM_EXAMPLE_DONE_",
+        classColumn: "a_column a_column_12",
+      },
+    ];
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    const save = () => {
+      status.value = "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_";
+      closeModal();
+    };
+
+    const remove = () => {
+      status.value = "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_";
+      closeModal();
+    };
+
+    return {
+      closeModal,
+      dataForm,
+      isModalVisible,
+      model,
+      openModal,
+      remove,
+      save,
+      status,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
