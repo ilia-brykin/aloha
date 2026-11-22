@@ -22,6 +22,12 @@
   .a_form_element_label {
     display: flex;
   }
+
+  // the field fills the rest of the line next to its label; it wraps below the label only under the min width
+  > .a_form_element__container {
+    flex: 1 1 var(--a_input_datepicker_range_min_width);
+    min-width: 0;
+  }
 }
 .a_datepicker_range__label {
   margin-right: var(--a_datepicker_range_label_padding_right);

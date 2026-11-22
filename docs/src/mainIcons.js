@@ -16,6 +16,7 @@ import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
 import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import Code from "aloha-svg/dist/js/bootstrap/Code";
 import CodeSquare from "aloha-svg/dist/js/bootstrap/CodeSquare";
+import Copy from "aloha-svg/dist/js/bootstrap/Copy";
 import Duplicate from "aloha-svg/dist/js/bootstrap3/Duplicate";
 import EjectFill from "aloha-svg/dist/js/bootstrap/EjectFill";
 import Envelope from "aloha-svg/dist/js/bootstrap3/Envelope";
@@ -72,6 +73,7 @@ export default {
   ChevronUp,
   Code,
   CodeSquare,
+  Copy,
   Duplicate,
   EjectFill,
   Envelope,

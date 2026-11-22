@@ -67,13 +67,15 @@
     .a_btn_group
       a-button.a_btn.a_btn_secondary(
         v-if="codeJs"
-        icon-left="FiletypeJs"
+        icon-left="Copy"
+        text="JS"
         title="_COPY_CODE_JS_"
         @click="copyJsToClipboard"
       )
       a-button.a_btn.a_btn_secondary(
         v-if="codeHtml"
-        icon-left="FiletypeHtml"
+        icon-left="Copy"
+        text="HTML"
         title="_COPY_CODE_HTML_"
         @click="copyHtmlToClipboard"
       )

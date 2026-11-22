@@ -182,15 +182,20 @@ export default {
                 showErrors: false,
                 onChange: this.updateUnappliedModelSort,
               }, {
-                slotAppend: ({ item }) => h(AElement, {
-                  type: "button",
-                  class: "a_btn a_btn_primary a_ml_2",
-                  title: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
-                  textScreenReader: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
-                  disabled: !this.unappliedModelSort?.[item.additionalProps.index]?.sortId,
-                  iconLeft: Close,
-                  onClick: () => this.removeUnappliedModelSort({ item }),
-                }),
+                // the button is rendered next to the select, so it gets its own column
+                slotAppend: ({ item }) => h("div", {
+                  class: "a_column a_column_1 a_column_2_touch a_d_flex a_align_items_center",
+                }, [
+                  h(AElement, {
+                    type: "button",
+                    class: "a_btn a_btn_primary",
+                    title: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
+                    textScreenReader: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
+                    disabled: !this.unappliedModelSort?.[item.additionalProps.index]?.sortId,
+                    iconLeft: Close,
+                    onClick: () => this.removeUnappliedModelSort({ item }),
+                  }),
+                ]),
               }),
             ]),
             h("div", {
