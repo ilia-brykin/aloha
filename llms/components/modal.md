@@ -8,6 +8,7 @@ AModal is a component that enables the implementation of modal windows. It provi
 
 ```html
 <a-button
+  id="btn_modal_basic"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -15,6 +16,7 @@ AModal is a component that enables the implementation of modal windows. It provi
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_basic"
   header-text="Aloha"
   :close="closeModal"
 ></a-modal>
@@ -64,6 +66,7 @@ The **body-html** prop is used to display custom HTML content in the modal windo
 
 ```html
 <a-button
+  id="btn_modal_body_html"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -71,6 +74,7 @@ The **body-html** prop is used to display custom HTML content in the modal windo
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_body_html"
   header-text="Aloha"
   :body-html="bodyHtml"
   :close="closeModal"
@@ -129,6 +133,7 @@ Here, the props **close-button-attributes**, **close-button-class**, **close-but
 
 ```html
 <a-button
+  id="btn_modal_close_button"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -136,6 +141,7 @@ Here, the props **close-button-attributes**, **close-button-class**, **close-but
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_close_button"
   header-text="Aloha"
   :close="closeModal"
   :close-button-attributes="{ textTag: 'strong' }"
@@ -189,6 +195,7 @@ Example of a modal window with a footer fixed at the bottom that remains in plac
 
 ```html
 <a-button
+  id="btn_modal_footer_sticky"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -196,6 +203,7 @@ Example of a modal window with a footer fixed at the bottom that remains in plac
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_footer_sticky"
   :body-html="bodyHtml"
   :close="closeModal"
   :is-footer-sticky="true"
@@ -292,6 +300,7 @@ Here, the props **save**, **save-button-attributes**, **save-button-class**, and
 
 ```html
 <a-button
+  id="btn_modal_save_button"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -299,6 +308,7 @@ Here, the props **save**, **save-button-attributes**, **save-button-class**, and
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_save_button"
   header-text="Aloha"
   :close="closeModal"
   :save="saveModal"
@@ -484,30 +494,35 @@ The modal size is based on options such as 'small', 'large', 'xl', 'xxl', and 'f
   role="group"
 >
   <a-button
+    id="btn_modal_size_small"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (small)"
     @click="openModal('small')"
   ></a-button>
   <a-button
+    id="btn_modal_size_large"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (large)"
     @click="openModal('large')"
   ></a-button>
   <a-button
+    id="btn_modal_size_xl"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (xl)"
     @click="openModal('xl')"
   ></a-button>
   <a-button
+    id="btn_modal_size_xxl"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (xxl)"
     @click="openModal('xxl')"
   ></a-button>
   <a-button
+    id="btn_modal_size_fullscreen"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (fullscreen)"
@@ -517,6 +532,7 @@ The modal size is based on options such as 'small', 'large', 'xl', 'xxl', and 'f
 
 <a-modal
   v-if="isModalVisible"
+  :selector-close-ids="`btn_modal_size_${ sizeModal }`"
   header-text="Aloha"
   :close="closeModal"
   :size="sizeModal"
@@ -570,6 +586,7 @@ This example demonstrates the use of various slots for customizing the content i
 
 ```html
 <a-button
+  id="btn_modal_slots"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -577,6 +594,7 @@ This example demonstrates the use of various slots for customizing the content i
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_slots"
   :close="closeModal"
 >
   <template
@@ -653,6 +671,7 @@ This example demonstrates the ability to open one modal window inside another. A
 
 ```html
 <a-button
+  id="btn_modal_in_modal"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -660,38 +679,29 @@ This example demonstrates the ability to open one modal window inside another. A
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_in_modal"
   :close="closeModal"
+  header-text="Modal 1"
+  size="xl"
 >
-  <template
-    v-slot:modalHeader
-  >
-    <span>Aloha</span>
-  </template>
-  
   <template
     v-slot:modalBody
   >
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-  </template>
-  
-  <template
-    v-slot:modalFooterPrepend
-  >
     <a-button
+      id="btn_modal_in_modal_2"
       class="a_btn a_btn_primary"
-      icon-left="ChevronLeft"
-    ></a-button>
-  </template>
-  
-  <template
-    v-slot:modalFooterAppend
-  >
-    <a-button
-      class="a_btn a_btn_primary"
-      text="Aloha"
+      text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+      @click="openModal2"
     ></a-button>
   </template>
 </a-modal>
+
+<a-modal
+  v-if="isModal2Visible"
+  selector-close-ids="btn_modal_in_modal_2"
+  :close="closeModal2"
+  header-text="Modal 2"
+></a-modal>
 ```
 
 ```js
@@ -699,32 +709,43 @@ import {
   ref,
 } from "vue";
 
-import { 
+import {
   AButton,
   AModal,
 } from "aloha-vue";
-    
+
 export default {
-  name: "PageModalSlots",
   components: {
     AButton,
     AModal,
   },
   setup() {
     const isModalVisible = ref(undefined);
-    
+    const isModal2Visible = ref(undefined);
+
     const openModal = () => {
       isModalVisible.value = true;
+    };
+
+    const openModal2 = () => {
+      isModal2Visible.value = true;
     };
 
     const closeModal = () => {
       isModalVisible.value = false;
     };
 
+    const closeModal2 = () => {
+      isModal2Visible.value = false;
+    };
+
     return {
       closeModal,
+      closeModal2,
+      isModal2Visible,
       isModalVisible,
       openModal,
+      openModal2,
     };
   },
 };

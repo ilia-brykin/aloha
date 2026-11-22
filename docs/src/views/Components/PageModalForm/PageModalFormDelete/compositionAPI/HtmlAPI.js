@@ -1,5 +1,6 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-button
+  id="btn_modal_form_delete"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -7,6 +8,7 @@ export default function HtmlAPI() {
 
 <a-modal-form
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_form_delete"
   v-model="model"
   :data-form="dataForm"
   :close="closeModal"

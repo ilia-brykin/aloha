@@ -10,6 +10,7 @@ The `class-columns` and `class-column-default` props are passed to the inner `AF
 
 ```html
 <a-button
+  id="btn_modal_form_columns"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -17,6 +18,7 @@ The `class-columns` and `class-column-default` props are passed to the inner `AF
 
 <a-modal-form
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_form_columns"
   v-model="model"
   :data-form="dataForm"
   :close="closeModal"
@@ -93,6 +95,7 @@ A large modal window (`size="xl"`) with different form elements: text, email, da
 
 ```html
 <a-button
+  id="btn_modal_form_elements"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -100,6 +103,7 @@ A large modal window (`size="xl"`) with different form elements: text, email, da
 
 <a-modal-form
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_form_elements"
   v-model="model"
   :data-form="dataForm"
   :close="closeModal"
@@ -239,6 +243,7 @@ Besides the save and the cancel button the footer has a delete button. It is add
 
 ```html
 <a-button
+  id="btn_modal_form_delete"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -246,6 +251,7 @@ Besides the save and the cancel button the footer has a delete button. It is add
 
 <a-modal-form
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_form_delete"
   v-model="model"
   :data-form="dataForm"
   :close="closeModal"

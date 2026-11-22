@@ -6,6 +6,7 @@ aloha-example(
   :props="['class-columns', 'class-column-default']"
 )
   a-button(
+    id="btn_modal_form_columns"
     class="a_btn a_btn_primary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     @click="openModal"
@@ -13,6 +14,7 @@ aloha-example(
 
   a-modal-form(
     v-if="isModalVisible"
+    selector-close-ids="btn_modal_form_columns"
     v-model="model"
     :data-form="dataForm"
     :close="closeModal"
