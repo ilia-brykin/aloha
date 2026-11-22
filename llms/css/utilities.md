@@ -112,6 +112,50 @@ Colors on hover and keyboard focus. `a_link_muted` is a link in the muted text c
 <div class="a_bg_primary_subtle_hover" tabindex="0">a_bg_primary_subtle_hover</div>
 ```
 
+## Corner radius
+
+Classes set the corner radius from the `--a_border_radius_*` tokens: `a_radius_small`, `a_radius`, `a_radius_large`, `a_radius_xl`, `a_radius_2xl`. `a_pill_rounded` makes the corners fully round, `a_rounded_circle` makes a square element a circle, `a_rounded_0` removes the radius.
+
+```html
+<div class="a_radius_small a_border a_p_3">a_radius_small</div>
+<div class="a_radius a_border a_p_3">a_radius</div>
+<div class="a_radius_large a_border a_p_3">a_radius_large</div>
+<div class="a_radius_xl a_border a_p_3">a_radius_xl</div>
+<div class="a_radius_2xl a_border a_p_3">a_radius_2xl</div>
+<div class="a_pill_rounded a_border a_p_3">a_pill_rounded</div>
+```
+
+## Border style and color
+
+`a_border_style_dashed` and `a_border_style_dotted` change the line of `a_border`, `a_border_top`, `a_border_right`, `a_border_bottom`, `a_border_left`, `a_tile`. `a_border_{color}_subtle` sets a light border color that fits the `a_bg_{color}_subtle` backgrounds. Colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`, `light`, `dark`.
+
+```html
+<div class="a_border a_border_style_dashed">a_border_style_dashed</div>
+<div class="a_border a_border_style_dotted">a_border_style_dotted</div>
+
+<!-- also with one side or a color -->
+<div class="a_border_top a_border_style_dashed a_border_primary">...</div>
+
+<div class="a_border a_border_primary_subtle">a_border_primary_subtle</div>
+<div class="a_border a_border_success_subtle">a_border_success_subtle</div>
+<div class="a_border a_border_warning_subtle">a_border_warning_subtle</div>
+<div class="a_border a_border_danger_subtle">a_border_danger_subtle</div>
+```
+
+## Vertical divider
+
+`a_divider_vertical` draws a vertical line between the items of a row, e.g. in `a_hstack`. It takes the height of the row and the color of `a_divider` (`--a_divider_bg`). A decorative line gets `aria-hidden="true"`; a line that separates groups of controls gets `role="separator"` + `aria-orientation="vertical"`.
+
+```html
+<div class="a_hstack a_gap_3">
+  <span>Text</span>
+  <span class="a_divider_vertical" aria-hidden="true"></span>
+  <span>Text</span>
+  <span class="a_divider_vertical" aria-hidden="true"></span>
+  <button class="a_btn a_btn_primary" type="button">Button</button>
+</div>
+```
+
 ## Shadow
 
 Classes set the shadow from the `--a_shadow_*` tokens: `a_shadow_sm`, `a_shadow_md`, `a_shadow_lg`. `a_shadow_none` removes a shadow. The shadows are adapted for the dark theme.
@@ -146,13 +190,19 @@ Classes set the shadow from the `--a_shadow_*` tokens: `a_shadow_sm`, `a_shadow_
 
 ## Cursor
 
-Classes set the mouse `cursor`: `a_cursor_pointer`, `a_cursor_default`, `a_cursor_not_allowed`, `a_cursor_move`. Hover over the elements.
+Classes set the mouse `cursor`: `a_cursor_pointer`, `a_cursor_default`, `a_cursor_not_allowed`, `a_cursor_move`, `a_cursor_text`, `a_cursor_help`, `a_cursor_grab`, `a_cursor_grabbing`, `a_cursor_wait`, `a_cursor_crosshair`. Hover over the elements.
 
 ```html
 <div class="a_cursor_pointer">a_cursor_pointer</div>
 <div class="a_cursor_default">a_cursor_default</div>
 <div class="a_cursor_not_allowed">a_cursor_not_allowed</div>
 <div class="a_cursor_move">a_cursor_move</div>
+<div class="a_cursor_text">a_cursor_text</div>
+<div class="a_cursor_help">a_cursor_help</div>
+<div class="a_cursor_grab">a_cursor_grab</div>
+<div class="a_cursor_grabbing">a_cursor_grabbing</div>
+<div class="a_cursor_wait">a_cursor_wait</div>
+<div class="a_cursor_crosshair">a_cursor_crosshair</div>
 ```
 
 ## Pointer events

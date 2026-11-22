@@ -21,6 +21,17 @@
     --a_border_opacity: 1;
     border-color: hsl(var(--a_#{$state}_h) var(--a_#{$state}_s) var(--a_#{$state}_l) / var(--a_border_opacity)) !important;
   }
+  .a_border_#{$state}_subtle {
+    border-color: var(--a_color_#{$state}_border_subtle) !important;
+  }
+}
+
+// Line style of .a_border, .a_border_top … (they use the token --a_border_style)
+.a_border_style_dashed {
+  --a_border_style: dashed;
+}
+.a_border_style_dotted {
+  --a_border_style: dotted;
 }
 .a_border_1 {
   border-width: 1px !important;

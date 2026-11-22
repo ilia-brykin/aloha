@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> met <code>a_tile__body</code>. De tegel is een flex-kolom, dus <code>a_tile__body</code> vult de vrije hoogte.",
+  "_A_TILE_BASIC_HEADER_": "Basis",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Met <code>a_stretched_link</code> op de link is de hele tegel klikbaar, <code>a_bg_{color}_subtle_hover</code> markeert hem bij hover. Toetsenbord- en schermlezergebruikers krijgen nog steeds één link met een duidelijke tekst. Andere knoppen in de tegel hebben <code>a_position_relative</code> en <code>a_z_index_2</code> nodig.",
+  "_A_TILE_CLICKABLE_HEADER_": "Klikbare tegel",
+  "_A_TILE_COLORS_DESCRIPTION_": "De tegel wordt aangepast met de utility-klassen: randkleur (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), schaduw (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), lijnstijl (<code>a_border_style_dashed</code>). De standaardwaarden en de hoekradius worden ingesteld met de CSS-variabelen hieronder.",
+  "_A_TILE_COLORS_HEADER_": "Kleuren, schaduw en rand",
+  "_A_TILE_GRID_DESCRIPTION_": "Tegels in <code>a_columns</code>. Met <code>a_height_100</code> krijgen alle tegels van een rij dezelfde hoogte, <code>a_columns_count_1_mobile</code> toont op mobiele apparaten één tegel per rij.",
+  "_A_TILE_GRID_HEADER_": "Tegels in een raster",
+  "_A_TILE_PAGE_DESCRIPTION_": "De klasse <code>a_tile</code> is een vak op het oppervlak met een rand en afgeronde hoeken, bijv. voor een samenvatting, een dashboardwidget of een item in een lijst met resultaten. Het is alleen CSS, de delen <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> zijn optioneel.",
+  "_A_TILE_PAGE_NAME_": "Tegel",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> en <code>a_tile__footer</code> krijgen een subtiele achtergrond en een lijn naar de inhoud. Gebruik in de kop een titel van het juiste niveau (<code>h2</code> … <code>h6</code>), zodat de structuur van de pagina correct blijft voor schermlezers.",
+  "_A_TILE_PARTS_HEADER_": "Kop- en voettekst"
+}

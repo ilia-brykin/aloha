@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> مع <code>a_tile__body</code>. البلاطة عمود flex، لذلك يملأ <code>a_tile__body</code> الارتفاع المتاح.",
+  "_A_TILE_BASIC_HEADER_": "أساسي",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "مع <code>a_stretched_link</code> على الرابط تصبح البلاطة كلها قابلة للنقر، ويبرزها <code>a_bg_{color}_subtle_hover</code> عند التمرير. يبقى لمستخدمي لوحة المفاتيح وقارئات الشاشة رابط واحد بنص واضح. تحتاج الأزرار الأخرى في البلاطة إلى <code>a_position_relative</code> و<code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "بلاطة قابلة للنقر",
+  "_A_TILE_COLORS_DESCRIPTION_": "تُعدَّل البلاطة بفئات الأدوات: لون الحدود (<code>a_border_{color}</code>، <code>a_border_{color}_subtle</code>)، الظل (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>)، نمط الخط (<code>a_border_style_dashed</code>). تُضبط القيم الافتراضية وتدوير الزوايا بمتغيرات CSS أدناه.",
+  "_A_TILE_COLORS_HEADER_": "الألوان والظل والحدود",
+  "_A_TILE_GRID_DESCRIPTION_": "بلاطات في <code>a_columns</code>. مع <code>a_height_100</code> تحصل جميع بلاطات الصف على الارتفاع نفسه، ويعرض <code>a_columns_count_1_mobile</code> بلاطة واحدة في كل صف على الأجهزة المحمولة.",
+  "_A_TILE_GRID_HEADER_": "بلاطات في شبكة",
+  "_A_TILE_PAGE_DESCRIPTION_": "الفئة <code>a_tile</code> صندوق على السطح بحدود وزوايا مدورة، مثلًا لملخص أو أداة لوحة معلومات أو عنصر في قائمة نتائج. إنها CSS فقط، والأجزاء <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> اختيارية.",
+  "_A_TILE_PAGE_NAME_": "البلاطة",
+  "_A_TILE_PARTS_DESCRIPTION_": "يحصل <code>a_tile__header</code> و<code>a_tile__footer</code> على خلفية خفيفة وخط يفصلهما عن المحتوى. استخدم في الرأس عنوانًا بالمستوى المناسب (<code>h2</code> … <code>h6</code>) لتبقى بنية الصفحة صحيحة لقارئات الشاشة.",
+  "_A_TILE_PARTS_HEADER_": "الرأس والتذييل"
+}

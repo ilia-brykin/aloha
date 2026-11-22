@@ -15,7 +15,10 @@ export default {
   },
   setup() {
     const {
+      borderSubtleColors,
+      codeBorderStyle,
       codeCursor,
+      codeDividerVertical,
       codeFocus,
       codeHover,
       codeObjectFit,
@@ -23,6 +26,7 @@ export default {
       codeOrder,
       codePointerEvents,
       codePrint,
+      codeRadius,
       codeRatio,
       codeRoundedCircle,
       codeShadow,
@@ -36,13 +40,17 @@ export default {
       cursors,
       objectFits,
       opacities,
+      radii,
       ratios,
       shadows,
       zIndexLayers,
     } = CodeAPI();
 
     return {
+      borderSubtleColors,
+      codeBorderStyle,
       codeCursor,
+      codeDividerVertical,
       codeFocus,
       codeHover,
       codeObjectFit,
@@ -50,6 +58,7 @@ export default {
       codeOrder,
       codePointerEvents,
       codePrint,
+      codeRadius,
       codeRatio,
       codeRoundedCircle,
       codeShadow,
@@ -63,6 +72,7 @@ export default {
       cursors,
       objectFits,
       opacities,
+      radii,
       ratios,
       shadows,
       zIndexLayers,

@@ -118,6 +118,55 @@ aloha-page(
         ) a_bg_primary_subtle_hover
 
     aloha-example(
+      :code-html="codeRadius"
+      header="_A_UTILITIES_RADIUS_NAME_"
+      description="_A_UTILITIES_RADIUS_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap
+        .a_p_3.a_border.a_bg_primary_subtle(
+          v-for="value in radii"
+          :key="value"
+          :class="value"
+        )
+          code {{ value }}
+
+    aloha-example(
+      :code-html="codeBorderStyle"
+      header="_A_UTILITIES_BORDER_STYLE_NAME_"
+      description="_A_UTILITIES_BORDER_STYLE_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap
+        .a_p_3.a_border.a_border_style_dashed
+          code a_border_style_dashed
+        .a_p_3.a_border.a_border_style_dotted
+          code a_border_style_dotted
+      .a_d_flex.a_gap_3.a_flex_wrap.a_mt_3
+        .a_p_3.a_border(
+          v-for="value in borderSubtleColors"
+          :key="value"
+          :class="`a_border_${ value }_subtle`"
+        )
+          code a_border_{{ value }}_subtle
+
+    aloha-example(
+      :code-html="codeDividerVertical"
+      header="_A_UTILITIES_DIVIDER_VERTICAL_NAME_"
+      description="_A_UTILITIES_DIVIDER_VERTICAL_DESCRIPTION_"
+    )
+      .a_hstack.a_gap_3
+        span Text
+        span.a_divider_vertical(
+          aria-hidden="true"
+        )
+        span Text
+        span.a_divider_vertical(
+          aria-hidden="true"
+        )
+        button.a_btn.a_btn_primary(
+          type="button"
+        ) Button
+
+    aloha-example(
       :code-html="codeShadow"
       header="_A_UTILITIES_SHADOW_NAME_"
       description="_A_UTILITIES_SHADOW_DESCRIPTION_"

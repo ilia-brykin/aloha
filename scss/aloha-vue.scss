@@ -33,6 +33,7 @@
   @include meta.load-css("utils/notification");
   @include meta.load-css("utils/spinner");
   @include meta.load-css("utils/badge");
+  @include meta.load-css("utils/tile");
   @include meta.load-css("utils/accordion");
   @include meta.load-css("utils/progress");
   @include meta.load-css("utils/tooltip");

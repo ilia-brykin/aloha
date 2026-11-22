@@ -403,6 +403,11 @@ const ROUTES = [
     component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
   },
   {
+    path: "/tile",
+    name: "PageTile",
+    component: () => import("../views/CSS/PageTile/PageTile.vue"),
+  },
+  {
     path: "/utilities",
     name: "PageUtilities",
     component: () => import("../views/CSS/PageUtilities/PageUtilities.vue"),

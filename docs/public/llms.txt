@@ -108,6 +108,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Position](https://ilia-brykin.github.io/aloha/llms/css/position.md)
 - [Spacing](https://ilia-brykin.github.io/aloha/llms/css/spacing.md)
 - [Text](https://ilia-brykin.github.io/aloha/llms/css/text.md)
+- [Tile](https://ilia-brykin.github.io/aloha/llms/css/tile.md): The class `a_tile` is a box on the surface with a border and rounded corners, e.g.
 - [Utilities](https://ilia-brykin.github.io/aloha/llms/css/utilities.md)
 
 ## Directives

@@ -102,6 +102,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageTile",
+        label: "Tile",
+        class: "test_menu_tile",
+        to: {
+          name: "PageTile",
+        },
+      },
+      {
         id: "PageUtilities",
         label: "Utilities",
         class: "test_menu_utilities",

@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> con <code>a_tile__body</code>. Il riquadro è una colonna flex, quindi <code>a_tile__body</code> riempie l'altezza libera.",
+  "_A_TILE_BASIC_HEADER_": "Base",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Con <code>a_stretched_link</code> sul link l'intero riquadro è cliccabile, <code>a_bg_{color}_subtle_hover</code> lo evidenzia al passaggio del mouse. Gli utenti di tastiera e screen reader hanno comunque un solo link con un testo chiaro. Gli altri pulsanti nel riquadro hanno bisogno di <code>a_position_relative</code> e <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Riquadro cliccabile",
+  "_A_TILE_COLORS_DESCRIPTION_": "Il riquadro si modifica con le classi di utilità: colore del bordo (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), ombra (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), stile della linea (<code>a_border_style_dashed</code>). I valori predefiniti e il raggio degli angoli si impostano con le variabili CSS qui sotto.",
+  "_A_TILE_COLORS_HEADER_": "Colori, ombra e bordo",
+  "_A_TILE_GRID_DESCRIPTION_": "Riquadri in <code>a_columns</code>. Con <code>a_height_100</code> tutti i riquadri di una riga hanno la stessa altezza, <code>a_columns_count_1_mobile</code> mostra un riquadro per riga sui dispositivi mobili.",
+  "_A_TILE_GRID_HEADER_": "Riquadri in una griglia",
+  "_A_TILE_PAGE_DESCRIPTION_": "La classe <code>a_tile</code> è un riquadro sulla superficie con bordo e angoli arrotondati, ad es. per un riepilogo, un widget di dashboard o un elemento di un elenco di risultati. È solo CSS, le parti <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> sono facoltative.",
+  "_A_TILE_PAGE_NAME_": "Riquadro",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> e <code>a_tile__footer</code> ricevono uno sfondo tenue e una linea verso il contenuto. Usate nell'intestazione un titolo del livello giusto (<code>h2</code> … <code>h6</code>), così la struttura della pagina resta corretta per gli screen reader.",
+  "_A_TILE_PARTS_HEADER_": "Intestazione e piè di pagina"
+}

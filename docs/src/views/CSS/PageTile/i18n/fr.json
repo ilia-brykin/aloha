@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> avec <code>a_tile__body</code>. La tuile est une colonne flex, donc <code>a_tile__body</code> remplit la hauteur libre.",
+  "_A_TILE_BASIC_HEADER_": "Base",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Avec <code>a_stretched_link</code> sur le lien, toute la tuile est cliquable, <code>a_bg_{color}_subtle_hover</code> la met en évidence au survol. Les utilisateurs du clavier et des lecteurs d'écran ont toujours un seul lien avec un texte clair. Les autres boutons de la tuile ont besoin de <code>a_position_relative</code> et <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Tuile cliquable",
+  "_A_TILE_COLORS_DESCRIPTION_": "La tuile se modifie avec les classes utilitaires : couleur de bordure (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), ombre (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), style de ligne (<code>a_border_style_dashed</code>). Les valeurs par défaut et le rayon des coins sont définis avec les variables CSS ci-dessous.",
+  "_A_TILE_COLORS_HEADER_": "Couleurs, ombre et bordure",
+  "_A_TILE_GRID_DESCRIPTION_": "Tuiles dans <code>a_columns</code>. Avec <code>a_height_100</code>, toutes les tuiles d'une ligne ont la même hauteur, <code>a_columns_count_1_mobile</code> affiche une tuile par ligne sur les appareils mobiles.",
+  "_A_TILE_GRID_HEADER_": "Tuiles dans une grille",
+  "_A_TILE_PAGE_DESCRIPTION_": "La classe <code>a_tile</code> est une boîte sur la surface avec une bordure et des coins arrondis, p. ex. pour un résumé, un widget de tableau de bord ou un élément d'une liste de résultats. C'est uniquement du CSS, les parties <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> sont facultatives.",
+  "_A_TILE_PAGE_NAME_": "Tuile",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> et <code>a_tile__footer</code> reçoivent un fond discret et une ligne vers le contenu. Utilisez dans l'en-tête un titre du bon niveau (<code>h2</code> … <code>h6</code>) pour que la structure de la page reste correcte pour les lecteurs d'écran.",
+  "_A_TILE_PARTS_HEADER_": "En-tête et pied"
+}

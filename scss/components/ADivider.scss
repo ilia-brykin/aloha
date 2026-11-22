@@ -6,10 +6,20 @@
   opacity: 1;
 }
 
+// Vertical line between inline items, e.g. in .a_hstack
+.a_divider_vertical {
+  display: inline-block;
+  align-self: stretch;
+  width: 0;
+  min-height: 1em;
+  vertical-align: middle;
+  border-left: var(--a_border_width) solid var(--a_divider_bg);
+}
+
 // ---------------------------------------------------------------------------
 // Component tokens
 // ---------------------------------------------------------------------------
-:where(.a_divider) {
+:where(.a_divider, .a_divider_vertical) {
   --a_divider_margin_y: var(--a_space_sm); // Space above and below the line.
   --a_divider_bg: var(--a_border_color); // Color of the line.
 }

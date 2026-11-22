@@ -1,7 +1,9 @@
 export default function CodeAPI() {
   const opacities = [100, 75, 50, 25, 0];
   const shadows = ["none", "sm", "md", "lg"];
-  const cursors = ["pointer", "default", "not_allowed", "move"];
+  const cursors = ["pointer", "default", "not_allowed", "move", "text", "help", "grab", "grabbing", "wait", "crosshair"];
+  const radii = ["a_radius_small", "a_radius", "a_radius_large", "a_radius_xl", "a_radius_2xl", "a_pill_rounded"];
+  const borderSubtleColors = ["primary", "success", "warning", "danger"];
   const ratios = ["1x1", "4x3", "16x9", "21x9"];
   const objectFits = ["cover", "contain", "fill", "none", "scale_down"];
 
@@ -120,8 +122,28 @@ export default function CodeAPI() {
 
 <div class="a_bg_primary_subtle_hover" tabindex="0">a_bg_primary_subtle_hover</div>`;
 
+  const codeRadius = radii.map(value => `<div class="${ value } a_border a_p_3">${ value }</div>`).join("\n");
+
+  const codeBorderStyle = `<div class="a_border a_border_style_dashed">a_border_style_dashed</div>
+<div class="a_border a_border_style_dotted">a_border_style_dotted</div>
+
+<!-- also with one side or a color -->
+<div class="a_border_top a_border_style_dashed a_border_primary">...</div>
+
+${ borderSubtleColors.map(value => `<div class="a_border a_border_${ value }_subtle">a_border_${ value }_subtle</div>`).join("\n") }`;
+
+  const codeDividerVertical = `<div class="a_hstack a_gap_3">
+  <span>Text</span>
+  <span class="a_divider_vertical" aria-hidden="true"></span>
+  <span>Text</span>
+  <span class="a_divider_vertical" aria-hidden="true"></span>
+  <button class="a_btn a_btn_primary" type="button">Button</button>
+</div>`;
+
   return {
+    codeBorderStyle,
     codeCursor,
+    codeDividerVertical,
     codeFocus,
     codeHover,
     codeObjectFit,
@@ -129,6 +151,7 @@ export default function CodeAPI() {
     codeOrder,
     codePointerEvents,
     codePrint,
+    codeRadius,
     codeRatio,
     codeRoundedCircle,
     codeShadow,
@@ -139,9 +162,11 @@ export default function CodeAPI() {
     codeTextSelect,
     codeVisibility,
     codeZIndex,
+    borderSubtleColors,
     cursors,
     objectFits,
     opacities,
+    radii,
     ratios,
     shadows,
     zIndexLayers,

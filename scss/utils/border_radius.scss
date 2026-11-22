@@ -64,3 +64,13 @@
 .a_rounded_circle {
   border-radius: 50% !important;
 }
+
+// Corner radius from the --a_border_radius_* tokens. Fully round: .a_pill_rounded
+.a_radius {
+  border-radius: var(--a_border_radius) !important;
+}
+@each $size in (small, large, xl, 2xl) {
+  .a_radius_#{$size} {
+    border-radius: var(--a_border_radius_#{$size}) !important;
+  }
+}

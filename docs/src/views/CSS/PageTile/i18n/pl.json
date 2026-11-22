@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> z <code>a_tile__body</code>. Kafelek jest kolumną flex, dlatego <code>a_tile__body</code> wypełnia wolną wysokość.",
+  "_A_TILE_BASIC_HEADER_": "Podstawy",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Z <code>a_stretched_link</code> na linku cały kafelek jest klikalny, <code>a_bg_{color}_subtle_hover</code> podświetla go po najechaniu. Użytkownicy klawiatury i czytników ekranu nadal mają jeden link z jasnym tekstem. Inne przyciski w kafelku potrzebują <code>a_position_relative</code> i <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Klikalny kafelek",
+  "_A_TILE_COLORS_DESCRIPTION_": "Kafelek zmienia się klasami narzędziowymi: kolor obramowania (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), cień (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), styl linii (<code>a_border_style_dashed</code>). Wartości domyślne i zaokrąglenie narożników ustawia się zmiennymi CSS poniżej.",
+  "_A_TILE_COLORS_HEADER_": "Kolory, cień i obramowanie",
+  "_A_TILE_GRID_DESCRIPTION_": "Kafelki w <code>a_columns</code>. Z <code>a_height_100</code> wszystkie kafelki w wierszu mają tę samą wysokość, <code>a_columns_count_1_mobile</code> pokazuje na urządzeniach mobilnych jeden kafelek w wierszu.",
+  "_A_TILE_GRID_HEADER_": "Kafelki w siatce",
+  "_A_TILE_PAGE_DESCRIPTION_": "Klasa <code>a_tile</code> to pole na powierzchni z obramowaniem i zaokrąglonymi narożnikami, np. dla podsumowania, widżetu pulpitu lub elementu listy wyników. To tylko CSS, części <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> są opcjonalne.",
+  "_A_TILE_PAGE_NAME_": "Kafelek",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> i <code>a_tile__footer</code> otrzymują subtelne tło i linię oddzielającą od treści. W nagłówku użyj tytułu odpowiedniego poziomu (<code>h2</code> … <code>h6</code>), aby struktura strony pozostała poprawna dla czytników ekranu.",
+  "_A_TILE_PARTS_HEADER_": "Nagłówek i stopka"
+}

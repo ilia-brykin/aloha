@@ -227,6 +227,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Position](llms/css/position.md)
 - [Spacing](llms/css/spacing.md)
 - [Text](llms/css/text.md)
+- [Tile](llms/css/tile.md) — The class `a_tile` is a box on the surface with a border and rounded corners, e.g.
 - [Utilities](llms/css/utilities.md)
 
 ### Directives
