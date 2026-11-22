@@ -413,10 +413,24 @@ export default function ComponentItemsAPI() {
       {
         id: "modal",
         label: "Modal",
-        class: "test_menu_modal",
-        to: {
-          name: "PageModal",
-        },
+        children: [
+          {
+            id: "PageModal",
+            label: "Modal",
+            class: "test_menu_modal",
+            to: {
+              name: "PageModal",
+            },
+          },
+          {
+            id: "PageModalForm",
+            label: "Modal form",
+            class: "test_menu_modal_form",
+            to: {
+              name: "PageModalForm",
+            },
+          },
+        ],
       },
       {
         id: "notification",

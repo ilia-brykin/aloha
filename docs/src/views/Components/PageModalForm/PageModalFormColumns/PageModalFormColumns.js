@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import {
   AButton,
   AModalForm,
@@ -11,14 +10,12 @@ import {
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
-import PropsAPI from "./compositionAPI/PropsAPI";
 
 export default {
   name: "PageModalFormColumns",
   components: {
     AButton,
     AlohaExample,
-    AlohaTableProps,
     AModalForm,
   },
   setup() {
@@ -28,9 +25,6 @@ export default {
     const {
       codeJs,
     } = JsAPI();
-    const {
-      dataProps,
-    } = PropsAPI();
 
     const model = ref({ name: "Aloha", email: "aloha@example.com", notes: "" });
     const dataForm = [
@@ -69,7 +63,6 @@ export default {
       openModal,
       codeHtml,
       codeJs,
-      dataProps,
     };
   },
 };

@@ -12,6 +12,7 @@
   .a_modal_footer_actions {
     background-color: var(--a_modal_footer_sticky_actions_bg);
     margin: 0;
+    gap: 0; // the buttons have their own margin here
     border-bottom-left-radius: var(--a_border_radius);
     border-top-left-radius: var(--a_border_radius);
     > * {
@@ -34,7 +35,9 @@
 .a_modal_footer_actions {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  gap: var(--a_modal_footer_gap);
 }
 .a_modal {
   word-wrap: break-word;

@@ -281,6 +281,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "teleport-selector",
+      description: "_A_MODAL_PROPS_TELEPORT_SELECTOR_DESCRIPTION_",
+      type: "String",
+      default: "body",
+      required: false,
+    },
+    {
       name: "use-escape",
       description: "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_",
       type: "Boolean",

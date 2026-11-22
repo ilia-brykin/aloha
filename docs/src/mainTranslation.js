@@ -88,6 +88,7 @@ import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVers
 import PageMigrationsVersion2To3I18n from "./views/Migrations/PageMigrationsVersion2To3/i18n/PageMigrationsVersion2To3I18n";
 import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobilePluginI18n";
 import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
+import PageModalFormI18n from "./views/Components/PageModalForm/i18n/PageModalFormI18n";
 import PageModalWizardI18n from "./views/Components/PageModalWizard/i18n/PageModalWizardI18n";
 import PageMultiselectOrderedI18n from "./views/Components/Form/PageMultiselectOrdered/i18n/PageMultiselectOrderedI18n";
 import PageNotificationI18n from "./views/Components/PageNotification/i18n/PageNotificationI18n";
@@ -242,6 +243,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.ar,
     ...PageMobilePluginI18n.ar,
     ...PageModalI18n.ar,
+    ...PageModalFormI18n.ar,
     ...PageModalWizardI18n.ar,
     ...PageNotificationI18n.ar,
     ...PageMultiselectOrderedI18n.ar,
@@ -377,6 +379,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.de,
     ...PageMobilePluginI18n.de,
     ...PageModalI18n.de,
+    ...PageModalFormI18n.de,
     ...PageModalWizardI18n.de,
     ...PageNotificationI18n.de,
     ...PageMultiselectOrderedI18n.de,
@@ -512,6 +515,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.en,
     ...PageMobilePluginI18n.en,
     ...PageModalI18n.en,
+    ...PageModalFormI18n.en,
     ...PageModalWizardI18n.en,
     ...PageNotificationI18n.en,
     ...PageMultiselectOrderedI18n.en,
@@ -647,6 +651,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.es,
     ...PageMobilePluginI18n.es,
     ...PageModalI18n.es,
+    ...PageModalFormI18n.es,
     ...PageModalWizardI18n.es,
     ...PageNotificationI18n.es,
     ...PageMultiselectOrderedI18n.es,
@@ -782,6 +787,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.fr,
     ...PageMobilePluginI18n.fr,
     ...PageModalI18n.fr,
+    ...PageModalFormI18n.fr,
     ...PageModalWizardI18n.fr,
     ...PageNotificationI18n.fr,
     ...PageMultiselectOrderedI18n.fr,
@@ -917,6 +923,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.hr,
     ...PageMobilePluginI18n.hr,
     ...PageModalI18n.hr,
+    ...PageModalFormI18n.hr,
     ...PageModalWizardI18n.hr,
     ...PageNotificationI18n.hr,
     ...PageMultiselectOrderedI18n.hr,
@@ -1052,6 +1059,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.it,
     ...PageMobilePluginI18n.it,
     ...PageModalI18n.it,
+    ...PageModalFormI18n.it,
     ...PageModalWizardI18n.it,
     ...PageNotificationI18n.it,
     ...PageMultiselectOrderedI18n.it,
@@ -1187,6 +1195,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.nl,
     ...PageMobilePluginI18n.nl,
     ...PageModalI18n.nl,
+    ...PageModalFormI18n.nl,
     ...PageModalWizardI18n.nl,
     ...PageNotificationI18n.nl,
     ...PageMultiselectOrderedI18n.nl,
@@ -1322,6 +1331,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.pl,
     ...PageMobilePluginI18n.pl,
     ...PageModalI18n.pl,
+    ...PageModalFormI18n.pl,
     ...PageModalWizardI18n.pl,
     ...PageNotificationI18n.pl,
     ...PageMultiselectOrderedI18n.pl,
@@ -1457,6 +1467,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.ru,
     ...PageMobilePluginI18n.ru,
     ...PageModalI18n.ru,
+    ...PageModalFormI18n.ru,
     ...PageModalWizardI18n.ru,
     ...PageNotificationI18n.ru,
     ...PageMultiselectOrderedI18n.ru,
@@ -1592,6 +1603,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion2To3I18n.uk,
     ...PageMobilePluginI18n.uk,
     ...PageModalI18n.uk,
+    ...PageModalFormI18n.uk,
     ...PageModalWizardI18n.uk,
     ...PageNotificationI18n.uk,
     ...PageMultiselectOrderedI18n.uk,

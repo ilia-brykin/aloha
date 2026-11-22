@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Die Props <code>class-columns</code> und <code>class-column-default</code> werden an das enthaltene <code>AForm</code> weitergegeben. In diesem Beispiel belegen Name und E-Mail jeweils die halbe Breite und stehen auf Touch-Geräten untereinander. Das Notizfeld definiert eine eigene <code>classColumn</code> und erstreckt sich über die gesamte Breite. Ohne diese Props gelten die Standardwerte von <code>AForm</code>.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: Formularspalten",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> ist ein modales Fenster (<a href=\"/#/modal\">AModal</a>) mit einem Formular (<a href=\"/#/form\">AForm</a>) im Inhalt. Das Formular wird aus <code>data-form</code> erstellt, das Modell wird mit <code>v-model</code> gebunden. Props mit gleichem Namen funktionieren wie in <strong>AModal</strong> und <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Modales Fenster mit Formular",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Ein Slot, der im Inhalt nach dem Formular angezeigt wird.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Ein Slot, der im Inhalt vor dem Text (<code>body-html</code>) und dem Formular angezeigt wird."
+}

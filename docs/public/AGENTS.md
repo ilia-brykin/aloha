@@ -186,7 +186,9 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Loading](llms/components/loading.md) — The **ALoading** component displays a loading spinner with text over the content when the **is-loading** property is set to **true**.
 - **Menu**
   - [Menu basic](llms/components/menu-basic.md) — AMenu provides navigation with nested panels, search, groups and disabled links.
-- [Modal](llms/components/modal.md) — AModal is a component that enables the implementation of modal windows.
+- **Modal**
+  - [Modal](llms/components/modal.md) — AModal is a component that enables the implementation of modal windows.
+  - [Modal form](llms/components/modal-form.md) — **AModalForm** is a modal window ([AModal](llms/components/modal.md)) with a form ([AForm](llms/components/form.md)) in the body.
 - [Notification](llms/components/notification.md)
 - **Progress**
   - [Progress bar](llms/components/progress.md) — AProgress component is a customisable progress bar for Vue.js applications.

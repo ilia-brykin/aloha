@@ -70,7 +70,8 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [List](https://ilia-brykin.github.io/aloha/llms/components/list.md): The **AList** component allows easy rendering of lists with flexible configuration options for data presentation.
 - [Loading](https://ilia-brykin.github.io/aloha/llms/components/loading.md): The **ALoading** component displays a loading spinner with text over the content when the **is-loading** property is set to **true**.
 - [Menu: Menu basic](https://ilia-brykin.github.io/aloha/llms/components/menu-basic.md): AMenu provides navigation with nested panels, search, groups and disabled links.
-- [Modal](https://ilia-brykin.github.io/aloha/llms/components/modal.md): AModal is a component that enables the implementation of modal windows.
+- [Modal: Modal](https://ilia-brykin.github.io/aloha/llms/components/modal.md): AModal is a component that enables the implementation of modal windows.
+- [Modal: Modal form](https://ilia-brykin.github.io/aloha/llms/components/modal-form.md): **AModalForm** is a modal window (AModal) with a form (AForm) in the body.
 - [Notification](https://ilia-brykin.github.io/aloha/llms/components/notification.md)
 - [Progress: Progress bar](https://ilia-brykin.github.io/aloha/llms/components/progress.md): AProgress component is a customisable progress bar for Vue.js applications.
 - [Progress: Progress circle](https://ilia-brykin.github.io/aloha/llms/components/progress-circle.md): The **AProgressCircle** component displays progress as a circular indicator.

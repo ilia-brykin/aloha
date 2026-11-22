@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "The <code>class-columns</code> and <code>class-column-default</code> props are passed to the inner <code>AForm</code>. In this example, the name and email fields occupy half the width and stack on touch devices. The notes field defines its own <code>classColumn</code> and spans the full width. If these props are omitted, the defaults from <code>AForm</code> apply.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: form columns",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> is a modal window (<a href=\"/#/modal\">AModal</a>) with a form (<a href=\"/#/form\">AForm</a>) in the body. The form is built from <code>data-form</code>, the model is bound with <code>v-model</code>. Props with the same name work like in <strong>AModal</strong> and <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Modal window with a form",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "A slot displayed in the body after the form.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "A slot displayed in the body before the text (<code>body-html</code>) and the form."
+}

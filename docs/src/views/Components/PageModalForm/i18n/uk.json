@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Властивості <code>class-columns</code> і <code>class-column-default</code> передаються у вкладений <code>AForm</code>. У цьому прикладі поля імені та електронної пошти займають половину ширини й розташовуються одне під одним на сенсорних пристроях. Поле нотаток задає власний <code>classColumn</code> і займає всю ширину. Якщо ці властивості не задано, використовуються значення за замовчуванням із <code>AForm</code>.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: колонки форми",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> — модальне вікно (<a href=\"/#/modal\">AModal</a>) з формою (<a href=\"/#/form\">AForm</a>) у тілі. Форма будується з <code>data-form</code>, модель прив'язується через <code>v-model</code>. Пропси з однаковими іменами працюють так само, як в <strong>AModal</strong> і <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Модальне вікно з формою",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Слот, який відображається в тілі після форми.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Слот, який відображається в тілі перед текстом (<code>body-html</code>) і формою."
+}

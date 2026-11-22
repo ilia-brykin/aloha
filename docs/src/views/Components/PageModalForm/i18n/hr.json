@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Svojstva <code>class-columns</code> i <code>class-column-default</code> prosljeđuju se unutarnjoj komponenti <code>AForm</code>. U ovom primjeru polja za ime i e-poštu zauzimaju po pola širine, a na dodirnim uređajima prikazuju se jedno ispod drugoga. Polje za bilješke definira vlastiti <code>classColumn</code> i zauzima cijelu širinu. Ako se ta svojstva izostave, primjenjuju se zadane vrijednosti komponente <code>AForm</code>.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: stupci obrasca",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> je modalni prozor (<a href=\"/#/modal\">AModal</a>) s obrascem (<a href=\"/#/form\">AForm</a>) u sadržaju. Obrazac se gradi iz <code>data-form</code>, model se povezuje s <code>v-model</code>. Propsi istog imena rade kao u <strong>AModal</strong> i <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Modalni prozor s obrascem",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Slot koji se prikazuje u sadržaju nakon obrasca.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot koji se prikazuje u sadržaju prije teksta (<code>body-html</code>) i obrasca."
+}

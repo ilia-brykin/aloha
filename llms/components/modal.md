@@ -56,96 +56,6 @@ export default {
 };
 ```
 
-## AModalForm: form columns
-
-The `class-columns` and `class-column-default` props are passed to the inner `AForm`. In this example, the name and email fields occupy half the width and stack on touch devices. The notes field defines its own `classColumn` and spans the full width. If these props are omitted, the defaults from `AForm` apply.
-
-*props: `class-columns`, `class-column-default`*
-
-```html
-<a-button
-  class="a_btn a_btn_primary"
-  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
-  @click="openModal"
-/>
-
-<a-modal-form
-  v-if="isModalVisible"
-  v-model="model"
-  :data-form="dataForm"
-  :close="closeModal"
-  :is-save-button-hide="true"
-  header-text="_A_MODAL_FORM_COLUMNS_HEADER_"
-  size="large"
-  class-columns="a_columns a_columns_count_12 a_columns_gap_3"
-  class-column-default="a_column a_column_6 a_column_12_touch"
-/>
-<pre>{{ model }}</pre>
-```
-
-```js
-import {
-  ref,
-} from "vue";
-
-import {
-  AButton,
-  AModalForm,
-} from "aloha-vue";
-
-export default {
-  components: {
-    AButton,
-    AModalForm,
-  },
-  setup() {
-    const model = ref({ name: "Aloha", email: "aloha@example.com", notes: "" });
-    const dataForm = [
-      {
-        type: "text",
-        id: "name",
-        label: "_A_FORM_EXAMPLE_NAME_",
-      },
-      {
-        type: "email",
-        id: "email",
-        label: "_A_FORM_EXAMPLE_EMAIL_",
-      },
-      {
-        type: "textarea",
-        id: "notes",
-        label: "_A_FORM_EXAMPLE_NOTES_",
-        classColumn: "a_column a_column_12",
-      },
-    ];
-    const isModalVisible = ref(false);
-
-    const openModal = () => {
-      isModalVisible.value = true;
-    };
-
-    const closeModal = () => {
-      isModalVisible.value = false;
-    };
-
-    return {
-      closeModal,
-      dataForm,
-      isModalVisible,
-      model,
-      openModal,
-    };
-  },
-};
-```
-
-## AModalForm
-
-| name | type | default | required | description |
-| --- | --- | --- | --- | --- |
-| class-column-default | String / Object |  |  | Default CSS class applied to each configured field when the item does not define its own **classColumn**. |
-| class-columns | String / Object |  |  | CSS classes applied to the container that holds all fields from **data**. |
-
 ## Using **body-html**
 
 The **body-html** prop is used to display custom HTML content in the modal window.
@@ -864,6 +774,7 @@ export default {
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
+| teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |

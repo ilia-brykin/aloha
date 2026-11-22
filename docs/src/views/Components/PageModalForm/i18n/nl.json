@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "De props <code>class-columns</code> en <code>class-column-default</code> worden doorgegeven aan het interne <code>AForm</code>. In dit voorbeeld nemen de velden voor naam en e-mail de helft van de breedte in en worden ze op touchapparaten onder elkaar geplaatst. Het notitieveld definieert zijn eigen <code>classColumn</code> en beslaat de volledige breedte. Als deze props worden weggelaten, gelden de standaardwaarden van <code>AForm</code>.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: formulierkolommen",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> is een modaal venster (<a href=\"/#/modal\">AModal</a>) met een formulier (<a href=\"/#/form\">AForm</a>) in de inhoud. Het formulier wordt opgebouwd uit <code>data-form</code>, het model wordt gekoppeld met <code>v-model</code>. Props met dezelfde naam werken zoals in <strong>AModal</strong> en <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Modaal venster met formulier",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Een slot dat in de inhoud na het formulier wordt getoond.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Een slot dat in de inhoud vóór de tekst (<code>body-html</code>) en het formulier wordt getoond."
+}

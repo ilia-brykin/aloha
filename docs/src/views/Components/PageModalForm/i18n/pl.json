@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Właściwości <code>class-columns</code> i <code>class-column-default</code> są przekazywane do wewnętrznego <code>AForm</code>. W tym przykładzie pola imienia i adresu e-mail zajmują po połowie szerokości i na urządzeniach dotykowych układają się jedno pod drugim. Pole notatek definiuje własną <code>classColumn</code> i zajmuje całą szerokość. Jeśli te właściwości zostaną pominięte, obowiązują wartości domyślne z <code>AForm</code>.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: kolumny formularza",
+  "_A_MODAL_FORM_COMPONENT_DESCRIPTION_": "<strong>AModalForm</strong> to okno modalne (<a href=\"/#/modal\">AModal</a>) z formularzem (<a href=\"/#/form\">AForm</a>) w treści. Formularz jest budowany z <code>data-form</code>, model wiąże się przez <code>v-model</code>. Propsy o tej samej nazwie działają jak w <strong>AModal</strong> i <strong>AForm</strong>.",
+  "_A_MODAL_FORM_COMPONENT_NAME_": "Okno modalne z formularzem",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Slot wyświetlany w treści po formularzu.",
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot wyświetlany w treści przed tekstem (<code>body-html</code>) i formularzem."
+}

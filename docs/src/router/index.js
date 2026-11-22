@@ -193,6 +193,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageModal/PageModal.vue"),
   },
   {
+    path: "/modal-form",
+    name: "PageModalForm",
+    component: () => import("../views/Components/PageModalForm/PageModalForm.vue"),
+  },
+  {
     path: "/confirm",
     name: "PageConfirm",
     component: () => import("../views/Components/PageConfirm/PageConfirm.vue"),
