@@ -77,6 +77,8 @@
   @include meta.load-css("utils/sizing");
   @include meta.load-css("utils/color");
   @include meta.load-css("utils/flex");
+  @include meta.load-css("utils/stack");
+  @include meta.load-css("utils/ratio");
   @include meta.load-css("utils/grid");
   @include meta.load-css("utils/screenreader");
   @include meta.load-css("utils/position");

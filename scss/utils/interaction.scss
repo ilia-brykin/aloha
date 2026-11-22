@@ -25,3 +25,22 @@
 .a_text_select_none {
   user-select: none !important;
 }
+
+// The link covers the whole parent with position: relative, e.g. a card.
+// Only one link per card: screen readers read only the text of the link.
+.a_stretched_link::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+}
+
+// A link in the muted text color, the link color on hover and focus
+.a_link_muted {
+  color: var(--a_color_text_muted) !important;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--a_color_link_hover) !important;
+  }
+}

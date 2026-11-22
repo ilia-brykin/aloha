@@ -2,6 +2,8 @@ export default function CodeAPI() {
   const opacities = [100, 75, 50, 25, 0];
   const shadows = ["none", "sm", "md", "lg"];
   const cursors = ["pointer", "default", "not_allowed", "move"];
+  const ratios = ["1x1", "4x3", "16x9", "21x9"];
+  const objectFits = ["cover", "contain", "fill", "none", "scale_down"];
 
   const zIndexLayers = [
     "fixed",
@@ -71,21 +73,76 @@ export default function CodeAPI() {
   const codePrint = `<nav class="a_print_none">...</nav>
 <div class="a_d_none a_print_block">Printed on ...</div>`;
 
+  const codeStack = `<div class="a_vstack a_gap_2">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="a_hstack a_gap_2">
+  <div>1</div>
+  <div>2</div>
+  <div class="a_ml_auto">a_ml_auto</div>
+</div>`;
+
+  const codeSizing = `<div class="a_width_25">a_width_25</div>
+<div class="a_width_50">a_width_50</div>
+<div class="a_max_width_400px">a_max_width_400px</div>
+
+<!-- a_min_width_0: the flex item can shrink, the text is truncated -->
+<div class="a_hstack a_gap_2">
+  <div class="a_flex_shrink_0">Label</div>
+  <div class="a_min_width_0 a_text_truncate">A long text ...</div>
+</div>
+
+<!-- full height of the visible area, also on mobile with browser bars -->
+<div class="a_min_viewport_height_100dvh">...</div>
+
+<!-- only on mobile -->
+<div class="a_width_100_mobile">...</div>`;
+
+  const codeRatio = ratios.map(value => `<div class="a_ratio_${ value }">a_ratio_${ value }</div>`).join("\n") + `
+
+<iframe class="a_ratio_16x9 a_width_100" src="..." title="Video"></iframe>`;
+
+  const codeObjectFit = objectFits.map(value => `<img class="a_object_fit_${ value }" src="image.png" alt="" style="width: 10rem; height: 6rem;">`).join("\n");
+
+  const codeStretchedLink = `<div class="a_position_relative a_border a_p_3 a_bg_primary_subtle_hover">
+  <p>The whole card is clickable.</p>
+  <a class="a_stretched_link" href="/details">a_stretched_link</a>
+</div>`;
+
+  const codeHover = `<a class="a_link_muted" href="#">a_link_muted</a>
+
+<button class="a_btn a_bg_primary a_bg_primary_hover a_color_white" type="button">
+  a_bg_primary_hover
+</button>
+
+<div class="a_bg_primary_subtle_hover" tabindex="0">a_bg_primary_subtle_hover</div>`;
+
   return {
     codeCursor,
     codeFocus,
+    codeHover,
+    codeObjectFit,
     codeOpacity,
     codeOrder,
     codePointerEvents,
     codePrint,
+    codeRatio,
     codeRoundedCircle,
     codeShadow,
+    codeSizing,
+    codeStack,
+    codeStretchedLink,
     codeText,
     codeTextSelect,
     codeVisibility,
     codeZIndex,
     cursors,
+    objectFits,
     opacities,
+    ratios,
     shadows,
     zIndexLayers,
   };

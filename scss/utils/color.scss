@@ -21,6 +21,15 @@ $colors: (
   .a_bg_#{$name}_subtle {
     background-color: var(--a_color_#{$name}_bg_subtle) !important;
   }
+  // Background on hover and keyboard focus, e.g. "a_bg_primary a_bg_primary_hover"
+  .a_bg_#{$name}_hover:hover,
+  .a_bg_#{$name}_hover:focus-visible {
+    background-color: var(--a_color_#{$name}_hover) !important;
+  }
+  .a_bg_#{$name}_subtle_hover:hover,
+  .a_bg_#{$name}_subtle_hover:focus-visible {
+    background-color: var(--a_color_#{$name}_bg_subtle) !important;
+  }
 }
 
 .a_color_transparent {

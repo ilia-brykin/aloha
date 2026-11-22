@@ -29,6 +29,95 @@ aloha-page(
       p.a_text_emphasis a_text_emphasis
 
     aloha-example(
+      :code-html="codeStack"
+      header="_A_UTILITIES_STACK_NAME_"
+      description="_A_UTILITIES_STACK_DESCRIPTION_"
+    )
+      .a_vstack.a_gap_2
+        .a_p_2.a_border a_vstack: 1
+        .a_p_2.a_border a_vstack: 2
+        .a_p_2.a_border a_vstack: 3
+      .a_hstack.a_gap_2.a_mt_3
+        .a_p_2.a_border a_hstack: 1
+        .a_p_2.a_border a_hstack: 2
+        .a_p_2.a_border.a_ml_auto a_ml_auto
+
+    aloha-example(
+      :code-html="codeSizing"
+      header="_A_UTILITIES_SIZING_NAME_"
+      description="_A_UTILITIES_SIZING_DESCRIPTION_"
+    )
+      .a_vstack.a_gap_2
+        .a_p_2.a_border.a_width_25 a_width_25
+        .a_p_2.a_border.a_width_50 a_width_50
+        .a_p_2.a_border.a_max_width_400px a_max_width_400px
+      .a_hstack.a_gap_2.a_mt_3.a_border.a_p_2.a_max_width_400px
+        .a_flex_shrink_0.a_p_2.a_bg_primary_subtle Label
+        .a_min_width_0.a_text_truncate a_min_width_0: a long text that is truncated with an ellipsis instead of overflowing
+
+    aloha-example(
+      :code-html="codeRatio"
+      header="_A_UTILITIES_RATIO_NAME_"
+      description="_A_UTILITIES_RATIO_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_start
+        .a_border.a_d_flex.a_align_items_center.a_justify_content_center(
+          v-for="value in ratios"
+          :key="value"
+          :class="`a_ratio_${ value }`"
+          style="width: 10rem;"
+        )
+          code a_ratio_{{ value }}
+
+    aloha-example(
+      :code-html="codeObjectFit"
+      header="_A_UTILITIES_OBJECT_FIT_NAME_"
+      description="_A_UTILITIES_OBJECT_FIT_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap
+        figure.a_m_0(
+          v-for="value in objectFits"
+          :key="value"
+        )
+          img.a_border.a_d_block(
+            src="./assets/Tennis_ball_purple_background.png"
+            alt=""
+            style="width: 10rem; height: 6rem;"
+            :class="`a_object_fit_${ value }`"
+          )
+          figcaption
+            code a_object_fit_{{ value }}
+
+    aloha-example(
+      :code-html="codeStretchedLink"
+      header="_A_UTILITIES_STRETCHED_LINK_NAME_"
+      description="_A_UTILITIES_STRETCHED_LINK_DESCRIPTION_"
+    )
+      .a_position_relative.a_border.a_p_3.a_bg_primary_subtle_hover.a_max_width_400px
+        p.a_mb_2 The whole card is clickable.
+        a.a_stretched_link(
+          href="#"
+          @click.prevent
+        ) a_stretched_link
+
+    aloha-example(
+      :code-html="codeHover"
+      header="_A_UTILITIES_HOVER_NAME_"
+      description="_A_UTILITIES_HOVER_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_center
+        a.a_link_muted(
+          href="#"
+          @click.prevent
+        ) a_link_muted
+        button.a_btn.a_bg_primary.a_bg_primary_hover.a_color_white(
+          type="button"
+        ) a_bg_primary_hover
+        .a_p_2.a_border.a_bg_primary_subtle_hover(
+          tabindex="0"
+        ) a_bg_primary_subtle_hover
+
+    aloha-example(
       :code-html="codeShadow"
       header="_A_UTILITIES_SHADOW_NAME_"
       description="_A_UTILITIES_SHADOW_DESCRIPTION_"

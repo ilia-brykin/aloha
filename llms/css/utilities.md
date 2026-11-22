@@ -22,6 +22,96 @@ Secondary and emphasized text that stays readable in the light and the dark them
 <p class="a_text_emphasis">a_text_emphasis</p>
 ```
 
+## Stack
+
+`a_vstack` places the items one below the other (flex column), `a_hstack` next to each other and centers them vertically (flex row). The space between the items is set with `a_gap_*`, `a_ml_auto` pushes an item to the end.
+
+```html
+<div class="a_vstack a_gap_2">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<div class="a_hstack a_gap_2">
+  <div>1</div>
+  <div>2</div>
+  <div class="a_ml_auto">a_ml_auto</div>
+</div>
+```
+
+## Sizing
+
+Classes set the width and the height: `a_width_*` / `a_height_*` (`1` … `6`, `25` … `100` %, `1rem` … `3rem`, `auto`; `a_width_50px` … `a_width_400px`), `a_max_width_*` (`300px` … `800px`, `25` … `100` %, `none`), `a_max_height_100`, `a_max_height_none`, `a_min_width_0`, `a_min_width_100`, `a_min_height_0`, `a_min_height_100`. `a_min_width_0` lets a flex item shrink below the width of its content, e.g. for `a_text_truncate`. `a_viewport_height_100` and `a_min_viewport_height_100` use `100vh`, the variants `_100dvh` use the visible height on mobile devices with browser bars. Suffixes `_mobile` … `_large` enable them at breakpoints.
+
+```html
+<div class="a_width_25">a_width_25</div>
+<div class="a_width_50">a_width_50</div>
+<div class="a_max_width_400px">a_max_width_400px</div>
+
+<!-- a_min_width_0: the flex item can shrink, the text is truncated -->
+<div class="a_hstack a_gap_2">
+  <div class="a_flex_shrink_0">Label</div>
+  <div class="a_min_width_0 a_text_truncate">A long text ...</div>
+</div>
+
+<!-- full height of the visible area, also on mobile with browser bars -->
+<div class="a_min_viewport_height_100dvh">...</div>
+
+<!-- only on mobile -->
+<div class="a_width_100_mobile">...</div>
+```
+
+## Aspect ratio
+
+Classes set the `aspect-ratio` of an element: `a_ratio_1x1`, `a_ratio_4x3`, `a_ratio_16x9`, `a_ratio_21x9`. The height follows the width, e.g. for videos, maps and image placeholders.
+
+```html
+<div class="a_ratio_1x1">a_ratio_1x1</div>
+<div class="a_ratio_4x3">a_ratio_4x3</div>
+<div class="a_ratio_16x9">a_ratio_16x9</div>
+<div class="a_ratio_21x9">a_ratio_21x9</div>
+
+<iframe class="a_ratio_16x9 a_width_100" src="..." title="Video"></iframe>
+```
+
+## Object fit
+
+Classes set how an image or a video fills its box (`object-fit`): `a_object_fit_cover` fills the box and crops the image, `a_object_fit_contain` shows the whole image, `a_object_fit_fill` stretches it, `a_object_fit_none` keeps the original size, `a_object_fit_scale_down` uses `none` or `contain`, whichever is smaller.
+
+```html
+<img class="a_object_fit_cover" src="image.png" alt="" style="width: 10rem; height: 6rem;">
+<img class="a_object_fit_contain" src="image.png" alt="" style="width: 10rem; height: 6rem;">
+<img class="a_object_fit_fill" src="image.png" alt="" style="width: 10rem; height: 6rem;">
+<img class="a_object_fit_none" src="image.png" alt="" style="width: 10rem; height: 6rem;">
+<img class="a_object_fit_scale_down" src="image.png" alt="" style="width: 10rem; height: 6rem;">
+```
+
+## Stretched link
+
+`a_stretched_link` makes the whole parent with `a_position_relative` clickable, e.g. a card. There is still only one link with a clear text for keyboard and screen reader users. Other links and buttons in the card need `a_position_relative` and `a_z_index_2` to stay clickable.
+
+```html
+<div class="a_position_relative a_border a_p_3 a_bg_primary_subtle_hover">
+  <p>The whole card is clickable.</p>
+  <a class="a_stretched_link" href="/details">a_stretched_link</a>
+</div>
+```
+
+## Hover
+
+Colors on hover and keyboard focus. `a_link_muted` is a link in the muted text color that gets the link color on hover. `a_bg_{color}_hover` sets the hover tone of a color, e.g. together with `a_bg_primary`. `a_bg_{color}_subtle_hover` sets the subtle background, e.g. for list items and cards. Colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`, `light`, `dark`.
+
+```html
+<a class="a_link_muted" href="#">a_link_muted</a>
+
+<button class="a_btn a_bg_primary a_bg_primary_hover a_color_white" type="button">
+  a_bg_primary_hover
+</button>
+
+<div class="a_bg_primary_subtle_hover" tabindex="0">a_bg_primary_subtle_hover</div>
+```
+
 ## Shadow
 
 Classes set the shadow from the `--a_shadow_*` tokens: `a_shadow_sm`, `a_shadow_md`, `a_shadow_lg`. `a_shadow_none` removes a shadow. The shadows are adapted for the dark theme.

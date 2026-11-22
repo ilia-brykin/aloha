@@ -143,6 +143,10 @@ Classes without the prefix `a_` and size suffixes were unified. `a_element` is a
 
  `.a_file__input`  `.a_input_file__input`
 
+### Changed classes
+
+`a_gap_x_*` now sets the horizontal gap (`column-gap`), `a_gap_y_*` the vertical gap (`row-gap`). In 2.x they were swapped. Swap `a_gap_x_*` and `a_gap_y_*` in your templates.
+
 ### Renamed SCSS files
 
 Only relevant if you import single files from `aloha-vue/scss`.

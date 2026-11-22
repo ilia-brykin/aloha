@@ -1,0 +1,27 @@
+// Aspect ratio and object-fit utilities.
+$ratios: (
+  "1x1": "1 / 1",
+  "4x3": "4 / 3",
+  "16x9": "16 / 9",
+  "21x9": "21 / 9",
+);
+
+@each $name, $value in $ratios {
+  .a_ratio_#{$name} {
+    aspect-ratio: #{$value} !important;
+  }
+}
+
+$object-fits: (
+  "contain": contain,
+  "cover": cover,
+  "fill": fill,
+  "none": none,
+  "scale_down": scale-down,
+);
+
+@each $name, $value in $object-fits {
+  .a_object_fit_#{$name} {
+    object-fit: $value !important;
+  }
+}
