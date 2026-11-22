@@ -386,6 +386,8 @@ export default function InputEventsAPI(props, {
     const value = $event.target.value;
     const keyCode = $event.keyCode;
     const keyValue = $event.key;
+    // Ctrl on Windows/Linux, Cmd on Mac: copy, paste, select all, undo
+    const isShortcut = $event.ctrlKey || $event.metaKey;
     const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
     const keyIsZero = keyCode === 48 || keyCode === 96;
     const keyIsMinus = keyValue === "-";
@@ -489,7 +491,7 @@ export default function InputEventsAPI(props, {
       return;
     }
 
-    if (keyIsNumber && !$event.ctrlKey) {
+    if (keyIsNumber && !isShortcut) {
       if (hasDecimalDivider) {
         const decimalDividerPosition = value.indexOf(decimalDivider.value);
         const splitVal = value.split(decimalDivider.value);
@@ -555,11 +557,11 @@ export default function InputEventsAPI(props, {
       }
     }
 
-    if (!keyIsNumber && !$event.ctrlKey && !includes(allowedButtons, $event.keyCode)) {
+    if (!keyIsNumber && !isShortcut && !includes(allowedButtons, $event.keyCode)) {
       $event.preventDefault();
     }
 
-    if (keyIsNumber && !$event.ctrlKey && $event.keyCode) {
+    if (keyIsNumber && !isShortcut && $event.keyCode) {
       if (cursorPosition === 0 && value.length && value[0] === "0") {
         $event.preventDefault();
         const newVal = `${ keyValue }${ value.slice(1) }`;
