@@ -8,7 +8,7 @@ All styles of **aloha-vue** are configured with **CSS** custom properties (token
 
 ## Quick start
 
-Define the base tokens in your own **CSS**. Theme colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`. Each color has `--a__h`, `_s` and `_l`.
+Define the base tokens in your own **CSS**. Theme colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`. Each color has `--a_<color>_h`, `_s` and `_l`.
 
 ```css
 :root {
@@ -87,7 +87,7 @@ Text field
 
 ## Dark theme
 
-Set `data-a-theme` on `` or on any element. Only the tones and the gray scale change, all colors are recalculated. `auto` follows the operating system setting (`prefers-color-scheme`).
+Set `data-a-theme` on `<html>` or on any element. Only the tones and the gray scale change, all colors are recalculated. `auto` follows the operating system setting (`prefers-color-scheme`).
 
 ```html
 <!-- always dark -->

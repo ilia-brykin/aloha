@@ -54,6 +54,7 @@ import PageFilterLinkI18n from "./views/Functions/Filters/PageFilterLink/i18n/Pa
 import PageFilterListI18n from "./views/Functions/Filters/PageFilterList/i18n/PageFilterListI18n";
 import PageFilterLowerCaseI18n from "./views/Functions/Filters/PageFilterLowerCase/i18n/PageFilterLowerCaseI18n";
 import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/PageFilterMaskI18n";
+import PageFilterNewlinesI18n from "./views/Functions/Filters/PageFilterNewlines/i18n/PageFilterNewlinesI18n";
 import PageFilterNumberCompactI18n from "./views/Functions/Filters/PageFilterNumberCompact/i18n/PageFilterNumberCompactI18n";
 import PageFilterPercentI18n from "./views/Functions/Filters/PageFilterPercent/i18n/PageFilterPercentI18n";
 import PageFilterPropertyByValueI18n from "./views/Functions/Filters/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
@@ -210,6 +211,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.ar,
     ...PageFilterLowerCaseI18n.ar,
     ...PageFilterMaskI18n.ar,
+    ...PageFilterNewlinesI18n.ar,
     ...PageFilterNumberCompactI18n.ar,
     ...PageFilterPercentI18n.ar,
     ...PageFilterPropertyByValueI18n.ar,
@@ -346,6 +348,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.de,
     ...PageFilterLowerCaseI18n.de,
     ...PageFilterMaskI18n.de,
+    ...PageFilterNewlinesI18n.de,
     ...PageFilterNumberCompactI18n.de,
     ...PageFilterPercentI18n.de,
     ...PageFilterPropertyByValueI18n.de,
@@ -482,6 +485,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.en,
     ...PageFilterLowerCaseI18n.en,
     ...PageFilterMaskI18n.en,
+    ...PageFilterNewlinesI18n.en,
     ...PageFilterNumberCompactI18n.en,
     ...PageFilterPercentI18n.en,
     ...PageFilterPropertyByValueI18n.en,
@@ -618,6 +622,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.es,
     ...PageFilterLowerCaseI18n.es,
     ...PageFilterMaskI18n.es,
+    ...PageFilterNewlinesI18n.es,
     ...PageFilterNumberCompactI18n.es,
     ...PageFilterPercentI18n.es,
     ...PageFilterPropertyByValueI18n.es,
@@ -754,6 +759,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.fr,
     ...PageFilterLowerCaseI18n.fr,
     ...PageFilterMaskI18n.fr,
+    ...PageFilterNewlinesI18n.fr,
     ...PageFilterNumberCompactI18n.fr,
     ...PageFilterPercentI18n.fr,
     ...PageFilterPropertyByValueI18n.fr,
@@ -890,6 +896,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.hr,
     ...PageFilterLowerCaseI18n.hr,
     ...PageFilterMaskI18n.hr,
+    ...PageFilterNewlinesI18n.hr,
     ...PageFilterNumberCompactI18n.hr,
     ...PageFilterPercentI18n.hr,
     ...PageFilterPropertyByValueI18n.hr,
@@ -1026,6 +1033,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.it,
     ...PageFilterLowerCaseI18n.it,
     ...PageFilterMaskI18n.it,
+    ...PageFilterNewlinesI18n.it,
     ...PageFilterNumberCompactI18n.it,
     ...PageFilterPercentI18n.it,
     ...PageFilterPropertyByValueI18n.it,
@@ -1162,6 +1170,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.nl,
     ...PageFilterLowerCaseI18n.nl,
     ...PageFilterMaskI18n.nl,
+    ...PageFilterNewlinesI18n.nl,
     ...PageFilterNumberCompactI18n.nl,
     ...PageFilterPercentI18n.nl,
     ...PageFilterPropertyByValueI18n.nl,
@@ -1298,6 +1307,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.pl,
     ...PageFilterLowerCaseI18n.pl,
     ...PageFilterMaskI18n.pl,
+    ...PageFilterNewlinesI18n.pl,
     ...PageFilterNumberCompactI18n.pl,
     ...PageFilterPercentI18n.pl,
     ...PageFilterPropertyByValueI18n.pl,
@@ -1434,6 +1444,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.ru,
     ...PageFilterLowerCaseI18n.ru,
     ...PageFilterMaskI18n.ru,
+    ...PageFilterNewlinesI18n.ru,
     ...PageFilterNumberCompactI18n.ru,
     ...PageFilterPercentI18n.ru,
     ...PageFilterPropertyByValueI18n.ru,
@@ -1570,6 +1581,7 @@ export const mainTranslation = {
     ...PageFilterListI18n.uk,
     ...PageFilterLowerCaseI18n.uk,
     ...PageFilterMaskI18n.uk,
+    ...PageFilterNewlinesI18n.uk,
     ...PageFilterNumberCompactI18n.uk,
     ...PageFilterPercentI18n.uk,
     ...PageFilterPropertyByValueI18n.uk,

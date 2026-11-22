@@ -21,6 +21,7 @@ import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterLowerCase from "../filters/filterLowerCase";
 import _filterMask from "../filters/filterMask";
+import _filterNewlines from "../filters/filterNewlines";
 import _filterNumberCompact from "../filters/filterNumberCompact";
 import _filterPercent from "../filters/filterPercent";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
@@ -164,6 +165,10 @@ export default function AFiltersAPI() {
     });
   };
 
+  const filterNewlines = value => {
+    return _filterNewlines(value);
+  };
+
   const filterStripHtml = value => {
     return _filterStripHtml(value);
   };
@@ -212,6 +217,7 @@ export default function AFiltersAPI() {
     filterList,
     filterLowerCase,
     filterMask,
+    filterNewlines,
     filterNumberCompact,
     filterPercent,
     filterPropertyByValue,

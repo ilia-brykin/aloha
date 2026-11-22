@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "La función <strong>filterNewlines</strong> muestra un texto de varias líneas, p. ej. de un <code>textarea</code>, como HTML: escapa los caracteres especiales de HTML y reemplaza los saltos de línea por <code>&lt;br&gt;</code>. El resultado es seguro para <code>v-html</code> y la prop <code>html</code>. En una columna de tabla use <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "El texto con saltos de línea",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Texto",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Resultado"
+}

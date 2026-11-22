@@ -80,9 +80,7 @@ export default {
 
 ## Simple HTML table
 
-`is-simple-table` renders a native `
-
-` without the toolbar and the extra features of **ATable**.
+`is-simple-table` renders a native `<table>` without the toolbar and the extra features of **ATable**.
 
 *props: `is-simple-table`*
 

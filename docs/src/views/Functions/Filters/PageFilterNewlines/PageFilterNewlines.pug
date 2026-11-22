@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_NEWLINES_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterNewlines"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterNewlines"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterNewlines(value)"
+    )
+
+    page-filter-newlines-example
+
+    page-filter-test(
+      :test="test"
+    )

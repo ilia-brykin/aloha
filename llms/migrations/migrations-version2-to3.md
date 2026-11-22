@@ -190,7 +190,7 @@ h(AButton, {
 
 The components now have accessible names and valid ARIA attributes by default. If your tests or styles depend on the markup, check these changes:
 
-- New token `--a_color__text`: the theme color with enough contrast for text on the surface (lightness limited by `--a_tone_text_min_l` / `--a_tone_text_max_l`). Error texts (`--a_form_element_error_color`, `--a_custom_control_error_color`, `--a_fieldset_invalid_color`, `--a_switch_button_invalid_color`) and the texts of active and failed wizard steps use it, so they are darker in the light theme and lighter in the dark theme.
+- New token `--a_color_<name>_text`: the theme color with enough contrast for text on the surface (lightness limited by `--a_tone_text_min_l` / `--a_tone_text_max_l`). Error texts (`--a_form_element_error_color`, `--a_custom_control_error_color`, `--a_fieldset_invalid_color`, `--a_switch_button_invalid_color`) and the texts of active and failed wizard steps use it, so they are darker in the light theme and lighter in the dark theme.
 - `AElement`, `AButton`, `ALink`: if there is only an icon and a `title`, the title is also rendered as `a_sr_only` text.
 - `ADropdown`: a toggle without text and title gets the screen reader text `_A_DROPDOWN_BUTTON_SCREEN_READER_`.
 - `ASelect`: the remove button of a selected value gets the screen reader text `_A_SELECT_REMOVE_`.

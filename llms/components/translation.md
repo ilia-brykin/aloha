@@ -99,7 +99,7 @@ The component allows using safe **HTML** content as a string. By enabling the `s
 
 ## Safe **HTML** text with `DOMPurify.sanitize`
 
-The displayed **HTML** content `"Aloha"` shows the button without the `onclick` attribute because `DOMPurify.sanitize` is used to prevent potential security risks from unsafe **HTML**.
+The displayed **HTML** content `"<button class='a_btn a_btn_primary' onclick='alert("Aloha")'>Aloha</button>"` shows the button without the `onclick` attribute because `DOMPurify.sanitize` is used to prevent potential security risks from unsafe **HTML**.
 
 *props: `html`*
 

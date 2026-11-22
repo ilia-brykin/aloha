@@ -227,6 +227,7 @@ export { default as filterLink } from "./filters/filterLink";
 export { default as filterList } from "./filters/filterList";
 export { default as filterLowerCase } from "./filters/filterLowerCase";
 export { default as filterMask } from "./filters/filterMask";
+export { default as filterNewlines } from "./filters/filterNewlines";
 export { default as filterNumberCompact } from "./filters/filterNumberCompact";
 export { default as filterPercent } from "./filters/filterPercent";
 export { default as filterPropertyByValue } from "./filters/filterPropertyByValue";

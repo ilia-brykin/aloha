@@ -74,10 +74,11 @@ const strip = s => s.replace(/<[^>]+>/g, "");
 
 function htmlToMd(html = "") {
   let s = String(html);
-  s = s.replace(/<pre[^>]*>([\s\S]*?)<\/pre>/g, (m, t) => `\n\n\`\`\`\n${ decode(strip(t)).trim() }\n\`\`\`\n\n`);
+  // entities stay encoded until the last step, otherwise strip() would remove an encoded tag like &lt;br&gt;
+  s = s.replace(/<pre[^>]*>([\s\S]*?)<\/pre>/g, (m, t) => `\n\n\`\`\`\n${ strip(t).trim() }\n\`\`\`\n\n`);
   s = s.replace(/<br\s*\/?>/g, "\n");
   s = s.replace(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/g, (m, l, t) => `\n\n${ "#".repeat(Math.max(2, +l)) } ${ htmlToMd(t) }\n\n`);
-  s = s.replace(/<code[^>]*>([\s\S]*?)<\/code>/g, (m, t) => `\`${ decode(strip(t)) }\``);
+  s = s.replace(/<code[^>]*>([\s\S]*?)<\/code>/g, (m, t) => `\`${ strip(t) }\``);
   s = s.replace(/<(strong|b)(\s[^>]*)?>([\s\S]*?)<\/\1>/g, "**$3**");
   s = s.replace(/<(em|i)(\s[^>]*)?>([\s\S]*?)<\/\1>/g, "*$3*");
   s = s.replace(/<a\s[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/g, "[$2]($1)");

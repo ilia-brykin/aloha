@@ -3998,6 +3998,7 @@ export declare const filterLink: any;
 export declare const filterList: any;
 export declare const filterLowerCase: any;
 export declare const filterMask: any;
+export declare const filterNewlines: any;
 export declare const filterNumberCompact: any;
 export declare const filterPercent: any;
 export declare const filterPropertyByValue: any;

@@ -588,6 +588,11 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterMask/PageFilterMask.vue"),
   },
   {
+    path: "/filter-newlines",
+    name: "PageFilterNewlines",
+    component: () => import("../views/Functions/Filters/PageFilterNewlines/PageFilterNewlines.vue"),
+  },
+  {
     path: "/filter-number-compact",
     name: "PageFilterNumberCompact",
     component: () => import("../views/Functions/Filters/PageFilterNumberCompact/PageFilterNumberCompact.vue"),

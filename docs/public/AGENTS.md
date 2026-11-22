@@ -258,6 +258,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [filterList](llms/functions/filter-list.md) — The function creates a list from an array.
   - [filterLowerCase](llms/functions/filter-lower-case.md) — Converts the input string to lowercase.
   - [filterMask](llms/functions/filter-mask.md) — Masks a given value, displaying only the last few characters.
+  - [filterNewlines](llms/functions/filter-newlines.md) — The function **filterNewlines** shows a multi-line text, e.g.
   - [filterNumberCompact](llms/functions/filter-number-compact.md) — The function **filterNumberCompact** shortens a large number with a unit (thousand, million, billion, trillion), e.g.
   - [filterPercent](llms/functions/filter-percent.md) — The function **filterPercent** formats a value as a percentage, e.g.
   - [filterPropertyByValue](llms/functions/filter-property-by-value.md) — The function **filterPropertyByValue** allows for mapping values to predefined properties in a mapping object.

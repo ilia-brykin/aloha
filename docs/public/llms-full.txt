@@ -258,6 +258,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [filterList](https://ilia-brykin.github.io/aloha/llms/functions/filter-list.md) — The function creates a list from an array.
   - [filterLowerCase](https://ilia-brykin.github.io/aloha/llms/functions/filter-lower-case.md) — Converts the input string to lowercase.
   - [filterMask](https://ilia-brykin.github.io/aloha/llms/functions/filter-mask.md) — Masks a given value, displaying only the last few characters.
+  - [filterNewlines](https://ilia-brykin.github.io/aloha/llms/functions/filter-newlines.md) — The function **filterNewlines** shows a multi-line text, e.g.
   - [filterNumberCompact](https://ilia-brykin.github.io/aloha/llms/functions/filter-number-compact.md) — The function **filterNumberCompact** shortens a large number with a unit (thousand, million, billion, trillion), e.g.
   - [filterPercent](https://ilia-brykin.github.io/aloha/llms/functions/filter-percent.md) — The function **filterPercent** formats a value as a percentage, e.g.
   - [filterPropertyByValue](https://ilia-brykin.github.io/aloha/llms/functions/filter-property-by-value.md) — The function **filterPropertyByValue** allows for mapping values to predefined properties in a mapping object.
@@ -556,7 +557,7 @@ h(AButton, {
 
 The components now have accessible names and valid ARIA attributes by default. If your tests or styles depend on the markup, check these changes:
 
-- New token `--a_color__text`: the theme color with enough contrast for text on the surface (lightness limited by `--a_tone_text_min_l` / `--a_tone_text_max_l`). Error texts (`--a_form_element_error_color`, `--a_custom_control_error_color`, `--a_fieldset_invalid_color`, `--a_switch_button_invalid_color`) and the texts of active and failed wizard steps use it, so they are darker in the light theme and lighter in the dark theme.
+- New token `--a_color_<name>_text`: the theme color with enough contrast for text on the surface (lightness limited by `--a_tone_text_min_l` / `--a_tone_text_max_l`). Error texts (`--a_form_element_error_color`, `--a_custom_control_error_color`, `--a_fieldset_invalid_color`, `--a_switch_button_invalid_color`) and the texts of active and failed wizard steps use it, so they are darker in the light theme and lighter in the dark theme.
 - `AElement`, `AButton`, `ALink`: if there is only an icon and a `title`, the title is also rendered as `a_sr_only` text.
 - `ADropdown`: a toggle without text and title gets the screen reader text `_A_DROPDOWN_BUTTON_SCREEN_READER_`.
 - `ASelect`: the remove button of a selected value gets the screen reader text `_A_SELECT_REMOVE_`.
@@ -14106,7 +14107,7 @@ export default {
 
 # AColorPicker (Color picker)
 
-The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors. The field looks like an input that is filled with the selected color; the text color is chosen automatically for the best contrast. The model is changed only with **OK**. In **AForm** the component is used with `type: "colorPicker"`; `type: "color"` stays the native ``.
+The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors. The field looks like an input that is filled with the selected color; the text color is chosen automatically for the best contrast. The model is changed only with **OK**. In **AForm** the component is used with `type: "colorPicker"`; `type: "color"` stays the native `<input type="color">`.
 
 Accessibility: the field is a button with `aria-haspopup="dialog"`, its name contains the label and the current value. The dialog has `role="dialog"`, the focus stays inside and goes back to the field after closing.
 
@@ -40746,9 +40747,7 @@ export default {
 
 ## Simple HTML table
 
-`is-simple-table` renders a native `
-
-` without the toolbar and the extra features of **ATable**.
+`is-simple-table` renders a native `<table>` without the toolbar and the extra features of **ATable**.
 
 *props: `is-simple-table`*
 
@@ -45770,7 +45769,7 @@ The component allows using safe **HTML** content as a string. By enabling the `s
 
 ## Safe **HTML** text with `DOMPurify.sanitize`
 
-The displayed **HTML** content `"Aloha"` shows the button without the `onclick` attribute because `DOMPurify.sanitize` is used to prevent potential security risks from unsafe **HTML**.
+The displayed **HTML** content `"<button class='a_btn a_btn_primary' onclick='alert("Aloha")'>Aloha</button>"` shows the button without the `onclick` attribute because `DOMPurify.sanitize` is used to prevent potential security risks from unsafe **HTML**.
 
 *props: `html`*
 
@@ -49380,7 +49379,7 @@ All styles of **aloha-vue** are configured with **CSS** custom properties (token
 
 ## Quick start
 
-Define the base tokens in your own **CSS**. Theme colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`. Each color has `--a__h`, `_s` and `_l`.
+Define the base tokens in your own **CSS**. Theme colors: `primary`, `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`. Each color has `--a_<color>_h`, `_s` and `_l`.
 
 ```css
 :root {
@@ -49459,7 +49458,7 @@ Text field
 
 ## Dark theme
 
-Set `data-a-theme` on `` or on any element. Only the tones and the gray scale change, all colors are recalculated. `auto` follows the operating system setting (`prefers-color-scheme`).
+Set `data-a-theme` on `<html>` or on any element. Only the tones and the gray scale change, all colors are recalculated. `auto` follows the operating system setting (`prefers-color-scheme`).
 
 ```html
 <!-- always dark -->
@@ -52194,6 +52193,60 @@ filterMask("12345678", { chars: 10 });
 
 ---
 
+<!-- https://ilia-brykin.github.io/aloha/llms/functions/filter-newlines.md -->
+
+# filterNewlines
+
+The function **filterNewlines** shows a multi-line text, e.g. from a `textarea`, as HTML: it escapes the HTML special characters and replaces the line breaks with `<br>`. The result is safe for `v-html` and the prop `html`. In a table column use `filter: "newlines"`.
+
+## Import as Function
+
+```js
+import { filterNewlines } from "aloha-vue";
+```
+
+## Import as composition API
+
+```js
+import { AFiltersAPI } from "aloha-vue";
+
+export default {
+  setup() {  
+    const {
+      filterNewlines,
+    } = AFiltersAPI();
+  },
+};
+```
+
+## Arguments
+
+```js
+filterNewlines(value)
+```
+
+- **value** (String): The text with line breaks
+
+## Basic usage
+
+```js
+filterNewlines("Line 1\nLine 2");
+// Line 1<br>Line 2
+
+filterNewlines("<b>Tom</b> & Jerry\r\nLine 2");
+// &lt;b&gt;Tom&lt;/b&gt; &amp; Jerry<br>Line 2
+
+// in a template: the result is escaped, so v-html or the prop html is safe
+// <div v-html="filterNewlines(notes)"></div>
+// <a-translation tag="div" :html="filterNewlines(notes)" />
+
+// in a table column
+// { label: "Notes", keyLabel: "notes", filter: "newlines" }
+```
+
+
+---
+
 <!-- https://ilia-brykin.github.io/aloha/llms/functions/filter-number-compact.md -->
 
 # filterNumberCompact
@@ -52526,7 +52579,7 @@ filterSearchHighlight("<p>Welcome to <strong>Vue</strong><span>.js</span> world.
 
 # filterStripHtml
 
-The function **filterStripHtml** removes HTML tags from a string and returns its text, e.g. for previews or the `title` attribute. The contents of `` and `` are removed too. Use **filterEscapeHtml** to show HTML as text.
+The function **filterStripHtml** removes HTML tags from a string and returns its text, e.g. for previews or the `title` attribute. The contents of `<script>` and `<style>` are removed too. Use **filterEscapeHtml** to show HTML as text.
 
 ## Import as Function
 

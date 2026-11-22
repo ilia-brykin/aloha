@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "Funkcja <strong>filterNewlines</strong> pokazuje tekst wielowierszowy, np. z <code>textarea</code>, jako HTML: zamienia znaki specjalne HTML na encje i zastępuje podziały wierszy przez <code>&lt;br&gt;</code>. Wynik jest bezpieczny dla <code>v-html</code> i propa <code>html</code>. W kolumnie tabeli użyj <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Tekst z podziałami wierszy",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Tekst",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Wynik"
+}

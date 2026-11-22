@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "Funkcija <strong>filterNewlines</strong> prikazuje višeredni tekst, npr. iz <code>textarea</code>, kao HTML: zamjenjuje posebne HTML znakove entitetima i prijelome redaka s <code>&lt;br&gt;</code>. Rezultat je siguran za <code>v-html</code> i prop <code>html</code>. U stupcu tablice koristite <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Tekst s prijelomima redaka",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Tekst",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Rezultat"
+}

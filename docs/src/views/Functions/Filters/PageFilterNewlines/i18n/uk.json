@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "Функція <strong>filterNewlines</strong> показує багаторядковий текст, наприклад з <code>textarea</code>, як HTML: екранує спеціальні символи HTML і замінює переноси рядків на <code>&lt;br&gt;</code>. Результат безпечний для <code>v-html</code> і пропса <code>html</code>. У колонці таблиці використовуйте <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Текст з переносами рядків",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Текст",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Результат"
+}

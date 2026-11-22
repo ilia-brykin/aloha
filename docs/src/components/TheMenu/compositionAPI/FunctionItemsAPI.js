@@ -163,6 +163,14 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterNewlines",
+            label: "filterNewlines",
+            class: "test_menu_filter_newlines",
+            to: {
+              name: "PageFilterNewlines",
+            },
+          },
+          {
             id: "PageFilterNumberCompact",
             label: "filterNumberCompact",
             class: "test_menu_filter_numbercompact",
