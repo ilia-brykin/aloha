@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Визначає, чи має допоміжна технологія озвучувати всю область сповіщення під час зміни її вмісту.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Визначає ARIA-роль компонента сповіщення.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Чи читає скрінрідер під час зміни весь алерт (<code lang=\"en\">true</code>) чи лише змінену частину (<code lang=\"en\">false</code>). Без значення задається через <code lang=\"en\">announce</code>; значення перемагає <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "ARIA-роль live-регіону, наприклад <code lang=\"en\">alert</code> або <code lang=\"en\">status</code>. Без значення задається через <code lang=\"en\">announce</code>; значення перемагає <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Відображає важливі сповіщення.",
   "_A_ALERT_COMPONENT_NAME_": "сповіщення",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Викликається під час закриття сповіщення",
@@ -47,5 +47,13 @@
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Звичайний текст, що відображається всередині компонента",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Тип сповіщення",
   "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Вміст сповіщення",
-  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Іконка кнопки закриття."
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Іконка кнопки закриття.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "Як скрінрідер оголошує алерт під час появи: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> читає його одразу (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> — після поточної фрази (<code lang=\"en\">role=\"status\"</code>). Без суфікса читається весь алерт (<code lang=\"en\">aria-atomic=\"true\"</code>), з <code lang=\"en\">-changes</code> — лише змінена частина (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> не ставить ні те, ні інше. Пропси або атрибути <code lang=\"en\">role</code> і <code lang=\"en\">aria-atomic</code> перемагають <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Оголошення для скрінрідера",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "Пропс <code lang=\"en\">announce</code> задає, як алерт оголошується під час появи. Натисніть кнопку: зі скрінрідером червоний алерт читається одразу, зелений — після поточної фрази, синій — не читається. Live-регіон завжди є на сторінці, з'являється лише вміст, тому оголошення працює й тоді, коли алерт показується пізніше.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Показати алерти",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Сховати алерти",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (за замовчуванням): читається одразу.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": читається після поточної фрази.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": не оголошується."
 }

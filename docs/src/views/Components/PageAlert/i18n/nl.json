@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Geeft aan of het volledige waarschuwingsgebied door hulptechnologieën moet worden voorgelezen wanneer de inhoud verandert.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Bepaalt de ARIA-rol van de alert-component.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Of een schermlezer bij een wijziging de hele melding (<code lang=\"en\">true</code>) of alleen het gewijzigde deel (<code lang=\"en\">false</code>) voorleest. Zonder waarde wordt het ingesteld door <code lang=\"en\">announce</code>; een waarde gaat voor <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "ARIA-rol van de live-regio, bijv. <code lang=\"en\">alert</code> of <code lang=\"en\">status</code>. Zonder waarde wordt die ingesteld door <code lang=\"en\">announce</code>; een waarde gaat voor <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Toont belangrijke waarschuwingsberichten.",
   "_A_ALERT_COMPONENT_NAME_": "waarschuwing",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Wordt geactiveerd wanneer de waarschuwing wordt gesloten",
@@ -47,5 +47,13 @@
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Platte tekst die in de component wordt getoond",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Type waarschuwing",
   "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Inhoud van de waarschuwing",
-  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Pictogram van de sluitknop."
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Pictogram van de sluitknop.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "Hoe een schermlezer de melding aankondigt wanneer die verschijnt: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> leest hem meteen voor (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> na de huidige zin (<code lang=\"en\">role=\"status\"</code>). Zonder achtervoegsel wordt de hele melding gelezen (<code lang=\"en\">aria-atomic=\"true\"</code>), met <code lang=\"en\">-changes</code> alleen het gewijzigde deel (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> zet geen van beide. De props of attributen <code lang=\"en\">role</code> en <code lang=\"en\">aria-atomic</code> gaan voor <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Aankondiging voor schermlezers",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "De prop <code lang=\"en\">announce</code> bepaalt hoe de melding wordt aangekondigd wanneer die verschijnt. Klik op de knop: met een schermlezer wordt de rode melding meteen gelezen, de groene na de huidige zin, de blauwe helemaal niet. De live-regio staat altijd in de pagina, alleen de inhoud verschijnt, daarom werkt de aankondiging ook als de melding later wordt getoond.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Meldingen tonen",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Meldingen verbergen",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (standaard): wordt meteen gelezen.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": wordt na de huidige zin gelezen.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": wordt niet aangekondigd."
 }

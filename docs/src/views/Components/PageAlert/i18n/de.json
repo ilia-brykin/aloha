@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Legt fest, ob der gesamte Warnbereich von Hilfstechnologien erneut angesagt werden soll, wenn sich sein Inhalt ändert.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Definiert die ARIA-Rolle der Warnungskomponente.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Ob ein Screenreader bei einer Änderung den ganzen Alert (<code lang=\"en\">true</code>) oder nur den geänderten Teil (<code lang=\"en\">false</code>) vorliest. Ohne Wert wird es durch <code lang=\"en\">announce</code> gesetzt; ein Wert hat Vorrang vor <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "ARIA-Rolle der Live-Region, z. B. <code lang=\"en\">alert</code> oder <code lang=\"en\">status</code>. Ohne Wert wird sie durch <code lang=\"en\">announce</code> gesetzt; ein Wert hat Vorrang vor <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Zeigt wichtige Warnmeldungen an.",
   "_A_ALERT_COMPONENT_NAME_": "Warnung",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Auslösen, wenn die Warnung geschlossen ist",
@@ -47,5 +47,13 @@
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Plain Text, der innerhalb der Komponente angezeigt werden soll",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Warnung-Typ",
   "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Inhalt der Warnung",
-  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icon des Schließen-Buttons."
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icon des Schließen-Buttons.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "Wie ein Screenreader den Alert ankündigt, wenn er erscheint: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> liest ihn sofort vor (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> nach dem aktuellen Satz (<code lang=\"en\">role=\"status\"</code>). Ohne Suffix wird der ganze Alert gelesen (<code lang=\"en\">aria-atomic=\"true\"</code>), mit <code lang=\"en\">-changes</code> nur der geänderte Teil (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> setzt beides nicht. Die Props oder Attribute <code lang=\"en\">role</code> und <code lang=\"en\">aria-atomic</code> haben Vorrang vor <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Ankündigung für Screenreader",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "Die Prop <code lang=\"en\">announce</code> legt fest, wie der Alert beim Erscheinen angekündigt wird. Klicken Sie auf den Button: Mit einem Screenreader wird der rote Alert sofort gelesen, der grüne nach dem aktuellen Satz, der blaue gar nicht. Die Live-Region ist immer in der Seite, nur der Inhalt erscheint, daher funktioniert die Ankündigung auch, wenn der Alert später angezeigt wird.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Alerts anzeigen",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Alerts ausblenden",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (Standard): wird sofort gelesen.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": wird nach dem aktuellen Satz gelesen.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": wird nicht angekündigt."
 }

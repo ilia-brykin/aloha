@@ -22,10 +22,17 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "announce",
+      description: "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_",
+      type: "String",
+      default: "alert",
+      required: false,
+    },
+    {
       name: "aria-atomic",
       description: "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_",
-      type: "Boolean",
-      default: true,
+      type: "Boolean / String",
+      default: undefined,
       required: false,
     },
     {
@@ -95,7 +102,7 @@ export default function PropsAPI() {
       name: "role",
       description: "_A_ALERT_PROPS_ROLE_DESCRIPTION_",
       type: "String",
-      default: "alert",
+      default: undefined,
       required: false,
     },
     {

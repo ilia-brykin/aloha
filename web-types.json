@@ -159,9 +159,13 @@
               "type": "boolean"
             },
             {
+              "name": "announce",
+              "type": "string",
+              "default": "\"alert\""
+            },
+            {
               "name": "ariaAtomic",
-              "type": "boolean",
-              "default": "true"
+              "type": "boolean | string"
             },
             {
               "name": "btnCloseAttributes",
@@ -206,8 +210,7 @@
             },
             {
               "name": "role",
-              "type": "string",
-              "default": "\"alert\""
+              "type": "string"
             },
             {
               "name": "safeHtml",

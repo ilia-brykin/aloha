@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Specifies whether the entire alert region should be announced by assistive technologies when its content changes.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Defines the ARIA role of the alert component.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Whether a screen reader reads the whole alert (<code lang=\"en\">true</code>) or only the changed part (<code lang=\"en\">false</code>) when the content changes. Without a value it is set by <code lang=\"en\">announce</code>; a value wins over <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "ARIA role of the live region, e.g. <code lang=\"en\">alert</code> or <code lang=\"en\">status</code>. Without a value it is set by <code lang=\"en\">announce</code>; a value wins over <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Displays important alert messages.",
   "_A_ALERT_COMPONENT_NAME_": "warning",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Trigger when alert is closed",
@@ -47,5 +47,13 @@
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Plain Text to be shown inside the component",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Alert type",
   "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Content of the alert",
-  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icon of the close button."
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icon of the close button.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "How a screen reader announces the alert when it appears: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> reads it at once (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> after the current sentence (<code lang=\"en\">role=\"status\"</code>). Without the suffix the whole alert is read (<code lang=\"en\">aria-atomic=\"true\"</code>), with <code lang=\"en\">-changes</code> only the changed part (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> sets neither. The props or attributes <code lang=\"en\">role</code> and <code lang=\"en\">aria-atomic</code> win over <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Screen reader announcement",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "The prop <code lang=\"en\">announce</code> sets how the alert is announced when it appears. Click the button: with a screen reader the red alert is read at once, the green one after the current sentence, the blue one not at all. The live region is always in the page, only the content appears, so the announcement also works when the alert is shown later.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Show alerts",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Hide alerts",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (default): read at once.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": read after the current sentence.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": not announced."
 }

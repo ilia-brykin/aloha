@@ -34,10 +34,16 @@ export default {
       type: Boolean,
       required: false,
     },
-    ariaAtomic: {
-      type: Boolean,
+    announce: {
+      type: String,
       required: false,
-      default: true,
+      default: () => getPropDefault("AAlert", "announce", "alert"),
+      validator: value => ["alert", "alert-changes", "status", "status-changes", "none"].includes(value),
+    },
+    ariaAtomic: {
+      type: [Boolean, String],
+      required: false,
+      default: undefined,
     },
     btnCloseAttributes: {
       type: Object,
@@ -87,7 +93,7 @@ export default {
     role: {
       type: String,
       required: false,
-      default: "alert",
+      default: undefined,
     },
     safeHtml: {
       type: String,

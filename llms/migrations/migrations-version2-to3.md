@@ -200,6 +200,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `ADatepicker`: the input has `aria-haspopup="dialog"` and `aria-controls` (only while the calendar is open) instead of `aria-owns`.
 - `ASlider`: the handle is labelled by the label (`aria-labelledby`), `aria-valuenow` is always set.
 - The text of the progress bar follows the background utility class (`a_bg_warning`, `a_bg_gray_300`, …).
+- `AAlert`: the props `role` and `aria-atomic` have no default any more. They are set by the new prop `announce` (`alert`, `alert-changes`, `status`, `status-changes`, `none`, default `alert`), so the default markup is the same as in 2.x (`role="alert"` `aria-atomic="true"`). `role` and `aria-atomic` set as props or attributes win over `announce`. `:aria-atomic="false"` now renders `aria-atomic="false"` instead of removing the attribute. To switch the announcement off, use `announce="none"`.
 
 ## 7. Label position
 
