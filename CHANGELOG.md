@@ -49,6 +49,10 @@ Big style refactoring. The JavaScript API of the components stays compatible, on
 
 - docs: page Theming with theme generator, theme switch in the docs, migration guide 2.x → 3.0, CSS variables table for every component, `AMenu` example with only-mobile.
 
+## 2.87.1
+
+- fix(color-picker): default cleared model to undefined
+
 ## 2.87.0
 
 - feat(AColorPicker): prop `colorFormat` renamed to `colorFormats` (a format or an array of formats). With several formats the dialog has a switch that changes the format in the given order; on open the format of the model value is used if it is allowed, otherwise the first one. **Breaking:** replace `color-format` with `color-formats`.
