@@ -1,9 +1,3 @@
-.a_breadcrumb {
-  --a_breadcrumb_gap: .5rem;
-  --a_breadcrumb_separator_color: var(--a_color_text_muted);
-  --a_breadcrumb_current_color: var(--a_color_text);
-}
-
 .a_breadcrumb__list {
   display: flex;
   flex-wrap: wrap;
@@ -33,5 +27,11 @@
 
 .a_breadcrumb__current {
   color: var(--a_breadcrumb_current_color);
-  font-weight: 600;
+  font-weight: var(--a_font_weight_semibold);
+}
+
+:where(.a_breadcrumb) {
+  --a_breadcrumb_gap: .5rem; // Gap between items and around separators.
+  --a_breadcrumb_separator_color: var(--a_color_text_muted); // Color of the decorative separators.
+  --a_breadcrumb_current_color: var(--a_color_text); // Color of the current page.
 }

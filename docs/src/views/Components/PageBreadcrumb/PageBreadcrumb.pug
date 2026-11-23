@@ -1,0 +1,32 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_BREADCRUMB_COMPONENT_DESCRIPTION_"
+    )
+
+    page-breadcrumb-basic
+
+    page-breadcrumb-router
+
+    aloha-table-props(
+      table-label="ABreadcrumb"
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="items"
+      :data="dataPropsItem"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ABreadcrumb"
+    )

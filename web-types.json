@@ -356,6 +356,34 @@
           }
         },
         {
+          "name": "ABreadcrumb",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ABreadcrumb"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "ariaLabel",
+              "type": "string",
+              "default": "\"_A_BREADCRUMB_ARIA_LABEL_\""
+            },
+            {
+              "name": "items",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "separator",
+              "type": "string",
+              "default": "\"›\""
+            }
+          ],
+          "js": {
+            "events": []
+          }
+        },
+        {
           "name": "AButton",
           "source": {
             "module": "aloha-vue",

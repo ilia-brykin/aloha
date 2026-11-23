@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "مسار التنقل",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "يعرض <strong lang=\"en\">ABreadcrumb</strong> المسار إلى الصفحة الحالية في قائمة مرتبة ضمن منطقة تنقل.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "تستخدم الصفحات الأصلية <code>href</code>. تظهر العناصر بلا وجهة كنص. العنصر الأخير هو دائمًا الصفحة الحالية: نص مع <code>aria-current=\"page\"</code> حتى لو حُددت وجهة. لا تظهر القائمة الفارغة. يغيّر <code>separator</code> الفاصل الزخرفي المخفي عن قارئات الشاشة.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "يقبل <code>to</code> مسارًا أو كائن مسار ويستخدم <strong>ALink</strong>. يُعلَّم العنصر الأخير فقط كصفحة حالية. يقبل <code>label</code> و<code>aria-label</code> مفاتيح الترجمة ويتحدثان عند تغيير اللغة.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "الاسم المتاح للتنقل. يقبل مفتاح ترجمة؛ استخدم أسماء مختلفة عند وجود عدة مسارات تنقل.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "العناصر مرتبة من الجذر إلى الصفحة الحالية. الحقول موضحة أدناه.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "فاصل زخرفي بين العناصر. تخفي السلسلة الفارغة نصه.",
+  "_A_BREADCRUMB_PROPS_HREF_": "عنوان URL لصفحة أصلية. يُتجاهل في العنصر الأخير.",
+  "_A_BREADCRUMB_PROPS_ID_": "مفتاح ثابت اختياري. يُستخدم فهرس العنصر عند عدم تحديده.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "النص الظاهر أو مفتاح ترجمة يدعمه ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "وجهة Vue Router لصفحة أصلية. لها الأولوية على href؛ تُتجاهل في العنصر الأخير."
+}

@@ -25,6 +25,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md)
 - [Alert](https://ilia-brykin.github.io/aloha/llms/components/alert.md): Displays important alert messages.
 - [Avatar](https://ilia-brykin.github.io/aloha/llms/components/avatar.md): The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
+- [Breadcrumb](https://ilia-brykin.github.io/aloha/llms/components/breadcrumb.md): **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.
 - [Button](https://ilia-brykin.github.io/aloha/llms/components/button.md): The **AButton** component is a versatile button with extensive customization options via props.
 - [Calendar](https://ilia-brykin.github.io/aloha/llms/components/calendar.md): The **ACalendar** component shows a month, a week or a day with events, like Outlook.
 - [Carousel](https://ilia-brykin.github.io/aloha/llms/components/carousel.md): A carousel is a component for cyclically displaying elements (images, text, etc.) in a limited space.

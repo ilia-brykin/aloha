@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Percorso di navigazione",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> mostra il percorso alla pagina corrente come elenco ordinato in un’area di navigazione.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Le pagine superiori usano <code>href</code>. Gli elementi senza destinazione sono testo. L’ultimo è sempre la pagina corrente: testo con <code>aria-current=\"page\"</code>, anche se ha una destinazione. Un elenco vuoto non viene mostrato. <code>separator</code> cambia il separatore decorativo, nascosto ai lettori di schermo.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accetta un percorso o un oggetto rotta e usa <strong>ALink</strong>. Solo l’ultimo elemento è contrassegnato come pagina corrente. <code>label</code> e <code>aria-label</code> accettano chiavi di traduzione e seguono i cambi di lingua.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Nome accessibile della navigazione. Accetta una chiave di traduzione; usare nomi distinti per più percorsi di navigazione.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Elementi dalla radice alla pagina corrente. I campi sono descritti sotto.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Separatore decorativo tra gli elementi. Una stringa vuota ne nasconde il testo.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL di una pagina superiore. Ignorato nell’ultimo elemento.",
+  "_A_BREADCRUMB_PROPS_ID_": "Chiave stabile facoltativa. Se omessa, viene usato l’indice.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Testo visibile o chiave di traduzione supportata da ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "Destinazione Vue Router di una pagina superiore. Ha priorità su href; ignorata nell’ultimo elemento."
+}

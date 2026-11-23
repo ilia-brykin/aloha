@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Breadcrumb",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> shows the path to the current page in a navigation landmark with an ordered list.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Parent pages use <code>href</code>. Items without a destination are text. The last item is always the current page: text with <code>aria-current=\"page\"</code>, even if it has a destination. An empty list renders nothing. <code>separator</code> changes the decorative separator, which is hidden from screen readers.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accepts a path or route object and uses <strong>ALink</strong>. Only the last item is marked as the current page. <code>label</code> and <code>aria-label</code> accept translation keys and update when the language changes.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Accessible name of the navigation. Accepts a translation key; use distinct names for multiple breadcrumb navigations.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Items ordered from the root to the current page. See the item fields below.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Decorative separator between items. An empty string hides its text.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL of a parent page. Ignored on the last item.",
+  "_A_BREADCRUMB_PROPS_ID_": "Optional stable key. The item index is used when omitted.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Visible text or translation key, as supported by ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "Vue Router destination of a parent page. Takes precedence over href; ignored on the last item."
+}

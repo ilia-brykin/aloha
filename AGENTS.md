@@ -137,6 +137,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Accordion](llms/components/accordion.md)
 - [Alert](llms/components/alert.md) — Displays important alert messages.
 - [Avatar](llms/components/avatar.md) — The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
+- [Breadcrumb](llms/components/breadcrumb.md) — **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.
 - [Button](llms/components/button.md) — The **AButton** component is a versatile button with extensive customization options via props.
 - [Calendar](llms/components/calendar.md) — The **ACalendar** component shows a month, a week or a day with events, like Outlook.
 - [Carousel](llms/components/carousel.md) — A carousel is a component for cyclically displaying elements (images, text, etc.) in a limited space.

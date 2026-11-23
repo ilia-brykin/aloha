@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Ścieżka nawigacji",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> pokazuje ścieżkę do bieżącej strony jako uporządkowaną listę w obszarze nawigacji.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Strony nadrzędne używają <code>href</code>. Elementy bez adresu są tekstem. Ostatni element to zawsze bieżąca strona: tekst z <code>aria-current=\"page\"</code>, nawet gdy ma adres. Pusta lista nie jest wyświetlana. <code>separator</code> zmienia dekoracyjny separator ukryty przed czytnikami ekranu.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> przyjmuje ścieżkę lub obiekt trasy i używa <strong>ALink</strong>. Tylko ostatni element jest oznaczony jako bieżąca strona. <code>label</code> i <code>aria-label</code> przyjmują klucze tłumaczeń i reagują na zmianę języka.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Dostępna nazwa nawigacji. Przyjmuje klucz tłumaczenia; dla wielu ścieżek użyj różnych nazw.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Elementy od korzenia do bieżącej strony. Pola opisano poniżej.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoracyjny separator między elementami. Pusty ciąg ukrywa jego tekst.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL strony nadrzędnej. Ignorowany w ostatnim elemencie.",
+  "_A_BREADCRUMB_PROPS_ID_": "Opcjonalny stały klucz. Domyślnie używany jest indeks elementu.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Widoczny tekst lub klucz tłumaczenia obsługiwany przez ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "Adres Vue Router strony nadrzędnej. Ma pierwszeństwo przed href; ignorowany w ostatnim elemencie."
+}

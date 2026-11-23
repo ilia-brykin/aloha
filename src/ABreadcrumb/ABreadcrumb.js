@@ -5,21 +5,28 @@ import {
 import ALink from "../ALink/ALink";
 import ATranslation from "../ATranslation/ATranslation";
 
+import {
+  getTranslatedAttributes,
+} from "../ATranslation/compositionAPI/UtilsAPI";
+
 // @vue/component
 export default {
   name: "ABreadcrumb",
   props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
     ariaLabel: {
       type: String,
-      default: "Breadcrumb",
+      required: false,
+      default: "_A_BREADCRUMB_ARIA_LABEL_",
+    },
+    items: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     separator: {
       type: String,
-      default: undefined,
+      required: false,
+      default: "›",
     },
   },
   render() {
@@ -29,7 +36,7 @@ export default {
 
     return h("nav", {
       class: "a_breadcrumb",
-      "aria-label": this.ariaLabel,
+      ...getTranslatedAttributes({ attr: "aria-label", placeholder: this.ariaLabel }),
     }, [
       h("ol", {
         class: "a_breadcrumb__list",
@@ -45,7 +52,7 @@ export default {
           index > 0 && h("span", {
             class: "a_breadcrumb__separator",
             "aria-hidden": "true",
-          }, this.separator ?? "›"),
+          }, this.separator),
           isLink ?
             h(ALink, {
               class: "a_breadcrumb__link",

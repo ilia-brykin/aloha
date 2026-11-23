@@ -17,6 +17,7 @@ import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageAvatarI18n from "./views/Components/PageAvatar/i18n/PageAvatarI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
+import PageBreadcrumbI18n from "./views/Components/PageBreadcrumb/i18n/PageBreadcrumbI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCalendarI18n from "./views/Components/PageCalendar/i18n/PageCalendarI18n";
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
@@ -88,8 +89,8 @@ import PageMenuBasicI18n from "./views/Components/PageMenu/PageMenuBasic/i18n/Pa
 import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVersion1To2/i18n/PageMigrationsVersion1To2I18n";
 import PageMigrationsVersion2To3I18n from "./views/Migrations/PageMigrationsVersion2To3/i18n/PageMigrationsVersion2To3I18n";
 import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobilePluginI18n";
-import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
 import PageModalFormI18n from "./views/Components/PageModalForm/i18n/PageModalFormI18n";
+import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
 import PageModalWizardI18n from "./views/Components/PageModalWizard/i18n/PageModalWizardI18n";
 import PageMultiselectOrderedI18n from "./views/Components/Form/PageMultiselectOrdered/i18n/PageMultiselectOrderedI18n";
 import PageNotificationI18n from "./views/Components/PageNotification/i18n/PageNotificationI18n";
@@ -116,9 +117,9 @@ import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";
 import PageSwitchI18n from "./views/Components/Form/PageSwitch/i18n/PageSwitchI18n";
+import PageTableFiltersI18n from "./views/Components/PageTable/PageTableFilters/i18n/PageTableFiltersI18n";
 import PageTableFormI18n from "./views/Components/PageTableForm/i18n/PageTableFormI18n";
 import PageTableI18n from "./views/Components/PageTable/i18n/PageTableI18n";
-import PageTableFiltersI18n from "./views/Components/PageTable/PageTableFilters/i18n/PageTableFiltersI18n";
 import PageTablePaginationI18n from "./views/Components/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 import PageTablePreviewDownI18n from "./views/Components/PageTable/PageTablePreviewDown/i18n/PageTablePreviewDownI18n";
 import PageTablePreviewI18n from "./views/Components/PageTable/PageTablePreview/i18n/PageTablePreviewI18n";
@@ -130,10 +131,10 @@ import PageTemplateI18n from "./views/Components/Form/PageTemplate/i18n/PageTemp
 import PageTextI18n from "./views/CSS/PageText/i18n/PageTextI18n";
 import PageTextareaI18n from "./views/Components/Form/PageTextarea/i18n/PageTextareaI18n";
 import PageThemingI18n from "./views/CSS/PageTheming/i18n/PageThemingI18n";
+import PageTileI18n from "./views/CSS/PageTile/i18n/PageTileI18n";
 import PageTooltipI18n from "./views/Components/PageTooltip/i18n/PageTooltipI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
 import PageTreeI18n from "./views/Components/PageTree/i18n/PageTreeI18n";
-import PageTileI18n from "./views/CSS/PageTile/i18n/PageTileI18n";
 import PageUtilitiesI18n from "./views/CSS/PageUtilities/i18n/PageUtilitiesI18n";
 import PageUtilsAOrderByI18n from "./views/Functions/Utils/PageUtilsAOrderBy/i18n/PageUtilsAOrderByI18n";
 import PageUtilsASortByI18n from "./views/Functions/Utils/PageUtilsASortBy/i18n/PageUtilsASortByI18n";
@@ -164,6 +165,7 @@ export const mainTranslation = {
     ...FormI18n.ar,
     ...PageAAlertI18n.ar,
     ...PageAvatarI18n.ar,
+    ...PageBreadcrumbI18n.ar,
     ...PageCalendarI18n.ar,
     ...PageBadgeI18n.ar,
     ...PageColumnsI18n.ar,
@@ -301,6 +303,7 @@ export const mainTranslation = {
     ...FormI18n.de,
     ...PageAAlertI18n.de,
     ...PageAvatarI18n.de,
+    ...PageBreadcrumbI18n.de,
     ...PageCalendarI18n.de,
     ...PageBadgeI18n.de,
     ...PageColumnsI18n.de,
@@ -438,6 +441,7 @@ export const mainTranslation = {
     ...FormI18n.en,
     ...PageAAlertI18n.en,
     ...PageAvatarI18n.en,
+    ...PageBreadcrumbI18n.en,
     ...PageCalendarI18n.en,
     ...PageBadgeI18n.en,
     ...PageColumnsI18n.en,
@@ -575,6 +579,7 @@ export const mainTranslation = {
     ...FormI18n.es,
     ...PageAAlertI18n.es,
     ...PageAvatarI18n.es,
+    ...PageBreadcrumbI18n.es,
     ...PageCalendarI18n.es,
     ...PageBadgeI18n.es,
     ...PageColumnsI18n.es,
@@ -712,6 +717,7 @@ export const mainTranslation = {
     ...FormI18n.fr,
     ...PageAAlertI18n.fr,
     ...PageAvatarI18n.fr,
+    ...PageBreadcrumbI18n.fr,
     ...PageCalendarI18n.fr,
     ...PageBadgeI18n.fr,
     ...PageColumnsI18n.fr,
@@ -849,6 +855,7 @@ export const mainTranslation = {
     ...FormI18n.hr,
     ...PageAAlertI18n.hr,
     ...PageAvatarI18n.hr,
+    ...PageBreadcrumbI18n.hr,
     ...PageCalendarI18n.hr,
     ...PageBadgeI18n.hr,
     ...PageColumnsI18n.hr,
@@ -986,6 +993,7 @@ export const mainTranslation = {
     ...FormI18n.it,
     ...PageAAlertI18n.it,
     ...PageAvatarI18n.it,
+    ...PageBreadcrumbI18n.it,
     ...PageCalendarI18n.it,
     ...PageBadgeI18n.it,
     ...PageColumnsI18n.it,
@@ -1123,6 +1131,7 @@ export const mainTranslation = {
     ...FormI18n.nl,
     ...PageAAlertI18n.nl,
     ...PageAvatarI18n.nl,
+    ...PageBreadcrumbI18n.nl,
     ...PageCalendarI18n.nl,
     ...PageBadgeI18n.nl,
     ...PageColumnsI18n.nl,
@@ -1260,6 +1269,7 @@ export const mainTranslation = {
     ...FormI18n.pl,
     ...PageAAlertI18n.pl,
     ...PageAvatarI18n.pl,
+    ...PageBreadcrumbI18n.pl,
     ...PageCalendarI18n.pl,
     ...PageBadgeI18n.pl,
     ...PageColumnsI18n.pl,
@@ -1397,6 +1407,7 @@ export const mainTranslation = {
     ...FormI18n.ru,
     ...PageAAlertI18n.ru,
     ...PageAvatarI18n.ru,
+    ...PageBreadcrumbI18n.ru,
     ...PageCalendarI18n.ru,
     ...PageBadgeI18n.ru,
     ...PageColumnsI18n.ru,
@@ -1534,6 +1545,7 @@ export const mainTranslation = {
     ...FormI18n.uk,
     ...PageAAlertI18n.uk,
     ...PageAvatarI18n.uk,
+    ...PageBreadcrumbI18n.uk,
     ...PageCalendarI18n.uk,
     ...PageBadgeI18n.uk,
     ...PageColumnsI18n.uk,
