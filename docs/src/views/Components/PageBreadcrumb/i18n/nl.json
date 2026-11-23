@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Broodkruimelpad",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> toont het pad naar de huidige pagina als geordende lijst in een navigatiegebied.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Bovenliggende pagina’s gebruiken <code>href</code>. Items zonder bestemming zijn tekst. Het laatste item is altijd de huidige pagina: tekst met <code>aria-current=\"page\"</code>, ook als het een bestemming heeft. Een lege lijst wordt niet getoond. <code>separator</code> wijzigt het decoratieve scheidingsteken, dat verborgen is voor schermlezers.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accepteert een pad of routeobject en gebruikt <strong>ALink</strong>. Alleen het laatste item wordt als huidige pagina gemarkeerd. <code>label</code> en <code>aria-label</code> accepteren vertaalsleutels en volgen taalwijzigingen.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Toegankelijke naam van de navigatie. Accepteert een vertaalsleutel; gebruik verschillende namen voor meerdere broodkruimelpaden.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Items van de hoofdmap tot de huidige pagina. De velden staan hieronder.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Decoratief scheidingsteken tussen items. Een lege tekenreeks verbergt de tekst.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL van een bovenliggende pagina. Genegeerd bij het laatste item.",
+  "_A_BREADCRUMB_PROPS_ID_": "Optionele stabiele sleutel. Zonder sleutel wordt de index gebruikt.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Zichtbare tekst of vertaalsleutel zoals ondersteund door ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "Vue Router-bestemming van een bovenliggende pagina. Heeft voorrang op href; genegeerd bij het laatste item."
+}

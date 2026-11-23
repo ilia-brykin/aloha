@@ -123,6 +123,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageCloak/PageCloak.vue"),
   },
   {
+    path: "/breadcrumb",
+    name: "PageBreadcrumb",
+    component: () => import("../views/Components/PageBreadcrumb/PageBreadcrumb.vue"),
+  },
+  {
     path: "/carousel",
     name: "PageCarousel",
     component: () => import("../views/Components/PageCarousel/PageCarousel.vue"),

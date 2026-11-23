@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Brotkrümelnavigation",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> zeigt den Pfad zur aktuellen Seite als geordnete Liste in einem Navigationsbereich.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Übergeordnete Seiten verwenden <code>href</code>. Einträge ohne Ziel sind Text. Der letzte Eintrag ist immer die aktuelle Seite: Text mit <code>aria-current=\"page\"</code>, auch wenn ein Ziel gesetzt ist. Eine leere Liste wird nicht dargestellt. <code>separator</code> ändert das dekorative Trennzeichen, das für Screenreader verborgen ist.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> akzeptiert einen Pfad oder ein Routenobjekt und verwendet <strong>ALink</strong>. Nur der letzte Eintrag wird als aktuelle Seite markiert. <code>label</code> und <code>aria-label</code> akzeptieren Übersetzungsschlüssel und reagieren auf Sprachwechsel.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Zugänglicher Name der Navigation. Akzeptiert einen Übersetzungsschlüssel; mehrere Brotkrümelnavigationen benötigen unterschiedliche Namen.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Einträge von der Wurzel bis zur aktuellen Seite. Die Felder stehen unten.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoratives Trennzeichen zwischen Einträgen. Ein leerer String blendet den Text aus.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL einer übergeordneten Seite. Wird beim letzten Eintrag ignoriert.",
+  "_A_BREADCRUMB_PROPS_ID_": "Optionaler stabiler Schlüssel. Ohne Angabe wird der Index verwendet.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Sichtbarer Text oder Übersetzungsschlüssel, wie von ATranslation unterstützt.",
+  "_A_BREADCRUMB_PROPS_TO_": "Vue-Router-Ziel einer übergeordneten Seite. Hat Vorrang vor href; wird beim letzten Eintrag ignoriert."
+}

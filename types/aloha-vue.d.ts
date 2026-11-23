@@ -111,6 +111,16 @@ export interface AAvatarGroupProps {
 }
 export declare const AAvatarGroup: DefineComponent<AAvatarGroupProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
+export interface ABreadcrumbProps {
+  /** @default "_A_BREADCRUMB_ARIA_LABEL_" */
+  ariaLabel?: string;
+  /** @default [] */
+  items?: any[];
+  /** @default "›" */
+  separator?: string;
+}
+export declare const ABreadcrumb: DefineComponent<ABreadcrumbProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
+
 export interface AButtonProps {
   alwaysTranslate?: boolean;
   ariaDisabled?: boolean;
@@ -4113,6 +4123,7 @@ declare module "vue" {
     AAlert: typeof AAlert;
     AAvatar: typeof AAvatar;
     AAvatarGroup: typeof AAvatarGroup;
+    ABreadcrumb: typeof ABreadcrumb;
     AButton: typeof AButton;
     ACalendar: typeof ACalendar;
     ACarousel: typeof ACarousel;

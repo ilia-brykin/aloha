@@ -1,0 +1,14 @@
+{
+  "_A_BREADCRUMB_COMPONENT_NAME_": "Navigacijski put",
+  "_A_BREADCRUMB_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ABreadcrumb</strong> prikazuje put do trenutačne stranice kao uređeni popis u navigacijskom području.",
+  "_A_BREADCRUMB_BASIC_DESCRIPTION_": "Nadređene stranice koriste <code>href</code>. Stavke bez odredišta su tekst. Posljednja je uvijek trenutačna stranica: tekst s <code>aria-current=\"page\"</code>, čak i kada ima odredište. Prazan popis se ne prikazuje. <code>separator</code> mijenja ukrasni razdjelnik skriven od čitača zaslona.",
+  "_A_BREADCRUMB_ROUTER_HEADER_": "Vue Router",
+  "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> prihvaća putanju ili objekt rute i koristi <strong>ALink</strong>. Samo je posljednja stavka označena kao trenutačna stranica. <code>label</code> i <code>aria-label</code> prihvaćaju ključeve prijevoda i prate promjenu jezika.",
+  "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Pristupačan naziv navigacije. Prihvaća ključ prijevoda; za više navigacijskih putova koristite različite nazive.",
+  "_A_BREADCRUMB_PROPS_ITEMS_": "Stavke od korijena do trenutačne stranice. Polja su opisana u nastavku.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Ukrasni razdjelnik između stavki. Prazan niz skriva njegov tekst.",
+  "_A_BREADCRUMB_PROPS_HREF_": "URL nadređene stranice. Zanemaruje se za posljednju stavku.",
+  "_A_BREADCRUMB_PROPS_ID_": "Neobavezan stabilan ključ. Ako nije naveden, koristi se indeks stavke.",
+  "_A_BREADCRUMB_PROPS_LABEL_": "Vidljivi tekst ili ključ prijevoda koji podržava ATranslation.",
+  "_A_BREADCRUMB_PROPS_TO_": "Vue Router odredište nadređene stranice. Ima prednost pred href; zanemaruje se za posljednju stavku."
+}

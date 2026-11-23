@@ -30,6 +30,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageBreadcrumb",
+        label: "Breadcrumb",
+        class: "test_menu_breadcrumb",
+        to: {
+          name: "PageBreadcrumb",
+        },
+      },
+      {
         id: "Button",
         label: "Button",
         class: "test_menu_button",

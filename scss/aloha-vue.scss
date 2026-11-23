@@ -40,6 +40,7 @@
 
   @include meta.load-css("components/AIcon");
   @include meta.load-css("components/AAvatar");
+  @include meta.load-css("components/ABreadcrumb");
   @include meta.load-css("components/AButton");
   @include meta.load-css("components/ACalendar");
   @include meta.load-css("components/AElement");
