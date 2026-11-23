@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "يقبل <code>to</code> مسارًا أو كائن مسار ويستخدم <strong>ALink</strong>. يُعلَّم العنصر الأخير فقط كصفحة حالية. يقبل <code>label</code> و<code>aria-label</code> مفاتيح الترجمة ويتحدثان عند تغيير اللغة.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "الاسم المتاح للتنقل. يقبل مفتاح ترجمة؛ استخدم أسماء مختلفة عند وجود عدة مسارات تنقل.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "العناصر مرتبة من الجذر إلى الصفحة الحالية. الحقول موضحة أدناه.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "فاصل زخرفي بين العناصر. تخفي السلسلة الفارغة نصه.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "فاصل زخرفي بين العناصر، مخفي عن قارئات الشاشة. السلسلة الفارغة لا تعرض أي فاصل.",
   "_A_BREADCRUMB_PROPS_HREF_": "عنوان URL لصفحة أصلية. يُتجاهل في العنصر الأخير.",
   "_A_BREADCRUMB_PROPS_ID_": "مفتاح ثابت اختياري. يُستخدم فهرس العنصر عند عدم تحديده.",
   "_A_BREADCRUMB_PROPS_LABEL_": "النص الظاهر أو مفتاح ترجمة يدعمه ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "وجهة Vue Router لصفحة أصلية. لها الأولوية على href؛ تُتجاهل في العنصر الأخير."
+  "_A_BREADCRUMB_PROPS_TO_": "وجهة Vue Router لصفحة أصلية. لها الأولوية على href؛ تُتجاهل في العنصر الأخير.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "الحد الأقصى لعدد العناصر المرئية (2 على الأقل). يعرض المسار الأطول العنصر الأول وزر <code>…</code> وآخر <code>max-items - 1</code> عناصر. يعرض الزر جميع العناصر وينقل التركيز إلى أول عنصر كان مخفيًا. تُطوى مصفوفة <code>items</code> الجديدة مرة أخرى.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "قيم العناصر النائبة لهذا <code>label</code>. تتجاوز الخاصية <code>extra</code> للمكون.",
+  "_A_BREADCRUMB_PROPS_ICON_": "أيقونة قبل النص، اسم مسجل عبر <code>AIconPlugin</code>. وهي زخرفية ومخفية عن قارئات الشاشة.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "الأيقونات والعناصر النائبة",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "يعرض <code>icon</code> أيقونة قبل العنصر، مثل منزل للصفحة الرئيسية. يمكن أن يحتوي <code>label</code> على عناصر نائبة مثل <code>{{ number }}</code>؛ وتأتي القيم من الخاصية <code>extra</code> أو من <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "مسار طويل",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "مع <code>max-items</code> يُختصر المسار العميق إلى العنصر الأول وزر <code>…</code> والعناصر الأخيرة. للزر نص لقارئات الشاشة بعدد المستويات المخفية. بعد النقر تُعرض جميع العناصر وينتقل التركيز إلى أول عنصر كان مخفيًا.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "الرئيسية",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "الطلبات",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "الطلب {{ number }}"
 }

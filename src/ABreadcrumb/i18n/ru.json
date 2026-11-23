@@ -1,3 +1,4 @@
 {
-  "_A_BREADCRUMB_ARIA_LABEL_": "Навигационная цепочка"
+  "_A_BREADCRUMB_ARIA_LABEL_": "Навигационная цепочка",
+  "_A_BREADCRUMB_SHOW_HIDDEN_": "Показать скрытые уровни ({{ count }})"
 }

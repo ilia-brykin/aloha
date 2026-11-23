@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accepteert een pad of routeobject en gebruikt <strong>ALink</strong>. Alleen het laatste item wordt als huidige pagina gemarkeerd. <code>label</code> en <code>aria-label</code> accepteren vertaalsleutels en volgen taalwijzigingen.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Toegankelijke naam van de navigatie. Accepteert een vertaalsleutel; gebruik verschillende namen voor meerdere broodkruimelpaden.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Items van de hoofdmap tot de huidige pagina. De velden staan hieronder.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Decoratief scheidingsteken tussen items. Een lege tekenreeks verbergt de tekst.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Decoratief scheidingsteken tussen de items, verborgen voor schermlezers. Een lege string toont geen scheidingsteken.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL van een bovenliggende pagina. Genegeerd bij het laatste item.",
   "_A_BREADCRUMB_PROPS_ID_": "Optionele stabiele sleutel. Zonder sleutel wordt de index gebruikt.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Zichtbare tekst of vertaalsleutel zoals ondersteund door ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "Vue Router-bestemming van een bovenliggende pagina. Heeft voorrang op href; genegeerd bij het laatste item."
+  "_A_BREADCRUMB_PROPS_TO_": "Vue Router-bestemming van een bovenliggende pagina. Heeft voorrang op href; genegeerd bij het laatste item.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Maximaal aantal zichtbare items (minstens 2). Een langer pad toont het eerste item, een knop <code>…</code> en de laatste <code>max-items - 1</code> items. De knop toont alle items en verplaatst de focus naar het eerste verborgen item. Een nieuwe array <code>items</code> wordt weer ingeklapt.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Waarden voor de placeholders van dit <code>label</code>. Overschrijft de prop <code>extra</code> van de component.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Pictogram vóór de tekst, een naam die met <code>AIconPlugin</code> is geregistreerd. Het is decoratief en verborgen voor schermlezers.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Pictogrammen en placeholders",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> toont een pictogram vóór een item, bijv. een huis voor de startpagina. <code>label</code> kan placeholders zoals <code>{{ number }}</code> bevatten; de waarden komen uit de prop <code>extra</code> of uit <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Lang pad",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Met <code>max-items</code> wordt een diep pad ingekort tot het eerste item, een knop <code>…</code> en de laatste items. De knop heeft een tekst voor schermlezers met het aantal verborgen niveaus. Na een klik worden alle items getoond en gaat de focus naar het eerste verborgen item.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Start",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Bestellingen",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Bestelling {{ number }}"
 }

@@ -2,6 +2,8 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageBreadcrumbBasic from "./PageBreadcrumbBasic/PageBreadcrumbBasic.vue";
+import PageBreadcrumbCollapse from "./PageBreadcrumbCollapse/PageBreadcrumbCollapse.vue";
+import PageBreadcrumbIcons from "./PageBreadcrumbIcons/PageBreadcrumbIcons.vue";
 import PageBreadcrumbRouter from "./PageBreadcrumbRouter/PageBreadcrumbRouter.vue";
 import {
   ATranslation,
@@ -19,6 +21,8 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageBreadcrumbBasic,
+    PageBreadcrumbCollapse,
+    PageBreadcrumbIcons,
     PageBreadcrumbRouter,
   },
   setup() {

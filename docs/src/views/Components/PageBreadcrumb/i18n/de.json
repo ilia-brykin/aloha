@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> akzeptiert einen Pfad oder ein Routenobjekt und verwendet <strong>ALink</strong>. Nur der letzte Eintrag wird als aktuelle Seite markiert. <code>label</code> und <code>aria-label</code> akzeptieren Übersetzungsschlüssel und reagieren auf Sprachwechsel.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Zugänglicher Name der Navigation. Akzeptiert einen Übersetzungsschlüssel; mehrere Brotkrümelnavigationen benötigen unterschiedliche Namen.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Einträge von der Wurzel bis zur aktuellen Seite. Die Felder stehen unten.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoratives Trennzeichen zwischen Einträgen. Ein leerer String blendet den Text aus.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoratives Trennzeichen zwischen den Einträgen, für Screenreader ausgeblendet. Ein leerer String zeigt kein Trennzeichen.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL einer übergeordneten Seite. Wird beim letzten Eintrag ignoriert.",
   "_A_BREADCRUMB_PROPS_ID_": "Optionaler stabiler Schlüssel. Ohne Angabe wird der Index verwendet.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Sichtbarer Text oder Übersetzungsschlüssel, wie von ATranslation unterstützt.",
-  "_A_BREADCRUMB_PROPS_TO_": "Vue-Router-Ziel einer übergeordneten Seite. Hat Vorrang vor href; wird beim letzten Eintrag ignoriert."
+  "_A_BREADCRUMB_PROPS_TO_": "Vue-Router-Ziel einer übergeordneten Seite. Hat Vorrang vor href; wird beim letzten Eintrag ignoriert.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Maximale Anzahl sichtbarer Einträge (mindestens 2). Ein längerer Pfad zeigt den ersten Eintrag, einen Button <code>…</code> und die letzten <code>max-items - 1</code> Einträge. Der Button zeigt alle Einträge und setzt den Fokus auf den ersten zuvor ausgeblendeten Eintrag. Ein neues Array <code>items</code> wird wieder eingeklappt.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Werte für die Platzhalter dieses <code>label</code>. Überschreibt die Prop <code>extra</code> der Komponente.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Icon vor dem Text, ein mit <code>AIconPlugin</code> registrierter Name. Es ist dekorativ und für Screenreader ausgeblendet.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Icons und Platzhalter",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> zeigt ein Icon vor einem Eintrag, z. B. ein Haus für die Startseite. <code>label</code> kann Platzhalter wie <code>{{ number }}</code> enthalten; die Werte kommen aus der Prop <code>extra</code> oder aus <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Langer Pfad",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Mit <code>max-items</code> wird ein tiefer Pfad auf den ersten Eintrag, einen Button <code>…</code> und die letzten Einträge gekürzt. Der Button hat einen Text für Screenreader mit der Anzahl der ausgeblendeten Ebenen. Nach einem Klick werden alle Einträge angezeigt und der Fokus springt auf den ersten zuvor ausgeblendeten Eintrag.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Startseite",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Aufträge",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Auftrag {{ number }}"
 }

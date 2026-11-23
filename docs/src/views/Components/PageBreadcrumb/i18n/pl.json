@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> przyjmuje ścieżkę lub obiekt trasy i używa <strong>ALink</strong>. Tylko ostatni element jest oznaczony jako bieżąca strona. <code>label</code> i <code>aria-label</code> przyjmują klucze tłumaczeń i reagują na zmianę języka.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Dostępna nazwa nawigacji. Przyjmuje klucz tłumaczenia; dla wielu ścieżek użyj różnych nazw.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Elementy od korzenia do bieżącej strony. Pola opisano poniżej.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoracyjny separator między elementami. Pusty ciąg ukrywa jego tekst.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Dekoracyjny separator między elementami, ukryty przed czytnikami ekranu. Pusty ciąg nie pokazuje separatora.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL strony nadrzędnej. Ignorowany w ostatnim elemencie.",
   "_A_BREADCRUMB_PROPS_ID_": "Opcjonalny stały klucz. Domyślnie używany jest indeks elementu.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Widoczny tekst lub klucz tłumaczenia obsługiwany przez ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "Adres Vue Router strony nadrzędnej. Ma pierwszeństwo przed href; ignorowany w ostatnim elemencie."
+  "_A_BREADCRUMB_PROPS_TO_": "Adres Vue Router strony nadrzędnej. Ma pierwszeństwo przed href; ignorowany w ostatnim elemencie.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Maksymalna liczba widocznych elementów (co najmniej 2). Dłuższa ścieżka pokazuje pierwszy element, przycisk <code>…</code> i ostatnie <code>max-items - 1</code> elementów. Przycisk pokazuje wszystkie elementy i przenosi fokus na pierwszy ukryty element. Nowa tablica <code>items</code> jest znowu zwijana.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Wartości symboli zastępczych tego <code>label</code>. Nadpisuje prop <code>extra</code> komponentu.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Ikona przed tekstem, nazwa zarejestrowana przez <code>AIconPlugin</code>. Jest dekoracyjna i ukryta przed czytnikami ekranu.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Ikony i symbole zastępcze",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> pokazuje ikonę przed elementem, np. domek dla strony głównej. <code>label</code> może zawierać symbole zastępcze jak <code>{{ number }}</code>; wartości pochodzą z propa <code>extra</code> lub z <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Długa ścieżka",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Z <code>max-items</code> głęboka ścieżka jest skracana do pierwszego elementu, przycisku <code>…</code> i ostatnich elementów. Przycisk ma tekst dla czytników ekranu z liczbą ukrytych poziomów. Po kliknięciu pokazywane są wszystkie elementy, a fokus przechodzi na pierwszy ukryty element.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Strona główna",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Zamówienia",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Zamówienie {{ number }}"
 }

@@ -112,10 +112,13 @@ export interface AAvatarGroupProps {
 export declare const AAvatarGroup: DefineComponent<AAvatarGroupProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface ABreadcrumbProps {
+  alwaysTranslate?: boolean;
   /** @default "_A_BREADCRUMB_ARIA_LABEL_" */
   ariaLabel?: string;
+  extra?: Record<string, any>;
   /** @default [] */
   items?: any[];
+  maxItems?: number;
   /** @default "›" */
   separator?: string;
 }
