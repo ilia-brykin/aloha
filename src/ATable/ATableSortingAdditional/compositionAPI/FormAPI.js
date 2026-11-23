@@ -45,6 +45,7 @@ export default function FormAPI(props, {
       DATA.push({
         type: "fieldset",
         id: `group_${ sortId }`,
+        classColumns: "a_columns a_columns_count_12 a_columns_gap_x_2",
         label: isFirst ?
           "_A_TABLE_SORT_ADDITIONAL_SORT_BY_" :
           "_A_TABLE_SORT_ADDITIONAL_THEN_BY_",
@@ -52,7 +53,7 @@ export default function FormAPI(props, {
           {
             id: `[${ index }].sortId`,
             type: "select",
-            classColumn: "a_column a_column_12_touch a_column_7_fullhd a_column_7_widescreen a_column_7_desktop",
+            classColumn: "a_column a_column_6 a_column_12_touch",
             deselectable: false,
             data: COLUMNS_FILTERED,
             keyId: "sortId",
@@ -64,8 +65,8 @@ export default function FormAPI(props, {
           {
             id: `[${ index }].sortMode`,
             type: "select",
-            classColumn: "a_column a_column_12_touch a_column_5_fullhd a_column_5_widescreen a_column_5_desktop a_d_flex a_align_items_center",
-            class: "a_width_100",
+            // no "class" here: AFieldset spreads the item after classColumn, "class" would replace the column classes
+            classColumn: "a_column a_column_5 a_column_10_touch",
             deselectable: false,
             data: DATA_MODES,
             keyId: "id",

@@ -16,8 +16,8 @@ import {
 
 import ATable from "../ATable";
 import {
-  tablePluginOptions,
-} from "../../plugins/ATablePlugin";
+  componentsPluginOptions,
+} from "../../plugins/AComponentsPlugin";
 
 const columns = [
   { id: "id", keyLabel: "id", label: "Id" },
@@ -49,7 +49,7 @@ beforeAll(() => {
 });
 
 afterEach(() => {
-  tablePluginOptions.value.propsDefault.isStriped = false;
+  delete componentsPluginOptions.ATable;
   document.body.innerHTML = "";
 });
 
@@ -57,7 +57,7 @@ describe("ATable row styles", () => {
   it("sets a_table_striped with isStriped or the plugin default", () => {
     expect(mountTable().find(".a_table").classes()).not.toContain("a_table_striped");
     expect(mountTable({ isStriped: true }).find(".a_table").classes()).toContain("a_table_striped");
-    tablePluginOptions.value.propsDefault.isStriped = true;
+    componentsPluginOptions.ATable = { props: { isStriped: true } };
     expect(mountTable().find(".a_table").classes()).toContain("a_table_striped");
   });
 

@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_REC_HEADER_"
+  description="_A_CALENDAR_REC_DESCRIPTION_"
+  :props="['key-recurrence']"
+)
+  a-calendar(
+    :events="events"
+    @event-click="onEventClick"
+  )
+  p.a_mt_3.a_mb_0(
+    v-if="lastClick"
+  )
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_REC_CLICK_"
+    )
+    | : {{ lastClick }}

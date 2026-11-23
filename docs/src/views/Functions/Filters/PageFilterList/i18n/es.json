@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Etiqueta HTML para la lista entera",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Clase CSS por ejemplo: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "La función crea una lista a partir de un array.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Estructura de árbol isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Estructura de árbol isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Valor devuelto si el array está vacío o no es un array",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML entre los elementos, p. ej. un salto de línea (solo si <strong>isHtml=true</strong>)"
 }

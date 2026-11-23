@@ -67,14 +67,14 @@ export default function PropsAPI() {
       name: "btn-text-less",
       description: "_A_SHOW_MORE_BTN_TEXT_LESS_DESCRIPTION_",
       type: "String",
-      default: "_SHOW_LESS_",
+      default: "_A_SHOW_MORE_LESS_",
       required: false,
     },
     {
       name: "btn-text-more",
       description: "_A_SHOW_MORE_BTN_TEXT_MORE_DESCRIPTION_",
       type: "String",
-      default: "_SHOW_MORE_",
+      default: "_A_SHOW_MORE_MORE_",
       required: false,
     },
     {

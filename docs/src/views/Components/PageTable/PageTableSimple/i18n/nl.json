@@ -2,5 +2,14 @@
   "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Een component voor het eenvoudig presenteren van gegevens in tabelvorm, zonder geavanceerde functies zoals sorteren, filteren of extra acties.",
   "_A_TABLE_GROUP_SIMPLE_HEADER_": "Eenvoudige tabel",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Eenvoudige tabel",
-  "_A_TABLE_SIMPLE_": "Tabel"
+  "_A_TABLE_SIMPLE_": "Tabel",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Gegroepeerde kolommen",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Kolommen met <code>children</code> krijgen een gemeenschappelijke kop boven hun subkolommen. <code>:has-mobile=\"false\"</code> behoudt de tabelweergave op kleine schermen.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Tabel met gegroepeerde kolommen",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Eenvoudige HTML-tabel",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> rendert een native <code>&lt;table&gt;</code> zonder werkbalk en zonder de extra functies van <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Eenvoudige HTML-tabel",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slots van de mobiele weergave",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "Op kleine schermen wordt elke rij als kaart getoond. De slots <code>rowMobilePrepend</code> en <code>rowMobileAppend</code> voegen inhoud toe aan het begin en het einde van elke kaart.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Tabel met slots van de mobiele weergave"
 }

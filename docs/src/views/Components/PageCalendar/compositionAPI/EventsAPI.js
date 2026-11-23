@@ -1,0 +1,52 @@
+export default function EventsAPI() {
+  const dataEvents = [
+    {
+      name: "day-click",
+      description: "_A_CALENDAR_EVENTS_DAY_CLICK_",
+    },
+    {
+      name: "day-select",
+      description: "_A_CALENDAR_EVENTS_DAY_SELECT_",
+    },
+    {
+      name: "event-click",
+      description: "_A_CALENDAR_EVENTS_EVENT_CLICK_",
+    },
+    {
+      name: "event-drop",
+      description: "_A_CALENDAR_EVENTS_EVENT_DROP_",
+    },
+    {
+      name: "event-resize",
+      description: "_A_CALENDAR_EVENTS_EVENT_RESIZE_",
+    },
+    {
+      name: "more-click",
+      description: "_A_CALENDAR_EVENTS_MORE_CLICK_",
+    },
+    {
+      name: "range-change",
+      description: "_A_CALENDAR_EVENTS_RANGE_CHANGE_",
+    },
+    {
+      name: "time-click",
+      description: "_A_CALENDAR_EVENTS_TIME_CLICK_",
+    },
+    {
+      name: "time-select",
+      description: "_A_CALENDAR_EVENTS_TIME_SELECT_",
+    },
+    {
+      name: "update:modelValue",
+      description: "_A_CALENDAR_EVENTS_UPDATE_MODEL_VALUE_",
+    },
+    {
+      name: "update:view",
+      description: "_A_CALENDAR_EVENTS_UPDATE_VIEW_",
+    },
+  ];
+
+  return {
+    dataEvents,
+  };
+}

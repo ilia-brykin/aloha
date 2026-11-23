@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Превью справа",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Слот <code>preview</code> показывает детали нажатой строки рядом с таблицей. <code>disabled-preview-row-callback</code> отключает превью для отдельных строк.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Превью с пагинацией",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "Превью работает и с <code>pagination.use</code>: кнопки превью переключают на предыдущую и следующую строку."
 }

@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Specifica se l'intera area di avviso deve essere annunciata dalle tecnologie assistive quando il suo contenuto cambia.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Definisce il ruolo ARIA del componente di avviso.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Se uno screen reader legge l'intero avviso (<code lang=\"en\">true</code>) o solo la parte modificata (<code lang=\"en\">false</code>) quando il contenuto cambia. Senza valore è impostato da <code lang=\"en\">announce</code>; un valore ha la precedenza su <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Ruolo ARIA della regione live, ad es. <code lang=\"en\">alert</code> o <code lang=\"en\">status</code>. Senza valore è impostato da <code lang=\"en\">announce</code>; un valore ha la precedenza su <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Visualizza messaggi di avviso importanti.",
   "_A_ALERT_COMPONENT_NAME_": "avviso",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Emesso quando l'avviso viene chiuso.",
@@ -46,5 +46,14 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Il testo del pulsante di chiusura da leggere dallo screen reader",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Testo normale da mostrare all'interno del componente",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Tipo di avviso",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenuto dell'avviso"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenuto dell'avviso",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icona del pulsante di chiusura.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "Come uno screen reader annuncia l'avviso quando appare: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> lo legge subito (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> dopo la frase corrente (<code lang=\"en\">role=\"status\"</code>). Senza suffisso viene letto l'intero avviso (<code lang=\"en\">aria-atomic=\"true\"</code>), con <code lang=\"en\">-changes</code> solo la parte modificata (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> non imposta nessuno dei due. Le props o gli attributi <code lang=\"en\">role</code> e <code lang=\"en\">aria-atomic</code> hanno la precedenza su <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Annuncio per gli screen reader",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "La prop <code lang=\"en\">announce</code> imposta come viene annunciato l'avviso quando appare. Fate clic sul pulsante: con uno screen reader l'avviso rosso viene letto subito, quello verde dopo la frase corrente, quello blu per niente. La regione live è sempre nella pagina, appare solo il contenuto, quindi l'annuncio funziona anche quando l'avviso viene mostrato più tardi.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Mostra avvisi",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Nascondi avvisi",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (predefinito): letto subito.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": letto dopo la frase corrente.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": non annunciato."
 }

@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "يتيح لك هذا الـ slot تخصيص المحتوى النصي الأطول الذي يظهر عندما ينقر المستخدم على \"عرض المزيد\". لديك وصول إلى القيمتين <strong>isButtonVisible</strong> و <strong>isOpen</strong>، واللتين توفران معلومات عن مدى ظهور الزر وحالته الحالية.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "تغيير حالة المكون (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "تغيير حالة المكون (الزر)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "يتم تنشيط هذا الحدث عند نقر المستخدم على زر \"عرض المزيد/إخفاء المزيد\". يُرجع كائنًا يحتوي على معلومات حول الحالة الحالية للعنصر، بما في ذلك <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "يتم تنشيط هذا الحدث عند نقر المستخدم على زر \"عرض المزيد/إخفاء المزيد\". يُرجع كائنًا يحتوي على معلومات حول الحالة الحالية للعنصر، بما في ذلك <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "عرض النص المختصر"
 }

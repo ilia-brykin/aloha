@@ -13,7 +13,6 @@ import {
   AFormLabelDescription,
   AFormReadonly,
   AIcon,
-  AInputCurrencyPluginOptions,
   ALabel,
   UiAPI,
   UiClearButtonAPI,
@@ -30,6 +29,9 @@ import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 import ASafeHtml from "../../directives/ASafeHtml";
+import {
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -67,25 +69,25 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.controlsType,
+      default: () => getPropDefault("AInputCurrency", "controlsType", "none"),
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     currencySymbol: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.currencySymbol,
+      default: () => getPropDefault("AInputCurrency", "currencySymbol", "€"),
     },
     currencySymbolPosition: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.currencySymbolPosition,
+      default: () => getPropDefault("AInputCurrency", "currencySymbolPosition", "right"),
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
     decimalDivider: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.decimalDivider,
+      default: () => getPropDefault("AInputCurrency", "decimalDivider", ","),
       validator: (value, props) => {
         const thousandDivider = props?.thousandDivider;
 
@@ -99,7 +101,7 @@ export default {
     decimalPartLength: {
       type: Number,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.decimalPartLength,
+      default: () => getPropDefault("AInputCurrency", "decimalPartLength", 2),
       validator: value => value >= 0,
     },
     dependencies: {
@@ -149,7 +151,7 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.iconPrepend,
+      default: () => getPropDefault("AInputCurrency", "iconPrepend"),
     },
     id: {
       type: [String, Number],
@@ -174,12 +176,12 @@ export default {
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.inputWidth,
+      default: () => getPropDefault("AInputCurrency", "inputWidth", 200),
     },
     integerPartMaxLength: {
       type: Number,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.integerPartMaxLength,
+      default: () => getPropDefault("AInputCurrency", "integerPartMaxLength", 15),
       validator: value => value > 0 && value <= 15,
     },
     isClearButton: {
@@ -230,13 +232,13 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.max,
+      default: () => getPropDefault("AInputCurrency", "max", 999999999999999),
       validator: value => value <= 999999999999999,
     },
     min: {
       type: Number,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.min,
+      default: () => getPropDefault("AInputCurrency", "min"),
     },
     modelDependencies: {
       type: Object,
@@ -251,7 +253,7 @@ export default {
     },
     modelUndefined: {
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.modelUndefined,
+      default: () => getPropDefault("AInputCurrency", "modelUndefined"),
     },
     skipRequiredModelInit: {
       type: Boolean,
@@ -264,7 +266,7 @@ export default {
     placeholder: {
       type: [String, Number, Object],
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.placeholder,
+      default: () => getPropDefault("AInputCurrency", "placeholder"),
     },
     readonly: {
       type: Boolean,
@@ -288,13 +290,13 @@ export default {
     step: {
       type: Number,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.step,
+      default: () => getPropDefault("AInputCurrency", "step", 1),
       validator: value => value > 0,
     },
     thousandDivider: {
       type: String,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.thousandDivider,
+      default: () => getPropDefault("AInputCurrency", "thousandDivider", "."),
       validator: (value, props) => {
         if (value === "") {
           return true;
@@ -350,9 +352,7 @@ export default {
       onFocus,
       isLabelFloatLocal,
       isLabelInset,
-    } = UiAPI(props, context, {
-      pluginOptions: AInputCurrencyPluginOptions,
-    });
+    } = UiAPI(props, context);
 
     const {
       isClearButtonLocal,

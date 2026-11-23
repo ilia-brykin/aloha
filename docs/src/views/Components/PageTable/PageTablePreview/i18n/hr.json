@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Pregled desno",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Slot <code>preview</code> prikazuje detalje kliknutog retka pokraj tablice. <code>disabled-preview-row-callback</code> isključuje pregled za pojedine retke.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Pregled s paginacijom",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "Pregled radi i s <code>pagination.use</code>: gumbi pregleda prelaze na prethodni i sljedeći redak."
 }

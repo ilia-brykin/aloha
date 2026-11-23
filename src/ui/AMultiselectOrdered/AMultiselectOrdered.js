@@ -10,7 +10,6 @@ import {
   AFormHelpText,
   AFormLabelDescription,
   AFormReadonly,
-  AMultiselectOrderedPluginOptions,
   APlacements,
   ASelect,
   ATranslation,
@@ -34,9 +33,18 @@ import DataAPI from "./compositionAPI/DataAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 
+import ChevronDown from "../../AIcon/Icons/ChevronDown";
+import ChevronUp from "../../AIcon/Icons/ChevronUp";
+import Trash from "../../AIcon/Icons/Trash";
 import {
   AIsDataPreparedInjection,
 } from "../const/UiInjectionKeys";
+import {
+  AMultiselectOrderedTexts,
+} from "./utils/texts";
+import {
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -57,52 +65,52 @@ export default {
     attributesBtnDeselectAll: {
       type: Object,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesBtnDeselectAll,
+      default: () => getPropDefault("AMultiselectOrdered", "attributesBtnDeselectAll", {}),
     },
     attributesBtnSelectAll: {
       type: Object,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesBtnSelectAll,
+      default: () => getPropDefault("AMultiselectOrdered", "attributesBtnSelectAll", {}),
     },
     attributesFieldset: {
       type: Object,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesFieldset,
+      default: () => getPropDefault("AMultiselectOrdered", "attributesFieldset", {}),
     },
     btnDeleteClass: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDeleteClass,
+      default: () => getPropDefault("AMultiselectOrdered", "btnDeleteClass", "a_btn a_btn_primary"),
     },
     btnDeleteIcon: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDeleteIcon,
+      default: () => getPropDefault("AMultiselectOrdered", "btnDeleteIcon", Trash),
     },
     btnDownClass: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDownClass,
+      default: () => getPropDefault("AMultiselectOrdered", "btnDownClass", "a_btn a_btn_outline_secondary"),
     },
     btnDownIcon: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDownIcon,
+      default: () => getPropDefault("AMultiselectOrdered", "btnDownIcon", ChevronDown),
     },
     btnGroupClass: {
       type: [String, Object, Array],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnGroupClass,
+      default: () => getPropDefault("AMultiselectOrdered", "btnGroupClass", "a_btn_group"),
     },
     btnUpClass: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnUpClass,
+      default: () => getPropDefault("AMultiselectOrdered", "btnUpClass", "a_btn a_btn_outline_secondary"),
     },
     btnUpIcon: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnUpIcon,
+      default: () => getPropDefault("AMultiselectOrdered", "btnUpIcon", ChevronUp),
     },
     change: {
       type: Function,
@@ -112,7 +120,7 @@ export default {
     classFieldset: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.classFieldset,
+      default: () => getPropDefault("AMultiselectOrdered", "classFieldset"),
     },
     data: {
       type: Array,
@@ -161,7 +169,7 @@ export default {
     hasBorder: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.hasBorder,
+      default: () => getPropDefault("AMultiselectOrdered", "hasBorder", true),
     },
     helpText: {
       type: String,
@@ -190,7 +198,7 @@ export default {
     isDeselectAll: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.isDeselectAll,
+      default: () => getPropDefault("AMultiselectOrdered", "isDeselectAll", false),
     },
     isHide: {
       type: Boolean,
@@ -204,12 +212,12 @@ export default {
     isSelectAll: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.isSelectAll,
+      default: () => getPropDefault("AMultiselectOrdered", "isSelectAll", false),
     },
     keyDisabled: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.keyDisabled,
+      default: () => getPropDefault("AMultiselectOrdered", "keyDisabled"),
     },
     keyDisabledCallback: {
       type: Function,
@@ -219,7 +227,7 @@ export default {
     keyGroup: {
       type: [String, Number, Array],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.keyGroup,
+      default: () => getPropDefault("AMultiselectOrdered", "keyGroup"),
     },
     keyGroupLabelCallback: {
       type: Function,
@@ -229,12 +237,12 @@ export default {
     keyId: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.keyId,
+      default: () => getPropDefault("AMultiselectOrdered", "keyId", "value"),
     },
     keyLabel: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.keyLabel,
+      default: () => getPropDefault("AMultiselectOrdered", "keyLabel", "label"),
     },
     keyLabelCallback: {
       type: Function,
@@ -248,7 +256,7 @@ export default {
     },
     labelClass: {
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.labelClass,
+      default: () => getPropDefault("AMultiselectOrdered", "labelClass"),
     },
     labelDescription: {
       type: String,
@@ -268,7 +276,7 @@ export default {
     listItemClass: {
       type: [String, Object, Array],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.listItemClass,
+      default: () => getPropDefault("AMultiselectOrdered", "listItemClass", "a_list_group__item"),
     },
     loading: {
       type: Boolean,
@@ -302,7 +310,7 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.readonlyDefault,
+      default: () => getPropDefault("AMultiselectOrdered", "readonlyDefault", ""),
     },
     required: {
       type: Boolean,
@@ -312,93 +320,93 @@ export default {
     search: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.search,
+      default: () => getPropDefault("AMultiselectOrdered", "search", false),
     },
     searchApi: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchApi,
+      default: () => getPropDefault("AMultiselectOrdered", "searchApi", false),
     },
     searchApiKey: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchApiKey,
+      default: () => getPropDefault("AMultiselectOrdered", "searchApiKey"),
     },
     searchInGroup: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchInGroup,
+      default: () => getPropDefault("AMultiselectOrdered", "searchInGroup", false),
     },
     searchOutside: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchOutside,
+      default: () => getPropDefault("AMultiselectOrdered", "searchOutside", false),
     },
     searchTextInHtml: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchTextInHtml,
+      default: () => getPropDefault("AMultiselectOrdered", "searchTextInHtml", false),
     },
     searchTimeout: {
       type: Number,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchTimeout,
+      default: () => getPropDefault("AMultiselectOrdered", "searchTimeout", 0),
     },
     selectButtonClass: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectButtonClass,
+      default: () => getPropDefault("AMultiselectOrdered", "selectButtonClass"),
     },
     selectButtonClassDefault: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectButtonClassDefault,
+      default: () => getPropDefault("AMultiselectOrdered", "selectButtonClassDefault", "a_form_control a_select_toggle"),
     },
     selectCaretIcon: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectCaretIcon,
+      default: () => getPropDefault("AMultiselectOrdered", "selectCaretIcon", ChevronDown),
     },
     selectHasCaret: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectHasCaret,
+      default: () => getPropDefault("AMultiselectOrdered", "selectHasCaret", true),
     },
     selectInBody: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectInBody,
+      default: () => getPropDefault("AMultiselectOrdered", "selectInBody", true),
     },
     selectIsCloseByClick: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectIsCloseByClick,
+      default: () => getPropDefault("AMultiselectOrdered", "selectIsCloseByClick", false),
     },
     selectIsLabelFloat: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectIsLabelFloat,
+      default: () => getPropDefault("AMultiselectOrdered", "selectIsLabelFloat", true),
     },
     selectLabelPosition: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectLabelPosition,
+      default: () => getPropDefault("AMultiselectOrdered", "selectLabelPosition"),
       validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     selectIsSelectionCloseable: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectIsSelectionCloseable,
+      default: () => getPropDefault("AMultiselectOrdered", "selectIsSelectionCloseable", true),
     },
     selectLabel: {
       type: [String, Number],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectLabel,
+      default: () => getPropDefault("AMultiselectOrdered", "selectLabel", "_A_MULTISELECT_ORDERED_LABEL_SELECT_"),
     },
     selectLabelClass: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectLabelClass,
+      default: () => getPropDefault("AMultiselectOrdered", "selectLabelClass"),
     },
     selectLabelScreenReader: {
       type: String,
@@ -408,12 +416,12 @@ export default {
     selectMenuClass: {
       type: [String, Object],
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectMenuClass,
+      default: () => getPropDefault("AMultiselectOrdered", "selectMenuClass"),
     },
     selectMenuWidthType: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectMenuWidthType,
+      default: () => getPropDefault("AMultiselectOrdered", "selectMenuWidthType", "as_button"),
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
     selectPlaceholder: {
@@ -424,45 +432,47 @@ export default {
     selectPlacement: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectPlacement,
+      default: () => getPropDefault("AMultiselectOrdered", "selectPlacement", "bottom-end"),
       validator: placement => APlacements.indexOf(placement) !== -1,
     },
     selectPopperContainerId: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectPopperContainerId,
+      default: () => getPropDefault("AMultiselectOrdered", "selectPopperContainerId", "a_select_container"),
     },
     slotName: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.slotName,
+      default: () => getPropDefault("AMultiselectOrdered", "slotName"),
     },
     sortOrder: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.sortOrder,
+      default: () => getPropDefault("AMultiselectOrdered", "sortOrder", "asc"),
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     sortOrderGroup: {
       type: String,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.sortOrderGroup,
+      default: () => getPropDefault("AMultiselectOrdered", "sortOrderGroup", "asc"),
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     texts: {
       type: Object,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.texts,
+      default: () => getPropDefault("AMultiselectOrdered", "texts", {
+        ...AMultiselectOrderedTexts,
+      }),
     },
     translateData: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.translateData,
+      default: () => getPropDefault("AMultiselectOrdered", "translateData", false),
     },
     translateGroup: {
       type: Boolean,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.translateGroup,
+      default: () => getPropDefault("AMultiselectOrdered", "translateGroup", false),
     },
     url: {
       type: String,
@@ -635,7 +645,6 @@ export default {
       modelValueFiltered,
     });
 
-
     watch(urlPropsComputed, updateUrlPropsComputed);
     provide(AIsDataPreparedInjection, true);
 
@@ -644,7 +653,6 @@ export default {
     if (!props.url || props.searchApi) {
       loadDataFromServerForRetrieve();
     }
-
 
     return {
       ariaDescribedbyLocal,

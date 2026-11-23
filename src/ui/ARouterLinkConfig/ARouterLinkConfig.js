@@ -3,7 +3,6 @@ import {
 } from "vue";
 import {
   AFieldset,
-  ARouterLinkConfigPluginOptions,
   ASelect,
   UiAPI,
 } from "../../index";
@@ -14,6 +13,13 @@ import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
 
 import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
+import {
+  getComponentOption,
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
+import {
+  getRoutesFromRouter,
+} from "./utils/routes";
 import {
   uniqueId,
 } from "lodash-es";
@@ -32,7 +38,7 @@ export default {
     attributesFieldset: {
       type: Object,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.attributesFieldset,
+      default: () => getPropDefault("ARouterLinkConfig", "attributesFieldset", {}),
     },
     attributesRoute: {
       type: Object,
@@ -47,17 +53,17 @@ export default {
     classColumn: {
       type: [String, Object],
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.classColumn,
+      default: () => getPropDefault("ARouterLinkConfig", "classColumn", "a_column a_column_12"),
     },
     classColumns: {
       type: [String, Object],
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.classColumns,
+      default: () => getPropDefault("ARouterLinkConfig", "classColumns", "a_columns a_columns_count_12 a_columns_gap_y_1"),
     },
     classFieldset: {
       type: [String, Object],
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.classFieldset,
+      default: () => getPropDefault("ARouterLinkConfig", "classFieldset"),
     },
     disabled: {
       type: Boolean,
@@ -71,12 +77,12 @@ export default {
     excludeRenderAttributes: {
       type: Array,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.excludeRenderAttributes,
+      default: () => getPropDefault("ARouterLinkConfig", "excludeRenderAttributes", []),
     },
     extra: {
       type: Object,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.extra,
+      default: () => getPropDefault("ARouterLinkConfig", "extra"),
     },
     filterRoutes: {
       type: Function,
@@ -86,7 +92,7 @@ export default {
     hasBorder: {
       type: Boolean,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.hasBorder,
+      default: () => getPropDefault("ARouterLinkConfig", "hasBorder", true),
     },
     helpText: {
       type: String,
@@ -96,22 +102,22 @@ export default {
     helpTextParam: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextParam,
+      default: () => getPropDefault("ARouterLinkConfig", "helpTextParam", "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_"),
     },
     helpTextQuery: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextQuery,
+      default: () => getPropDefault("ARouterLinkConfig", "helpTextQuery", "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_"),
     },
     helpTextRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "helpTextRoute", "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_"),
     },
     helpTextTarget: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextTarget,
+      default: () => getPropDefault("ARouterLinkConfig", "helpTextTarget", "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_"),
     },
     htmlId: {
       type: String,
@@ -140,7 +146,7 @@ export default {
     keyIdRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.keyIdRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "keyIdRoute", "name"),
     },
     keyLabelCallbackRoute: {
       type: Function,
@@ -150,7 +156,7 @@ export default {
     keyLabelRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.keyLabelRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "keyLabelRoute", "path"),
     },
     label: {
       type: [String, Number],
@@ -160,7 +166,7 @@ export default {
     labelClass: {
       type: [String, Object],
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelClass,
+      default: () => getPropDefault("ARouterLinkConfig", "labelClass"),
     },
     labelDescription: {
       type: String,
@@ -170,17 +176,17 @@ export default {
     labelParam: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelParam,
+      default: () => getPropDefault("ARouterLinkConfig", "labelParam", "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_"),
     },
     labelQuery: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelQuery,
+      default: () => getPropDefault("ARouterLinkConfig", "labelQuery", "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_"),
     },
     labelRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "labelRoute", "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_"),
     },
     labelScreenReader: {
       type: [String, Number],
@@ -190,7 +196,7 @@ export default {
     labelTarget: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelTarget,
+      default: () => getPropDefault("ARouterLinkConfig", "labelTarget", "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_"),
     },
     modelUndefined: {
       type: [String, Number, Object, Array, Boolean],
@@ -214,27 +220,27 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefault,
+      default: () => getPropDefault("ARouterLinkConfig", "readonlyDefault", ""),
     },
     readonlyDefaultParam: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultParam,
+      default: () => getPropDefault("ARouterLinkConfig", "readonlyDefaultParam"),
     },
     readonlyDefaultQuery: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultQuery,
+      default: () => getPropDefault("ARouterLinkConfig", "readonlyDefaultQuery"),
     },
     readonlyDefaultRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "readonlyDefaultRoute"),
     },
     readonlyDefaultTarget: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultTarget,
+      default: () => getPropDefault("ARouterLinkConfig", "readonlyDefaultTarget"),
     },
     required: {
       type: Boolean,
@@ -244,7 +250,10 @@ export default {
     routes: {
       type: Array,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.routes,
+      default: () => getPropDefault("ARouterLinkConfig", "routes", getRoutesFromRouter({
+        routes: getComponentOption("ARouterLinkConfig", "routes"),
+        excludedPathRoutes: getComponentOption("ARouterLinkConfig", "excludedPathRoutes"),
+      })),
     },
     slotName: {
       type: String,
@@ -254,13 +263,30 @@ export default {
     sortOrderRoute: {
       type: String,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.sortOrderRoute,
+      default: () => getPropDefault("ARouterLinkConfig", "sortOrderRoute", "asc"),
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     targets: {
       type: Array,
       required: false,
-      default: () => ARouterLinkConfigPluginOptions.propsDefault.targets,
+      default: () => getPropDefault("ARouterLinkConfig", "targets", [
+        {
+          id: "_blank",
+          label: "_A_TARGET_BLANK_",
+        },
+        {
+          id: "_self",
+          label: "_A_TARGET_SELF_",
+        },
+        {
+          id: "_parent",
+          label: "_A_TARGET_PARENT_",
+        },
+        {
+          id: "_top",
+          label: "_A_TARGET_TOP_",
+        },
+      ]),
     },
     type: {
       type: String,

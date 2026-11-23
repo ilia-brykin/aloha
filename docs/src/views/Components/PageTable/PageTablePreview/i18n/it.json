@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Anteprima a destra",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Lo slot <code>preview</code> mostra i dettagli della riga cliccata accanto alla tabella. <code>disabled-preview-row-callback</code> disattiva l'anteprima per singole righe.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Anteprima con paginazione",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "L'anteprima funziona anche con <code>pagination.use</code>: i pulsanti dell'anteprima passano alla riga precedente e successiva."
 }

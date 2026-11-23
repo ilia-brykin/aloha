@@ -1,0 +1,10 @@
+export const AMultiselectOrderedTexts = {
+  btnDeleteTitle: "_A_MULTISELECT_ORDERED_BTN_DELETE_",
+  btnDownTitle: "_A_MULTISELECT_ORDERED_BTN_DOWN_",
+  btnGroupAriaLabel: "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
+  btnUpTitle: "_A_MULTISELECT_ORDERED_BTN_UP_",
+  deselectAll: "_A_MULTISELECT_ORDERED_DESELECT_ALL_",
+  groupAllAriaLabel: "_A_MULTISELECT_ORDERED_GROUP_ALL_",
+  modelEmpty: "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
+  selectAll: "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+};

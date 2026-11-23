@@ -5,6 +5,7 @@ aloha-example(
   description="_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_"
 )
   a-button(
+    id="btn_modal_in_modal"
     class="a_btn a_btn_primary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     @click="openModal"
@@ -12,6 +13,7 @@ aloha-example(
 
   a-modal(
     v-if="isModalVisible"
+    selector-close-ids="btn_modal_in_modal"
     :close="closeModal"
     header-text="Modal 1"
     size="xl"
@@ -20,6 +22,7 @@ aloha-example(
       v-slot:modalBody
     )
       a-button(
+        id="btn_modal_in_modal_2"
         class="a_btn a_btn_primary"
         text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
         @click="openModal2"
@@ -27,6 +30,7 @@ aloha-example(
 
   a-modal(
     v-if="isModal2Visible"
+    selector-close-ids="btn_modal_in_modal_2"
     :close="closeModal2"
     header-text="Modal 2"
   )

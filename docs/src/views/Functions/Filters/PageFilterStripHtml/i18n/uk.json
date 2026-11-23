@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "Функція <strong>filterStripHtml</strong> видаляє HTML-теги з рядка й повертає текст, наприклад для прев'ю або атрибута <code>title</code>. Вміст <code>&lt;script&gt;</code> і <code>&lt;style&gt;</code> теж видаляється. Щоб показати HTML як текст, використовуйте <strong>filterEscapeHtml</strong>.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "Рядок з HTML"
+}

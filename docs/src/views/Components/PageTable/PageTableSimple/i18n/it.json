@@ -1,3 +1,11 @@
 {
-
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Colonne raggruppate",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Le colonne con <code>children</code> ricevono un'intestazione comune sopra le sottocolonne. <code>:has-mobile=\"false\"</code> mantiene la vista tabella sugli schermi piccoli.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Tabella con colonne raggruppate",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Tabella HTML semplice",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> renderizza una <code>&lt;table&gt;</code> nativa senza barra degli strumenti e senza le funzioni aggiuntive di <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Tabella HTML semplice",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slot della vista mobile",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "Sugli schermi piccoli ogni riga è mostrata come una scheda. Gli slot <code>rowMobilePrepend</code> e <code>rowMobileAppend</code> aggiungono contenuto all'inizio e alla fine di ogni scheda.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Tabella con slot della vista mobile"
 }

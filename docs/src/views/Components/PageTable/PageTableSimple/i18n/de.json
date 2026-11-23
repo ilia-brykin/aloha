@@ -2,5 +2,14 @@
   "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Komponente für eine einfache Darstellung von Daten in tabellarischer Form, ohne den Einsatz erweiterter Funktionalitäten wie Sortierung, Filterung oder weiterer Aktionen.",
   "_A_TABLE_GROUP_SIMPLE_HEADER_": "Einfache Tabelle",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Einfache Tabelle",
-  "_A_TABLE_SIMPLE_": "Tabelle"
+  "_A_TABLE_SIMPLE_": "Tabelle",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Gruppierte Spalten",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Spalten mit <code>children</code> erhalten eine gemeinsame Überschrift über ihren Unterspalten. <code>:has-mobile=\"false\"</code> behält die Tabellenansicht auf kleinen Bildschirmen bei.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Tabelle mit gruppierten Spalten",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Einfache HTML-Tabelle",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> rendert eine native <code>&lt;table&gt;</code> ohne Werkzeugleiste und ohne die zusätzlichen Funktionen von <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Einfache HTML-Tabelle",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slots der mobilen Ansicht",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "Auf kleinen Bildschirmen wird jede Zeile als Karte angezeigt. Die Slots <code>rowMobilePrepend</code> und <code>rowMobileAppend</code> fügen Inhalt am Anfang und am Ende jeder Karte hinzu.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Tabelle mit Slots der mobilen Ansicht"
 }

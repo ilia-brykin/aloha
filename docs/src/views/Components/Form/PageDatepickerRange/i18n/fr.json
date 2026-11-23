@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Utilisation des propriétés 'format' et 'formatSave' pour des formats d'affichage et d'enregistrement personnalisés dans le composant de sélecteur de date de plage.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Texte d'Aide dans le Sélecteur de Date de Plage",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Incorporation de la propriété 'helpText' pour fournir un contexte supplémentaire ou des instructions pour le composant de sélecteur de date de plage.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Premier Jour comme Jeudi"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Premier Jour comme Jeudi",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Plage de dates"
 }

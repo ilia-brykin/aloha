@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Especifica si toda la región de alerta debe ser anunciada por las tecnologías de asistencia cuando cambie su contenido.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Define el rol ARIA del componente de alerta.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Si un lector de pantalla lee toda la alerta (<code lang=\"en\">true</code>) o solo la parte cambiada (<code lang=\"en\">false</code>) cuando cambia el contenido. Sin valor lo establece <code lang=\"en\">announce</code>; un valor tiene prioridad sobre <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Rol ARIA de la región en vivo, p. ej. <code lang=\"en\">alert</code> o <code lang=\"en\">status</code>. Sin valor lo establece <code lang=\"en\">announce</code>; un valor tiene prioridad sobre <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Muestra mensajes de alerta importantes.",
   "_A_ALERT_COMPONENT_NAME_": "advertencia",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Se desencadena cuando se cierra la alerta.",
@@ -46,5 +46,14 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "El texto para el botón de cierre que será leído por el lector de pantalla",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Texto plano que se mostrará dentro del componente",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Tipo de alerta",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenido de la alerta"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Contenido de la alerta",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icono del botón de cierre.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "Cómo anuncia un lector de pantalla la alerta cuando aparece: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. <code lang=\"en\">alert</code> la lee de inmediato (<code lang=\"en\">role=\"alert\"</code>), <code lang=\"en\">status</code> después de la frase actual (<code lang=\"en\">role=\"status\"</code>). Sin sufijo se lee toda la alerta (<code lang=\"en\">aria-atomic=\"true\"</code>), con <code lang=\"en\">-changes</code> solo la parte cambiada (<code lang=\"en\">aria-atomic=\"false\"</code>). <code lang=\"en\">none</code> no establece ninguno. Las props o atributos <code lang=\"en\">role</code> y <code lang=\"en\">aria-atomic</code> tienen prioridad sobre <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "Anuncio para lectores de pantalla",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "La prop <code lang=\"en\">announce</code> define cómo se anuncia la alerta cuando aparece. Pulse el botón: con un lector de pantalla la alerta roja se lee de inmediato, la verde después de la frase actual y la azul no se lee. La región en vivo siempre está en la página, solo aparece el contenido, por eso el anuncio también funciona cuando la alerta se muestra más tarde.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "Mostrar alertas",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "Ocultar alertas",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (por defecto): se lee de inmediato.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": se lee después de la frase actual.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": no se anuncia."
 }

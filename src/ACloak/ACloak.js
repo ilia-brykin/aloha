@@ -9,11 +9,8 @@ import {
 import ClassAPI from "./compositionAPI/ClassAPI";
 
 import {
-  cloakPluginOptions,
-} from "../plugins/ACloakPlugin";
-import {
-  spinnerPluginOptions,
-} from "../plugins/ASpinnerPlugin";
+  getPropDefault,
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "ACloak",
@@ -21,7 +18,7 @@ export default {
     align: {
       type: String,
       required: false,
-      default: () => cloakPluginOptions.value.propsDefault.align,
+      default: () => getPropDefault("ACloak", "align", "center"),
       validator: value => ["left", "center", "right"].indexOf(value) !== -1,
     },
     alwaysTranslate: {
@@ -31,43 +28,43 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: cloakPluginOptions.value.propsDefault.extra,
+      default: () => getPropDefault("ACloak", "extra"),
     },
     size: {
       type: [String, Number],
       required: false,
-      default: () => cloakPluginOptions.value.propsDefault.size,
+      default: () => getPropDefault("ACloak", "size", 6),
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
     spinnerClass: {
       type: [String, Object],
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.class,
+      default: () => getPropDefault("ACloak", "spinnerClass", "a_spinner"),
     },
     spinnerSafeHtml: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+      default: () => getPropDefault("ACloak", "spinnerSafeHtml", getPropDefault("ASpinner", "safeHtml", "")),
     },
     spinnerTag: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("ACloak", "spinnerTag", getPropDefault("ASpinner", "tag", "span")),
     },
     tag: {
       type: String,
       required: false,
-      default: () => cloakPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("ACloak", "tag", "div"),
     },
     text: {
       type: String,
       required: false,
-      default: () => cloakPluginOptions.value.propsDefault.text,
+      default: () => getPropDefault("ACloak", "text", "_A_CLOAK_LOADING_"),
     },
     textAlign: {
       type: String,
       required: false,
-      default: () => cloakPluginOptions.value.propsDefault.textAlign,
+      default: () => getPropDefault("ACloak", "textAlign", "right"),
       validator: value => ["left", "right"].indexOf(value) !== -1,
     },
   },

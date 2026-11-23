@@ -1,0 +1,77 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_CALENDAR_COMPONENT_DESCRIPTION_"
+    )
+
+    page-calendar-basic
+
+    page-calendar-multi-day
+
+    page-calendar-recurring
+
+    page-calendar-week
+
+    page-calendar-work-week
+
+    page-calendar-day
+
+    page-calendar-agenda
+
+    page-calendar-status
+
+    page-calendar-availability
+
+    page-calendar-max-events
+
+    page-calendar-slots
+
+    page-calendar-popover
+
+    page-calendar-create
+
+    page-calendar-drag-drop
+
+    page-calendar-loading
+
+    page-calendar-small
+
+    page-calendar-export
+
+    page-calendar-import
+
+    aloha-table-props(
+      table-label="ACalendar"
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ACalendar"
+    )

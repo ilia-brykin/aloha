@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "The function <strong>filterNewlines</strong> shows a multi-line text, e.g. from a <code>textarea</code>, as HTML: it escapes the HTML special characters and replaces the line breaks with <code>&lt;br&gt;</code>. The result is safe for <code>v-html</code> and the prop <code>html</code>. In a table column use <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "The text with line breaks",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Text",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Result"
+}

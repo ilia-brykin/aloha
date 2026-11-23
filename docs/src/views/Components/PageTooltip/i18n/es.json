@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Padding de la flecha",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Define el padding que limita lo cerca que la flecha puede estar de los bordes del tooltip.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback para el padding de la flecha",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "El padding de la flecha también se puede calcular dinámicamente con una función callback."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "El padding de la flecha también se puede calcular dinámicamente con una función callback.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Distancia mínima en px entre la flecha y los bordes del tooltip. Una función recibe los tamaños y devuelve el número.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID del tooltip. El elemento recibe aria-describedby con este ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "El tooltip no se muestra, solo el contenido del slot por defecto.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Ancho máximo del tooltip en px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Ancho mínimo del tooltip en px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Distancia en px entre el tooltip y el elemento.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Desplazamiento del tooltip en px a lo largo del elemento.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Posición del tooltip respecto al elemento, p. ej. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID del contenedor al final del body en el que se renderiza el tooltip.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Muestra la flecha del tooltip.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "Etiqueta HTML del elemento que rodea el slot por defecto.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Tiempo en ms antes de que el tooltip se cierre cuando el puntero sale del elemento o del tooltip.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Ancho fijo del tooltip en px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "El elemento no recibe aria-describedby, p. ej. si el texto del tooltip ya se lee de otra forma.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "El elemento que muestra el tooltip al pasar el ratón y al enfocar.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Contenido del tooltip."
 }

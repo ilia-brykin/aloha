@@ -1,6 +1,6 @@
 {
-  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "يحدد ما إذا كان يجب على تقنيات المساعدة اعلان منطقة التنبيه بالكامل عند تغير محتواها.",
-  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "يحدد دور ARIA لمكون التنبيه.",
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "هل يقرأ قارئ الشاشة عند التغيير التنبيه كله (<code lang=\"en\">true</code>) أم الجزء المتغير فقط (<code lang=\"en\">false</code>). بدون قيمة يضبطه <code lang=\"en\">announce</code>؛ وللقيمة الأولوية على <code lang=\"en\">announce</code>.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "دور ARIA للمنطقة الحية، مثل <code lang=\"en\">alert</code> أو <code lang=\"en\">status</code>. بدون قيمة يضبطه <code lang=\"en\">announce</code>؛ وللقيمة الأولوية على <code lang=\"en\">announce</code>.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "يعرض رسائل تنبيه مهمة.",
   "_A_ALERT_COMPONENT_NAME_": "تنبيه",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "يتم إصداره عند إغلاق التنبيه.",
@@ -46,5 +46,14 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "نص زر الإغلاق ليتم قراءته بواسطة قارئ الشاشة",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "نص عادي لعرضه داخل المكون",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "نوع التنبيه",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "محتوى التنبيه"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "محتوى التنبيه",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "أيقونة زر الإغلاق.",
+  "_A_ALERT_PROPS_ANNOUNCE_DESCRIPTION_": "كيف يعلن قارئ الشاشة عن التنبيه عند ظهوره: <code lang=\"en\">alert</code>, <code lang=\"en\">alert-changes</code>, <code lang=\"en\">status</code>, <code lang=\"en\">status-changes</code>, <code lang=\"en\">none</code>. يقرأه <code lang=\"en\">alert</code> فورًا (<code lang=\"en\">role=\"alert\"</code>)، و<code lang=\"en\">status</code> بعد الجملة الحالية (<code lang=\"en\">role=\"status\"</code>). بدون لاحقة يُقرأ التنبيه كله (<code lang=\"en\">aria-atomic=\"true\"</code>)، ومع <code lang=\"en\">-changes</code> الجزء المتغير فقط (<code lang=\"en\">aria-atomic=\"false\"</code>). لا يضبط <code lang=\"en\">none</code> أيًا منهما. للخصائص أو السمات <code lang=\"en\">role</code> و<code lang=\"en\">aria-atomic</code> الأولوية على <code lang=\"en\">announce</code>.",
+  "_A_ALERT_GROUP_ANNOUNCE_HEADER_": "الإعلان لقارئات الشاشة",
+  "_A_ALERT_GROUP_ANNOUNCE_DESCRIPTION_": "تحدد الخاصية <code lang=\"en\">announce</code> كيف يُعلَن عن التنبيه عند ظهوره. انقر الزر: مع قارئ الشاشة يُقرأ التنبيه الأحمر فورًا، والأخضر بعد الجملة الحالية، والأزرق لا يُقرأ. المنطقة الحية موجودة دائمًا في الصفحة ويظهر المحتوى فقط، لذلك يعمل الإعلان أيضًا عندما يُعرض التنبيه لاحقًا.",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_": "إظهار التنبيهات",
+  "_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_": "إخفاء التنبيهات",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_": "announce=\"alert\" (الافتراضي): يُقرأ فورًا.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_": "announce=\"status\": يُقرأ بعد الجملة الحالية.",
+  "_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_": "announce=\"none\": لا يُعلَن عنه."
 }

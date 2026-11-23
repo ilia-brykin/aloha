@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "Функция <strong>filterNewlines</strong> показывает многострочный текст, например из <code>textarea</code>, как HTML: экранирует специальные символы HTML и заменяет переносы строк на <code>&lt;br&gt;</code>. Результат безопасен для <code>v-html</code> и пропса <code>html</code>. В колонке таблицы используйте <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Текст с переносами строк",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Текст",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Результат"
+}

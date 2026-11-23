@@ -4,8 +4,11 @@ import {
 } from "vue";
 
 import {
-  alertPluginOptions,
-} from "../../plugins/AAlertPlugin";
+  ALERT_ICONS,
+} from "../utils/icons";
+import {
+  getComponentOption,
+} from "../../plugins/AComponentsPlugin";
 
 export default function IconAPI(props) {
   const icon = toRef(props, "icon");
@@ -19,7 +22,7 @@ export default function IconAPI(props) {
     if (icon.value) {
       return icon.value;
     }
-    return alertPluginOptions.value.icons[type.value];
+    return getComponentOption("AAlert", "icons", {})[type.value] ?? ALERT_ICONS[type.value];
   });
 
   return {

@@ -14,6 +14,11 @@
   "_A_TABLE_FILTER_DATE_": "Date",
   "_A_TABLE_FILTER_EXTRA_": "Additional Filter",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Striped rows",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "With <code>is-striped</code> every second row gets the background <code>--a_table_row_striped_bg</code>. Hover, selected rows and the open preview still have their own colors. The default for all tables can be set with <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Striped table"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "With <code>is-striped</code> every second row gets the background <code>--a_table_row_striped_bg</code>. Hover, selected rows and the open preview still have their own colors. The default for all tables can be set with <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Striped table",
+  "_A_TABLE_COMPONENT_NAME_": "Table",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "The <strong>ATable</strong> component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Table with all features",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Row, table and multiple actions, quick search, moving of columns, pagination, footer rows, sorting by several columns and saved views in one table.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Column Column Column Column Column Column Column Column"
 }

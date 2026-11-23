@@ -1,0 +1,3 @@
+interface:
+  display_name: "Client Aloha Vue Modal"
+  short_description: "Build Aloha-Vue modal forms and confirmations"

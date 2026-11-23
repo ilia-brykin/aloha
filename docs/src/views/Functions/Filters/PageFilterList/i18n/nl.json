@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-tag voor de gehele lijst",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-klasse, bijv.: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "De functie maakt een lijst op basis van een array.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Boomstructuur isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Boomstructuur isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Waarde die wordt teruggegeven als de array leeg is of geen array is",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML tussen de elementen, bijv. een regeleinde (alleen als <strong>isHtml=true</strong>)"
 }

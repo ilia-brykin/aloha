@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Preview below the row)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Preview below the row",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "With <code>preview=\"down\"</code> the slot <code>preview</code> opens directly below the clicked row."
 }

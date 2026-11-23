@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_CALENDAR_BASIC_DESCRIPTION_"
+  :props="['events', 'model-value']"
+)
+  a-calendar(
+    v-model="model"
+    :events="events"
+  )
+  p.a_mt_3.a_mb_0
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_SELECTED_"
+    )
+    | : {{ model }}

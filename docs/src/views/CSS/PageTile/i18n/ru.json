@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> с <code>a_tile__body</code>. Плитка — flex-колонка, поэтому <code>a_tile__body</code> заполняет свободную высоту.",
+  "_A_TILE_BASIC_HEADER_": "Основа",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "С <code>a_stretched_link</code> на ссылке кликабельна вся плитка, <code>a_bg_{color}_subtle_hover</code> подсвечивает её при наведении. Пользователи клавиатуры и скринридеров по-прежнему получают одну ссылку с понятным текстом. Другим кнопкам в плитке нужны <code>a_position_relative</code> и <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Кликабельная плитка",
+  "_A_TILE_COLORS_DESCRIPTION_": "Плитка меняется утилитарными классами: цвет рамки (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), тень (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), стиль линии (<code>a_border_style_dashed</code>). Значения по умолчанию и скругление задаются CSS-переменными ниже.",
+  "_A_TILE_COLORS_HEADER_": "Цвета, тень и рамка",
+  "_A_TILE_GRID_DESCRIPTION_": "Плитки в <code>a_columns</code>. С <code>a_height_100</code> все плитки в ряду одной высоты, <code>a_columns_count_1_mobile</code> показывает на мобильных устройствах одну плитку в ряду.",
+  "_A_TILE_GRID_HEADER_": "Плитки в сетке",
+  "_A_TILE_PAGE_DESCRIPTION_": "Класс <code>a_tile</code> — блок на поверхности с рамкой и скруглёнными углами, например для сводки, виджета дашборда или элемента в списке результатов. Это только CSS, части <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> необязательны.",
+  "_A_TILE_PAGE_NAME_": "Плитка",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> и <code>a_tile__footer</code> получают приглушённый фон и линию к содержимому. Используйте в шапке заголовок нужного уровня (<code>h2</code> … <code>h6</code>), чтобы структура страницы оставалась правильной для скринридеров.",
+  "_A_TILE_PARTS_HEADER_": "Шапка и подвал"
+}

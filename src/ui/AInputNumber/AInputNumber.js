@@ -13,7 +13,6 @@ import {
   AFormLabelDescription,
   AFormReadonly,
   AIcon,
-  AInputNumberPluginOptions,
   ALabel,
   UiAPI,
   UiClearButtonAPI,
@@ -32,6 +31,9 @@ import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 import UiMixinProps from "../mixins/UiMixinProps";
+import {
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";
@@ -67,14 +69,14 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.controlsType,
+      default: () => getPropDefault("AInputNumber", "controlsType", "plus-minus"),
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     eAllowed: {
       type: Boolean,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.eAllowed,
+      default: () => getPropDefault("AInputNumber", "eAllowed", false),
     },
     excludeRenderAttributes: {
       type: Array,
@@ -89,12 +91,12 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.iconPrepend,
+      default: () => getPropDefault("AInputNumber", "iconPrepend"),
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.inputWidth,
+      default: () => getPropDefault("AInputNumber", "inputWidth", 200),
     },
     isClearButton: {
       type: Boolean,
@@ -120,26 +122,26 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.max,
+      default: () => getPropDefault("AInputNumber", "max"),
     },
     min: {
       type: Number,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.min,
+      default: () => getPropDefault("AInputNumber", "min"),
     },
     modelUndefined: {
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.modelUndefined,
+      default: () => getPropDefault("AInputNumber", "modelUndefined"),
     },
     placeholder: {
       type: [String, Number, Object],
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.placeholder,
+      default: () => getPropDefault("AInputNumber", "placeholder"),
     },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
-      default: () => AInputNumberPluginOptions.propsDefault.precision,
+      default: () => getPropDefault("AInputNumber", "precision"),
     },
     readonly: {
       type: Boolean,
@@ -158,17 +160,17 @@ export default {
     step: {
       type: Number,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.step,
+      default: () => getPropDefault("AInputNumber", "step", 1),
     },
     stepStrictly: {
       type: Boolean,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.stepStrictly,
+      default: () => getPropDefault("AInputNumber", "stepStrictly"),
     },
     type: {
       type: String,
       required: false,
-      default: () => AInputNumberPluginOptions.propsDefault.type,
+      default: () => getPropDefault("AInputNumber", "type", "number"),
       validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },
@@ -196,9 +198,7 @@ export default {
       onFocus,
       isLabelFloatLocal,
       isLabelInset,
-    } = UiAPI(props, context, {
-      pluginOptions: AInputNumberPluginOptions,
-    });
+    } = UiAPI(props, context);
 
     const errorIcon = toRef(props, "errorIcon");
 

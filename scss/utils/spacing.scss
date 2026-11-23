@@ -53,10 +53,10 @@ $spacing_values: (
       gap: #{$value};
     }
     .a_gap_x_#{$name} {
-      row-gap: #{$value};
+      column-gap: #{$value};
     }
     .a_gap_y_#{$name} {
-      column-gap: #{$value};
+      row-gap: #{$value};
     }
   }
 }

@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_STRIP_HTML_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterStripHtml"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterStripHtml"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterStripHtml(value)"
+    )
+
+    page-filter-strip-html-example
+
+    page-filter-test(
+      :test="test"
+    )

@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> with <code>a_tile__body</code>. The tile is a flex column, so <code>a_tile__body</code> fills the free height.",
+  "_A_TILE_BASIC_HEADER_": "Basic",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "With <code>a_stretched_link</code> on the link the whole tile is clickable, <code>a_bg_{color}_subtle_hover</code> highlights it on hover. Keyboard and screen reader users still get one link with a clear text. Other buttons in the tile need <code>a_position_relative</code> and <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Clickable tile",
+  "_A_TILE_COLORS_DESCRIPTION_": "The tile is changed with the utility classes: border color (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), shadow (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), line style (<code>a_border_style_dashed</code>). The defaults and the corner radius are set with the CSS variables below.",
+  "_A_TILE_COLORS_HEADER_": "Colors, shadow and border",
+  "_A_TILE_GRID_DESCRIPTION_": "Tiles in <code>a_columns</code>. With <code>a_height_100</code> all tiles of a row get the same height, <code>a_columns_count_1_mobile</code> shows one tile per row on mobile devices.",
+  "_A_TILE_GRID_HEADER_": "Tiles in a grid",
+  "_A_TILE_PAGE_DESCRIPTION_": "The class <code>a_tile</code> is a box on the surface with a border and rounded corners, e.g. for a summary, a dashboard widget or an item in a list of results. It is CSS only, the parts <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> are optional.",
+  "_A_TILE_PAGE_NAME_": "Tile",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> and <code>a_tile__footer</code> get a subtle background and a line to the body. Use a heading of the right level (<code>h2</code> … <code>h6</code>) in the header, so the structure of the page stays correct for screen readers.",
+  "_A_TILE_PARTS_HEADER_": "Header and footer"
+}

@@ -1,3 +1,4 @@
 {
-
+  "_A_FILTERS_RIGHT_COMPONENT_NAME_": "Filtres à droite",
+  "_A_FILTERS_RIGHT_COMPONENT_DESCRIPTION_": "Avec <code>view=\"right\"</code>, le composant <strong>AFilters</strong> affiche les filtres dans une colonne à droite du contenu au lieu de au-dessus."
 }

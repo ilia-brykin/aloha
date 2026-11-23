@@ -1,3 +1,12 @@
 {
-
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_NAME_": "Plage de nombres",
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_DESCRIPTION_": "Le composant <strong>AInputNumberRange</strong> se compose de deux champs numériques « de » et « à ». Le modèle est un objet avec les clés <code>min</code> et <code>max</code>.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_HEADER_": "Nombres entiers",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_DESCRIPTION_": "<code>type=\"integerRange\"</code> n'autorise que des nombres entiers dans les deux champs.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_": "Entiers non négatifs",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_": "<code>type=\"integerNonNegativeRange\"</code> autorise les entiers à partir de 0.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_HEADER_": "Entiers positifs",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_DESCRIPTION_": "<code>type=\"integerPositiveRange\"</code> autorise les entiers à partir de 1.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_HEADER_": "Textes indicatifs",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_DESCRIPTION_": "<code>placeholder-min</code> et <code>placeholder-max</code> définissent le texte indicatif de chaque champ."
 }

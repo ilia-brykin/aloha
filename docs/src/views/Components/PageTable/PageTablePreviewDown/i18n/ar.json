@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(معاينة أسفل الصف)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "معاينة أسفل الصف",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "مع <code>preview=\"down\"</code> يُفتح الـ slot <code>preview</code> مباشرة أسفل الصف الذي تم النقر عليه."
 }

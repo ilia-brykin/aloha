@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "تحوّل الدالة <strong>filterTitleCase</strong> الحرف الأول من كل كلمة إلى حرف كبير. تبقى الأحرف الأخرى كما هي، لذا تُحفظ الاختصارات مثل \"NASA\". لتغيير الحرف الأول من النص فقط استخدم <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "النص المراد تحويله"
+}

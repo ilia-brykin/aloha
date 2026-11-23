@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Ce slot permet de personnaliser le contenu textuel plus long qui sera affiché lorsque l'utilisateur cliquera sur \"Afficher plus\". Vous avez accès aux valeurs <strong>isButtonVisible</strong> et <strong>isOpen</strong>, qui fournissent des informations sur la visibilité du bouton et l'état actuel.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Changer l'état du composant (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Changer l'état du composant (bouton)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Cet événement est déclenché lorsque l'utilisateur clique sur le bouton \"Afficher plus/Afficher moins\". Il renvoie un objet contenant des informations sur l'état actuel du composant, y compris <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Cet événement est déclenché lorsque l'utilisateur clique sur le bouton \"Afficher plus/Afficher moins\". Il renvoie un objet contenant des informations sur l'état actuel du composant, y compris <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Afficher le texte abrégé"
 }

@@ -12,9 +12,10 @@ import EventsAPI from "./compositionAPI/EventsAPI";
 import IconsAPI from "./compositionAPI/IconsAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 
+import ChevronDown from "../../AIcon/Icons/ChevronDown";
 import {
-  ASelectPluginOptions,
-} from "../../plugins/ASelectPlugin";
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -30,7 +31,7 @@ export default {
     buttonClass: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.buttonClass,
+      default: () => getPropDefault("ASelectIcon", "buttonClass"),
     },
     buttonClassDefault: {
       type: [String, Object],
@@ -40,7 +41,7 @@ export default {
     caretIcon: {
       type: [String, Object],
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.caretIcon,
+      default: () => getPropDefault("ASelectIcon", "caretIcon", ChevronDown),
     },
     change: {
       type: Function,
@@ -54,7 +55,7 @@ export default {
     countMultiselect: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.countMultiselect,
+      default: () => getPropDefault("ASelectIcon", "countMultiselect", 4),
     },
     data: {
       type: Array,
@@ -69,7 +70,7 @@ export default {
     deselectable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.deselectable,
+      default: () => getPropDefault("ASelectIcon", "deselectable", true),
     },
     disabled: {
       type: Boolean,
@@ -88,7 +89,7 @@ export default {
     exceededItemsDeletable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.exceededItemsDeletable,
+      default: () => getPropDefault("ASelectIcon", "exceededItemsDeletable", true),
     },
     excludeRenderAttributes: {
       type: Array,
@@ -127,17 +128,17 @@ export default {
     inBody: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.inBody,
+      default: () => getPropDefault("ASelectIcon", "inBody", true),
     },
     isCloseByClick: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isCloseByClick,
+      default: () => getPropDefault("ASelectIcon", "isCloseByClick"),
     },
     isDeselectAll: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isDeselectAll,
+      default: () => getPropDefault("ASelectIcon", "isDeselectAll", false),
     },
     isHide: {
       type: Boolean,
@@ -162,17 +163,17 @@ export default {
     isSelectAll: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isSelectAll,
+      default: () => getPropDefault("ASelectIcon", "isSelectAll", false),
     },
     isSelectionCloseable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isSelectionCloseable,
+      default: () => getPropDefault("ASelectIcon", "isSelectionCloseable", true),
     },
     keyDisabled: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.keyDisabled,
+      default: () => getPropDefault("ASelectIcon", "keyDisabled"),
     },
     keyDisabledCallback: {
       type: Function,
@@ -182,7 +183,7 @@ export default {
     keyGroup: {
       type: [String, Number, Array],
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.keyGroup,
+      default: () => getPropDefault("ASelectIcon", "keyGroup"),
     },
     keyGroupLabelCallback: {
       type: Function,
@@ -207,7 +208,7 @@ export default {
     keyTitle: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.keyTitle,
+      default: () => getPropDefault("ASelectIcon", "keyTitle"),
     },
     keyTitleCallback: {
       type: Function,
@@ -237,13 +238,13 @@ export default {
     maxCountMultiselect: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.maxCountMultiselect,
+      default: () => getPropDefault("ASelectIcon", "maxCountMultiselect"),
       validator: value => value > 0,
     },
     menuWidthType: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.menuWidthType,
+      default: () => getPropDefault("ASelectIcon", "menuWidthType", "as_button"),
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
     modelDependencies: {
@@ -258,7 +259,7 @@ export default {
     modelValue: {
       type: [String, Array],
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.modelValue,
+      default: () => getPropDefault("ASelectIcon", "modelValue"),
     },
     options: {
       type: Object,
@@ -273,13 +274,13 @@ export default {
     placement: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.placement,
+      default: () => getPropDefault("ASelectIcon", "placement", "bottom-end"),
       validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popperContainerId: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.popperContainerId,
+      default: () => getPropDefault("ASelectIcon", "popperContainerId", "a_select_container"),
     },
     readonly: {
       type: Boolean,
@@ -293,7 +294,7 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.readonlyDefault,
+      default: () => getPropDefault("ASelectIcon", "readonlyDefault", ""),
     },
     required: {
       type: Boolean,
@@ -308,12 +309,12 @@ export default {
     searchTextInHtml: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.searchTextInHtml,
+      default: () => getPropDefault("ASelectIcon", "searchTextInHtml", false),
     },
     searchTimeout: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.searchTimeout,
+      default: () => getPropDefault("ASelectIcon", "searchTimeout", 0),
     },
     selectMenuClass: {
       type: [String, Object],
@@ -328,28 +329,28 @@ export default {
     sortOrder: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.sortOrder,
+      default: () => getPropDefault("ASelectIcon", "sortOrder"),
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     textDeselectAll: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.textDeselectAll,
+      default: () => getPropDefault("ASelectIcon", "textDeselectAll", "_A_SELECT_DESELECT_ALL_"),
     },
     textSelectAll: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.textSelectAll,
+      default: () => getPropDefault("ASelectIcon", "textSelectAll", "_A_SELECT_SELECT_ALL_"),
     },
     translateGroup: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.translateGroup,
+      default: () => getPropDefault("ASelectIcon", "translateGroup", false),
     },
     type: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.type,
+      default: () => getPropDefault("ASelectIcon", "type", "select"),
       validator: value => ["select", "selectIcon", "multiselect", "multiselectIcon"].indexOf(value) !== -1,
     },
   },

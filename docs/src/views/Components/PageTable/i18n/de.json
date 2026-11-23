@@ -15,6 +15,10 @@
   "_A_TABLE_FILTER_DATE_": "Datum",
   "_A_TABLE_FILTER_EXTRA_": "Extra Filter",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Gestreifte Zeilen",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Mit <code>is-striped</code> erhält jede zweite Zeile den Hintergrund <code>--a_table_row_striped_bg</code>. Hover, ausgewählte Zeilen und die offene Vorschau behalten ihre eigenen Farben. Der Standard für alle Tabellen lässt sich mit <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>) setzen.",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Gestreifte Tabelle"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Mit <code>is-striped</code> erhält jede zweite Zeile den Hintergrund <code>--a_table_row_striped_bg</code>. Hover, ausgewählte Zeilen und die offene Vorschau behalten ihre eigenen Farben. Der Standard für alle Tabellen lässt sich mit <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>) setzen.",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Gestreifte Tabelle",
+  "_A_TABLE_COMPONENT_NAME_": "Tabelle",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "Die Komponente <strong>ATable</strong> zeigt Daten in einer Tabelle mit Sortierung, Paginierung, Filtern, Schnellsuche, Zeilen- und Tabellenaktionen, Zeilenauswahl, Vorschau, Ausblenden und Verschieben von Spalten, gespeicherten Ansichten und mobiler Ansicht.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Tabelle mit allen Funktionen",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Zeilen-, Tabellen- und Mehrfachaktionen, Schnellsuche, Verschieben von Spalten, Paginierung, Fußzeilen, Sortierung nach mehreren Spalten und gespeicherte Ansichten in einer Tabelle."
 }

@@ -1,0 +1,11 @@
+// Stacks: flex column / row. The space between the items is set with a_gap_*.
+.a_vstack {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.a_hstack {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}

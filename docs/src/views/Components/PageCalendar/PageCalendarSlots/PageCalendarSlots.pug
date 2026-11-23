@@ -1,0 +1,43 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_SLOTS_HEADER_"
+  description="_A_CALENDAR_SLOTS_DESCRIPTION_"
+)
+  a-calendar(
+    :events="events"
+  )
+    template(
+      v-slot:header="{ title, goToPreviousMonth, goToNextMonth }"
+    )
+      .a_d_flex.a_align_items_center.a_gap_2
+        a-button(
+          class="a_btn a_btn_link"
+          text="←"
+          text-screen-reader="_A_CALENDAR_PREVIOUS_MONTH_"
+          @click="goToPreviousMonth"
+        )
+        h3.a_m_0 {{ title }}
+        a-button(
+          class="a_btn a_btn_link"
+          text="→"
+          text-screen-reader="_A_CALENDAR_NEXT_MONTH_"
+          @click="goToNextMonth"
+        )
+    template(
+      v-slot:day="{ day, events: eventsOfDay }"
+    )
+      span {{ day.day }}
+      span.a_badge.a_badge_secondary.a_ml_auto(
+        v-if="eventsOfDay.length"
+        aria-hidden="true"
+      ) {{ eventsOfDay.length }}
+    template(
+      v-slot:event="{ event, isStart }"
+    )
+      strong(
+        v-if="isStart"
+      ) {{ event.label }}
+      span(
+        v-else
+      ) … {{ event.label }}

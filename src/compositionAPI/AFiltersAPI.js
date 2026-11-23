@@ -6,6 +6,7 @@ import _filterBoolean from "../filters/filterBoolean";
 import _filterCapitalize from "../filters/filterCapitalize";
 import _filterCurrency from "../filters/filterCurrency";
 import _filterDate from "../filters/filterDate";
+import _filterDateRelative from "../filters/filterDateRelative";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
 import _filterDuration from "../filters/filterDuration";
 import _filterEmail from "../filters/filterEmail";
@@ -20,9 +21,13 @@ import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterLowerCase from "../filters/filterLowerCase";
 import _filterMask from "../filters/filterMask";
+import _filterNewlines from "../filters/filterNewlines";
 import _filterNumberCompact from "../filters/filterNumberCompact";
+import _filterPercent from "../filters/filterPercent";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
+import _filterStripHtml from "../filters/filterStripHtml";
+import _filterTitleCase from "../filters/filterTitleCase";
 import _filterTruncateMiddle from "../filters/filterTruncateMiddle";
 import _filterUpperCase from "../filters/filterUpperCase";
 import _filterValueByCondition from "../filters/filterValueByCondition";
@@ -52,6 +57,10 @@ export default function AFiltersAPI() {
 
   const filterDate = (value, { format = "date" } = {}) => {
     return _filterDate(value, { format });
+  };
+
+  const filterDateRelative = (value, { now = new Date(), numeric = "auto" } = {}) => {
+    return _filterDateRelative(value, { now, numeric });
   };
 
   const filterDefaultForEmpty = (value, { emptyValue = "-" } = {}) => {
@@ -130,6 +139,10 @@ export default function AFiltersAPI() {
     return _filterNumberCompact(value, { digits, minValue, isTrailingZeros });
   };
 
+  const filterPercent = (value, { digits = 2, digitGrouping = true, isFraction = false } = {}) => {
+    return _filterPercent(value, { digits, digitGrouping, isFraction });
+  };
+
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
@@ -150,6 +163,18 @@ export default function AFiltersAPI() {
       caseSensitive,
       isHtml,
     });
+  };
+
+  const filterNewlines = value => {
+    return _filterNewlines(value);
+  };
+
+  const filterStripHtml = value => {
+    return _filterStripHtml(value);
+  };
+
+  const filterTitleCase = value => {
+    return _filterTitleCase(value);
   };
 
   const filterTruncateMiddle = (value, { start = 6, end = 4, separator = "…" } = {}) => {
@@ -177,6 +202,7 @@ export default function AFiltersAPI() {
     filterCapitalize,
     filterCurrency,
     filterDate,
+    filterDateRelative,
     filterDefaultForEmpty,
     filterDuration,
     filterEmail,
@@ -191,9 +217,13 @@ export default function AFiltersAPI() {
     filterList,
     filterLowerCase,
     filterMask,
+    filterNewlines,
     filterNumberCompact,
+    filterPercent,
     filterPropertyByValue,
     filterSearchHighlight,
+    filterStripHtml,
+    filterTitleCase,
     filterTruncateMiddle,
     filterUpperCase,
     filterValueByCondition,

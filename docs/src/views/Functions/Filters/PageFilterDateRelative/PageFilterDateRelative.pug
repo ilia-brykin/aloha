@@ -1,0 +1,34 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterDateRelative"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterDateRelative"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterDateRelative(value, { [now=new Date()], [numeric=\"auto\"] })"
+    )
+
+    page-filter-date-relative-example
+
+    page-filter-date-relative-numeric
+
+    page-filter-date-relative-now
+
+    page-filter-test(
+      :test="test"
+    )

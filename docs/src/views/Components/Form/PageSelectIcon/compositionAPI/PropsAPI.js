@@ -156,7 +156,7 @@ export default function PropsAPI() {
     },
     {
       name: "is-deselect-all",
-      description: "_A_SELECT_PROPS_IS_DESELECT_ALL_DESCRIPTION_",
+      description: "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_",
       type: "Boolean",
       default: false,
       required: false,
@@ -184,7 +184,7 @@ export default function PropsAPI() {
     },
     {
       name: "is-select-all",
-      description: "_A_SELECT_PROPS_IS_SELECT_ALL_DESCRIPTION_",
+      description: "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_",
       type: "Boolean",
       default: false,
       required: false,
@@ -338,14 +338,14 @@ export default function PropsAPI() {
     },
     {
       name: "placement",
-      description: "_A_UI_PROPS_PLACEMENT_DESCRIPTION_",
+      description: "_A_SELECT_PROPS_PLACEMENT_DESCRIPTION_",
       type: "String",
       default: "bottom-end",
       required: false,
     },
     {
       name: "popper-container-id",
-      description: "_A_UI_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_",
+      description: "_A_SELECT_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_",
       type: "String",
       default: "a_select_container",
       required: false,
@@ -380,7 +380,7 @@ export default function PropsAPI() {
     },
     {
       name: "search-text-in-html",
-      description: "_A_UI_PROPS_SEARCH_TEXT_IN_HTML_DESCRIPTION_",
+      description: "_A_UI_PROPS_SEARCH_SEARCH_TEXT_IN_HTML_DESCRIPTION_",
       type: "Boolean",
       default: undefined,
       required: false,
@@ -415,14 +415,14 @@ export default function PropsAPI() {
     },
     {
       name: "text-deselect-all",
-      description: "_A_SELECT_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_",
+      description: "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_",
       type: "String",
       default: "_A_SELECT_DESELECT_ALL_",
       required: false,
     },
     {
       name: "text-select-all",
-      description: "_A_SELECT_PROPS_TEXT_SELECT_ALL_DESCRIPTION_",
+      description: "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_",
       type: "String",
       default: "_A_SELECT_SELECT_ALL_",
       required: false,

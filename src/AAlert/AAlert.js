@@ -12,9 +12,10 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import CloseAPI from "./compositionAPI/CloseAPI";
 import IconAPI from "./compositionAPI/IconAPI";
 
+import Close from "../AIcon/Icons/Close";
 import {
-  alertPluginOptions,
-} from "../plugins/AAlertPlugin";
+  getPropDefault,
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "AAlert",
@@ -22,96 +23,102 @@ export default {
     alertClass: {
       type: [String, Object],
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.alertClass,
+      default: () => getPropDefault("AAlert", "alertClass"),
     },
     alertContentClass: {
       type: [String, Object],
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.alertContentClass,
+      default: () => getPropDefault("AAlert", "alertContentClass"),
     },
     alwaysTranslate: {
       type: Boolean,
       required: false,
     },
-    ariaAtomic: {
-      type: Boolean,
+    announce: {
+      type: String,
       required: false,
-      default: true,
+      default: () => getPropDefault("AAlert", "announce", "alert"),
+      validator: value => ["alert", "alert-changes", "status", "status-changes", "none"].includes(value),
+    },
+    ariaAtomic: {
+      type: [Boolean, String],
+      required: false,
+      default: undefined,
     },
     btnCloseAttributes: {
       type: Object,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.btnCloseAttributes,
+      default: () => getPropDefault("AAlert", "btnCloseAttributes", {}),
     },
     btnCloseIcon: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.btnCloseIcon,
+      default: () => getPropDefault("AAlert", "btnCloseIcon", Close),
     },
     closable: {
       type: Boolean,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.closable,
+      default: () => getPropDefault("AAlert", "closable", false),
     },
     extra: {
       type: Object,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.extra,
+      default: () => getPropDefault("AAlert", "extra"),
     },
     html: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.html,
+      default: () => getPropDefault("AAlert", "html"),
     },
     icon: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.icon,
+      default: () => getPropDefault("AAlert", "icon"),
     },
     iconClass: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.iconClass,
+      default: () => getPropDefault("AAlert", "iconClass"),
     },
     isVisible: {
       type: Boolean,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.isVisible,
+      default: () => getPropDefault("AAlert", "isVisible", false),
     },
     removeAlertOnClose: {
       type: Boolean,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.removeAlertOnClose,
+      default: () => getPropDefault("AAlert", "removeAlertOnClose", false),
     },
     role: {
       type: String,
       required: false,
-      default: "alert",
+      default: undefined,
     },
     safeHtml: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.safeHtml,
+      default: () => getPropDefault("AAlert", "safeHtml"),
     },
     showIcon: {
       type: Boolean,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.showIcon,
+      default: () => getPropDefault("AAlert", "showIcon", false),
     },
     text: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.text,
+      default: () => getPropDefault("AAlert", "text"),
     },
     textClose: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.textClose,
+      default: () => getPropDefault("AAlert", "textClose", "_A_ALERT_CLOSE_"),
     },
     type: {
       type: String,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.type,
+      default: () => getPropDefault("AAlert", "type", "danger"),
     },
   },
   emits: [

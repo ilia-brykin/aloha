@@ -46,6 +46,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "calendar",
+        label: "Calendar",
+        class: "test_menu_calendar",
+        to: {
+          name: "PageCalendar",
+        },
+      },
+      {
         id: "PageCarousel",
         label: "Carousel",
         class: "test_menu_carousel",
@@ -413,10 +421,24 @@ export default function ComponentItemsAPI() {
       {
         id: "modal",
         label: "Modal",
-        class: "test_menu_modal",
-        to: {
-          name: "PageModal",
-        },
+        children: [
+          {
+            id: "PageModal",
+            label: "Modal",
+            class: "test_menu_modal",
+            to: {
+              name: "PageModal",
+            },
+          },
+          {
+            id: "PageModalForm",
+            label: "Modal form",
+            class: "test_menu_modal_form",
+            to: {
+              name: "PageModalForm",
+            },
+          },
+        ],
       },
       {
         id: "notification",
@@ -563,9 +585,8 @@ export default function ComponentItemsAPI() {
         id: "tooltip",
         label: "Tooltip",
         to: {
-          name: "PageTitle",
+          name: "PageTooltip",
         },
-        titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
       },
       {
         id: "tree",

@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> con <code>a_tile__body</code>. El mosaico es una columna flex, por eso <code>a_tile__body</code> llena la altura libre.",
+  "_A_TILE_BASIC_HEADER_": "Básico",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Con <code>a_stretched_link</code> en el enlace todo el mosaico es clicable, <code>a_bg_{color}_subtle_hover</code> lo resalta al pasar el ratón. Los usuarios de teclado y lectores de pantalla siguen teniendo un solo enlace con un texto claro. Otros botones del mosaico necesitan <code>a_position_relative</code> y <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Mosaico clicable",
+  "_A_TILE_COLORS_DESCRIPTION_": "El mosaico se modifica con las clases de utilidad: color del borde (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), sombra (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), estilo de línea (<code>a_border_style_dashed</code>). Los valores por defecto y el radio de las esquinas se definen con las variables CSS de abajo.",
+  "_A_TILE_COLORS_HEADER_": "Colores, sombra y borde",
+  "_A_TILE_GRID_DESCRIPTION_": "Mosaicos en <code>a_columns</code>. Con <code>a_height_100</code> todos los mosaicos de una fila tienen la misma altura, <code>a_columns_count_1_mobile</code> muestra un mosaico por fila en dispositivos móviles.",
+  "_A_TILE_GRID_HEADER_": "Mosaicos en una cuadrícula",
+  "_A_TILE_PAGE_DESCRIPTION_": "La clase <code>a_tile</code> es una caja sobre la superficie con borde y esquinas redondeadas, p. ej. para un resumen, un widget de panel o un elemento de una lista de resultados. Es solo CSS, las partes <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> son opcionales.",
+  "_A_TILE_PAGE_NAME_": "Mosaico",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> y <code>a_tile__footer</code> reciben un fondo sutil y una línea hacia el contenido. Use en el encabezado un título del nivel adecuado (<code>h2</code> … <code>h6</code>) para que la estructura de la página siga siendo correcta para los lectores de pantalla.",
+  "_A_TILE_PARTS_HEADER_": "Encabezado y pie"
+}

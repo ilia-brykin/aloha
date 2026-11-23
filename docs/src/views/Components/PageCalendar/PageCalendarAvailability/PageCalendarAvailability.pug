@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_AVAILABILITY_HEADER_"
+  description="_A_CALENDAR_AVAILABILITY_DESCRIPTION_"
+  :props="['min-date', 'max-date', 'disabled-dates']"
+)
+  a-calendar(
+    v-model="model"
+    :min-date="minDate"
+    :max-date="maxDate"
+    :disabled-dates="isHoliday"
+  )
+  p.a_mt_3.a_mb_0
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_SELECTED_"
+    )
+    | : {{ model }}

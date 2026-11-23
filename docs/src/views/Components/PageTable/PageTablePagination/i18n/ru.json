@@ -17,5 +17,10 @@
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "Пагинацию можно использовать вне компонента с помощью <strong>:pagination=\"{ use: true, isOutside: true }\"</strong>. Параметр <strong>:count-all-rows=\"999\"</strong> указывает, сколько строк в таблице. Если вы измените количество на странице, будет вызван emit <strong>change-limit</strong>. Если вы измените пагинацию, будет вызван emit <strong>change-offset</strong>.",
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Пагинация вне компонента (пагинация на стороне сервера)",
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Таблица с пагинацией",
-  "_A_TABLE_PAGINATION_": "(Таблица с пагинацией)"
+  "_A_TABLE_PAGINATION_": "(Таблица с пагинацией)",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_": "Положение пагинации",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_": "<code>pagination.position</code>: <code>\"top\"</code> над таблицей, <code>\"bottom\"</code> под ней, <code>\"y\"</code> над и под ней.",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_": "Пагинация сверху",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_": "Пагинация снизу",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_": "Пагинация сверху и снизу"
 }

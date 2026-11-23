@@ -862,6 +862,7 @@
 
 :where(.a_table__th__dropdown__ul) {
   // column dropdown
+  --a_table_between_actions_margin: var(--a_space_sm); // Space between an icon and the text in the column dropdown. Set here too: the dropdown is rendered in body, outside .a_table__parent.
   --a_table_dnd_dropdown_li_bg: var(--a_color_primary_bg_subtle); // Color of the drop indicator when a column is dragged in the column dropdown.
   --a_table_draggable_li_height: 1.875rem; // Height of the drop indicator in the column dropdown.
 }

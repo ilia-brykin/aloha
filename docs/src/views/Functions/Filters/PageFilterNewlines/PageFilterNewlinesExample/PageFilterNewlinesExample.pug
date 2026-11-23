@@ -1,0 +1,20 @@
+aloha-example(
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :is-code-visible-default="true"
+)
+  .a_columns.a_columns_count_2.a_columns_count_1_mobile
+    .a_column.a_column_1
+      a-translation.a_text_bold(
+        tag="div"
+        text="_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_"
+      )
+      pre.a_mb_0 {{ text }}
+    .a_column.a_column_1
+      a-translation.a_text_bold(
+        tag="div"
+        text="_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_"
+      )
+      div(
+        v-html="html"
+      )

@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "De functie <strong>filterNewlines</strong> toont een tekst met meerdere regels, bijv. uit een <code>textarea</code>, als HTML: ze escapet de speciale HTML-tekens en vervangt de regeleinden door <code>&lt;br&gt;</code>. Het resultaat is veilig voor <code>v-html</code> en de prop <code>html</code>. Gebruik in een tabelkolom <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "De tekst met regeleinden",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Tekst",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Resultaat"
+}

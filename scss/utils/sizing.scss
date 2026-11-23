@@ -37,7 +37,25 @@ $sizing_max_width: (
     property: max-width,
     class: max_width,
     values: (
-        100: 100%,
+        300px:  300px,
+        400px:  400px,
+        500px:  500px,
+        600px:  600px,
+        800px:  800px,
+        25:     25%,
+        50:     50%,
+        75:     75%,
+        100:    100%,
+        none:   none,
+    ),
+);
+// min-width: 0 lets a flex or grid item shrink below the width of its content (e.g. a_text_truncate)
+$sizing_min_width: (
+    property: min-width,
+    class: min_width,
+    values: (
+        0:      0,
+        100:    100%,
     ),
 );
 $sizing_viewport_width: (
@@ -79,6 +97,15 @@ $sizing_max_height: (
     class: max_height,
     values: (
         100: 100%,
+        none: none,
+    ),
+);
+$sizing_min_height: (
+    property: min-height,
+    class: min_height,
+    values: (
+        0:      0,
+        100:    100%,
     ),
 );
 $sizing_viewport_height: (
@@ -86,6 +113,7 @@ $sizing_viewport_height: (
     class: viewport_height,
     values: (
         100: 100vh,
+        100dvh: 100dvh,
     ),
 );
 $sizing_min_viewport_height: (
@@ -93,16 +121,19 @@ $sizing_min_viewport_height: (
     class: min_viewport_height,
     values: (
         100: 100vh,
+        100dvh: 100dvh,
     ),
 );
 
 $sizing: (
         "width": $sizing_width,
         "max-width": $sizing_max_width,
+        "min-width": $sizing_min_width,
         "viewport-width": $sizing_viewport_width,
         "min-viewport-width": $sizing_min_viewport_width,
         "height": $sizing_height,
         "max-height": $sizing_max_height,
+        "min-height": $sizing_min_height,
         "viewport-height": $sizing_viewport_height,
         "min-viewport-height": $sizing_min_viewport_height,
 );

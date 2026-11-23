@@ -2,5 +2,13 @@
   "_A_TABLE_FILTERS_": "_A_TABLE_FILTERS_",
   "_A_TABLE_GROUP_FILTERS_DESCRIPTION_": "_A_TABLE_GROUP_FILTERS_DESCRIPTION_",
   "_A_TABLE_GROUP_FILTERS_LABEL_": "_A_TABLE_GROUP_FILTERS_LABEL_",
-  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_"
+  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_HEADER_": "Vidljivi i skriveni filtri",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Filtri s <code>main: true</code> ili <code>alwaysVisible: true</code> uvijek su prikazani. Ostali su skriveni dok ih korisnik ne otvori.",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_HEADER_": "Početne vrijednosti filtara",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_DESCRIPTION_": "<code>model-filters</code> postavlja vrijednosti filtara pri prikazu tablice.",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_HEADER_": "Spremljeni filtri pri pokretanju",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_DESCRIPTION_": "<code>filter.filtersSaved</code> prosljeđuje ranije spremljene skupove filtara, korisnik ih može odmah primijeniti.",
+  "_A_TABLE_GROUP_FILTERS_SAVE_HEADER_": "Spremanje filtara",
+  "_A_TABLE_GROUP_FILTERS_SAVE_DESCRIPTION_": "Uz <code>filter.canSave: true</code> korisnik može spremiti trenutne vrijednosti filtara pod imenom i primijeniti ih kasnije."
 }

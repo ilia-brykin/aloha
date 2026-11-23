@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CALENDAR_MAX_EVENTS_HEADER_"
+  description="_A_CALENDAR_MAX_EVENTS_DESCRIPTION_"
+  :props="['max-events-per-day']"
+)
+  a-calendar(
+    :events="events"
+    :max-events-per-day="2"
+    @more-click="onMoreClick"
+  )
+  div.a_mt_3(
+    v-if="day"
+  )
+    a-translation(
+      tag="strong"
+      text="_A_CALENDAR_MAX_EVENTS_LIST_"
+    )
+    | : {{ day }}
+    ul.a_mb_0
+      li(
+        v-for="event in dayEvents"
+        :key="event.id"
+      ) {{ event.label }}

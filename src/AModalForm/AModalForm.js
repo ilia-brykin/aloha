@@ -11,8 +11,8 @@ import DataFormAPI from "./compositionAPI/DataFormAPI";
 import UpdateModalAPI from "./compositionAPI/UpdateModalAPI";
 
 import {
-  modalPluginOptions,
-} from "../plugins/AModalPlugin";
+  getPropDefault,
+} from "../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -63,7 +63,7 @@ export default {
     closeButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonClass,
+      default: () => getPropDefault("AModalForm", "closeButtonClass", "a_btn a_btn_secondary"),
     },
     closeButtonId: {
       type: String,
@@ -73,17 +73,17 @@ export default {
     closeButtonText: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonText,
+      default: () => getPropDefault("AModalForm", "closeButtonText", "_A_MODAL_BTN_CANCEL_"),
     },
     closeButtonTextScreenReaderFooter: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderFooter,
+      default: () => getPropDefault("AModalForm", "closeButtonTextScreenReaderFooter", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_"),
     },
     closeButtonTextScreenReaderHeader: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderHeader,
+      default: () => getPropDefault("AModalForm", "closeButtonTextScreenReaderHeader", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_"),
     },
     dataForm: {
       type: Array,
@@ -118,7 +118,7 @@ export default {
     headerTag: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.headerTag,
+      default: () => getPropDefault("AModalForm", "headerTag", "h2"),
     },
     headerText: {
       type: String,
@@ -141,12 +141,12 @@ export default {
     idPrefix: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.idPrefix,
+      default: () => getPropDefault("AModalForm", "idPrefix"),
     },
     isCloseButtonHide: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isCloseButtonHide,
+      default: () => getPropDefault("AModalForm", "isCloseButtonHide", false),
     },
     isConfirm: {
       type: Boolean,
@@ -155,17 +155,17 @@ export default {
     isDataFormHide: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isDataFormHide,
+      default: () => getPropDefault("AModalForm", "isDataFormHide", false),
     },
     isDataFormRender: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isDataFormRender,
+      default: () => getPropDefault("AModalForm", "isDataFormRender", true),
     },
     isFooterSticky: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isFooterSticky,
+      default: () => getPropDefault("AModalForm", "isFooterSticky", false),
     },
     isModalHidden: {
       type: Boolean,
@@ -175,12 +175,12 @@ export default {
     isRequired: {
       type: Boolean,
       required: false,
-      default: modalPluginOptions.value.propsDefault.isRequired,
+      default: () => getPropDefault("AModalForm", "isRequired", false),
     },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isSaveButtonHide,
+      default: () => getPropDefault("AModalForm", "isSaveButtonHide", false),
     },
     loading: {
       type: Boolean,
@@ -189,12 +189,12 @@ export default {
     modalClass: {
       type: [String, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.modalClass,
+      default: () => getPropDefault("AModalForm", "modalClass"),
     },
     modalStyle: {
       type: [String, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.modalStyle,
+      default: () => getPropDefault("AModalForm", "modalStyle"),
     },
     modelValue: {
       type: Object,
@@ -209,7 +209,7 @@ export default {
     saveButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonClass,
+      default: () => getPropDefault("AModalForm", "saveButtonClass", "a_btn a_btn_primary"),
     },
     saveButtonId: {
       type: String,
@@ -219,27 +219,27 @@ export default {
     saveButtonText: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonText,
+      default: () => getPropDefault("AModalForm", "saveButtonText", "_A_MODAL_BTN_SAVE_"),
     },
     saveButtonTextScreenReader: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonTextScreenReader,
+      default: () => getPropDefault("AModalForm", "saveButtonTextScreenReader", "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_"),
     },
     selectorClose: {
       type: [String, Array],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.selectorClose,
+      default: () => getPropDefault("AModalForm", "selectorClose"),
     },
     selectorCloseIds: {
       type: [String, Array],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
+      default: () => getPropDefault("AModalForm", "selectorCloseIds"),
     },
     size: {
       type: String,
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
-      default: () => modalPluginOptions.value.propsDefault.size,
+      default: () => getPropDefault("AModalForm", "size"),
     },
     stop: {
       type: Boolean,
@@ -248,7 +248,7 @@ export default {
     teleportSelector: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.teleportSelector,
+      default: () => getPropDefault("AModalForm", "teleportSelector", "body"),
     },
     textErrorHeader: {
       type: String,
@@ -258,12 +258,12 @@ export default {
     textRequired: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.textRequired,
+      default: () => getPropDefault("AModalForm", "textRequired"),
     },
     useEscape: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.useEscape,
+      default: () => getPropDefault("AModalForm", "useEscape", true),
     },
     useFlatErrors: {
       type: Boolean,

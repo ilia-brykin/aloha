@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "Die Funktion <strong>filterNewlines</strong> zeigt einen mehrzeiligen Text, z. B. aus einer <code>textarea</code>, als HTML an: Sie maskiert die HTML-Sonderzeichen und ersetzt die Zeilenumbrüche durch <code>&lt;br&gt;</code>. Das Ergebnis ist sicher für <code>v-html</code> und die Prop <code>html</code>. In einer Tabellenspalte verwenden Sie <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Der Text mit Zeilenumbrüchen",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Text",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Ergebnis"
+}

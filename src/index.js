@@ -4,6 +4,15 @@ export { default as AAlert } from "./AAlert/AAlert";
 export { default as AAvatar } from "./AAvatar/AAvatar";
 export { default as AAvatarGroup } from "./AAvatarGroup/AAvatarGroup";
 export { default as ABreadcrumb } from "./ABreadcrumb/ABreadcrumb";
+export { default as ACalendar } from "./ACalendar/ACalendar";
+export { getCalendarIcs } from "./ACalendar/utils/ics";
+export { parseCalendarIcs } from "./ACalendar/utils/icsParse";
+export {
+  addCalendarException,
+  detachCalendarOccurrence,
+  moveCalendarSeries,
+  splitCalendarSeries,
+} from "./ACalendar/utils/series";
 export { default as AButton } from "./AButton/AButton";
 export { default as ACheckbox } from "./ui/ACheckbox/ACheckbox";
 export { default as ACheckboxRadioGroups } from "./ui/ACheckboxRadioGroups/ACheckboxRadioGroups";
@@ -175,61 +184,36 @@ export { default as AOnHooks } from "./directives/AOnHooks";
 export { default as ASafeHtml } from "./directives/ASafeHtml";
 
 // plugins
-export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
-export { default as AAvatarPlugin } from "./plugins/AAvatarPlugin";
+export {
+  default as AComponentsPlugin,
+  COMPONENTS_PARENTS,
+  componentsPluginOptions,
+  getComponentOption,
+  getPropDefault,
+} from "./plugins/AComponentsPlugin";
 export {
   default as ADataRetrievePlugin,
   ADataRetrievePluginOptions,
   defaultRetrieve as ADataRetrievePlugin_defaultRetrieve,
 } from "./plugins/ADataRetrievePlugin";
-export { default as ACloakPlugin } from "./plugins/ACloakPlugin";
-export {
-  default as AFiltersPlugin,
-} from "./plugins/AFiltersPlugin";
 export { default as ARemPxPlugin } from "./plugins/ARemPxPlugin";
 export {
   default as AFormPlugin,
   AFormPluginOptions,
 } from "./plugins/AFormPlugin";
-export { default as AGroupButtonDropdownPlugin } from "./plugins/AGroupButtonDropdownPlugin";
 export { default as AHttpPlugin } from "./plugins/AHttpPlugin";
 export { default as AI18nPlugin } from "./plugins/AI18nPlugin";
 export { default as AIconPlugin } from "./plugins/AIconPlugin";
-export {
-  default as AInputCurrencyPlugin,
-  AInputCurrencyPluginOptions,
-} from "./plugins/AInputCurrencyPlugin";
-export {
-  default as AInputNumberPlugin,
-  AInputNumberPluginOptions,
-} from "./plugins/AInputNumberPlugin";
-export {
-  default as AMultiselectOrderedPlugin,
-  AMultiselectOrderedPluginOptions,
-} from "./plugins/AMultiselectOrderedPlugin";
-export { default as ALoadingPlugin } from "./plugins/ALoadingPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
-export { default as AModalPlugin } from "./plugins/AModalPlugin";
 export { default as APageTabTitlePlugin } from "./plugins/APageTabTitlePlugin";
-export {
-  default as ARouterLinkConfigPlugin,
-  ARouterLinkConfigPluginOptions,
-} from "./plugins/ARouterLinkConfigPlugin";
-export {
-  default as ASelectStylesPlugin,
-  ASelectStylePluginOptions,
-} from "./plugins/ASelectStylesPlugin";
-export { default as ASelectPlugin } from "./plugins/ASelectPlugin";
-export { default as ASkeletonPlugin } from "./plugins/ASkeletonPlugin";
-export { default as ASpinnerPlugin } from "./plugins/ASpinnerPlugin";
-export { default as ATablePlugin } from "./plugins/ATablePlugin";
 
 // filters
 export { default as filterBoolean } from "./filters/filterBoolean";
 export { default as filterCapitalize } from "./filters/filterCapitalize";
 export { default as filterCurrency } from "./filters/filterCurrency";
 export { default as filterDate } from "./filters/filterDate";
+export { default as filterDateRelative } from "./filters/filterDateRelative";
 export { default as filterDefaultForEmpty } from "./filters/filterDefaultForEmpty";
 export { default as filterDuration } from "./filters/filterDuration";
 export { default as filterEmail } from "./filters/filterEmail";
@@ -244,9 +228,13 @@ export { default as filterLink } from "./filters/filterLink";
 export { default as filterList } from "./filters/filterList";
 export { default as filterLowerCase } from "./filters/filterLowerCase";
 export { default as filterMask } from "./filters/filterMask";
+export { default as filterNewlines } from "./filters/filterNewlines";
 export { default as filterNumberCompact } from "./filters/filterNumberCompact";
+export { default as filterPercent } from "./filters/filterPercent";
 export { default as filterPropertyByValue } from "./filters/filterPropertyByValue";
 export { default as filterSearchHighlight } from "./filters/filterSearchHighlight";
+export { default as filterStripHtml } from "./filters/filterStripHtml";
+export { default as filterTitleCase } from "./filters/filterTitleCase";
 export { default as filterTruncateMiddle } from "./filters/filterTruncateMiddle";
 export { default as filterUpperCase } from "./filters/filterUpperCase";
 export { default as filterValueByCondition } from "./filters/filterValueByCondition";
@@ -367,6 +355,7 @@ export {
 } from "./i18n/allLanguages";
 export { default as AAlertI18n } from "./AAlert/i18n/AAlertI18n";
 export { default as AAvatarI18n } from "./AAvatar/i18n/AAvatarI18n";
+export { default as ACalendarI18n } from "./ACalendar/i18n/ACalendarI18n";
 export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";
 export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";

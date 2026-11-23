@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Met deze slot kunt u de langere tekstinhoud aanpassen die wordt weergegeven wanneer de gebruiker op \"Meer tonen\" klikt. U hebt toegang tot de waarden <strong>isButtonVisible</strong> en <strong>isOpen</strong>, die informatie geven over de zichtbaarheid en de huidige status van de knop.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Componentstatus omschakelen (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Componentstatus omschakelen (knop)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Deze gebeurtenis wordt geactiveerd wanneer de gebruiker op de knop \"Meer tonen/Minder tonen\" klikt. Ze retourneert een object met informatie over de huidige status van de component, waaronder <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Deze gebeurtenis wordt geactiveerd wanneer de gebruiker op de knop \"Meer tonen/Minder tonen\" klikt. Ze retourneert een object met informatie over de huidige status van de component, waaronder <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Verkorte tekst tonen"
 }

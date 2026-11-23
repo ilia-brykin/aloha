@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_TITLE_CASE_DESCRIPTION_": "Funkcja <strong>filterTitleCase</strong> zamienia pierwszą literę każdego słowa na wielką. Pozostałe litery się nie zmieniają, więc skróty takie jak „NASA” zostają zachowane. Aby zmienić tylko pierwszą literę ciągu, użyj <strong>filterCapitalize</strong>.",
+  "_PAGE_FILTER_TITLE_CASE_ARGUMENTS_VALUE_": "Ciąg do przekształcenia"
+}

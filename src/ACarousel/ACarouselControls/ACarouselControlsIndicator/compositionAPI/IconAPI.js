@@ -4,14 +4,17 @@ import {
 } from "vue";
 
 import {
-  ACarouselPluginOptions,
-} from "../../../../plugins/ACarouselPlugin";
+  CAROUSEL_ICONS,
+} from "../../../utils/icons";
+import {
+  getComponentOption,
+} from "../../../../plugins/AComponentsPlugin";
 
 export default function IconAPI(props) {
   const indicatorsType = toRef(props, "indicatorsType");
 
   const indicatorIcon = computed(() => {
-    return ACarouselPluginOptions.icons[indicatorsType.value];
+    return getComponentOption("ACarousel", "icons", {})[indicatorsType.value] ?? CAROUSEL_ICONS[indicatorsType.value];
   });
 
   return {

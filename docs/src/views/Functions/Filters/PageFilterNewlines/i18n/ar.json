@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "تعرض الدالة <strong>filterNewlines</strong> نصًا متعدد الأسطر، مثلًا من <code>textarea</code>، بصيغة HTML: تُهرّب أحرف HTML الخاصة وتستبدل فواصل الأسطر بـ <code>&lt;br&gt;</code>. النتيجة آمنة لـ <code>v-html</code> والخاصية <code>html</code>. في عمود جدول استخدم <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "النص مع فواصل الأسطر",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "النص",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "النتيجة"
+}

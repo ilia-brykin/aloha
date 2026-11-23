@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> s <code>a_tile__body</code>. Pločica je flex stupac, pa <code>a_tile__body</code> ispunjava slobodnu visinu.",
+  "_A_TILE_BASIC_HEADER_": "Osnovno",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "S <code>a_stretched_link</code> na poveznici cijela pločica je klikabilna, <code>a_bg_{color}_subtle_hover</code> je ističe pri prelasku mišem. Korisnici tipkovnice i čitača zaslona i dalje dobivaju jednu poveznicu s jasnim tekstom. Drugi gumbi u pločici trebaju <code>a_position_relative</code> i <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Klikabilna pločica",
+  "_A_TILE_COLORS_DESCRIPTION_": "Pločica se mijenja pomoćnim klasama: boja obruba (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), sjena (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), stil linije (<code>a_border_style_dashed</code>). Zadane vrijednosti i zaobljenje kutova postavljaju se CSS varijablama ispod.",
+  "_A_TILE_COLORS_HEADER_": "Boje, sjena i obrub",
+  "_A_TILE_GRID_DESCRIPTION_": "Pločice u <code>a_columns</code>. S <code>a_height_100</code> sve pločice u retku imaju istu visinu, <code>a_columns_count_1_mobile</code> na mobilnim uređajima prikazuje jednu pločicu po retku.",
+  "_A_TILE_GRID_HEADER_": "Pločice u mreži",
+  "_A_TILE_PAGE_DESCRIPTION_": "Klasa <code>a_tile</code> je okvir na površini s obrubom i zaobljenim kutovima, npr. za sažetak, widget nadzorne ploče ili stavku u popisu rezultata. To je samo CSS, dijelovi <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> su neobavezni.",
+  "_A_TILE_PAGE_NAME_": "Pločica",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> i <code>a_tile__footer</code> dobivaju suptilnu pozadinu i liniju prema sadržaju. U zaglavlju koristite naslov odgovarajuće razine (<code>h2</code> … <code>h6</code>) kako bi struktura stranice ostala ispravna za čitače zaslona.",
+  "_A_TILE_PARTS_HEADER_": "Zaglavlje i podnožje"
+}

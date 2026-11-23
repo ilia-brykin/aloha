@@ -19,8 +19,8 @@ import StartSearchAPI from "./compositionAPI/StartSearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import {
-  filtersPluginOptions,
-} from "../../plugins/AFiltersPlugin";
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -49,22 +49,22 @@ export default {
     filterCenterBtnCloseAllClass: {
       type: [String, Object],
       required: false,
-      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnCloseAllClass,
+      default: () => getPropDefault("AFilters", "filterCenterBtnCloseAllClass", "a_btn a_btn_link a_btn_small"),
     },
     filterCenterBtnCloseClass: {
       type: [String, Object],
       required: false,
-      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnCloseClass,
+      default: () => getPropDefault("AFilters", "filterCenterBtnCloseClass", "a_btn a_btn_secondary"),
     },
     filterCenterBtnGoToClass: {
       type: [String, Object],
       required: false,
-      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnGoToClass,
+      default: () => getPropDefault("AFilters", "filterCenterBtnGoToClass", "a_btn a_btn_secondary"),
     },
     filterCenterBtnNotCloseClass: {
       type: [String, Object],
       required: false,
-      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnNotCloseClass,
+      default: () => getPropDefault("AFilters", "filterCenterBtnNotCloseClass", "a_btn a_btn_secondary"),
     },
     filterMain: {
       type: Object,

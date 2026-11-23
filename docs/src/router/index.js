@@ -38,24 +38,9 @@ const ROUTES = [
   },
   // Plugins
   {
-    path: "/alert-plugin",
-    name: "PageAlertPlugin",
-    component: () => import("../views/Plugins/PageAlertPlugin/PageAlertPlugin.vue"),
-  },
-  {
-    path: "/cloak-plugin",
-    name: "PageCloakPlugin",
-    component: () => import("../views/Plugins/PageCloakPlugin/PageCloakPlugin.vue"),
-  },
-  {
     path: "/icon-plugin",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
-  },
-  {
-    path: "/loading-plugin",
-    name: "PageLoadingPlugin",
-    component: () => import("../views/Plugins/PageLoadingPlugin/PageLoadingPlugin.vue"),
   },
   {
     path: "/mobile-plugin",
@@ -63,9 +48,9 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),
   },
   {
-    path: "/spinner-plugin",
-    name: "PageSpinnerPlugin",
-    component: () => import("../views/Plugins/PageSpinnerPlugin/PageSpinnerPlugin.vue"),
+    path: "/components-plugin",
+    name: "PageComponentsPlugin",
+    component: () => import("../views/Plugins/PageComponentsPlugin/PageComponentsPlugin.vue"),
   },
   {
     path: "/page-tab-title-plugin",
@@ -198,6 +183,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageAvatar/PageAvatar.vue"),
   },
   {
+    path: "/calendar",
+    name: "PageCalendar",
+    component: () => import("../views/Components/PageCalendar/PageCalendar.vue"),
+  },
+  {
     path: "/rate",
     name: "PageRate",
     component: () => import("../views/Components/Form/PageRate/PageRate.vue"),
@@ -206,6 +196,11 @@ const ROUTES = [
     path: "/modal",
     name: "PageModal",
     component: () => import("../views/Components/PageModal/PageModal.vue"),
+  },
+  {
+    path: "/modal-form",
+    name: "PageModalForm",
+    component: () => import("../views/Components/PageModalForm/PageModalForm.vue"),
   },
   {
     path: "/confirm",
@@ -319,7 +314,7 @@ const ROUTES = [
   },
   {
     path: "/title",
-    name: "PageTitle",
+    name: "PageTooltip",
     component: () => import("../views/Components/PageTooltip/PageTooltip.vue"),
   },
   {
@@ -416,6 +411,11 @@ const ROUTES = [
     path: "/columns",
     name: "PageColumns",
     component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
+  },
+  {
+    path: "/tile",
+    name: "PageTile",
+    component: () => import("../views/CSS/PageTile/PageTile.vue"),
   },
   {
     path: "/utilities",
@@ -568,6 +568,16 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
   },
   {
+    path: "/filter-strip-html",
+    name: "PageFilterStripHtml",
+    component: () => import("../views/Functions/Filters/PageFilterStripHtml/PageFilterStripHtml.vue"),
+  },
+  {
+    path: "/filter-title-case",
+    name: "PageFilterTitleCase",
+    component: () => import("../views/Functions/Filters/PageFilterTitleCase/PageFilterTitleCase.vue"),
+  },
+  {
     path: "/filter-truncate-middle",
     name: "PageFilterTruncateMiddle",
     component: () => import("../views/Functions/Filters/PageFilterTruncateMiddle/PageFilterTruncateMiddle.vue"),
@@ -583,9 +593,19 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterMask/PageFilterMask.vue"),
   },
   {
+    path: "/filter-newlines",
+    name: "PageFilterNewlines",
+    component: () => import("../views/Functions/Filters/PageFilterNewlines/PageFilterNewlines.vue"),
+  },
+  {
     path: "/filter-number-compact",
     name: "PageFilterNumberCompact",
     component: () => import("../views/Functions/Filters/PageFilterNumberCompact/PageFilterNumberCompact.vue"),
+  },
+  {
+    path: "/filter-percent",
+    name: "PageFilterPercent",
+    component: () => import("../views/Functions/Filters/PageFilterPercent/PageFilterPercent.vue"),
   },
   {
     path: "/filter-capitalize",
@@ -621,6 +641,11 @@ const ROUTES = [
     path: "/filter-date",
     name: "PageFilterDate",
     component: () => import("../views/Functions/Filters/PageFilterDate/PageFilterDate.vue"),
+  },
+  {
+    path: "/filter-date-relative",
+    name: "PageFilterDateRelative",
+    component: () => import("../views/Functions/Filters/PageFilterDateRelative/PageFilterDateRelative.vue"),
   },
   {
     path: "/filter-float",

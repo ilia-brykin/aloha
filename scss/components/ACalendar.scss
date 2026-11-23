@@ -1,0 +1,763 @@
+@use "../utils/focus";
+
+.a_calendar {
+  // The layout changes with the width of the calendar, not of the window (@container below)
+  container: a_calendar / inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_calendar_gap);
+  color: var(--a_calendar_color);
+}
+// The loading overlay covers the days
+.a_calendar__body {
+  position: relative;
+}
+
+.a_calendar__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--a_calendar_gap);
+}
+.a_calendar__title {
+  font-size: var(--a_calendar_title_font_size);
+  font-weight: var(--a_calendar_title_font_weight);
+}
+.a_calendar__header_actions {
+  display: flex;
+  gap: .25rem;
+}
+
+.a_calendar__month {
+  overflow: hidden;
+  border: 1px solid var(--a_calendar_border_color);
+  border-radius: var(--a_calendar_border_radius);
+  background: var(--a_calendar_bg);
+}
+
+.a_calendar__weekdays,
+.a_calendar__week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.a_calendar__weekday {
+  padding: .375rem .5rem;
+  border-block-end: 1px solid var(--a_calendar_border_color);
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_weekday_font_size);
+  font-weight: var(--a_calendar_title_font_weight);
+  text-align: start;
+}
+
+// A week is a grid: the first row is the day number, then a row for every lane of events, then the "+N" row.
+// The days span all rows, the events lie on top of them.
+.a_calendar__week {
+  grid-template-rows:
+    var(--a_calendar_day_number_height)
+    repeat(var(--a_calendar_lanes), var(--a_calendar_event_height))
+    minmax(var(--a_calendar_more_height), 1fr);
+  row-gap: var(--a_calendar_event_gap);
+  min-height: var(--a_calendar_week_min_height);
+  & + & {
+    border-block-start: 1px solid var(--a_calendar_border_color);
+  }
+}
+
+.a_calendar__day {
+  display: flex;
+  grid-row: 1 / -1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: .25rem .5rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  @include focus.focus-visible(true);
+  & + & {
+    border-inline-start: 1px solid var(--a_calendar_border_color);
+  }
+  &:hover {
+    background: var(--a_calendar_day_hover_bg);
+  }
+}
+.a_calendar__day_weekend {
+  background-color: var(--a_calendar_weekend_bg);
+}
+.a_calendar__day_other_month {
+  color: var(--a_calendar_other_month_color);
+}
+.a_calendar__day_selected,
+.a_calendar__day_selected:hover {
+  background-color: var(--a_calendar_selected_bg);
+}
+.a_calendar__day_number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--a_calendar_day_number_size);
+  height: var(--a_calendar_day_number_size);
+  border-radius: var(--a_border_radius_pill);
+  font-size: var(--a_calendar_day_number_font_size);
+}
+.a_calendar__day_today .a_calendar__day_number {
+  background: var(--a_calendar_today_bg);
+  color: var(--a_calendar_today_color);
+  font-weight: var(--a_calendar_title_font_weight);
+}
+
+// Event: a light background with a colored bar at the start, like in Outlook
+.a_calendar__event {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  overflow: hidden;
+  min-width: 0;
+  margin: 0 .25rem;
+  padding: 0 .375rem;
+  border: 0;
+  border-inline-start: var(--a_calendar_event_accent_width) solid var(--a_calendar_event_accent);
+  border-radius: var(--a_calendar_event_border_radius);
+  background: var(--a_calendar_event_bg);
+  color: var(--a_calendar_event_color);
+  font: inherit;
+  font-size: var(--a_calendar_event_font_size);
+  line-height: 1.2;
+  text-align: start;
+  white-space: nowrap;
+  cursor: pointer;
+  @include focus.focus-visible;
+  &:hover {
+    filter: brightness(.95);
+  }
+}
+// A bar that continues in the previous or the next week has no rounded corner and no margin on that side
+.a_calendar__event_continues_before {
+  margin-inline-start: 0;
+  border-inline-start-width: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+.a_calendar__event_continues_after {
+  margin-inline-end: 0;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+.a_calendar__event_time {
+  flex: 0 0 auto;
+  font-weight: var(--a_calendar_title_font_weight);
+}
+// The sign of a recurring event
+.a_calendar__event_recurring {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: var(--a_calendar_recurring_icon_size);
+  height: var(--a_calendar_recurring_icon_size);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.a_calendar__event_label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@each $name in (primary, secondary, tertiary, success, info, warning, danger) {
+  .a_calendar__event_#{$name} {
+    --a_calendar_event_accent: var(--a_color_#{$name});
+    --a_calendar_event_bg: var(--a_color_#{$name}_bg_subtle);
+    --a_calendar_event_color: var(--a_color_#{$name}_text_emphasis);
+  }
+}
+.a_calendar__event_gray {
+  --a_calendar_event_accent: var(--a_color_gray_500);
+  --a_calendar_event_bg: var(--a_color_gray_200);
+  --a_calendar_event_color: var(--a_color_gray_700);
+}
+// Any CSS color: the text keeps the color of the text, so the contrast does not depend on the chosen color
+.a_calendar__event_custom {
+  --a_calendar_event_bg: color-mix(in srgb, var(--a_calendar_event_accent) 18%, var(--a_color_surface));
+  --a_calendar_event_color: var(--a_color_text);
+}
+
+.a_calendar__more {
+  z-index: 1;
+  align-self: start;
+  justify-self: start;
+  margin: 0 .25rem;
+  padding: 0 .375rem;
+  border: 0;
+  border-radius: var(--a_calendar_event_border_radius);
+  background: transparent;
+  color: var(--a_calendar_more_color);
+  font: inherit;
+  font-size: var(--a_calendar_event_font_size);
+  font-weight: var(--a_calendar_title_font_weight);
+  cursor: pointer;
+  @include focus.focus-visible;
+  &:hover {
+    background: var(--a_calendar_day_hover_bg);
+    text-decoration: underline;
+  }
+}
+
+// View switch "Month / Week"
+.a_calendar__views {
+  display: flex;
+  gap: .25rem;
+  margin-inline-end: .5rem;
+}
+
+// Week view: a column for the hours and 7 columns for the days
+.a_calendar__week_view {
+  overflow: hidden;
+  border: 1px solid var(--a_calendar_border_color);
+  border-radius: var(--a_calendar_border_radius);
+  background: var(--a_calendar_bg);
+}
+.a_calendar__week_head,
+.a_calendar__all_day,
+.a_calendar__time_grid {
+  display: grid;
+  // 7 columns in the week, 1 in the day (--a_calendar_days is set by the component)
+  grid-template-columns: var(--a_calendar_gutter_width) repeat(var(--a_calendar_days, 7), minmax(0, 1fr));
+}
+.a_calendar__week_head,
+.a_calendar__all_day {
+  border-block-end: 1px solid var(--a_calendar_border_color);
+}
+// The time grid has a scrollbar: the rows above reserve the same space, so the columns stay aligned
+.a_calendar__week_head,
+.a_calendar__all_day,
+.a_calendar__time_scroll {
+  scrollbar-gutter: stable;
+}
+.a_calendar__week_head,
+.a_calendar__all_day {
+  overflow-y: hidden;
+}
+.a_calendar__week_day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .125rem;
+  margin: 0;
+  padding: .375rem .25rem;
+  border: 0;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  @include focus.focus-visible(true);
+  &:hover {
+    background-color: var(--a_calendar_day_hover_bg);
+  }
+}
+.a_calendar__week_day_name {
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_weekday_font_size);
+}
+
+// The all-day row: a small space above and below the bars (the bars start in the second row)
+.a_calendar__all_day {
+  // The row "auto" is for "+N"
+  grid-template-rows: .125rem repeat(var(--a_calendar_lanes), var(--a_calendar_event_height)) auto .25rem;
+  row-gap: var(--a_calendar_event_gap);
+}
+.a_calendar__all_day_label {
+  grid-row: 1 / -1;
+  align-self: center;
+  padding-inline: .25rem .5rem;
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1.2;
+  text-align: end;
+  overflow-wrap: normal;
+  hyphens: auto;
+}
+.a_calendar__all_day_cell {
+  grid-row: 1 / -1;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+}
+
+.a_calendar__time_scroll {
+  overflow-y: auto;
+  max-height: var(--a_calendar_week_max_height);
+}
+.a_calendar__time_grid {
+  height: calc(var(--a_calendar_hours) * var(--a_calendar_hour_height));
+}
+.a_calendar__hours {
+  display: grid;
+  grid-template-rows: repeat(var(--a_calendar_hours), minmax(0, 1fr));
+}
+.a_calendar__hour {
+  padding: .125rem .5rem 0;
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1;
+  text-align: end;
+}
+// A line for every hour
+.a_calendar__time_column {
+  position: relative;
+  border-inline-start: 1px solid var(--a_calendar_border_color);
+  background-image: repeating-linear-gradient(to bottom, var(--a_calendar_border_color) 0 1px, transparent 1px var(--a_calendar_hour_height));
+  cursor: pointer;
+}
+
+.a_calendar__event_timed {
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0;
+  padding: .125rem .375rem;
+  // A line in the color of the background separates overlapping events
+  box-shadow: 0 0 0 1px var(--a_calendar_bg);
+  .a_calendar__event_time {
+    font-size: var(--a_calendar_hour_font_size);
+    font-weight: normal;
+  }
+  // Narrow events (several at the same time) cut the text instead of breaking it in the middle of the time
+  .a_calendar__event_time,
+  .a_calendar__event_label {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+// A short event has the time and the title in one line
+.a_calendar__event_short {
+  flex-direction: row;
+  align-items: center;
+  gap: .25rem;
+  padding-block: 0;
+}
+
+// The current time
+.a_calendar__now {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  height: 2px;
+  background: var(--a_calendar_now_color);
+  pointer-events: none;
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -4px;
+    inset-inline-start: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: inherit;
+  }
+}
+
+// Drag and drop
+// A long press with a finger starts the drag: no text selection and no menu of the browser
+.a_calendar__event_draggable {
+  cursor: grab;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.a_calendar__event_dragging {
+  opacity: .5;
+}
+// While an event is dragged or resized, the events and "+N" let the pointer through to the day or the time column below them
+.a_calendar_dragging,
+.a_calendar_resizing,
+.a_calendar_selecting {
+  .a_calendar__event,
+  .a_calendar__more {
+    pointer-events: none;
+  }
+}
+// The edge that changes the end of an event
+.a_calendar__resize_handle {
+  position: absolute;
+  z-index: 1;
+  touch-action: none;
+}
+.a_calendar__resize_handle_time {
+  inset-inline: 0;
+  height: var(--a_calendar_resize_handle_size);
+  cursor: ns-resize;
+  &.a_calendar__resize_handle_start {
+    inset-block-start: 0;
+  }
+  &.a_calendar__resize_handle_end {
+    inset-block-end: 0;
+  }
+}
+.a_calendar__resize_handle_day {
+  inset-block: 0;
+  width: var(--a_calendar_resize_handle_size);
+  cursor: ew-resize;
+  &.a_calendar__resize_handle_start {
+    inset-inline-start: 0;
+  }
+  &.a_calendar__resize_handle_end {
+    inset-inline-end: 0;
+  }
+}
+.a_calendar_resizing,
+.a_calendar_selecting {
+  user-select: none;
+}
+
+.a_calendar__drop_target:not(.a_calendar__time_column) {
+  background-color: var(--a_calendar_drop_bg);
+  box-shadow: inset 0 0 0 2px var(--a_calendar_drop_color);
+}
+.a_calendar__drop_preview {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 2px;
+  overflow: hidden;
+  padding: .125rem .375rem;
+  border: 2px dashed var(--a_calendar_drop_color);
+  border-radius: var(--a_calendar_event_border_radius);
+  background: var(--a_calendar_drop_bg);
+  color: var(--a_calendar_color);
+  font-size: var(--a_calendar_hour_font_size);
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+// Popover with the details of an event
+.a_calendar_popover {
+  position: absolute;
+  z-index: var(--a_calendar_popover_z_index);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  // A fixed width: the column of the values (minmax(0, 1fr)) would be 0 with max-content
+  width: min(var(--a_calendar_popover_max_width), calc(100% - 1rem));
+  padding: .75rem;
+  border: 1px solid var(--a_calendar_border_color);
+  border-block-start: 4px solid var(--a_calendar_event_accent);
+  border-radius: var(--a_calendar_border_radius);
+  background: var(--a_calendar_popover_bg);
+  box-shadow: var(--a_calendar_popover_shadow);
+  color: var(--a_calendar_color);
+  @include focus.focus-visible;
+}
+.a_calendar_popover__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+}
+.a_calendar_popover__label {
+  font-weight: var(--a_calendar_title_font_weight);
+}
+.a_calendar_popover__close {
+  flex: 0 0 auto;
+  margin: -.25rem -.25rem 0 0;
+}
+.a_calendar_popover__details {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .25rem .75rem;
+  margin: 0;
+  font-size: var(--a_calendar_event_font_size);
+}
+.a_calendar_popover__term {
+  color: var(--a_calendar_weekday_color);
+}
+.a_calendar_popover__value {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.a_calendar_popover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .5rem;
+}
+
+// Week numbers: a first column in the month, the gutter of the hours in the week view
+.a_calendar_week_numbers {
+  .a_calendar__weekdays,
+  .a_calendar__week {
+    grid-template-columns: var(--a_calendar_week_number_width) repeat(7, minmax(0, 1fr));
+  }
+}
+.a_calendar__week_number {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: .375rem .25rem;
+  border-inline-end: 1px solid var(--a_calendar_border_color);
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_hour_font_size);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.a_calendar__week_head .a_calendar__week_number {
+  align-items: center;
+  border-inline-end: 0;
+}
+.a_calendar__week_number_head {
+  text-align: center;
+}
+
+// Days that cannot be chosen: hatched
+.a_calendar__day_disabled {
+  background-image: repeating-linear-gradient(135deg, var(--a_calendar_disabled_stripe) 0 1px, transparent 1px 8px);
+  color: var(--a_calendar_disabled_color);
+  cursor: not-allowed;
+}
+// The working hours are light, the other hours are shaded
+.a_calendar__time_column_working_hours {
+  background-image:
+    repeating-linear-gradient(to bottom, var(--a_calendar_border_color) 0 1px, transparent 1px var(--a_calendar_hour_height)),
+    linear-gradient(
+      to bottom,
+      var(--a_calendar_off_hours_bg) 0 var(--a_calendar_working_start, 0%),
+      transparent var(--a_calendar_working_start, 0%) var(--a_calendar_working_end, 100%),
+      var(--a_calendar_off_hours_bg) var(--a_calendar_working_end, 100%) 100%
+    );
+}
+.a_calendar__time_column.a_calendar__day_disabled {
+  background-image:
+    repeating-linear-gradient(to bottom, var(--a_calendar_border_color) 0 1px, transparent 1px var(--a_calendar_hour_height)),
+    repeating-linear-gradient(135deg, var(--a_calendar_disabled_stripe) 0 1px, transparent 1px 8px);
+}
+
+// Statuses like in Outlook: tentative is hatched, cancelled is crossed out
+.a_calendar__event_tentative {
+  background-image: repeating-linear-gradient(135deg, transparent 0 4px, var(--a_calendar_tentative_stripe) 4px 7px);
+}
+.a_calendar__event_cancelled {
+  opacity: var(--a_calendar_cancelled_opacity);
+  .a_calendar__event_label {
+    text-decoration: line-through;
+  }
+}
+
+// Agenda: the days with events as a list
+.a_calendar__agenda {
+  overflow: hidden;
+  border: 1px solid var(--a_calendar_border_color);
+  border-radius: var(--a_calendar_border_radius);
+  background: var(--a_calendar_bg);
+}
+.a_calendar__agenda_list,
+.a_calendar__agenda_events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a_calendar__agenda_day {
+  display: grid;
+  grid-template-columns: var(--a_calendar_agenda_date_width) minmax(0, 1fr);
+  gap: .5rem 1rem;
+  padding: .625rem .75rem;
+  & + & {
+    border-block-start: 1px solid var(--a_calendar_border_color);
+  }
+}
+.a_calendar__agenda_date {
+  padding-block: .375rem;
+  font-weight: var(--a_calendar_title_font_weight);
+}
+.a_calendar__agenda_day_today .a_calendar__agenda_date {
+  color: var(--a_calendar_today_bg);
+}
+.a_calendar__agenda_events {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.a_calendar__agenda_event {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  margin: 0;
+  padding: .375rem .625rem;
+  border: 0;
+  border-inline-start: var(--a_calendar_event_accent_width) solid var(--a_calendar_event_accent);
+  border-radius: var(--a_calendar_event_border_radius);
+  background-color: var(--a_calendar_event_bg);
+  color: var(--a_calendar_event_color);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  @include focus.focus-visible;
+  .a_calendar__event_time {
+    display: none;
+  }
+}
+.a_calendar__agenda_time {
+  flex: 0 0 auto;
+  min-width: var(--a_calendar_agenda_time_width);
+  font-size: var(--a_calendar_event_font_size);
+  font-variant-numeric: tabular-nums;
+}
+.a_calendar__agenda_location {
+  margin-inline-start: auto;
+  color: var(--a_calendar_weekday_color);
+  font-size: var(--a_calendar_event_font_size);
+}
+.a_calendar__agenda_empty {
+  margin: 0;
+  padding: 1rem;
+  color: var(--a_calendar_weekday_color);
+}
+
+// A small calendar (e.g. on a phone): the month shows thin bars instead of texts, the time grid gets narrower
+@container a_calendar (max-width: 40rem) {
+  .a_calendar__title {
+    font-size: var(--a_calendar_event_font_size);
+  }
+  .a_calendar__week {
+    --a_calendar_event_height: var(--a_calendar_small_event_height);
+    --a_calendar_week_min_height: var(--a_calendar_small_week_min_height);
+    .a_calendar__event {
+      margin-inline: 2px;
+      padding: 0;
+      font-size: 0;
+      > :not(.a_calendar__resize_handle) {
+        display: none;
+      }
+    }
+  }
+  .a_calendar__day {
+    padding: .125rem .25rem;
+  }
+  .a_calendar__more {
+    margin: 0;
+    padding: 0 .125rem;
+    font-size: .6875rem;
+  }
+  .a_calendar__week_view {
+    --a_calendar_gutter_width: 2.75rem;
+  }
+  .a_calendar__agenda_day {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .a_calendar__agenda_time {
+    min-width: 0;
+  }
+}
+
+// Print: no buttons, the whole day, the colors of the events
+@media print {
+  .a_calendar {
+    print-color-adjust: exact;
+  }
+  .a_calendar__header_actions,
+  .a_calendar__resize_handle,
+  .a_calendar__now,
+  .a_calendar .a_loading {
+    display: none;
+  }
+  .a_calendar__time_scroll {
+    overflow: visible;
+    max-height: none;
+  }
+  .a_calendar__week,
+  .a_calendar__agenda_day {
+    break-inside: avoid;
+  }
+}
+
+@media (forced-colors: active) {
+  .a_calendar__drop_target:not(.a_calendar__time_column),
+  .a_calendar__drop_preview {
+    outline: 2px dashed Highlight;
+    outline-offset: -2px;
+  }
+  .a_calendar__now {
+    background: Highlight;
+  }
+  .a_calendar__event {
+    border: 1px solid CanvasText;
+  }
+  .a_calendar__day_selected {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+  .a_calendar__day_today .a_calendar__day_number {
+    border: 1px solid CanvasText;
+  }
+}
+
+:where(.a_calendar) {
+  --a_calendar_gap: .75rem; // Space between the header and the month.
+  --a_calendar_color: var(--a_color_text); // Text color.
+  --a_calendar_bg: var(--a_color_surface); // Background of the month.
+  --a_calendar_border_color: var(--a_border_color); // Color of the lines between the days.
+  --a_calendar_border_radius: var(--a_border_radius); // Corner radius of the month.
+  // header
+  --a_calendar_title_font_size: var(--a_font_size_lg); // Font size of the month and the year.
+  --a_calendar_title_font_weight: var(--a_font_weight_semibold); // Font weight of the title, the weekdays, today and the times.
+  --a_calendar_weekday_color: var(--a_color_text_muted); // Color of the names of the weekdays.
+  --a_calendar_weekday_font_size: var(--a_font_size_sm); // Font size of the names of the weekdays.
+  // day
+  --a_calendar_week_min_height: 6.5rem; // Minimal height of a week.
+  --a_calendar_day_number_height: 1.875rem; // Height of the row with the day number.
+  --a_calendar_day_number_size: 1.5rem; // Size of the circle around the day number of today.
+  --a_calendar_day_number_font_size: var(--a_font_size_sm); // Font size of the day number.
+  --a_calendar_day_hover_bg: var(--a_color_gray_100); // Background of a day on hover.
+  --a_calendar_weekend_bg: var(--a_color_surface_subtle); // Background of Saturday and Sunday.
+  --a_calendar_other_month_color: var(--a_color_text_muted); // Color of the days of the previous and the next month.
+  --a_calendar_selected_bg: var(--a_color_primary_bg_subtle); // Background of the selected day.
+  --a_calendar_today_bg: var(--a_color_primary); // Background of the day number of today.
+  --a_calendar_today_color: var(--a_color_primary_contrast); // Color of the day number of today.
+  // event
+  --a_calendar_event_height: 1.375rem; // Height of an event.
+  --a_calendar_event_gap: 2px; // Space between the events.
+  --a_calendar_event_font_size: var(--a_font_size_sm); // Font size of an event.
+  --a_calendar_event_border_radius: var(--a_border_radius_small); // Corner radius of an event.
+  --a_calendar_event_accent_width: 3px; // Width of the colored bar at the start of an event.
+  --a_calendar_event_accent: var(--a_color_primary); // Color of the bar (set by the color of the event).
+  --a_calendar_event_bg: var(--a_color_primary_bg_subtle); // Background of an event (set by the color of the event).
+  --a_calendar_event_color: var(--a_color_primary_text_emphasis); // Text color of an event (set by the color of the event).
+  --a_calendar_more_height: 1.25rem; // Height of the "+N more" row.
+  --a_calendar_more_color: var(--a_color_link); // Color of "+N more".
+  // week
+  --a_calendar_gutter_width: 4.5rem; // Width of the column with the hours.
+  --a_calendar_hour_height: 3rem; // Height of an hour.
+  --a_calendar_hour_font_size: .75rem; // Font size of the hours, the times of the events and "All day".
+  --a_calendar_week_max_height: 36rem; // Maximal height of the time grid, it scrolls inside.
+  --a_calendar_now_color: var(--a_color_danger); // Color of the line of the current time.
+  // drag and drop
+  --a_calendar_drop_color: var(--a_color_primary); // Border of the day and of the place where a dragged event lands.
+  --a_calendar_drop_bg: var(--a_color_primary_bg_subtle); // Background of the day and of the place where a dragged event lands.
+  --a_calendar_recurring_icon_size: .75rem; // Size of the sign of a recurring event.
+  --a_calendar_resize_handle_size: 6px; // Size of the edges that change the start and the end of an event.
+  // week numbers, disabled days, working hours, statuses
+  --a_calendar_week_number_width: 2.75rem; // Width of the column with the week numbers in the month.
+  --a_calendar_disabled_color: var(--a_color_text_muted); // Text color of a disabled day.
+  --a_calendar_disabled_stripe: var(--a_border_color); // Color of the stripes of a disabled day.
+  --a_calendar_off_hours_bg: var(--a_color_surface_subtle); // Background of the hours outside the working hours.
+  --a_calendar_tentative_stripe: color-mix(in srgb, var(--a_calendar_event_accent) 25%, transparent); // Stripes of a tentative event.
+  --a_calendar_cancelled_opacity: .6; // Opacity of a cancelled event.
+  // popover
+  --a_calendar_popover_bg: var(--a_color_surface_raised); // Background of the popover with the details of an event.
+  --a_calendar_popover_shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .18); // Shadow of the popover.
+  --a_calendar_popover_max_width: 22rem; // Width of the popover (smaller in a small calendar).
+  --a_calendar_popover_z_index: 90; // Stacking order of the popover.
+  // agenda
+  --a_calendar_agenda_date_width: 8rem; // Width of the column with the days in the agenda.
+  --a_calendar_agenda_time_width: 7.5rem; // Width of the times in the agenda.
+  // small calendar (up to 40rem)
+  --a_calendar_small_event_height: .375rem; // Height of the bars of the events in a small month.
+  --a_calendar_small_week_min_height: 4rem; // Minimal height of a week in a small month.
+}

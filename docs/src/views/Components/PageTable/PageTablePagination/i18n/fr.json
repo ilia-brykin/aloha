@@ -1,3 +1,7 @@
 {
-
+  "_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_": "Position de la pagination",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_": "<code>pagination.position</code> : <code>\"top\"</code> au-dessus du tableau, <code>\"bottom\"</code> en dessous, <code>\"y\"</code> au-dessus et en dessous.",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_": "Pagination en haut",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_": "Pagination en bas",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_": "Pagination en haut et en bas"
 }

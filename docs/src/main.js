@@ -7,18 +7,16 @@ import router from "./router/index";
 import ATest from "./components/ATest/ATest";
 import App from "./App/App.vue";
 import {
+  AComponentsPlugin,
   ADataRetrievePlugin,
   ADataRetrievePlugin_defaultRetrieve,
-  AFiltersPlugin,
   AFormPlugin,
   AHttpPlugin,
   AI18nPlugin,
   AIconPlugin,
   AMobilePlugin,
-  AModalPlugin,
   APageTabTitlePlugin,
   ARemPxPlugin,
-  ARouterLinkConfigPlugin,
   ASafeHtml,
 } from "aloha-vue";
 
@@ -75,38 +73,16 @@ APP.use(AMobilePlugin, {
   breakpoint: 1023,
 });
 APP.use(ARemPxPlugin);
-APP.use(AModalPlugin, {
-  propsDefault: {
-    closeButtonClass: "a_btn a_btn_link",
+APP.use(AComponentsPlugin, {
+  AModal: {
+    props: {
+      closeButtonClass: "a_btn a_btn_link",
+    },
   },
-});
-APP.use(AFiltersPlugin, {
-  config: {
-    headerBottomGroups: [
-      {
-        props: {},
-        children: [
-          {
-            component: "addFilterSelect",
-            props: {
-              keyGroup: "group",
-            },
-          },
-          {
-            component: "buttonSearch",
-            props: {},
-          },
-        ],
-      },
-    ],
-  },
-});
-
-APP.use(ARouterLinkConfigPlugin, {
-  propsDefault: {
+  ARouterLinkConfig: {
     routes: router.getRoutes(),
+    // excludedPathRoutes: ["/:catchAll(.*)"],
   },
-  // excludedPathRoutes: ["/:catchAll(.*)"],
 });
 
 APP.use(APageTabTitlePlugin, "_PAGE_TITLE_BASE_");
@@ -116,14 +92,5 @@ APP.use(AFormPlugin, {
   },
 }),
 
-/*
- * APP.use(AGroupButtonDropdownPlugin, {
- *   propsDefault: {
- *     dropdownAttributes: {
- *       buttonText: "Weitere Aktionen",
- *     },
- *   },
- * });
- */
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(router).mount("#app");

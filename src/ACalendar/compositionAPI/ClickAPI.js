@@ -1,0 +1,59 @@
+import {
+  getOccurrenceInfo,
+} from "../utils/utils";
+
+export default function ClickAPI(props, {
+  emit,
+  getEventsForDay = () => [],
+  goToDate = () => {},
+  isDayDisabled = () => false,
+  openPopover = () => {},
+}) {
+  const selectDay = ({ day }) => {
+    emit("update:modelValue", day.key);
+    if (!day.isCurrentMonth) {
+      goToDate(day.key);
+    }
+  };
+
+  // A disabled day is not chosen
+  const onClickDay = ({ day, $event }) => {
+    if (isDayDisabled(day.key)) {
+      return;
+    }
+    selectDay({ day });
+    emit("day-click", {
+      date: day.key,
+      events: getEventsForDay(day.key).map(event => event.item),
+      $event,
+    });
+  };
+
+  const onClickEvent = ({ event, $event }) => {
+    // In the week view the event lies in the time column, a click there creates a time
+    $event.stopPropagation();
+    emit("event-click", {
+      event: event.item,
+      start: event.start,
+      end: event.end,
+      occurrence: getOccurrenceInfo(event),
+      $event,
+    });
+    openPopover({ event, $event });
+  };
+
+  const onClickMore = ({ day, $event }) => {
+    selectDay({ day });
+    emit("more-click", {
+      date: day.key,
+      events: getEventsForDay(day.key).map(event => event.item),
+      $event,
+    });
+  };
+
+  return {
+    onClickDay,
+    onClickEvent,
+    onClickMore,
+  };
+}

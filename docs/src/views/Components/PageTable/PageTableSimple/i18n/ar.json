@@ -1,3 +1,11 @@
 {
-
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "أعمدة مجمّعة",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "تحصل الأعمدة ذات <code>children</code> على عنوان مشترك فوق أعمدتها الفرعية. يحافظ <code>:has-mobile=\"false\"</code> على عرض الجدول في الشاشات الصغيرة.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "جدول بأعمدة مجمّعة",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "جدول HTML بسيط",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "يعرض <code>is-simple-table</code> عنصر <code>&lt;table&gt;</code> أصليًا بدون شريط الأدوات والميزات الإضافية لـ <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "جدول HTML بسيط",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Slots العرض على الجوال",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "في الشاشات الصغيرة يُعرض كل صف كبطاقة. يضيف الـ slots <code>rowMobilePrepend</code> و<code>rowMobileAppend</code> محتوى في بداية كل بطاقة ونهايتها.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "جدول مع slots العرض على الجوال"
 }

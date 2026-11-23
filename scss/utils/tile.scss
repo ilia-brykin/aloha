@@ -1,0 +1,61 @@
+// Tile: a box on the surface with a border and rounded corners.
+// Parts: .a_tile__header, .a_tile__body, .a_tile__footer (all optional).
+.a_tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--a_tile_color);
+  background-color: var(--a_tile_bg);
+  border: var(--a_tile_border_width) var(--a_border_style) var(--a_tile_border_color);
+  border-radius: var(--a_tile_border_radius);
+  box-shadow: var(--a_tile_shadow);
+}
+
+.a_tile__header,
+.a_tile__footer {
+  padding: var(--a_tile_header_padding_y) var(--a_tile_padding_x);
+  background-color: var(--a_tile_header_bg);
+}
+
+.a_tile__header {
+  font-weight: var(--a_tile_header_font_weight);
+  border-bottom: var(--a_tile_border_width) solid var(--a_tile_border_color);
+
+  // the background must not cover the rounded corners (no overflow: hidden, it would cut dropdowns and focus rings)
+  &:first-child {
+    border-top-left-radius: calc(var(--a_tile_border_radius) - var(--a_tile_border_width));
+    border-top-right-radius: calc(var(--a_tile_border_radius) - var(--a_tile_border_width));
+  }
+}
+
+.a_tile__body {
+  flex: 1 1 auto;
+  padding: var(--a_tile_padding_y) var(--a_tile_padding_x);
+}
+
+.a_tile__footer {
+  border-top: var(--a_tile_border_width) solid var(--a_tile_border_color);
+
+  &:last-child {
+    border-bottom-right-radius: calc(var(--a_tile_border_radius) - var(--a_tile_border_width));
+    border-bottom-left-radius: calc(var(--a_tile_border_radius) - var(--a_tile_border_width));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_tile) {
+  --a_tile_padding_x: var(--a_space_md); // Horizontal padding of all parts.
+  --a_tile_padding_y: var(--a_space_md); // Vertical padding of the body.
+  --a_tile_header_padding_y: var(--a_space_sm); // Vertical padding of the header and the footer.
+  --a_tile_color: var(--a_color_text); // Text color.
+  --a_tile_bg: var(--a_color_surface); // Background.
+  --a_tile_border_width: var(--a_border_width); // Width of the border and of the lines below the header and above the footer.
+  --a_tile_border_color: var(--a_border_color); // Border color. The classes .a_border_{color} and .a_border_{color}_subtle also work.
+  --a_tile_border_radius: var(--a_border_radius_large); // Corner radius.
+  --a_tile_shadow: none; // Shadow. The classes .a_shadow_sm / _md / _lg also work.
+  --a_tile_header_bg: var(--a_color_surface_subtle); // Background of the header and the footer.
+  --a_tile_header_font_weight: var(--a_font_weight_semibold); // Font weight of the header.
+}

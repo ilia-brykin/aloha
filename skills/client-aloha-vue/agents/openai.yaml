@@ -1,0 +1,3 @@
+interface:
+  display_name: "Client Aloha Vue"
+  short_description: "Build client interfaces with Aloha-Vue conventions"

@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "La fonction <strong>filterNewlines</strong> affiche un texte sur plusieurs lignes, p. ex. d'un <code>textarea</code>, en HTML : elle échappe les caractères spéciaux HTML et remplace les retours à la ligne par <code>&lt;br&gt;</code>. Le résultat est sûr pour <code>v-html</code> et la prop <code>html</code>. Dans une colonne de tableau, utilisez <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Le texte avec des retours à la ligne",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Texte",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Résultat"
+}

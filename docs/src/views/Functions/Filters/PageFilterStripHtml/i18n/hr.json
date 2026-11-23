@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_STRIP_HTML_DESCRIPTION_": "Funkcija <strong>filterStripHtml</strong> uklanja HTML oznake iz niza i vraća njegov tekst, npr. za preglede ili atribut <code>title</code>. Sadržaj <code>&lt;script&gt;</code> i <code>&lt;style&gt;</code> također se uklanja. Za prikaz HTML-a kao teksta koristite <strong>filterEscapeHtml</strong>.",
+  "_PAGE_FILTER_STRIP_HTML_ARGUMENTS_VALUE_": "Niz s HTML-om"
+}

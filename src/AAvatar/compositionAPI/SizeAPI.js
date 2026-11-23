@@ -8,8 +8,8 @@ import {
   AVATAR_GROUP_KEY,
 } from "../const";
 import {
-  avatarPluginOptions,
-} from "../../plugins/AAvatarPlugin";
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";
@@ -20,13 +20,13 @@ export default function SizeAPI(props) {
 
   const group = inject(AVATAR_GROUP_KEY, undefined);
 
-  // Own prop > AAvatarGroup > plugin
+  // Own prop > AAvatarGroup > AComponentsPlugin
   const sizeLocal = computed(() => {
-    return size.value ?? group?.size.value ?? avatarPluginOptions.value.propsDefault.size;
+    return size.value ?? group?.size.value ?? getPropDefault("AAvatar", "size", "medium");
   });
 
   const shapeLocal = computed(() => {
-    return shape.value ?? group?.shape.value ?? avatarPluginOptions.value.propsDefault.shape;
+    return shape.value ?? group?.shape.value ?? getPropDefault("AAvatar", "shape", "circle");
   });
 
   const sizeClass = computed(() => {

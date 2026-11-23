@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Marge de la flèche",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Définit la marge qui limite la proximité de la flèche par rapport aux bords de l'infobulle.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback de marge de flèche",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "La marge de la flèche peut également être calculée dynamiquement avec une fonction callback."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "La marge de la flèche peut également être calculée dynamiquement avec une fonction callback.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Distance minimale en px entre la flèche et les bords de l'infobulle. Une fonction reçoit les dimensions et renvoie le nombre.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID de l'infobulle. L'élément reçoit aria-describedby avec cet ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "L'infobulle n'est pas affichée, seulement le contenu du slot par défaut.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Largeur maximale de l'infobulle en px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Largeur minimale de l'infobulle en px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Distance en px entre l'infobulle et l'élément.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Décalage de l'infobulle en px le long de l'élément.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Position de l'infobulle par rapport à l'élément, par ex. top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID du conteneur à la fin du body dans lequel l'infobulle est rendue.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Affiche la flèche de l'infobulle.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "Balise HTML de l'élément autour du slot par défaut.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Délai en ms avant la fermeture de l'infobulle lorsque le pointeur quitte l'élément ou l'infobulle.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Largeur fixe de l'infobulle en px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "L'élément ne reçoit pas aria-describedby, par ex. si le texte de l'infobulle est déjà lu autrement.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "L'élément qui affiche l'infobulle au survol et au focus.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Contenu de l'infobulle."
 }

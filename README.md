@@ -10,6 +10,17 @@
 
 Aloha is a Vue.js-based, highly customizable, internationalized framework for helping developers write code faster and more efficiently, with a special focus on accessibility.
 
+## Quick start
+
+New project with Vite, translations, icons, a form and a table, ready to run:
+
+```bash
+npx degit ilia-brykin/aloha/starter my-app
+cd my-app
+npm install
+npm run dev
+```
+
 ## Installation
 
 Aloha-vue can be installed using npm, yarn, or pnpm:
@@ -79,6 +90,29 @@ export default {
 };
 </script>
 ```
+
+## AI agents
+
+The package contains documentation for AI coding agents (Claude Code, Cursor, Copilot, Codex…): `node_modules/aloha-vue/AGENTS.md` (setup, translations, filters, styles) and one markdown file per docs page in `node_modules/aloha-vue/llms/`. Add this line to the `AGENTS.md` / `CLAUDE.md` of your project:
+
+```md
+UI library: aloha-vue. Before using it, read node_modules/aloha-vue/AGENTS.md.
+```
+
+The same docs are online for agents without the package: [llms.txt](https://ilia-brykin.github.io/aloha/llms.txt) (index) and [llms-full.txt](https://ilia-brykin.github.io/aloha/llms-full.txt) (all pages in one file).
+
+Reusable workflow skills are included in the package:
+
+- [client-aloha-vue](skills/client-aloha-vue/SKILL.md): using components, plugins, translations, HTTP helpers, and styles.
+- [client-aloha-vue-modal](skills/client-aloha-vue-modal/SKILL.md): building modal forms and confirmations.
+
+The skills complement the generated API documentation; register them with your coding agent to make them discoverable.
+
+After changes in the docs, regenerate the files with `npm run build-llms`.
+
+## TypeScript
+
+The package contains the types of all components and their props (`types/aloha-vue.d.ts`), so editors (Volar, vue-tsc) and agents see wrong or misspelled props. JetBrains IDEs read `web-types.json`. After changes in the props, regenerate both files with `npm run build-types`.
 
 ## Development
 

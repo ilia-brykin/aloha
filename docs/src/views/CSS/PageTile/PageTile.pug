@@ -1,0 +1,95 @@
+aloha-page(
+  page-title="_A_TILE_PAGE_NAME_"
+  page-title-h1="_A_TILE_PAGE_NAME_"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_TILE_PAGE_DESCRIPTION_"
+    )
+
+    aloha-example(
+      :code-html="codeBasic"
+      header="_A_TILE_BASIC_HEADER_"
+      description="_A_TILE_BASIC_DESCRIPTION_"
+    )
+      .a_tile.a_max_width_400px
+        .a_tile__body A tile groups related content on the surface.
+
+    aloha-example(
+      :code-html="codeParts"
+      header="_A_TILE_PARTS_HEADER_"
+      description="_A_TILE_PARTS_DESCRIPTION_"
+    )
+      .a_tile.a_max_width_400px
+        .a_tile__header
+          h3.a_fs_5 Invoice 2026-114
+        .a_tile__body
+          p Amount: 1.234,50 €
+          p.a_mb_0 Due on 01.12.2026
+        .a_tile__footer.a_d_flex.a_gap_2
+          button.a_btn.a_btn_primary(
+            type="button"
+          ) Pay
+          button.a_btn.a_btn_secondary(
+            type="button"
+          ) Details
+
+    aloha-example(
+      :code-html="codeClickable"
+      header="_A_TILE_CLICKABLE_HEADER_"
+      description="_A_TILE_CLICKABLE_DESCRIPTION_"
+    )
+      .a_tile.a_bg_primary_subtle_hover.a_max_width_400px
+        .a_tile__body
+          h3.a_fs_5
+            a.a_stretched_link(
+              href="#"
+              @click.prevent
+            ) Project Aloha
+          p.a_mb_0 The whole tile is clickable.
+
+    aloha-example(
+      :code-html="codeColors"
+      header="_A_TILE_COLORS_HEADER_"
+      description="_A_TILE_COLORS_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap
+        .a_tile.a_border_primary_subtle
+          .a_tile__body
+            code a_border_primary_subtle
+        .a_tile.a_border_danger
+          .a_tile__body
+            code a_border_danger
+        .a_tile.a_shadow_md.a_border_0
+          .a_tile__body
+            code a_shadow_md a_border_0
+        .a_tile.a_border_style_dashed
+          .a_tile__body
+            code a_border_style_dashed
+
+    aloha-example(
+      :code-html="codeGrid"
+      header="_A_TILE_GRID_HEADER_"
+      description="_A_TILE_GRID_DESCRIPTION_"
+    )
+      .a_columns.a_columns_count_3.a_columns_count_1_mobile
+        .a_column.a_column_1(
+          v-for="index in 3"
+          :key="index"
+        )
+          .a_tile.a_height_100
+            .a_tile__header Tile {{ index }}
+            .a_tile__body
+              p.a_mb_0(
+                v-if="index === 2"
+              ) A longer text. All tiles in the row get the same height with a_height_100.
+              p.a_mb_0(
+                v-else
+              ) Text
+
+    aloha-table-css-vars(
+      files="utils/tile"
+    )

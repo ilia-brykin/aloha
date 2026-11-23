@@ -67,6 +67,5 @@
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Slot wyświetlany po przyciskach zapisu i zamykania w stopce okna modalnego.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Slot wyświetlany przed przyciskami zapisu i zamykania w stopce okna modalnego.",
   "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Slot zawierający zawartość nagłówka okna modalnego.",
-  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: kolumny formularza",
-  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Właściwości <code>class-columns</code> i <code>class-column-default</code> są przekazywane do wewnętrznego <code>AForm</code>. W tym przykładzie pola imienia i adresu e-mail zajmują po połowie szerokości i na urządzeniach dotykowych układają się jedno pod drugim. Pole notatek definiuje własną <code>classColumn</code> i zajmuje całą szerokość. Jeśli te właściwości zostaną pominięte, obowiązują wartości domyślne z <code>AForm</code>."
+  "_A_MODAL_PROPS_TELEPORT_SELECTOR_DESCRIPTION_": "Selektor CSS elementu, do którego przenoszone jest okno modalne (Vue <code>Teleport</code>). Domyślnie: <code>body</code>."
 }

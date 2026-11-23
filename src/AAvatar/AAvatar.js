@@ -22,8 +22,8 @@ import {
   Person,
 } from "./utils/icons";
 import {
-  avatarPluginOptions,
-} from "../plugins/AAvatarPlugin";
+  getPropDefault,
+} from "../plugins/AComponentsPlugin";
 import {
   isNumber,
 } from "lodash-es";
@@ -39,7 +39,7 @@ export default {
     color: {
       type: String,
       required: false,
-      default: () => avatarPluginOptions.value.propsDefault.color,
+      default: () => getPropDefault("AAvatar", "color", "auto"),
       validator: value => AVATAR_COLORS_ALL.indexOf(value) !== -1,
     },
     decorative: {
@@ -59,7 +59,7 @@ export default {
     initialsLimit: {
       type: Number,
       required: false,
-      default: () => avatarPluginOptions.value.propsDefault.initialsLimit,
+      default: () => getPropDefault("AAvatar", "initialsLimit", 2),
     },
     name: {
       type: String,
@@ -97,7 +97,7 @@ export default {
     tag: {
       type: String,
       required: false,
-      default: () => avatarPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("AAvatar", "tag", "span"),
     },
   },
   emits: [

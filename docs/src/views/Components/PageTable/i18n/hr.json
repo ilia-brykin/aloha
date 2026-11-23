@@ -14,6 +14,11 @@
   "_A_TABLE_FILTER_DATE_": "Datum",
   "_A_TABLE_FILTER_EXTRA_": "Dodatni filter",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Prugasti retci",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "S <code>is-striped</code> svaki drugi redak dobiva pozadinu <code>--a_table_row_striped_bg</code>. Hover, odabrani retci i otvoreni pregled zadržavaju svoje boje. Zadana vrijednost za sve tablice postavlja se u <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Prugasta tablica"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "S <code>is-striped</code> svaki drugi redak dobiva pozadinu <code>--a_table_row_striped_bg</code>. Hover, odabrani retci i otvoreni pregled zadržavaju svoje boje. Zadana vrijednost za sve tablice postavlja se u <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Prugasta tablica",
+  "_A_TABLE_COMPONENT_NAME_": "Tablica",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "Komponenta <strong>ATable</strong> prikazuje podatke u tablici sa sortiranjem, paginacijom, filtrima, brzim pretraživanjem, akcijama redaka i tablice, odabirom redaka, pregledom, skrivanjem i premještanjem stupaca, spremljenim prikazima i mobilnim prikazom.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Tablica sa svim značajkama",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Akcije redaka, tablice i više redaka, brzo pretraživanje, premještanje stupaca, paginacija, retci podnožja, sortiranje po više stupaca i spremljeni prikazi u jednoj tablici.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Stupac Stupac Stupac Stupac Stupac Stupac Stupac Stupac"
 }

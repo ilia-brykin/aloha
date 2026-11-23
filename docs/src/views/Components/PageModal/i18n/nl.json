@@ -67,6 +67,5 @@
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Een slot dat na de opslaan- en sluitknoppen in de footer van de modal wordt weergegeven.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Een slot dat vóór de opslaan- en sluitknoppen in de footer van de modal wordt weergegeven.",
   "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Een slot met de inhoud van de header van de modal.",
-  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: formulierkolommen",
-  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "De props <code>class-columns</code> en <code>class-column-default</code> worden doorgegeven aan het interne <code>AForm</code>. In dit voorbeeld nemen de velden voor naam en e-mail de helft van de breedte in en worden ze op touchapparaten onder elkaar geplaatst. Het notitieveld definieert zijn eigen <code>classColumn</code> en beslaat de volledige breedte. Als deze props worden weggelaten, gelden de standaardwaarden van <code>AForm</code>."
+  "_A_MODAL_PROPS_TELEPORT_SELECTOR_DESCRIPTION_": "CSS-selector van het element waarnaar het modale venster wordt verplaatst (Vue <code>Teleport</code>). Standaard: <code>body</code>."
 }

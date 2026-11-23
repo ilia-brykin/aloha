@@ -1,1 +1,6 @@
-{}
+{
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Podgląd po prawej",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Slot <code>preview</code> pokazuje szczegóły klikniętego wiersza obok tabeli. <code>disabled-preview-row-callback</code> wyłącza podgląd dla wybranych wierszy.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Podgląd z paginacją",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "Podgląd działa także z <code>pagination.use</code>: przyciski podglądu przechodzą do poprzedniego i następnego wiersza."
+}

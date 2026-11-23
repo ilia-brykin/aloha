@@ -1,0 +1,14 @@
+{
+  "_A_TILE_BASIC_DESCRIPTION_": "<code>a_tile</code> mit <code>a_tile__body</code>. Die Kachel ist eine Flex-Spalte, daher füllt <code>a_tile__body</code> die freie Höhe.",
+  "_A_TILE_BASIC_HEADER_": "Basis",
+  "_A_TILE_CLICKABLE_DESCRIPTION_": "Mit <code>a_stretched_link</code> am Link ist die ganze Kachel klickbar, <code>a_bg_{color}_subtle_hover</code> hebt sie bei Hover hervor. Tastatur- und Screenreader-Nutzer bekommen weiterhin einen einzigen Link mit klarem Text. Andere Buttons in der Kachel brauchen <code>a_position_relative</code> und <code>a_z_index_2</code>.",
+  "_A_TILE_CLICKABLE_HEADER_": "Klickbare Kachel",
+  "_A_TILE_COLORS_DESCRIPTION_": "Die Kachel wird mit den Utility-Klassen angepasst: Rahmenfarbe (<code>a_border_{color}</code>, <code>a_border_{color}_subtle</code>), Schatten (<code>a_shadow_sm</code> / <code>_md</code> / <code>_lg</code>), Linienstil (<code>a_border_style_dashed</code>). Die Standardwerte und der Eckenradius werden mit den CSS-Variablen unten gesetzt.",
+  "_A_TILE_COLORS_HEADER_": "Farben, Schatten und Rahmen",
+  "_A_TILE_GRID_DESCRIPTION_": "Kacheln in <code>a_columns</code>. Mit <code>a_height_100</code> bekommen alle Kacheln einer Zeile die gleiche Höhe, <code>a_columns_count_1_mobile</code> zeigt auf Mobilgeräten eine Kachel pro Zeile.",
+  "_A_TILE_GRID_HEADER_": "Kacheln im Raster",
+  "_A_TILE_PAGE_DESCRIPTION_": "Die Klasse <code>a_tile</code> ist eine Box auf der Oberfläche mit Rahmen und abgerundeten Ecken, z. B. für eine Zusammenfassung, ein Dashboard-Widget oder einen Eintrag in einer Ergebnisliste. Sie ist reines CSS, die Teile <code>a_tile__header</code>, <code>a_tile__body</code>, <code>a_tile__footer</code> sind optional.",
+  "_A_TILE_PAGE_NAME_": "Kachel",
+  "_A_TILE_PARTS_DESCRIPTION_": "<code>a_tile__header</code> und <code>a_tile__footer</code> bekommen einen dezenten Hintergrund und eine Linie zum Inhalt. Verwenden Sie im Kopfbereich eine Überschrift der passenden Ebene (<code>h2</code> … <code>h6</code>), damit die Struktur der Seite für Screenreader korrekt bleibt.",
+  "_A_TILE_PARTS_HEADER_": "Kopf- und Fußbereich"
+}

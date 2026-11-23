@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Użycie właściwości „format” i „formatSave” do ustawienia niestandardowych formatów wyświetlania i zapisu w komponencie zakresu dat.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Tekst pomocniczy w zakresie dat",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Użycie właściwości „helpText”, aby dostarczyć dodatkowy kontekst lub instrukcje dla komponentu zakresu dat.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Pierwszy dzień: czwartek"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Pierwszy dzień: czwartek",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Zakres dat"
 }

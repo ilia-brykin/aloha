@@ -8,8 +8,8 @@ import AGroupButtonDropdownItem from "./AGroupButtonDropdownItem/AGroupButtonDro
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 
 import {
-  groupButtonDropdownPluginOptions,
-} from "../plugins/AGroupButtonDropdownPlugin";
+  getPropDefault,
+} from "../plugins/AComponentsPlugin";
 
 export default {
   name: "AGroupButtonDropdown",
@@ -22,7 +22,7 @@ export default {
     actionsClasses: {
       type: Array,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.actionsClasses,
+      default: () => getPropDefault("AGroupButtonDropdown", "actionsClasses", ["a_btn a_btn_primary", "a_btn a_btn_secondary"]),
     },
     actionsIds: {
       type: Array,
@@ -41,29 +41,29 @@ export default {
     dropdownAttributes: {
       type: Object,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.dropdownAttributes,
+      default: () => getPropDefault("AGroupButtonDropdown", "dropdownAttributes", {}),
     },
     hasDividerBeforeDropdown: {
       type: Boolean,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.hasDividerBeforeDropdown,
+      default: () => getPropDefault("AGroupButtonDropdown", "hasDividerBeforeDropdown", true),
     },
     indexFirstDropdownAction: {
       type: Number,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.indexFirstDropdownAction,
+      default: () => getPropDefault("AGroupButtonDropdown", "indexFirstDropdownAction", 1),
       validator: value => value >= -1,
     },
     indexFirstDropdownActionMobile: {
       type: Number,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.indexFirstDropdownActionMobile,
+      default: () => getPropDefault("AGroupButtonDropdown", "indexFirstDropdownActionMobile", 0),
       validator: value => value >= -1,
     },
     minDropdownActions: {
       type: Number,
       required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.minDropdownActions,
+      default: () => getPropDefault("AGroupButtonDropdown", "minDropdownActions", 2),
     },
     innerFlagHasActions: {
       type: Boolean,

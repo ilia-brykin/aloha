@@ -1,0 +1,198 @@
+import {
+  computed,
+  ref,
+  toRef,
+  watch,
+} from "vue";
+
+import {
+  getWeekDays,
+  getWeeks,
+  toDayKey,
+} from "../utils/utils";
+
+import ATranslationAPI from "../../ATranslation/compositionAPI/ATranslationAPI";
+
+import moment from "moment";
+import {
+  CALENDAR_DAY_FORMAT,
+} from "../const";
+
+export default function PeriodAPI(props, { emit }) {
+  const firstDayOfWeek = toRef(props, "firstDayOfWeek");
+  const modelValue = toRef(props, "modelValue");
+  const view = toRef(props, "view");
+  const workWeekDays = toRef(props, "workWeekDays");
+
+  const { language } = ATranslationAPI();
+
+  const modelValueKey = computed(() => toDayKey(modelValue.value));
+
+  const viewLocal = ref(view.value);
+  watch(view, () => {
+    viewLocal.value = view.value;
+  });
+  // The week, the work week and the day show the hours, the month shows the days, the agenda a list
+  const isTimeGridView = computed(() => ["week", "workweek", "day"].indexOf(viewLocal.value) !== -1);
+  const isAgendaView = computed(() => viewLocal.value === "agenda");
+
+  // A day of the shown period: the month or the week that contains it is shown
+  const viewDate = ref(modelValueKey.value || moment().format(CALENDAR_DAY_FORMAT));
+
+  const goToDate = date => {
+    const KEY = toDayKey(date);
+    if (KEY) {
+      viewDate.value = KEY;
+    }
+  };
+
+  // The period of the buttons "previous" and "next"
+  const unit = computed(() => {
+    if (viewLocal.value === "workweek") {
+      return "week";
+    }
+    return viewLocal.value === "agenda" ? "month" : viewLocal.value;
+  });
+
+  const goToPrevious = () => {
+    viewDate.value = moment(viewDate.value).subtract(1, unit.value).format(CALENDAR_DAY_FORMAT);
+  };
+
+  const goToNext = () => {
+    viewDate.value = moment(viewDate.value).add(1, unit.value).format(CALENDAR_DAY_FORMAT);
+  };
+
+  const goToToday = () => {
+    goToDate(new Date());
+  };
+
+  // A date chosen outside (v-model) shows its period
+  watch(modelValue, goToDate);
+
+  const weeks = computed(() => {
+    return getWeeks({
+      month: viewDate.value,
+      firstDayOfWeek: firstDayOfWeek.value,
+    });
+  });
+
+  const weekDays = computed(() => {
+    return getWeekDays({
+      date: viewDate.value,
+      firstDayOfWeek: firstDayOfWeek.value,
+    });
+  });
+
+  // The work week has only the days of workWeekDays (0 is Sunday)
+  const isDayVisible = key => {
+    return viewLocal.value !== "workweek" || workWeekDays.value.indexOf(moment(key).day()) !== -1;
+  };
+
+  // The columns of the time grid: the 7 days of the week, the days of the work week or one day
+  const timeGridDays = computed(() => {
+    if (viewLocal.value === "day") {
+      return weekDays.value.filter(day => day.key === viewDate.value);
+    }
+    if (viewLocal.value === "workweek") {
+      const DAYS = weekDays.value.filter(day => isDayVisible(day.key));
+      return DAYS.length ? DAYS : weekDays.value;
+    }
+    return weekDays.value;
+  });
+
+  // The agenda shows the days of the month
+  const agendaDays = computed(() => weeks.value.flat().filter(day => day.isCurrentMonth));
+
+  // The days that can get the focus: the days of the month (without the days of the other months), of the week or the day
+  const focusableDayKeys = computed(() => {
+    if (isTimeGridView.value) {
+      return timeGridDays.value.map(day => day.key);
+    }
+    return agendaDays.value.map(day => day.key);
+  });
+
+
+  const changeView = viewNew => {
+    if (viewNew === viewLocal.value) {
+      return;
+    }
+    // To the week or the day: the selected day or today, if it is shown, otherwise the first shown day
+    if (viewNew !== "month" && viewNew !== "agenda") {
+      const KEYS = focusableDayKeys.value;
+      viewDate.value = [modelValueKey.value, moment().format(CALENDAR_DAY_FORMAT)].find(key => KEYS.indexOf(key) !== -1) || KEYS[0];
+    }
+    viewLocal.value = viewNew;
+    emit("update:view", viewNew);
+  };
+
+  const title = computed(() => {
+    if (viewLocal.value === "day") {
+      return new Intl.DateTimeFormat(language.value || undefined, { weekday: "long", day: "numeric", month: "long", year: "numeric" })
+        .format(timeGridDays.value[0].date);
+    }
+    if (viewLocal.value === "week" || viewLocal.value === "workweek") {
+      const DAYS = timeGridDays.value;
+      const FORMAT = new Intl.DateTimeFormat(language.value || undefined, { day: "numeric", month: "long", year: "numeric" });
+      return FORMAT.formatRange(DAYS[0].date, DAYS[DAYS.length - 1].date);
+    }
+    return new Intl.DateTimeFormat(language.value || undefined, { month: "long", year: "numeric" })
+      .format(moment(viewDate.value).toDate());
+  });
+
+  const weekdays = computed(() => {
+    const FORMAT_SHORT = new Intl.DateTimeFormat(language.value || undefined, { weekday: "short" });
+    const FORMAT_LONG = new Intl.DateTimeFormat(language.value || undefined, { weekday: "long" });
+    return weekDays.value.map(day => ({
+      short: FORMAT_SHORT.format(day.date),
+      long: FORMAT_LONG.format(day.date),
+      isWeekend: day.isWeekend,
+    }));
+  });
+
+  const timeGridWeekdays = computed(() => {
+    const FORMAT = new Intl.DateTimeFormat(language.value || undefined, { weekday: viewLocal.value === "day" ? "long" : "short" });
+    return timeGridDays.value.map(day => FORMAT.format(day.date));
+  });
+
+  const range = computed(() => {
+    let days = weeks.value.flat();
+    if (isTimeGridView.value) {
+      days = timeGridDays.value;
+    } else if (isAgendaView.value) {
+      days = agendaDays.value;
+    }
+    const DAYS = days;
+    return {
+      start: DAYS[0].key,
+      end: DAYS[DAYS.length - 1].key,
+      month: viewDate.value.slice(0, 7),
+      view: viewLocal.value,
+    };
+  });
+
+  // The parent can load the events of the shown days
+  watch(() => `${ range.value.start }_${ range.value.end }`, () => {
+    emit("range-change", range.value);
+  }, { immediate: true });
+
+  return {
+    agendaDays,
+    changeView,
+    focusableDayKeys,
+    goToDate,
+    goToNext,
+    goToPrevious,
+    goToToday,
+    isAgendaView,
+    isDayVisible,
+    isTimeGridView,
+    modelValueKey,
+    range,
+    title,
+    viewLocal,
+    timeGridDays,
+    timeGridWeekdays,
+    weekdays,
+    weeks,
+  };
+}

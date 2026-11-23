@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_DATE_RELATIVE_DESCRIPTION_": "تقوم الدالة <strong>filterDateRelative</strong> بتنسيق التاريخ نسبةً إلى الآن، مثل \"قبل 5 دقائق\" أو \"خلال يومين\". يكون النص باللغة الحالية (<code>Intl.RelativeTimeFormat</code>). استخدم <strong>filterDate</strong> للتاريخ المطلق.",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_VALUE_": "التاريخ",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NOW_": "التاريخ الذي تتم مقارنة القيمة به",
+  "_PAGE_FILTER_DATE_RELATIVE_ARGUMENTS_NUMERIC_": "\"auto\" (\"أمس\"، \"غدًا\") أو \"always\" (\"قبل يوم واحد\"، \"خلال يوم واحد\")"
+}

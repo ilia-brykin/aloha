@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_NEWLINES_DESCRIPTION_": "La funzione <strong>filterNewlines</strong> mostra un testo su più righe, ad es. da una <code>textarea</code>, come HTML: esegue l'escape dei caratteri speciali HTML e sostituisce gli a capo con <code>&lt;br&gt;</code>. Il risultato è sicuro per <code>v-html</code> e la prop <code>html</code>. In una colonna di tabella usate <code>filter: \"newlines\"</code>.",
+  "_PAGE_FILTER_NEWLINES_ARGUMENTS_VALUE_": "Il testo con gli a capo",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_TEXT_": "Testo",
+  "_PAGE_FILTER_NEWLINES_EXAMPLE_RESULT_": "Risultato"
+}
