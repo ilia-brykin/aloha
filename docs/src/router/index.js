@@ -508,6 +508,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageInputOtp/PageInputOtp.vue"),
   },
   {
+    path: "/input-tags",
+    name: "PageInputTags",
+    component: () => import("../views/Components/Form/PageInputTags/PageInputTags.vue"),
+  },
+  {
     path: "/filters",
     name: "PageFilters",
     component: () => import("../views/Components/PageFilters/PageFilters.vue"),

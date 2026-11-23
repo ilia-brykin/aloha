@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Saisie d'étiquettes",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> saisit plusieurs valeurs libres dans un champ, p. ex. des mots-clés ou des destinataires d'e-mail. Le modèle est un tableau de chaînes.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Accessibilité :</p><ul><li>Le champ est une saisie de texte normale avec un libellé. Une indication pour les lecteurs d'écran explique les touches : <kbd>Entrée</kbd> ou une virgule ajoute une valeur, <kbd>Retour arrière</kbd> dans le champ vide retire la dernière.</li><li>Chaque étiquette a un bouton de suppression avec le texte « Retirer … ». Après un clic, le focus revient dans le champ.</li><li>Les valeurs ajoutées et retirées, les doublons et la limite sont annoncés dans une région live.</li><li>Le texte collé est découpé en plusieurs valeurs.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Autorise plusieurs fois la même valeur. Sans elle, un doublon (sans tenir compte de la casse) n'est pas ajouté et est annoncé.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Nombre maximal de valeurs. Une fois atteint, plus aucune valeur n'est ajoutée et la limite est annoncée.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Touches qui ajoutent le texte saisi comme valeur, par défaut <code>[\"Enter\", \",\"]</code>. Les séparateurs d'un caractère et les retours à la ligne découpent aussi le texte collé.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Type de l'élément dans <code>AForm</code> : <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Place le focus dans le champ.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Saisissez une valeur et appuyez sur Entrée ou une virgule. Le texte resté dans le champ est ajouté quand le champ perd le focus.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Mots-clés",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Ajouter un mot-clé",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Par exemple : vue, accessibilité, formulaires",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Destinataires d'e-mail",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> ajoute le point-virgule et l'espace, on peut donc saisir ou coller une liste d'adresses. <code>max-tags</code> limite le nombre de destinataires. <code>input-attributes</code> affiche le clavier mobile pour les adresses e-mail.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Destinataires",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "5 destinataires au maximum.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "Dans un formulaire",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "Dans <code>AForm</code>, l'élément a le type <code>tags</code>."
+}

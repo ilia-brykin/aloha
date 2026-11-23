@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Tag-Eingabe",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> erfasst mehrere freie Werte in einem Feld, z. B. Schlagwörter oder E-Mail-Empfänger. Das Modell ist ein Array von Strings.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Barrierefreiheit:</p><ul><li>Das Feld ist eine normale Texteingabe mit Label. Ein Hinweis für Screenreader erklärt die Tasten: <kbd>Enter</kbd> oder ein Komma fügt einen Wert hinzu, die <kbd>Rücktaste</kbd> im leeren Feld entfernt den letzten.</li><li>Jeder Tag hat einen Entfernen-Button mit dem Text „… entfernen“. Nach einem Klick springt der Fokus zurück in das Feld.</li><li>Hinzugefügte und entfernte Werte, Duplikate und das Limit werden in einer Live-Region angekündigt.</li><li>Eingefügter Text wird in mehrere Werte aufgeteilt.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Erlaubt denselben Wert mehrfach. Ohne diese Prop wird ein Duplikat (ohne Groß-/Kleinschreibung) nicht hinzugefügt und angekündigt.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Maximale Anzahl der Werte. Ist sie erreicht, werden keine weiteren Werte hinzugefügt und das Limit wird angekündigt.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Tasten, die den eingegebenen Text als Wert hinzufügen, Standard <code>[\"Enter\", \",\"]</code>. Einzeichen-Trenner und Zeilenumbrüche teilen auch eingefügten Text.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Typ des Elements in <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Setzt den Fokus in das Feld.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Geben Sie einen Wert ein und drücken Sie Enter oder ein Komma. Text, der noch im Feld steht, wird hinzugefügt, wenn das Feld den Fokus verliert.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Schlagwörter",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Schlagwort hinzufügen",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Zum Beispiel: vue, Barrierefreiheit, Formulare",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "E-Mail-Empfänger",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> ergänzt Semikolon und Leerzeichen, so kann eine Liste von Adressen eingegeben oder eingefügt werden. <code>max-tags</code> begrenzt die Anzahl der Empfänger. <code>input-attributes</code> sorgt für die mobile Tastatur für E-Mail-Adressen.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Empfänger",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Höchstens 5 Empfänger.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "In einem Formular",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> hat das Element den Typ <code>tags</code>."
+}

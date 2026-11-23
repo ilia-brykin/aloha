@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Ukloni {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Dodano: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Uklonjeno: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} je već na popisu",
+  "_A_INPUT_TAGS_MAX_": "Najviše {{ max }} vrijednosti",
+  "_A_INPUT_TAGS_HINT_": "Enter ili zarez dodaje vrijednost, Backspace u praznom polju uklanja posljednju."
+}

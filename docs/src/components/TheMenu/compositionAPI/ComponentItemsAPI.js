@@ -266,6 +266,14 @@ export default function ComponentItemsAPI() {
             label: "Input OTP",
           },
           {
+            id: "input-tags",
+            to: {
+              name: "PageInputTags",
+            },
+            class: "test_menu_input_tags",
+            label: "Input tags",
+          },
+          {
             id: "json",
             label: "JSON",
             class: "test_menu_json",

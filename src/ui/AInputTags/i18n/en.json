@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Remove {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Added: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Removed: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} is already in the list",
+  "_A_INPUT_TAGS_MAX_": "No more than {{ max }} values",
+  "_A_INPUT_TAGS_HINT_": "Enter or comma adds a value, Backspace in the empty field removes the last one."
+}

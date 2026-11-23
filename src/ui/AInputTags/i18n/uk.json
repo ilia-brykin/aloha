@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Видалити {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Додано: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Видалено: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} вже є у списку",
+  "_A_INPUT_TAGS_MAX_": "Не більше {{ max }} значень",
+  "_A_INPUT_TAGS_HINT_": "Enter або кома додає значення, Backspace у порожньому полі видаляє останнє."
+}

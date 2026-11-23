@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Retirer {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Ajouté : {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Retiré : {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} est déjà dans la liste",
+  "_A_INPUT_TAGS_MAX_": "Pas plus de {{ max }} valeurs",
+  "_A_INPUT_TAGS_HINT_": "Entrée ou une virgule ajoute une valeur, Retour arrière dans le champ vide retire la dernière."
+}

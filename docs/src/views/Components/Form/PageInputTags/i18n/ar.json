@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "إدخال الوسوم",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "يُدخل <strong lang=\"en\">AInputTags</strong> عدة قيم حرة في حقل واحد، مثل الكلمات المفتاحية أو مستلمي البريد الإلكتروني. النموذج مصفوفة من السلاسل النصية.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>إمكانية الوصول:</p><ul><li>الحقل إدخال نصي عادي مع تسمية. يشرح تلميح لقارئات الشاشة المفاتيح: يضيف <kbd>Enter</kbd> أو الفاصلة قيمة، ويزيل <kbd>Backspace</kbd> في الحقل الفارغ آخر قيمة.</li><li>لكل وسم زر إزالة بنص «إزالة …». بعد النقر يعود التركيز إلى الحقل.</li><li>يُعلَن عن القيم المضافة والمحذوفة والمكررات والحد في منطقة حية.</li><li>يُقسَّم النص الملصق إلى عدة قيم.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "يسمح بالقيمة نفسها أكثر من مرة. بدونه لا يُضاف المكرر (دون تمييز حالة الأحرف) ويُعلَن عنه.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "الحد الأقصى لعدد القيم. عند بلوغه لا تُضاف قيم أخرى ويُعلَن عن الحد.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "المفاتيح التي تضيف النص المكتوب كقيمة، الافتراضي <code>[\"Enter\", \",\"]</code>. تقسم الفواصل ذات الحرف الواحد وفواصل الأسطر النص الملصق أيضًا.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "نوع العنصر في <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "يضع التركيز في الحقل.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "اكتب قيمة واضغط Enter أو الفاصلة. يُضاف النص المتبقي في الحقل عندما يفقد الحقل التركيز.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "الكلمات المفتاحية",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "أضف كلمة مفتاحية",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "مثلًا: vue، إمكانية الوصول، النماذج",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "مستلمو البريد الإلكتروني",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "يضيف <code>separators</code> الفاصلة المنقوطة والمسافة، لذا يمكن كتابة قائمة عناوين أو لصقها. يحدد <code>max-tags</code> عدد المستلمين. يعرض <code>input-attributes</code> لوحة مفاتيح الجوال لعناوين البريد.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "المستلمون",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "5 مستلمين على الأكثر.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "في نموذج",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "في <code>AForm</code> نوع العنصر هو <code>tags</code>."
+}

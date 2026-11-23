@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Unos oznaka",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> unosi više slobodnih vrijednosti u jedno polje, npr. ključne riječi ili primatelje e-pošte. Model je niz nizova znakova.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Pristupačnost:</p><ul><li>Polje je obično tekstualno polje s oznakom. Savjet za čitače zaslona objašnjava tipke: <kbd>Enter</kbd> ili zarez dodaje vrijednost, <kbd>Backspace</kbd> u praznom polju uklanja posljednju.</li><li>Svaka oznaka ima gumb za uklanjanje s tekstom „Ukloni …”. Nakon klika fokus se vraća u polje.</li><li>Dodane i uklonjene vrijednosti, duplikati i ograničenje najavljuju se u live regiji.</li><li>Zalijepljeni tekst dijeli se na više vrijednosti.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Dopušta istu vrijednost više puta. Bez toga se duplikat (bez obzira na velika i mala slova) ne dodaje i najavljuje se.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Najveći broj vrijednosti. Kad se dosegne, ne dodaju se nove vrijednosti i najavljuje se ograničenje.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Tipke koje dodaju upisani tekst kao vrijednost, zadano <code>[\"Enter\", \",\"]</code>. Jednoznakovni razdjelnici i prijelomi redaka također dijele zalijepljeni tekst.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Vrsta elementa u <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Postavlja fokus u polje.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Upišite vrijednost i pritisnite Enter ili zarez. Tekst koji je ostao u polju dodaje se kad polje izgubi fokus.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Ključne riječi",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Dodaj ključnu riječ",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Na primjer: vue, pristupačnost, obrasci",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Primatelji e-pošte",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> dodaje točku sa zarezom i razmak, pa se može upisati ili zalijepiti popis adresa. <code>max-tags</code> ograničava broj primatelja. <code>input-attributes</code> prikazuje mobilnu tipkovnicu za adrese e-pošte.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Primatelji",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Najviše 5 primatelja.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "U obrascu",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "U <code>AForm</code> element ima vrstu <code>tags</code>."
+}

@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Rimuovi {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Aggiunto: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Rimosso: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} è già nell'elenco",
+  "_A_INPUT_TAGS_MAX_": "Non più di {{ max }} valori",
+  "_A_INPUT_TAGS_HINT_": "Invio o una virgola aggiunge un valore, Backspace nel campo vuoto rimuove l'ultimo."
+}

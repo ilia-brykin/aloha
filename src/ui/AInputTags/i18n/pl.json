@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Usuń {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Dodano: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Usunięto: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} jest już na liście",
+  "_A_INPUT_TAGS_MAX_": "Nie więcej niż {{ max }} wartości",
+  "_A_INPUT_TAGS_HINT_": "Enter lub przecinek dodaje wartość, Backspace w pustym polu usuwa ostatnią."
+}

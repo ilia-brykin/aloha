@@ -82,6 +82,7 @@ import PageInputI18n from "./views/Components/Form/PageInput/i18n/PageInputI18n"
 import PageInputNumberI18n from "./views/Components/Form/PageInputNumber/i18n/PageInputNumberI18n";
 import PageInputNumberRangeI18n from "./views/Components/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 import PageInputOtpI18n from "./views/Components/Form/PageInputOtp/i18n/PageInputOtpI18n";
+import PageInputTagsI18n from "./views/Components/Form/PageInputTags/i18n/PageInputTagsI18n";
 import PageJsonI18n from "./views/Components/Form/PageJson/i18n/PageJsonI18n";
 import PageLinkCopyI18n from "./views/Components/PageLinkCopy/i18n/PageLinkCopyI18n";
 import PageLinkI18n from "./views/Components/PageLink/i18n/PageLinkI18n";
@@ -242,6 +243,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.ar,
     ...PageInputFileI18n.ar,
     ...PageInputOtpI18n.ar,
+    ...PageInputTagsI18n.ar,
     ...PageJsonI18n.ar,
     ...PageLinkCopyI18n.ar,
     ...PageLinkI18n.ar,
@@ -383,6 +385,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.de,
     ...PageInputFileI18n.de,
     ...PageInputOtpI18n.de,
+    ...PageInputTagsI18n.de,
     ...PageJsonI18n.de,
     ...PageLinkCopyI18n.de,
     ...PageLinkI18n.de,
@@ -524,6 +527,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.en,
     ...PageInputFileI18n.en,
     ...PageInputOtpI18n.en,
+    ...PageInputTagsI18n.en,
     ...PageJsonI18n.en,
     ...PageLinkCopyI18n.en,
     ...PageLinkI18n.en,
@@ -665,6 +669,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.es,
     ...PageInputFileI18n.es,
     ...PageInputOtpI18n.es,
+    ...PageInputTagsI18n.es,
     ...PageJsonI18n.es,
     ...PageLinkCopyI18n.es,
     ...PageLinkI18n.es,
@@ -806,6 +811,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.fr,
     ...PageInputFileI18n.fr,
     ...PageInputOtpI18n.fr,
+    ...PageInputTagsI18n.fr,
     ...PageJsonI18n.fr,
     ...PageLinkCopyI18n.fr,
     ...PageLinkI18n.fr,
@@ -947,6 +953,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.hr,
     ...PageInputFileI18n.hr,
     ...PageInputOtpI18n.hr,
+    ...PageInputTagsI18n.hr,
     ...PageJsonI18n.hr,
     ...PageLinkCopyI18n.hr,
     ...PageLinkI18n.hr,
@@ -1088,6 +1095,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.it,
     ...PageInputFileI18n.it,
     ...PageInputOtpI18n.it,
+    ...PageInputTagsI18n.it,
     ...PageJsonI18n.it,
     ...PageLinkCopyI18n.it,
     ...PageLinkI18n.it,
@@ -1229,6 +1237,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.nl,
     ...PageInputFileI18n.nl,
     ...PageInputOtpI18n.nl,
+    ...PageInputTagsI18n.nl,
     ...PageJsonI18n.nl,
     ...PageLinkCopyI18n.nl,
     ...PageLinkI18n.nl,
@@ -1370,6 +1379,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.pl,
     ...PageInputFileI18n.pl,
     ...PageInputOtpI18n.pl,
+    ...PageInputTagsI18n.pl,
     ...PageJsonI18n.pl,
     ...PageLinkCopyI18n.pl,
     ...PageLinkI18n.pl,
@@ -1511,6 +1521,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.ru,
     ...PageInputFileI18n.ru,
     ...PageInputOtpI18n.ru,
+    ...PageInputTagsI18n.ru,
     ...PageJsonI18n.ru,
     ...PageLinkCopyI18n.ru,
     ...PageLinkI18n.ru,
@@ -1652,6 +1663,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.uk,
     ...PageInputFileI18n.uk,
     ...PageInputOtpI18n.uk,
+    ...PageInputTagsI18n.uk,
     ...PageJsonI18n.uk,
     ...PageLinkCopyI18n.uk,
     ...PageLinkI18n.uk,

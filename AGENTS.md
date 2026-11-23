@@ -168,6 +168,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Input number range](llms/components/input-number-range.md) — The **AInputNumberRange** component consists of two number fields "from" and "to".
   - [Input file](llms/components/input-file.md) — The **AInputFile** component chooses files with a button or a dropzone, checks the type, the size and the number of the files, shows them in a list and shows the upload status of every file.
   - [Input OTP](llms/components/input-otp.md) — The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
+  - [Input tags](llms/components/input-tags.md) — **AInputTags** enters several free values in one field, e.g.
   - [JSON](llms/components/json.md) — **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
   - [Multiselect ordered](llms/components/multiselect-ordered.md) — The component allows selecting multiple items with the ability to set their order.
   - [One checkbox](llms/components/one-checkbox.md) — The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.

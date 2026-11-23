@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Ввод тегов",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> вводит несколько свободных значений в одном поле, например ключевые слова или получателей e-mail. Модель — массив строк.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Доступность:</p><ul><li>Поле — обычный текстовый ввод с меткой. Подсказка для скринридеров объясняет клавиши: <kbd>Enter</kbd> или запятая добавляет значение, <kbd>Backspace</kbd> в пустом поле удаляет последнее.</li><li>У каждого тега есть кнопка удаления с текстом «Удалить …». После клика фокус возвращается в поле.</li><li>Добавленные и удалённые значения, дубликаты и лимит объявляются в live-регионе.</li><li>Вставленный текст разбивается на несколько значений.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Разрешает одно и то же значение несколько раз. Без него дубликат (без учёта регистра) не добавляется и объявляется.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Максимальное число значений. Когда оно достигнуто, новые значения не добавляются, и лимит объявляется.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Клавиши, которые добавляют введённый текст как значение, по умолчанию <code>[\"Enter\", \",\"]</code>. Односимвольные разделители и переносы строк также разбивают вставленный текст.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Тип элемента в <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Ставит фокус в поле.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Введите значение и нажмите Enter или запятую. Текст, оставшийся в поле, добавляется, когда поле теряет фокус.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Ключевые слова",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Добавить ключевое слово",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Например: vue, доступность, формы",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Получатели e-mail",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> добавляет точку с запятой и пробел, поэтому список адресов можно ввести или вставить. <code>max-tags</code> ограничивает число получателей. <code>input-attributes</code> включает мобильную клавиатуру для адресов e-mail.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Получатели",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Не больше 5 получателей.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "В форме",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "В <code>AForm</code> у элемента тип <code>tags</code>."
+}

@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "إزالة {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "تمت الإضافة: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "تمت الإزالة: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} موجود بالفعل في القائمة",
+  "_A_INPUT_TAGS_MAX_": "لا أكثر من {{ max }} قيم",
+  "_A_INPUT_TAGS_HINT_": "يضيف Enter أو الفاصلة قيمة، ويزيل Backspace في الحقل الفارغ آخر قيمة."
+}

@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Wprowadzanie tagów",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> wprowadza kilka dowolnych wartości w jednym polu, np. słowa kluczowe lub odbiorców e-mail. Model to tablica ciągów znaków.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Dostępność:</p><ul><li>Pole to zwykłe pole tekstowe z etykietą. Wskazówka dla czytników ekranu objaśnia klawisze: <kbd>Enter</kbd> lub przecinek dodaje wartość, <kbd>Backspace</kbd> w pustym polu usuwa ostatnią.</li><li>Każdy tag ma przycisk usuwania z tekstem „Usuń …”. Po kliknięciu fokus wraca do pola.</li><li>Dodane i usunięte wartości, duplikaty i limit są ogłaszane w regionie live.</li><li>Wklejony tekst jest dzielony na kilka wartości.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Pozwala na tę samą wartość wiele razy. Bez tego duplikat (bez rozróżniania wielkości liter) nie jest dodawany i jest ogłaszany.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Maksymalna liczba wartości. Po jej osiągnięciu nie są dodawane kolejne wartości, a limit jest ogłaszany.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Klawisze, które dodają wpisany tekst jako wartość, domyślnie <code>[\"Enter\", \",\"]</code>. Jednoznakowe separatory i podziały wierszy dzielą też wklejony tekst.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Typ elementu w <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Ustawia fokus w polu.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Wpisz wartość i naciśnij Enter lub przecinek. Tekst pozostały w polu jest dodawany, gdy pole traci fokus.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Słowa kluczowe",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Dodaj słowo kluczowe",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Na przykład: vue, dostępność, formularze",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Odbiorcy e-mail",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> dodaje średnik i spację, dzięki czemu można wpisać lub wkleić listę adresów. <code>max-tags</code> ogranicza liczbę odbiorców. <code>input-attributes</code> włącza klawiaturę mobilną dla adresów e-mail.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Odbiorcy",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Najwyżej 5 odbiorców.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "W formularzu",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "W <code>AForm</code> element ma typ <code>tags</code>."
+}

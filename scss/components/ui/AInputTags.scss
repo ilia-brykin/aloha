@@ -1,0 +1,102 @@
+@use "../../utils/focus";
+
+// The wrapper looks like an input (.a_form_control); the focus is on the inner input, so the ring is drawn with :focus-within.
+.a_input_tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_input_tags_gap);
+  cursor: text;
+
+  &:focus-within {
+    border-color: var(--a_form_control_focus_border_color);
+    @include focus.focus-ring;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_input_tags__list {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a_input_tags__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_input_tags_tag_gap);
+  max-width: 100%;
+  padding: var(--a_input_tags_tag_padding_y) var(--a_input_tags_tag_padding_x);
+  color: var(--a_input_tags_tag_color);
+  background-color: var(--a_input_tags_tag_bg);
+  border-radius: var(--a_input_tags_tag_border_radius);
+  line-height: 1.25;
+}
+
+.a_input_tags__text {
+  overflow-wrap: anywhere;
+}
+
+.a_input_tags__remove {
+  display: inline-flex;
+  flex: none;
+  padding: .125rem;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: var(--a_border_radius_pill);
+  cursor: pointer;
+  @include focus.focus-visible;
+
+  &:hover:not(:disabled) {
+    background-color: var(--a_input_tags_remove_hover_bg);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_input_tags__remove__icon {
+  width: .75rem;
+  height: .75rem;
+}
+
+.a_input_tags__input {
+  flex: 1 1 var(--a_input_tags_input_min_width);
+  min-width: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  outline: 0;
+
+  &::placeholder {
+    color: var(--a_form_control_placeholder_color);
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_input_tags) {
+  --a_input_tags_gap: var(--a_space_xs); // Space between the tags and the input.
+  --a_input_tags_input_min_width: 8rem; // Minimum width of the input; below it the input moves to the next line.
+  --a_input_tags_tag_gap: var(--a_space_xs); // Space between the text and the remove button of a tag.
+  --a_input_tags_tag_padding_x: var(--a_space_sm); // Horizontal padding of a tag.
+  --a_input_tags_tag_padding_y: .125rem; // Vertical padding of a tag.
+  --a_input_tags_tag_color: var(--a_color_primary_text_emphasis); // Text color of a tag.
+  --a_input_tags_tag_bg: var(--a_color_primary_bg_subtle); // Background of a tag.
+  --a_input_tags_tag_border_radius: var(--a_border_radius_pill); // Corner radius of a tag.
+  --a_input_tags_remove_hover_bg: var(--a_color_primary_border_subtle); // Background of the remove button on hover.
+}

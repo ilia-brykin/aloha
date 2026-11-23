@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Tags invoeren",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> voert meerdere vrije waarden in één veld in, bijv. trefwoorden of e-mailontvangers. Het model is een array van strings.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Toegankelijkheid:</p><ul><li>Het veld is een gewoon tekstveld met label. Een hint voor schermlezers legt de toetsen uit: <kbd>Enter</kbd> of een komma voegt een waarde toe, <kbd>Backspace</kbd> in het lege veld verwijdert de laatste.</li><li>Elke tag heeft een verwijderknop met de tekst ‘… verwijderen’. Na een klik gaat de focus terug naar het veld.</li><li>Toegevoegde en verwijderde waarden, duplicaten en de limiet worden in een live-regio aangekondigd.</li><li>Geplakte tekst wordt in meerdere waarden opgesplitst.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Staat dezelfde waarde meerdere keren toe. Zonder deze prop wordt een duplicaat (hoofdletterongevoelig) niet toegevoegd en aangekondigd.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Maximaal aantal waarden. Als het bereikt is, worden geen waarden meer toegevoegd en wordt de limiet aangekondigd.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Toetsen die de getypte tekst als waarde toevoegen, standaard <code>[\"Enter\", \",\"]</code>. Scheidingstekens van één teken en regeleinden splitsen ook geplakte tekst.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Type van het element in <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Zet de focus in het veld.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Typ een waarde en druk op Enter of een komma. Tekst die nog in het veld staat, wordt toegevoegd als het veld de focus verliest.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Trefwoorden",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Trefwoord toevoegen",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Bijvoorbeeld: vue, toegankelijkheid, formulieren",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "E-mailontvangers",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> voegt puntkomma en spatie toe, zodat een lijst met adressen getypt of geplakt kan worden. <code>max-tags</code> beperkt het aantal ontvangers. <code>input-attributes</code> geeft het mobiele toetsenbord voor e-mailadressen.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Ontvangers",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Maximaal 5 ontvangers.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "In een formulier",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> heeft het element het type <code>tags</code>."
+}

@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Input tags",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> enters several free values in one field, e.g. keywords or e-mail recipients. The model is an array of strings.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Accessibility:</p><ul><li>The field is a normal text input with a label. A hint for screen readers explains the keys: <kbd>Enter</kbd> or a comma adds a value, <kbd>Backspace</kbd> in the empty field removes the last one.</li><li>Every tag has a remove button with the text \"Remove …\". After a click the focus goes back to the input.</li><li>Added and removed values, duplicates and the limit are announced in a live region.</li><li>Pasted text is split into several values.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Allows the same value more than once. Without it a duplicate (case-insensitive) is not added and announced.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Maximum number of values. When it is reached, no more values are added and the limit is announced.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Keys that add the typed text as a value, default <code>[\"Enter\", \",\"]</code>. One-character separators and line breaks also split pasted text.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Type of the element in <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Sets the focus to the input.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Type a value and press Enter or a comma. The text that is still in the field is added when the field loses the focus.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Keywords",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Add a keyword",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "For example: vue, accessibility, forms",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "E-mail recipients",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> adds a semicolon and a space, so a list of addresses can be typed or pasted. <code>max-tags</code> limits the number of recipients. <code>input-attributes</code> gives the mobile keyboard for e-mail addresses.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Recipients",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "At most 5 recipients.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "In a form",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> the element has the type <code>tags</code>."
+}

@@ -8,6 +8,7 @@ import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AInputOtp from "./AInputOtp/AInputOtp";
+import AInputTags from "./AInputTags/AInputTags";
 import AJson from "./AJson/AJson";
 import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
@@ -50,6 +51,7 @@ export default {
   numberRange: AInputNumberRange,
   oneCheckbox: AOneCheckbox,
   otp: AInputOtp,
+  tags: AInputTags,
   password: AInput,
   radio: ARadio,
   rate: ARate,

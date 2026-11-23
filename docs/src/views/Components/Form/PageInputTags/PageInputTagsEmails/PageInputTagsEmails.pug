@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_TAGS_EMAILS_HEADER_"
+  description="_A_INPUT_TAGS_EMAILS_DESCRIPTION_"
+  :props="['separators', 'max-tags']"
+)
+  a-input-tags(
+    v-model="model"
+    label="_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_"
+    :separators="['Enter', ',', ';', ' ']"
+    :max-tags="5"
+    :input-attributes="{ type: 'email', inputmode: 'email' }"
+    help-text="_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_"
+  )
+  pre.a_mt_3 {{ model }}

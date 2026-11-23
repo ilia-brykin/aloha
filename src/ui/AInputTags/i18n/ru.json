@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Удалить {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Добавлено: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Удалено: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} уже есть в списке",
+  "_A_INPUT_TAGS_MAX_": "Не больше {{ max }} значений",
+  "_A_INPUT_TAGS_HINT_": "Enter или запятая добавляет значение, Backspace в пустом поле удаляет последнее."
+}

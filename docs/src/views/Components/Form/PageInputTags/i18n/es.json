@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Entrada de etiquetas",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> introduce varios valores libres en un campo, p. ej. palabras clave o destinatarios de correo. El modelo es un array de cadenas.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Accesibilidad:</p><ul><li>El campo es una entrada de texto normal con etiqueta. Una indicación para lectores de pantalla explica las teclas: <kbd>Intro</kbd> o una coma añade un valor, <kbd>Retroceso</kbd> en el campo vacío quita el último.</li><li>Cada etiqueta tiene un botón para quitarla con el texto «Quitar …». Tras un clic el foco vuelve al campo.</li><li>Los valores añadidos y quitados, los duplicados y el límite se anuncian en una región en vivo.</li><li>El texto pegado se divide en varios valores.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Permite el mismo valor más de una vez. Sin ella, un duplicado (sin distinguir mayúsculas) no se añade y se anuncia.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Número máximo de valores. Al alcanzarlo no se añaden más valores y se anuncia el límite.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Teclas que añaden el texto escrito como valor, por defecto <code>[\"Enter\", \",\"]</code>. Los separadores de un carácter y los saltos de línea también dividen el texto pegado.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Tipo del elemento en <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Pone el foco en el campo.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Escriba un valor y pulse Intro o una coma. El texto que queda en el campo se añade cuando el campo pierde el foco.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Palabras clave",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Añadir una palabra clave",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Por ejemplo: vue, accesibilidad, formularios",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Destinatarios de correo",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> añade punto y coma y espacio, así se puede escribir o pegar una lista de direcciones. <code>max-tags</code> limita el número de destinatarios. <code>input-attributes</code> muestra el teclado móvil para correos.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Destinatarios",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Como máximo 5 destinatarios.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "En un formulario",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "En <code>AForm</code> el elemento tiene el tipo <code>tags</code>."
+}

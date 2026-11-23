@@ -20,6 +20,7 @@ import AInputI18n from "../ui/AInput/i18n/AInputI18n";
 import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
 import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 import AInputOtpI18n from "../ui/AInputOtp/i18n/AInputOtpI18n";
+import AInputTagsI18n from "../ui/AInputTags/i18n/AInputTagsI18n";
 import AJsonI18n from "../ui/AJson/i18n/AJsonI18n";
 import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
 import ALoadingI18n from "../ALoading/i18n/ALoadingI18n";
@@ -83,6 +84,7 @@ export const ar = {
   ...AInputNumberI18n.ar,
   ...AInputNumberRangeI18n.ar,
   ...AInputOtpI18n.ar,
+  ...AInputTagsI18n.ar,
   ...ARateI18n.ar,
   ...AJsonI18n.ar,
   ...ALinkCopyI18n.ar,
@@ -135,6 +137,7 @@ export const de = {
   ...AInputNumberI18n.de,
   ...AInputNumberRangeI18n.de,
   ...AInputOtpI18n.de,
+  ...AInputTagsI18n.de,
   ...ARateI18n.de,
   ...AJsonI18n.de,
   ...ALinkCopyI18n.de,
@@ -187,6 +190,7 @@ export const en = {
   ...AInputNumberI18n.en,
   ...AInputNumberRangeI18n.en,
   ...AInputOtpI18n.en,
+  ...AInputTagsI18n.en,
   ...ARateI18n.en,
   ...AJsonI18n.en,
   ...ALinkCopyI18n.en,
@@ -239,6 +243,7 @@ export const es = {
   ...AInputNumberI18n.es,
   ...AInputNumberRangeI18n.es,
   ...AInputOtpI18n.es,
+  ...AInputTagsI18n.es,
   ...ARateI18n.es,
   ...AJsonI18n.es,
   ...ALinkCopyI18n.es,
@@ -291,6 +296,7 @@ export const fr = {
   ...AInputNumberI18n.fr,
   ...AInputNumberRangeI18n.fr,
   ...AInputOtpI18n.fr,
+  ...AInputTagsI18n.fr,
   ...ARateI18n.fr,
   ...AJsonI18n.fr,
   ...ALinkCopyI18n.fr,
@@ -343,6 +349,7 @@ export const hr = {
   ...AInputNumberI18n.hr,
   ...AInputNumberRangeI18n.hr,
   ...AInputOtpI18n.hr,
+  ...AInputTagsI18n.hr,
   ...ARateI18n.hr,
   ...AJsonI18n.hr,
   ...ALinkCopyI18n.hr,
@@ -395,6 +402,7 @@ export const it = {
   ...AInputNumberI18n.it,
   ...AInputNumberRangeI18n.it,
   ...AInputOtpI18n.it,
+  ...AInputTagsI18n.it,
   ...ARateI18n.it,
   ...AJsonI18n.it,
   ...ALinkCopyI18n.it,
@@ -447,6 +455,7 @@ export const nl = {
   ...AInputNumberI18n.nl,
   ...AInputNumberRangeI18n.nl,
   ...AInputOtpI18n.nl,
+  ...AInputTagsI18n.nl,
   ...ARateI18n.nl,
   ...AJsonI18n.nl,
   ...ALinkCopyI18n.nl,
@@ -499,6 +508,7 @@ export const pl = {
   ...AInputNumberI18n.pl,
   ...AInputNumberRangeI18n.pl,
   ...AInputOtpI18n.pl,
+  ...AInputTagsI18n.pl,
   ...ARateI18n.pl,
   ...AJsonI18n.pl,
   ...ALinkCopyI18n.pl,
@@ -551,6 +561,7 @@ export const ru = {
   ...AInputNumberI18n.ru,
   ...AInputNumberRangeI18n.ru,
   ...AInputOtpI18n.ru,
+  ...AInputTagsI18n.ru,
   ...ARateI18n.ru,
   ...AJsonI18n.ru,
   ...ALinkCopyI18n.ru,
@@ -603,6 +614,7 @@ export const uk = {
   ...AInputNumberI18n.uk,
   ...AInputNumberRangeI18n.uk,
   ...AInputOtpI18n.uk,
+  ...AInputTagsI18n.uk,
   ...ARateI18n.uk,
   ...AJsonI18n.uk,
   ...ALinkCopyI18n.uk,

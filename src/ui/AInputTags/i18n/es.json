@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Quitar {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Añadido: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Quitado: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} ya está en la lista",
+  "_A_INPUT_TAGS_MAX_": "No más de {{ max }} valores",
+  "_A_INPUT_TAGS_HINT_": "Intro o una coma añade un valor; Retroceso en el campo vacío quita el último."
+}

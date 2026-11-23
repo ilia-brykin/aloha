@@ -1,0 +1,8 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "{{ tag }} verwijderen",
+  "_A_INPUT_TAGS_ADDED_": "Toegevoegd: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Verwijderd: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} staat al in de lijst",
+  "_A_INPUT_TAGS_MAX_": "Niet meer dan {{ max }} waarden",
+  "_A_INPUT_TAGS_HINT_": "Enter of een komma voegt een waarde toe, Backspace in het lege veld verwijdert de laatste."
+}

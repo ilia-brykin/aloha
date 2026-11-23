@@ -1,0 +1,20 @@
+{
+  "_A_INPUT_TAGS_COMPONENT_NAME_": "Inserimento di tag",
+  "_A_INPUT_TAGS_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AInputTags</strong> inserisce più valori liberi in un campo, ad es. parole chiave o destinatari e-mail. Il modello è un array di stringhe.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_": "<p>Accessibilità:</p><ul><li>Il campo è un normale input di testo con etichetta. Un suggerimento per gli screen reader spiega i tasti: <kbd>Invio</kbd> o una virgola aggiunge un valore, <kbd>Backspace</kbd> nel campo vuoto rimuove l'ultimo.</li><li>Ogni tag ha un pulsante di rimozione con il testo «Rimuovi …». Dopo un clic il focus torna nel campo.</li><li>I valori aggiunti e rimossi, i duplicati e il limite vengono annunciati in una regione live.</li><li>Il testo incollato viene diviso in più valori.</li></ul>",
+  "_A_INPUT_TAGS_PROPS_ALLOW_DUPLICATES_DESCRIPTION_": "Consente lo stesso valore più volte. Senza, un duplicato (senza distinzione tra maiuscole e minuscole) non viene aggiunto e viene annunciato.",
+  "_A_INPUT_TAGS_PROPS_MAX_TAGS_DESCRIPTION_": "Numero massimo di valori. Quando è raggiunto, non vengono aggiunti altri valori e il limite viene annunciato.",
+  "_A_INPUT_TAGS_PROPS_SEPARATORS_DESCRIPTION_": "Tasti che aggiungono il testo digitato come valore, predefinito <code>[\"Enter\", \",\"]</code>. I separatori di un carattere e gli a capo dividono anche il testo incollato.",
+  "_A_INPUT_TAGS_PROPS_TYPE_DESCRIPTION_": "Tipo dell'elemento in <code>AForm</code>: <code>type: \"tags\"</code>.",
+  "_A_INPUT_TAGS_METHODS_FOCUS_DESCRIPTION_": "Imposta il focus nel campo.",
+  "_A_INPUT_TAGS_BASIC_DESCRIPTION_": "Digitate un valore e premete Invio o una virgola. Il testo rimasto nel campo viene aggiunto quando il campo perde il focus.",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_": "Parole chiave",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_PLACEHOLDER_": "Aggiungi una parola chiave",
+  "_A_INPUT_TAGS_EXAMPLE_KEYWORDS_HELP_": "Ad esempio: vue, accessibilità, moduli",
+  "_A_INPUT_TAGS_EMAILS_HEADER_": "Destinatari e-mail",
+  "_A_INPUT_TAGS_EMAILS_DESCRIPTION_": "<code>separators</code> aggiunge il punto e virgola e lo spazio, così si può digitare o incollare un elenco di indirizzi. <code>max-tags</code> limita il numero di destinatari. <code>input-attributes</code> mostra la tastiera mobile per gli indirizzi e-mail.",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Destinatari",
+  "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Al massimo 5 destinatari.",
+  "_A_INPUT_TAGS_FORM_HEADER_": "In un modulo",
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> l'elemento ha il tipo <code>tags</code>."
+}
