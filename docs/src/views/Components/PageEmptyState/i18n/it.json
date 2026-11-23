@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Stato vuoto",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> mostra che non ci sono dati: un'icona, un titolo, un testo e dei pulsanti. Usatelo in tabelle, elenchi e alberi, ad es. «Ancora nessuna voce» o «Nessun risultato».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Tag del titolo. <code>p</code> per impostazione predefinita, così la struttura dei titoli della pagina resta corretta. Impostate un livello di titolo (ad es. <code>h2</code>, <code>h3</code>) se lo stato vuoto è una sezione a sé. Il valore predefinito si può cambiare per tutta l'app con <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Titolo. Accetta una chiave di traduzione.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Icona sopra il titolo, un nome registrato con <code>AIconPlugin</code>. È decorativa e nascosta agli screen reader.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Testo sotto il titolo. Accetta una chiave di traduzione.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Pulsanti o link sotto il testo, ad es. per creare la prima voce o reimpostare i filtri.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Contenuto proprio al posto della prop <code>icon</code>, ad es. un'illustrazione. È nascosto agli screen reader.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Un elenco vuoto con un pulsante per la prima voce. <code>header-tag</code> rende il titolo un titolo del livello giusto. La classe <code>a_tile</code> aggiunge una cornice.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Ancora nessuna voce",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Create la prima voce per vederla qui.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Crea voce",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Nessun risultato",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Lo stato vuoto appare quando la ricerca non ha risultati. Si trova in un elemento con <code>role=\"status\"</code> che è sempre nella pagina, quindi uno screen reader lo annuncia. Un elemento con <code>role=\"status\"</code> aggiunto insieme al suo contenuto spesso non viene annunciato. Il segnaposto <code>{{ search }}</code> viene da <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Cerca una città",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Nessun risultato per «{{ search }}»",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Controllate l'ortografia o provate un termine più breve.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Cancella la ricerca"
+}

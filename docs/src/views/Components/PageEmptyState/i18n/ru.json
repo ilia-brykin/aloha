@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Пустое состояние",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> показывает, что данных нет: иконка, заголовок, текст и кнопки. Используйте его в таблицах, списках и деревьях, например «Пока нет записей» или «Ничего не найдено».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Тег заголовка. По умолчанию <code>p</code>, чтобы структура заголовков страницы оставалась правильной. Задайте уровень заголовка (например <code>h2</code>, <code>h3</code>), если пустое состояние — отдельный раздел. Значение по умолчанию можно поменять для всего приложения через <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Заголовок. Принимает ключ перевода.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Иконка над заголовком, имя, зарегистрированное через <code>AIconPlugin</code>. Декоративная, скрыта от скринридеров.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Текст под заголовком. Принимает ключ перевода.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Кнопки или ссылки под текстом, например чтобы создать первую запись или сбросить фильтры.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Своё содержимое вместо пропса <code>icon</code>, например иллюстрация. Скрыто от скринридеров.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Пустой список с кнопкой для первой записи. <code>header-tag</code> делает заголовок заголовком нужного уровня. Класс <code>a_tile</code> добавляет рамку.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Пока нет записей",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Создайте первую запись, чтобы увидеть её здесь.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Создать запись",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Ничего не найдено",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Пустое состояние появляется, когда поиск ничего не нашёл. Оно находится внутри элемента с <code>role=\"status\"</code>, который всегда есть на странице, поэтому скринридер его объявляет. Элемент с <code>role=\"status\"</code>, который добавляется вместе со своим содержимым, часто не объявляется. Плейсхолдер <code>{{ search }}</code> берётся из <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Поиск города",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Ничего не найдено по запросу «{{ search }}»",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Проверьте написание или попробуйте более короткий запрос.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Очистить поиск"
+}

@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Prazno stanje",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> pokazuje da nema podataka: ikona, naslov, tekst i gumbi. Koristite ga u tablicama, popisima i stablima, npr. „Još nema unosa” ili „Ništa nije pronađeno”.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Oznaka naslova. Zadano <code>p</code>, kako bi struktura naslova stranice ostala ispravna. Postavite razinu naslova (npr. <code>h2</code>, <code>h3</code>) ako je prazno stanje zaseban odjeljak. Zadana vrijednost može se promijeniti za cijelu aplikaciju pomoću <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Naslov. Prihvaća ključ prijevoda.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Ikona iznad naslova, naziv registriran pomoću <code>AIconPlugin</code>. Ukrasna je i skrivena od čitača zaslona.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Tekst ispod naslova. Prihvaća ključ prijevoda.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Gumbi ili poveznice ispod teksta, npr. za stvaranje prvog unosa ili poništavanje filtara.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Vlastiti sadržaj umjesto propa <code>icon</code>, npr. ilustracija. Skriven je od čitača zaslona.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Prazan popis s gumbom za prvi unos. <code>header-tag</code> pretvara naslov u naslov odgovarajuće razine. Klasa <code>a_tile</code> dodaje okvir.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Još nema unosa",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Stvorite prvi unos da biste ga vidjeli ovdje.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Stvori unos",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Ništa nije pronađeno",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Prazno stanje pojavljuje se kad pretraga nema rezultata. Nalazi se u elementu s <code>role=\"status\"</code> koji je uvijek na stranici, pa ga čitač zaslona najavljuje. Element s <code>role=\"status\"</code> koji se dodaje zajedno sa svojim sadržajem često se ne najavljuje. Rezervirano mjesto <code>{{ search }}</code> dolazi iz <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Traži grad",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Ništa nije pronađeno za „{{ search }}”",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Provjerite pravopis ili pokušajte s kraćim pojmom.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Očisti pretragu"
+}

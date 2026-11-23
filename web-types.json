@@ -3017,6 +3017,44 @@
           }
         },
         {
+          "name": "AEmptyState",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "AEmptyState"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"p\""
+            },
+            {
+              "name": "headerText",
+              "type": "string"
+            },
+            {
+              "name": "icon",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "js": {
+            "events": []
+          }
+        },
+        {
           "name": "AErrors",
           "source": {
             "module": "aloha-vue",

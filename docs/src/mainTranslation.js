@@ -35,6 +35,7 @@ import PageDisplayI18n from "./views/CSS/PageDisplay/i18n/PageDisplayI18n";
 import PageDrawerI18n from "./views/Components/PageDrawer/i18n/PageDrawerI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
 import PageElementI18n from "./views/Components/PageElement/i18n/PageElementI18n";
+import PageEmptyStateI18n from "./views/Components/PageEmptyState/i18n/PageEmptyStateI18n";
 import PageFieldsetChildrenI18n from "./views/Components/Form/PageFieldsetChildren/i18n/PageFieldsetChildrenI18n";
 import PageFieldsetI18n from "./views/Components/Form/PageFieldset/i18n/PageFieldsetI18n";
 import PageFilterBooleanI18n from "./views/Functions/Filters/PageFilterBoolean/i18n/PageFilterBooleanI18n";
@@ -195,6 +196,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.ar,
     ...PageDropdownI18n.ar,
     ...PageElementI18n.ar,
+    ...PageEmptyStateI18n.ar,
     ...PageFieldsetChildrenI18n.ar,
     ...PageFieldsetI18n.ar,
     ...PageFilterBooleanI18n.ar,
@@ -335,6 +337,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.de,
     ...PageDropdownI18n.de,
     ...PageElementI18n.de,
+    ...PageEmptyStateI18n.de,
     ...PageFieldsetChildrenI18n.de,
     ...PageFieldsetI18n.de,
     ...PageFilterBooleanI18n.de,
@@ -475,6 +478,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.en,
     ...PageDropdownI18n.en,
     ...PageElementI18n.en,
+    ...PageEmptyStateI18n.en,
     ...PageFieldsetChildrenI18n.en,
     ...PageFieldsetI18n.en,
     ...PageFilterBooleanI18n.en,
@@ -615,6 +619,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.es,
     ...PageDropdownI18n.es,
     ...PageElementI18n.es,
+    ...PageEmptyStateI18n.es,
     ...PageFieldsetChildrenI18n.es,
     ...PageFieldsetI18n.es,
     ...PageFilterBooleanI18n.es,
@@ -755,6 +760,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.fr,
     ...PageDropdownI18n.fr,
     ...PageElementI18n.fr,
+    ...PageEmptyStateI18n.fr,
     ...PageFieldsetChildrenI18n.fr,
     ...PageFieldsetI18n.fr,
     ...PageFilterBooleanI18n.fr,
@@ -895,6 +901,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.hr,
     ...PageDropdownI18n.hr,
     ...PageElementI18n.hr,
+    ...PageEmptyStateI18n.hr,
     ...PageFieldsetChildrenI18n.hr,
     ...PageFieldsetI18n.hr,
     ...PageFilterBooleanI18n.hr,
@@ -1035,6 +1042,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.it,
     ...PageDropdownI18n.it,
     ...PageElementI18n.it,
+    ...PageEmptyStateI18n.it,
     ...PageFieldsetChildrenI18n.it,
     ...PageFieldsetI18n.it,
     ...PageFilterBooleanI18n.it,
@@ -1175,6 +1183,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.nl,
     ...PageDropdownI18n.nl,
     ...PageElementI18n.nl,
+    ...PageEmptyStateI18n.nl,
     ...PageFieldsetChildrenI18n.nl,
     ...PageFieldsetI18n.nl,
     ...PageFilterBooleanI18n.nl,
@@ -1315,6 +1324,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.pl,
     ...PageDropdownI18n.pl,
     ...PageElementI18n.pl,
+    ...PageEmptyStateI18n.pl,
     ...PageFieldsetChildrenI18n.pl,
     ...PageFieldsetI18n.pl,
     ...PageFilterBooleanI18n.pl,
@@ -1455,6 +1465,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.ru,
     ...PageDropdownI18n.ru,
     ...PageElementI18n.ru,
+    ...PageEmptyStateI18n.ru,
     ...PageFieldsetChildrenI18n.ru,
     ...PageFieldsetI18n.ru,
     ...PageFilterBooleanI18n.ru,
@@ -1595,6 +1606,7 @@ export const mainTranslation = {
     ...PageDrawerI18n.uk,
     ...PageDropdownI18n.uk,
     ...PageElementI18n.uk,
+    ...PageEmptyStateI18n.uk,
     ...PageFieldsetChildrenI18n.uk,
     ...PageFieldsetI18n.uk,
     ...PageFilterBooleanI18n.uk,

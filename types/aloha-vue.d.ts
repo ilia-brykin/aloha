@@ -928,6 +928,17 @@ export interface AElementProps {
 }
 export declare const AElement: DefineComponent<AElementProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("click")[]>;
 
+export interface AEmptyStateProps {
+  alwaysTranslate?: boolean;
+  extra?: Record<string, any>;
+  /** @default "p" */
+  headerTag?: string;
+  headerText?: string;
+  icon?: string;
+  text?: string;
+}
+export declare const AEmptyState: DefineComponent<AEmptyStateProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
+
 export interface AErrorsProps {
   alwaysTranslate?: boolean;
   /** @default true */
@@ -4223,6 +4234,7 @@ declare module "vue" {
     ADrawer: typeof ADrawer;
     ADropdown: typeof ADropdown;
     AElement: typeof AElement;
+    AEmptyState: typeof AEmptyState;
     AErrors: typeof AErrors;
     AErrorsText: typeof AErrorsText;
     AFieldset: typeof AFieldset;

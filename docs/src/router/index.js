@@ -283,6 +283,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageElement/PageElement.vue"),
   },
   {
+    path: "/empty-state",
+    name: "PageEmptyState",
+    component: () => import("../views/Components/PageEmptyState/PageEmptyState.vue"),
+  },
+  {
     path: "/tabs",
     name: "PageTabs",
     component: () => import("../views/Components/PageTabs/PageTabs.vue"),

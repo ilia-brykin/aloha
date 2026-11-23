@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Stan pusty",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> pokazuje, że nie ma danych: ikona, tytuł, tekst i przyciski. Używaj go w tabelach, listach i drzewach, np. „Brak wpisów” lub „Nic nie znaleziono”.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Znacznik tytułu. Domyślnie <code>p</code>, aby struktura nagłówków strony pozostała poprawna. Ustaw poziom nagłówka (np. <code>h2</code>, <code>h3</code>), jeśli stan pusty jest osobną sekcją. Wartość domyślną można zmienić dla całej aplikacji przez <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Tytuł. Przyjmuje klucz tłumaczenia.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Ikona nad tytułem, nazwa zarejestrowana przez <code>AIconPlugin</code>. Jest dekoracyjna i ukryta przed czytnikami ekranu.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Tekst pod tytułem. Przyjmuje klucz tłumaczenia.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Przyciski lub linki pod tekstem, np. do utworzenia pierwszego wpisu lub zresetowania filtrów.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Własna treść zamiast propa <code>icon</code>, np. ilustracja. Jest ukryta przed czytnikami ekranu.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Pusta lista z przyciskiem do pierwszego wpisu. <code>header-tag</code> zmienia tytuł w nagłówek odpowiedniego poziomu. Klasa <code>a_tile</code> dodaje ramkę.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Brak wpisów",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Utwórz pierwszy wpis, aby zobaczyć go tutaj.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Utwórz wpis",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Nic nie znaleziono",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Stan pusty pojawia się, gdy wyszukiwanie nie ma wyników. Znajduje się w elemencie z <code>role=\"status\"</code>, który zawsze jest na stronie, dlatego czytnik ekranu go ogłasza. Element z <code>role=\"status\"</code> dodawany razem ze swoją treścią często nie jest ogłaszany. Symbol zastępczy <code>{{ search }}</code> pochodzi z <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Szukaj miasta",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Nic nie znaleziono dla „{{ search }}”",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Sprawdź pisownię lub spróbuj krótszego wyrażenia.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Wyczyść wyszukiwanie"
+}

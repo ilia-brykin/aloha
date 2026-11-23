@@ -1,0 +1,31 @@
+export default function HtmlAPI() {
+  const codeHtml = `<a-input
+  v-model="search"
+  label="_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_"
+  model-undefined=""
+/>
+<ul v-if="itemsFiltered.length">
+  <li v-for="item in itemsFiltered" :key="item">{{ item }}</li>
+</ul>
+
+<!-- the live region is always in the page, only its content changes -->
+<div role="status">
+  <a-empty-state
+    v-if="!itemsFiltered.length"
+    icon="Search"
+    header-text="_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_"
+    text="_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_"
+    :extra="{ search }"
+  >
+    <a-button
+      class="a_btn a_btn_secondary"
+      text="_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_"
+      @click="search = ''"
+    />
+  </a-empty-state>
+</div>`;
+
+  return {
+    codeHtml,
+  };
+}

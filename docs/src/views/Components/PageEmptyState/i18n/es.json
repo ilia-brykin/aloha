@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Estado vacío",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> muestra que no hay datos: un icono, un título, un texto y botones. Úselo en tablas, listas y árboles, p. ej. «Todavía no hay entradas» o «No se ha encontrado nada».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Etiqueta del título. <code>p</code> por defecto, para que la estructura de encabezados de la página siga siendo correcta. Defina un nivel de encabezado (p. ej. <code>h2</code>, <code>h3</code>) si el estado vacío es una sección propia. El valor por defecto se puede cambiar para toda la app con <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Título. Acepta una clave de traducción.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Icono sobre el título, un nombre registrado con <code>AIconPlugin</code>. Es decorativo y está oculto para los lectores de pantalla.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Texto bajo el título. Acepta una clave de traducción.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Botones o enlaces bajo el texto, p. ej. para crear la primera entrada o restablecer los filtros.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Contenido propio en lugar de la prop <code>icon</code>, p. ej. una ilustración. Está oculto para los lectores de pantalla.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Una lista vacía con un botón para la primera entrada. <code>header-tag</code> convierte el título en un encabezado del nivel adecuado. La clase <code>a_tile</code> añade un marco.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Todavía no hay entradas",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Cree la primera entrada para verla aquí.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Crear entrada",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "No se ha encontrado nada",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "El estado vacío aparece cuando la búsqueda no tiene resultados. Está dentro de un elemento con <code>role=\"status\"</code> que siempre está en la página, por eso un lector de pantalla lo anuncia. Un elemento con <code>role=\"status\"</code> que se añade junto con su contenido a menudo no se anuncia. El marcador <code>{{ search }}</code> viene de <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Buscar una ciudad",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "No se ha encontrado nada para «{{ search }}»",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Compruebe la ortografía o pruebe un término más corto.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Borrar la búsqueda"
+}

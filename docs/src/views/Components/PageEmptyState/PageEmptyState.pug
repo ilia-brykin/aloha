@@ -1,0 +1,28 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_EMPTY_STATE_COMPONENT_DESCRIPTION_"
+    )
+
+    page-empty-state-basic
+
+    page-empty-state-search
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-css-vars(
+      files="components/AEmptyState"
+    )

@@ -149,6 +149,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Drawer](llms/components/drawer.md) — **ADrawer** is a panel at the left or the right edge of the window, e.g.
 - [Dropdown](llms/components/dropdown.md) — The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](llms/components/element.md) — The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
+- [Empty state](llms/components/empty-state.md) — **AEmptyState** shows that there is no data: an icon, a title, a text and buttons.
 - **Form**
   - [Checkbox](llms/components/checkbox.md) — The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.
   - [Color picker](llms/components/color-picker.md) — The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors.

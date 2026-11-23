@@ -24,6 +24,7 @@ export { default as ADisclosure } from "./ADisclosure/ADisclosure";
 export { default as ADrawer } from "./ADrawer/ADrawer";
 export { default as ADropdown } from "./ADropdown/ADropdown";
 export { default as AElement } from "./AElement/AElement";
+export { default as AEmptyState } from "./AEmptyState/AEmptyState";
 export { default as AErrors } from "./ui/AErrors/AErrors";
 export { default as AErrorsText } from "./ui/AErrorsText/AErrorsText";
 export { default as AFieldset } from "./ui/AFieldset/AFieldset";

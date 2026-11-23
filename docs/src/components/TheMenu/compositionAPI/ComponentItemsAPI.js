@@ -126,6 +126,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageEmptyState",
+        label: "Empty state",
+        class: "test_menu_empty_state",
+        to: {
+          name: "PageEmptyState",
+        },
+      },
+      {
         id: "form_parent",
         label: "Form",
         class: "test_menu_form_parent",

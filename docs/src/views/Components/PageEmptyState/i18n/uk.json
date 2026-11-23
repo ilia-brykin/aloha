@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Порожній стан",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> показує, що даних немає: іконка, заголовок, текст і кнопки. Використовуйте його в таблицях, списках і деревах, наприклад «Ще немає записів» або «Нічого не знайдено».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Тег заголовка. За замовчуванням <code>p</code>, щоб структура заголовків сторінки залишалася правильною. Задайте рівень заголовка (наприклад <code>h2</code>, <code>h3</code>), якщо порожній стан — окремий розділ. Значення за замовчуванням можна змінити для всього застосунку через <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Заголовок. Приймає ключ перекладу.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Іконка над заголовком, ім'я, зареєстроване через <code>AIconPlugin</code>. Декоративна, прихована від скрінрідерів.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Текст під заголовком. Приймає ключ перекладу.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Кнопки або посилання під текстом, наприклад щоб створити перший запис або скинути фільтри.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Власний вміст замість пропса <code>icon</code>, наприклад ілюстрація. Прихований від скрінрідерів.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Порожній список із кнопкою для першого запису. <code>header-tag</code> робить заголовок заголовком потрібного рівня. Клас <code>a_tile</code> додає рамку.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Ще немає записів",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Створіть перший запис, щоб побачити його тут.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Створити запис",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Нічого не знайдено",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Порожній стан з'являється, коли пошук нічого не знайшов. Він міститься в елементі з <code>role=\"status\"</code>, який завжди є на сторінці, тому скрінрідер його оголошує. Елемент з <code>role=\"status\"</code>, який додається разом зі своїм вмістом, часто не оголошується. Плейсхолдер <code>{{ search }}</code> береться з <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Пошук міста",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Нічого не знайдено за запитом «{{ search }}»",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Перевірте написання або спробуйте коротший запит.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Очистити пошук"
+}
