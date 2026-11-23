@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.87.1
+
+- fix(color-picker): default cleared model to undefined
+
 ## 2.87.0
 
 - feat(AColorPicker): prop `colorFormat` renamed to `colorFormats` (a format or an array of formats). With several formats the dialog has a switch that changes the format in the given order; on open the format of the model value is used if it is allowed, otherwise the first one. **Breaking:** replace `color-format` with `color-formats`.
