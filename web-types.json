@@ -1616,8 +1616,7 @@
             },
             {
               "name": "modelUndefined",
-              "type": "string | number | Record<string, any> | any[] | boolean",
-              "default": "\"\""
+              "type": "string | number | Record<string, any> | any[] | boolean"
             },
             {
               "name": "modelValue",

@@ -483,7 +483,6 @@ export interface AColorPickerProps {
   labelScreenReader?: string | number;
   /** @default {} */
   modelDependencies?: Record<string, any>;
-  /** @default "" */
   modelUndefined?: string | number | Record<string, any> | any[] | boolean;
   modelValue?: string;
   /** @default "#ff0000" */

@@ -14659,7 +14659,7 @@ export default {
 | label-position | "float" / "inset" / "top" | "float" |  | Position of the label: "float", "inset" or "top". The default comes from the component plugin or AFormPlugin (labelPosition). |
 | label-screen-reader | String / Number |  |  | Label intended for screen readers. Useful for improving accessibility. |
 | model-dependencies | Object | () => ({}) |  | Determines model dependencies that may affect the visibility or behavior of the component. |
-| model-undefined | String / Number / Object / Array / Boolean |  |  | The value used to reset the model to an undefined state. Useful for clearing the model value. |
+| model-undefined | String / Number / Object / Array / Boolean | undefined |  | The value used to reset the model to an undefined state. Useful for clearing the model value. |
 | model-value | String | undefined |  | The current model value associated with the component. Used to manage the data displayed in the component. |
 | panel-default-color | String | "#ff0000" |  | Color that the dialog shows when the model is empty. |
 | placement | String | "bottom-start" |  | Position of the dialog relative to the field. |

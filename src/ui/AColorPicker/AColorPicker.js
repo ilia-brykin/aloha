@@ -1,5 +1,4 @@
 import {
-  computed,
   h,
   Teleport,
 } from "vue";
@@ -24,9 +23,11 @@ import {
 import AColorPickerSaturation from "./AColorPickerSaturation/AColorPickerSaturation";
 import AColorPickerSlider from "./AColorPickerSlider/AColorPickerSlider";
 
+import ClearAPI from "./compositionAPI/ClearAPI";
 import ColorStateAPI from "./compositionAPI/ColorStateAPI";
 import ConfirmAPI from "./compositionAPI/ConfirmAPI";
 import FormatAPI from "./compositionAPI/FormatAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import InputAPI from "./compositionAPI/InputAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import PredefineAPI from "./compositionAPI/PredefineAPI";
@@ -174,7 +175,7 @@ export default {
     modelUndefined: {
       type: [String, Number, Object, Array, Boolean],
       required: false,
-      default: "",
+      default: undefined,
     },
     modelValue: {
       type: String,
@@ -350,16 +351,19 @@ export default {
       isErrors,
     });
 
-    const labelId = computed(() => `${ htmlIdLocal.value }_label`);
-    const valueId = computed(() => `${ htmlIdLocal.value }_value`);
+    const {
+      labelId,
+      valueId,
+    } = IdAPI({
+      htmlIdLocal,
+    });
 
-    const clearModelFromToggle = () => {
-      changeModel({
-        model: props.modelUndefined,
-        triggerDetails: "clear",
-      });
-      toggleRef.value?.focus();
-    };
+    const {
+      clearModelFromToggle,
+    } = ClearAPI(props, {
+      changeModel,
+      toggleRef,
+    });
 
     return {
       isLabelFloatLocal,
