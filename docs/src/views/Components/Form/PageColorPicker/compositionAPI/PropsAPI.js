@@ -165,7 +165,7 @@ export default function PropsAPI() {
       name: "model-undefined",
       description: "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_",
       type: "String / Number / Object / Array / Boolean",
-      default: undefined,
+      default: "undefined",
       required: false,
     },
     {

@@ -50,6 +50,47 @@ describe("AColorPicker", () => {
     wrapper.unmount();
   });
 
+  it("updates the label and value IDs when htmlId changes", async() => {
+    const wrapper = mountPicker({ htmlId: "color", modelValue: "#ff0000" });
+    const toggle = wrapper.get("button.a_color_picker__toggle");
+
+    expect(toggle.attributes("aria-labelledby")).toBe("color_label color_value");
+    await wrapper.setProps({ htmlId: "updated_color" });
+    expect(toggle.attributes("aria-labelledby")).toBe("updated_color_label updated_color_value");
+    expect(wrapper.get(".a_color_picker__toggle__value").attributes("id")).toBe("updated_color_value");
+    wrapper.unmount();
+  });
+
+  it.each(["toggle", "panel"])("clears from the %s to undefined by default and restores focus", async source => {
+    const change = vi.fn();
+    const wrapper = mountPicker({ modelValue: "#ff0000", change });
+    const toggle = wrapper.get("button.a_color_picker__toggle");
+
+    if (source === "panel") {
+      await toggle.trigger("click");
+      await flush();
+      [...getPopup().querySelectorAll("button")].find(button => button.textContent.includes("_A_COLOR_PICKER_CLEAR_")).click();
+    } else {
+      await wrapper.get(".a_form_control__actions__btn").trigger("click");
+    }
+    await flush();
+
+    expect(wrapper.emitted("update:modelValue").at(-1)).toEqual([undefined]);
+    expect(change).toHaveBeenCalledWith(expect.objectContaining({ model: undefined, triggerDetails: "clear" }));
+    expect(getPopup()).toBeNull();
+    expect(document.activeElement).toBe(toggle.element);
+    wrapper.unmount();
+  });
+
+  it("uses the updated modelUndefined when clearing from the toggle", async() => {
+    const wrapper = mountPicker({ modelValue: "#ff0000", modelUndefined: "" });
+    await wrapper.setProps({ modelUndefined: null });
+    await wrapper.get(".a_form_control__actions__btn").trigger("click");
+
+    expect(wrapper.emitted("update:modelValue").at(-1)).toEqual([null]);
+    wrapper.unmount();
+  });
+
   it("opens a dialog, changes the hue with the keyboard and confirms", async() => {
     const change = vi.fn();
     const wrapper = mountPicker({ modelValue: "#ff0000", change });
