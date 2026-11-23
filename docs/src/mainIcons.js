@@ -40,8 +40,10 @@ import ListNested from "aloha-svg/dist/js/bootstrap/ListNested";
 import ListUl from "aloha-svg/dist/js/bootstrap/ListUl";
 import MenuAppFill from "aloha-svg/dist/js/bootstrap/MenuAppFill";
 import MenuDown from "aloha-svg/dist/js/bootstrap/MenuDown";
+import Palette from "aloha-svg/dist/js/bootstrap/Palette";
 import Plugin from "aloha-svg/dist/js/bootstrap/Plugin";
 import PlusLg from "aloha-svg/dist/js/bootstrap/PlusLg";
+import Puzzle from "aloha-svg/dist/js/bootstrap/Puzzle";
 import Reception2 from "aloha-svg/dist/js/bootstrap/Reception2";
 import SegmentedNav from "aloha-svg/dist/js/bootstrap/SegmentedNav";
 import Shuffle from "aloha-svg/dist/js/bootstrap/Shuffle";
@@ -97,8 +99,10 @@ export default {
   ListUl,
   MenuAppFill,
   MenuDown,
+  Palette,
   Plugin,
   PlusLg,
+  Puzzle,
   Reception2,
   SegmentedNav,
   Shuffle,

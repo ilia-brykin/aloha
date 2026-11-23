@@ -2,7 +2,7 @@ export default function CssItemsAPI() {
   const cssItems = {
     id: "css",
     label: "CSS",
-    icon: "FiletypeCss",
+    icon: "Palette",
     class: "test_menu_css",
     children: [
       {

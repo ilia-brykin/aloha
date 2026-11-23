@@ -2,7 +2,7 @@ export default function ComponentItemsAPI() {
   const componentItems = {
     id: "components",
     label: "Components",
-    icon: "Boxes",
+    icon: "Puzzle",
     class: "test_menu_components",
     children: [
       {
