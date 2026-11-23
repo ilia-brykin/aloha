@@ -78,6 +78,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Progress: Progress circle](https://ilia-brykin.github.io/aloha/llms/components/progress-circle.md): The **AProgressCircle** component displays progress as a circular indicator.
 - [Show more](https://ilia-brykin.github.io/aloha/llms/components/show-more.md): The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 - [Skeleton](https://ilia-brykin.github.io/aloha/llms/components/skeleton.md): The **ASkeleton** component shows gray placeholders in the shape of the content while it is loading.
+- [Skip link](https://ilia-brykin.github.io/aloha/llms/components/skip-link.md): **ASkipLink** is the first link of the page: *Skip to main content*.
 - [Spinner](https://ilia-brykin.github.io/aloha/llms/components/spinner.md): The **ASpinner** component is used to display a loading indicator.
 - [Pagination](https://ilia-brykin.github.io/aloha/llms/components/pagination.md): The **APagination** component renders navigation for large data sets.
 - [Pagination pages](https://ilia-brykin.github.io/aloha/llms/components/pagination-pages.md): The **APaginationPages** component renders page navigation only.

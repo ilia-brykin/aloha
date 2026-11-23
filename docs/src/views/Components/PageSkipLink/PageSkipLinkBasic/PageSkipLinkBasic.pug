@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_SKIP_LINK_BASIC_DESCRIPTION_"
+  :props="['target-id']"
+)
+  a-skip-link(
+    target-id="skip_link_example_content"
+  )
+  #skip_link_example_content.a_tile.a_mt_3
+    .a_tile__body
+      a-translation(
+        tag="p"
+        text="_A_SKIP_LINK_EXAMPLE_CONTENT_"
+      )

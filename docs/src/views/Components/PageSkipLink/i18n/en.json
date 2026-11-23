@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Skip link",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> is the first link of the page: <em>Skip to main content</em>. It is hidden until it gets the keyboard focus, then it appears in the top left corner. Keyboard and screen reader users skip the header and the navigation with one key (WCAG 2.4.1). The link moves the focus to the target itself, so it also works with a hash router and with an element like <code>&lt;main&gt;</code> that cannot be focused.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Put <code>a-skip-link</code> as the first element of the page and give the main content <code>&lt;main id=\"main\"&gt;</code>. Try it on this page: reload it and press <kbd>Tab</kbd>. The example below jumps to the box under it.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> of the element that gets the focus, e.g. <code>&lt;main id=\"main\"&gt;</code>. If the element does not exist, the link works like a normal link.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Text of the link. Accepts a translation key.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Target of the skip link in this example. The focus is here after a click on the link."
+}

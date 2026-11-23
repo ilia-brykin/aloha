@@ -368,6 +368,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageSkeleton/PageSkeleton.vue"),
   },
   {
+    path: "/skip-link",
+    name: "PageSkipLink",
+    component: () => import("../views/Components/PageSkipLink/PageSkipLink.vue"),
+  },
+  {
     path: "/api",
     name: "PageApi",
     component: () => import("../views/PageApi/PageApi.vue"),

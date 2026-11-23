@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Link pomijania",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> to pierwszy link strony: <em>Przejdź do treści głównej</em>. Jest ukryty, dopóki nie otrzyma fokusu z klawiatury, wtedy pojawia się w lewym górnym rogu. Użytkownicy klawiatury i czytników ekranu pomijają nagłówek i nawigację jednym klawiszem (WCAG 2.4.1). Link sam przenosi fokus na cel, dlatego działa także z routerem hash i z elementem takim jak <code>&lt;main&gt;</code>, który nie może otrzymać fokusu.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Umieść <code>a-skip-link</code> jako pierwszy element strony, a treści głównej nadaj <code>&lt;main id=\"main\"&gt;</code>. Wypróbuj na tej stronie: przeładuj ją i naciśnij <kbd>Tab</kbd>. Przykład poniżej przechodzi do pola pod nim.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> elementu, który otrzymuje fokus, np. <code>&lt;main id=\"main\"&gt;</code>. Jeśli elementu nie ma, link działa jak zwykły link.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Tekst linku. Przyjmuje klucz tłumaczenia.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Cel linku pomijania w tym przykładzie. Po kliknięciu linku fokus jest tutaj."
+}

@@ -3171,6 +3171,16 @@ export interface ASkeletonItemProps {
 }
 export declare const ASkeletonItem: DefineComponent<ASkeletonItemProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
+export interface ASkipLinkProps {
+  alwaysTranslate?: boolean;
+  extra?: Record<string, any>;
+  /** @default "main" */
+  targetId?: string;
+  /** @default "_A_SKIP_LINK_TEXT_" */
+  text?: string;
+}
+export declare const ASkipLink: DefineComponent<ASkipLinkProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
+
 export interface ASliderProps {
   alwaysTranslate?: boolean;
   change?: ((...args: any[]) => any);
@@ -3968,6 +3978,7 @@ export declare const ASelectI18n: any;
 export declare const ASelectStyleI18n: any;
 export declare const AShowMoreI18n: any;
 export declare const ASkeletonI18n: any;
+export declare const ASkipLinkI18n: any;
 export declare const ASliderI18n: any;
 export declare const aSortBy: any;
 export declare const ASpinnerI18n: any;
@@ -4194,6 +4205,7 @@ declare module "vue" {
     AShowMore: typeof AShowMore;
     ASkeleton: typeof ASkeleton;
     ASkeletonItem: typeof ASkeletonItem;
+    ASkipLink: typeof ASkipLink;
     ASlider: typeof ASlider;
     ASpinner: typeof ASpinner;
     ASwitch: typeof ASwitch;

@@ -196,6 +196,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Progress circle](llms/components/progress-circle.md) — The **AProgressCircle** component displays progress as a circular indicator.
 - [Show more](llms/components/show-more.md) — The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 - [Skeleton](llms/components/skeleton.md) — The **ASkeleton** component shows gray placeholders in the shape of the content while it is loading.
+- [Skip link](llms/components/skip-link.md) — **ASkipLink** is the first link of the page: *Skip to main content*.
 - [Spinner](llms/components/spinner.md) — The **ASpinner** component is used to display a loading indicator.
 - [Pagination](llms/components/pagination.md) — The **APagination** component renders navigation for large data sets.
 - [Pagination pages](llms/components/pagination-pages.md) — The **APaginationPages** component renders page navigation only.

@@ -488,6 +488,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageSkipLink",
+        label: "Skip link",
+        class: "test_menu_skip_link",
+        to: {
+          name: "PageSkipLink",
+        },
+      },
+      {
         id: "spinner",
         label: "Spinner",
         class: "test_menu_spinner",

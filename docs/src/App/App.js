@@ -7,6 +7,7 @@ import TheNavbar from "../components/TheNavbar/TheNavbar.vue";
 import {
   AModalConfirm,
   ANotification,
+  ASkipLink,
 } from "aloha-vue";
 
 export default defineComponent({
@@ -14,6 +15,7 @@ export default defineComponent({
   components: {
     AModalConfirm,
     ANotification,
+    ASkipLink,
     TheMenu,
     TheNavbar,
   },

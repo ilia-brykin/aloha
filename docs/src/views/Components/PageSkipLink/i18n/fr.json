@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Lien d'évitement",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> est le premier lien de la page : <em>Aller au contenu principal</em>. Il est masqué jusqu'à ce qu'il reçoive le focus clavier, puis il apparaît en haut à gauche. Les utilisateurs du clavier et des lecteurs d'écran sautent l'en-tête et la navigation avec une touche (WCAG 2.4.1). Le lien déplace lui-même le focus sur la cible, il fonctionne donc aussi avec un routeur hash et avec un élément comme <code>&lt;main&gt;</code> qui ne peut pas recevoir le focus.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Placez <code>a-skip-link</code> comme premier élément de la page et donnez au contenu principal <code>&lt;main id=\"main\"&gt;</code>. Essayez sur cette page : rechargez-la et appuyez sur <kbd>Tab</kbd>. L'exemple ci-dessous saute vers le bloc situé dessous.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> de l'élément qui reçoit le focus, p. ex. <code>&lt;main id=\"main\"&gt;</code>. Si l'élément n'existe pas, le lien fonctionne comme un lien normal.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Texte du lien. Accepte une clé de traduction.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Cible du lien d'évitement dans cet exemple. Après un clic sur le lien, le focus est ici."
+}
