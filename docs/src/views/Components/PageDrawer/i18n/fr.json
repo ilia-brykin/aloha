@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Panneau latéral",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> est un panneau au bord gauche ou droit de la fenêtre, p. ex. pour les détails d'une ligne de tableau, des filtres ou des réglages. C'est un dialogue modal : il a toutes les props et tous les slots de <a href=\"/#/modal\">AModal</a> (en-tête, pied avec boutons, <code>save</code>, <code>selector-close-ids</code>…), retient le focus, se ferme avec <kbd>Échap</kbd> et rend le focus au bouton qui l'a ouvert.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Bord de la fenêtre : <code>right</code> ou <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> définit le bord. <code>selector-close-ids</code> rend le focus au bouton qui a ouvert le panneau. Dans une fenêtre étroite, le panneau prend toute la largeur. Le panneau glisse, sans animation si l'utilisateur préfère réduire les mouvements.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Ouvrir à droite",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Ouvrir à gauche",
+  "_A_DRAWER_EXAMPLE_BODY_": "Le panneau est un dialogue modal : la page derrière n'est pas accessible tant qu'il n'est pas fermé.",
+  "_A_DRAWER_SIZES_HEADER_": "Largeur",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "La prop <code>size</code> de <a href=\"/#/modal\">AModal</a> définit la largeur : <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, sans <code>size</code> 400px. Les largeurs sont des variables CSS.",
+  "_A_DRAWER_FORM_HEADER_": "Modifier dans un panneau latéral",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Un formulaire dans le panneau avec les boutons Enregistrer et Annuler. Avec <code>is-footer-sticky</code>, les boutons restent visibles pendant le défilement du formulaire. Le formulaire modifie une copie du modèle, Annuler ne change donc pas les données.",
+  "_A_DRAWER_BTN_EDIT_": "Modifier"
+}

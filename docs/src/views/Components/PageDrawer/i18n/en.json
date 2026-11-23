@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Side panel",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> is a panel at the left or the right edge of the window, e.g. for the details of a table row, filters or settings. It is a modal dialog: it has all props and slots of <a href=\"/#/modal\">AModal</a> (header, footer with buttons, <code>save</code>, <code>selector-close-ids</code>…), traps the focus, closes with <kbd>Escape</kbd> and returns the focus to the button that opened it.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Edge of the window: <code>right</code> or <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> sets the edge. <code>selector-close-ids</code> returns the focus to the button that opened the panel. On a narrow window the panel takes the whole width. The panel slides in, without animation if the user prefers reduced motion.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Open on the right",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Open on the left",
+  "_A_DRAWER_EXAMPLE_BODY_": "The panel is a modal dialog: the page behind it is not reachable until it is closed.",
+  "_A_DRAWER_SIZES_HEADER_": "Width",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "The prop <code>size</code> of <a href=\"/#/modal\">AModal</a> sets the width: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, without <code>size</code> 400px. The widths are CSS variables.",
+  "_A_DRAWER_FORM_HEADER_": "Edit in a side panel",
+  "_A_DRAWER_FORM_DESCRIPTION_": "A form in the panel with the buttons Save and Cancel. With <code>is-footer-sticky</code> the buttons stay visible while the form scrolls. The form edits a copy of the model, so Cancel does not change the data.",
+  "_A_DRAWER_BTN_EDIT_": "Edit"
+}

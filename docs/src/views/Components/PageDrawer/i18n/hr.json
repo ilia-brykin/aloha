@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Bočna ploča",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> je ploča uz lijevi ili desni rub prozora, npr. za detalje retka tablice, filtre ili postavke. To je modalni dijalog: ima sve propse i slotove <a href=\"/#/modal\">AModal</a> (zaglavlje, podnožje s gumbima, <code>save</code>, <code>selector-close-ids</code>…), zadržava fokus, zatvara se tipkom <kbd>Escape</kbd> i vraća fokus na gumb koji ju je otvorio.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Rub prozora: <code>right</code> ili <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> određuje rub. <code>selector-close-ids</code> vraća fokus na gumb koji je otvorio ploču. U uskom prozoru ploča zauzima cijelu širinu. Ploča klizi unutra, bez animacije ako korisnik preferira smanjeno kretanje.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Otvori desno",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Otvori lijevo",
+  "_A_DRAWER_EXAMPLE_BODY_": "Ploča je modalni dijalog: stranica iza nje nije dostupna dok se ne zatvori.",
+  "_A_DRAWER_SIZES_HEADER_": "Širina",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "Prop <code>size</code> iz <a href=\"/#/modal\">AModal</a> određuje širinu: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, bez <code>size</code> 400px. Širine su CSS varijable.",
+  "_A_DRAWER_FORM_HEADER_": "Uređivanje u bočnoj ploči",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Obrazac u ploči s gumbima Spremi i Odustani. S <code>is-footer-sticky</code> gumbi ostaju vidljivi dok se obrazac pomiče. Obrazac uređuje kopiju modela, pa Odustani ne mijenja podatke.",
+  "_A_DRAWER_BTN_EDIT_": "Uredi"
+}

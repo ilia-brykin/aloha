@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Zijpaneel",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> is een paneel aan de linker- of rechterrand van het venster, bijv. voor de details van een tabelrij, filters of instellingen. Het is een modale dialoog: het heeft alle props en slots van <a href=\"/#/modal\">AModal</a> (kop, voettekst met knoppen, <code>save</code>, <code>selector-close-ids</code>…), houdt de focus vast, sluit met <kbd>Escape</kbd> en geeft de focus terug aan de knop die het opende.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Rand van het venster: <code>right</code> of <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> bepaalt de rand. <code>selector-close-ids</code> geeft de focus terug aan de knop die het paneel opende. In een smal venster neemt het paneel de hele breedte in. Het paneel schuift in beeld, zonder animatie als de gebruiker minder beweging verkiest.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Rechts openen",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Links openen",
+  "_A_DRAWER_EXAMPLE_BODY_": "Het paneel is een modale dialoog: de pagina erachter is pas weer bereikbaar als het gesloten is.",
+  "_A_DRAWER_SIZES_HEADER_": "Breedte",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "De prop <code>size</code> van <a href=\"/#/modal\">AModal</a> bepaalt de breedte: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, zonder <code>size</code> 400px. De breedtes zijn CSS-variabelen.",
+  "_A_DRAWER_FORM_HEADER_": "Bewerken in een zijpaneel",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Een formulier in het paneel met de knoppen Opslaan en Annuleren. Met <code>is-footer-sticky</code> blijven de knoppen zichtbaar terwijl het formulier scrolt. Het formulier bewerkt een kopie van het model, daarom verandert Annuleren de gegevens niet.",
+  "_A_DRAWER_BTN_EDIT_": "Bewerken"
+}

@@ -32,6 +32,7 @@ import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/Page
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
 import PageDisplayI18n from "./views/CSS/PageDisplay/i18n/PageDisplayI18n";
+import PageDrawerI18n from "./views/Components/PageDrawer/i18n/PageDrawerI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
 import PageElementI18n from "./views/Components/PageElement/i18n/PageElementI18n";
 import PageFieldsetChildrenI18n from "./views/Components/Form/PageFieldsetChildren/i18n/PageFieldsetChildrenI18n";
@@ -191,6 +192,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.ar,
     ...PageDatepickerRangeI18n.ar,
     ...PageDisclosureI18n.ar,
+    ...PageDrawerI18n.ar,
     ...PageDropdownI18n.ar,
     ...PageElementI18n.ar,
     ...PageFieldsetChildrenI18n.ar,
@@ -330,6 +332,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.de,
     ...PageDatepickerRangeI18n.de,
     ...PageDisclosureI18n.de,
+    ...PageDrawerI18n.de,
     ...PageDropdownI18n.de,
     ...PageElementI18n.de,
     ...PageFieldsetChildrenI18n.de,
@@ -469,6 +472,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.en,
     ...PageDatepickerRangeI18n.en,
     ...PageDisclosureI18n.en,
+    ...PageDrawerI18n.en,
     ...PageDropdownI18n.en,
     ...PageElementI18n.en,
     ...PageFieldsetChildrenI18n.en,
@@ -608,6 +612,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.es,
     ...PageDatepickerRangeI18n.es,
     ...PageDisclosureI18n.es,
+    ...PageDrawerI18n.es,
     ...PageDropdownI18n.es,
     ...PageElementI18n.es,
     ...PageFieldsetChildrenI18n.es,
@@ -747,6 +752,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.fr,
     ...PageDatepickerRangeI18n.fr,
     ...PageDisclosureI18n.fr,
+    ...PageDrawerI18n.fr,
     ...PageDropdownI18n.fr,
     ...PageElementI18n.fr,
     ...PageFieldsetChildrenI18n.fr,
@@ -886,6 +892,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.hr,
     ...PageDatepickerRangeI18n.hr,
     ...PageDisclosureI18n.hr,
+    ...PageDrawerI18n.hr,
     ...PageDropdownI18n.hr,
     ...PageElementI18n.hr,
     ...PageFieldsetChildrenI18n.hr,
@@ -1025,6 +1032,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.it,
     ...PageDatepickerRangeI18n.it,
     ...PageDisclosureI18n.it,
+    ...PageDrawerI18n.it,
     ...PageDropdownI18n.it,
     ...PageElementI18n.it,
     ...PageFieldsetChildrenI18n.it,
@@ -1164,6 +1172,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.nl,
     ...PageDatepickerRangeI18n.nl,
     ...PageDisclosureI18n.nl,
+    ...PageDrawerI18n.nl,
     ...PageDropdownI18n.nl,
     ...PageElementI18n.nl,
     ...PageFieldsetChildrenI18n.nl,
@@ -1303,6 +1312,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.pl,
     ...PageDatepickerRangeI18n.pl,
     ...PageDisclosureI18n.pl,
+    ...PageDrawerI18n.pl,
     ...PageDropdownI18n.pl,
     ...PageElementI18n.pl,
     ...PageFieldsetChildrenI18n.pl,
@@ -1442,6 +1452,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.ru,
     ...PageDatepickerRangeI18n.ru,
     ...PageDisclosureI18n.ru,
+    ...PageDrawerI18n.ru,
     ...PageDropdownI18n.ru,
     ...PageElementI18n.ru,
     ...PageFieldsetChildrenI18n.ru,
@@ -1581,6 +1592,7 @@ export const mainTranslation = {
     ...PageDatepickerI18n.uk,
     ...PageDatepickerRangeI18n.uk,
     ...PageDisclosureI18n.uk,
+    ...PageDrawerI18n.uk,
     ...PageDropdownI18n.uk,
     ...PageElementI18n.uk,
     ...PageFieldsetChildrenI18n.uk,

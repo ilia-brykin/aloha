@@ -268,6 +268,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageFormElement/PageFormElement.vue"),
   },
   {
+    path: "/drawer",
+    name: "PageDrawer",
+    component: () => import("../views/Components/PageDrawer/PageDrawer.vue"),
+  },
+  {
     path: "/dropdown",
     name: "PageDropdown",
     component: () => import("../views/Components/PageDropdown/PageDropdown.vue"),

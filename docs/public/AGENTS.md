@@ -146,6 +146,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Disclosure](llms/components/disclosure.md) — The component allows users to show or hide text content by clicking on a button.
 - [filters](llms/components/filters.md) — Allows filtering data by various criteria.
 - [filtersRight](llms/components/filters-right.md) — With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
+- [Drawer](llms/components/drawer.md) — **ADrawer** is a panel at the left or the right edge of the window, e.g.
 - [Dropdown](llms/components/dropdown.md) — The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](llms/components/element.md) — The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
 - **Form**

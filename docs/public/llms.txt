@@ -34,6 +34,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Disclosure](https://ilia-brykin.github.io/aloha/llms/components/disclosure.md): The component allows users to show or hide text content by clicking on a button.
 - [filters](https://ilia-brykin.github.io/aloha/llms/components/filters.md): Allows filtering data by various criteria.
 - [filtersRight](https://ilia-brykin.github.io/aloha/llms/components/filters-right.md): With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
+- [Drawer](https://ilia-brykin.github.io/aloha/llms/components/drawer.md): **ADrawer** is a panel at the left or the right edge of the window, e.g.
 - [Dropdown](https://ilia-brykin.github.io/aloha/llms/components/dropdown.md): The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](https://ilia-brykin.github.io/aloha/llms/components/element.md): The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
 - [Form: Checkbox](https://ilia-brykin.github.io/aloha/llms/components/checkbox.md): The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.

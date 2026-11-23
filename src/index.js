@@ -21,6 +21,7 @@ export { default as ACarousel } from "./ACarousel/ACarousel";
 export { default as ADatepicker } from "./ui/ADatepicker/ADatepicker";
 export { default as ADatepickerRange } from "./ui/ADatepickerRange/ADatepickerRange";
 export { default as ADisclosure } from "./ADisclosure/ADisclosure";
+export { default as ADrawer } from "./ADrawer/ADrawer";
 export { default as ADropdown } from "./ADropdown/ADropdown";
 export { default as AElement } from "./AElement/AElement";
 export { default as AErrors } from "./ui/AErrors/AErrors";

@@ -2306,6 +2306,224 @@
           }
         },
         {
+          "name": "ADrawer",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ADrawer"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "backdropZIndex",
+              "type": "number"
+            },
+            {
+              "name": "bodyHtml",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "bodyHtmlClass",
+              "type": "string | any[] | Record<string, any>"
+            },
+            {
+              "name": "classExtra",
+              "type": "string | Record<string, any>",
+              "default": "\"a_modal_class_extra\""
+            },
+            {
+              "name": "close",
+              "type": "((...args: any[]) => any)",
+              "required": true
+            },
+            {
+              "name": "closeButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "closeButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_secondary\""
+            },
+            {
+              "name": "closeButtonId",
+              "type": "string"
+            },
+            {
+              "name": "closeButtonText",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_CANCEL_\""
+            },
+            {
+              "name": "closeButtonTextScreenReaderFooter",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+            },
+            {
+              "name": "closeButtonTextScreenReaderHeader",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_\""
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabledSave",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "focusStartId",
+              "type": "string"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"h2\""
+            },
+            {
+              "name": "headerText",
+              "type": "string"
+            },
+            {
+              "name": "hideFooter",
+              "type": "boolean"
+            },
+            {
+              "name": "hideHeader",
+              "type": "boolean"
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_modal_9\""
+            },
+            {
+              "name": "isCloseButtonHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isConfirm",
+              "type": "boolean"
+            },
+            {
+              "name": "isFooterSticky",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isModalHidden",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isSaveButtonHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "loading",
+              "type": "boolean"
+            },
+            {
+              "name": "modalClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "modalStyle",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "save",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "saveButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "saveButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "saveButtonId",
+              "type": "string"
+            },
+            {
+              "name": "saveButtonText",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_SAVE_\""
+            },
+            {
+              "name": "saveButtonTextScreenReader",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+            },
+            {
+              "name": "selectorClose",
+              "type": "string | any[]"
+            },
+            {
+              "name": "selectorCloseIds",
+              "type": "string | any[]"
+            },
+            {
+              "name": "showCloseButtonHeader",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "size",
+              "type": "string"
+            },
+            {
+              "name": "stop",
+              "type": "boolean"
+            },
+            {
+              "name": "teleportSelector",
+              "type": "string",
+              "default": "\"body\""
+            },
+            {
+              "name": "useEscape",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useFocusOnStart",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "zIndex",
+              "type": "number"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"right\""
+            }
+          ],
+          "js": {
+            "events": []
+          }
+        },
+        {
           "name": "ADropdown",
           "source": {
             "module": "aloha-vue",
@@ -2476,7 +2694,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_dropdown_9\""
+              "default": "\"a_dropdown_10\""
             },
             {
               "name": "inBody",
@@ -2669,7 +2887,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_element_10\""
+              "default": "\"a_element_11\""
             },
             {
               "name": "isSwitch",
@@ -2982,7 +3200,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_fieldset_11\""
+              "default": "\"a_fieldset_12\""
             },
             {
               "name": "idPrefix",
@@ -3247,7 +3465,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_filters_12\""
+              "default": "\"a_filters_13\""
             },
             {
               "name": "mainModel",
@@ -4019,7 +4237,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_group_13\""
+              "default": "\"a_group_14\""
             },
             {
               "name": "idPrefix",
@@ -4335,7 +4553,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_14\""
+              "default": "\"a_input_15\""
             },
             {
               "name": "idPrefix",
@@ -4560,7 +4778,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_currency_15\""
+              "default": "\"a_input_currency_16\""
             },
             {
               "name": "idPrefix",
@@ -5010,7 +5228,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_number_range_16\""
+              "default": "\"a_input_number_range_17\""
             },
             {
               "name": "idPrefix",
@@ -5226,7 +5444,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_otp_17\""
+              "default": "\"a_input_otp_18\""
             },
             {
               "name": "idPrefix",
@@ -5423,7 +5641,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_json_18\""
+              "default": "\"a_json_19\""
             },
             {
               "name": "idPrefix",
@@ -5700,7 +5918,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_link_19\""
+              "default": "\"a_link_20\""
             },
             {
               "name": "isTitleHtml",
@@ -6126,7 +6344,7 @@
             {
               "name": "menuId",
               "type": "string",
-              "default": "\"a_menu_20\""
+              "default": "\"a_menu_21\""
             },
             {
               "name": "onlyMobile",
@@ -6318,7 +6536,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_21\""
+              "default": "\"a_modal_22\""
             },
             {
               "name": "isCloseButtonHide",
@@ -6556,7 +6774,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_form_22\""
+              "default": "\"a_modal_form_23\""
             },
             {
               "name": "idPrefix",
@@ -6965,7 +7183,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_wizard_23\""
+              "default": "\"a_modal_wizard_24\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -7232,7 +7450,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_m_select_ordered_24\""
+              "default": "\"a_m_select_ordered_25\""
             },
             {
               "name": "idPrefix",
@@ -7608,7 +7826,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_25\""
+              "default": "\"a_one_checkbox_26\""
             },
             {
               "name": "idPrefix",
@@ -8092,7 +8310,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_26\""
+              "default": "\"a_radio_27\""
             },
             {
               "name": "idPrefix",
@@ -8398,7 +8616,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_27\""
+              "default": "\"a_rate_28\""
             },
             {
               "name": "idPrefix",
@@ -8701,7 +8919,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_28\""
+              "default": "\"a_router_link_config_29\""
             },
             {
               "name": "idPrefix",
@@ -9089,7 +9307,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_29\""
+              "default": "\"a_ui_30\""
             },
             {
               "name": "idPrefix",
@@ -9498,7 +9716,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_30\""
+              "default": "\"a_select_icon_31\""
             },
             {
               "name": "idPrefix",
@@ -9829,7 +10047,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_31\""
+              "default": "\"a_select_styles_32\""
             },
             {
               "name": "idPrefix",
@@ -10134,7 +10352,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_32\""
+              "default": "\"a_show_more_33\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -10358,7 +10576,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_33\""
+              "default": "\"a_slider_34\""
             },
             {
               "name": "idPrefix",
@@ -10629,7 +10847,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_34\""
+              "default": "\"a_switch_35\""
             },
             {
               "name": "idPrefix",
@@ -10866,7 +11084,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table35\""
+              "default": "\"a_table36\""
             },
             {
               "name": "isActionColumnVisible",
@@ -11238,7 +11456,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_36\""
+              "default": "\"a_table_form_37\""
             },
             {
               "name": "isActionsSticky",
@@ -11374,7 +11592,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_37\""
+              "default": "\"a_tabs_38\""
             },
             {
               "name": "isBoxed",
@@ -11607,7 +11825,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_38\""
+              "default": "\"a_textarea_39\""
             },
             {
               "name": "idPrefix",
@@ -11743,7 +11961,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_39\""
+              "default": "\"a_tooltip_40\""
             },
             {
               "name": "isHide",
@@ -11911,7 +12129,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_40\""
+              "default": "\"a_tree_41\""
             },
             {
               "name": "indent",
@@ -12106,7 +12324,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_41\""
+              "default": "\"a_validated_json_42\""
             },
             {
               "name": "idPrefix",
@@ -12353,7 +12571,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_42\""
+              "default": "\"a_wizard_43\""
             },
             {
               "name": "isBackButtonDisabled",

@@ -698,6 +698,79 @@ export interface ADisclosureProps {
 }
 export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
 
+export interface ADrawerProps {
+  alwaysTranslate?: boolean;
+  backdropZIndex?: number;
+  /** @default "" */
+  bodyHtml?: string;
+  bodyHtmlClass?: string | any[] | Record<string, any>;
+  /** @default "a_modal_class_extra" */
+  classExtra?: string | Record<string, any>;
+  close: ((...args: any[]) => any);
+  /** @default {} */
+  closeButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_secondary" */
+  closeButtonClass?: string | any[] | Record<string, any>;
+  closeButtonId?: string;
+  /** @default "_A_MODAL_BTN_CANCEL_" */
+  closeButtonText?: string;
+  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
+  closeButtonTextScreenReaderFooter?: string;
+  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
+  closeButtonTextScreenReaderHeader?: string;
+  /** @default false */
+  disabled?: boolean;
+  /** @default false */
+  disabledSave?: boolean;
+  extra?: Record<string, any>;
+  focusStartId?: string;
+  /** @default "h2" */
+  headerTag?: string;
+  headerText?: string;
+  hideFooter?: boolean;
+  hideHeader?: boolean;
+  /** @default "a_modal_9" */
+  id?: string;
+  /** @default false */
+  isCloseButtonHide?: boolean;
+  isConfirm?: boolean;
+  /** @default false */
+  isFooterSticky?: boolean;
+  /** @default false */
+  isModalHidden?: boolean;
+  /** @default false */
+  isSaveButtonHide?: boolean;
+  loading?: boolean;
+  modalClass?: string | Record<string, any>;
+  modalStyle?: string | Record<string, any>;
+  save?: ((...args: any[]) => any);
+  /** @default {} */
+  saveButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  saveButtonClass?: string | any[] | Record<string, any>;
+  saveButtonId?: string;
+  /** @default "_A_MODAL_BTN_SAVE_" */
+  saveButtonText?: string;
+  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
+  saveButtonTextScreenReader?: string;
+  selectorClose?: string | any[];
+  selectorCloseIds?: string | any[];
+  /** @default true */
+  showCloseButtonHeader?: boolean;
+  size?: string;
+  stop?: boolean;
+  /** @default "body" */
+  teleportSelector?: string;
+  /** @default true */
+  useEscape?: boolean;
+  /** @default true */
+  useFocusOnStart?: boolean;
+  zIndex?: number;
+  /** @default "right" */
+  placement?: string;
+}
+export declare const ADrawer: DefineComponent<ADrawerProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
+
 export interface ADropdownProps {
   /** @default [] */
   actions?: any[];
@@ -751,7 +824,7 @@ export interface ADropdownProps {
   floatingShift?: Record<string, any>;
   /** @default true */
   hasCaret?: boolean;
-  /** @default "a_dropdown_9" */
+  /** @default "a_dropdown_10" */
   id?: string;
   /** @default false */
   inBody?: boolean;
@@ -814,7 +887,7 @@ export interface AElementProps {
   iconLeft?: string | Record<string, any>;
   iconRight?: string | Record<string, any>;
   iconTag?: string;
-  /** @default "a_element_10" */
+  /** @default "a_element_11" */
   id?: string;
   isSwitch?: boolean;
   isTitleHtml?: boolean;
@@ -910,7 +983,7 @@ export interface AFieldsetProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_fieldset_11" */
+  /** @default "a_fieldset_12" */
   id?: string | number;
   idPrefix?: string;
   isCollapsed?: boolean;
@@ -992,7 +1065,7 @@ export interface AFiltersProps {
   filters?: any[];
   /** @default [] */
   filtersSaved?: any[];
-  /** @default "a_filters_12" */
+  /** @default "a_filters_13" */
   id?: string;
   mainModel?: Record<string, any>;
   /** @default true */
@@ -1210,7 +1283,7 @@ export interface AGroupProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_group_13" */
+  /** @default "a_group_14" */
   id?: string | number;
   idPrefix?: string;
   inputClass?: string | Record<string, any>;
@@ -1307,7 +1380,7 @@ export interface AInputProps {
   htmlId?: string;
   iconAppend?: string;
   iconPrepend?: string;
-  /** @default "a_input_14" */
+  /** @default "a_input_15" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1375,7 +1448,7 @@ export interface AInputCurrencyProps {
   helpText?: string;
   htmlId?: string;
   iconPrepend?: string;
-  /** @default "a_input_currency_15" */
+  /** @default "a_input_currency_16" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1508,7 +1581,7 @@ export interface AInputNumberRangeProps {
   helpText?: string;
   htmlId?: string;
   iconPrepend?: string;
-  /** @default "a_input_number_range_16" */
+  /** @default "a_input_number_range_17" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1576,7 +1649,7 @@ export interface AInputOtpProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_input_otp_17" */
+  /** @default "a_input_otp_18" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1634,7 +1707,7 @@ export interface AJsonProps {
   heightCss?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_json_18" */
+  /** @default "a_json_19" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1714,7 +1787,7 @@ export interface ALinkProps {
   iconLeft?: string | Record<string, any>;
   iconRight?: string | Record<string, any>;
   iconTag?: string;
-  /** @default "a_link_19" */
+  /** @default "a_link_20" */
   id?: string;
   isTitleHtml?: boolean;
   /** @default false */
@@ -1857,7 +1930,7 @@ export interface AMenuProps {
   /** @default "parent" */
   keyParent?: string;
   keySlot?: string;
-  /** @default "a_menu_20" */
+  /** @default "a_menu_21" */
   menuId?: string;
   /** @default false */
   onlyMobile?: boolean;
@@ -1921,7 +1994,7 @@ export interface AModalProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_21" */
+  /** @default "a_modal_22" */
   id?: string;
   /** @default false */
   isCloseButtonHide?: boolean;
@@ -2000,7 +2073,7 @@ export interface AModalFormProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_form_22" */
+  /** @default "a_modal_form_23" */
   id?: string;
   idPrefix?: string;
   /** @default false */
@@ -2137,7 +2210,7 @@ export interface AModalWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_modal_wizard_23" */
+  /** @default "a_modal_wizard_24" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -2226,7 +2299,7 @@ export interface AMultiselectOrderedProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_m_select_ordered_24" */
+  /** @default "a_m_select_ordered_25" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -2344,7 +2417,7 @@ export interface AOneCheckboxProps {
   falseValue?: boolean | string | number;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_one_checkbox_25" */
+  /** @default "a_one_checkbox_26" */
   id?: string | number;
   idPrefix?: string;
   indeterminate?: boolean;
@@ -2493,7 +2566,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_26" */
+  /** @default "a_radio_27" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -2576,7 +2649,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_27" */
+  /** @default "a_rate_28" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -2666,7 +2739,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_28" */
+  /** @default "a_router_link_config_29" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -2795,7 +2868,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_29" */
+  /** @default "a_ui_30" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -2924,7 +2997,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_30" */
+  /** @default "a_select_icon_31" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3029,7 +3102,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_31" */
+  /** @default "a_select_styles_32" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3126,7 +3199,7 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_32" */
+  /** @default "a_show_more_33" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
@@ -3196,7 +3269,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_33" */
+  /** @default "a_slider_34" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3280,7 +3353,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_34" */
+  /** @default "a_switch_35" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3353,7 +3426,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table35" */
+  /** @default "a_table36" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -3471,7 +3544,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_36" */
+  /** @default "a_table_form_37" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -3515,7 +3588,7 @@ export interface ATabsProps {
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_37" */
+  /** @default "a_tabs_38" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -3582,7 +3655,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_38" */
+  /** @default "a_textarea_39" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3621,7 +3694,7 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_39" */
+  /** @default "a_tooltip_40" */
   id?: string;
   isHide?: boolean;
   maxWidth?: number;
@@ -3675,7 +3748,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_40" */
+  /** @default "a_tree_41" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -3728,7 +3801,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_41" */
+  /** @default "a_validated_json_42" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3812,7 +3885,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_42" */
+  /** @default "a_wizard_43" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -4147,6 +4220,7 @@ declare module "vue" {
     ADatepicker: typeof ADatepicker;
     ADatepickerRange: typeof ADatepickerRange;
     ADisclosure: typeof ADisclosure;
+    ADrawer: typeof ADrawer;
     ADropdown: typeof ADropdown;
     AElement: typeof AElement;
     AErrors: typeof AErrors;

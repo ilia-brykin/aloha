@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Боковая панель",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> — панель у левого или правого края окна, например для деталей строки таблицы, фильтров или настроек. Это модальный диалог: у неё все пропсы и слоты <a href=\"/#/modal\">AModal</a> (шапка, футер с кнопками, <code>save</code>, <code>selector-close-ids</code>…), она удерживает фокус, закрывается по <kbd>Escape</kbd> и возвращает фокус на кнопку, которая её открыла.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Край окна: <code>right</code> или <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> задаёт край. <code>selector-close-ids</code> возвращает фокус на кнопку, которая открыла панель. В узком окне панель занимает всю ширину. Панель выезжает, без анимации, если пользователь предпочитает уменьшенное движение.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Открыть справа",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Открыть слева",
+  "_A_DRAWER_EXAMPLE_BODY_": "Панель — модальный диалог: страница за ней недоступна, пока панель не закрыта.",
+  "_A_DRAWER_SIZES_HEADER_": "Ширина",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "Пропс <code>size</code> из <a href=\"/#/modal\">AModal</a> задаёт ширину: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, без <code>size</code> 400px. Ширины — CSS-переменные.",
+  "_A_DRAWER_FORM_HEADER_": "Редактирование в боковой панели",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Форма в панели с кнопками «Сохранить» и «Отмена». С <code>is-footer-sticky</code> кнопки остаются видимыми, пока форма прокручивается. Форма редактирует копию модели, поэтому «Отмена» не меняет данные.",
+  "_A_DRAWER_BTN_EDIT_": "Редактировать"
+}

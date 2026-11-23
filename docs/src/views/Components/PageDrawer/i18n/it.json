@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Pannello laterale",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> è un pannello sul bordo sinistro o destro della finestra, ad es. per i dettagli di una riga di tabella, filtri o impostazioni. È un dialogo modale: ha tutte le props e gli slot di <a href=\"/#/modal\">AModal</a> (intestazione, piè di pagina con pulsanti, <code>save</code>, <code>selector-close-ids</code>…), trattiene il focus, si chiude con <kbd>Esc</kbd> e restituisce il focus al pulsante che lo ha aperto.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Bordo della finestra: <code>right</code> o <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> imposta il bordo. <code>selector-close-ids</code> restituisce il focus al pulsante che ha aperto il pannello. In una finestra stretta il pannello occupa tutta la larghezza. Il pannello scorre all'interno, senza animazione se l'utente preferisce un movimento ridotto.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Apri a destra",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Apri a sinistra",
+  "_A_DRAWER_EXAMPLE_BODY_": "Il pannello è un dialogo modale: la pagina dietro non è raggiungibile finché non viene chiuso.",
+  "_A_DRAWER_SIZES_HEADER_": "Larghezza",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "La prop <code>size</code> di <a href=\"/#/modal\">AModal</a> imposta la larghezza: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, senza <code>size</code> 400px. Le larghezze sono variabili CSS.",
+  "_A_DRAWER_FORM_HEADER_": "Modifica in un pannello laterale",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Un modulo nel pannello con i pulsanti Salva e Annulla. Con <code>is-footer-sticky</code> i pulsanti restano visibili mentre il modulo scorre. Il modulo modifica una copia del modello, quindi Annulla non cambia i dati.",
+  "_A_DRAWER_BTN_EDIT_": "Modifica"
+}

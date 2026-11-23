@@ -102,6 +102,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageDrawer",
+        label: "Drawer",
+        class: "test_menu_drawer",
+        to: {
+          name: "PageDrawer",
+        },
+      },
+      {
         id: "dropdown",
         label: "Dropdown",
         class: "test_menu_dropdown",

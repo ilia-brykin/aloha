@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Panel boczny",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> to panel przy lewej lub prawej krawędzi okna, np. dla szczegółów wiersza tabeli, filtrów lub ustawień. To dialog modalny: ma wszystkie propsy i sloty <a href=\"/#/modal\">AModal</a> (nagłówek, stopka z przyciskami, <code>save</code>, <code>selector-close-ids</code>…), utrzymuje fokus, zamyka się klawiszem <kbd>Escape</kbd> i zwraca fokus na przycisk, który go otworzył.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Krawędź okna: <code>right</code> lub <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> ustawia krawędź. <code>selector-close-ids</code> zwraca fokus na przycisk, który otworzył panel. W wąskim oknie panel zajmuje całą szerokość. Panel wysuwa się, bez animacji, jeśli użytkownik preferuje ograniczony ruch.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Otwórz po prawej",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Otwórz po lewej",
+  "_A_DRAWER_EXAMPLE_BODY_": "Panel jest dialogiem modalnym: strona za nim jest niedostępna, dopóki nie zostanie zamknięty.",
+  "_A_DRAWER_SIZES_HEADER_": "Szerokość",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "Prop <code>size</code> z <a href=\"/#/modal\">AModal</a> ustawia szerokość: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, bez <code>size</code> 400px. Szerokości są zmiennymi CSS.",
+  "_A_DRAWER_FORM_HEADER_": "Edycja w panelu bocznym",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Formularz w panelu z przyciskami Zapisz i Anuluj. Z <code>is-footer-sticky</code> przyciski pozostają widoczne podczas przewijania formularza. Formularz edytuje kopię modelu, dlatego Anuluj nie zmienia danych.",
+  "_A_DRAWER_BTN_EDIT_": "Edytuj"
+}
