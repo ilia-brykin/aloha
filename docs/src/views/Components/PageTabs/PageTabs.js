@@ -1,6 +1,7 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageTabsActiveTabId from "./PageTabsActiveTabId/PageTabsActiveTabId.vue";
+import PageTabsAriaLabel from "./PageTabsAriaLabel/PageTabsAriaLabel.vue";
 import PageTabsBasic from "./PageTabsBasic/PageTabsBasic.vue";
 import PageTabsComplex from "./PageTabsComplex/PageTabsComplex.vue";
 import PageTabsDisabled from "./PageTabsDisabled/PageTabsDisabled.vue";
@@ -14,8 +15,10 @@ import PageTabsKeyDisabled from "./PageTabsKeyDisabled/PageTabsKeyDisabled.vue";
 import PageTabsKeyId from "./PageTabsKeyId/PageTabsKeyId.vue";
 import PageTabsKeyLabel from "./PageTabsKeyLabel/PageTabsKeyLabel.vue";
 import PageTabsKeyTitle from "./PageTabsKeyTitle/PageTabsKeyTitle.vue";
+import PageTabsRenderContent from "./PageTabsRenderContent/PageTabsRenderContent.vue";
 import PageTabsStaticSlots from "./PageTabsStaticSlots/PageTabsStaticSlots.vue";
 import PageTabsTitleHtml from "./PageTabsTitleHtml/PageTabsTitleHtml.vue";
+import PageTabsVModel from "./PageTabsVModel/PageTabsVModel.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -33,6 +36,9 @@ export default {
     ATranslation,
     PageTabsActiveTabId,
     PageTabsBasic,
+    PageTabsRenderContent,
+    PageTabsVModel,
+    PageTabsAriaLabel,
     PageTabsComplex,
     PageTabsDisabled,
     PageTabsDynamicSlots,

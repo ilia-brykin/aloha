@@ -11821,6 +11821,14 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
+              "name": "ariaLabelledby",
+              "type": "string"
+            },
+            {
               "name": "activeTabId",
               "type": "string | number"
             },
@@ -11883,6 +11891,11 @@
               "default": "\"title\""
             },
             {
+              "name": "renderContent",
+              "type": "string",
+              "default": "\"all\""
+            },
+            {
               "name": "titlePlacement",
               "type": "string",
               "default": "\"top\""
@@ -11892,6 +11905,9 @@
             "events": [
               {
                 "name": "change"
+              },
+              {
+                "name": "update:activeTabId"
               }
             ]
           }

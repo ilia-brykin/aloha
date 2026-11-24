@@ -5,7 +5,22 @@ import {
 
 import {
   get,
+  isNil,
 } from "lodash-es";
+
+// id of a tab: the value of keyId or the index
+export function getTabId({ tab, index, keyId }) {
+  if (keyId) {
+    const ID = get(tab, keyId);
+    return isNil(ID) ? index : ID;
+  }
+  return index;
+}
+
+// id in the DOM: built from the id of the tab, so it stays the same when the tabs change their order
+export function getTabDomId({ parentId, tabId }) {
+  return `${ parentId }_${ `${ tabId }`.replace(/[^\w-]/g, "_") }`;
+}
 
 export default function ATabAPI(props) {
   const activeTabIdLocal = toRef(props, "activeTabIdLocal");
@@ -15,11 +30,7 @@ export default function ATabAPI(props) {
   const tab = toRef(props, "tab");
 
   const tabIdLocal = computed(() => {
-    if (keyId.value) {
-      return get(tab.value, keyId.value);
-    }
-
-    return index.value;
+    return getTabId({ tab: tab.value, index: index.value, keyId: keyId.value });
   });
 
   const isActive = computed(() => {
@@ -27,7 +38,7 @@ export default function ATabAPI(props) {
   });
 
   const idLocal = computed(() => {
-    return `${ parentId.value }_${ index.value }`;
+    return getTabDomId({ parentId: parentId.value, tabId: tabIdLocal.value });
   });
 
   const idForContent = computed(() => {

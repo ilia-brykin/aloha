@@ -1,6 +1,20 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "aria-label",
+      description: "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "aria-labelledby",
+      description: "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "active-tab-id",
       description: "_A_TABS_PROPS_ACTIVE_TAB_ID_DESCRIPTION_",
       type: "String / Number",
@@ -96,6 +110,13 @@ export default function PropsAPI() {
       description: "_A_TABS_PROPS_KEY_TITLE_DESCRIPTION_",
       type: "String",
       default: "title",
+      required: false,
+    },
+    {
+      name: "render-content",
+      description: "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_",
+      type: "String",
+      default: "all",
       required: false,
     },
     {

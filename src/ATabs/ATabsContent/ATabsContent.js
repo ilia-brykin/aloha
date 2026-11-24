@@ -1,5 +1,9 @@
 import {
+  computed,
   h,
+  ref,
+  toRef,
+  watch,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
@@ -32,6 +36,11 @@ export default {
       type: String,
       required: true,
     },
+    renderContent: {
+      type: String,
+      required: false,
+      default: "all",
+    },
     tab: {
       type: Object,
       required: true,
@@ -49,8 +58,27 @@ export default {
       contentLocal,
     } = ContentAPI(props);
 
+    const renderContent = toRef(props, "renderContent");
+    const wasActive = ref(false);
+    watch(isActive, value => {
+      if (value) {
+        wasActive.value = true;
+      }
+    }, { immediate: true });
+
+    const isContentRendered = computed(() => {
+      if (renderContent.value === "active") {
+        return isActive.value;
+      }
+      if (renderContent.value === "once") {
+        return wasActive.value;
+      }
+      return true;
+    });
+
     return {
       contentLocal,
+      isContentRendered,
       idForContent,
       idLocal,
       isActive,
@@ -59,7 +87,9 @@ export default {
   },
   render() {
     let content = null;
-    if (this.tab.slotContent && this.$slots[this.tab.slotContent]) {
+    if (!this.isContentRendered) {
+      content = null;
+    } else if (this.tab.slotContent && this.$slots[this.tab.slotContent]) {
       content = this.$slots[this.tab.slotContent]({
         activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
@@ -95,6 +125,8 @@ export default {
         },
       ],
       role: "tabpanel",
+      // the panel is reachable with Tab also when it has no focusable element (WAI-ARIA)
+      tabindex: 0,
     }, [
       content,
     ]);

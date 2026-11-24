@@ -63,5 +63,18 @@
   "_A_TABS_TAB_1_": "تبويب 1",
   "_A_TABS_TAB_2_": "تبويب 2",
   "_A_TABS_TAB_3_": "تبويب 3",
-  "_A_TABS_TAB_4_": "تبويب 4"
+  "_A_TABS_TAB_4_": "تبويب 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "تتبع علامات التبويب نمط WAI-ARIA: ينتقل Tab إلى علامة التبويب النشطة، وتنتقل الأسهم (↑ و↓ في علامات التبويب العمودية) وHome وEnd بين علامات التبويب وتفتحها، وتُتخطى علامات التبويب المعطلة. ينتقل Tab التالي إلى المحتوى.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "اسم قائمة علامات التبويب",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "يسمّي <code>aria-label</code> (مفتاح ترجمة) أو <code>aria-labelledby</code> (معرّف عنوان) قائمة علامات التبويب لقارئات الشاشة. وهذا ضروري عندما تحتوي الصفحة على عدة قوائم علامات تبويب.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "يحتوي <code>v-model:active-tab-id</code> على معرّف علامة التبويب النشطة ويغيّرها أيضًا من الخارج. يظل الحدث <code>change</code> يصل.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "عرض المحتوى",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: يعرض <code>all</code> (افتراضيًا) كل المحتوى ويخفي غير النشط، ويعرض <code>active</code> المحتوى النشط فقط، ويعرض <code>once</code> المحتوى عند فتح علامة تبويبه أول مرة ويحتفظ به. يساعد <code>active</code> و<code>once</code> مع المحتوى الثقيل، مثل الجداول.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "إعدادات الملف الشخصي",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "فتح علامة التبويب 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "اسم قائمة علامات التبويب لقارئات الشاشة. يقبل مفتاح ترجمة.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "معرّف العنصر الذي يسمّي قائمة علامات التبويب، مثل عنوان.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: يُعرض كل المحتوى ويُخفى غير النشط. <code>active</code>: يُعرض المحتوى النشط فقط. <code>once</code>: يُعرض المحتوى عند فتح علامة تبويبه أول مرة ثم يُحتفظ به.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "معرّف علامة التبويب النشطة الجديدة (<code>v-model:active-tab-id</code>). يصل مع <code>change</code>، وأيضًا مع <code>is-change-outside</code>."
 }

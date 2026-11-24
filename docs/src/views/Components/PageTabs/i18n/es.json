@@ -63,5 +63,18 @@
   "_A_TABS_TAB_1_": "Pestaña 1",
   "_A_TABS_TAB_2_": "Pestaña 2",
   "_A_TABS_TAB_3_": "Pestaña 3",
-  "_A_TABS_TAB_4_": "Pestaña 4"
+  "_A_TABS_TAB_4_": "Pestaña 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Las pestañas siguen el patrón WAI-ARIA: Tab va a la pestaña activa, las flechas (↑ y ↓ en pestañas verticales), Inicio y Fin cambian de pestaña y la abren, las pestañas desactivadas se saltan. El siguiente Tab va al contenido.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Nombre de la lista de pestañas",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (una clave de traducción) o <code>aria-labelledby</code> (el id de un encabezado) da nombre a la lista de pestañas para los lectores de pantalla. Es necesario cuando la página tiene varias listas de pestañas.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> contiene el id de la pestaña activa y también la cambia desde fuera. El evento <code>change</code> sigue llegando.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Renderizar el contenido",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (por defecto) renderiza todo el contenido y oculta el inactivo, <code>active</code> renderiza solo el contenido activo, <code>once</code> renderiza un contenido cuando su pestaña se abre por primera vez y lo mantiene. <code>active</code> y <code>once</code> ayudan con contenido pesado, p. ej. tablas.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Ajustes del perfil",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Abrir pestaña 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nombre de la lista de pestañas para lectores de pantalla. Acepta una clave de traducción.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id del elemento que da nombre a la lista de pestañas, p. ej. un encabezado.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: se renderiza todo el contenido, el inactivo se oculta. <code>active</code>: solo se renderiza el contenido activo. <code>once</code>: un contenido se renderiza cuando su pestaña se abre por primera vez y luego se mantiene.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id de la nueva pestaña activa (<code>v-model:active-tab-id</code>). Llega junto con <code>change</code>, también con <code>is-change-outside</code>."
 }

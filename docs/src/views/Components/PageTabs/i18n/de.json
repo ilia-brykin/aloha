@@ -63,5 +63,18 @@
   "_A_TABS_TAB_1_": "Tab 1",
   "_A_TABS_TAB_2_": "Tab 2",
   "_A_TABS_TAB_3_": "Tab 3",
-  "_A_TABS_TAB_4_": "Tab 4"
+  "_A_TABS_TAB_4_": "Tab 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Die Tabs folgen dem WAI-ARIA-Muster: Tab springt zum aktiven Tab, die Pfeile (↑ und ↓ bei vertikalen Tabs), Pos1 und Ende wechseln zwischen den Tabs und öffnen sie, deaktivierte Tabs werden übersprungen. Der nächste Tab springt in den Inhalt.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Name der Tab-Liste",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (ein Übersetzungsschlüssel) oder <code>aria-labelledby</code> (die id einer Überschrift) benennt die Tab-Liste für Screenreader. Das ist nötig, wenn die Seite mehrere Tab-Listen hat.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> enthält die id des aktiven Tabs und ändert ihn auch von außen. Das Event <code>change</code> kommt weiterhin.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Inhalt rendern",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (Standard) rendert jeden Inhalt und blendet die inaktiven aus, <code>active</code> rendert nur den aktiven Inhalt, <code>once</code> rendert einen Inhalt, wenn sein Tab zum ersten Mal geöffnet wird, und behält ihn. <code>active</code> und <code>once</code> helfen bei aufwendigem Inhalt, z. B. Tabellen.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Profileinstellungen",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Tab 3 öffnen",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Name der Tab-Liste für Screenreader. Akzeptiert einen Übersetzungsschlüssel.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "id des Elements, das die Tab-Liste benennt, z. B. eine Überschrift.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: jeder Inhalt wird gerendert, die inaktiven werden ausgeblendet. <code>active</code>: nur der aktive Inhalt wird gerendert. <code>once</code>: ein Inhalt wird gerendert, wenn sein Tab zum ersten Mal geöffnet wird, und dann behalten.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id des neuen aktiven Tabs (<code>v-model:active-tab-id</code>). Kommt zusammen mit <code>change</code>, auch bei <code>is-change-outside</code>."
 }

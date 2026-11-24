@@ -87,12 +87,11 @@ export default {
     const {
       tabindexLocal,
     } = AttributesAPI({
-      isDisabled,
+      isActive,
     });
 
     const {
       changeTabLocal,
-      keydownTab,
     } = ChangeAPI(props, context, {
       isDisabled,
       tabIdLocal,
@@ -112,7 +111,6 @@ export default {
       idLocal,
       isActive,
       isDisabled,
-      keydownTab,
       labelLocal,
       tabindexLocal,
       tabIdLocal,
@@ -158,8 +156,8 @@ export default {
       h(AElement, {
         id: this.idLocal,
         "aria-controls": this.idForContent,
-        ariaDisabled: this.isDisabled,
-        ariaSelected: this.isActive,
+        ariaDisabled: this.isDisabled || undefined,
+        "aria-selected": this.isActive ? "true" : "false",
         class: [
           "a_tabs__list__link",
           this.tab.class,
@@ -172,12 +170,11 @@ export default {
         isTitleHtml: this.isTitleHtml,
         role: "tab",
         tabindex: this.tabindexLocal,
-        tag: "a",
+        tag: "button",
         titlePlacement: this.titlePlacement,
         type: "button",
         title: this.titleLocal,
         onClick: this.changeTabLocal,
-        onKeydown: this.keydownTab,
       }, () => [
         tab,
       ]),

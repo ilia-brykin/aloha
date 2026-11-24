@@ -46,6 +46,10 @@
   display: block;
 }
 .a_tabs__list__link {
+  // a button (WAI-ARIA tab): no font and alignment of the browser
+  font: inherit;
+  text-align: inherit;
+  appearance: none;
   align-items: center;
   border-width: var(--a_tabs_link_border_width);
   border-color: var(--a_tabs_link_border_color);
@@ -132,6 +136,7 @@
 .a_tabs__content {
   padding: var(--a_tabs_content_padding);
   display: none;
+  @include focus.focus-visible($inset: true);
 }
 .a_tabs__content_show {
   display: block;
@@ -157,6 +162,7 @@
     width: 100%;
   }
   .a_tabs__list__link {
+    width: 100%;
     justify-content: flex-start;
     border-radius: var(--a_tabs_border_radius) 0 0 var(--a_tabs_border_radius);
     margin-bottom: 0;

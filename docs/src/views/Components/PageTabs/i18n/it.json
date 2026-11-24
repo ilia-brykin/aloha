@@ -63,5 +63,18 @@
   "_A_TABS_TAB_1_": "Scheda 1",
   "_A_TABS_TAB_2_": "Scheda 2",
   "_A_TABS_TAB_3_": "Scheda 3",
-  "_A_TABS_TAB_4_": "Scheda 4"
+  "_A_TABS_TAB_4_": "Scheda 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Le schede seguono il pattern WAI-ARIA: Tab va alla scheda attiva, le frecce (↑ e ↓ nelle schede verticali), Home e Fine passano da una scheda all'altra e la aprono, le schede disattivate vengono saltate. Il Tab successivo va nel contenuto.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Nome dell'elenco di schede",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (una chiave di traduzione) o <code>aria-labelledby</code> (l'id di un titolo) dà un nome all'elenco di schede per gli screen reader. Serve quando la pagina ha più elenchi di schede.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> contiene l'id della scheda attiva e la cambia anche dall'esterno. L'evento <code>change</code> arriva ancora.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Renderizzare il contenuto",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (predefinito) renderizza tutto il contenuto e nasconde quello inattivo, <code>active</code> renderizza solo il contenuto attivo, <code>once</code> renderizza un contenuto alla prima apertura della sua scheda e lo mantiene. <code>active</code> e <code>once</code> aiutano con contenuti pesanti, ad es. tabelle.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Impostazioni del profilo",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Apri la scheda 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nome dell'elenco di schede per gli screen reader. Accetta una chiave di traduzione.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id dell'elemento che dà il nome all'elenco di schede, ad es. un titolo.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: tutto il contenuto viene renderizzato, quello inattivo è nascosto. <code>active</code>: viene renderizzato solo il contenuto attivo. <code>once</code>: un contenuto viene renderizzato alla prima apertura della sua scheda e poi mantenuto.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id della nuova scheda attiva (<code>v-model:active-tab-id</code>). Arriva insieme a <code>change</code>, anche con <code>is-change-outside</code>."
 }

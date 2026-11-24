@@ -195,7 +195,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `ADropdown`: a toggle without text and title gets the screen reader text `_A_DROPDOWN_BUTTON_SCREEN_READER_`.
 - `ASelect`: the remove button of a selected value gets the screen reader text `_A_SELECT_REMOVE_`.
 - `AProgress`, `AProgressCircle`: new prop `aria-label` (default `_A_PROGRESS_ARIA_LABEL_`).
-- `ATabs`: `li.a_tabs__list__item` has `role="presentation"`.
+- `ATabs`: `li.a_tabs__list__item` has `role="presentation"`. A tab is a `<button type="button">` instead of an `<a>`, check own CSS and tests with `a.a_tabs__list__link`. Only the active tab is in the Tab order (`tabindex="0"`, the others `tabindex="-1"`), the arrows, Home and End move between the tabs and open them. The panel has `tabindex="0"`. With `key-id` the `id` of tabs and panels are built from the tab id instead of the index (e.g. `tabs_tab1_content` instead of `tabs_0_content`).
 - `AWizard`: `ul.a_wizard__steps` no longer has `role="navigation"`.
 - `ADatepicker`: the input has `aria-haspopup="dialog"` and `aria-controls` (only while the calendar is open) instead of `aria-owns`.
 - `ASlider`: the handle is labelled by the label (`aria-labelledby`), `aria-valuenow` is always set.

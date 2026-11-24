@@ -3656,6 +3656,8 @@ export interface ATableFormProps {
 export declare const ATableForm: DefineComponent<ATableFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("deleteRow" | "moveRow" | "updateRows")[]>;
 
 export interface ATabsProps {
+  ariaLabel?: string;
+  ariaLabelledby?: string;
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
@@ -3675,10 +3677,12 @@ export interface ATabsProps {
   keyLabel?: string;
   /** @default "title" */
   keyTitle?: string;
+  /** @default "all" */
+  renderContent?: string;
   /** @default "top" */
   titlePlacement?: string;
 }
-export declare const ATabs: DefineComponent<ATabsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change")[]>;
+export declare const ATabs: DefineComponent<ATabsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "update:activeTabId")[]>;
 
 export interface ATemplateProps {
   alwaysTranslate?: boolean;

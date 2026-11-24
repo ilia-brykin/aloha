@@ -63,5 +63,18 @@
   "_A_TABS_TAB_1_": "Kartica 1",
   "_A_TABS_TAB_2_": "Kartica 2",
   "_A_TABS_TAB_3_": "Kartica 3",
-  "_A_TABS_TAB_4_": "Kartica 4"
+  "_A_TABS_TAB_4_": "Kartica 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Kartice slijede WAI-ARIA uzorak: Tab ide na aktivnu karticu, strelice (↑ i ↓ kod okomitih kartica), Home i End mijenjaju kartice i odmah ih otvaraju, onemogućene kartice se preskaču. Sljedeći Tab ide u sadržaj.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Naziv popisa kartica",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (ključ prijevoda) ili <code>aria-labelledby</code> (id naslova) daje naziv popisu kartica za čitače zaslona. To je potrebno kad stranica ima više popisa kartica.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> sadrži id aktivne kartice i mijenja je i izvana. Događaj <code>change</code> i dalje stiže.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Renderiranje sadržaja",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (zadano) renderira sav sadržaj i skriva neaktivni, <code>active</code> renderira samo aktivni sadržaj, <code>once</code> renderira sadržaj kad se njegova kartica prvi put otvori i zadržava ga. <code>active</code> i <code>once</code> pomažu kod zahtjevnog sadržaja, npr. tablica.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Postavke profila",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Otvori karticu 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Naziv popisa kartica za čitače zaslona. Prihvaća ključ prijevoda.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id elementa koji daje naziv popisu kartica, npr. naslova.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: renderira se sav sadržaj, neaktivni je skriven. <code>active</code>: renderira se samo aktivni sadržaj. <code>once</code>: sadržaj se renderira kad se njegova kartica prvi put otvori, a zatim ostaje.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id nove aktivne kartice (<code>v-model:active-tab-id</code>). Stiže zajedno s <code>change</code>, i uz <code>is-change-outside</code>."
 }
