@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Крок 1",
   "_A_MODAL_WIZARD_STEP_2_": "Крок 2",
   "_A_MODAL_WIZARD_STEP_3_": "Крок 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Крок 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Крок 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Кнопка «Зберегти» лише на останньому кроці майстра.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Назва майстра; за замовчуванням порожня, модальне вікно назване своїм заголовком.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Збереження на останньому кроці",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> показує кнопку «Зберегти» лише на останньому кроці.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Відкрити",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Новий запис"
 }

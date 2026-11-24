@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Krok 1",
   "_A_MODAL_WIZARD_STEP_2_": "Krok 2",
   "_A_MODAL_WIZARD_STEP_3_": "Krok 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Krok 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Krok 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Przycisk zapisu jest tylko na ostatnim kroku kreatora.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Nazwa kreatora; domyślnie pusta, okno modalne jest nazwane swoim nagłówkiem.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Zapis na ostatnim kroku",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> pokazuje przycisk zapisu tylko na ostatnim kroku.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Otwórz",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Nowy wpis"
 }

@@ -2,6 +2,13 @@
 
 A wizard is a sequential, step-by-step interface designed to guide users through complex tasks or processes by breaking them into manageable steps. It includes clear instructions and often provides users with the ability to navigate forward and backward for a efficient and straightforward user experience.
 
+Accessibility:
+
+- The wizard is a `role="group"` with a name, without `role="application"` and without its own tab stop, so the browse mode of screen readers works.
+- The steps are native buttons in a list; the current step is text with `aria-current="step"`. Every step says its state (current, visited, upcoming) and an error or warning.
+- Every step is a group named by its heading "Step 2 of 4: Address". After a change of the step the focus goes to this heading (has-focus-jump), so the screen reader reads where the user is. The heading is only for screen readers or visible with `is-step-heading-visible`; then the slot needs no own heading.
+- `before-step-change` can keep the step; the focus goes to the error summary (`.a_errors`) or the first field with `aria-invalid="true"`.
+
 ## Basic usage
 
 *props: `wizard-steps`*
@@ -2299,6 +2306,98 @@ export default {
 };
 ```
 
+## Check before the next step and finish
+
+`before-step-change` keeps the first step while the name is empty, the focus goes to the field with the error. `is-step-heading-visible` shows the heading of the step, `finish-button-text` adds the finish button on the last step.
+
+```html
+<a-wizard
+  :steps="wizardSteps"
+  :before-step-change="beforeStepChange"
+  is-step-heading-visible
+  finish-button-text="_A_WIZARD_FINISH_"
+  @finish="onFinish"
+>
+  <template v-slot:step1>
+    <a-input
+      v-model="name"
+      label="_A_WIZARD_EXAMPLE_NAME_"
+      required
+      :errors="errors"
+    />
+  </template>
+  <template v-slot:step2>
+    <a-translation
+      tag="p"
+      text="_A_WIZARD_EXAMPLE_CHECK_"
+    />
+  </template>
+</a-wizard>
+<a-translation
+  v-if="isFinished"
+  tag="p"
+  role="status"
+  text="_A_WIZARD_EXAMPLE_FINISHED_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AInput,
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AInput,
+    ATranslation,
+    AWizard,
+  },
+  setup() {
+    const wizardSteps = [
+      {
+        slot: "step1",
+        label: "_A_WIZARD_EXAMPLE_STEP_PERSON_",
+      },
+      {
+        slot: "step2",
+        label: "_A_WIZARD_EXAMPLE_STEP_CHECK_",
+      },
+    ];
+    const name = ref("");
+    const errors = ref([]);
+    const isFinished = ref(false);
+
+    // false keeps the step, the focus goes to the invalid field; going back is always allowed
+    const beforeStepChange = ({ direction, from }) => {
+      if (direction === "back" || from !== 0) {
+        return true;
+      }
+      errors.value = name.value.trim() ? [] : ["_A_WIZARD_EXAMPLE_NAME_REQUIRED_"];
+      return errors.value.length === 0;
+    };
+
+    const onFinish = () => {
+      isFinished.value = true;
+    };
+
+    return {
+      beforeStepChange,
+      errors,
+      isFinished,
+      name,
+      onFinish,
+      wizardSteps,
+    };
+  },
+};
+```
+
 ## External step navigation
 
 External step navigation involves the dynamic control of multi-step process of a wizard using external variables or custom logic, enabling customized progression through the steps based on different needs and factors.
@@ -3079,7 +3178,7 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
-| aria-label | String | _A_WIZARD_ARIA_LABEL_ |  | Translatable aria-label for the main element of the Wizard |
+| aria-label | String | _A_WIZARD_ARIA_LABEL_ |  | Name of the wizard (a group). Without a name the wizard is no group. |
 | aria-label-steps | String | _A_WIZARD_STEPS_ARIA_LABEL_ |  | Translatable aria-label for the block with all steps of the Wizard |
 | back-button-attributes | Object | () => ({}) |  | Additional attributes for the button navigating to the previous step that are not explicitly defined as props. |
 | back-button-class | String / Array / Object | a_btn a_btn_secondary |  | One or more additional CSS-classes for the button navigating to the previous step. |
@@ -3087,15 +3186,19 @@ export default {
 | back-button-icon-right | String |  |  | Name of the icon to be shown to the right of the label for the button navigating to the previous step. |
 | back-button-text | String | _A_WIZARD_PREVIOUS_ |  | Custom label for the button navigating to the previous step. |
 | back-button-title | String |  |  | Custom title for the button navigating to the previous step. |
+| before-step-change | Function |  |  | Function `{ from, to, step, direction }` with direction `"back" / "forward" / "finish"`. It returns `false` (or a Promise with false) to stay on the step; the focus goes to the error summary or the first invalid field. While a Promise waits, the buttons show the loading. |
 | class-extra | String / Object | a_wizard_class_extra |  | Additional **CSS** class for the wizard that can be used for automated tests or as an additional selector. |
 | extra | Object | () => ({}) |  | Extra values used in wizard. |
+| finish-button-attributes | Object | () => ({}) |  | Attributes of the finish button. |
+| finish-button-class | String / Array / Object | a_btn a_btn_primary |  | Class of the finish button. |
+| finish-button-text | String |  |  | Text of the finish button, e.g. `_A_WIZARD_FINISH_`. With it the last step has this button (event `finish`) instead of the disabled next button. |
 | forward-button-attributes | Object | () => ({}) |  | Additional attributes for the button navigating to the next step that are not explicitly defined as props. |
 | forward-button-class | String / Array / Object | a_btn a_btn_secondary |  | One or more additional CSS-classes for the button navigating to the next step. |
 | forward-button-icon-left | String |  |  | Name of the icon to be shown to the left of the label for the button navigating to the next step. |
 | forward-button-icon-right | String |  |  | Name of the icon to be shown to the right of the label for the button navigating to the next step. |
 | forward-button-text | String | _A_WIZARD_PREVIOUS_ |  | Custom label for the button navigating to the next step. |
 | forward-button-title | String |  |  | Custom title for the button navigating to the next step. |
-| has-focus-jump | Boolean | true |  | Is focus jump used when transitioning to a different step in a wizard. |
+| has-focus-jump | Boolean | true |  | After a change of the step the focus goes to the heading of the new step, so the screen reader reads it. |
 | id | String | () => uniqueId("a_wizard_") |  | Specifies a unique ID of the wizard. |
 | is-back-button-disabled | Boolean | false |  | Specifies whether the button navigating to the previous step should be disabled. |
 | is-back-button-hide | Boolean | false |  | Specifies whether the button navigating to the previous step should be hidden. |
@@ -3108,6 +3211,7 @@ export default {
 | is-forward-last-button-hide | Boolean | false |  | Specifies whether the button navigating to the next step should be hidden in the last step of the wizard. |
 | is-forward-step-button-disabled | Boolean | false |  | Specifies whether the transition to one of the next steps by clicking on it in header is disabled. |
 | is-mobile | Boolean | false |  | Indicator whether the wizard is being displayed on a mobile device or not. |
+| is-step-heading-visible | Boolean | false |  | The heading "Step 2 of 4: Address" of the step is visible. Without it the heading is only for screen readers. |
 | is-step-number-visible | Boolean | true |  | Specifies weather the steps are sequentially enumerated in steps header. |
 | is-steps-justified | Boolean | true |  | Specifies weather the alignment of the steps is justified. |
 | is-toolbar-bottom | Boolean | true |  | Specifies weather the wizard navigation toolbar will be placed at the bottom, under the content of the currently active step. This is the default placement. |
@@ -3115,6 +3219,7 @@ export default {
 | key-id | String |  |  | A unique identifier key for each step. Used for performance enhancement. |
 | show-only-active-step-mobile | Boolean | true |  | Show only the currently active step in a wizard. |
 | step-active | Number |  |  | Index of the currently active step in the wizard. |
+| step-heading-tag | String | h3 |  | Tag of the heading of the step, default `"h3"`. |
 | steps-icon-error | String | AlertDanger |  | Icon displayed in case of an error in the step |
 | steps-icon-error-text | String | _A_WIZARD_STEP_ERROR_ |  | Text and title for the screen reader for the error icon |
 | steps-icon-warning | String | AlertWarning |  | Icon displayed in case of a warning in the step |
@@ -3139,6 +3244,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | change-step | Function | Emitted after the active wizard step changes. The payload contains **step**, **stepIndex**, and **previousStepIndex**. |
+| finish | Function | The finish button was clicked (after `before-step-change`). Argument: `{ step, stepIndex }`. |
 | go-step-back | Function | A function responsible for moving the user back to the previous step of the wizard and any additional logic relevant to transition. |
 | go-step-forward | Function | A function responsible for moving the user to the next step of the wizard and any additional logic relevant to transition. |
 
@@ -3147,13 +3253,14 @@ export default {
 | key | en |
 | --- | --- |
 | `_A_WIZARD_ARIA_LABEL_` | Wizard |
-| `_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_` | Step {{ stepNumber }}: |
+| `_A_WIZARD_FINISH_` | Finish |
 | `_A_WIZARD_NEXT_` | Next |
 | `_A_WIZARD_NEXT_TITLE_` | Next step |
 | `_A_WIZARD_PREVIOUS_` | Previous |
 | `_A_WIZARD_PREVIOUS_TITLE_` | Previous step |
 | `_A_WIZARD_STEP_ACTIVE_` | Step current |
 | `_A_WIZARD_STEP_ERROR_` | Step error |
+| `_A_WIZARD_STEP_HEADING_{{stepNumber}}_{{stepsCount}}_{{label}}_` | Step {{ stepNumber }} of {{ stepsCount }}: {{ label }} |
 | `_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_` | {{ stepActive }} of {{ stepsCount }} |
 | `_A_WIZARD_STEP_UPCOMING_` | Step upcoming |
 | `_A_WIZARD_STEP_VISITED_` | Step visited |

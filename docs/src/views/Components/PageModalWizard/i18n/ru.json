@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Шаг 1",
   "_A_MODAL_WIZARD_STEP_2_": "Шаг 2",
   "_A_MODAL_WIZARD_STEP_3_": "Шаг 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Шаг 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Шаг 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Кнопка «Сохранить» только на последнем шаге мастера.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Название мастера; по умолчанию пустое, модальное окно названо своим заголовком.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Сохранение на последнем шаге",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> показывает кнопку «Сохранить» только на последнем шаге.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Открыть",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Новая запись"
 }

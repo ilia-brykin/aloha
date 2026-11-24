@@ -569,7 +569,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `ASelect`: no `role="application"` anymore; the `role="listbox"` contains only the options and groups, the search and "Select all" / "Deselect all" (now buttons) are above it; the combobox has `aria-controls`, a multiselect `aria-multiselectable`. With removable values (multiselect) the values (`.a_select__ul_closeable`) are next to the `role="combobox"` in the box `.a_select_toggle`, the combobox is `.a_select__combobox`; the remove buttons have no `tabindex="-1"` anymore and the screen reader text `_A_SELECT_REMOVE_{{label}}_` ("Remove Berlin") instead of `_A_SELECT_REMOVE_`. The list is next to the combobox, also with `in-body="false"`. The arrows go round, Home, End and the first letter work, the search announces the number of results; Enter in the search does not submit the form around.
 - `AProgress`, `AProgressCircle`: new prop `aria-label` (default `_A_PROGRESS_ARIA_LABEL_`).
 - `ATabs`: `li.a_tabs__list__item` has `role="presentation"`. A tab is a `<button type="button">` instead of an `<a>`, check own CSS and tests with `a.a_tabs__list__link`. Only the active tab is in the Tab order (`tabindex="0"`, the others `tabindex="-1"`), the arrows, Home and End move between the tabs and open them. The panel has `tabindex="0"`. With `key-id` the `id` of tabs and panels are built from the tab id instead of the index (e.g. `tabs_tab1_content` instead of `tabs_0_content`).
-- `AWizard`: `ul.a_wizard__steps` no longer has `role="navigation"`.
+- `AWizard`: `ul.a_wizard__steps` no longer has `role="navigation"`. No `role="application"` and no `tabindex="0"` on the root anymore; with a name (`aria-label`) it is a `role="group"`, in `AModalWizard` it has no own name. The steps are `` instead of `` with `role="button"`, the current step is a `` with `aria-current="step"`; no `aria-controls`. The panel of a step is a `role="group"` named by a heading (`.a_wizard__step_heading`, for screen readers or visible), which gets the focus after a change of the step instead of ``. `.done` only for visited steps, reachable upcoming steps have `.upcoming`; `_A_WIZARD_STEP_VISITED_` also comes from the visited steps. The visible focus of the steps works again (`.a_wizard__step__divider`). The key `_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_` was removed.
 - `ADatepicker`: the input has `aria-haspopup="dialog"` and `aria-controls` (only while the calendar is open) instead of `aria-owns`. The days of the calendar have no `aria-hidden="true"` anymore (a screen reader reads them); `aria-selected` is on the cell, today has `aria-current="date"`, disabled days `aria-disabled`. The input has `aria-expanded`, `aria-describedby` (help text, errors), `aria-invalid` and `aria-required`; the calendar is a `role="dialog"` with a name (`_A_DATEPICKER_DIALOG_LABEL_`) and has no `aria-expanded` itself. No `role="application"` and no (invalid) `role="header"` anymore. A date typed again after Enter and ArrowDown work also when the calendar is closed. The unused copy `ADatepickerAlt` was removed. New: `ADateInput` (form type `type: "dateInput"`), a text field for date, date with time, time and ranges with an accessible calendar dialog; an alternative to ADatepicker.
 - `ASlider`: the handle is labelled by the label (`aria-labelledby`), `aria-valuenow` is always set.
 - The text of the progress bar follows the background utility class (`a_bg_warning`, `a_bg_gray_300`, …).
@@ -49924,6 +49924,13 @@ This example shows how the `default` slot is used in combination with `text-befo
 
 A wizard is a sequential, step-by-step interface designed to guide users through complex tasks or processes by breaking them into manageable steps. It includes clear instructions and often provides users with the ability to navigate forward and backward for a efficient and straightforward user experience.
 
+Accessibility:
+
+- The wizard is a `role="group"` with a name, without `role="application"` and without its own tab stop, so the browse mode of screen readers works.
+- The steps are native buttons in a list; the current step is text with `aria-current="step"`. Every step says its state (current, visited, upcoming) and an error or warning.
+- Every step is a group named by its heading "Step 2 of 4: Address". After a change of the step the focus goes to this heading (has-focus-jump), so the screen reader reads where the user is. The heading is only for screen readers or visible with `is-step-heading-visible`; then the slot needs no own heading.
+- `before-step-change` can keep the step; the focus goes to the error summary (`.a_errors`) or the first field with `aria-invalid="true"`.
+
 ## Basic usage
 
 *props: `wizard-steps`*
@@ -52221,6 +52228,98 @@ export default {
 };
 ```
 
+## Check before the next step and finish
+
+`before-step-change` keeps the first step while the name is empty, the focus goes to the field with the error. `is-step-heading-visible` shows the heading of the step, `finish-button-text` adds the finish button on the last step.
+
+```html
+<a-wizard
+  :steps="wizardSteps"
+  :before-step-change="beforeStepChange"
+  is-step-heading-visible
+  finish-button-text="_A_WIZARD_FINISH_"
+  @finish="onFinish"
+>
+  <template v-slot:step1>
+    <a-input
+      v-model="name"
+      label="_A_WIZARD_EXAMPLE_NAME_"
+      required
+      :errors="errors"
+    />
+  </template>
+  <template v-slot:step2>
+    <a-translation
+      tag="p"
+      text="_A_WIZARD_EXAMPLE_CHECK_"
+    />
+  </template>
+</a-wizard>
+<a-translation
+  v-if="isFinished"
+  tag="p"
+  role="status"
+  text="_A_WIZARD_EXAMPLE_FINISHED_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AInput,
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AInput,
+    ATranslation,
+    AWizard,
+  },
+  setup() {
+    const wizardSteps = [
+      {
+        slot: "step1",
+        label: "_A_WIZARD_EXAMPLE_STEP_PERSON_",
+      },
+      {
+        slot: "step2",
+        label: "_A_WIZARD_EXAMPLE_STEP_CHECK_",
+      },
+    ];
+    const name = ref("");
+    const errors = ref([]);
+    const isFinished = ref(false);
+
+    // false keeps the step, the focus goes to the invalid field; going back is always allowed
+    const beforeStepChange = ({ direction, from }) => {
+      if (direction === "back" || from !== 0) {
+        return true;
+      }
+      errors.value = name.value.trim() ? [] : ["_A_WIZARD_EXAMPLE_NAME_REQUIRED_"];
+      return errors.value.length === 0;
+    };
+
+    const onFinish = () => {
+      isFinished.value = true;
+    };
+
+    return {
+      beforeStepChange,
+      errors,
+      isFinished,
+      name,
+      onFinish,
+      wizardSteps,
+    };
+  },
+};
+```
+
 ## External step navigation
 
 External step navigation involves the dynamic control of multi-step process of a wizard using external variables or custom logic, enabling customized progression through the steps based on different needs and factors.
@@ -53001,7 +53100,7 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
-| aria-label | String | _A_WIZARD_ARIA_LABEL_ |  | Translatable aria-label for the main element of the Wizard |
+| aria-label | String | _A_WIZARD_ARIA_LABEL_ |  | Name of the wizard (a group). Without a name the wizard is no group. |
 | aria-label-steps | String | _A_WIZARD_STEPS_ARIA_LABEL_ |  | Translatable aria-label for the block with all steps of the Wizard |
 | back-button-attributes | Object | () => ({}) |  | Additional attributes for the button navigating to the previous step that are not explicitly defined as props. |
 | back-button-class | String / Array / Object | a_btn a_btn_secondary |  | One or more additional CSS-classes for the button navigating to the previous step. |
@@ -53009,15 +53108,19 @@ export default {
 | back-button-icon-right | String |  |  | Name of the icon to be shown to the right of the label for the button navigating to the previous step. |
 | back-button-text | String | _A_WIZARD_PREVIOUS_ |  | Custom label for the button navigating to the previous step. |
 | back-button-title | String |  |  | Custom title for the button navigating to the previous step. |
+| before-step-change | Function |  |  | Function `{ from, to, step, direction }` with direction `"back" / "forward" / "finish"`. It returns `false` (or a Promise with false) to stay on the step; the focus goes to the error summary or the first invalid field. While a Promise waits, the buttons show the loading. |
 | class-extra | String / Object | a_wizard_class_extra |  | Additional **CSS** class for the wizard that can be used for automated tests or as an additional selector. |
 | extra | Object | () => ({}) |  | Extra values used in wizard. |
+| finish-button-attributes | Object | () => ({}) |  | Attributes of the finish button. |
+| finish-button-class | String / Array / Object | a_btn a_btn_primary |  | Class of the finish button. |
+| finish-button-text | String |  |  | Text of the finish button, e.g. `_A_WIZARD_FINISH_`. With it the last step has this button (event `finish`) instead of the disabled next button. |
 | forward-button-attributes | Object | () => ({}) |  | Additional attributes for the button navigating to the next step that are not explicitly defined as props. |
 | forward-button-class | String / Array / Object | a_btn a_btn_secondary |  | One or more additional CSS-classes for the button navigating to the next step. |
 | forward-button-icon-left | String |  |  | Name of the icon to be shown to the left of the label for the button navigating to the next step. |
 | forward-button-icon-right | String |  |  | Name of the icon to be shown to the right of the label for the button navigating to the next step. |
 | forward-button-text | String | _A_WIZARD_PREVIOUS_ |  | Custom label for the button navigating to the next step. |
 | forward-button-title | String |  |  | Custom title for the button navigating to the next step. |
-| has-focus-jump | Boolean | true |  | Is focus jump used when transitioning to a different step in a wizard. |
+| has-focus-jump | Boolean | true |  | After a change of the step the focus goes to the heading of the new step, so the screen reader reads it. |
 | id | String | () => uniqueId("a_wizard_") |  | Specifies a unique ID of the wizard. |
 | is-back-button-disabled | Boolean | false |  | Specifies whether the button navigating to the previous step should be disabled. |
 | is-back-button-hide | Boolean | false |  | Specifies whether the button navigating to the previous step should be hidden. |
@@ -53030,6 +53133,7 @@ export default {
 | is-forward-last-button-hide | Boolean | false |  | Specifies whether the button navigating to the next step should be hidden in the last step of the wizard. |
 | is-forward-step-button-disabled | Boolean | false |  | Specifies whether the transition to one of the next steps by clicking on it in header is disabled. |
 | is-mobile | Boolean | false |  | Indicator whether the wizard is being displayed on a mobile device or not. |
+| is-step-heading-visible | Boolean | false |  | The heading "Step 2 of 4: Address" of the step is visible. Without it the heading is only for screen readers. |
 | is-step-number-visible | Boolean | true |  | Specifies weather the steps are sequentially enumerated in steps header. |
 | is-steps-justified | Boolean | true |  | Specifies weather the alignment of the steps is justified. |
 | is-toolbar-bottom | Boolean | true |  | Specifies weather the wizard navigation toolbar will be placed at the bottom, under the content of the currently active step. This is the default placement. |
@@ -53037,6 +53141,7 @@ export default {
 | key-id | String |  |  | A unique identifier key for each step. Used for performance enhancement. |
 | show-only-active-step-mobile | Boolean | true |  | Show only the currently active step in a wizard. |
 | step-active | Number |  |  | Index of the currently active step in the wizard. |
+| step-heading-tag | String | h3 |  | Tag of the heading of the step, default `"h3"`. |
 | steps-icon-error | String | AlertDanger |  | Icon displayed in case of an error in the step |
 | steps-icon-error-text | String | _A_WIZARD_STEP_ERROR_ |  | Text and title for the screen reader for the error icon |
 | steps-icon-warning | String | AlertWarning |  | Icon displayed in case of a warning in the step |
@@ -53061,6 +53166,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | change-step | Function | Emitted after the active wizard step changes. The payload contains **step**, **stepIndex**, and **previousStepIndex**. |
+| finish | Function | The finish button was clicked (after `before-step-change`). Argument: `{ step, stepIndex }`. |
 | go-step-back | Function | A function responsible for moving the user back to the previous step of the wizard and any additional logic relevant to transition. |
 | go-step-forward | Function | A function responsible for moving the user to the next step of the wizard and any additional logic relevant to transition. |
 
@@ -53069,13 +53175,14 @@ export default {
 | key | en |
 | --- | --- |
 | `_A_WIZARD_ARIA_LABEL_` | Wizard |
-| `_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_` | Step {{ stepNumber }}: |
+| `_A_WIZARD_FINISH_` | Finish |
 | `_A_WIZARD_NEXT_` | Next |
 | `_A_WIZARD_NEXT_TITLE_` | Next step |
 | `_A_WIZARD_PREVIOUS_` | Previous |
 | `_A_WIZARD_PREVIOUS_TITLE_` | Previous step |
 | `_A_WIZARD_STEP_ACTIVE_` | Step current |
 | `_A_WIZARD_STEP_ERROR_` | Step error |
+| `_A_WIZARD_STEP_HEADING_{{stepNumber}}_{{stepsCount}}_{{label}}_` | Step {{ stepNumber }} of {{ stepsCount }}: {{ label }} |
 | `_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_` | {{ stepActive }} of {{ stepsCount }} |
 | `_A_WIZARD_STEP_UPCOMING_` | Step upcoming |
 | `_A_WIZARD_STEP_VISITED_` | Step visited |
@@ -53280,12 +53387,97 @@ export default {
 };
 ```
 
+## Save on the last step
+
+`is-save-button-last-step-only` shows the save button only on the last step.
+
+```html
+<a-button
+  id="wizard_last_step"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_WIZARD_EXAMPLE_OPEN_"
+  @click="openModalWizard"
+/>
+<a-modal-wizard
+  v-if="isModalWizardVisible"
+  selector-close-ids="wizard_last_step"
+  header-text="_A_MODAL_WIZARD_EXAMPLE_HEADER_"
+  is-save-button-last-step-only
+  :close="closeModalWizard"
+  :save="closeModalWizard"
+  :steps="wizardSteps"
+>
+  <template v-slot:step1>
+    <a-translation tag="p" text="_A_MODAL_WIZARD_STEP_1_" />
+  </template>
+  <template v-slot:step2>
+    <a-translation tag="p" text="_A_MODAL_WIZARD_STEP_2_" />
+  </template>
+  <template v-slot:step3>
+    <a-translation tag="p" text="_A_MODAL_WIZARD_STEP_3_" />
+  </template>
+</a-modal-wizard>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalWizard,
+  ATranslation,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalWizard,
+    ATranslation,
+  },
+  setup() {
+    const isModalWizardVisible = ref(false);
+    const wizardSteps = [
+      {
+        slot: "step1",
+        label: "_A_MODAL_WIZARD_STEP_1_",
+      },
+      {
+        slot: "step2",
+        label: "_A_MODAL_WIZARD_STEP_2_",
+      },
+      {
+        slot: "step3",
+        label: "_A_MODAL_WIZARD_STEP_3_",
+      },
+    ];
+
+    const openModalWizard = () => {
+      isModalWizardVisible.value = true;
+    };
+
+    const closeModalWizard = () => {
+      isModalWizardVisible.value = false;
+    };
+
+    return {
+      closeModalWizard,
+      isModalWizardVisible,
+      openModalWizard,
+      wizardSteps,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
+| before-step-change | Function |  |  | Function `{ from, to, step, direction }` with direction `"back" / "forward" / "finish"`. It returns `false` (or a Promise with false) to stay on the step; the focus goes to the error summary or the first invalid field. While a Promise waits, the buttons show the loading. |
 | class-extra | String / Object | a_modal_class_extra |  | Additional **CSS** class for the modal window, which can be used for automated tests or as an additional selector. |
 | class-wizard-extra | String / Object | a_wizard_class_extra |  | Additional **CSS** class for the wizard that can be used for automated tests or as an additional selector. |
 | close | Function |  | yes | The function that enables closing the modal. |
@@ -53298,6 +53490,9 @@ export default {
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](https://ilia-brykin.github.io/aloha/llms/components/translation.md) |
+| finish-button-attributes | Object | () => ({}) |  | Attributes of the finish button. |
+| finish-button-class | String / Array / Object | a_btn a_btn_primary |  | Class of the finish button. |
+| finish-button-text | String |  |  | Text of the finish button, e.g. `_A_WIZARD_FINISH_`. With it the last step has this button (event `finish`) instead of the disabled next button. |
 | focus-start-id | String |  |  | If an **ID** is set, the focus is placed on the element with this **ID** when the modal window opens (if **use-focus-on-start** is set to **true**). |
 | header-tag | String | h2 |  | The HTML tag for the modal header. |
 | header-text | String |  |  | The text in the modal header. |
@@ -53305,6 +53500,8 @@ export default {
 | is-close-button-hide | Boolean | false |  | Determines whether the close button is visible. |
 | is-footer-sticky | Boolean | false |  | Determines if the footer is fixed to the bottom of the modal window. |
 | is-save-button-hide | Boolean | false |  | Determines whether the save button is visible. |
+| is-save-button-last-step-only | Boolean | false |  | The save button is only on the last step of the wizard. |
+| is-step-heading-visible | Boolean | false |  | The heading "Step 2 of 4: Address" of the step is visible. Without it the heading is only for screen readers. |
 | loading | Boolean |  |  | Specifies whether the modal is in a loading state. |
 | modal-class | String / Object |  |  | The class or classes of the modal. |
 | modal-style | String / Object |  |  | The style or styles of the modal window. |
@@ -53318,11 +53515,12 @@ export default {
 | selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
+| step-heading-tag | String | h3 |  | Tag of the heading of the step, default `"h3"`. |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
-| aria-label | String | _A_WIZARD_ARIA_LABEL_ |  | Translatable aria-label for the main element of the Wizard |
+| aria-label | String | "" |  | Name of the wizard; empty by default, the modal is named by its heading. |
 | aria-label-steps | String | _A_WIZARD_STEPS_ARIA_LABEL_ |  | Translatable aria-label for the block with all steps of the Wizard |
 | back-button-attributes | Object | () => ({}) |  | Additional attributes for the button navigating to the previous step that are not explicitly defined as props. |
 | back-button-class | String / Array / Object | a_btn a_btn_secondary |  | One or more additional CSS-classes for the button navigating to the previous step. |
@@ -53337,7 +53535,7 @@ export default {
 | forward-button-icon-right | String |  |  | Name of the icon to be shown to the right of the label for the button navigating to the next step. |
 | forward-button-text | String | _A_WIZARD_PREVIOUS_ |  | Custom label for the button navigating to the next step. |
 | forward-button-title | String |  |  | Custom title for the button navigating to the next step. |
-| has-focus-jump | Boolean | true |  | Is focus jump used when transitioning to a different step in a wizard. |
+| has-focus-jump | Boolean | true |  | After a change of the step the focus goes to the heading of the new step, so the screen reader reads it. |
 | id | String | () => uniqueId("a_modal_wizard_") |  | Specifies a unique ID of the wizard. |
 | is-back-button-disabled | Boolean | false |  | Specifies whether the button navigating to the previous step should be disabled. |
 | is-back-button-hide | Boolean | false |  | Specifies whether the button navigating to the previous step should be hidden. |
@@ -53371,6 +53569,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | change-step | Function | Emitted after the active wizard step changes. The payload contains **step**, **stepIndex**, and **previousStepIndex**. |
+| finish | Function | The finish button was clicked (after `before-step-change`). Argument: `{ step, stepIndex }`. |
 | go-step-back | Function | A function responsible for moving the user back to the previous step of the wizard and any additional logic relevant to transition. |
 | go-step-forward | Function | A function responsible for moving the user to the next step of the wizard and any additional logic relevant to transition. |
 

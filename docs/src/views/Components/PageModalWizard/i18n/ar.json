@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "الخطوة 1",
   "_A_MODAL_WIZARD_STEP_2_": "الخطوة 2",
   "_A_MODAL_WIZARD_STEP_3_": "الخطوة 3",
-  "_A_MODAL_WIZARD_STEP_4_": "الخطوة 4"
+  "_A_MODAL_WIZARD_STEP_4_": "الخطوة 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "زر الحفظ في الخطوة الأخيرة من المعالج فقط.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "اسم المعالج؛ فارغ افتراضيًا، والنافذة النمطية مسماة بعنوانها.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "الحفظ في الخطوة الأخيرة",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "يعرض <code>is-save-button-last-step-only</code> زر الحفظ في الخطوة الأخيرة فقط.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "فتح",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "إدخال جديد"
 }

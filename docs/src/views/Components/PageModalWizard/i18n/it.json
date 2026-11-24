@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Passo 1",
   "_A_MODAL_WIZARD_STEP_2_": "Passo 2",
   "_A_MODAL_WIZARD_STEP_3_": "Passo 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Passo 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Passo 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Il pulsante di salvataggio è solo nell'ultimo passo della procedura.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Nome della procedura guidata; vuoto di default, il modale è nominato dal suo titolo.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Salvare nell'ultimo passo",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> mostra il pulsante di salvataggio solo nell'ultimo passo.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Apri",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Nuova voce"
 }

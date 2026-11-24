@@ -46,6 +46,22 @@ export default {
       required: false,
       default: undefined,
     },
+    finishButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    finishButtonClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: undefined,
+    },
+    // with a text the last step has a finish button instead of the disabled next button
+    finishButtonText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     forwardButtonAttributes: {
       type: Object,
       required: false,
@@ -114,6 +130,7 @@ export default {
     },
   },
   emits: [
+    "finish",
     "goOneStepBack",
     "goOneStepForward",
   ],
@@ -147,6 +164,7 @@ export default {
     return {
       goOneStepBack,
       goOneStepForward,
+      isStepActiveLast,
       isBackButtonDisabledLocal,
       isBackButtonHideLocal,
       isForwardButtonDisabledLocal,
@@ -175,21 +193,32 @@ export default {
           onClick: this.goOneStepBack,
           ...this.backButtonAttributes,
         }),
-        !this.isForwardButtonHideLocal && h(AElement, {
-          class: this.forwardButtonClass,
-          disabled: this.isForwardButtonDisabledLocal,
-          extra: this.extra,
-          iconLeft: this.forwardButtonIconLeft,
-          iconRight: this.forwardButtonIconRight,
-          loading: this.isButtonsLoading,
-          text: this.forwardButtonText,
-          textAriaHidden: true,
-          textScreenReader: this.forwardButtonTitle,
-          title: this.forwardButtonTitle,
-          type: "button",
-          onClick: this.goOneStepForward,
-          ...this.forwardButtonAttributes,
-        }),
+        this.finishButtonText && this.isStepActiveLast ?
+          h(AElement, {
+            class: this.finishButtonClass,
+            disabled: this.isForwardButtonDisabled,
+            extra: this.extra,
+            loading: this.isButtonsLoading,
+            text: this.finishButtonText,
+            type: "button",
+            onClick: () => this.$emit("finish"),
+            ...this.finishButtonAttributes,
+          }) :
+          !this.isForwardButtonHideLocal && h(AElement, {
+            class: this.forwardButtonClass,
+            disabled: this.isForwardButtonDisabledLocal,
+            extra: this.extra,
+            iconLeft: this.forwardButtonIconLeft,
+            iconRight: this.forwardButtonIconRight,
+            loading: this.isButtonsLoading,
+            text: this.forwardButtonText,
+            textAriaHidden: true,
+            textScreenReader: this.forwardButtonTitle,
+            title: this.forwardButtonTitle,
+            type: "button",
+            onClick: this.goOneStepForward,
+            ...this.forwardButtonAttributes,
+          }),
         this.$slots.toolbar && this.$slots.toolbar(),
       ],
     );

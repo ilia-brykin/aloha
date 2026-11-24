@@ -2,27 +2,25 @@ import {
   h,
 } from "vue";
 
-import AElement from "../../AElement/AElement";
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
-import ContentIdAPI from "../AWizardTab/compositionAPI/ContentIdAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import ErrorWarningAPI from "./compositionAPI/ErrorWarningAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import LinkClassAPI from "./compositionAPI/LinkClassAPI";
 import NumberAPI from "./compositionAPI/NumberAPI";
 import StatusTextAPI from "./compositionAPI/StatusTextAPI";
+import {
+  getTranslatedText,
+} from "../../ATranslation/compositionAPI/UtilsAPI";
 
-const ExclamationCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
-</svg>`;
-const XCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
-</svg>`;
-
+import {
+  ExclamationCircleFill,
+  XCircleFill,
+} from "../utils/icons";
 
 export default {
   name: "AWizardStep",
@@ -101,6 +99,12 @@ export default {
       type: Number,
       required: true,
     },
+    // { [stepIndex]: true }; without it the steps before the active one count as visited
+    stepsVisitedComputed: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "onStepClick",
@@ -109,6 +113,7 @@ export default {
     const {
       isStepActive,
       isStepBeforeActive,
+      isStepVisited,
     } = ActiveAPI(props);
 
     const {
@@ -128,148 +133,127 @@ export default {
       isStepActive,
       isStepBeforeActive,
       isStepDisabled,
+      isStepVisited,
     });
 
     const {
       onClick,
-      onKeydown,
     } = EventsAPI(props, context, {
       isStepDisabled,
     });
 
     const {
-      ariaCurrentAttributes,
-      stepTextId,
       stepStatusTextId,
-      tabindex,
-    } = AttributesAPI(props, {
-      isStepDisabled,
-      isStepActive,
-    });
-
-    const {
-      contentId,
-    } = ContentIdAPI(props);
-
-    const {
-      statusText,
-    } = StatusTextAPI(props, {
-      isStepActive,
-      isStepBeforeActive,
-    });
+      stepTextId,
+    } = AttributesAPI(props);
 
     const {
       iconErrorWarning,
       titleIconErrorWarning,
     } = ErrorWarningAPI(props);
 
+    const {
+      statusText,
+    } = StatusTextAPI(props, {
+      isStepActive,
+      isStepVisited,
+      titleIconErrorWarning,
+    });
+
     return {
-      ariaCurrentAttributes,
-      contentId,
       iconErrorWarning,
       isStepActive,
       isStepDisabled,
       linkClass,
       onClick,
-      onKeydown,
       statusText,
       stepNumber,
       stepNumberText,
       stepStatusTextId,
       stepTextId,
-      tabindex,
       titleIconErrorWarning,
     };
   },
   render() {
-    return h(
-      "li",
-      {
-        class: [
-          "a_wizard__step",
-          {
-            a_wizard__step_active: this.isStepActive,
-          },
-        ],
-      },
+    const CONTENT = this.step.slotLabel && this.$slots[this.step.slotLabel] ?
+      this.$slots[this.step.slotLabel]({
+        isStepActive: this.isStepActive,
+        isStepDisabled: this.isStepDisabled,
+        step: this.step,
+        stepIndex: this.stepIndex,
+        stepNumber: this.stepNumber,
+        stepTextId: this.stepTextId,
+      }) :
       [
-        h(AElement, {
-          "aria-controls": this.contentId,
-          "aria-describedby": this.stepStatusTextId,
-          "aria-disabled": this.isStepDisabled,
-          class: this.linkClass,
-          classDefault: "",
-          classDisabled: "disabled",
-          role: "button",
-          tabindex: this.tabindex,
-          title: this.step.title,
-          type: "link",
-          onClick: this.onClick,
-          onKeydown: this.onKeydown,
-          ...this.ariaCurrentAttributes,
-        }, () => this.step.slotLabel && this.$slots[this.step.slotLabel] ?
-          this.$slots[this.step.slotLabel]({
-            isStepActive: this.isStepActive,
-            isStepDisabled: this.isStepDisabled,
-            step: this.step,
-            stepIndex: this.stepIndex,
-            stepNumber: this.stepNumber,
-            stepTextId: this.stepTextId,
-          })
-: [
-            this.isStepNumberVisible ?
-              h("span", {
-                class: "a_wizard__step__number",
-              }, [
-                this.step.icon ?
-                  h(AIcon, {
-                    class: "a_wizard__step__number__icon",
-                    icon: this.step.icon,
-                  }) :
-                  h(ATranslation, {
-                    class: "a_wizard__step__number__text",
-                    tag: "span",
-                    text: this.stepNumberText,
-                    extra: {
-                      stepActive: this.stepNumber,
-                      stepsCount: this.stepsCount,
-                    },
-                  }),
-              ]) :
-              "",
-            h("span", {
-              class: "a_wizard__step__text",
-            }, [
-              h(ATranslation, {
-                id: this.stepTextId,
-                class: "a_wizard__step__text__child",
-                extra: this.extra,
-                html: this.step.label,
-                tag: "span",
-              }),
-              (this.iconErrorWarning) ?
-                h(AElement, {
-                  iconClass: "a_wizard__step__text__icon",
-                  iconLeft: this.iconErrorWarning,
-                  tag: "span",
-                  textScreenReader: this.titleIconErrorWarning,
-                  title: this.titleIconErrorWarning,
-                  type: "text",
-                })
-: "",
-            ]),
-]),
-        h(ATranslation, {
-          id: this.stepStatusTextId,
-          class: "a_sr_only",
-          tag: "span",
-          text: this.statusText,
-        }),
+        this.isStepNumberVisible && h("span", {
+          class: "a_wizard__step__number",
+        }, [
+          this.step.icon ?
+            h(AIcon, {
+              class: "a_wizard__step__number__icon",
+              icon: this.step.icon,
+            }) :
+            h(ATranslation, {
+              class: "a_wizard__step__number__text",
+              tag: "span",
+              text: this.stepNumberText,
+              extra: {
+                stepActive: this.stepNumber,
+                stepsCount: this.stepsCount,
+              },
+            }),
+        ]),
         h("span", {
-          class: "a_wizard__step__divider",
-          "aria-hidden": true,
-        }),
+          class: "a_wizard__step__text",
+        }, [
+          h(ATranslation, {
+            id: this.stepTextId,
+            class: "a_wizard__step__text__child",
+            extra: this.extra,
+            html: this.step.label,
+            tag: "span",
+          }),
+          // the icon is for the eyes, the screen reader gets the error in the status
+          this.iconErrorWarning && h(AIcon, {
+            class: "a_wizard__step__text__icon",
+            icon: this.iconErrorWarning,
+            "aria-hidden": "true",
+            title: getTranslatedText({ placeholder: this.titleIconErrorWarning }),
+          }),
+        ]),
+      ];
+
+    return h("li", {
+      class: [
+        "a_wizard__step",
+        {
+          a_wizard__step_active: this.isStepActive,
+        },
       ],
-    );
+    }, [
+      // the current step is no button, it only has aria-current
+      this.isStepActive ?
+        h("span", {
+          class: this.linkClass,
+          title: this.step.title,
+          "aria-current": "step",
+        }, CONTENT) :
+        h("button", {
+          type: "button",
+          class: this.linkClass,
+          disabled: this.isStepDisabled,
+          title: this.step.title,
+          "aria-describedby": this.stepStatusTextId,
+          onClick: this.onClick,
+        }, CONTENT),
+      h("span", {
+        id: this.stepStatusTextId,
+        class: "a_sr_only",
+      }, this.statusText),
+      h("span", {
+        class: "a_wizard__step__divider",
+        "aria-hidden": "true",
+      }),
+    ]);
   },
 };

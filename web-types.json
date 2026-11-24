@@ -7549,6 +7549,11 @@
               "default": "false"
             },
             {
+              "name": "isSaveButtonLastStepOnly",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "isSaveButtonHide",
               "type": "boolean",
               "default": "false"
@@ -7630,7 +7635,7 @@
             {
               "name": "ariaLabel",
               "type": "string",
-              "default": "\"_A_WIZARD_ARIA_LABEL_\""
+              "default": "\"\""
             },
             {
               "name": "ariaLabelSteps",
@@ -7661,6 +7666,10 @@
               "default": "\"_A_WIZARD_PREVIOUS_\""
             },
             {
+              "name": "beforeStepChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
               "name": "backButtonTitle",
               "type": "string",
               "default": "\"_A_WIZARD_PREVIOUS_TITLE_\""
@@ -7687,6 +7696,20 @@
               "name": "forwardButtonText",
               "type": "string",
               "default": "\"_A_WIZARD_NEXT_\""
+            },
+            {
+              "name": "finishButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "finishButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "finishButtonText",
+              "type": "string"
             },
             {
               "name": "forwardButtonTitle",
@@ -7778,6 +7801,15 @@
               "default": "true"
             },
             {
+              "name": "isStepHeadingVisible",
+              "type": "boolean"
+            },
+            {
+              "name": "stepHeadingTag",
+              "type": "string",
+              "default": "\"h3\""
+            },
+            {
               "name": "stepActive",
               "type": "number"
             },
@@ -7829,6 +7861,9 @@
             "events": [
               {
                 "name": "changeStep"
+              },
+              {
+                "name": "finish"
               },
               {
                 "name": "goStepBack"
@@ -13114,9 +13149,27 @@
               "default": "\"_A_WIZARD_PREVIOUS_TITLE_\""
             },
             {
+              "name": "beforeStepChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
               "name": "extra",
               "type": "Record<string, any>",
               "default": "{}"
+            },
+            {
+              "name": "finishButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "finishButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "finishButtonText",
+              "type": "string"
             },
             {
               "name": "forwardButtonAttributes",
@@ -13207,6 +13260,10 @@
               "default": "false"
             },
             {
+              "name": "isStepHeadingVisible",
+              "type": "boolean"
+            },
+            {
               "name": "isStepNumberVisible",
               "type": "boolean",
               "default": "true"
@@ -13238,6 +13295,11 @@
             {
               "name": "stepActive",
               "type": "number"
+            },
+            {
+              "name": "stepHeadingTag",
+              "type": "string",
+              "default": "\"h3\""
             },
             {
               "name": "stepIconError",
@@ -13291,6 +13353,9 @@
             "events": [
               {
                 "name": "changeStep"
+              },
+              {
+                "name": "finish"
               },
               {
                 "name": "goStepBack"

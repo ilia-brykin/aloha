@@ -2304,6 +2304,8 @@ export interface AModalWizardProps {
   /** @default false */
   isFooterSticky?: boolean;
   /** @default false */
+  isSaveButtonLastStepOnly?: boolean;
+  /** @default false */
   isSaveButtonHide?: boolean;
   loading?: boolean;
   modalClass?: string | Record<string, any>;
@@ -2328,7 +2330,7 @@ export interface AModalWizardProps {
   /** @default true */
   useFocusOnStart?: boolean;
   zIndex?: number;
-  /** @default "_A_WIZARD_ARIA_LABEL_" */
+  /** @default "" */
   ariaLabel?: string;
   /** @default "_A_WIZARD_STEPS_ARIA_LABEL_" */
   ariaLabelSteps?: string;
@@ -2340,6 +2342,7 @@ export interface AModalWizardProps {
   backButtonIconRight?: string;
   /** @default "_A_WIZARD_PREVIOUS_" */
   backButtonText?: string;
+  beforeStepChange?: ((...args: any[]) => any);
   /** @default "_A_WIZARD_PREVIOUS_TITLE_" */
   backButtonTitle?: string;
   /** @default {} */
@@ -2350,6 +2353,11 @@ export interface AModalWizardProps {
   forwardButtonIconRight?: string;
   /** @default "_A_WIZARD_NEXT_" */
   forwardButtonText?: string;
+  /** @default {} */
+  finishButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  finishButtonClass?: string | any[] | Record<string, any>;
+  finishButtonText?: string;
   /** @default "_A_WIZARD_NEXT_TITLE_" */
   forwardButtonTitle?: string;
   /** @default true */
@@ -2382,6 +2390,9 @@ export interface AModalWizardProps {
   scrollToTopOnStepChange?: boolean;
   /** @default true */
   showOnlyActiveStepMobile?: boolean;
+  isStepHeadingVisible?: boolean;
+  /** @default "h3" */
+  stepHeadingTag?: string;
   stepActive?: number;
   /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-circle-fill\" viewBox=\"0 0 16 16\">\n  <path d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z\"/>\n</svg>" */
   stepIconError?: string;
@@ -2400,7 +2411,7 @@ export interface AModalWizardProps {
   /** @default "basic" */
   type?: string;
 }
-export declare const AModalWizard: DefineComponent<AModalWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "goStepBack" | "goStepForward")[]>;
+export declare const AModalWizard: DefineComponent<AModalWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "finish" | "goStepBack" | "goStepForward")[]>;
 
 export interface AMultiselectOrderedProps {
   alwaysTranslate?: boolean;
@@ -4034,8 +4045,14 @@ export interface AWizardProps {
   backButtonText?: string;
   /** @default "_A_WIZARD_PREVIOUS_TITLE_" */
   backButtonTitle?: string;
+  beforeStepChange?: ((...args: any[]) => any);
   /** @default {} */
   extra?: Record<string, any>;
+  /** @default {} */
+  finishButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  finishButtonClass?: string | any[] | Record<string, any>;
+  finishButtonText?: string;
   /** @default {} */
   forwardButtonAttributes?: Record<string, any>;
   /** @default "a_btn a_btn_secondary" */
@@ -4067,6 +4084,7 @@ export interface AWizardProps {
   isForwardStepButtonDisabled?: boolean;
   /** @default false */
   isMobile?: boolean;
+  isStepHeadingVisible?: boolean;
   /** @default true */
   isStepNumberVisible?: boolean;
   /** @default true */
@@ -4079,6 +4097,8 @@ export interface AWizardProps {
   /** @default true */
   showOnlyActiveStepMobile?: boolean;
   stepActive?: number;
+  /** @default "h3" */
+  stepHeadingTag?: string;
   /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-circle-fill\" viewBox=\"0 0 16 16\">\n  <path d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z\"/>\n</svg>" */
   stepIconError?: string;
   /** @default "_A_WIZARD_STEP_ERROR_" */
@@ -4097,7 +4117,7 @@ export interface AWizardProps {
   /** @default "basic" */
   type?: string;
 }
-export declare const AWizard: DefineComponent<AWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "goStepBack" | "goStepForward")[]>;
+export declare const AWizard: DefineComponent<AWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "finish" | "goStepBack" | "goStepForward")[]>;
 
 // shortcut: functions, plugins and constants are not typed yet, upgrade when JSDoc types exist in src/
 export declare const AAlertI18n: any;

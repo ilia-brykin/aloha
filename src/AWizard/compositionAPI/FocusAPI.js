@@ -1,32 +1,35 @@
 import {
-  ref,
+  nextTick,
   toRef,
 } from "vue";
-
-import {
-  setFocusToElement,
-} from "../../utils/utilsDOM";
 
 export default function FocusAPI(props) {
   const hasFocusJump = toRef(props, "hasFocusJump");
   const id = toRef(props, "id");
 
-  const wizardTabsRef = ref([]);
+  const getHeading = stepIndex => document.getElementById(`${ id.value }_${ stepIndex }_heading`);
 
+  // the heading "Step 2 of 4: Address" of the new step gets the focus, the screen reader reads it
   const setFocusToActiveStep = ({ stepActive }) => {
     if (hasFocusJump.value &&
       !window.isScrollDisabled) { // for autotests
-      setTimeout(() => {
-        const FOCUS_ID_SELECTOR = `#${ id.value }_${ stepActive }_focus`;
-        setFocusToElement({
-          selector: FOCUS_ID_SELECTOR,
-        });
+      nextTick(() => {
+        getHeading(stepActive)?.focus();
       });
     }
   };
 
+  // the step was not changed (beforeStepChange): the focus goes to the error summary or the first invalid field
+  const setFocusToInvalid = ({ stepActive }) => {
+    nextTick(() => {
+      const PANE = document.getElementById(`${ id.value }_${ stepActive }_content`);
+      const TARGET = PANE?.querySelector(".a_errors, [aria-invalid=\"true\"]") || getHeading(stepActive);
+      TARGET?.focus();
+    });
+  };
+
   return {
     setFocusToActiveStep,
-    wizardTabsRef,
+    setFocusToInvalid,
   };
 }

@@ -20,16 +20,13 @@ import TeleportAPI from "./compositionAPI/TeleportAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 
 import {
+  ExclamationCircleFill,
+  XCircleFill,
+} from "./utils/icons";
+import {
   isNil,
   uniqueId,
 } from "lodash-es";
-
-const ExclamationCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
-</svg>`;
-const XCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
-</svg>`;
 
 export default {
   name: "AWizard",
@@ -79,10 +76,32 @@ export default {
       required: false,
       default: "_A_WIZARD_PREVIOUS_TITLE_",
     },
+    // ({ from, to, step, direction: "back" | "forward" | "finish" }) => false or Promise<false> to stay on the step
+    beforeStepChange: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     extra: {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    finishButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    finishButtonClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn a_btn_primary",
+    },
+    // e.g. "_A_WIZARD_FINISH_": the last step has this button (event finish) instead of the disabled next button
+    finishButtonText: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     forwardButtonAttributes: {
       type: Object,
@@ -174,6 +193,11 @@ export default {
       required: false,
       default: false,
     },
+    // the heading "Step 2 of 4: Address" of the step is visible (else only for screen readers)
+    isStepHeadingVisible: {
+      type: Boolean,
+      required: false,
+    },
     isStepNumberVisible: {
       type: Boolean,
       required: false,
@@ -208,6 +232,11 @@ export default {
       type: Number,
       required: false,
       default: undefined,
+    },
+    stepHeadingTag: {
+      type: String,
+      required: false,
+      default: "h3",
     },
     stepIconError: {
       type: String,
@@ -281,6 +310,7 @@ export default {
   },
   emits: [
     "changeStep",
+    "finish",
     "goStepBack",
     "goStepForward",
   ],
@@ -297,7 +327,7 @@ export default {
 
     const {
       setFocusToActiveStep,
-      wizardTabsRef,
+      setFocusToInvalid,
     } = FocusAPI(props);
 
     const {
@@ -319,16 +349,16 @@ export default {
       ariaLabelAttributes,
       ariaLabelStepsAttributes,
       idProgressbar,
-      wizardAriaDescribedby,
-    } = AttributesAPI(props, {
-      stepActiveComputed,
-    });
+    } = AttributesAPI(props);
 
     const {
+      finish,
       goOneStepBack,
       goOneStepForward,
+      isStepChangeChecking,
       onStepClick,
     } = EventsAPI(props, context, {
+      setFocusToInvalid,
       stepActiveComputed,
       stepActiveLocal,
       stepsVisitedLocal,
@@ -356,10 +386,12 @@ export default {
       ariaLabelAttributes,
       ariaLabelStepsAttributes,
       classWizard,
+      finish,
       goOneStepBack,
       goOneStepForward,
       idProgressbar,
       isMobileLocal,
+      isStepChangeChecking,
       onStepClick,
       stepActiveComputed,
       stepActiveNumber,
@@ -367,8 +399,6 @@ export default {
       stepsVisitedComputed,
       toolbarBottomTeleportSelector,
       useTeleportToolbarBottom,
-      wizardAriaDescribedby,
-      wizardTabsRef,
     };
   },
   render() {
@@ -380,6 +410,9 @@ export default {
       backButtonText: this.backButtonText,
       backButtonTitle: this.backButtonTitle,
       extra: this.extra,
+      finishButtonAttributes: this.finishButtonAttributes,
+      finishButtonClass: this.finishButtonClass,
+      finishButtonText: this.finishButtonText,
       forwardButtonAttributes: this.forwardButtonAttributes,
       forwardButtonClass: this.forwardButtonClass,
       forwardButtonIconLeft: this.forwardButtonIconLeft,
@@ -389,21 +422,21 @@ export default {
       isBackButtonDisabled: this.isBackButtonDisabled,
       isBackButtonHide: this.isBackButtonHide,
       isBackFirstButtonHide: this.isBackFirstButtonHide,
-      isButtonsLoading: this.isButtonsLoading,
+      isButtonsLoading: this.isButtonsLoading || this.isStepChangeChecking,
       isForwardButtonDisabled: this.isForwardButtonDisabled,
       isForwardButtonHide: this.isForwardButtonHide,
       isForwardLastButtonHide: this.isForwardLastButtonHide,
       stepActiveComputed: this.stepActiveComputed,
       steps: this.steps,
+      onFinish: this.finish,
       onGoOneStepBack: this.goOneStepBack,
       onGoOneStepForward: this.goOneStepForward,
     }, this.$slots);
 
+    // no role application and no tabindex: the browse mode of screen readers works in the wizard
     return h("div", {
-      tabindex: 0,
       id: this.id,
-      role: "application",
-      "aria-describedby": this.wizardAriaDescribedby,
+      "aria-describedby": this.ariaLabelAttributes.role ? this.idProgressbar : undefined,
       class: [
         this.classWizard,
         this.classExtra,
@@ -443,9 +476,12 @@ export default {
             step,
             stepActiveComputed: this.stepActiveComputed,
             stepIconError: this.stepIconError,
+            stepIconErrorText: this.stepIconErrorText,
             stepIconWarning: this.stepIconWarning,
+            stepIconWarningText: this.stepIconWarningText,
             stepIndex,
             stepsCount: this.stepsCount,
+            stepsVisitedComputed: this.stepsVisitedComputed,
             onOnStepClick: this.onStepClick,
           }, this.$slots);
         }),
@@ -459,11 +495,15 @@ export default {
             key: this.keyId ? step[this.keyId] : stepIndex,
             id: this.id,
             extra: this.extra,
+            isStepHeadingVisible: this.isStepHeadingVisible,
             step,
             stepActiveComputed: this.stepActiveComputed,
+            stepHeadingTag: this.stepHeadingTag,
+            stepIconErrorText: this.stepIconErrorText,
+            stepIconWarningText: this.stepIconWarningText,
             stepIndex,
+            stepsCount: this.stepsCount,
             stepsVisitedComputed: this.stepsVisitedComputed,
-            wizardAriaDescribedby: this.wizardAriaDescribedby,
           }, this.$slots);
         }),
       ]),

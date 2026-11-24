@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Stap 1",
   "_A_MODAL_WIZARD_STEP_2_": "Stap 2",
   "_A_MODAL_WIZARD_STEP_3_": "Stap 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Stap 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Stap 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "De opslaan-knop staat alleen op de laatste stap van de wizard.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Naam van de wizard; standaard leeg, de modal is benoemd door zijn kop.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Opslaan op de laatste stap",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> toont de opslaan-knop alleen op de laatste stap.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Openen",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Nieuwe invoer"
 }

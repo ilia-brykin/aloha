@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Step 1",
   "_A_MODAL_WIZARD_STEP_2_": "Step 2",
   "_A_MODAL_WIZARD_STEP_3_": "Step 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Step 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Step 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Der Speichern-Button steht nur auf dem letzten Schritt des Wizards.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Name des Wizards; standardmäßig leer, das Modal ist durch seine Überschrift benannt.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Speichern auf dem letzten Schritt",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> zeigt den Speichern-Button nur auf dem letzten Schritt.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Öffnen",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Neuer Eintrag"
 }
