@@ -4,11 +4,15 @@ import PageTooltipArrowPadding from "./PageTooltipArrowPadding/PageTooltipArrowP
 import PageTooltipArrowPaddingFunction from "./PageTooltipArrowPaddingFunction/PageTooltipArrowPaddingFunction.vue";
 import PageTooltipBasic from "./PageTooltipBasic/PageTooltipBasic.vue";
 import PageTooltipHideArrow from "./PageTooltipHideArrow/PageTooltipHideArrow.vue";
+import PageTooltipIconButton from "./PageTooltipIconButton/PageTooltipIconButton.vue";
+import PageTooltipIsHide from "./PageTooltipIsHide/PageTooltipIsHide.vue";
 import PageTooltipMaxWidth from "./PageTooltipMaxWidth/PageTooltipMaxWidth.vue";
 import PageTooltipOffsetDistance from "./PageTooltipOffsetDistance/PageTooltipOffsetDistance.vue";
 import PageTooltipOffsetSkidding from "./PageTooltipOffsetSkidding/PageTooltipOffsetSkidding.vue";
+import PageTooltipPlacement from "./PageTooltipPlacement/PageTooltipPlacement.vue";
 import PageTooltipTag from "./PageTooltipTag/PageTooltipTag.vue";
 import PageTooltipTimeClose from "./PageTooltipTimeClose/PageTooltipTimeClose.vue";
+import PageTooltipTimeOpen from "./PageTooltipTimeOpen/PageTooltipTimeOpen.vue";
 import PageTooltipWidth from "./PageTooltipWidth/PageTooltipWidth.vue";
 import {
   ATranslation,
@@ -25,6 +29,10 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageTooltipBasic,
+    PageTooltipTimeOpen,
+    PageTooltipPlacement,
+    PageTooltipIsHide,
+    PageTooltipIconButton,
     PageTooltipTag,
     PageTooltipMaxWidth,
     PageTooltipWidth,

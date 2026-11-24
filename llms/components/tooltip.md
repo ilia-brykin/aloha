@@ -2,20 +2,200 @@
 
 ATooltip displays additional information when the user hovers over or focuses an element.
 
+Put the tooltip only on an element that can get the focus (a button, a link, a form field) or use `tag="button"`: then it opens with the mouse and with the keyboard, and the focused element gets `aria-describedby`. A tooltip has no links or buttons: it disappears when the mouse leaves; use `ADropdown` or a modal for them. Escape closes only the tooltip.
+
 ## Basic usage
+
+The tooltip opens on mouse hover and when the button gets the focus. The button gets `aria-describedby` with the text of the tooltip, so a screen reader reads it after the name of the button.
 
 *slots: `default`, `title`*
 
 ```html
 <a-tooltip>
-  <span>Aloha</span>
-  
-  <template
-    v-slot:title
-  >
-    <div>Aloha</div>
+  <a-button
+    class="a_btn a_btn_primary"
+    text="_A_TOOLTIP_EXAMPLE_SAVE_"
+  />
+
+  <template v-slot:title>
+    <a-translation
+      text="_A_TOOLTIP_EXAMPLE_SAVE_TITLE_"
+    />
   </template>
 </a-tooltip>
+```
+
+## Button with only an icon
+
+The name of the button comes from `aria-label`, the tooltip shows it to sighted users. `without-aria-describedby` prevents a screen reader from reading the same text twice. For buttons also `AButton` with `title` and `is-title-html` works.
+
+*props: `without-aria-describedby`*
+
+```html
+<a-tooltip
+  :without-aria-describedby="true"
+>
+  <a-button
+    aria-label="_A_TOOLTIP_EXAMPLE_SETTINGS_"
+    class="a_btn a_btn_secondary"
+    icon-left="Gear"
+  />
+
+  <template v-slot:title>
+    <a-translation
+      text="_A_TOOLTIP_EXAMPLE_SETTINGS_"
+    />
+  </template>
+</a-tooltip>
+```
+
+## Placement
+
+`placement` sets the side of the tooltip. If there is not enough space, it goes to the other side.
+
+*props: `placement`*
+
+```html
+<div class="a_d_flex a_flex_wrap a_gap_3">
+  <a-tooltip
+    v-for="placement in placements"
+    :key="placement"
+    :placement="placement"
+  >
+    <a-button
+      class="a_btn a_btn_secondary"
+      :text="placement"
+    />
+
+    <template v-slot:title>
+      <span>{{ placement }}</span>
+    </template>
+  </a-tooltip>
+</div>
+```
+
+```js
+import {
+  AButton,
+  ATooltip,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    ATooltip,
+  },
+  setup() {
+    const placements = ["top", "right", "bottom", "left", "top-start", "bottom-end"];
+
+    return {
+      placements,
+    };
+  },
+};
+```
+
+## Delay before opening
+
+`time-open` waits so many ms before the tooltip opens on mouse hover, so tooltips do not flicker when the mouse moves over many elements. The focus opens the tooltip at once.
+
+*props: `time-open`*
+
+```html
+<div class="a_d_flex a_flex_wrap a_gap_3">
+  <a-tooltip
+    v-for="time in times"
+    :key="time"
+    :time-open="time"
+  >
+    <a-button
+      class="a_btn a_btn_secondary"
+      :text="`time-open: ${ time }`"
+    />
+
+    <template v-slot:title>
+      <span>{{ time }} ms</span>
+    </template>
+  </a-tooltip>
+</div>
+```
+
+```js
+import {
+  AButton,
+  ATooltip,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    ATooltip,
+  },
+  setup() {
+    const times = [0, 300, 800];
+
+    return {
+      times,
+    };
+  },
+};
+```
+
+## Switch off the tooltip
+
+`is-hide` switches the tooltip off and closes it when it is open, e.g. when a text is not shortened and the tooltip would repeat it.
+
+*props: `is-hide`*
+
+```html
+<a-one-checkbox
+  v-model="isHide"
+  class="a_mb_3"
+  label="is-hide"
+/>
+<a-tooltip
+  :is-hide="isHide"
+>
+  <a-button
+    class="a_btn a_btn_primary"
+    text="_A_TOOLTIP_EXAMPLE_SAVE_"
+  />
+
+  <template v-slot:title>
+    <a-translation
+      text="_A_TOOLTIP_EXAMPLE_SAVE_TITLE_"
+    />
+  </template>
+</a-tooltip>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AOneCheckbox,
+  ATooltip,
+  ATranslation,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AOneCheckbox,
+    ATooltip,
+    ATranslation,
+  },
+  setup() {
+    const isHide = ref(false);
+
+    return {
+      isHide,
+    };
+  },
+};
 ```
 
 ## Custom tag
@@ -155,6 +335,17 @@ Sets a fixed width for the tooltip content.
     <div
       class="a_text_center"
     >Aloha</div>
+  </template>
+</a-tooltip>
+<a-tooltip
+  class="a_btn a_btn_primary a_ml_3"
+  tag="button"
+  width="20rem"
+>
+  <span>width="20rem"</span>
+
+  <template v-slot:title>
+    <div>Aloha</div>
   </template>
 </a-tooltip>
 ```
@@ -409,17 +600,18 @@ pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.`
 | --- | --- | --- | --- | --- |
 | arrow-padding | Number / Function |  |  | Minimum distance in px between the arrow and the edges of the tooltip. A function receives the sizes and returns the number. |
 | id | String | a_tooltip_{n} |  | ID of the tooltip. The element gets aria-describedby with this ID. |
-| is-hide | Boolean |  |  | The tooltip is not shown, only the content of the default slot. |
-| max-width | Number |  |  | Maximum width of the tooltip in px. |
-| min-width | Number |  |  | Minimum width of the tooltip in px. |
+| is-hide | Boolean |  |  | The tooltip is not shown, only the content of the default slot. Closes an open tooltip. |
+| max-width | Number / String |  |  | Maximum width of the tooltip. A number is in px, a string is used as it is. |
+| min-width | Number / String |  |  | Minimum width of the tooltip. A number is in px, a string is used as it is. |
 | offset-distance | Number | 6 |  | Distance in px between the tooltip and the element. |
 | offset-skidding | Number | 0 |  | Shift in px of the tooltip along the element. |
 | placement | String | top |  | Position of the tooltip relative to the element, e.g. top, bottom, left, right, top-start. |
 | popper-container-id | String | a_tooltip_container |  | ID of the container at the end of the body in which the tooltip is rendered. |
 | show-arrow | Boolean | true |  | Shows the arrow of the tooltip. |
 | tag | String | span |  | HTML tag of the element around the default slot. |
+| time-open | Number | 0 |  | Delay in ms before the tooltip opens on mouse hover. The focus opens it at once. |
 | time-close | Number | 100 |  | Time in ms before the tooltip closes after the pointer leaves the element or the tooltip. |
-| width | Number |  |  | Fixed width of the tooltip in px. |
+| width | Number / String |  |  | Fixed width of the tooltip. A number is in px, a string is used as it is (e.g. "20rem"). |
 | without-aria-describedby | Boolean |  |  | The element does not get aria-describedby, e.g. if the text of the tooltip is already read otherwise. |
 
 ## Slots

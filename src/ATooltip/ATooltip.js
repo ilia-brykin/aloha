@@ -4,10 +4,13 @@ import {
   onMounted,
   ref,
   Teleport,
+  toRef,
+  watch,
   withDirectives,
 } from "vue";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import DescribedbyAPI from "./compositionAPI/DescribedbyAPI";
 import PopperAPI from "./compositionAPI/PopperAPI";
 import PopperContainerAPI from "./compositionAPI/PopperContainerAPI";
 import TagAPI from "./compositionAPI/TagAPI";
@@ -37,12 +40,12 @@ export default {
       required: false,
     },
     maxWidth: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: undefined,
     },
     minWidth: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: undefined,
     },
@@ -77,14 +80,22 @@ export default {
       required: false,
       default: "span",
     },
+    // delay in ms before the tooltip opens on mouse hover, e.g. 300 against flickering; the focus opens it at once
+    timeOpen: {
+      type: Number,
+      required: false,
+      default: 0,
+      validator: value => value >= 0,
+    },
     timeClose: {
       type: Number,
       required: false,
       default: 100,
       validator: value => value >= 0,
     },
+    // a number is in px, a string is used as it is ("20rem")
     width: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: undefined,
     },
@@ -110,8 +121,10 @@ export default {
     } = PopperAPI(props);
 
     const {
-      onBlur,
-      onFocus,
+      clearTimerOpen,
+      focusedElement,
+      onFocusin,
+      onFocusout,
       onMouseenter,
       onMouseleave,
     } = ToggleAPI(props, {
@@ -125,10 +138,24 @@ export default {
     } = TagAPI(props);
 
     const {
-      ariaDescribedby,
+      titleId,
       tooltipStyles,
-    } = AttributesAPI(props, {
+    } = AttributesAPI(props);
+
+    DescribedbyAPI(props, {
+      componentRef,
+      focusedElement,
       isTitleVisible,
+      titleId,
+    });
+
+    // is-hide closes an open tooltip too
+    const isHide = toRef(props, "isHide");
+    watch(isHide, value => {
+      if (value) {
+        clearTimerOpen();
+        closeTitle();
+      }
     });
 
     const {
@@ -142,19 +169,19 @@ export default {
     });
 
     onBeforeUnmount(() => {
+      clearTimerOpen();
       closeTitle();
     });
 
     return {
-      ariaDescribedby,
       closeTitle,
       componentRef,
       isMounted,
       isTitleVisible,
       mouseEnterTooltip,
       mouseLeaveTooltip,
-      onBlur,
-      onFocus,
+      onFocusin,
+      onFocusout,
       onMouseenter,
       onMouseleave,
       showTitle,
@@ -162,6 +189,7 @@ export default {
       startPopper,
       tagLocal,
       titleArrowRef,
+      titleId,
       titleRef,
       tooltipStyles,
     };
@@ -174,9 +202,8 @@ export default {
     return h(this.tagLocal, {
       ref: "componentRef",
       id: this.id,
-      "aria-describedby": this.ariaDescribedby,
-      onFocus: this.onFocus,
-      onBlur: this.onBlur,
+      onFocusin: this.onFocusin,
+      onFocusout: this.onFocusout,
       onMouseenter: this.onMouseenter,
       onMouseleave: this.onMouseleave,
     }, {
@@ -206,8 +233,9 @@ export default {
               class: "a_tooltip__arrow",
             }),
             h("div", {
-              id: this.ariaDescribedby,
+              id: this.titleId,
               class: "a_tooltip__wrapper",
+              role: "tooltip",
             }, this.$slots.title && this.$slots.title()),
           ]), [
             [AOnHooks, {

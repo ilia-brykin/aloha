@@ -12234,11 +12234,11 @@
             },
             {
               "name": "maxWidth",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "minWidth",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "offsetDistance",
@@ -12271,13 +12271,18 @@
               "default": "\"span\""
             },
             {
+              "name": "timeOpen",
+              "type": "number",
+              "default": "0"
+            },
+            {
               "name": "timeClose",
               "type": "number",
               "default": "100"
             },
             {
               "name": "width",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "withoutAriaDescribedby",

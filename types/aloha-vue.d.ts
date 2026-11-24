@@ -3774,8 +3774,8 @@ export interface ATooltipProps {
   /** @default "a_tooltip_41" */
   id?: string;
   isHide?: boolean;
-  maxWidth?: number;
-  minWidth?: number;
+  maxWidth?: number | string;
+  minWidth?: number | string;
   /** @default 6 */
   offsetDistance?: number;
   /** @default 0 */
@@ -3788,9 +3788,11 @@ export interface ATooltipProps {
   showArrow?: boolean;
   /** @default "span" */
   tag?: string;
+  /** @default 0 */
+  timeOpen?: number;
   /** @default 100 */
   timeClose?: number;
-  width?: number;
+  width?: number | string;
   withoutAriaDescribedby?: boolean;
 }
 export declare const ATooltip: DefineComponent<ATooltipProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
