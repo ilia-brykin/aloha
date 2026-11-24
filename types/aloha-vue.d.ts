@@ -2464,6 +2464,13 @@ export interface AMultiselectOrderedProps {
 export declare const AMultiselectOrdered: DefineComponent<AMultiselectOrderedProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "focus" | "onSearchOutside" | "open" | "update:modelValue" | "updateData")[]>;
 
 export interface ANotificationProps {
+  /** @default false */
+  hasProgress?: boolean;
+  max?: number;
+  /** @default "top-center" */
+  placement?: string;
+  size?: string;
+  width?: number | string;
 }
 export declare const ANotification: DefineComponent<ANotificationProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
@@ -4088,6 +4095,7 @@ export declare const AModalI18n: any;
 export declare const AMultiselectOrderedI18n: any;
 export declare const ANotificationAPI: any;
 export declare const ANotificationAPI_addNotification: any;
+export declare const ANotificationAPI_removeNotification: any;
 export declare const ANotificationAPI_setNotificationTimeout: any;
 export declare const AOnHooks: any;
 export declare const aOrderBy: any;

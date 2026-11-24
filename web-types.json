@@ -7982,7 +7982,30 @@
             "symbol": "ANotification"
           },
           "doc-url": "https://ilia-brykin.github.io/aloha/",
-          "props": [],
+          "props": [
+            {
+              "name": "hasProgress",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "max",
+              "type": "number"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"top-center\""
+            },
+            {
+              "name": "size",
+              "type": "string"
+            },
+            {
+              "name": "width",
+              "type": "number | string"
+            }
+          ],
           "js": {
             "events": []
           }

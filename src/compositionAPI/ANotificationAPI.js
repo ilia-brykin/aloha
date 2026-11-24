@@ -39,7 +39,23 @@ export function setNotificationTimeout(timeout) {
   notificationTimeout = timeout;
 }
 
-export function addNotification({ text, type = "success", timeout, extra, alwaysTranslate, useValuesFromObject = true }) {
+/**
+ * Shows a notification. Returns its id for removeNotification(id).
+ * actions: buttons, e.g. [{ text: "_UNDO_", onClick: ({ notification }) => {} }], a click also closes the notification.
+ * announce: how a screen reader announces it, see the prop announce of AAlert ("alert" by default).
+ */
+export function addNotification({
+  actions,
+  alwaysTranslate,
+  announce,
+  extra,
+  icon,
+  text,
+  timeout,
+  title,
+  type = "success",
+  useValuesFromObject = true,
+}) {
   const TIMEOUT_LOCAL = isNil(timeout) ? notificationTimeout : timeout;
   const CURRENT_INDEX = notificationsCount;
   const TYPE = type === "error" ? "danger" : type;
@@ -54,6 +70,11 @@ export function addNotification({ text, type = "success", timeout, extra, always
     index: CURRENT_INDEX,
     extra,
     alwaysTranslate,
+    actions,
+    announce,
+    icon,
+    title,
+    timeout: TIMEOUT_LOCAL,
   };
   notificationsCount++;
 
@@ -63,6 +84,7 @@ export function addNotification({ text, type = "success", timeout, extra, always
       startTimer(CURRENT_INDEX);
     }
   }
+  return CURRENT_INDEX;
 }
 
 function startTimer(notificationIndex) {
@@ -95,7 +117,7 @@ export function resumeNotifications() {
   });
 }
 
-function removeNotification(notificationIndex) {
+export function removeNotification(notificationIndex) {
   if (timers[notificationIndex]) {
     clearTimeout(timers[notificationIndex].timerId);
     delete timers[notificationIndex];

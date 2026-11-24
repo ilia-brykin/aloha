@@ -146,6 +146,7 @@ export {
 export {
   default as ANotificationAPI,
   addNotification as ANotificationAPI_addNotification,
+  removeNotification as ANotificationAPI_removeNotification,
   setNotificationTimeout as ANotificationAPI_setNotificationTimeout,
 } from "./compositionAPI/ANotificationAPI";
 export {

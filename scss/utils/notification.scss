@@ -23,8 +23,88 @@
   }
 }
 
+// placement: top-center keeps the default position of the breakpoints
+.a_notification_parent.a_notification_parent_top_start,
+.a_notification_parent.a_notification_parent_bottom_start {
+  left: auto;
+  inset-inline-start: var(--a_notification_inset_x);
+}
+.a_notification_parent.a_notification_parent_top_end,
+.a_notification_parent.a_notification_parent_bottom_end {
+  left: auto;
+  inset-inline-end: var(--a_notification_inset_x);
+}
+.a_notification_parent.a_notification_parent_bottom_start,
+.a_notification_parent.a_notification_parent_bottom_center,
+.a_notification_parent.a_notification_parent_bottom_end {
+  top: auto;
+  bottom: var(--a_notification_bottom);
+}
+
+// size or width: a fixed width, never wider than the window
+.a_notification_parent.a_notification_parent_fixed_width {
+  max-width: calc(100% - 2 * var(--a_notification_inset_x));
+  &.a_notification_parent_top_center,
+  &.a_notification_parent_bottom_center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.a_notification_parent.a_notification_parent_small {
+  --a_notification_width: var(--a_notification_width_small);
+}
+.a_notification_parent.a_notification_parent_large {
+  --a_notification_width: var(--a_notification_width_large);
+}
+.a_notification_parent.a_notification_parent_xl {
+  --a_notification_width: var(--a_notification_width_xl);
+}
+
 .a_notification {
+  position: relative;
+  overflow: hidden;
   box-shadow: var(--a_notification_shadow);
+}
+
+.a_notification__title {
+  display: block;
+  margin-bottom: var(--a_notification_title_margin_bottom);
+}
+
+.a_notification__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--a_notification_actions_justify);
+  gap: var(--a_notification_actions_gap);
+  margin-top: var(--a_notification_actions_margin_top);
+}
+
+// remaining time; stops while the mouse or the focus is on the notifications
+.a_notification__progress {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--a_notification_progress_height);
+  background-color: currentColor;
+  opacity: var(--a_notification_progress_opacity);
+  transform-origin: left;
+  animation-name: a_notification_progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  &:dir(rtl) {
+    transform-origin: right;
+  }
+  .a_notification_parent_paused & {
+    animation-play-state: paused;
+  }
+}
+@keyframes a_notification_progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -37,4 +117,15 @@
   --a_notification_top: 1rem; // Distance of the notification area from the top window edge.
   --a_notification_z_index: var(--a_z_index_notification); // Stacking order of the notification area.
   --a_notification_text_align: center; // Text alignment in the notification area.
+  --a_notification_inset_x: 1rem; // Distance from the window edge with the placements *-start and *-end and the largest width with size or width.
+  --a_notification_bottom: 1rem; // Distance of the notification area from the bottom window edge with the placements bottom-*.
+  --a_notification_width_small: 20rem; // Width with size="small".
+  --a_notification_width_large: 30rem; // Width with size="large".
+  --a_notification_width_xl: 40rem; // Width with size="xl".
+  --a_notification_title_margin_bottom: var(--a_space_xs); // Space below the title.
+  --a_notification_actions_gap: var(--a_space_sm); // Space between the action buttons.
+  --a_notification_actions_margin_top: var(--a_space_sm); // Space above the action buttons.
+  --a_notification_actions_justify: center; // Alignment of the action buttons (flex justify-content).
+  --a_notification_progress_height: 3px; // Height of the bar with the remaining time (has-progress).
+  --a_notification_progress_opacity: .5; // Opacity of the bar with the remaining time, its color is the text color.
 }
