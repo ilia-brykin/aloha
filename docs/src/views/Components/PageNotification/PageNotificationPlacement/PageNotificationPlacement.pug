@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_NOTIFICATION_PLACEMENT_HEADER_"
+  description="_A_NOTIFICATION_PLACEMENT_DESCRIPTION_"
+  :props="['name', 'placement', 'size', 'width', 'max']"
+)
+  .a_d_flex.a_flex_wrap.a_gap_4.a_mb_3
+    a-radio(
+      v-model="placement"
+      :data="placements"
+      label="placement"
+    )
+    a-radio(
+      v-model="size"
+      :data="sizes"
+      label="size"
+    )
+  a-button(
+    class="a_btn a_btn_primary"
+    text="_A_NOTIFICATION_EXAMPLE_SHOW_BTN_"
+    @click="add"
+  )
+  a-notification(
+    name="example_placement"
+    :max="3"
+    :placement="placement"
+    :size="size === 'default' ? undefined : size"
+  )

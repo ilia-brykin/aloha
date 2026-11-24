@@ -193,7 +193,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - **Modal**
   - [Modal](llms/components/modal.md) — AModal is a component that enables the implementation of modal windows.
   - [Modal form](llms/components/modal-form.md) — **AModalForm** is a modal window ([AModal](llms/components/modal.md)) with a form ([AForm](llms/components/form.md)) in the body.
-- [Notification](llms/components/notification.md)
+- [Notification](llms/components/notification.md) — **ANotification** shows short messages at the edge of the window, e.g.
 - **Progress**
   - [Progress bar](llms/components/progress.md) — AProgress component is a customisable progress bar for Vue.js applications.
   - [Progress circle](llms/components/progress-circle.md) — The **AProgressCircle** component displays progress as a circular indicator.

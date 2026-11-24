@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_NOTIFICATION_DEDUPLICATE_HEADER_"
+  description="_A_NOTIFICATION_DEDUPLICATE_DESCRIPTION_"
+)
+  .a_d_flex.a_flex_wrap.a_gap_2
+    a-button(
+      class="a_btn a_btn_danger"
+      text="_A_NOTIFICATION_EXAMPLE_ERROR_BTN_"
+      @click="addError"
+    )
+    a-button(
+      class="a_btn a_btn_secondary"
+      text="_A_NOTIFICATION_EXAMPLE_ERROR_ALL_BTN_"
+      @click="addErrorWithoutDeduplicate"
+    )

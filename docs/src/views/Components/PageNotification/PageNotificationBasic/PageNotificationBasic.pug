@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_NOTIFICATION_BASIC_DESCRIPTION_"
+)
+  .a_d_flex.a_flex_wrap.a_gap_2
+    a-button(
+      v-for="type in types"
+      :key="type"
+      :class="`a_btn a_btn_${ type }`"
+      :text="`_A_NOTIFICATION_EXAMPLE_BTN_${ type.toUpperCase() }_`"
+      @click="add(type)"
+    )
