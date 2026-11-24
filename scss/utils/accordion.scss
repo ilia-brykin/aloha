@@ -16,11 +16,15 @@
   background-color: var(--a_accordion_btn_bg);
   border: 0;
   overflow-anchor: none;
-  font-size: inherit;
+  font: inherit;
   cursor: pointer;
   &.readonly,
-  &.disabled {
+  &[aria-disabled="true"] {
     cursor: inherit;
+  }
+  &:disabled {
+    color: var(--a_accordion_btn_disabled_color);
+    cursor: not-allowed;
   }
 
   &:not(.a_accordion__button_close) {
@@ -36,7 +40,7 @@
     margin-left: auto;
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     z-index: 2;
     background-color: var(--a_accordion_btn_hover_bg);
   }
@@ -48,8 +52,12 @@
   }
 }
 
+// a heading (h3 …) that looks like the rest of the accordion
 .a_accordion__header {
-  margin-bottom: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 .a_accordion__item {
@@ -102,7 +110,7 @@
 }
 .a_accordion__button.a_accordion__button_with_gap {
   border-radius: var(--a_accordion_border_radius) var(--a_accordion_border_radius) 0 0;
-  &.a_accordion__button_collapsed {
+  &.a_accordion__button_close {
     border-radius: var(--a_accordion_border_radius);
   }
 }
@@ -126,6 +134,7 @@
   --a_accordion_btn_icon_width: 1.25rem; // Size of the open/close icon.
   --a_accordion_btn_focus_box_shadow: var(--a_focus_ring); // Focus ring of the header button.
   --a_accordion_btn_hover_bg: var(--a_color_surface_subtle); // Background of a hovered header button.
+  --a_accordion_btn_disabled_color: var(--a_color_text_muted); // Text color of a disabled header button.
   // content
   --a_accordion_body_padding_x: calc(1.25rem * var(--a_density)); // Horizontal padding of the content.
   --a_accordion_body_padding_y: var(--a_space_md); // Vertical padding of the content.

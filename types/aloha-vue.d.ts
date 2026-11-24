@@ -5,12 +5,16 @@ import type { ComponentOptionsMixin, DefineComponent } from "vue";
 export interface AAccordionProps {
   /** @default false */
   alwaysOpen?: boolean;
+  alwaysTranslate?: boolean;
   /** @default "" */
   classBody?: string | Record<string, any>;
   classButton?: string | Record<string, any>;
   /** @default "" */
   classHeader?: string | Record<string, any>;
   disabled?: boolean;
+  extra?: Record<string, any>;
+  /** @default "h3" */
+  headerTag?: string;
   /** @default "accordion_1" */
   id?: string;
   /** @default [] */
@@ -37,6 +41,7 @@ export interface AAccordionProps {
   oneItemAlwaysOpen?: boolean;
   /** @default "children" */
   keyChildren?: string;
+  modelValue?: any[];
   prevent?: boolean;
   readonly?: boolean;
   stop?: boolean;
@@ -44,7 +49,7 @@ export interface AAccordionProps {
   /** @default [] */
   indexesForOpen?: any[];
 }
-export declare const AAccordion: DefineComponent<AAccordionProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const AAccordion: DefineComponent<AAccordionProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface AAlertProps {
   alertClass?: string | Record<string, any>;

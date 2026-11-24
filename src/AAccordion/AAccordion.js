@@ -21,6 +21,9 @@ export default {
   provide() {
     return {
       alwaysOpen: computed(() => this.alwaysOpen),
+      alwaysTranslate: computed(() => this.alwaysTranslate),
+      extra: computed(() => this.extra),
+      headerTag: computed(() => this.headerTag),
       classBody: computed(() => this.classBody),
       classButton: computed(() => this.classButton),
       classHeader: computed(() => this.classHeader),
@@ -48,6 +51,10 @@ export default {
       required: false,
       default: false,
     },
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     classBody: {
       type: [String, Object],
       required: false,
@@ -67,10 +74,22 @@ export default {
       type: Boolean,
       required: false,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    // heading of the header button (WAI-ARIA accordion); nested accordions get the next level
+    headerTag: {
+      type: String,
+      required: false,
+      default: "h3",
+    },
+    // a function: every accordion gets its own id
     id: {
       type: String,
       required: false,
-      default: uniqueId("accordion_"),
+      default: () => uniqueId("accordion_"),
     },
     idsForOpenDefault: {
       type: Array,
@@ -136,6 +155,12 @@ export default {
       required: false,
       default: "children",
     },
+    // ids of the open items (v-model)
+    modelValue: {
+      type: Array,
+      required: false,
+      default: undefined,
+    },
     prevent: {
       type: Boolean,
       required: false,
@@ -160,6 +185,7 @@ export default {
   },
   emits: [
     "toggle",
+    "update:modelValue",
   ],
   setup(props, context) {
     const {
@@ -198,6 +224,7 @@ export default {
           item,
           itemIndex,
           isParentOpen: true,
+          itemsCount: this.dataWithIds.length,
           keyId: this.keyId,
         }, this.$slots);
       }),

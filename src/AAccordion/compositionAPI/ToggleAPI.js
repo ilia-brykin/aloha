@@ -11,6 +11,7 @@ import {
   cloneDeep,
   filter,
   isEqual,
+  isUndefined,
   startsWith,
 } from "lodash-es";
 
@@ -18,24 +19,28 @@ export default function ToggleAPI(props, { emit }) {
   const alwaysOpen = toRef(props, "alwaysOpen");
   const disabled = toRef(props, "disabled");
   const idsForOpenDefault = toRef(props, "idsForOpenDefault");
+  const modelValue = toRef(props, "modelValue");
   const oneItemAlwaysOpen = toRef(props, "oneItemAlwaysOpen");
   const prevent = toRef(props, "prevent");
   const stop = toRef(props, "stop");
 
-  const idsForOpen = ref(undefined);
+  const idsForOpen = ref([]);
 
+  // copies: the arrays of the parent are never changed
   const initIdsForOpen = () => {
-    idsForOpen.value = idsForOpenDefault.value;
+    idsForOpen.value = isUndefined(modelValue.value) ?
+      [...idsForOpenDefault.value] :
+      [...modelValue.value];
   };
 
   const toggleWithAlwaysOpen = ({ currentId, isOpen }) => {
     if (isOpen) {
-      const CURRENT_ID_PREFIX = currentId.split("__")[0];
-      idsForOpen.value = filter(idsForOpen.value, index => {
-        return !startsWith(index, CURRENT_ID_PREFIX);
+      // closes the item and its nested items (their ids start with "<id>_")
+      idsForOpen.value = filter(idsForOpen.value, id => {
+        return id !== currentId && !startsWith(id, `${ currentId }_`);
       });
     } else {
-      idsForOpen.value.push(currentId);
+      idsForOpen.value = [...idsForOpen.value, currentId];
     }
   };
 
@@ -51,13 +56,13 @@ export default function ToggleAPI(props, { emit }) {
   };
 
   const toggleLocal = ({ item, parentsIds, isOpen, $event }) => {
-    if (disabled.value) {
+    if (disabled.value || item.disabled) {
       return;
     }
     const PARENT_IDS = cloneDeep(parentsIds);
     const CURRENT_ID = item[AKeyId];
     if (alwaysOpen.value) {
-      toggleWithAlwaysOpen({ item, currentId: CURRENT_ID, isOpen });
+      toggleWithAlwaysOpen({ currentId: CURRENT_ID, isOpen });
     } else {
       toggleWithoutAlwaysOpen({ parentsIds: PARENT_IDS, currentId: CURRENT_ID, isOpen });
     }
@@ -74,6 +79,20 @@ export default function ToggleAPI(props, { emit }) {
   watch(idsForOpenDefault, newValue => {
     if (!isEqual(newValue, idsForOpen.value)) {
       idsForOpen.value = cloneDeep(newValue);
+    }
+  });
+
+  // v-model: the parent changes the open items …
+  watch(modelValue, newValue => {
+    if (!isUndefined(newValue) && !isEqual(newValue, idsForOpen.value)) {
+      idsForOpen.value = [...newValue];
+    }
+  });
+
+  // … and gets every change of them
+  watch(idsForOpen, newValue => {
+    if (!isEqual(newValue, modelValue.value)) {
+      emit("update:modelValue", [...newValue]);
     }
   });
 

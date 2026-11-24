@@ -27,6 +27,7 @@
 | `--a_accordion_btn_icon_width` |  | Size of the open/close icon. |
 | `--a_accordion_btn_focus_box_shadow` |  | Focus ring of the header button. |
 | `--a_accordion_btn_hover_bg` |  | Background of a hovered header button. |
+| `--a_accordion_btn_disabled_color` |  | Text color of a disabled header button. |
 | `--a_accordion_body_padding_x` |  | Horizontal padding of the content. |
 | `--a_accordion_body_padding_y` |  | Vertical padding of the content. |
 | `--a_accordion_active_color` |  | Text color of an open header button. |
