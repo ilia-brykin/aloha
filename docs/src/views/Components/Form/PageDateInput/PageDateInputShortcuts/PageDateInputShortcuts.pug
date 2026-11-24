@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_SHORTCUTS_HEADER_"
+  description="_A_DATE_INPUT_SHORTCUTS_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    range
+    clearable
+    label="_A_DATE_INPUT_EXAMPLE_REPORT_PERIOD_"
+    :shortcuts="shortcuts"
+  )
+  pre.a_mt_3 {{ model }}

@@ -1718,6 +1718,252 @@
           }
         },
         {
+          "name": "ADateInput",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ADateInput"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "clearable",
+              "type": "boolean"
+            },
+            {
+              "name": "defaultTime",
+              "type": "string | any[]"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "firstDayOfWeek",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_date_input_7\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "inputAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "inputClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "isDateDisabled",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isLabelFloat",
+              "type": "boolean"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "locale",
+              "type": "string"
+            },
+            {
+              "name": "max",
+              "type": "string"
+            },
+            {
+              "name": "maxDays",
+              "type": "number"
+            },
+            {
+              "name": "maxTime",
+              "type": "string"
+            },
+            {
+              "name": "min",
+              "type": "string"
+            },
+            {
+              "name": "minDays",
+              "type": "number"
+            },
+            {
+              "name": "minTime",
+              "type": "string"
+            },
+            {
+              "name": "minuteStep",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "mode",
+              "type": "string",
+              "default": "\"date\""
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelFormat",
+              "type": "string",
+              "default": "\"iso\""
+            },
+            {
+              "name": "modelUndefined",
+              "type": "any[] | Record<string, any> | string",
+              "default": "null"
+            },
+            {
+              "name": "modelValue",
+              "type": "string | any[] | number | Date"
+            },
+            {
+              "name": "months",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "placeholder",
+              "type": "string"
+            },
+            {
+              "name": "range",
+              "type": "boolean"
+            },
+            {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
+              "name": "readonlyDefault",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "readonlyValueParentClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "shortcuts",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "showToday",
+              "type": "boolean"
+            },
+            {
+              "name": "showWeekNumbers",
+              "type": "boolean"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"dateInput\""
+            },
+            {
+              "name": "utc",
+              "type": "boolean"
+            },
+            {
+              "name": "withSeconds",
+              "type": "boolean"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "close"
+              },
+              {
+                "name": "open"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
           "name": "ADatepicker",
           "source": {
             "module": "aloha-vue",
@@ -2035,7 +2281,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_datepicker_range_7\""
+              "default": "\"a_datepicker_range_8\""
             },
             {
               "name": "idPrefix",
@@ -2279,7 +2525,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_disclosure_8\""
+              "default": "\"a_disclosure_9\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -2442,7 +2688,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_9\""
+              "default": "\"a_modal_10\""
             },
             {
               "name": "isCloseButtonHide",
@@ -2733,7 +2979,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_dropdown_10\""
+              "default": "\"a_dropdown_11\""
             },
             {
               "name": "inBody",
@@ -2926,7 +3172,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_element_11\""
+              "default": "\"a_element_12\""
             },
             {
               "name": "isSwitch",
@@ -3277,7 +3523,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_fieldset_12\""
+              "default": "\"a_fieldset_13\""
             },
             {
               "name": "idPrefix",
@@ -3542,7 +3788,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_filters_13\""
+              "default": "\"a_filters_14\""
             },
             {
               "name": "mainModel",
@@ -4317,7 +4563,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_group_14\""
+              "default": "\"a_group_15\""
             },
             {
               "name": "idPrefix",
@@ -4633,7 +4879,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_15\""
+              "default": "\"a_input_16\""
             },
             {
               "name": "idPrefix",
@@ -4858,7 +5104,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_currency_16\""
+              "default": "\"a_input_currency_17\""
             },
             {
               "name": "idPrefix",
@@ -5308,7 +5554,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_number_range_17\""
+              "default": "\"a_input_number_range_18\""
             },
             {
               "name": "idPrefix",
@@ -5524,7 +5770,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_otp_18\""
+              "default": "\"a_input_otp_19\""
             },
             {
               "name": "idPrefix",
@@ -5720,7 +5966,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_tags_19\""
+              "default": "\"a_input_tags_20\""
             },
             {
               "name": "idPrefix",
@@ -5880,7 +6126,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_json_20\""
+              "default": "\"a_json_21\""
             },
             {
               "name": "idPrefix",
@@ -6157,7 +6403,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_link_21\""
+              "default": "\"a_link_22\""
             },
             {
               "name": "isTitleHtml",
@@ -6583,7 +6829,7 @@
             {
               "name": "menuId",
               "type": "string",
-              "default": "\"a_menu_22\""
+              "default": "\"a_menu_23\""
             },
             {
               "name": "onlyMobile",
@@ -6783,7 +7029,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_23\""
+              "default": "\"a_modal_24\""
             },
             {
               "name": "isCloseButtonHide",
@@ -7024,7 +7270,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_form_24\""
+              "default": "\"a_modal_form_25\""
             },
             {
               "name": "idPrefix",
@@ -7430,7 +7676,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_wizard_25\""
+              "default": "\"a_modal_wizard_26\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -7697,7 +7943,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_m_select_ordered_26\""
+              "default": "\"a_m_select_ordered_27\""
             },
             {
               "name": "idPrefix",
@@ -8100,7 +8346,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_27\""
+              "default": "\"a_one_checkbox_28\""
             },
             {
               "name": "idPrefix",
@@ -8584,7 +8830,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_28\""
+              "default": "\"a_radio_29\""
             },
             {
               "name": "idPrefix",
@@ -8890,7 +9136,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_29\""
+              "default": "\"a_rate_30\""
             },
             {
               "name": "idPrefix",
@@ -9193,7 +9439,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_30\""
+              "default": "\"a_router_link_config_31\""
             },
             {
               "name": "idPrefix",
@@ -9581,7 +9827,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_31\""
+              "default": "\"a_ui_32\""
             },
             {
               "name": "idPrefix",
@@ -9990,7 +10236,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_32\""
+              "default": "\"a_select_icon_33\""
             },
             {
               "name": "idPrefix",
@@ -10321,7 +10567,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_33\""
+              "default": "\"a_select_styles_34\""
             },
             {
               "name": "idPrefix",
@@ -10626,7 +10872,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_34\""
+              "default": "\"a_show_more_35\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -10857,7 +11103,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_35\""
+              "default": "\"a_slider_36\""
             },
             {
               "name": "idPrefix",
@@ -11128,7 +11374,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_36\""
+              "default": "\"a_switch_37\""
             },
             {
               "name": "idPrefix",
@@ -11365,7 +11611,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table37\""
+              "default": "\"a_table38\""
             },
             {
               "name": "isActionColumnVisible",
@@ -11737,7 +11983,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_38\""
+              "default": "\"a_table_form_39\""
             },
             {
               "name": "isActionsSticky",
@@ -11886,7 +12132,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_39\""
+              "default": "\"a_tabs_40\""
             },
             {
               "name": "isBoxed",
@@ -12127,7 +12373,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_40\""
+              "default": "\"a_textarea_41\""
             },
             {
               "name": "idPrefix",
@@ -12263,7 +12509,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_41\""
+              "default": "\"a_tooltip_42\""
             },
             {
               "name": "isHide",
@@ -12441,7 +12687,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_42\""
+              "default": "\"a_tree_43\""
             },
             {
               "name": "indent",
@@ -12636,7 +12882,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_43\""
+              "default": "\"a_validated_json_44\""
             },
             {
               "name": "idPrefix",
@@ -12883,7 +13129,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_44\""
+              "default": "\"a_wizard_45\""
             },
             {
               "name": "isBackButtonDisabled",

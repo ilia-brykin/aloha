@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_TIME_HEADER_"
+  description="_A_DATE_INPUT_TIME_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="modelDatetime"
+    mode="datetime"
+    label="_A_DATE_INPUT_EXAMPLE_APPOINTMENT_"
+  )
+  pre.a_mt_3 {{ modelDatetime }}
+  a-date-input.a_mt_4(
+    v-model="modelTime"
+    mode="time"
+    label="_A_DATE_INPUT_EXAMPLE_START_TIME_"
+  )
+  pre.a_mt_3 {{ modelTime }}

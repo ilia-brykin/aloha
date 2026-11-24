@@ -52,6 +52,10 @@ export default function PopoverAPI(props, {
                 ],
               },
             ).then(({ x, y }) => {
+              // the calendar can be closed while the position is computed
+              if (!calendarRef.value) {
+                return;
+              }
               Object.assign(calendarRef.value.style, {
                 left: `${ x }px`,
                 top: `${ y }px`,

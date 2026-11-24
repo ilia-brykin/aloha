@@ -1,0 +1,73 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_DATE_INPUT_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_DATE_INPUT_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    page-date-input-basic
+
+    page-date-input-limits
+
+    page-date-input-time
+
+    page-date-input-range
+
+    page-date-input-shortcuts
+
+    page-date-input-month
+
+    page-date-input-slot
+
+    page-date-input-time-rules
+
+    page-date-input-booking
+
+    page-date-input-week
+
+    page-date-input-model-format
+
+    page-date-input-events
+
+    page-date-input-label-position
+
+    page-date-input-form
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Methods"
+      :data="dataMethods"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ui/ADateInput"
+    )

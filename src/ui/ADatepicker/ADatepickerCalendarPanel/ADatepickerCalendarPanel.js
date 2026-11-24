@@ -696,7 +696,6 @@ export default {
       h("div", {
         id: this.idForHeaderParent,
         class: "a_sr_only",
-        role: "header",
       }, [
         h("div", {
           id: this.idForHeader,
@@ -788,7 +787,6 @@ export default {
       ]),
       h("div", {
         class: "a_datepicker__calendar__content",
-        role: "application",
       }, [
         h(APanelDate, {
           ref: "panelDate",

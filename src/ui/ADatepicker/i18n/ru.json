@@ -54,5 +54,6 @@
   "_A_DATEPICKER_HOURS_": "Часы",
   "_A_DATEPICKER_MINUTES_": "Минуты",
   "_A_DATEPICKER_SECONDS_": "Секунды",
-  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "с {{ firstYear }} по {{ lastYear }}"
+  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "с {{ firstYear }} по {{ lastYear }}",
+  "_A_DATEPICKER_DIALOG_LABEL_": "Выберите дату"
 }

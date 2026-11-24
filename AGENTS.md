@@ -153,6 +153,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - **Form**
   - [Checkbox](llms/components/checkbox.md) — The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.
   - [Color picker](llms/components/color-picker.md) — The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors.
+  - [Date input](llms/components/date-input.md) — **ADateInput** is a text field for a date, a date with time or a time, also as a range (from – to).
   - [Datepicker](llms/components/datepicker.md) — Allows interactive selection of a date and, depending on the configuration, also time.
   - [DatepickerRange](llms/components/datepicker-range.md) — Allows interactive selection of a date range by providing two date fields to define 'From' and 'To' values.
 - **Fieldset**

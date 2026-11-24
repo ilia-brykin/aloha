@@ -1,10 +1,10 @@
 import {
   computed,
+  nextTick,
   ref,
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../const/AKeysCode";
 import moment from "moment";
 import {
   formatDate,
@@ -22,6 +22,7 @@ export default function EventsAPI(props, { emit }, {
   closePopover = () => {},
   formatLocal = computed(() => ""),
   formatSaveLocal = computed(() => ""),
+  initCalendar = () => {},
   setCloseFocus = () => {},
 }) {
   const range = toRef(props, "range");
@@ -29,6 +30,8 @@ export default function EventsAPI(props, { emit }, {
   const disabled = toRef(props, "disabled");
   const modelValue = toRef(props, "modelValue");
   const editable = toRef(props, "editable");
+  const maxDate = toRef(props, "maxDate");
+  const minDate = toRef(props, "minDate");
   const type = toRef(props, "type");
 
   const currentValue = ref(null);
@@ -65,7 +68,7 @@ export default function EventsAPI(props, { emit }, {
   };
 
   const stringify = date => {
-    return (isPlainObject(formatLocal.value) && typeof this.format.stringify === "function")
+    return (isPlainObject(formatLocal.value) && typeof formatLocal.value.stringify === "function")
       ? formatLocal.value.stringify(date)
       : formatDate(date, formatLocal.value);
   };
@@ -194,10 +197,33 @@ export default function EventsAPI(props, { emit }, {
     }
   };
 
+  // like getCriticalTime of the panel: year and month compare the start of the period
+  const getCriticalTime = value => {
+    if (!value) {
+      return null;
+    }
+    const DATE = new Date(value);
+    if (type.value === "year") {
+      return new Date(DATE.getFullYear(), 0).getTime();
+    }
+    if (type.value === "month") {
+      return new Date(DATE.getFullYear(), DATE.getMonth()).getTime();
+    }
+    return DATE.getTime();
+  };
+
+  // min-date / max-date without the panel (it exists only while the calendar is open, e.g. not after Enter)
+  const isOutOfRange = date => {
+    const TIME = new Date(date).getTime();
+    const MIN = getCriticalTime(minDate.value);
+    const MAX = getCriticalTime(maxDate.value);
+    return !!((MIN && TIME < MIN) || (MAX && TIME > MAX));
+  };
+
   const handleChange = () => {
     if (editable.value && userInput.value !== null) {
       let value = text.value;
-      const checkDate = calendarPanelRef.value.isDisabledTime;
+      const checkDate = calendarPanelRef.value?.isDisabledTime || isOutOfRange;
       if (!value) {
         clearDate();
         return;
@@ -233,18 +259,25 @@ export default function EventsAPI(props, { emit }, {
     }
   };
 
+  // the calendar is closed (e.g. after Enter): open it first, then the focus goes into it
   const setFocusToPanel = () => {
-    calendarPanelRef.value.setFocusToActivePanelFromParent();
+    if (calendarPanelRef.value) {
+      calendarPanelRef.value.setFocusToActivePanelFromParent();
+      return;
+    }
+    initCalendar();
+    nextTick().then(() => {
+      calendarPanelRef.value?.setFocusToActivePanelFromParent();
+    });
   };
 
   const handleKeydown = $event => {
-    const KEY_CODE = $event.keyCode;
-    if (KEY_CODE === AKeysCode.tab || KEY_CODE === AKeysCode.enter) {
+    if ($event.key === "Tab" || $event.key === "Enter") {
       // ie emit the watch before the change event
       handleChange();
       userInput.value = null;
       closePopover();
-    } else if (KEY_CODE === AKeysCode.arrowUp || KEY_CODE === AKeysCode.arrowDown) {
+    } else if ($event.key === "ArrowUp" || $event.key === "ArrowDown") {
       setFocusToPanel();
       $event.stopPropagation();
       $event.preventDefault();

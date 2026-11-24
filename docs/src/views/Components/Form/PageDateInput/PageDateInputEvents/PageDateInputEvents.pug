@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_EVENTS_HEADER_"
+  description="_A_DATE_INPUT_EVENTS_DESCRIPTION_"
+)
+  a-date-input(
+    ref="dateInputRef"
+    v-model="model"
+    label="_A_DATE_INPUT_EXAMPLE_BIRTHDAY_"
+    @open="onOpen"
+    @close="onClose"
+  )
+  a-button.a_mt_3(
+    class="a_btn a_btn_outline_primary"
+    text="_A_DATE_INPUT_EXAMPLE_OPEN_CALENDAR_"
+    @click="openCalendar"
+  )
+  pre.a_mt_3 {{ events }}

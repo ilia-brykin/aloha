@@ -1,5 +1,6 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
 import AColorPicker from "./AColorPicker/AColorPicker";
+import ADateInput from "./ADateInput/ADateInput";
 import ADatepicker from "./ADatepicker/ADatepicker";
 import ADatepickerRange from "./ADatepickerRange/ADatepickerRange";
 import AInput from "./AInput/AInput";
@@ -30,6 +31,7 @@ export default {
   colorPicker: AColorPicker,
   currency: AInputCurrency,
   date: ADatepicker,
+  dateInput: ADateInput,
   dateRange: ADatepickerRange,
   datetime: ADatepicker,
   email: AInput,

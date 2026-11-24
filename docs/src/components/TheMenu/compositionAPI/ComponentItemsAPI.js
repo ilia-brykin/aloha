@@ -155,6 +155,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "date-input",
+            to: {
+              name: "PageDateInput",
+            },
+            class: "test_menu_date_input",
+            label: "Date input",
+          },
+          {
             id: "datepicker",
             label: "Datepicker",
             class: "test_menu_datepicker",

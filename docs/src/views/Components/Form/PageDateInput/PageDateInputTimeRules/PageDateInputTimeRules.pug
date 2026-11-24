@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_TIME_RULES_HEADER_"
+  description="_A_DATE_INPUT_TIME_RULES_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="modelAppointment"
+    mode="datetime"
+    label="_A_DATE_INPUT_EXAMPLE_APPOINTMENT_"
+    :minute-step="15"
+    min-time="08:00"
+    max-time="18:00"
+  )
+  pre.a_mt_3 {{ modelAppointment }}
+  a-date-input.a_mt_4(
+    v-model="modelMeasurement"
+    mode="time"
+    with-seconds
+    label="_A_DATE_INPUT_EXAMPLE_MEASUREMENT_"
+  )
+  pre.a_mt_3 {{ modelMeasurement }}

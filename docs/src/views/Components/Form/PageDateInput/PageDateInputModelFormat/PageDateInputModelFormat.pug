@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_MODEL_FORMAT_HEADER_"
+  description="_A_DATE_INPUT_MODEL_FORMAT_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="modelUtc"
+    mode="datetime"
+    utc
+    label="_A_DATE_INPUT_EXAMPLE_UTC_"
+  )
+  pre.a_mt_3 {{ modelUtc }}
+  a-date-input.a_mt_4(
+    v-model="modelTokens"
+    model-format="DD.MM.YYYY"
+    label="_A_DATE_INPUT_EXAMPLE_TOKENS_"
+  )
+  pre.a_mt_3 {{ modelTokens }}
+  a-date-input.a_mt_4(
+    v-model="modelTimestamp"
+    mode="datetime"
+    model-format="timestamp"
+    label="_A_DATE_INPUT_EXAMPLE_TIMESTAMP_"
+  )
+  pre.a_mt_3 {{ modelTimestamp }}

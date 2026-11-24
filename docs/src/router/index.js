@@ -308,6 +308,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageList/PageList.vue"),
   },
   {
+    path: "/date-input",
+    name: "PageDateInput",
+    component: () => import("../views/Components/Form/PageDateInput/PageDateInput.vue"),
+  },
+  {
     path: "/datepicker",
     name: "PageDatepicker",
     component: () => import("../views/Components/Form/PageDatepicker/PageDatepicker.vue"),

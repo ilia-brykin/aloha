@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_LABEL_HEADER_"
+  description="_A_DATE_INPUT_LABEL_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    label-position="float"
+    label="_A_DATE_INPUT_EXAMPLE_FLOAT_"
+  )
+  a-date-input.a_mt_4(
+    v-model="model"
+    label-position="inset"
+    label="_A_DATE_INPUT_EXAMPLE_INSET_"
+  )
+  a-date-input.a_mt_4(
+    v-model="model"
+    label-position="top"
+    label="_A_DATE_INPUT_EXAMPLE_TOP_"
+  )
