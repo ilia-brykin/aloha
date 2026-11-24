@@ -705,6 +705,7 @@ export interface ADisclosureProps {
 export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface ADrawerProps {
+  ariaLabel?: string;
   alwaysTranslate?: boolean;
   backdropZIndex?: number;
   /** @default "" */
@@ -718,9 +719,10 @@ export interface ADrawerProps {
   /** @default "a_btn a_btn_secondary" */
   closeButtonClass?: string | any[] | Record<string, any>;
   closeButtonId?: string;
+  /** @default false */
+  closeOnBackdrop?: boolean;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -757,7 +759,6 @@ export interface ADrawerProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -771,6 +772,8 @@ export interface ADrawerProps {
   useEscape?: boolean;
   /** @default true */
   useFocusOnStart?: boolean;
+  /** @default true */
+  useInert?: boolean;
   zIndex?: number;
   /** @default "right" */
   placement?: string;
@@ -2028,6 +2031,7 @@ export interface AMenuButtonToggleProps {
 export declare const AMenuButtonToggle: DefineComponent<AMenuButtonToggleProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface AModalProps {
+  ariaLabel?: string;
   alwaysTranslate?: boolean;
   backdropZIndex?: number;
   /** @default "" */
@@ -2041,9 +2045,10 @@ export interface AModalProps {
   /** @default "a_btn a_btn_secondary" */
   closeButtonClass?: string | any[] | Record<string, any>;
   closeButtonId?: string;
+  /** @default false */
+  closeOnBackdrop?: boolean;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -2080,7 +2085,6 @@ export interface AModalProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -2094,6 +2098,8 @@ export interface AModalProps {
   useEscape?: boolean;
   /** @default true */
   useFocusOnStart?: boolean;
+  /** @default true */
+  useInert?: boolean;
   zIndex?: number;
 }
 export declare const AModal: DefineComponent<AModalProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
@@ -2118,7 +2124,6 @@ export interface AModalFormProps {
   closeButtonId?: string;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -2165,7 +2170,6 @@ export interface AModalFormProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -2204,7 +2208,6 @@ export interface AModalWizardProps {
   closeButtonId?: string;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -2235,7 +2238,6 @@ export interface AModalWizardProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];

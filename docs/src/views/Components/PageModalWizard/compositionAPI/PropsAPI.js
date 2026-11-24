@@ -68,7 +68,7 @@ export default function PropsAPI() {
       name: "close-button-text-screen-reader-footer",
       description: "_A_MODAL_PROPS_CLOSE_BUTTON_TEXT_SCREEN_READER_FOOTER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_",
+      default: undefined,
       required: false,
     },
     {
@@ -208,7 +208,7 @@ export default function PropsAPI() {
       name: "save-button-text-screen-reader",
       description: "_A_MODAL_PROPS_SAVE_BUTTON_TEXT_SCREEN_READER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_",
+      default: undefined,
       required: false,
     },
     {

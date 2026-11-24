@@ -9,17 +9,20 @@ import {
 
 export default function FocusAPI(props) {
   const focusStartId = toRef(props, "focusStartId");
-  const useFocusOnStart = toRef(props, "focusStartId");
+  const useFocusOnStart = toRef(props, "useFocusOnStart");
 
   const modalRef = ref(undefined);
   const modalWrapperRef = ref(undefined);
 
+  // returns false when the element is not found, then the first element gets the focus
   const setFocusToElementWithFocusStartId = () => {
     const element = document.getElementById(focusStartId.value);
 
     if (element) {
       element.focus();
+      return true;
     }
+    return false;
   };
 
   const setFocusToFirstElement = () => {
@@ -33,13 +36,11 @@ export default function FocusAPI(props) {
 
   const setFocusByShowModal = () => {
     setTimeout(() => {
-      if (useFocusOnStart.value) {
+      if (!useFocusOnStart.value) {
         return;
       }
 
-      if (focusStartId.value) {
-        setFocusToElementWithFocusStartId();
-      } else {
+      if (!focusStartId.value || !setFocusToElementWithFocusStartId()) {
         setFocusToFirstElement();
       }
     });

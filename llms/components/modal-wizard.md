@@ -140,8 +140,8 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](translation.md) |
@@ -160,9 +160,9 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |

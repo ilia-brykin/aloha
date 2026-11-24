@@ -78,7 +78,7 @@ export default {
     closeButtonTextScreenReaderFooter: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModalForm", "closeButtonTextScreenReaderFooter", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_"),
+      default: () => getPropDefault("AModalForm", "closeButtonTextScreenReaderFooter"),
     },
     closeButtonTextScreenReaderHeader: {
       type: String,
@@ -224,7 +224,7 @@ export default {
     saveButtonTextScreenReader: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModalForm", "saveButtonTextScreenReader", "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_"),
+      default: () => getPropDefault("AModalForm", "saveButtonTextScreenReader"),
     },
     selectorClose: {
       type: [String, Array],

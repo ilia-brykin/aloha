@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_MODAL_GROUP_CLOSE_ON_BACKDROP_HEADER_"
+  description="_A_MODAL_GROUP_CLOSE_ON_BACKDROP_DESCRIPTION_"
+  :props="['close-on-backdrop']"
+)
+  a-button(
+    id="btn_modal_close_on_backdrop"
+    class="a_btn a_btn_primary"
+    text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+    @click="openModal"
+  )
+
+  a-modal(
+    v-if="isModalVisible"
+    :close="closeModal"
+    header-text="Aloha"
+    :close-on-backdrop="true"
+    body-html="_A_MODAL_EXAMPLE_CLOSE_ON_BACKDROP_BODY_"
+  )

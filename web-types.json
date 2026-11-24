@@ -2341,6 +2341,10 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
               "name": "alwaysTranslate",
               "type": "boolean"
             },
@@ -2382,14 +2386,18 @@
               "type": "string"
             },
             {
+              "name": "closeOnBackdrop",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "closeButtonText",
               "type": "string",
               "default": "\"_A_MODAL_BTN_CANCEL_\""
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -2497,8 +2505,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -2533,6 +2540,11 @@
             },
             {
               "name": "useFocusOnStart",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useInert",
               "type": "boolean",
               "default": "true"
             },
@@ -6667,6 +6679,10 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
               "name": "alwaysTranslate",
               "type": "boolean"
             },
@@ -6708,14 +6724,18 @@
               "type": "string"
             },
             {
+              "name": "closeOnBackdrop",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "closeButtonText",
               "type": "string",
               "default": "\"_A_MODAL_BTN_CANCEL_\""
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -6823,8 +6843,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -6859,6 +6878,11 @@
             },
             {
               "name": "useFocusOnStart",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useInert",
               "type": "boolean",
               "default": "true"
             },
@@ -6942,8 +6966,7 @@
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -7079,8 +7102,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -7204,8 +7226,7 @@
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -7295,8 +7316,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",

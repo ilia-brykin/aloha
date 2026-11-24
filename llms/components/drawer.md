@@ -232,6 +232,7 @@ export default {
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
@@ -241,8 +242,9 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](translation.md) |
@@ -266,15 +268,16 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Slots

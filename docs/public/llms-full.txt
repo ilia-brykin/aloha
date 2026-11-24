@@ -576,6 +576,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `AAccordion`: the header is a `<button type="button">` instead of an `<a role="button">`, so it works with Enter and Space. `.a_accordion__header` is a heading, `h3` by default (prop `header-tag`), nested items get the next level. The panel has `aria-labelledby` and, with up to 6 items, `role="region"`. With `one-item-always-open` the open item stays a focusable button with `aria-disabled="true"`. Every accordion gets its own `id`. Labels and contents accept translation keys (`extra`, `always-translate`), the open items work with `v-model`. To check: own CSS and tests with `a.a_accordion__button`, `div.a_accordion__header`. If the heading level does not fit the page, set `header-tag` (e.g. `h2`); `header-tag="div"` gives the old markup without a heading. `item.disabled` now really disables the item (before, it could still be opened). With `always-open` closing an item no longer closes other items whose id starts the same way (`1` closed `10` too).
 - `ATooltip`: `aria-describedby` is on the focused element (e.g. the button inside), not on the wrapper `span` anymore, and the tooltip has `role="tooltip"`. It opens also when an element inside gets the focus (`focusin`) and stays open while the mouse or the focus is on it. Escape closes only the tooltip, the event does not reach e.g. a modal around it. The text of the tooltip is always in the DOM as a hidden element (`hidden`) and the element always has `aria-describedby`, so screen readers read it also without focus (browse mode). `render-description="visible"` creates both only while the tooltip is open, as in 2.x, e.g. for pages with very many tooltips.
 - `ADisclosure`, `AShowMore`: `aria-expanded` is on the button (with `AShowMore` only with `text-length`; with `height` the whole content is in the page anyway), not on the content. Own attributes (`class`, `data-*`, `aria-*`) are only on the root, not also on the inner content block. After the click the focus stays on the button, it goes to the content only when the button disappears (`show-less="false"`). `AShowMore`: `is-open-default` works now; a link or button in the part cut by `height` opens the content when it gets the focus; `text-length` cuts at the end of a word with `…` instead of `...`. Both support `v-model`.
+- `AModal` (also `AModalForm`, `AModalWizard`, `ADrawer`, `AConfirm`): after closing, the focus goes back to the element that opened the modal; `selector-close-ids` is only needed for another element. The footer buttons are named by their visible text: `save-button-text-screen-reader`, `close-button-text-screen-reader-footer` have no default anymore and are used only when set (WCAG 2.5.3). While a modal is open, the rest of the page gets `inert`; popups, notifications and elements with `data-a-not-inert` stay usable, `use-inert="false"` switches it off. In nested modals Escape closes only the top one and the page stays locked until the last one is closed. `focus-start-id` and `use-focus-on-start` work now. New: `aria-label` (e.g. with `hide-header`), `close-on-backdrop`. The modal has `aria-modal="true"`.
 
 ## 7. Label position
 
@@ -7666,8 +7667,8 @@ export default {
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](https://ilia-brykin.github.io/aloha/llms/components/translation.md) |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | loading | Boolean | false |  | Specifies whether the modal is in a loading state. |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
@@ -9140,6 +9141,7 @@ export default {
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
@@ -9149,8 +9151,9 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](https://ilia-brykin.github.io/aloha/llms/components/translation.md) |
@@ -9174,15 +9177,16 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Slots
@@ -36771,6 +36775,8 @@ export default {
 
 AModal is a component that enables the implementation of modal windows. It provides a multitude of customization options, including various parameters for content, button behavior, visibility controls, and size adjustments. With customizable slots for header, body, and footer, it allows for flexible styling of modal windows for various use cases.
 
+The modal has `role="dialog"` and `aria-modal="true"`, its name is the header. When it opens, the focus goes to the first element (or to `focus-start-id`), Tab stays in the modal and the rest of the page is `inert`: not reachable with the mouse or the virtual cursor of a screen reader. Escape closes the top modal. After closing, the focus goes back to the element that opened the modal (or to `selector-close-ids`).
+
 ## Basic usage
 
 *props: `close`, `header-text`*
@@ -37129,6 +37135,138 @@ export default {
 };
 ```
 
+## Focus after closing
+
+Without `selector-close-ids` the focus goes back to the button that opened the modal. `selector-close-ids` is only needed when the focus should go to another element, e.g. because the button is gone after the action.
+
+*props: `selector-close-ids`*
+
+```html
+<a-button
+  id="btn_modal_focus_return"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  body-html="_A_MODAL_EXAMPLE_FOCUS_RETURN_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
+## Focus at the start
+
+`focus-start-id` puts the focus on an element of the modal when it opens, here on "Continue". `use-focus-on-start` false does not move the focus.
+
+*props: `focus-start-id`, `use-focus-on-start`*
+
+```html
+<a-button
+  id="btn_modal_focus_start"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  focus-start-id="btn_modal_focus_start_continue"
+>
+  <template v-slot:modalBody>
+    <a-translation
+      tag="p"
+      text="_A_MODAL_EXAMPLE_FOCUS_START_BODY_"
+    />
+    <a-button
+      class="a_btn a_btn_secondary a_mr_2"
+      text="_A_MODAL_EXAMPLE_BACK_"
+    />
+    <a-button
+      id="btn_modal_focus_start_continue"
+      class="a_btn a_btn_primary"
+      text="_A_MODAL_EXAMPLE_CONTINUE_"
+    />
+  </template>
+</a-modal>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+  ATranslation,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+    ATranslation,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
 ## Using **selector-close** for Focus
 
 This example demonstrates the use of **selector-close** to set focus on specific elements after closing the modal.
@@ -37436,7 +37574,7 @@ export default {
 
 ## Modal inside a modal
 
-This example demonstrates the ability to open one modal window inside another. All modals can be correctly stacked by **z-index** and function independently of each other.
+A modal can open another modal. The second one is on top, Escape closes only it and the first one is `inert` until it is closed. The class of the page and the z-index follow the stack of the open modals.
 
 ```html
 <a-button
@@ -37520,22 +37658,140 @@ export default {
 };
 ```
 
+## Modal without header
+
+With `hide-header` the modal has no visible title. `aria-label` gives it a name, so a screen reader still announces what the modal is about.
+
+*props: `hide-header`, `aria-label`*
+
+```html
+<a-button
+  id="btn_modal_aria_label"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  :hide-header="true"
+  aria-label="_A_MODAL_EXAMPLE_ARIA_LABEL_"
+  body-html="_A_MODAL_EXAMPLE_ARIA_LABEL_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
+## Close with a click outside
+
+With `close-on-backdrop` a click outside of the dialog closes the modal. Selecting text in the modal and releasing the mouse outside does not close it. The modal can still be closed with Escape and the buttons.
+
+*props: `close-on-backdrop`*
+
+```html
+<a-button
+  id="btn_modal_close_on_backdrop"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  :close-on-backdrop="true"
+  body-html="_A_MODAL_EXAMPLE_CLOSE_ON_BACKDROP_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
 | class-extra | String / Object | a_modal_class_extra |  | Additional **CSS** class for the modal window, which can be used for automated tests or as an additional selector. |
 | close | Function |  | yes | The function that enables closing the modal. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | close-button-attributes | Object | () => ({}) |  | Attributes for the modal's close button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](https://ilia-brykin.github.io/aloha/llms/components/translation.md) |
@@ -37558,15 +37814,16 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Slots
@@ -38014,6 +38271,7 @@ export default {
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
@@ -38024,8 +38282,9 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | data-form | Array |  | yes | Required array of field configurations. Every item needs a **type** and **id**, and may contain props supported by the selected UI component. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
@@ -38054,9 +38313,9 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
@@ -38067,6 +38326,7 @@ export default {
 | use-flat-model | Boolean | true |  | When enabled, container fields work with the shared flat model. Disable it to store container values in nested objects. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
 | use-html-id-as-key | Boolean | false |  | Uses each field's resolved HTML ID as its Vue key instead of the array index. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Emits
@@ -51679,8 +51939,8 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](https://ilia-brykin.github.io/aloha/llms/components/translation.md) |
@@ -51699,9 +51959,9 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](https://ilia-brykin.github.io/aloha/llms/components/button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
