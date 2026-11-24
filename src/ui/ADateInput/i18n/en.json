@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "The time must not be after {{ time }}",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "The period must be at least {{ days }} days",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "The period must be at most {{ days }} days",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Enter a valid week, e.g. {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Enter a valid week, e.g. {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Start: {{ date }}. Choose the end date.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Period: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Choose time",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "This time cannot be chosen",
+  "_A_DATE_INPUT_QUARTER_": "Quarter",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "Q",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Enter a valid quarter, e.g. {{ example }}"
 }

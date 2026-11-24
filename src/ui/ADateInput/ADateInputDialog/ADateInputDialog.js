@@ -7,6 +7,7 @@ import {
   AIcon,
 } from "../../../index";
 
+import FloatingAPI from "../compositionAPI/FloatingAPI";
 import GridAPI from "./compositionAPI/GridAPI";
 import LocaleAPI from "../compositionAPI/LocaleAPI";
 import {
@@ -18,6 +19,7 @@ import {
   compareByUnit,
   isoWeek,
   isSameUnit,
+  quarterOf,
   weekday,
 } from "../utils/dateUtils";
 
@@ -32,6 +34,10 @@ const NAV = {
     { direction: 1, isYear: true, text: "_A_DATE_INPUT_NEXT_YEAR_", symbol: "»" },
   ],
   month: [
+    { direction: -1, text: "_A_DATE_INPUT_PREV_YEAR_", symbol: "‹" },
+    { direction: 1, text: "_A_DATE_INPUT_NEXT_YEAR_", symbol: "›" },
+  ],
+  quarter: [
     { direction: -1, text: "_A_DATE_INPUT_PREV_YEAR_", symbol: "‹" },
     { direction: 1, text: "_A_DATE_INPUT_NEXT_YEAR_", symbol: "›" },
   ],
@@ -52,9 +58,24 @@ export default {
       type: Number,
       required: true,
     },
+    // the field for the position with in-body
+    getReference: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: true,
+    },
+    inBody: {
+      type: Boolean,
+      required: false,
+    },
+    // always visible in the page: a group instead of a modal dialog, no focus trap, no close button
+    inline: {
+      type: Boolean,
+      required: false,
     },
     isDateDisabled: {
       type: Function,
@@ -77,6 +98,12 @@ export default {
     },
     min: {
       type: Object,
+      required: false,
+      default: undefined,
+    },
+    // the id of the component, for the click outside
+    ownerId: {
+      type: String,
       required: false,
       default: undefined,
     },
@@ -167,6 +194,10 @@ export default {
       gridRef,
     });
 
+    FloatingAPI(props, {
+      floatingRef: rootRef,
+    });
+
     const isInRange = date => {
       return !!props.rangeStart && !!props.rangeEnd &&
         compareByUnit(date, props.rangeStart, cellUnit.value) >= 0 &&
@@ -174,6 +205,9 @@ export default {
     };
 
     const onKeydown = $event => {
+      if (props.inline) {
+        return;
+      }
       if ($event.key === "Escape") {
         // the dialog closes, not the modal around it
         $event.preventDefault();
@@ -195,7 +229,11 @@ export default {
       }
     };
 
-    onMounted(focusCell);
+    onMounted(() => {
+      if (!props.inline) {
+        focusCell();
+      }
+    });
 
     return {
       cellUnit,
@@ -232,11 +270,13 @@ export default {
     const TITLES = {
       day: () => this.monthGrids.map(grid => this.formatMonthTitle(grid.month)).join(" – "),
       month: () => `${ this.focusDate.year }`,
+      quarter: () => `${ this.focusDate.year }`,
       year: () => `${ this.pageStartYear } – ${ this.pageStartYear + 11 }`,
     };
     const BIGGER_VIEW_TEXT = {
       day: "_A_DATE_INPUT_CHOOSE_MONTH_",
       month: "_A_DATE_INPUT_CHOOSE_YEAR_",
+      quarter: "_A_DATE_INPUT_CHOOSE_YEAR_",
     };
 
     const navButton = ({ direction, isYear, text, symbol }) => {
@@ -274,6 +314,14 @@ export default {
         return [
           h("span", { "aria-hidden": "true" }, this.formatMonthName(date.month)),
           h("span", { class: "a_sr_only" }, this.formatMonthTitle(date)),
+        ];
+      }
+      if (this.view === "quarter") {
+        const QUARTER = quarterOf(date);
+        return [
+          h("span", { "aria-hidden": "true" }, `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_QUARTER_SHORT_" }) }${ QUARTER }`),
+          // "Quarter 1 2025: January – March"
+          h("span", { class: "a_sr_only" }, `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_QUARTER_" }) } ${ QUARTER } ${ date.year }: ${ this.formatMonthName(date.month, "long") } – ${ this.formatMonthName(date.month + 2, "long") }`),
         ];
       }
       return `${ date.year }`;
@@ -358,9 +406,13 @@ export default {
     return h("div", {
       ref: "rootRef",
       id: this.id,
-      class: ["a_date_input__dialog", `a_date_input__dialog_${ this.view }`],
-      role: "dialog",
-      "aria-modal": "true",
+      class: ["a_date_input__dialog", `a_date_input__dialog_${ this.view }`, {
+        a_date_input__dialog_inline: this.inline,
+        a_date_input__popup_in_body: this.inBody && !this.inline,
+      }],
+      role: this.inline ? "group" : "dialog",
+      "aria-modal": this.inline ? undefined : "true",
+      "data-owner": this.ownerId,
       "aria-label": this.label,
       "aria-describedby": HINT_ID,
       onKeydown: this.onKeydown,
@@ -429,13 +481,16 @@ export default {
           class: "a_btn a_btn_link a_btn_small",
           onClick: () => this.$emit("shortcut", shortcut),
         }, getTranslatedText({ placeholder: shortcut.label })))),
+        this.$slots.footer && this.$slots.footer({
+          close: () => this.$emit("close"),
+        }),
         this.showToday && h("button", {
           type: "button",
           class: "a_btn a_btn_link a_btn_small a_date_input__today",
           disabled: this.isTodayDisabled,
           onClick: this.selectToday,
         }, getTranslatedText({ placeholder: "_A_DATE_INPUT_TODAY_" })),
-        h("button", {
+        !this.inline && h("button", {
           type: "button",
           class: "a_btn a_btn_outline_primary a_btn_small",
           onClick: () => this.$emit("close"),

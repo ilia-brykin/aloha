@@ -29,6 +29,12 @@ const SHARED = [
 ];
 
 const OWN = [
+  ["auto-format", "_A_DATE_INPUT_PROPS_AUTO_FORMAT_DESCRIPTION_", "Boolean", "false"],
+  ["in-body", "_A_DATE_INPUT_PROPS_IN_BODY_DESCRIPTION_", "Boolean", "true"],
+  ["inline", "_A_DATE_INPUT_PROPS_INLINE_DESCRIPTION_", "Boolean", "false"],
+  ["is-time-disabled", "_A_DATE_INPUT_PROPS_IS_TIME_DISABLED_DESCRIPTION_", "Function", undefined],
+  ["popper-container-id", "_A_DATE_INPUT_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_", "String", "\"a_date_input_container\""],
+  ["show-time-list", "_A_DATE_INPUT_PROPS_SHOW_TIME_LIST_DESCRIPTION_", "Boolean", "false"],
   ["is-label-float", "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_", "Boolean", undefined],
   ["label-position", "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_", "String", undefined],
   ["max-days", "_A_DATE_INPUT_PROPS_MAX_DAYS_DESCRIPTION_", "Number", undefined],
@@ -44,7 +50,7 @@ const OWN = [
   ["with-seconds", "_A_DATE_INPUT_PROPS_WITH_SECONDS_DESCRIPTION_", "Boolean", "false"],
   ["clearable", "_A_DATE_INPUT_PROPS_CLEARABLE_DESCRIPTION_", "Boolean", "false"],
   ["default-time", "_A_DATE_INPUT_PROPS_DEFAULT_TIME_DESCRIPTION_", "String / Array", undefined],
-  ["first-day-of-week", "_A_DATE_INPUT_PROPS_FIRST_DAY_OF_WEEK_DESCRIPTION_", "Number", "1"],
+  ["first-day-of-week", "_A_DATE_INPUT_PROPS_FIRST_DAY_OF_WEEK_DESCRIPTION_", "Number", undefined],
   ["is-date-disabled", "_A_DATE_INPUT_PROPS_IS_DATE_DISABLED_DESCRIPTION_", "Function", undefined],
   ["locale", "_A_DATE_INPUT_PROPS_LOCALE_DESCRIPTION_", "String", undefined],
   ["max", "_A_DATE_INPUT_PROPS_MAX_DESCRIPTION_", "String", undefined],

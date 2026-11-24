@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "Die Uhrzeit darf nicht nach {{ time }} liegen",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "Der Zeitraum muss mindestens {{ days }} Tage lang sein",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "Der Zeitraum darf höchstens {{ days }} Tage lang sein",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Geben Sie eine gültige Kalenderwoche ein, z. B. {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Geben Sie eine gültige Kalenderwoche ein, z. B. {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Beginn: {{ date }}. Wählen Sie das Enddatum.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Zeitraum: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Uhrzeit auswählen",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "Diese Uhrzeit kann nicht gewählt werden",
+  "_A_DATE_INPUT_QUARTER_": "Quartal",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "Q",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Geben Sie ein gültiges Quartal ein, z. B. {{ example }}"
 }

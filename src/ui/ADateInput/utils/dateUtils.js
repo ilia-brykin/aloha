@@ -236,6 +236,10 @@ export function parseDateTimeText(text, order, now = new Date()) {
 
 // "YYYY", "YYYY-MM", "YYYY-MM-DD" (also with time); the missing parts are 1
 export function fromIsoAny(value) {
+  const QUARTER = /^(\d{4})-Q([1-4])$/.exec(value || "");
+  if (QUARTER) {
+    return quarterToDate(+QUARTER[1], +QUARTER[2]);
+  }
   const WEEK = /^(\d{4})-W(\d{2})$/.exec(value || "");
   if (WEEK) {
     return +WEEK[2] >= 1 && +WEEK[2] <= weeksInYear(+WEEK[1]) ? weekToDate(+WEEK[1], +WEEK[2]) : null;
@@ -258,6 +262,9 @@ export function toIsoUnit(date, unit = "day") {
   if (unit === "month") {
     return `${ pad(date.year, 4) }-${ pad(date.month) }`;
   }
+  if (unit === "quarter") {
+    return `${ pad(date.year, 4) }-Q${ quarterOf(date) }`;
+  }
   if (unit === "week") {
     const WEEK = isoWeek(date);
     return `${ pad(WEEK.year, 4) }-W${ pad(WEEK.week) }`;
@@ -269,6 +276,9 @@ export function toIsoUnit(date, unit = "day") {
 export function compareByUnit(a, b, unit = "day") {
   if (unit === "week") {
     return compareDates(startOfWeek(a, 1), startOfWeek(b, 1));
+  }
+  if (unit === "quarter") {
+    return a.year !== b.year ? a.year - b.year : quarterOf(a) - quarterOf(b);
   }
   if (a.year !== b.year || unit === "year") {
     return a.year - b.year;
@@ -368,4 +378,54 @@ export function parseWeekText(text, now = new Date()) {
 // days from a to b: 01.03. - 03.03. = 2
 export function daysBetween(a, b) {
   return Math.round((toUtc(b) - toUtc(a)) / 86400000);
+}
+
+// ---------- quarters ----------
+
+export function quarterOf(date) {
+  return Math.floor((date.month - 1) / 3) + 1;
+}
+
+// the first day of the quarter
+export function quarterToDate(year, quarter) {
+  return { year, month: (quarter - 1) * 3 + 1, day: 1 };
+}
+
+// "2025-Q1", "Q1/2025", "Q1 25", "1/2025", "1.25", "Q1" (this year)
+export function parseQuarterText(text, now = new Date()) {
+  const VALUE = `${ text ?? "" }`.trim();
+  const ISO = /^(\d{4})-?Q([1-4])$/i.exec(VALUE);
+  const LOCAL = /^\D*?([1-4])(?:[\s./-]+(\d{2}|\d{4}))?$/.exec(VALUE);
+  if (ISO) {
+    return quarterToDate(+ISO[1], +ISO[2]);
+  }
+  if (!LOCAL) {
+    return null;
+  }
+  let year = now.getFullYear();
+  if (LOCAL[2]) {
+    year = LOCAL[2].length === 2 ? expandYear(+LOCAL[2], now) : +LOCAL[2];
+  }
+  return year >= 1 && year <= 9999 ? quarterToDate(year, +LOCAL[1]) : null;
+}
+
+// ---------- typing ----------
+
+/**
+ * Adds the separator while the user types at the end: "05" → "05.", "05.03" → "05.03.", "14" → "14:".
+ * lengths: the digits of the parts, e.g. [2, 2, 4]. A separator typed after an added one is not doubled.
+ */
+export function autoFormatText(value, lengths, separator) {
+  if (!separator || !lengths.length) {
+    return value;
+  }
+  if (value.endsWith(separator + separator)) {
+    return value.slice(0, -separator.length);
+  }
+  const PARTS = value.split(separator);
+  const LAST = PARTS[PARTS.length - 1];
+  if (PARTS.length < lengths.length && /^\d+$/.test(LAST) && LAST.length === lengths[PARTS.length - 1]) {
+    return value + separator;
+  }
+  return value;
 }

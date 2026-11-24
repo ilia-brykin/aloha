@@ -513,6 +513,7 @@ export declare const AColorPicker: DefineComponent<AColorPickerProps, {}, {}, {}
 
 export interface ADateInputProps {
   alwaysTranslate?: boolean;
+  autoFormat?: boolean;
   change?: ((...args: any[]) => any);
   clearable?: boolean;
   defaultTime?: string | any[];
@@ -523,7 +524,6 @@ export interface ADateInputProps {
   /** @default [] */
   excludeRenderAttributes?: any[];
   extra?: Record<string, any>;
-  /** @default 1 */
   firstDayOfWeek?: number;
   helpText?: string;
   htmlId?: string;
@@ -533,7 +533,11 @@ export interface ADateInputProps {
   /** @default {} */
   inputAttributes?: Record<string, any>;
   inputClass?: string | Record<string, any>;
+  /** @default true */
+  inBody?: boolean;
+  inline?: boolean;
   isDateDisabled?: ((...args: any[]) => any);
+  isTimeDisabled?: ((...args: any[]) => any);
   isHide?: boolean;
   isLabelFloat?: boolean;
   /** @default true */
@@ -564,6 +568,8 @@ export interface ADateInputProps {
   /** @default 1 */
   months?: number;
   placeholder?: string;
+  /** @default "a_date_input_container" */
+  popperContainerId?: string;
   range?: boolean;
   readonly?: boolean;
   /** @default "" */
@@ -573,6 +579,7 @@ export interface ADateInputProps {
   required?: boolean;
   /** @default [] */
   shortcuts?: any[];
+  showTimeList?: boolean;
   showToday?: boolean;
   showWeekNumbers?: boolean;
   /** @default "dateInput" */

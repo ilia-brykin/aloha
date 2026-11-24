@@ -233,6 +233,77 @@
   text-align: center;
 }
 
+// in-body: in the container in body, floating-ui sets left and top
+.a_date_input__popup_in_body {
+  inset: auto;
+  margin: 0;
+}
+
+// inline: the calendar in the page, under the fields
+.a_date_input__inline {
+  margin-top: var(--a_space_sm);
+}
+
+.a_date_input__dialog_inline {
+  position: static;
+  display: inline-block;
+  box-shadow: none;
+}
+
+// quarters: 2 cells in a row
+.a_date_input__dialog_quarter .a_date_input__day {
+  width: 8.125rem;
+}
+
+.a_date_input__time_list {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: calc(var(--a_z_index_popup) + 1);
+  margin-top: var(--a_space_xs);
+  background-color: var(--a_date_input_dialog_bg);
+  border: var(--a_border_width) solid var(--a_date_input_dialog_border_color);
+  border-radius: var(--a_date_input_dialog_border_radius);
+  box-shadow: var(--a_date_input_dialog_box_shadow);
+}
+
+.a_date_input__time_list__ul {
+  max-height: var(--a_date_input_time_list_max_height);
+  min-width: 6rem;
+  margin: 0;
+  padding: var(--a_space_xs) 0;
+  overflow-y: auto;
+  list-style: none;
+  border-radius: inherit;
+  @include focus.focus-visible;
+}
+
+.a_date_input__time_list__option {
+  padding: .25rem var(--a_space_sm);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--a_date_input_day_hover_bg);
+  }
+
+  &[aria-disabled="true"] {
+    color: var(--a_date_input_day_disabled_color);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+}
+
+// the active option has the outline, the selected one the color
+.a_date_input__time_list__option_active {
+  outline: 2px solid var(--a_color_primary);
+  outline-offset: -2px;
+}
+
+.a_date_input__time_list__option_selected {
+  color: var(--a_date_input_day_selected_color);
+  background-color: var(--a_date_input_day_selected_bg);
+}
+
 .a_date_input__footer {
   display: flex;
   flex-wrap: wrap;
@@ -252,7 +323,7 @@
 // ---------------------------------------------------------------------------
 // Component tokens
 // ---------------------------------------------------------------------------
-:where(.a_date_input, .a_date_input__dialog) {
+:where(.a_date_input, .a_date_input__dialog, .a_date_input__time_list) {
   --a_date_input_gap: var(--a_space_sm); // Space between the fields (date, time, from, to).
   --a_date_input_date_width: 11rem; // Width of a date field.
   --a_date_input_time_width: 7rem; // Width of a time field.
@@ -272,4 +343,5 @@
   --a_date_input_other_month_color: var(--a_color_text_muted); // Text color of the days of the months before and after.
   --a_date_input_day_preview_bg: var(--a_color_primary_bg_subtle); // Background of the days of the period under the mouse (range).
   --a_date_input_day_preview_border_color: var(--a_color_primary_border_subtle); // Border of these days.
+  --a_date_input_time_list_max_height: 15rem; // Maximum height of the list of times.
 }

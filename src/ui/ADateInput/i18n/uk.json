@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "Час не може бути пізніше {{ time }}",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "Період має бути не коротшим за {{ days }} дн.",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "Період має бути не довшим за {{ days }} дн.",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Введіть коректний тиждень, наприклад {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Введіть коректний тиждень, наприклад {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Початок: {{ date }}. Виберіть дату завершення.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Період: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Вибрати час",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "Цей час не можна вибрати",
+  "_A_DATE_INPUT_QUARTER_": "Квартал",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "Q",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Введіть коректний квартал, наприклад {{ example }}"
 }

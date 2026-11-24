@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "Vrijeme ne smije biti nakon {{ time }}",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "Razdoblje mora trajati najmanje {{ days }} dana",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "Razdoblje smije trajati najviše {{ days }} dana",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Unesite valjani tjedan, npr. {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Unesite valjani tjedan, npr. {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Početak: {{ date }}. Odaberite datum završetka.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Razdoblje: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Odaberi vrijeme",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "Ovo se vrijeme ne može odabrati",
+  "_A_DATE_INPUT_QUARTER_": "Tromjesečje",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "Q",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Unesite valjano tromjesečje, npr. {{ example }}"
 }

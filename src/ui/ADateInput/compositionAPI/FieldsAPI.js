@@ -15,16 +15,19 @@ import {
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 import {
+  autoFormatText,
   compareByUnit,
   daysBetween,
   fromIsoAny,
   fromIsoTime,
   parseDateText,
   parseMonthText,
+  parseQuarterText,
   parseTimeText,
   parseWeekText,
   parseYearText,
   todayParts,
+  toIsoDate,
   toIsoTime,
   toIsoUnit,
 } from "../utils/dateUtils";
@@ -38,6 +41,7 @@ import {
 const ERRORS_INVALID = {
   day: "_A_DATE_INPUT_ERROR_DATE_",
   month: "_A_DATE_INPUT_ERROR_MONTH_",
+  quarter: "_A_DATE_INPUT_ERROR_QUARTER_",
   week: "_A_DATE_INPUT_ERROR_WEEK_",
   year: "_A_DATE_INPUT_ERROR_YEAR_",
 };
@@ -56,9 +60,11 @@ export default function FieldsAPI(props, {
   isErrors = computed(() => false),
   unit = computed(() => "day"),
 }) {
+  const autoFormat = toRef(props, "autoFormat");
   const defaultTime = toRef(props, "defaultTime");
   const errors = toRef(props, "errors");
   const isDateDisabled = toRef(props, "isDateDisabled");
+  const isTimeDisabled = toRef(props, "isTimeDisabled");
   const max = toRef(props, "max");
   const maxDays = toRef(props, "maxDays");
   const maxTime = toRef(props, "maxTime");
@@ -152,7 +158,20 @@ export default function FieldsAPI(props, {
     }
   });
 
-  const checkTime = time => {
+  // the date of the same start or end for isTimeDisabled, without checks
+  const getDateIsoForTime = index => {
+    if (!hasDate.value) {
+      return null;
+    }
+    const DATE = parseDateText(texts.value[`date${ index }`] || "", dateOrder.value.order);
+    return DATE ? toIsoDate(DATE) : null;
+  };
+
+  const isTimeDisabledLocal = (timeIso, index) => {
+    return isFunction(isTimeDisabled.value) && !!isTimeDisabled.value(timeIso, getDateIsoForTime(index));
+  };
+
+  const checkTime = (time, index) => {
     if (!time) {
       return { error: { placeholder: "_A_DATE_INPUT_ERROR_TIME_" } };
     }
@@ -170,7 +189,32 @@ export default function FieldsAPI(props, {
     if (maxTimeIso.value && ISO > maxTimeIso.value) {
       return { error: { placeholder: "_A_DATE_INPUT_ERROR_MAX_TIME_", extra: { time: formatTime(fromIsoTime(maxTimeIso.value)) } } };
     }
+    if (isTimeDisabledLocal(toIsoTime(time, withSeconds.value), index)) {
+      return { error: { placeholder: "_A_DATE_INPUT_ERROR_TIME_DISABLED_" } };
+    }
     return { value: time };
+  };
+
+  // the list of times: every minute-step minutes (else 30) between min-time and max-time
+  const getTimeOptions = index => {
+    const STEP = minuteStep.value > 1 ? minuteStep.value : 30;
+    const toMinutes = iso => {
+      const TIME = fromIsoTime(iso);
+      return TIME.hours * 60 + TIME.minutes;
+    };
+    const FROM = minTimeIso.value ? toMinutes(minTimeIso.value) : 0;
+    const TO = maxTimeIso.value ? toMinutes(maxTimeIso.value) : 24 * 60 - 1;
+    const OPTIONS = [];
+    for (let minutes = Math.ceil(FROM / STEP) * STEP; minutes <= TO; minutes += STEP) {
+      const TIME = { hours: Math.floor(minutes / 60), minutes: minutes % 60, seconds: 0 };
+      const VALUE = toIsoTime(TIME, withSeconds.value);
+      OPTIONS.push({
+        value: VALUE,
+        text: formatTime(TIME),
+        disabled: isTimeDisabledLocal(VALUE, index),
+      });
+    }
+    return OPTIONS;
   };
 
   const parseField = field => {
@@ -179,11 +223,12 @@ export default function FieldsAPI(props, {
       return { value: null };
     }
     if (field.kind === "time") {
-      return checkTime(parseTimeText(TEXT));
+      return checkTime(parseTimeText(TEXT), field.index);
     }
     const PARSERS = {
       day: () => parseDateText(TEXT, dateOrder.value.order),
       month: () => parseMonthText(TEXT, getOrderOfUnit(dateOrder.value.order, "month")),
+      quarter: () => parseQuarterText(TEXT),
       week: () => parseWeekText(TEXT),
       year: () => parseYearText(TEXT),
     };
@@ -305,8 +350,29 @@ export default function FieldsAPI(props, {
     commit();
   };
 
+  // auto-format: the digits of the parts and the separator of a field
+  const getAutoFormatParts = field => {
+    if (field.kind === "time") {
+      return [withSeconds.value ? [2, 2, 2] : [2, 2], ":"];
+    }
+    if (unit.value !== "day" && unit.value !== "month") {
+      return [[], ""];
+    }
+    const ORDER = getOrderOfUnit(dateOrder.value.order, unit.value);
+    return [ORDER.map(part => (part === "year" ? 4 : 2)), dateOrder.value.separator];
+  };
+
   const onInput = (field, $event) => {
-    texts.value[field.key] = $event.target.value;
+    let value = $event.target.value;
+    // only when the user types at the end, so deleting and editing in the middle stay as they are
+    if (autoFormat.value && $event.inputType === "insertText" && $event.target.selectionStart === value.length) {
+      const FORMATTED = autoFormatText(value, ...getAutoFormatParts(field));
+      if (FORMATTED !== value) {
+        $event.target.value = FORMATTED;
+        value = FORMATTED;
+      }
+    }
+    texts.value[field.key] = value;
   };
 
   const onKeydown = $event => {
@@ -343,6 +409,7 @@ export default function FieldsAPI(props, {
     fields,
     getAriaInvalid,
     getDateOfIndex,
+    getTimeOptions,
     hasDate,
     hasTime,
     isErrorsAll,

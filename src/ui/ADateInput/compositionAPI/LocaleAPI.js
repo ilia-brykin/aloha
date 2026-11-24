@@ -10,6 +10,7 @@ import {
 
 import {
   isoWeek,
+  quarterOf,
 } from "../utils/dateUtils";
 
 const BIDI_MARKS = /[‎‏؜]/g;
@@ -60,7 +61,18 @@ export function formatTimeParts(time, withSeconds = false) {
 }
 
 export function getUnit(mode) {
-  return ["month", "week", "year"].includes(mode) ? mode : "day";
+  return ["month", "quarter", "week", "year"].includes(mode) ? mode : "day";
+}
+
+// 0 = Sunday, 1 = Monday from the language (Intl.Locale weekInfo), else Monday
+export function getFirstDayOfWeek(locale) {
+  try {
+    const LOCALE = new Intl.Locale(locale || "de");
+    const INFO = LOCALE.getWeekInfo ? LOCALE.getWeekInfo() : LOCALE.weekInfo;
+    return INFO?.firstDay ? INFO.firstDay % 7 : 1;
+  } catch {
+    return 1;
+  }
 }
 
 export default function LocaleAPI(props) {
@@ -75,12 +87,17 @@ export default function LocaleAPI(props) {
   const dateOrder = computed(() => getDateOrder(localeLocal.value));
 
   const unit = computed(() => getUnit(mode.value));
+  const firstDayOfWeekLocale = computed(() => getFirstDayOfWeek(localeLocal.value));
 
   // "KW 10/2025" for a week
   const formatDate = (date, unitLocal = unit.value) => {
     if (date && unitLocal === "week") {
       const WEEK = isoWeek(date);
       return `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_WEEK_SHORT_" }) } ${ `${ WEEK.week }`.padStart(2, "0") }/${ WEEK.year }`;
+    }
+    // "Q1/2025"
+    if (date && unitLocal === "quarter") {
+      return `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_QUARTER_SHORT_" }) }${ quarterOf(date) }/${ date.year }`;
     }
     return formatDateParts(date, dateOrder.value, unitLocal);
   };
@@ -94,6 +111,9 @@ export default function LocaleAPI(props) {
     };
     if (unit.value === "week") {
       return `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_WEEK_SHORT_" }) } ${ getTranslatedText({ placeholder: "_A_DATE_INPUT_WEEK_LETTERS_" }) }/${ LETTERS.year }`;
+    }
+    if (unit.value === "quarter") {
+      return `${ getTranslatedText({ placeholder: "_A_DATE_INPUT_QUARTER_SHORT_" }) }1–4/${ LETTERS.year }`;
     }
     return getOrderOfUnit(dateOrder.value.order, unit.value).map(part => LETTERS[part]).join(dateOrder.value.separator);
   });
@@ -136,6 +156,7 @@ export default function LocaleAPI(props) {
   return {
     dateFormatHint,
     dateOrder,
+    firstDayOfWeekLocale,
     formatDate,
     formatDateLong,
     formatMonthName,

@@ -1,6 +1,9 @@
 import {
   computed,
   h,
+  onMounted,
+  ref,
+  Teleport,
 } from "vue";
 import {
   AErrorsText,
@@ -16,18 +19,29 @@ import {
 } from "../../index";
 
 import ADateInputDialog from "./ADateInputDialog/ADateInputDialog";
+import ADateInputTimeList from "./ADateInputTimeList/ADateInputTimeList";
 
 import DialogAPI from "./compositionAPI/DialogAPI";
 import FieldsAPI from "./compositionAPI/FieldsAPI";
 import LocaleAPI from "./compositionAPI/LocaleAPI";
+import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
+import TimeListAPI from "./compositionAPI/TimeListAPI";
 import {
   getTranslatedText,
 } from "../../ATranslation/compositionAPI/UtilsAPI";
 
 import Calendar from "../../AIcon/Icons/Calendar";
+import ChevronDown from "../../AIcon/Icons/ChevronDown";
 import Close from "../../AIcon/Icons/Close";
 import {
+  compareByUnit,
+} from "./utils/dateUtils";
+import {
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
+import {
   isFunction,
+  isNil,
   uniqueId,
 } from "lodash-es";
 
@@ -36,6 +50,11 @@ export default {
   inheritAttrs: false,
   props: {
     alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
+    // adds the separators while typing at the end: "05" → "05.", "14" → "14:"
+    autoFormat: {
       type: Boolean,
       required: false,
     },
@@ -84,11 +103,11 @@ export default {
       required: false,
       default: undefined,
     },
-    // 0 = Sunday, 1 = Monday
+    // 0 = Sunday, 1 = Monday; by default from the language (en-US Sunday, de Monday)
     firstDayOfWeek: {
       type: Number,
       required: false,
-      default: 1,
+      default: undefined,
     },
     helpText: {
       type: String,
@@ -120,8 +139,28 @@ export default {
       required: false,
       default: undefined,
     },
-    // (isoDate: "YYYY-MM-DD") => true for days that cannot be chosen
+
+    /*
+     * (isoDate: "YYYY-MM-DD") => true for days that cannot be chosen
+     * the calendar and the list of times in a container in body, placed with floating-ui (not cut by overflow: hidden)
+     */
+    inBody: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("ADateInput", "inBody", true),
+    },
+    // the calendar is always visible under the fields
+    inline: {
+      type: Boolean,
+      required: false,
+    },
     isDateDisabled: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
+    // (time: "HH:mm", date: "YYYY-MM-DD" or null) => true for times that cannot be chosen
+    isTimeDisabled: {
       type: Function,
       required: false,
       default: undefined,
@@ -222,7 +261,7 @@ export default {
       type: String,
       required: false,
       default: "date",
-      validator: value => ["date", "datetime", "month", "time", "week", "year"].includes(value),
+      validator: value => ["date", "datetime", "month", "quarter", "time", "week", "year"].includes(value),
     },
     modelDependencies: {
       type: Object,
@@ -257,6 +296,11 @@ export default {
       required: false,
       default: undefined,
     },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: () => getPropDefault("ADateInput", "popperContainerId", "a_date_input_container"),
+    },
     range: {
       type: Boolean,
       required: false,
@@ -285,6 +329,11 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    // a button next to a time field with a list of times (every minute-step minutes, else 30)
+    showTimeList: {
+      type: Boolean,
+      required: false,
     },
     showToday: {
       type: Boolean,
@@ -341,11 +390,30 @@ export default {
     const {
       dateFormatHint,
       dateOrder,
+      firstDayOfWeekLocale,
       formatDate,
       formatDateLong,
       formatMonthTitle,
       unit,
     } = LocaleAPI(props);
+
+    const {
+      addPopperContainerInBody,
+      popperContainerIdSelector,
+    } = PopperContainerAPI(props);
+
+    onMounted(() => {
+      // a_popup_container: not inert behind an open AModal
+      addPopperContainerInBody({ className: "a_popup_container" });
+    });
+
+    // ISO weeks start on Monday
+    const firstDayOfWeekLocal = computed(() => {
+      if (props.mode === "week") {
+        return 1;
+      }
+      return isNil(props.firstDayOfWeek) ? firstDayOfWeekLocale.value : props.firstDayOfWeek;
+    });
 
     const {
       applyModel,
@@ -355,6 +423,7 @@ export default {
       fields,
       getAriaInvalid,
       getDateOfIndex,
+      getTimeOptions,
       hasDate,
       hasTime,
       isErrorsAll,
@@ -383,8 +452,28 @@ export default {
     } = DialogAPI(context, {
       commit,
       formatDate,
+      htmlIdLocal,
       texts,
     });
+
+    const {
+      closeTimeList,
+      openTimeKey,
+      selectTime,
+      timeButtonRefs,
+      toggleTimeList,
+    } = TimeListAPI({
+      commit,
+      htmlIdLocal,
+      texts,
+    });
+
+    // the boxes of the fields: the reference of the popups with in-body
+    const controlRefs = {};
+
+    // inline range: 0 the next click is the start, 1 the end; the live region says what was chosen
+    const inlineIndex = ref(0);
+    const announcement = ref("");
 
     // the selected value for the calendar button: "Wednesday, 5 March 2025", "March 2025" or "2025"
     const formatSelected = date => {
@@ -395,6 +484,35 @@ export default {
         return formatDate(date);
       }
       return unit.value === "month" ? formatMonthTitle(date) : formatDateLong(date);
+    };
+
+    const selectInline = date => {
+      if (!props.range) {
+        selectDate(0, date);
+        return;
+      }
+      const START = getDateOfIndex(0);
+      const END = getDateOfIndex(1);
+      if (inlineIndex.value === 1 && START && compareByUnit(date, START, unit.value) >= 0) {
+        texts.value.date1 = formatDate(date);
+        inlineIndex.value = 0;
+        announcement.value = getTranslatedText({
+          placeholder: "_A_DATE_INPUT_RANGE_ANNOUNCE_",
+          extra: { start: formatSelected(START), end: formatSelected(date) },
+        });
+      } else {
+        // a new start; an end before it is removed
+        texts.value.date0 = formatDate(date);
+        if (END && compareByUnit(END, date, unit.value) < 0) {
+          texts.value.date1 = "";
+        }
+        inlineIndex.value = 1;
+        announcement.value = getTranslatedText({
+          placeholder: "_A_DATE_INPUT_RANGE_START_ANNOUNCE_",
+          extra: { date: formatSelected(date) },
+        });
+      }
+      commit();
     };
 
     const selectShortcut = shortcut => {
@@ -438,7 +556,7 @@ export default {
       ].filter(Boolean).join(" ");
     });
 
-    const hasCalendar = computed(() => hasDate.value && !props.disabled && !props.readonly);
+    const hasCalendar = computed(() => hasDate.value && !props.disabled && !props.readonly && !props.inline);
 
     const open = (index = 0) => {
       if (hasCalendar.value) {
@@ -466,6 +584,18 @@ export default {
     });
 
     return {
+      announcement,
+      closeTimeList,
+      controlRefs,
+      firstDayOfWeekLocal,
+      getTimeOptions,
+      inlineIndex,
+      openTimeKey,
+      popperContainerIdSelector,
+      selectInline,
+      selectTime,
+      timeButtonRefs,
+      toggleTimeList,
       ariaDescribedbyInput,
       isGroup,
       isLabelFloatEffective,
@@ -571,30 +701,120 @@ export default {
       ]);
     };
 
+    const CALENDAR_SLOTS = {};
+    if (this.$slots.day) {
+      CALENDAR_SLOTS.day = this.$slots.day;
+    }
+    if (this.$slots.footer) {
+      CALENDAR_SLOTS.footer = this.$slots.footer;
+    }
+
+    const getCalendarProps = index => ({
+      firstDayOfWeek: this.firstDayOfWeekLocal,
+      isDateDisabled: this.isDateDisabled,
+      locale: this.locale,
+      max: this.maxDate,
+      min: this.minDate,
+      months: this.months,
+      ownerId: this.htmlIdLocal,
+      rangeEnd: this.range ? this.getDateOfIndex(1) : undefined,
+      rangeIndex: this.range ? index : undefined,
+      rangeStart: this.range ? this.getDateOfIndex(0) : undefined,
+      shortcuts: this.shortcuts,
+      showToday: this.showToday,
+      showWeekNumbers: this.showWeekNumbers || this.mode === "week",
+      unit: this.unit,
+      onShortcut: this.selectShortcut,
+    });
+
+    // in-body: the popup is in the container in body, else in the field
+    const teleport = content => h(Teleport, {
+      to: this.popperContainerIdSelector,
+      disabled: !this.inBody,
+    }, [content]);
+
     const renderDialog = field => {
       const { SELECTED, BUTTON_LABEL, DIALOG_ID, IS_OPEN } = getCalendar(field);
-      return IS_OPEN && h(ADateInputDialog, {
+      return IS_OPEN && teleport(h(ADateInputDialog, {
+        ...getCalendarProps(field.index),
         id: DIALOG_ID,
         label: BUTTON_LABEL,
-        // ISO weeks start on Monday
-        firstDayOfWeek: this.mode === "week" ? 1 : this.firstDayOfWeek,
-        isDateDisabled: this.isDateDisabled,
-        locale: this.locale,
-        max: this.maxDate,
-        min: this.minDate,
-        rangeEnd: this.range ? this.getDateOfIndex(1) : undefined,
-        rangeStart: this.range ? this.getDateOfIndex(0) : undefined,
-        months: this.months,
-        rangeIndex: this.range ? field.index : undefined,
+        inBody: this.inBody,
+        getReference: () => this.controlRefs[field.key],
         selected: SELECTED,
-        shortcuts: this.shortcuts,
-        showToday: this.showToday,
-        showWeekNumbers: this.showWeekNumbers || this.mode === "week",
-        unit: this.unit,
         onSelect: date => this.selectDate(field.index, date),
-        onShortcut: this.selectShortcut,
         onClose: () => this.closeDialog(),
-      }, this.$slots.day ? { day: this.$slots.day } : undefined);
+      }, CALENDAR_SLOTS));
+    };
+
+    const renderInlineCalendar = () => {
+      if (!this.inline || !this.fields.some(field => field.kind === "date") || this.disabled) {
+        return null;
+      }
+      const INDEX = this.range ? this.inlineIndex : 0;
+      return h("div", {
+        class: "a_date_input__inline",
+      }, [
+        h(ADateInputDialog, {
+          ...getCalendarProps(INDEX),
+          id: `${ this.htmlIdLocal }_calendar`,
+          label: getTranslatedText({ placeholder: "_A_DATE_INPUT_CHOOSE_DATE_" }),
+          inline: true,
+          selected: this.getDateOfIndex(INDEX),
+          onSelect: this.selectInline,
+        }, CALENDAR_SLOTS),
+        h("span", {
+          class: "a_sr_only",
+          role: "status",
+        }, this.announcement),
+      ]);
+    };
+
+    const renderTimeButton = field => {
+      if (!this.showTimeList || field.kind !== "time") {
+        return null;
+      }
+      const LIST_ID = `${ field.id }_times`;
+      const IS_OPEN = this.openTimeKey === field.key;
+      const LABEL = (field.subLabel ? `${ getTranslatedText({ placeholder: field.subLabel }) }: ` : "") +
+        getTranslatedText({ placeholder: "_A_DATE_INPUT_TIME_LIST_" });
+      return h("button", {
+        ref: element => {
+          this.timeButtonRefs[field.key] = element;
+        },
+        type: "button",
+        class: "a_date_input__toggle",
+        disabled: this.disabledAttribut,
+        "aria-label": LABEL,
+        title: LABEL,
+        "aria-haspopup": "listbox",
+        "aria-expanded": IS_OPEN ? "true" : "false",
+        "aria-controls": IS_OPEN ? LIST_ID : undefined,
+        onClick: () => this.toggleTimeList(field),
+      }, [
+        h(AIcon, {
+          icon: ChevronDown,
+          class: "a_date_input__toggle__icon",
+        }),
+      ]);
+    };
+
+    const renderTimeList = field => {
+      if (this.openTimeKey !== field.key) {
+        return null;
+      }
+      return teleport(h(ADateInputTimeList, {
+        id: `${ field.id }_times`,
+        label: (field.subLabel ? `${ getTranslatedText({ placeholder: field.subLabel }) }: ` : "") +
+          getTranslatedText({ placeholder: "_A_DATE_INPUT_TIME_LIST_" }),
+        options: this.getTimeOptions(field.index),
+        selected: this.texts[field.key],
+        inBody: this.inBody,
+        getReference: () => this.controlRefs[field.key],
+        ownerId: this.htmlIdLocal,
+        onSelect: option => this.selectTime(field, option),
+        onClose: ({ focusButton } = {}) => this.closeTimeList({ focusButton }),
+      }));
     };
 
     const renderClear = field => {
@@ -671,6 +891,9 @@ export default {
             class: "a_date_input__sub_label",
           }, getTranslatedText({ placeholder: field.subLabel })),
           h("div", {
+            ref: element => {
+              this.controlRefs[field.key] = element;
+            },
             class: ["a_form_control a_date_input__control", {
               a_form_control_invalid: !!this.getAriaInvalid(field),
               disabled: this.disabled,
@@ -694,10 +917,13 @@ export default {
               onKeydown: this.onKeydown,
             }),
             renderClear(field),
-            field.kind === "date" && renderToggle(field),
+            field.kind === "date" && !this.inline && renderToggle(field),
+            renderTimeButton(field),
           ]),
           field.kind === "date" && renderDialog(field),
+          renderTimeList(field),
         ]))),
+        renderInlineCalendar(),
         IS_FLOAT && FORMAT_HINT,
         h(AFormHelpText, {
           id: this.helpTextId,

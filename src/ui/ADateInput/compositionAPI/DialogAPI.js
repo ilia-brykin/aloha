@@ -1,4 +1,5 @@
 import {
+  computed,
   onBeforeUnmount,
   ref,
   watch,
@@ -7,6 +8,7 @@ import {
 export default function DialogAPI({ emit }, {
   commit = () => {},
   formatDate = () => "",
+  htmlIdLocal = computed(() => ""),
   texts = ref({}),
 }) {
   const openIndex = ref(null);
@@ -50,7 +52,9 @@ export default function DialogAPI({ emit }, {
 
   // a click outside closes the dialog; the focus stays where the user clicked
   const onDocumentPointerdown = $event => {
-    if (openIndex.value !== null && !fieldRefs[openIndex.value]?.contains($event.target)) {
+    // in-body: the calendar is not in the field, it has the id of the component in data-owner
+    const IS_IN_CALENDAR = !!$event.target.closest?.(`.a_date_input__dialog[data-owner="${ htmlIdLocal.value }"]`);
+    if (openIndex.value !== null && !IS_IN_CALENDAR && !fieldRefs[openIndex.value]?.contains($event.target)) {
       closeDialog({ focusButton: false });
     }
   };

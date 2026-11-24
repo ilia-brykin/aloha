@@ -572,4 +572,148 @@ describe("ADateInput", () => {
     expect(RANGE.get(".a_form_element__parent").classes()).not.toContain("a_form_element__parent_float");
     expect(inputs(RANGE)[0].attributes("aria-describedby").split(" ")).toContain("range_label_description");
   });
+  it("auto-format adds the separators while typing at the end", async() => {
+    const wrapper = mountInput({ autoFormat: true, mode: "datetime" });
+    const [DATE, TIME] = inputs(wrapper);
+    // the handler of input is synchronous, it changes the value at once
+    const typeChars = async(input, text) => {
+      for (const CHAR of text) {
+        input.element.value += CHAR;
+        input.element.dispatchEvent(new InputEvent("input", { inputType: "insertText", data: CHAR, bubbles: true }));
+      }
+      await nextTick();
+    };
+    await typeChars(DATE, "05032025");
+    expect(DATE.element.value).toBe("05.03.2025");
+    await typeChars(TIME, "1430");
+    expect(TIME.element.value).toBe("14:30");
+    // a separator typed after an added one is not doubled
+    DATE.element.value = "";
+    await typeChars(DATE, "05.");
+    expect(DATE.element.value).toBe("05.");
+  });
+
+  it("show-time-list: a listbox of times with minute-step, min-time, max-time and is-time-disabled", async() => {
+    const wrapper = mountInput({
+      mode: "time",
+      showTimeList: true,
+      minuteStep: 15,
+      minTime: "08:00",
+      maxTime: "10:00",
+      isTimeDisabled: time => time === "08:30",
+      modelValue: "08:15",
+    });
+    const BUTTON = wrapper.get(".a_date_input__toggle");
+    expect(BUTTON.attributes("aria-haspopup")).toBe("listbox");
+    expect(BUTTON.attributes("aria-label")).toBe("Choose time");
+    await BUTTON.trigger("click");
+    await nextTick();
+    const LIST = document.querySelector("[role=\"listbox\"]");
+    expect(document.activeElement).toBe(LIST);
+    const OPTIONS = Array.from(LIST.querySelectorAll("[role=\"option\"]"));
+    expect(OPTIONS.map(option => option.textContent)).toEqual(["08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00"]);
+    expect(OPTIONS[2].getAttribute("aria-disabled")).toBe("true");
+    expect(document.getElementById(LIST.getAttribute("aria-activedescendant")).textContent).toBe("08:15");
+    // the disabled 08:30 is skipped
+    await key(LIST, "ArrowDown");
+    expect(document.getElementById(LIST.getAttribute("aria-activedescendant")).textContent).toBe("08:45");
+    await key(LIST, "Enter");
+    expect(lastModel(wrapper)).toBe("08:45");
+    expect(document.querySelector("[role=\"listbox\"]")).toBeNull();
+    expect(document.activeElement).toBe(BUTTON.element);
+
+    await BUTTON.trigger("click");
+    await nextTick();
+    const onKeydown = vi.fn();
+    document.addEventListener("keydown", onKeydown);
+    await key(document.activeElement, "Escape");
+    expect(document.querySelector("[role=\"listbox\"]")).toBeNull();
+    expect(onKeydown).not.toHaveBeenCalled();
+    document.removeEventListener("keydown", onKeydown);
+
+    await type(inputs(wrapper)[0], "8:30");
+    expect(wrapper.text()).toContain("This time cannot be chosen");
+  });
+
+  it("inline: the calendar is a group in the page, a range is chosen with two clicks", async() => {
+    const wrapper = mountInput({ inline: true, range: true });
+    expect(wrapper.find(".a_date_input__toggle").exists()).toBe(false);
+    const CALENDAR = wrapper.get(".a_date_input__dialog");
+    expect(CALENDAR.attributes("role")).toBe("group");
+    expect(CALENDAR.attributes("aria-modal")).toBeUndefined();
+    expect(CALENDAR.find(".a_btn_outline_primary").exists()).toBe(false);
+    // the focus is not moved into the calendar
+    expect(CALENDAR.element.contains(document.activeElement)).toBe(false);
+
+    await CALENDAR.get("[data-date=\"2025-03-10\"]").trigger("click");
+    expect(wrapper.get("[role=\"status\"]").text()).toBe("Start: Montag, 10. März 2025. Choose the end date.");
+    expect(lastModel(wrapper)).toEqual(["2025-03-10", null]);
+    await wrapper.get("[data-date=\"2025-03-14\"]").trigger("click");
+    expect(lastModel(wrapper)).toEqual(["2025-03-10", "2025-03-14"]);
+    expect(wrapper.get("[role=\"status\"]").text()).toBe("Period: Montag, 10. März 2025 – Freitag, 14. März 2025");
+    expect(wrapper.findAll(".a_date_input__day_in_range")).toHaveLength(5);
+  });
+
+  it("the first day of the week comes from the language, the prop wins", async() => {
+    const firstWeekday = async props => {
+      const wrapper = mountInput({ id: `first_${ wrappers.length }`, inline: true, ...props });
+      await nextTick();
+      return wrapper.get("thead th").attributes("abbr");
+    };
+    expect(await firstWeekday({ locale: "de" })).toBe("Montag");
+    expect(await firstWeekday({ locale: "en-US" })).toBe("Sunday");
+    expect(await firstWeekday({ locale: "en-US", firstDayOfWeek: 1 })).toBe("Monday");
+  });
+
+  it("mode quarter: ISO quarter as model and a calendar of quarters", async() => {
+    const wrapper = mountInput({ mode: "quarter" });
+    expect(wrapper.get(".a_date_input__format").text()).toBe("Format: Q1–4/YYYY");
+    await type(inputs(wrapper)[0], "Q2/25");
+    expect(lastModel(wrapper)).toBe("2025-Q2");
+    expect(inputs(wrapper)[0].element.value).toBe("Q2/2025");
+
+    await wrapper.get(".a_date_input__toggle").trigger("click");
+    await nextTick();
+    expect(dialog().querySelectorAll("td")).toHaveLength(4);
+    expect(document.activeElement.dataset.date).toBe("2025-Q2");
+    expect(document.activeElement.textContent).toContain("Quarter 2 2025: April – Juni");
+    await key(document.activeElement, "ArrowDown");
+    expect(document.activeElement.dataset.date).toBe("2025-Q4");
+    await key(document.activeElement, "Enter");
+    expect(lastModel(wrapper)).toBe("2025-Q4");
+  });
+
+  it("slot footer in the calendar with the function close", async() => {
+    const wrapper = mount(ADateInput, {
+      props: { id: "footer", label: "Day", locale: "de", modelValue: null },
+      slots: {
+        footer: ({ close }) => h("button", { class: "own", type: "button", onClick: close }, "Own"),
+      },
+      attachTo: document.body,
+    });
+    wrappers.push(wrapper);
+    await wrapper.get(".a_date_input__toggle").trigger("click");
+    await nextTick();
+    dialog().querySelector(".own").click();
+    await nextTick();
+    expect(dialog()).toBeNull();
+  });
+
+  it("in-body: the calendar is in the container in body, a click in it does not close it", async() => {
+    const wrapper = mountInput();
+    await wrapper.get(".a_date_input__toggle").trigger("click");
+    await nextTick();
+    const CONTAINER = document.getElementById("a_date_input_container");
+    expect(CONTAINER.classList.contains("a_popup_container")).toBe(true);
+    expect(CONTAINER.contains(dialog())).toBe(true);
+    expect(wrapper.element.contains(dialog())).toBe(false);
+    dialog().querySelector("h2").dispatchEvent(new Event("pointerdown", { bubbles: true }));
+    await nextTick();
+    expect(dialog()).not.toBeNull();
+
+    const IN_FIELD = mountInput({ id: "in_field", inBody: false });
+    await IN_FIELD.get(".a_date_input__toggle").trigger("click");
+    await nextTick();
+    expect(IN_FIELD.element.contains(document.querySelector("#in_field_dialog"))).toBe(true);
+  });
 });

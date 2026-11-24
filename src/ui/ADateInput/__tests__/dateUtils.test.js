@@ -7,6 +7,7 @@ import {
 import {
   addDays,
   addMonths,
+  autoFormatText,
   clampDate,
   compareByUnit,
   daysBetween,
@@ -21,6 +22,7 @@ import {
   parseDateText,
   parseDateTimeText,
   parseMonthText,
+  parseQuarterText,
   parseTimeText,
   parseWeekText,
   parseYearText,
@@ -202,5 +204,31 @@ describe("dateUtils seconds, weeks and days", () => {
   it("counts days", () => {
     expect(daysBetween(d(2025, 3, 1), d(2025, 3, 3))).toBe(2);
     expect(daysBetween(d(2025, 3, 30), d(2025, 3, 31))).toBe(1);
+  });
+});
+
+describe("dateUtils quarters and typing", () => {
+  it("parses, writes and compares quarters", () => {
+    expect(parseQuarterText("2025-Q1", NOW)).toEqual(d(2025, 1, 1));
+    expect(parseQuarterText("Q2/2025", NOW)).toEqual(d(2025, 4, 1));
+    expect(parseQuarterText("Q3 25", NOW)).toEqual(d(2025, 7, 1));
+    expect(parseQuarterText("4.25", NOW)).toEqual(d(2025, 10, 1));
+    expect(parseQuarterText("Q1", NOW)).toEqual(d(2025, 1, 1));
+    expect(parseQuarterText("Q5/2025", NOW)).toBeNull();
+    expect(toIsoUnit(d(2025, 5, 20), "quarter")).toBe("2025-Q2");
+    expect(fromIsoAny("2025-Q3")).toEqual(d(2025, 7, 1));
+    expect(compareByUnit(d(2025, 4, 1), d(2025, 6, 30), "quarter")).toBe(0);
+    expect(compareByUnit(d(2025, 3, 31), d(2025, 4, 1), "quarter")).toBeLessThan(0);
+  });
+
+  it("adds separators while typing", () => {
+    expect(autoFormatText("05", [2, 2, 4], ".")).toBe("05.");
+    expect(autoFormatText("05.03", [2, 2, 4], ".")).toBe("05.03.");
+    expect(autoFormatText("05.03.2025", [2, 2, 4], ".")).toBe("05.03.2025");
+    expect(autoFormatText("05..", [2, 2, 4], ".")).toBe("05.");
+    expect(autoFormatText("5", [2, 2, 4], ".")).toBe("5");
+    expect(autoFormatText("2025", [4, 2, 2], "-")).toBe("2025-");
+    expect(autoFormatText("14", [2, 2], ":")).toBe("14:");
+    expect(autoFormatText("14:30", [2, 2], ":")).toBe("14:30");
   });
 });

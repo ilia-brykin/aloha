@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "La hora no puede ser posterior a las {{ time }}",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "El periodo debe durar al menos {{ days }} días",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "El periodo debe durar como máximo {{ days }} días",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Introduzca una semana válida, p. ej. {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Introduzca una semana válida, p. ej. {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Inicio: {{ date }}. Elija la fecha de fin.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Periodo: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Elegir hora",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "Esta hora no se puede elegir",
+  "_A_DATE_INPUT_QUARTER_": "Trimestre",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "T",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Introduzca un trimestre válido, p. ej. {{ example }}"
 }

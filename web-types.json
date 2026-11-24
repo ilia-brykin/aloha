@@ -1730,6 +1730,10 @@
               "type": "boolean"
             },
             {
+              "name": "autoFormat",
+              "type": "boolean"
+            },
+            {
               "name": "change",
               "type": "((...args: any[]) => any)"
             },
@@ -1768,8 +1772,7 @@
             },
             {
               "name": "firstDayOfWeek",
-              "type": "number",
-              "default": "1"
+              "type": "number"
             },
             {
               "name": "helpText",
@@ -1798,7 +1801,20 @@
               "type": "string | Record<string, any>"
             },
             {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inline",
+              "type": "boolean"
+            },
+            {
               "name": "isDateDisabled",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "isTimeDisabled",
               "type": "((...args: any[]) => any)"
             },
             {
@@ -1901,6 +1917,11 @@
               "type": "string"
             },
             {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_date_input_container\""
+            },
+            {
               "name": "range",
               "type": "boolean"
             },
@@ -1926,6 +1947,10 @@
               "name": "shortcuts",
               "type": "any[]",
               "default": "[]"
+            },
+            {
+              "name": "showTimeList",
+              "type": "boolean"
             },
             {
               "name": "showToday",

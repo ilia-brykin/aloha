@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "De tijd mag niet na {{ time }} liggen",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "De periode moet minstens {{ days }} dagen zijn",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "De periode mag hoogstens {{ days }} dagen zijn",
-  "_A_DATE_INPUT_ERROR_WEEK_": "Voer een geldige week in, bijv. {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "Voer een geldige week in, bijv. {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "Begin: {{ date }}. Kies de einddatum.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "Periode: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "Tijd kiezen",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "Deze tijd kan niet worden gekozen",
+  "_A_DATE_INPUT_QUARTER_": "Kwartaal",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "K",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "Voer een geldig kwartaal in, bijv. {{ example }}"
 }

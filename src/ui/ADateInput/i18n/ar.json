@@ -44,5 +44,12 @@
   "_A_DATE_INPUT_ERROR_MAX_TIME_": "يجب ألا يكون الوقت بعد {{ time }}",
   "_A_DATE_INPUT_ERROR_MIN_DAYS_": "يجب أن تكون الفترة {{ days }} أيام على الأقل",
   "_A_DATE_INPUT_ERROR_MAX_DAYS_": "يجب أن تكون الفترة {{ days }} أيام على الأكثر",
-  "_A_DATE_INPUT_ERROR_WEEK_": "أدخل أسبوعًا صالحًا، مثل {{ example }}"
+  "_A_DATE_INPUT_ERROR_WEEK_": "أدخل أسبوعًا صالحًا، مثل {{ example }}",
+  "_A_DATE_INPUT_RANGE_START_ANNOUNCE_": "البداية: {{ date }}. اختر تاريخ النهاية.",
+  "_A_DATE_INPUT_RANGE_ANNOUNCE_": "الفترة: {{ start }} – {{ end }}",
+  "_A_DATE_INPUT_TIME_LIST_": "اختر الوقت",
+  "_A_DATE_INPUT_ERROR_TIME_DISABLED_": "لا يمكن اختيار هذا الوقت",
+  "_A_DATE_INPUT_QUARTER_": "الربع",
+  "_A_DATE_INPUT_QUARTER_SHORT_": "Q",
+  "_A_DATE_INPUT_ERROR_QUARTER_": "أدخل ربعًا صالحًا، مثل {{ example }}"
 }

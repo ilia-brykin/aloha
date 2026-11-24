@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_FOOTER_HEADER_"
+  description="_A_DATE_INPUT_FOOTER_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    label="_A_DATE_INPUT_EXAMPLE_DELIVERY_"
+  )
+    template(
+      v-slot:footer
+    )
+      a-translation.a_mb_0.a_mr_auto(
+        tag="p"
+        text="_A_DATE_INPUT_EXAMPLE_FOOTER_TEXT_"
+      )
+  pre.a_mt_3 {{ model }}

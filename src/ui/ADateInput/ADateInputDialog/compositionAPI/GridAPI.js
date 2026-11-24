@@ -14,6 +14,7 @@ import {
   daysInMonth,
   endOfWeek,
   getMonthGrid,
+  quarterToDate,
   startOfWeek,
   todayParts,
   toIsoUnit,
@@ -32,6 +33,7 @@ export default function GridAPI(props, { emit }, {
   gridRef = ref(undefined),
 }) {
   const firstDayOfWeek = toRef(props, "firstDayOfWeek");
+  const inline = toRef(props, "inline");
   const isDateDisabled = toRef(props, "isDateDisabled");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
@@ -62,6 +64,13 @@ export default function GridAPI(props, { emit }, {
 
   const pageStartYear = computed(() => Math.floor(focusDate.value.year / 12) * 12);
 
+  // inline: the calendar follows a value typed in the field
+  watch(selected, date => {
+    if (inline.value && date) {
+      focusDate.value = date;
+    }
+  });
+
   // day view: one grid per shown month; with 2 months the days of other months are empty
   const monthGrids = computed(() => {
     return Array.from({ length: monthsCount.value }, (_, index) => {
@@ -77,8 +86,11 @@ export default function GridAPI(props, { emit }, {
     });
   });
 
-  // month and year views
+  // quarter, month and year views
   const rows = computed(() => {
+    if (view.value === "quarter") {
+      return chunk([1, 2, 3, 4].map(quarter => quarterToDate(focusDate.value.year, quarter)), 2);
+    }
     if (view.value === "month") {
       return chunk(Array.from({ length: 12 }, (_, index) => ({ year: focusDate.value.year, month: index + 1, day: 1 })), COLUMNS);
     }
@@ -110,7 +122,7 @@ export default function GridAPI(props, { emit }, {
 
   // the previous / next buttons; the focus stays on the button
   const changePage = direction => {
-    const MONTHS = { day: 1, month: 12, year: 144 };
+    const MONTHS = { day: 1, month: 12, quarter: 12, year: 144 };
     focusDate.value = addMonths(focusDate.value, direction * MONTHS[view.value]);
   };
 
@@ -118,7 +130,7 @@ export default function GridAPI(props, { emit }, {
     focusDate.value = addMonths(focusDate.value, direction * 12);
   };
 
-  // heading: days → months → years
+  // heading: days → months → years, quarters → years
   const showBiggerView = () => {
     view.value = view.value === "day" ? "month" : "year";
     focusCell();
@@ -135,13 +147,17 @@ export default function GridAPI(props, { emit }, {
       return;
     }
     if (cellUnit.value === unit.value) {
+      if (inline.value) {
+        // the cell keeps the focus after the click
+        focusDate.value = date;
+      }
       emitSelect(date);
       return;
     }
     // a month or a year opens the smaller view, the day of the focus is kept
     if (view.value === "year") {
       focusDate.value = withDay({ ...date, month: focusDate.value.month }, focusDate.value.day);
-      view.value = "month";
+      view.value = unit.value === "quarter" ? "quarter" : "month";
     } else {
       focusDate.value = withDay(date, focusDate.value.day);
       view.value = "day";
@@ -194,18 +210,21 @@ export default function GridAPI(props, { emit }, {
         PageDown: () => addMonths(DATE, $event.shiftKey ? 12 : 1),
       };
     }
-    // a month is 1 step in the month view, 12 in the year view
-    const STEP = view.value === "month" ? 1 : 12;
-    const FIRST = view.value === "month" ? { ...DATE, month: 1 } : { ...DATE, year: pageStartYear.value };
+    // a cell is 1 month in the month view, 3 in the quarter view (2 columns), 12 in the year view
+    const STEPS = { month: 1, quarter: 3, year: 12 };
+    const STEP = STEPS[view.value];
+    const COLUMNS_VIEW = view.value === "quarter" ? 2 : COLUMNS;
+    const CELLS = view.value === "quarter" ? 4 : 12;
+    const FIRST = view.value === "year" ? { ...DATE, year: pageStartYear.value } : { ...DATE, month: 1 };
     return {
       ArrowLeft: () => addMonths(DATE, -NEXT * STEP),
       ArrowRight: () => addMonths(DATE, NEXT * STEP),
-      ArrowUp: () => addMonths(DATE, -COLUMNS * STEP),
-      ArrowDown: () => addMonths(DATE, COLUMNS * STEP),
+      ArrowUp: () => addMonths(DATE, -COLUMNS_VIEW * STEP),
+      ArrowDown: () => addMonths(DATE, COLUMNS_VIEW * STEP),
       Home: () => withDay(FIRST, DATE.day),
-      End: () => withDay(addMonths(FIRST, 11 * STEP), DATE.day),
-      PageUp: () => addMonths(DATE, -12 * STEP),
-      PageDown: () => addMonths(DATE, 12 * STEP),
+      End: () => withDay(addMonths(FIRST, (CELLS - 1) * STEP), DATE.day),
+      PageUp: () => addMonths(DATE, -CELLS * STEP),
+      PageDown: () => addMonths(DATE, CELLS * STEP),
     };
   };
 
