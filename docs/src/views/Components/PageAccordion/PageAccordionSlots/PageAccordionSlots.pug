@@ -1,0 +1,32 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ACCORDION_SLOTS_HEADER_"
+  description="_A_ACCORDION_SLOTS_DESCRIPTION_"
+  :props="['key-is-render-body-by-first-open']"
+)
+  a-accordion(
+    :data="data"
+  )
+    template(
+      v-slot:returnsButton
+    )
+      a-translation(
+        tag="span"
+        text="_A_ACCORDION_EXAMPLE_RETURNS_"
+      )
+      a-translation.a_badge.a_badge_success.a_ml_2(
+        tag="span"
+        text="_A_ACCORDION_EXAMPLE_NEW_"
+      )
+    template(
+      v-slot:returnsContent
+    )
+      a-translation(
+        tag="p"
+        text="_A_ACCORDION_EXAMPLE_RETURNS_CONTENT_"
+      )
+      a-button(
+        class="a_btn a_btn_primary"
+        text="_A_ACCORDION_EXAMPLE_RETURN_BTN_"
+      )

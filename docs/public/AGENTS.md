@@ -134,7 +134,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 
 ### Components
 
-- [Accordion](llms/components/accordion.md)
+- [Accordion](llms/components/accordion.md) — **AAccordion** shows sections that can be opened and closed, e.g.
 - [Alert](llms/components/alert.md) — Displays important alert messages.
 - [Avatar](llms/components/avatar.md) — The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
 - [Breadcrumb](llms/components/breadcrumb.md) — **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.

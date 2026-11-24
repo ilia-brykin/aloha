@@ -1,0 +1,24 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ACCORDION_V_MODEL_HEADER_"
+  description="_A_ACCORDION_V_MODEL_DESCRIPTION_"
+  :props="['model-value', 'always-open']"
+)
+  div.a_mb_3
+    a-button(
+      class="a_btn a_btn_secondary a_mr_2"
+      text="_A_ACCORDION_EXAMPLE_OPEN_ALL_"
+      @click="openAll"
+    )
+    a-button(
+      class="a_btn a_btn_secondary"
+      text="_A_ACCORDION_EXAMPLE_CLOSE_ALL_"
+      @click="closeAll"
+    )
+  a-accordion(
+    v-model="idsOpen"
+    :data="data"
+    :always-open="true"
+  )
+  p.a_mt_3 v-model: {{ idsOpen }}

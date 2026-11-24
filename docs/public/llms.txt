@@ -22,7 +22,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 
 ## Components
 
-- [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md)
+- [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md): **AAccordion** shows sections that can be opened and closed, e.g.
 - [Alert](https://ilia-brykin.github.io/aloha/llms/components/alert.md): Displays important alert messages.
 - [Avatar](https://ilia-brykin.github.io/aloha/llms/components/avatar.md): The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
 - [Breadcrumb](https://ilia-brykin.github.io/aloha/llms/components/breadcrumb.md): **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.
