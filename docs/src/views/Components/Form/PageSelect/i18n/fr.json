@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Desactivation par cle",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Charge la liste de base et les candidats retrieve depuis des fichiers JSON locaux sans backend. Les valeurs selectionnees manquantes sont recuperees via le callback retrieve et marquees comme entrees invalides lorsqu'elles ne sont pas presentes dans la liste de base.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve depuis un JSON local",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Les valeurs des options d'une liste deroulante peuvent etre filtrees selon la requete de recherche. C'est utile pour les composants contenant une longue liste d'options afin de permettre aux utilisateurs de trouver et de choisir plus facilement l'option necessaire.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Les valeurs des options d'une liste deroulante peuvent etre filtrees selon la requete de recherche. C'est utile pour les composants contenant une longue liste d'options afin de permettre aux utilisateurs de trouver et de choisir plus facilement l'option necessaire. Un lecteur d'écran entend combien d'options la recherche a trouvées (« Résultats : 3 » / « Aucun résultat ») ; Entrée dans le champ de recherche n'envoie pas le formulaire autour.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Recherche",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Avec <strong lang=\"en\">show-selected-first</strong>, les options sélectionnées s’affichent directement sous la recherche et les boutons d’action. Leurs groupes sont conservés, une seule ligne les sépare des autres options et elles ne sont pas dupliquées dans la liste principale.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Options sélectionnées en premier",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "La liste est rendue dans le conteneur popper-container-id à la fin du body, sinon juste après le bouton.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Ferme la liste après le choix d'un élément. Par défaut : oui pour select, non pour multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Obsolète, utilisez label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect : tous les éléments sélectionnés sont affichés dans le bouton. Avec false, seul le nombre est affiché s'il y en a plus que count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect : tous les éléments sélectionnés sont affichés dans le bouton. Avec false, seul le nombre est affiché s'il y en a plus que count-multiselect. Les valeurs sont à côté du champ (pas dedans), leurs boutons de suppression s'atteignent avec Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Libellé du champ (texte ou clé de traduction).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Classe CSS supplémentaire du libellé.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Libellé lu uniquement par les lecteurs d'écran.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Si le modèle contient une valeur absente de <code>data</code>, le texte <code>label-not-found</code> est affiché à la place (avec <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "Positif",
   "_TXT_NEGATIVE_": "Négatif",
-  "_TXT_NEUTRAL_": "Neutre"
+  "_TXT_NEUTRAL_": "Neutre",
+  "_A_SELECT_A11Y_DESCRIPTION_": "Le champ est un <code>role=\"combobox\"</code> avec <code>aria-controls</code> vers la <code>role=\"listbox\"</code> ; la liste ne contient que les options (et groupes), la recherche et « Tout sélectionner » sont au-dessus. Clavier : Entrée, Espace ou flèche bas ouvrent la liste, les flèches bouclent, Début et Fin vont à la première et à la dernière option, une lettre à l'option suivante qui commence par elle, Échap ferme et rend le focus au champ. La recherche indique à un lecteur d'écran combien d'options elle a trouvées. Avec <code>type=\"multiselect\"</code>, la liste a <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Sélection multiple avec valeurs supprimables",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "Les valeurs sélectionnées sont des boutons à côté du champ : on les atteint avec Tab, et leur nom indique quelle valeur est retirée (« Retirer Berlin »). Le champ lui-même indique à un lecteur d'écran combien de valeurs sont sélectionnées.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Villes"
 }

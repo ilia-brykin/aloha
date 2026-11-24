@@ -40,6 +40,30 @@
   }
 }
 
+// removable values: the box is a wrapper around the values (buttons) and the combobox, the focus ring with :focus-within
+.a_select_toggle.a_select_toggle_closeable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+  &:focus-within {
+    border-color: var(--a_form_control_focus_border_color);
+    @include focus.focus-ring;
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+.a_select__combobox {
+  flex: 1 0 2rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding-left: .375rem;
+  outline: 0;
+}
+
 .a_select__error_icon.a_input__icon_error {
   left: 0.625rem;
   z-index: 1;

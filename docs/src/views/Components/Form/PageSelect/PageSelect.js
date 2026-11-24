@@ -10,6 +10,7 @@ import PageSelectLabelDescription from "./PageSelectLabelDescription/PageSelectL
 import PageSelectLabelNotFound from "./PageSelectLabelNotFound/PageSelectLabelNotFound.vue";
 import PageSelectLabelPosition from "./PageSelectLabelPosition/PageSelectLabelPosition.vue";
 import PageSelectModeOnePerGroup from "./PageSelectModeOnePerGroup/PageSelectModeOnePerGroup.vue";
+import PageSelectMultiselectCloseable from "./PageSelectMultiselectCloseable/PageSelectMultiselectCloseable.vue";
 import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
 import PageSelectRetrieve from "./PageSelectRetrieve/PageSelectRetrieve.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
@@ -32,6 +33,7 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageSelect",
   components: {
+    PageSelectMultiselectCloseable,
     AIcon,
     AlohaPage,
     AlohaTableProps,

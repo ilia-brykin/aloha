@@ -8,5 +8,8 @@
   "_A_SELECT_SELECTED_{{count}}_": "{{count}} geselecteerd",
   "_A_SELECT_DESELECT_ALL_": "Alles deselecteren",
   "_A_SELECT_SELECT_ALL_": "Alles selecteren",
-  "_A_SELECT_REMOVE_": "Verwijderen"
+  "_A_SELECT_REMOVE_": "Verwijderen",
+  "_A_SELECT_REMOVE_{{label}}_": "{{label}} verwijderen",
+  "_A_SELECT_SEARCH_RESULTS_{{count}}_": "Resultaten: {{count}}",
+  "_A_SELECT_SEARCH_NO_RESULTS_": "Geen resultaten"
 }

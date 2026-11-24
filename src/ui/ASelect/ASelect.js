@@ -48,6 +48,7 @@ import ModeAPI from "./compositionAPI/ModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
+import SearchStatusAPI from "./compositionAPI/SearchStatusAPI";
 import SelectedFirstAPI from "./compositionAPI/SelectedFirstAPI";
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import SelectedVisibleAPI from "./compositionAPI/SelectedVisibleAPI";
@@ -664,6 +665,7 @@ export default {
       ariaLabelledby,
       containerId,
       idForList,
+      idForListbox,
       tabindex,
     } = AttributesAPI(props, {
       htmlIdLocal,
@@ -848,6 +850,7 @@ export default {
       menuParentRef,
       menuRef,
       togglePopover,
+      toggleRef,
     } = ToggleAPI(props, context, {
       closePopup,
       htmlIdLocal,
@@ -918,6 +921,34 @@ export default {
       closePopup({
         id: htmlIdLocal.value,
       });
+    });
+
+    // the values with a remove button are next to the combobox
+    const isCloseableValues = computed(() => {
+      return !!(isMultiselect.value && props.isSelectionCloseable);
+    });
+
+    // a click on the box of the field, not on a remove button
+    const onClickToggle = $event => {
+      if ($event.target.closest?.(".a_select__ul_closeable__item__btn")) {
+        return;
+      }
+      togglePopover();
+    };
+
+    // Enter in the search field does not submit the form around (e.g. AForm, AModalForm)
+    const onKeydownSearch = $event => {
+      if ($event.key === "Enter") {
+        $event.preventDefault();
+      }
+    };
+
+    const {
+      searchStatusText,
+    } = SearchStatusAPI({
+      loading: computed(() => !!(loadingSearchApi.value || props.loading)),
+      menuRef,
+      modelSearch: computed(() => modelSearchLowerCase.value || modelSearchOutside.value),
     });
 
     return {
@@ -1010,8 +1041,14 @@ export default {
       searchOutsideOrApi,
       searchOutsideRef,
       selectedTitle,
+      isCloseableValues,
+      onClickToggle,
+      onKeydownSearch,
       tabindex,
       togglePopover,
+      toggleRef,
+      idForListbox,
+      searchStatusText,
       updateModelSearch,
       updateModelSearchOutside,
       validDataSort,
@@ -1071,6 +1108,24 @@ export default {
     }
 
     const hasInvalidEntries = this.invalidDataSort.length > 0;
+    const COMBOBOX_ATTRIBUTES = {
+      id: this.htmlIdLocal,
+      autocomplete: this.autocomplete,
+      "aria-labelledby": this.ariaLabelledby,
+      role: "combobox",
+      tabindex: this.tabindex,
+      "aria-haspopup": "listbox",
+      "aria-expanded": this.isOpen,
+      "aria-controls": this.idForListbox,
+      "aria-required": this.required,
+      "aria-disabled": this.disabledLocal,
+      "aria-invalid": this.isErrors,
+      "aria-describedby": this.ariaDescribedbyLocal,
+      title: this.hasSelectedTitle ? this.selectedTitle : undefined, // TODO: title
+      onKeydown: this.handleKeydown,
+      onFocus: this.onFocus,
+      onBlur: this.onBlur,
+    };
     const isDividerBeforeInvalidVisible = !!(
       this.validDataSort.length ||
       (this.exclusiveOptionWithoutSelected && !this.dataExtraWithoutSelected.length)
@@ -1088,6 +1143,7 @@ export default {
           "aria-hidden": true,
         }),
         h(ATranslation, {
+          id: `${ this.htmlIdLocal }_invalid_label`,
           alwaysTranslate: this.alwaysTranslate,
           class: "text-muted",
           tag: "strong",
@@ -1095,6 +1151,8 @@ export default {
         }),
         h("div", {
           class: "text-muted",
+          role: "group",
+          "aria-labelledby": `${ this.htmlIdLocal }_invalid_label`,
         }, [
           ...this.invalidDataSort.map((item, itemIndex) => {
             return h(ASelectElement, {
@@ -1162,33 +1220,102 @@ export default {
             id: this.containerId,
             ref: "ui_select",
             class: "a_select",
-            role: "application",
           }, [
-            h("div", {
-              ref: "buttonRef",
-              id: this.htmlIdLocal,
-              autocomplete: this.autocomplete,
-              class: [this.buttonClassDefault, this.buttonClass, {
-                disabled: this.disabled,
-                a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable && this.isModelValue,
-                a_select_toggle_has_error_icon: this.hasErrorIcon,
-                a_form_control_invalid: this.isErrors,
-              }],
-              "aria-labelledby": this.ariaLabelledby,
-              role: "combobox",
-              tabindex: this.tabindex,
-              "aria-haspopup": "listbox",
-              "aria-expanded": this.isOpen,
-              "aria-required": this.required,
-              "aria-disabled": this.disabledLocal,
-              "aria-invalid": this.isErrors,
-              "aria-describedby": this.ariaDescribedbyLocal,
-              title: this.hasSelectedTitle ? this.selectedTitle : undefined, // TODO: title
-              onClick: this.togglePopover,
-              onKeydown: this.handleKeydown,
-              onFocus: this.onFocus,
-              onBlur: this.onBlur,
-            }, [
+            this.isCloseableValues ?
+              // the removable values are buttons, so they are next to the combobox, not in it
+              h("div", {
+                ref: "toggleRef",
+                class: [this.buttonClassDefault, this.buttonClass, {
+                  disabled: this.disabled,
+                  a_select_toggle_closeable: true,
+                  a_select_toggle_has_error_icon: this.hasErrorIcon,
+                  a_form_control_invalid: this.isErrors,
+                }],
+                onClick: this.onClickToggle,
+              }, [
+              this.hasErrorIcon ?
+                h(AIcon, {
+                  icon: this.errorIcon,
+                  class: "a_input__icon_error a_select__error_icon",
+                }) :
+                "",
+              this.isModelValue && h("ul", {
+                class: "a_select__ul_closeable",
+              }, [
+                take(this.modelValueMultiselectFiltered, this.countMultiselect).map((item, index) => {
+                  return h(ASelectValueCloseable, {
+                    key: index,
+                    alwaysTranslate: this.alwaysTranslate,
+                    data: this.dataKeyByKeyIdLocal[item] || this.exclusiveDataKeyByKeyIdLocal[item] || {},
+                    disabled: this.disabled,
+                    keyGroup: this.keyGroup,
+                    keyGroupLabelCallback: this.keyGroupLabelCallback,
+                    labelNotFound: this.labelNotFound,
+                    showNotFound: this.showNotFound,
+                    mode: this.mode,
+                    slotName: this.slotName,
+                    translateGroup: this.translateGroup,
+                    onChangeModelValue: this.onChangeModelValue,
+                  }, this.$slots);
+                }),
+                this.isModelLengthLimitExceeded && h(ASelectValueCloseable, {
+                  key: this.countMultiselect,
+                  alwaysTranslate: this.alwaysTranslate,
+                  data: this.limitExceededModelData,
+                  disabled: this.disabledLocal,
+                  keyGroup: this.keyGroup,
+                  keyGroupLabelCallback: this.keyGroupLabelCallback,
+                  mode: this.mode,
+                  hideDeleteButton: !this.exceededItemsDeletable,
+                  translateGroup: this.translateGroup,
+                  onChangeModelValue: this.deleteExceededItems,
+                }),
+              ]),
+              h("div", {
+                ...COMBOBOX_ATTRIBUTES,
+                ref: "buttonRef",
+                class: "a_select__combobox",
+              }, [
+                  this.$slots.fixedPlaceholder ?
+                    this.$slots.fixedPlaceholder({
+                      dataKeyByKeyId: this.dataKeyByKeyIdLocal,
+                      modelValue: this.modelValue,
+                    }) :
+                    this.isModelValue ?
+                      h(ATranslation, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        class: "a_sr_only",
+                        tag: "span",
+                        text: "_A_SELECT_SELECTED_{{count}}_",
+                        extra: {
+                          count: this.modelValueLength,
+                        },
+                      }) :
+                      h(ATranslation, {
+                        tag: "span",
+                        text: this.placeholder,
+                      }),
+              ]),
+              this.hasCaret ?
+                h("span", {
+                  class: "a_caret",
+                }, [
+                  h(AIcon, {
+                    icon: this.caretIcon,
+                  }),
+                ]) :
+                "",
+              ]) :
+              h("div", {
+                ...COMBOBOX_ATTRIBUTES,
+                ref: "buttonRef",
+                class: [this.buttonClassDefault, this.buttonClass, {
+                  disabled: this.disabled,
+                  a_select_toggle_has_error_icon: this.hasErrorIcon,
+                  a_form_control_invalid: this.isErrors,
+                }],
+                onClick: this.togglePopover,
+              }, [
               this.hasErrorIcon ?
                 h(AIcon, {
                   icon: this.errorIcon,
@@ -1273,133 +1400,154 @@ export default {
                     tag: "span",
                     text: this.placeholder,
                   }),
-              h(Teleport, {
-                to: this.popperContainerIdSelector,
-                disabled: !this.inBody,
+              this.hasCaret ?
+                h("span", {
+                  class: "a_caret",
+                }, [
+                  h(AIcon, {
+                    icon: this.caretIcon,
+                  }),
+                ]) :
+                "",
+              ]),
+            // the list is next to the combobox (not in it), also with in-body false
+            h(Teleport, {
+              to: this.popperContainerIdSelector,
+              disabled: !this.inBody,
+            }, [
+              h("div", {
+                ref: "menuParentRef",
+                id: this.idForList,
+                style: !this.isOpen ? "display: none;" : "",
+                "aria-hidden": !this.isOpen,
               }, [
                 h("div", {
-                  ref: "menuParentRef",
-                  id: this.idForList,
-                  style: !this.isOpen ? "display: none;" : "",
-                  "aria-hidden": !this.isOpen,
-                  role: "application",
-                }, [
-                  h("div", {
-                    ref: "menuRef",
-                    class: [
-                      "a_select_menu",
-                      {
-                        a_select_menu_by_content: this.menuWidthType === "by_content",
-                      },
-                      this.selectMenuClass,
+                  ref: "menuRef",
+                  class: [
+                    "a_select_menu",
+                    {
+                      a_select_menu_by_content: this.menuWidthType === "by_content",
+                    },
+                    this.selectMenuClass,
                       this.search || this.searchOutsideOrApi ? this.classMenuSearch : undefined,
-                    ],
-                    role: "listbox",
-                    "aria-labelledby": this.htmlIdLocal,
-                    onClick: event => event.stopPropagation(),
+                  ],
+                  onClick: event => event.stopPropagation(),
+                }, [
+                  this.searchOutsideOrApi && h("div", {
+                    class: "a_select__search",
                   }, [
-                    this.searchOutsideOrApi && h("div", {
-                      class: "a_select__search",
+                    h("form", {
+                      onSubmit: this.onSearchOutside,
                     }, [
-                      h("form", {
-                        onSubmit: this.onSearchOutside,
+                      h("div", {
+                        class: "a_select__search__group",
                       }, [
-                        h("div", {
-                          class: "a_select__search__group",
-                        }, [
-                          h(AInput, {
-                            alwaysTranslate: this.alwaysTranslate,
-                            label: "_A_SELECT_SEARCH_",
-                            inputClass: "a_select__element_clickable",
-                            modelValue: this.modelSearchOutside,
-                            modelUndefined: "",
-                            "onUpdate:modelValue": this.updateModelSearchOutside,
-                          }),
-                          h(AElement, {
-                            alwaysTranslate: this.alwaysTranslate,
-                            "aria-disabled": this.loadingSearchApi,
-                            disabled: this.disabledLocal,
-                            class: "a_btn a_btn_primary a_select__element_clickable",
-                            type: "submit",
-                            iconLeft: Search,
-                            loadingAlign: "left",
-                          }),
-                        ]),
+                        h(AInput, {
+                          alwaysTranslate: this.alwaysTranslate,
+                          label: "_A_SELECT_SEARCH_",
+                          inputClass: "a_select__element_clickable",
+                          modelValue: this.modelSearchOutside,
+                          modelUndefined: "",
+                          "onUpdate:modelValue": this.updateModelSearchOutside,
+                        }),
+                        h(AElement, {
+                          alwaysTranslate: this.alwaysTranslate,
+                          "aria-disabled": this.loadingSearchApi,
+                          disabled: this.disabledLocal,
+                          class: "a_btn a_btn_primary a_select__element_clickable",
+                          type: "submit",
+                          iconLeft: Search,
+                          loadingAlign: "left",
+                        }),
                       ]),
                     ]),
-                    this.search && h("div", {
-                      class: "a_select__search",
+                  ]),
+                  this.search && h("div", {
+                    class: "a_select__search",
+                    onKeydown: this.onKeydownSearch,
+                  }, [
+                    h(AInput, {
+                      alwaysTranslate: this.alwaysTranslate,
+                      label: "_A_SELECT_SEARCH_",
+                      inputClass: "a_select__element_clickable",
+                      modelValue: this.modelSearch,
+                      modelUndefined: "",
+                      "onUpdate:modelValue": this.updateModelSearch,
+                    }),
+                  ]),
+                  (this.searchOutsideOrApi || this.search) && h("div", {
+                    class: "a_select__divider",
+                    "aria-hidden": true,
+                  }),
+                  h("div", {
+                    class: "a_select_menu__child",
+                  }, [
+                    (this.isMultiselect && this.isSelectAll) && h("div", {
+                      class: [
+                        "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        {
+                          a_select__menu__link_disabled: this.disabledLocal,
+                        },
+                      ],
+                      disabled: this.disabledLocalAttribut,
+                      "aria-disabled": this.disabledLocal ? "true" : undefined,
+                      role: "button",
+                      tabindex: "-1",
+                      onClick: this.onSelectAll,
+                      onKeydown: this.onKeydownSelectAll,
                     }, [
-                      h(AInput, {
-                        alwaysTranslate: this.alwaysTranslate,
-                        label: "_A_SELECT_SEARCH_",
-                        inputClass: "a_select__element_clickable",
-                        modelValue: this.modelSearch,
-                        modelUndefined: "",
-                        "onUpdate:modelValue": this.updateModelSearch,
+                      h("span", {
+                        class: "a_select__menu__link__icon_box",
+                      }, [
+                        h(AIcon, {
+                          icon: CheckLg,
+                        }),
+                      ]),
+                      h(ATranslation, {
+                        html: this.textSelectAll,
+                        tag: "span",
                       }),
                     ]),
-                    (this.searchOutsideOrApi || this.search) && h("div", {
+                    (this.isMultiselect && this.isDeselectAll) && h("div", {
+                      class: [
+                        "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        {
+                          a_select__menu__link_disabled: this.disabled,
+                        },
+                      ],
+                      disabled: this.disabledAttribut,
+                      "aria-disabled": this.disabled ? "true" : undefined,
+                      role: "button",
+                      tabindex: "-1",
+                      onClick: this.onDeselectAll,
+                      onKeydown: this.onKeydownDeselectAll,
+                    }, [
+                      h("span", {
+                        class: "a_select__menu__link__icon_box",
+                      }, [
+                        h(AIcon, {
+                          icon: Close,
+                        }),
+                      ]),
+                      h(ATranslation, {
+                        html: this.textDeselectAll,
+                        tag: "span",
+                      }),
+                    ]),
+                    (this.isDividerSelectDeselectVisible) && h("div", {
                       class: "a_select__divider",
                       "aria-hidden": true,
                     }),
+                      (this.loadingLocal || this.loadingSearchApi) ?
+                        h(ACloak) :
+                        "",
                     h("div", {
-                      class: "a_select_menu__child",
+                      id: this.idForListbox,
+                      class: "a_select__listbox",
+                      role: "listbox",
+                      "aria-labelledby": this.ariaLabelledby,
+                      "aria-multiselectable": this.isMultiselect ? "true" : undefined,
                     }, [
-                      (this.isMultiselect && this.isSelectAll) && h("div", {
-                        class: [
-                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                          {
-                            a_select__menu__link_disabled: this.disabledLocal,
-                          },
-                        ],
-                        disabled: this.disabledLocalAttribut,
-                        role: "option",
-                        tabindex: "-1",
-                        onClick: this.onSelectAll,
-                        onKeydown: this.onKeydownSelectAll,
-                      }, [
-                        h("span", {
-                          class: "a_select__menu__link__icon_box",
-                        }, [
-                          h(AIcon, {
-                            icon: CheckLg,
-                          }),
-                        ]),
-                        h(ATranslation, {
-                          html: this.textSelectAll,
-                          tag: "span",
-                        }),
-                      ]),
-                      (this.isMultiselect && this.isDeselectAll) && h("div", {
-                        class: [
-                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                          {
-                            a_select__menu__link_disabled: this.disabled,
-                          },
-                        ],
-                        disabled: this.disabledAttribut,
-                        role: "option",
-                        tabindex: "-1",
-                        onClick: this.onDeselectAll,
-                        onKeydown: this.onKeydownDeselectAll,
-                      }, [
-                        h("span", {
-                          class: "a_select__menu__link__icon_box",
-                        }, [
-                          h(AIcon, {
-                            icon: Close,
-                          }),
-                        ]),
-                        h(ATranslation, {
-                          html: this.textDeselectAll,
-                          tag: "span",
-                        }),
-                      ]),
-                      (this.isDividerSelectDeselectVisible) && h("div", {
-                        class: "a_select__divider",
-                        "aria-hidden": true,
-                      }),
                       !!this.dataSelectedVisible.length && h("div", {
                         class: "a_select__selected_first",
                       }, [
@@ -1451,9 +1599,6 @@ export default {
                         class: "a_select__divider",
                         "aria-hidden": true,
                       }),
-                      (this.loadingLocal || this.loadingSearchApi) ?
-                        h(ACloak) :
-                        "",
                       (this.isMultiselect && this.exclusiveOptionWithoutSelected) && h("div", {}, [
                         h(ASelectElement, {
                           key: this.exclusiveOptionValue,
@@ -1570,6 +1715,7 @@ export default {
                           ]),
                         ]),
                       renderInvalidEntries(),
+                    ]),
                       ((!this.dataWithoutSelected.length &&
                         !this.dataExtraWithoutSelected.length &&
                         !this.exclusiveOptionWithoutSelected &&
@@ -1581,20 +1727,15 @@ export default {
                           text: "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_",
                         }) :
                         "",
-                    ]),
                   ]),
                 ]),
               ]),
-              this.hasCaret ?
-                h("span", {
-                  class: "a_caret",
-                }, [
-                  h(AIcon, {
-                    icon: this.caretIcon,
-                  }),
-                ]) :
-                "",
             ]),
+            // the number of the options found by the search, for screen readers
+            h("span", {
+              class: "a_sr_only",
+              "aria-live": "polite",
+            }, this.searchStatusText),
           ]),
         ]),
         h(AFormHelpText, {

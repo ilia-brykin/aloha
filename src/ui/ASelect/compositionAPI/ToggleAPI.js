@@ -15,10 +15,6 @@ import {
 
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
 
-import AKeysCode from "../../../const/AKeysCode";
-import {
-  forEach,
-} from "lodash-es";
 
 const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled]):not([data-hide])";
 
@@ -33,6 +29,9 @@ export default function ToggleAPI(props, {
   const menuWidthType = toRef(props, "menuWidthType");
 
   const buttonRef = ref(undefined);
+  // the visible box of the field: with closeable values it is a wrapper around the values and the combobox
+  const toggleRef = ref(undefined);
+  const getReferenceElement = () => toggleRef.value || buttonRef.value;
   const cleanupPopper = ref(undefined);
   const isOpen = ref(false);
   const menuParentRef = ref(undefined);
@@ -42,6 +41,7 @@ export default function ToggleAPI(props, {
 
   const elementsForClickOutside = computed(() => {
     return [
+      toggleRef.value,
       buttonRef.value,
       menuParentRef.value,
     ];
@@ -49,7 +49,7 @@ export default function ToggleAPI(props, {
 
   const menuWidth = computed(() => {
     if (menuWidthType.value === "as_button") {
-      return buttonRef.value.clientWidth;
+      return getReferenceElement().clientWidth;
     }
     return undefined;
   });
@@ -62,47 +62,88 @@ export default function ToggleAPI(props, {
     clickOutsideCallback: closePopover,
   });
 
-  const pressArrows = ({ isArrowDown }) => {
-    const ELEMENTS = menuRef.value.querySelectorAll(ELEMENTS_FOR_ARROWS);
+  const getElementsForArrows = () => {
+    return Array.from(menuRef.value?.querySelectorAll(ELEMENTS_FOR_ARROWS) || []);
+  };
+
+  /**
+   * ArrowDown / ArrowUp go round, Home / End to the first / last element,
+   * a letter to the next option that starts with it (not while typing in a search field).
+   */
+  const moveFocus = ({ key }) => {
+    const ELEMENTS = getElementsForArrows();
     if (ELEMENTS.length === 0) {
-      return;
+      return false;
     }
-    let isFocusInstalled = false;
-    forEach(ELEMENTS, (element, index) => {
-      if (element === document.activeElement) {
-        isFocusInstalled = true;
-        if (isArrowDown) {
-          if (index < ELEMENTS.length - 1) {
-            ELEMENTS[index + 1].focus();
-          }
-        } else if (index > 0) {
-          ELEMENTS[index - 1].focus();
+    const INDEX = ELEMENTS.indexOf(document.activeElement);
+    const COUNT = ELEMENTS.length;
+    let target;
+    if (key === "ArrowDown") {
+      target = INDEX === -1 ? ELEMENTS[0] : ELEMENTS[(INDEX + 1) % COUNT];
+    } else if (key === "ArrowUp") {
+      target = INDEX === -1 ? ELEMENTS[COUNT - 1] : ELEMENTS[(INDEX - 1 + COUNT) % COUNT];
+    } else if (key === "Home") {
+      target = ELEMENTS[0];
+    } else if (key === "End") {
+      target = ELEMENTS[COUNT - 1];
+    } else {
+      const CHAR = key.toLowerCase();
+      const OPTIONS = ELEMENTS.filter(element => element.getAttribute("role") === "option");
+      const START = OPTIONS.indexOf(document.activeElement);
+      for (let i = 1; i <= OPTIONS.length; i++) {
+        const OPTION = OPTIONS[(Math.max(START, -1) + i + OPTIONS.length) % OPTIONS.length];
+        if (OPTION.textContent.trim().toLowerCase().startsWith(CHAR)) {
+          target = OPTION;
+          break;
         }
-        return false;
       }
-    });
-    if (!isFocusInstalled) {
-      ELEMENTS[0].focus();
     }
+    if (!target) {
+      return false;
+    }
+    target.focus();
+    return true;
   };
 
   const setFocusToButton = () => {
-    buttonRef.value.focus();
+    buttonRef.value?.focus();
+  };
+
+  // the keys are handled only when the focus is in the select (not e.g. in another field of the page)
+  const isFocusInSelect = () => {
+    const ACTIVE = document.activeElement;
+    return !!ACTIVE && (
+      !!getReferenceElement()?.contains(ACTIVE) ||
+      !!menuParentRef.value?.contains(ACTIVE)
+    );
+  };
+
+  const isTypeaheadKey = $event => {
+    return $event.key.length === 1 &&
+      $event.key !== " " &&
+      !$event.ctrlKey &&
+      !$event.metaKey &&
+      !$event.altKey;
   };
 
   const pressButton = $event => {
-    const KEY_CODE = $event.keyCode;
-    const IS_ARROW_DOWN = KEY_CODE === AKeysCode.arrowDown;
-    if (IS_ARROW_DOWN ||
-      KEY_CODE === AKeysCode.arrowUp) {
-      pressArrows({ isArrowDown: IS_ARROW_DOWN });
-      $event.preventDefault();
-    } else if (KEY_CODE === AKeysCode.escape) {
+    if ($event.key === "Escape") {
       closePopover();
       setFocusToButton();
       $event.preventDefault();
       $event.stopPropagation();
-    } else if (KEY_CODE === AKeysCode.tab) {
+      return;
+    }
+    if (!isFocusInSelect()) {
+      return;
+    }
+    const IS_FIELD = ["INPUT", "TEXTAREA"].indexOf(document.activeElement?.tagName) !== -1;
+    if (["ArrowDown", "ArrowUp"].indexOf($event.key) !== -1 ||
+      (!IS_FIELD && (["Home", "End"].indexOf($event.key) !== -1 || isTypeaheadKey($event)))) {
+      if (moveFocus({ key: $event.key })) {
+        $event.preventDefault();
+      }
+    } else if ($event.key === "Tab") {
       closePopover();
       setFocusToButton();
     }
@@ -150,16 +191,16 @@ export default function ToggleAPI(props, {
       buttonRef.value &&
       menuRef.value) {
       cleanupPopper.value = autoUpdate(
-        buttonRef.value,
+        getReferenceElement(),
         menuRef.value,
         () => {
-          if (!buttonRef.value ||
+          if (!getReferenceElement() ||
             !menuRef.value) {
             return;
           }
 
           computePosition(
-            buttonRef.value,
+            getReferenceElement(),
             menuRef.value,
             {
               placement: placement.value,
@@ -169,7 +210,10 @@ export default function ToggleAPI(props, {
               ],
             },
           ).then(({ x, y }) => {
-            if (!buttonRef.value.clientWidth) { // if button hide
+            if (!menuRef.value) {
+              return;
+            }
+            if (!getReferenceElement()?.clientWidth) { // if button hide
               closePopover();
               return;
             }
@@ -211,16 +255,15 @@ export default function ToggleAPI(props, {
   };
 
   const handleKeydown = $event => {
-    const KEY_CODE = $event.keyCode;
-    if (KEY_CODE === AKeysCode.enter ||
-      KEY_CODE === AKeysCode.space) {
+    if ($event.key === "Enter" || $event.key === " ") {
       togglePopover();
       $event.preventDefault();
     } else if (!isOpen.value &&
-      (KEY_CODE === AKeysCode.arrowUp ||
-        KEY_CODE === AKeysCode.arrowDown)) {
+      ($event.key === "ArrowUp" || $event.key === "ArrowDown")) {
       openPopover();
       $event.preventDefault();
+      // the open list gets the keys, not this event again
+      $event.stopPropagation();
     }
   };
 
@@ -251,5 +294,6 @@ export default function ToggleAPI(props, {
     menuParentRef,
     menuRef,
     togglePopover,
+    toggleRef,
   };
 }

@@ -3,7 +3,6 @@ import {
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../const/AKeysCode";
 import {
   AKeyId,
 } from "../../../const/AKeys";
@@ -135,9 +134,7 @@ export default function ModelChangeAPI(props, {
   };
 
   const onKeydownSelectAll = $event => {
-    const KEY_CODE = $event.keyCode;
-    if (KEY_CODE === AKeysCode.enter ||
-      KEY_CODE === AKeysCode.space) {
+    if ($event.key === "Enter" || $event.key === " ") {
       onSelectAll();
       $event.preventDefault();
     }
@@ -154,9 +151,7 @@ export default function ModelChangeAPI(props, {
   };
 
   const onKeydownDeselectAll = $event => {
-    const KEY_CODE = $event.keyCode;
-    if (KEY_CODE === AKeysCode.enter ||
-      KEY_CODE === AKeysCode.space) {
+    if ($event.key === "Enter" || $event.key === " ") {
       onDeselectAll();
       $event.preventDefault();
     }

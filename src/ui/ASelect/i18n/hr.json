@@ -8,5 +8,8 @@
   "_A_SELECT_SELECTED_{{count}}_": "{{count}} selected",
   "_A_SELECT_DESELECT_ALL_": "Poništi sve odabire",
   "_A_SELECT_SELECT_ALL_": "Odaberi sve",
-  "_A_SELECT_REMOVE_": "Ukloni"
+  "_A_SELECT_REMOVE_": "Ukloni",
+  "_A_SELECT_REMOVE_{{label}}_": "Ukloni {{label}}",
+  "_A_SELECT_SEARCH_RESULTS_{{count}}_": "Rezultati: {{count}}",
+  "_A_SELECT_SEARCH_NO_RESULTS_": "Nema rezultata"
 }

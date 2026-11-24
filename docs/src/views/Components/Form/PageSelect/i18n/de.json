@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Deaktivierung nach Schlussel",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Ladt die Basisliste und Retrieve-Kandidaten aus lokalen JSON-Dateien ohne Backend. Fehlende ausgewahlte Werte werden uber den Retrieve-Callback nachgeladen und als invalide Eintrage markiert, wenn sie nicht in der Basisliste vorhanden sind.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve aus lokalem JSON",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Werte von Auswahlmoglichkeiten konnen basierend auf der Suchanfrage gefiltert werden. Dies ist nutzlich fur Komponenten mit einer langen Liste von Optionen, um Benutzern das Finden und Auswahlen der benotigten Option zu erleichtern.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Werte von Auswahlmoglichkeiten konnen basierend auf der Suchanfrage gefiltert werden. Dies ist nutzlich fur Komponenten mit einer langen Liste von Optionen, um Benutzern das Finden und Auswahlen der benotigten Option zu erleichtern. Ein Screenreader hört, wie viele Optionen die Suche gefunden hat („Ergebnisse: 3“ / „Keine Ergebnisse“); Enter im Suchfeld sendet das umgebende Formular nicht ab.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Suche",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Mit <strong lang=\"en\">show-selected-first</strong> werden ausgewählte Optionen direkt unter der Suche und den Aktionsschaltflächen angezeigt. Gruppen bleiben erhalten, eine einzelne Trennlinie trennt sie von den übrigen Optionen und Duplikate in der Hauptliste werden entfernt.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Ausgewählte Optionen zuerst",
@@ -40,7 +40,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "Die Liste wird im Container popper-container-id am Ende des Body gerendert, sonst direkt nach dem Button.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Schließt die Liste nach der Auswahl eines Elements. Standard: ja für Select, nein für Multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Veraltet, verwenden Sie label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: Alle ausgewählten Elemente werden im Button angezeigt. Bei false wird nur die Anzahl angezeigt, wenn es mehr als count-multiselect sind.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: Alle ausgewählten Elemente werden im Button angezeigt. Bei false wird nur die Anzahl angezeigt, wenn es mehr als count-multiselect sind. Die Werte stehen neben dem Feld (nicht darin), ihre Entfernen-Buttons sind mit Tab erreichbar.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Label des Feldes (Text oder Übersetzungsschlüssel).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Zusätzliche CSS-Klasse des Labels.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Label, das nur von Screenreadern vorgelesen wird.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_MODE_ONE_PER_GROUP_HEADER_": "Ein Element pro Gruppe",
   "_A_SELECT_GROUP_MODE_ONE_PER_GROUP_DESCRIPTION_": "Mit <code>mode=\"one_per_group\"</code> und <code>key-group</code> erlaubt ein Multiselect nur ein Element pro Gruppe: Die Auswahl eines Elements wählt das andere Element seiner Gruppe ab.",
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_HEADER_": "Ausgewählter Wert nicht gefunden",
-  "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Enthält das Model einen Wert, der nicht in <code>data</code> vorkommt, wird stattdessen der Text <code>label-not-found</code> angezeigt (mit <code>show-not-found</code>)."
+  "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Enthält das Model einen Wert, der nicht in <code>data</code> vorkommt, wird stattdessen der Text <code>label-not-found</code> angezeigt (mit <code>show-not-found</code>).",
+  "_A_SELECT_A11Y_DESCRIPTION_": "Das Feld ist eine <code>role=\"combobox\"</code> mit <code>aria-controls</code> zur <code>role=\"listbox\"</code>; in der Listbox stehen nur die Optionen (und Gruppen), die Suche und „Alle auswählen“ stehen darüber. Tastatur: Enter, Leertaste oder Pfeil runter öffnen die Liste, die Pfeile laufen im Kreis, Pos1 und Ende springen zur ersten und letzten Option, ein Buchstabe zur nächsten Option, die damit beginnt, Escape schließt und gibt den Fokus an das Feld zurück. Die Suche sagt einem Screenreader, wie viele Optionen sie gefunden hat. Mit <code>type=\"multiselect\"</code> hat die Liste <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Mehrfachauswahl mit entfernbaren Werten",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "Die ausgewählten Werte sind Buttons neben dem Feld: Sie sind mit Tab erreichbar, und ihr Name sagt, welcher Wert entfernt wird („Berlin entfernen“). Das Feld selbst sagt einem Screenreader, wie viele Werte ausgewählt sind.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Städte"
 }

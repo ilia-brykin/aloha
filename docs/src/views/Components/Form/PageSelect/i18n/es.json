@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Deshabilitacion por clave",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Carga la lista base y los candidatos de retrieve desde archivos JSON locales sin backend. Los valores seleccionados que faltan se obtienen mediante el callback retrieve y se marcan como entradas no validas cuando no estan presentes en la lista base.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve desde JSON local",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Los valores de las opciones del desplegable pueden filtrarse en funcion de la consulta de busqueda. Esto es util para componentes con una larga lista de opciones, ya que facilita a los usuarios encontrar y elegir la opcion necesaria.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Los valores de las opciones del desplegable pueden filtrarse en funcion de la consulta de busqueda. Esto es util para componentes con una larga lista de opciones, ya que facilita a los usuarios encontrar y elegir la opcion necesaria. Un lector de pantalla oye cuántas opciones encontró la búsqueda («Resultados: 3» / «Sin resultados»); Intro en el campo de búsqueda no envía el formulario que lo rodea.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Busqueda",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Con <strong lang=\"en\">show-selected-first</strong>, las opciones seleccionadas aparecen directamente debajo de la búsqueda y los botones de acción. Se conservan sus grupos, una sola línea las separa de las demás opciones y no se duplican en la lista principal.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Opciones seleccionadas primero",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "La lista se renderiza en el contenedor popper-container-id al final del body; si no, justo después del botón.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Cierra la lista después de elegir un elemento. Por defecto: sí para select, no para multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Obsoleto, use label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: todos los elementos seleccionados se muestran en el botón. Con false, solo se muestra el número cuando hay más de count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: todos los elementos seleccionados se muestran en el botón. Con false, solo se muestra el número cuando hay más de count-multiselect. Los valores están junto al campo (no dentro), sus botones de quitar se alcanzan con Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Etiqueta del campo (texto o clave de traducción).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Clase CSS adicional de la etiqueta.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Etiqueta que solo leen los lectores de pantalla.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Si el modelo contiene un valor que no está en <code>data</code>, se muestra en su lugar el texto <code>label-not-found</code> (con <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "Positivo",
   "_TXT_NEGATIVE_": "Negativo",
-  "_TXT_NEUTRAL_": "Neutral"
+  "_TXT_NEUTRAL_": "Neutral",
+  "_A_SELECT_A11Y_DESCRIPTION_": "El campo es un <code>role=\"combobox\"</code> con <code>aria-controls</code> hacia el <code>role=\"listbox\"</code>; en la lista solo están las opciones (y grupos), la búsqueda y «Seleccionar todo» están encima. Teclado: Intro, Espacio o flecha abajo abren la lista, las flechas dan la vuelta, Inicio y Fin van a la primera y última opción, una letra a la siguiente opción que empieza por ella, Escape cierra y devuelve el foco al campo. La búsqueda indica a un lector de pantalla cuántas opciones encontró. Con <code>type=\"multiselect\"</code> la lista tiene <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Selección múltiple con valores eliminables",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "Los valores seleccionados son botones junto al campo: se alcanzan con Tab y su nombre indica qué valor se quita («Quitar Berlin»). El propio campo indica a un lector de pantalla cuántos valores están seleccionados.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Ciudades"
 }

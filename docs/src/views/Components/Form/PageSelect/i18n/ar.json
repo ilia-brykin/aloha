@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "التعطيل حسب المفتاح",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "يقوم بتحميل القائمة الاساسية وعناصر retrieve من ملفات JSON محلية بدون backend. يتم جلب القيم المحددة المفقودة عبر callback retrieve ويتم تمييزها كادخالات غير صالحة عندما لا تكون موجودة في القائمة الاساسية.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve من JSON محلي",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "يمكن تصفية قيم الخيارات في القائمة المنسدلة بناء على عبارة البحث. وهذا مفيد للمكونات التي تحتوي على قائمة طويلة من الخيارات، مما يسهل على المستخدمين العثور على الخيار المطلوب واختياره.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "يمكن تصفية قيم الخيارات في القائمة المنسدلة بناء على عبارة البحث. وهذا مفيد للمكونات التي تحتوي على قائمة طويلة من الخيارات، مما يسهل على المستخدمين العثور على الخيار المطلوب واختياره. يسمع قارئ الشاشة عدد الخيارات التي وجدها البحث («النتائج: 3» / «لا توجد نتائج»)؛ ولا يرسل Enter في حقل البحث النموذج المحيط.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "بحث",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "عند تفعيل <strong lang=\"en\">show-selected-first</strong>، تظهر الخيارات المحددة مباشرة أسفل البحث وأزرار الإجراءات. تبقى المجموعات محفوظة، ويفصل خط واحد بينها وبين بقية الخيارات، ولا تتكرر في القائمة الرئيسية.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "الخيارات المحددة أولاً",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "تُعرض القائمة في الحاوية popper-container-id في نهاية body، وإلا مباشرة بعد الزر.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "يغلق القائمة بعد اختيار عنصر. الافتراضي: نعم لـ select، لا لـ multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "مهمل، استخدم label-position. true → \"float\"، false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: تُعرض جميع العناصر المحددة في الزر. مع false يُعرض العدد فقط إذا تجاوزت count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: تُعرض جميع العناصر المحددة في الزر. مع false يُعرض العدد فقط إذا تجاوزت count-multiselect. القيم بجانب الحقل (لا داخله)، ويمكن الوصول إلى أزرار إزالتها بـ Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "تسمية الحقل (نص أو مفتاح ترجمة).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "فئة CSS إضافية للتسمية.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "تسمية تقرؤها قارئات الشاشة فقط.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "إذا احتوى النموذج على قيمة غير موجودة في <code>data</code>، يُعرض بدلاً منها النص <code>label-not-found</code> (مع <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "إيجابي",
   "_TXT_NEGATIVE_": "سلبي",
-  "_TXT_NEUTRAL_": "محايد"
+  "_TXT_NEUTRAL_": "محايد",
+  "_A_SELECT_A11Y_DESCRIPTION_": "الحقل <code>role=\"combobox\"</code> مع <code>aria-controls</code> إلى <code>role=\"listbox\"</code>؛ في القائمة الخيارات فقط (والمجموعات)، والبحث و«تحديد الكل» فوقها. لوحة المفاتيح: يفتح Enter أو المسافة أو السهم لأسفل القائمة، وتدور الأسهم، وينتقل Home وEnd إلى الخيار الأول والأخير، والحرف إلى الخيار التالي الذي يبدأ به، ويغلق Escape ويعيد التركيز إلى الحقل. يخبر البحث قارئ الشاشة بعدد الخيارات التي وجدها. مع <code>type=\"multiselect\"</code> يكون للقائمة <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "تحديد متعدد مع قيم قابلة للإزالة",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "القيم المحددة أزرار بجانب الحقل: يمكن الوصول إليها بـ Tab، ويقول اسمها أي قيمة تُزال («إزالة Berlin»). ويخبر الحقل نفسه قارئ الشاشة بعدد القيم المحددة.",
+  "_A_SELECT_EXAMPLE_CITIES_": "المدن"
 }
