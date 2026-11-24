@@ -577,6 +577,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `ATooltip`: `aria-describedby` is on the focused element (e.g. the button inside), not on the wrapper `span` anymore, and the tooltip has `role="tooltip"`. It opens also when an element inside gets the focus (`focusin`) and stays open while the mouse or the focus is on it. Escape closes only the tooltip, the event does not reach e.g. a modal around it. The text of the tooltip is always in the DOM as a hidden element (`hidden`) and the element always has `aria-describedby`, so screen readers read it also without focus (browse mode). `render-description="visible"` creates both only while the tooltip is open, as in 2.x, e.g. for pages with very many tooltips.
 - `ADisclosure`, `AShowMore`: `aria-expanded` is on the button (with `AShowMore` only with `text-length`; with `height` the whole content is in the page anyway), not on the content. Own attributes (`class`, `data-*`, `aria-*`) are only on the root, not also on the inner content block. After the click the focus stays on the button, it goes to the content only when the button disappears (`show-less="false"`). `AShowMore`: `is-open-default` works now; a link or button in the part cut by `height` opens the content when it gets the focus; `text-length` cuts at the end of a word with `…` instead of `...`. Both support `v-model`.
 - `AModal` (also `AModalForm`, `AModalWizard`, `ADrawer`, `AConfirm`): after closing, the focus goes back to the element that opened the modal; `selector-close-ids` is only needed for another element. The footer buttons are named by their visible text: `save-button-text-screen-reader`, `close-button-text-screen-reader-footer` have no default anymore and are used only when set (WCAG 2.5.3). While a modal is open, the rest of the page gets `inert`; popups, notifications and elements with `data-a-not-inert` stay usable, `use-inert="false"` switches it off. In nested modals Escape closes only the top one and the page stays locked until the last one is closed. `focus-start-id` and `use-focus-on-start` work now. New: `aria-label` (e.g. with `hide-header`), `close-on-backdrop`. The modal has `aria-modal="true"`.
+- `AErrors` (summary of the errors of `AForm`): the heading is an `h2` (`header-tag`, `header-tag="div"` for the old look) with the number of fields (`{{ count }}` in `_A_ERRORS_TEXT_HEADER_`), the errors are a list (`ul`/`li`), the links to the fields are `<a href="#id">`. With `auto-focus` the summary has no `role="alert"` anymore (the focus reads it) and gets the focus after every submit with errors, not only the first. `AForm`: the native `submit` (Enter in a text field) is cancelled (`preventDefault()`) and emitted as `submit`, the page is not reloaded; `AModalForm` calls `save` with it.
 
 ## 7. Label position
 
@@ -18264,6 +18265,8 @@ export default {
 
 The **AForm** component builds a complete form from a configuration array. Each item in **data** selects a UI component through its **type**, uses its **id** as the model key, and accepts all props supported by that UI component. The form manages the shared model, validation errors, dependencies, responsive layout, read-only mode, events, and content slots.
 
+Errors: the summary above the form has a heading (`h2`, `header-tag` in `AComponentsPlugin`) with the number of fields with errors (`{{ count }}`) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without `auto-focus` it is an alert, `role="alert"`). The errors of a field are connected with it (aria-describedby). Enter in a field emits `submit` instead of reloading the page.
+
 ## Basic configuration
 
 Pass field configurations through **data** and bind one object with **v-model**. The value of every field is stored under its **id**.
@@ -18397,7 +18400,7 @@ export default {
 
 ## Errors and read-only mode
 
-The **errors** object is keyed by field ID. Form-level error navigation and required-field information can be configured independently, while **readonly** switches every field to its read-only representation.
+The `errors` object is keyed by field ID. The summary above the form shows the number of fields with errors and links to them; after every validation with errors the focus goes to it. The required-field information can be configured independently, while `readonly` switches every field to its read-only representation.
 
 *props: `errors`, `readonly`, `show-errors`, `show-required-text`, `text-error-header`, `text-required`*
 
@@ -18453,6 +18456,63 @@ export default {
       readonly,
       toggleReadonly,
       validate,
+    };
+  },
+};
+```
+
+## Enter in a field
+
+Type a text and press Enter: the form emits `submit` (with the event, `preventDefault()` is already called) and the page is not reloaded.
+
+*props: `tag`*
+
+```html
+<a-form
+  v-model="model"
+  :data="data"
+  @submit="onSubmit"
+/>
+<p
+  v-if="countSubmit"
+  class="a_mt_3"
+>submit: {{ countSubmit }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AForm,
+  },
+  setup() {
+    const data = [
+      {
+        type: "text",
+        id: "search",
+        label: "_A_FORM_EXAMPLE_SEARCH_",
+      },
+    ];
+    const model = ref({});
+    const countSubmit = ref(0);
+
+    // Enter in the field: the page is not reloaded
+    const onSubmit = () => {
+      countSubmit.value++;
+    };
+
+    return {
+      countSubmit,
+      data,
+      model,
+      onSubmit,
     };
   },
 };
@@ -18549,6 +18609,7 @@ export default {
 | --- | --- | --- |
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | change | Function | Emitted after a field changes. The payload contains the field ID, new and previous values, complete model, item data when available, and reactive props. |
+| submit | Function | Emitted on submit of the form, e.g. Enter in a text field. The argument is the native event; the page is not reloaded. |
 
 ## Slots
 
@@ -38428,6 +38489,88 @@ export default {
 };
 ```
 
+## Save with Enter
+
+Enter in a field of the form calls `save`, like the save button, but not when saving is disabled, hidden or loading.
+
+*props: `save`*
+
+```html
+<a-button
+  id="btn_modal_form_enter"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :save="save"
+  header-text="_A_MODAL_FORM_ENTER_HEADER_"
+/>
+<p
+  v-if="saved"
+  class="a_mt_3"
+>{{ saved }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalForm,
+  },
+  setup() {
+    const dataForm = [
+      {
+        type: "text",
+        id: "title",
+        label: "_A_MODAL_FORM_ENTER_FIELD_",
+      },
+    ];
+    const isModalVisible = ref(false);
+    const model = ref({});
+    const saved = ref("");
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    // the save button and Enter in the field
+    const save = () => {
+      saved.value = model.value.title || "";
+      closeModal();
+    };
+
+    return {
+      closeModal,
+      dataForm,
+      isModalVisible,
+      model,
+      openModal,
+      save,
+      saved,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
@@ -38497,6 +38640,7 @@ export default {
 | --- | --- | --- |
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | change | Function | Emitted after a field changes. The payload contains the field ID, new and previous values, complete model, item data when available, and reactive props. |
+| submit | Function | Emitted on submit of the form, e.g. Enter in a text field. The argument is the native event; the page is not reloaded. |
 
 ## Slots
 

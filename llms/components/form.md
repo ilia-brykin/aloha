@@ -2,6 +2,8 @@
 
 The **AForm** component builds a complete form from a configuration array. Each item in **data** selects a UI component through its **type**, uses its **id** as the model key, and accepts all props supported by that UI component. The form manages the shared model, validation errors, dependencies, responsive layout, read-only mode, events, and content slots.
 
+Errors: the summary above the form has a heading (`h2`, `header-tag` in `AComponentsPlugin`) with the number of fields with errors (`{{ count }}`) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without `auto-focus` it is an alert, `role="alert"`). The errors of a field are connected with it (aria-describedby). Enter in a field emits `submit` instead of reloading the page.
+
 ## Basic configuration
 
 Pass field configurations through **data** and bind one object with **v-model**. The value of every field is stored under its **id**.
@@ -135,7 +137,7 @@ export default {
 
 ## Errors and read-only mode
 
-The **errors** object is keyed by field ID. Form-level error navigation and required-field information can be configured independently, while **readonly** switches every field to its read-only representation.
+The `errors` object is keyed by field ID. The summary above the form shows the number of fields with errors and links to them; after every validation with errors the focus goes to it. The required-field information can be configured independently, while `readonly` switches every field to its read-only representation.
 
 *props: `errors`, `readonly`, `show-errors`, `show-required-text`, `text-error-header`, `text-required`*
 
@@ -191,6 +193,63 @@ export default {
       readonly,
       toggleReadonly,
       validate,
+    };
+  },
+};
+```
+
+## Enter in a field
+
+Type a text and press Enter: the form emits `submit` (with the event, `preventDefault()` is already called) and the page is not reloaded.
+
+*props: `tag`*
+
+```html
+<a-form
+  v-model="model"
+  :data="data"
+  @submit="onSubmit"
+/>
+<p
+  v-if="countSubmit"
+  class="a_mt_3"
+>submit: {{ countSubmit }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AForm,
+  },
+  setup() {
+    const data = [
+      {
+        type: "text",
+        id: "search",
+        label: "_A_FORM_EXAMPLE_SEARCH_",
+      },
+    ];
+    const model = ref({});
+    const countSubmit = ref(0);
+
+    // Enter in the field: the page is not reloaded
+    const onSubmit = () => {
+      countSubmit.value++;
+    };
+
+    return {
+      countSubmit,
+      data,
+      model,
+      onSubmit,
     };
   },
 };
@@ -287,6 +346,7 @@ export default {
 | --- | --- | --- |
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | change | Function | Emitted after a field changes. The payload contains the field ID, new and previous values, complete model, item data when available, and reactive props. |
+| submit | Function | Emitted on submit of the form, e.g. Enter in a text field. The argument is the native event; the page is not reloaded. |
 
 ## Slots
 

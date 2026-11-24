@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "The task was deleted.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "The task was saved.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "A slot displayed in the body after the form.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "A slot displayed in the body before the text (<code>body-html</code>) and the form."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "A slot displayed in the body before the text (<code>body-html</code>) and the form.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Save with Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter in a field of the form calls <code>save</code>, like the save button, but not when saving is disabled, hidden or loading.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Title"
 }

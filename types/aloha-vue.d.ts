@@ -956,6 +956,8 @@ export interface AErrorsProps {
   closable?: boolean;
   /** @default {} */
   errors?: Record<string, any>;
+  /** @default "h2" */
+  headerTag?: string;
   goToError?: ((...args: any[]) => any);
   idPrefix?: string;
   /** @default true */
@@ -1170,7 +1172,7 @@ export interface AFormProps {
   /** @default false */
   useHtmlIdAsKey?: boolean;
 }
-export declare const AForm: DefineComponent<AFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:modelValue" | "change")[]>;
+export declare const AForm: DefineComponent<AFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:modelValue" | "change" | "submit")[]>;
 
 export interface AFormElementProps {
   alwaysTranslate?: boolean;

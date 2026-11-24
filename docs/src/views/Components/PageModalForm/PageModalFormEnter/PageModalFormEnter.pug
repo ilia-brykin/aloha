@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_MODAL_FORM_ENTER_HEADER_"
+  description="_A_MODAL_FORM_ENTER_DESCRIPTION_"
+  :props="['save']"
+)
+  a-button(
+    id="btn_modal_form_enter"
+    class="a_btn a_btn_primary"
+    text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+    @click="openModal"
+  )
+
+  a-modal-form(
+    v-if="isModalVisible"
+    v-model="model"
+    :data-form="dataForm"
+    :close="closeModal"
+    :save="save"
+    header-text="_A_MODAL_FORM_ENTER_HEADER_"
+  )
+  p.a_mt_3(
+    v-if="saved"
+  ) {{ saved }}

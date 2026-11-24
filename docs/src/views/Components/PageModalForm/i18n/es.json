@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "La tarea se ha eliminado.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "La tarea se ha guardado.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Un slot que se muestra en el cuerpo después del formulario.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Un slot que se muestra en el cuerpo antes del texto (<code>body-html</code>) y del formulario."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Un slot que se muestra en el cuerpo antes del texto (<code>body-html</code>) y del formulario.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Guardar con Intro",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Intro en un campo del formulario llama a <code>save</code>, como el botón de guardar, pero no cuando guardar está desactivado, oculto o cargando.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Título"
 }

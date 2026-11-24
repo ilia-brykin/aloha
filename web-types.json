@@ -3121,6 +3121,11 @@
               "default": "{}"
             },
             {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"h2\""
+            },
+            {
               "name": "goToError",
               "type": "((...args: any[]) => any)"
             },
@@ -3850,6 +3855,9 @@
               },
               {
                 "name": "change"
+              },
+              {
+                "name": "submit"
               }
             ]
           }

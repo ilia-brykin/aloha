@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "L'attività è stata eliminata.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "L'attività è stata salvata.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Uno slot mostrato nel corpo dopo il modulo.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Uno slot mostrato nel corpo prima del testo (<code>body-html</code>) e del modulo."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Uno slot mostrato nel corpo prima del testo (<code>body-html</code>) e del modulo.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Salvare con Invio",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Invio in un campo del modulo chiama <code>save</code>, come il pulsante di salvataggio, ma non quando il salvataggio è disattivato, nascosto o in caricamento.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Titolo"
 }

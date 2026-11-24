@@ -3,7 +3,6 @@ import {
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../../const/AKeysCode";
 import {
   AFormPluginOptions,
 } from "../../../../plugins/AFormPlugin";
@@ -39,18 +38,26 @@ export default function LinkAPI(props) {
       isErrorLink.value;
   });
 
-  const goToErrorLocal = () => {
+  // id of the field: the href of the link (#id) and the target of the focus
+  const targetId = computed(() => {
+    let idStr = idLocal.value;
+    if (!isNil(errorKey.value)) {
+      idStr = `${ idStr }_${ errorKey.value }`;
+    }
+    return size(idStr) > 0 ? `${ idStr }` : undefined;
+  });
+
+  // a real link (href="#id"): the click goes to the field and puts the focus on it
+  const goToErrorLocal = $event => {
+    $event?.preventDefault?.();
     if (isFunction(goToError.value)) {
       return goToError.value({
         id: idLocal.value,
         key: errorKey.value,
       });
     }
-    let idStr = idLocal.value;
-    if (!isNil(errorKey.value)) {
-      idStr = `${ idStr }_${ errorKey.value }`;
-    }
-    if (size(idStr) > 0) {
+    const idStr = targetId.value;
+    if (idStr) {
       if (isFunction(AFormPluginOptions.goToErrorCallback)) {
         AFormPluginOptions.goToErrorCallback({
           idStr,
@@ -66,18 +73,9 @@ export default function LinkAPI(props) {
     }
   };
 
-  const onKeydown = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      goToErrorLocal();
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
-
   return {
     goToErrorLocal,
     isErrorLinkLocal,
-    onKeydown,
+    targetId,
   };
 }

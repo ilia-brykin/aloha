@@ -10,6 +10,11 @@ export default function EventsAPI() {
       description: "_A_FORM_EVENTS_CHANGE_DESCRIPTION_",
       type: "Function",
     },
+    {
+      name: "submit",
+      description: "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_",
+      type: "Function",
+    },
   ];
 
   return {

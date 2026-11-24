@@ -387,6 +387,12 @@ export default {
           useHtmlIdAsKey: this.useHtmlIdAsKey,
           "onUpdate:modelValue": this.updateModelLocal,
           onChange: this.changeLocal,
+          // Enter in a field (submit of the form) saves, like the save button, if it can be used
+          onSubmit: () => {
+            if (this.save && !this.disabled && !this.disabledSave && !this.loading && !this.isSaveButtonHide) {
+              this.save();
+            }
+          },
         }, this.$slots),
         this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
       ],

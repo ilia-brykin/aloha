@@ -381,6 +381,88 @@ export default {
 };
 ```
 
+## Save with Enter
+
+Enter in a field of the form calls `save`, like the save button, but not when saving is disabled, hidden or loading.
+
+*props: `save`*
+
+```html
+<a-button
+  id="btn_modal_form_enter"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :save="save"
+  header-text="_A_MODAL_FORM_ENTER_HEADER_"
+/>
+<p
+  v-if="saved"
+  class="a_mt_3"
+>{{ saved }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalForm,
+  },
+  setup() {
+    const dataForm = [
+      {
+        type: "text",
+        id: "title",
+        label: "_A_MODAL_FORM_ENTER_FIELD_",
+      },
+    ];
+    const isModalVisible = ref(false);
+    const model = ref({});
+    const saved = ref("");
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    // the save button and Enter in the field
+    const save = () => {
+      saved.value = model.value.title || "";
+      closeModal();
+    };
+
+    return {
+      closeModal,
+      dataForm,
+      isModalVisible,
+      model,
+      openModal,
+      save,
+      saved,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
@@ -450,6 +532,7 @@ export default {
 | --- | --- | --- |
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | change | Function | Emitted after a field changes. The payload contains the field ID, new and previous values, complete model, item data when available, and reactive props. |
+| submit | Function | Emitted on submit of the form, e.g. Enter in a text field. The argument is the native event; the page is not reloaded. |
 
 ## Slots
 

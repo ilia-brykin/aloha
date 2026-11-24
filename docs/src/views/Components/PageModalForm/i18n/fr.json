@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "La tâche a été supprimée.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "La tâche a été enregistrée.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Un slot affiché dans le corps après le formulaire.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Un slot affiché dans le corps avant le texte (<code>body-html</code>) et le formulaire."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Un slot affiché dans le corps avant le texte (<code>body-html</code>) et le formulaire.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Enregistrer avec Entrée",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Entrée dans un champ du formulaire appelle <code>save</code>, comme le bouton d'enregistrement, mais pas quand l'enregistrement est désactivé, masqué ou en cours de chargement.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Titre"
 }

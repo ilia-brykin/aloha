@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "Условные поля",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "Поле может задать одно условие объектом <strong lang=\"en\">dependencies</strong> или несколько обязательных условий массивом. <strong lang=\"en\">AForm</strong> автоматически передаёт текущую модель каждому UI-компоненту.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "Ошибки и режим чтения",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Объект <strong lang=\"en\">errors</strong> использует ID полей как ключи. Навигация по ошибкам и информация об обязательных полях настраиваются отдельно, а <strong lang=\"en\">readonly</strong> переводит все поля в режим чтения.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Объект <code>errors</code> строится по ID полей. Сводка над формой показывает число полей с ошибками и ссылки на них; после каждой проверки с ошибками на неё переходит фокус. Информацию об обязательных полях можно настроить отдельно, а <code>readonly</code> переводит каждое поле в режим только для чтения.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "События и слоты",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "Слушайте <strong lang=\"en\">update:modelValue</strong> для получения всей модели и <strong lang=\"en\">change</strong> для подробностей об изменённом поле. Слоты добавляют содержимое до или после формы и контейнера полей.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "CSS-класс по умолчанию для каждого поля, если в его конфигурации не задан собственный <strong lang=\"en\">classColumn</strong>.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "Очистить ошибки",
   "_A_FORM_EXAMPLE_EDIT_": "Редактировать",
   "_A_FORM_EXAMPLE_READONLY_": "Только чтение",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Исправьте следующие поля",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Пожалуйста, исправьте следующие поля ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "Обязательные поля отмечены",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "Поле обязательно для заполнения.",
   "_A_FORM_EXAMPLE_TITLE_": "Заголовок",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "Содержимое после сообщения об обязательных полях",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Содержимое перед полями",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Содержимое после полей",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Содержимое после формы"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Содержимое после формы",
+  "_A_FORM_A11Y_DESCRIPTION_": "Ошибки: у сводки над формой есть заголовок (<code>h2</code>, <code>header-tag</code> в <code>AComponentsPlugin</code>) с числом полей с ошибками (<code>{{ count }}</code>) и список со ссылками на поля. После каждой отправки с ошибками фокус переходит на сводку, поэтому скринридер читает её один раз (без <code>auto-focus</code> это alert, <code>role=\"alert\"</code>). Ошибки поля связаны с ним (aria-describedby). Enter в поле вызывает <code>submit</code> вместо перезагрузки страницы.",
+  "_A_FORM_SUBMIT_HEADER_": "Enter в поле",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "Введите текст и нажмите Enter: форма вызывает <code>submit</code> (с событием, <code>preventDefault()</code> уже вызван), и страница не перезагружается.",
+  "_A_FORM_EXAMPLE_SEARCH_": "Поиск",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "Вызывается при отправке формы, например по Enter в текстовом поле. Аргумент — нативное событие; страница не перезагружается."
 }

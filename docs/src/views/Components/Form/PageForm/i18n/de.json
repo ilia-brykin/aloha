@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "Bedingte Felder",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "Ein Feld kann eine Bedingung als <strong lang=\"en\">dependencies</strong>-Objekt oder mehrere Bedingungen als Array definieren. <strong lang=\"en\">AForm</strong> stellt allen UI-Komponenten automatisch das aktuelle Modell bereit.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "Fehler und Nur-Lesen-Modus",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Das <strong lang=\"en\">errors</strong>-Objekt verwendet Feld-IDs als Schlüssel. Fehlerübersicht und Pflichtfeldhinweis sind separat konfigurierbar; <strong lang=\"en\">readonly</strong> schaltet alle Felder in den Nur-Lesen-Modus.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Das Objekt <code>errors</code> ist nach Feld-ID aufgebaut. Die Zusammenfassung über dem Formular zeigt die Anzahl der Felder mit Fehlern und Links zu ihnen; nach jeder Validierung mit Fehlern geht der Fokus darauf. Die Pflichtfeld-Information ist unabhängig einstellbar, und <code>readonly</code> schaltet jedes Feld in seine Leseansicht.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "Ereignisse und Slots",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "<strong lang=\"en\">update:modelValue</strong> liefert das gesamte Modell, <strong lang=\"en\">change</strong> Details zum geänderten Feld. Slots fügen Inhalt an den vorgesehenen Stellen ein.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "Standard-CSS-Klasse für Felder ohne eigenen <strong lang=\"en\">classColumn</strong>.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "Fehler löschen",
   "_A_FORM_EXAMPLE_EDIT_": "Bearbeiten",
   "_A_FORM_EXAMPLE_READONLY_": "Nur lesen",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Bitte korrigieren Sie die folgenden Felder",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Bitte korrigieren Sie die folgenden Felder ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "Pflichtfelder sind markiert",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "Dieses Feld ist erforderlich.",
   "_A_FORM_EXAMPLE_TITLE_": "Titel",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "Inhalt nach dem Pflichtfeldhinweis",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Inhalt vor den Feldern",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Inhalt nach den Feldern",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Inhalt nach dem Formular"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Inhalt nach dem Formular",
+  "_A_FORM_A11Y_DESCRIPTION_": "Fehler: Die Zusammenfassung über dem Formular hat eine Überschrift (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) mit der Anzahl der Felder mit Fehlern (<code>{{ count }}</code>) und eine Liste mit Links zu den Feldern. Nach jedem Absenden mit Fehlern geht der Fokus auf die Zusammenfassung, daher liest ein Screenreader sie einmal vor (ohne <code>auto-focus</code> ist sie ein Alert, <code>role=\"alert\"</code>). Die Fehler eines Feldes sind mit ihm verbunden (aria-describedby). Enter in einem Feld löst <code>submit</code> aus, statt die Seite neu zu laden.",
+  "_A_FORM_SUBMIT_HEADER_": "Enter in einem Feld",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "Einen Text eingeben und Enter drücken: Das Formular löst <code>submit</code> aus (mit dem Event, <code>preventDefault()</code> ist schon aufgerufen), und die Seite wird nicht neu geladen.",
+  "_A_FORM_EXAMPLE_SEARCH_": "Suche",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "Wird beim Absenden des Formulars ausgelöst, z. B. mit Enter in einem Textfeld. Das Argument ist das native Event; die Seite wird nicht neu geladen."
 }

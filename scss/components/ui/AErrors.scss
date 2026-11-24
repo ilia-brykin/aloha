@@ -3,3 +3,16 @@
   word-wrap: break-word;
   font-size: 1rem;
 }
+
+// the summary is a list (ul / li) with a heading (h2 by default), it looks like before
+.a_errors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.a_errors__header {
+  margin: 0 0 var(--a_space_xs);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}

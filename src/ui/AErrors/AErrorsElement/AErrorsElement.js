@@ -3,7 +3,6 @@ import {
   resolveComponent,
 } from "vue";
 
-import AElement from "../../../AElement/AElement";
 import ATranslation from "../../../ATranslation/ATranslation";
 
 import ErrorTypeAPI from "./compositionAPI/ErrorTypeAPI";
@@ -74,7 +73,7 @@ export default {
     const {
       goToErrorLocal,
       isErrorLinkLocal,
-      onKeydown,
+      targetId,
     } = LinkAPI(props);
 
 
@@ -86,7 +85,7 @@ export default {
       isErrorLinkLocal,
       isErrorObject,
       isErrorString,
-      onKeydown,
+      targetId,
     };
   },
   render() {
@@ -95,17 +94,18 @@ export default {
       if (this.isErrorString ||
         (this.isErrorObject && !this.useFlatErrors)) {
         if (this.isErrorLinkLocal) {
-          label = h(AElement, {
-            type: "link",
-            class: "a_errors__label a_btn a_btn_link a_p_0",
-            tabindex: 0,
+          label = h("a", {
+            href: this.targetId ? `#${ this.targetId }` : undefined,
+            class: "a_errors__label a_errors__link",
             "aria-describedby": this.id,
-            safeHtml: this.currentLabel,
-            textTag: "strong",
-            textAfter: ":",
             onClick: this.goToErrorLocal,
-            onKeydown: this.onKeydown,
-          });
+          }, [
+            h(ATranslation, {
+              tag: "strong",
+              safeHtml: this.currentLabel,
+            }),
+            ":",
+          ]);
         } else {
           label = h("div", {
             class: "a_errors__label",
@@ -121,15 +121,20 @@ export default {
     }
 
 
-    return h("div", {
+    // a list item; several errors of a field or nested fields are a list in it
+    const HAS_LIST = this.isErrorArray || this.isErrorObject;
+    return h("li", {
       class: "a_error__list__li",
     }, [
       label,
       h(
-        "div",
+        HAS_LIST ? "ul" : "div",
         {
           id: this.id,
-          class: "a_errors__errors",
+          class: ["a_errors__errors", {
+            a_errors__list: HAS_LIST,
+            a_pl_2: this.isErrorObject,
+          }],
         },
         this.isErrorString ?
           [
@@ -152,25 +157,19 @@ export default {
               });
             })] :
           this.isErrorObject ?
-            [
-              h("div", {
-                class: "a_pl_2",
-              }, [
-                ...Object.keys(this.error).map(key => {
-                  return h(resolveComponent("AErrorsElement"), {
-                    key: key,
-                    alwaysTranslate: this.alwaysTranslate,
-                    error: this.error[key],
-                    errorLabels: this.useFlatErrors ?
-                      this.errorLabels[key] || this.errorLabels :
-                      this.errorLabels?.[AKeyChildren]?.[key] || this.errorLabels[key] || this.errorLabels,
-                    goToError: this.goToError,
-                    isErrorLink: this.isErrorLink,
-                    useFlatErrors: this.useFlatErrors,
-                  });
-                }),
-              ]),
-            ] :
+            Object.keys(this.error).map(key => {
+              return h(resolveComponent("AErrorsElement"), {
+                key: key,
+                alwaysTranslate: this.alwaysTranslate,
+                error: this.error[key],
+                errorLabels: this.useFlatErrors ?
+                  this.errorLabels[key] || this.errorLabels :
+                  this.errorLabels?.[AKeyChildren]?.[key] || this.errorLabels[key] || this.errorLabels,
+                goToError: this.goToError,
+                isErrorLink: this.isErrorLink,
+                useFlatErrors: this.useFlatErrors,
+              });
+            }) :
             [],
       ),
     ]);

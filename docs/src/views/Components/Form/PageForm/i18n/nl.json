@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "Voorwaardelijke velden",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "Een veld kan één voorwaarde declareren als <strong lang=\"en\">dependencies</strong>-object of meerdere vereiste voorwaarden als array. <strong lang=\"en\">AForm</strong> levert het actuele model automatisch aan elke UI-component.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "Fouten en alleen-lezenmodus",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Het object <strong lang=\"en\">errors</strong> gebruikt de veld-ID als sleutel. Foutnavigatie op formulierniveau en informatie over verplichte velden kunnen onafhankelijk van elkaar worden geconfigureerd, terwijl <strong lang=\"en\">readonly</strong> elk veld naar zijn alleen-lezenweergave schakelt.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Het object <code>errors</code> gebruikt de veld-ID als sleutel. De samenvatting boven het formulier toont het aantal velden met fouten en links ernaartoe; na elke validatie met fouten gaat de focus erheen. De informatie over verplichte velden is apart in te stellen, en <code>readonly</code> zet elk veld in de alleen-lezenweergave.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "Events en slots",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "Luister naar <strong lang=\"en\">update:modelValue</strong> voor het volledige model en naar <strong lang=\"en\">change</strong> voor details over het gewijzigde veld. Slots voegen content in vóór of na het formulier en de veldcontainer.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "Standaard CSS-klasse die wordt toegepast op elk geconfigureerd veld wanneer het item geen eigen <strong lang=\"en\">classColumn</strong> definieert.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "Fouten wissen",
   "_A_FORM_EXAMPLE_EDIT_": "Bewerken",
   "_A_FORM_EXAMPLE_READONLY_": "Alleen lezen",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Corrigeer de volgende velden",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Corrigeer de volgende velden ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "Verplichte velden zijn gemarkeerd",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "Dit veld is verplicht.",
   "_A_FORM_EXAMPLE_TITLE_": "Titel",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "Content na de melding over verplichte velden",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Content vóór de velden",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Content na de velden",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Content na het formulier"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Content na het formulier",
+  "_A_FORM_A11Y_DESCRIPTION_": "Fouten: de samenvatting boven het formulier heeft een kop (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) met het aantal velden met fouten (<code>{{ count }}</code>) en een lijst met links naar de velden. Na elk verzenden met fouten gaat de focus naar de samenvatting, dus een schermlezer leest haar één keer voor (zonder <code>auto-focus</code> is het een alert, <code>role=\"alert\"</code>). De fouten van een veld zijn ermee verbonden (aria-describedby). Enter in een veld geeft <code>submit</code> in plaats van de pagina te herladen.",
+  "_A_FORM_SUBMIT_HEADER_": "Enter in een veld",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "Typ een tekst en druk op Enter: het formulier geeft <code>submit</code> (met het event, <code>preventDefault()</code> is al aangeroepen) en de pagina wordt niet herladen.",
+  "_A_FORM_EXAMPLE_SEARCH_": "Zoeken",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "Wordt gegeven bij het verzenden van het formulier, bijv. met Enter in een tekstveld. Het argument is het native event; de pagina wordt niet herladen."
 }

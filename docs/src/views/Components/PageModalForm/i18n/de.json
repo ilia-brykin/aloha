@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "Die Aufgabe wurde gelöscht.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "Die Aufgabe wurde gespeichert.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Ein Slot, der im Inhalt nach dem Formular angezeigt wird.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Ein Slot, der im Inhalt vor dem Text (<code>body-html</code>) und dem Formular angezeigt wird."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Ein Slot, der im Inhalt vor dem Text (<code>body-html</code>) und dem Formular angezeigt wird.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Mit Enter speichern",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter in einem Feld des Formulars ruft <code>save</code> auf, wie der Speichern-Button, aber nicht, wenn Speichern deaktiviert, ausgeblendet oder am Laden ist.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Titel"
 }

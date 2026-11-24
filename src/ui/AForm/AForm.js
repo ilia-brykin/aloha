@@ -140,6 +140,8 @@ export default {
   emits: [
     "update:modelValue",
     "change",
+    // the native submit event (Enter in a field): the page is not reloaded, the form can be saved
+    "submit",
   ],
   setup(props, content) {
     const {
@@ -168,7 +170,14 @@ export default {
       ...AFormPluginOptions.containerComponents,
     });
 
+    // Enter in a text field submits a form (HTML): without this the browser reloads the page
+    const onSubmit = $event => {
+      $event.preventDefault();
+      content.emit("submit", $event);
+    };
+
     return {
+      onSubmit,
       attributesToExcludeFromRender,
       componentTypesMapping,
       isRequiredLocal,
@@ -185,6 +194,7 @@ export default {
     return h(this.tag, {
       class: "a_form",
       style: this.styleFormHide,
+      onSubmit: this.tag === "form" ? this.onSubmit : undefined,
     }, [
       this.$slots.formPrepend ?
         this.$slots.formPrepend() :
