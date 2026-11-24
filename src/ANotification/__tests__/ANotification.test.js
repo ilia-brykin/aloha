@@ -1,4 +1,5 @@
 import {
+  h,
   nextTick,
 } from "vue";
 import {
@@ -15,6 +16,7 @@ import {
 
 import ANotificationAPI, {
   addNotification,
+  clearNotifications,
   removeNotification,
 } from "../../compositionAPI/ANotificationAPI";
 import {
@@ -217,5 +219,87 @@ describe("ANotification", () => {
     parent().dispatchEvent(new MouseEvent("mouseenter"));
     await nextTick();
     expect(parent().className).toContain("a_notification_parent_paused");
+  });
+
+  it("clearNotifications closes all notifications or the notifications of one container", async() => {
+    const editor = mount(ANotification, { props: { name: "editor" }, attachTo: document.body });
+    addNotification({ text: "One", timeout: 0 });
+    addNotification({ text: "Two", timeout: 0, container: "editor" });
+    await nextTick();
+    expect(alerts()).toHaveLength(2);
+
+    clearNotifications({ container: "editor" });
+    await nextTick();
+    expect(Array.from(alerts()).map(alert => alert.textContent.trim())).toEqual(["One"]);
+
+    clearNotifications();
+    await nextTick();
+    expect(alerts()).toHaveLength(0);
+    editor.unmount();
+  });
+
+  it("shows the same notification once with a count and restarts its timer", async() => {
+    const ID = addNotification({ text: "Error", type: "error", timeout: 1000 });
+    vi.advanceTimersByTime(800);
+    const ID_SAME = addNotification({ text: "Error", type: "error", timeout: 1000 });
+    await nextTick();
+
+    expect(ID_SAME).toBe(ID);
+    expect(alerts()).toHaveLength(1);
+    expect(parent().querySelector(".a_notification__count").textContent).toBe("×2");
+
+    vi.advanceTimersByTime(800);
+    await nextTick();
+    expect(alerts()).toHaveLength(1);
+    vi.advanceTimersByTime(200);
+    await nextTick();
+    expect(alerts()).toHaveLength(0);
+  });
+
+  it("does not merge notifications with actions or with deduplicate false", async() => {
+    addNotification({ text: "Deleted", timeout: 0, actions: [{ text: "Undo" }] });
+    addNotification({ text: "Deleted", timeout: 0, actions: [{ text: "Undo" }] });
+    addNotification({ text: "Saved", timeout: 0, deduplicate: false });
+    addNotification({ text: "Saved", timeout: 0, deduplicate: false });
+    await nextTick();
+
+    expect(alerts()).toHaveLength(4);
+  });
+
+  it("shows a notification only in its container, the pause is per container", async() => {
+    const editor = mount(ANotification, { props: { name: "editor" }, attachTo: document.body });
+    await nextTick();
+    addNotification({ text: "Main", timeout: 1000 });
+    addNotification({ text: "Editor", timeout: 1000, container: "editor" });
+    await nextTick();
+
+    const [main, editorParent] = document.body.querySelectorAll(".a_notification_parent");
+    expect(main.textContent).toContain("Main");
+    expect(main.textContent).not.toContain("Editor");
+    expect(editorParent.textContent).toContain("Editor");
+
+    editorParent.dispatchEvent(new MouseEvent("mouseenter"));
+    vi.advanceTimersByTime(1000);
+    await nextTick();
+    expect(main.querySelector(".a_notification")).toBeNull();
+    expect(editorParent.querySelector(".a_notification")).not.toBeNull();
+    editor.unmount();
+  });
+
+  it("renders an own component with its props, the notification and close", async() => {
+    const Content = {
+      props: ["label", "close", "notification"],
+      render() {
+        return h("button", { class: "own", type: "button", onClick: this.close }, `${ this.label } ${ this.notification.type }`);
+      },
+    };
+    addNotification({ component: Content, props: { label: "Own" }, type: "info", timeout: 0 });
+    await nextTick();
+
+    const button = parent().querySelector(".own");
+    expect(button.textContent).toBe("Own info");
+    button.click();
+    await nextTick();
+    expect(alerts()).toHaveLength(0);
   });
 });

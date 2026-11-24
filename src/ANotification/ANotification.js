@@ -7,6 +7,7 @@ import {
   ref,
   Teleport,
   toRef,
+  TransitionGroup,
   watch,
 } from "vue";
 
@@ -14,7 +15,9 @@ import AAlert from "../AAlert/AAlert";
 import AButton from "../AButton/AButton";
 import ATranslation from "../ATranslation/ATranslation";
 
-import ANotificationAPI from "../compositionAPI/ANotificationAPI";
+import ANotificationAPI, {
+  getContainerKey,
+} from "../compositionAPI/ANotificationAPI";
 
 import {
   getPropDefault,
@@ -36,7 +39,16 @@ export default {
       required: false,
       default: () => getPropDefault("ANotification", "hasProgress", false),
     },
-    // at most so many notifications, the oldest are closed
+
+    /*
+     * at most so many notifications, the oldest are closed
+     * area for addNotification({ container: name }); without name it shows the notifications without container
+     */
+    name: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     max: {
       type: Number,
       required: false,
@@ -63,6 +75,7 @@ export default {
   },
   setup(props) {
     const max = toRef(props, "max");
+    const name = toRef(props, "name");
     const placement = toRef(props, "placement");
     const size = toRef(props, "size");
     const width = toRef(props, "width");
@@ -82,11 +95,16 @@ export default {
     const isPaused = computed(() => isHovered.value || hasFocus.value);
     const updatePause = () => {
       if (isPaused.value) {
-        pauseNotifications();
+        pauseNotifications(name.value);
       } else {
-        resumeNotifications();
+        resumeNotifications(name.value);
       }
     };
+
+    const notificationsLocal = computed(() => {
+      const CONTAINER = getContainerKey(name.value);
+      return notifications.value.filter(notification => notification.container === CONTAINER);
+    });
     const onMouseenter = () => {
       isHovered.value = true;
       updatePause();
@@ -108,12 +126,13 @@ export default {
 
     // the closed notification can have had the focus: removed elements do not always fire focusout
     const parentRef = ref(undefined);
+    const checkFocus = () => {
+      hasFocus.value = !!parentRef.value?.contains(document.activeElement);
+      updatePause();
+    };
     const closeNotification = notificationIndex => {
       removeNotification(notificationIndex);
-      nextTick().then(() => {
-        hasFocus.value = !!parentRef.value?.contains(document.activeElement);
-        updatePause();
-      });
+      nextTick().then(checkFocus);
     };
 
     const onActionClick = ({ action, notification, $event }) => {
@@ -123,9 +142,9 @@ export default {
       closeNotification(notification.index);
     };
 
-    watch(() => notifications.value.length, length => {
+    watch(() => notificationsLocal.value.length, length => {
       if (max.value > 0 && length > max.value) {
-        notifications.value.slice(0, length - max.value).forEach(notification => {
+        notificationsLocal.value.slice(0, length - max.value).forEach(notification => {
           removeNotification(notification.index);
         });
       }
@@ -155,7 +174,7 @@ export default {
     });
 
     onBeforeUnmount(() => {
-      resumeNotifications();
+      resumeNotifications(name.value);
     });
 
     onMounted(() => {
@@ -163,9 +182,10 @@ export default {
     });
 
     return {
+      checkFocus,
       closeNotification,
       isMounted,
-      notifications,
+      notificationsLocal,
       onActionClick,
       onFocusin,
       onFocusout,
@@ -189,50 +209,67 @@ export default {
         onMouseleave: this.onMouseleave,
         onFocusin: this.onFocusin,
         onFocusout: this.onFocusout,
-      }, this.notifications.map(notification => {
-        return h(AAlert, {
-          key: notification.index,
-          alwaysTranslate: notification.alwaysTranslate,
-          announce: notification.announce,
-          icon: notification.icon,
-          isVisible: true,
-          closable: true,
-          type: notification.type,
-          alertClass: "a_notification",
-          onClose: () => this.closeNotification(notification.index),
-        }, () => [
-          notification.title && h(ATranslation, {
+      }, [
+        // after the leave animation the closed notification is gone: check where the focus is
+        h(TransitionGroup, {
+          name: "a_notification",
+          onAfterLeave: this.checkFocus,
+        }, () => this.notificationsLocal.map(notification => {
+          return h(AAlert, {
+            key: notification.index,
             alwaysTranslate: notification.alwaysTranslate,
-            class: "a_notification__title",
-            extra: notification.extra,
-            html: notification.title,
-            tag: "strong",
-          }),
-          h(ATranslation, {
-            alwaysTranslate: notification.alwaysTranslate,
-            html: notification.text,
-            extra: notification.extra,
-          }),
-          notification.actions?.length && h("div", {
-            class: "a_notification__actions",
-          }, notification.actions.map(({ onClick, ...action }, actionIndex) => {
-            return h(AButton, {
-              key: actionIndex,
+            announce: notification.announce,
+            icon: notification.icon,
+            isVisible: true,
+            closable: true,
+            type: notification.type,
+            alertClass: "a_notification",
+            onClose: () => this.closeNotification(notification.index),
+          }, () => [
+            notification.title && h(ATranslation, {
               alwaysTranslate: notification.alwaysTranslate,
-              class: "a_btn a_btn_secondary a_btn_small",
+              class: "a_notification__title",
               extra: notification.extra,
-              type: "button",
-              ...action,
-              onClick: $event => this.onActionClick({ action: { onClick }, notification, $event }),
-            });
-          })),
-          this.hasProgress && notification.timeout > 0 && h("div", {
-            "aria-hidden": "true",
-            class: "a_notification__progress",
-            style: { animationDuration: `${ notification.timeout }ms` },
-          }),
-        ]);
-      })),
+              html: notification.title,
+              tag: "strong",
+            }),
+            notification.component ?
+              h(notification.component, {
+                ...notification.props,
+                notification,
+                close: () => this.closeNotification(notification.index),
+              }) :
+              h(ATranslation, {
+                alwaysTranslate: notification.alwaysTranslate,
+                html: notification.text,
+                extra: notification.extra,
+              }),
+            notification.count > 1 && h("span", {
+              class: "a_badge a_notification__count",
+            }, `×${ notification.count }`),
+            notification.actions?.length && h("div", {
+              class: "a_notification__actions",
+            }, notification.actions.map(({ onClick, ...action }, actionIndex) => {
+              return h(AButton, {
+                key: actionIndex,
+                alwaysTranslate: notification.alwaysTranslate,
+                class: "a_btn a_btn_secondary a_btn_small",
+                extra: notification.extra,
+                type: "button",
+                ...action,
+                onClick: $event => this.onActionClick({ action: { onClick }, notification, $event }),
+              });
+            })),
+            this.hasProgress && notification.timeout > 0 && h("div", {
+              // a new key restarts the animation when the same notification comes again
+              key: `progress_${ notification.count }`,
+              "aria-hidden": "true",
+              class: "a_notification__progress",
+              style: { animationDuration: `${ notification.timeout }ms` },
+            }),
+          ]);
+        })),
+      ]),
     ]);
   },
 };

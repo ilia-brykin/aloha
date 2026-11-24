@@ -7989,6 +7989,10 @@
               "default": "false"
             },
             {
+              "name": "name",
+              "type": "string"
+            },
+            {
               "name": "max",
               "type": "number"
             },

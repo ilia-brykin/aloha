@@ -2466,6 +2466,7 @@ export declare const AMultiselectOrdered: DefineComponent<AMultiselectOrderedPro
 export interface ANotificationProps {
   /** @default false */
   hasProgress?: boolean;
+  name?: string;
   max?: number;
   /** @default "top-center" */
   placement?: string;
@@ -4095,6 +4096,7 @@ export declare const AModalI18n: any;
 export declare const AMultiselectOrderedI18n: any;
 export declare const ANotificationAPI: any;
 export declare const ANotificationAPI_addNotification: any;
+export declare const ANotificationAPI_clearNotifications: any;
 export declare const ANotificationAPI_removeNotification: any;
 export declare const ANotificationAPI_setNotificationTimeout: any;
 export declare const AOnHooks: any;
