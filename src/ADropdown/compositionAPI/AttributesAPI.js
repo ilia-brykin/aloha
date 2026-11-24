@@ -13,6 +13,7 @@ import {
 
 export default function AttributesAPI(props, {
   eventsMenu = computed(() => ({})),
+  isMenu = computed(() => false),
   statusExpanded = ref(false),
   wasOpened = ref(false),
 }) {
@@ -31,15 +32,23 @@ export default function AttributesAPI(props, {
     scalePxWithRem,
   } = ARemPxAPI();
 
+  const idLocal = computed(() => {
+    return buttonAttributes.value.id || id.value;
+  });
+
+  const isMenuRendered = computed(() => {
+    return statusExpanded.value || (persist.value && wasOpened.value);
+  });
+
+  const menuId = computed(() => {
+    return `${ idLocal.value }_menu`;
+  });
+
   const buttonTagLocal = computed(() => {
     if (readonly.value) {
       return "span";
     }
     return buttonTag.value;
-  });
-
-  const idLocal = computed(() => {
-    return buttonAttributes.value.id || id.value;
   });
 
   const buttonAttributesLocal = computed(() => {
@@ -48,8 +57,14 @@ export default function AttributesAPI(props, {
       return BUTTON_ATTRIBUTES;
     }
 
-    BUTTON_ATTRIBUTES["aria-haspopup"] = "true";
-    BUTTON_ATTRIBUTES["aria-expanded"] = statusExpanded.value;
+    // aria-haspopup "menu" only for a real menu (actions); own content is a disclosure with aria-expanded
+    if (isMenu.value) {
+      BUTTON_ATTRIBUTES["aria-haspopup"] = "menu";
+    }
+    BUTTON_ATTRIBUTES["aria-expanded"] = statusExpanded.value ? "true" : "false";
+    if (isMenuRendered.value) {
+      BUTTON_ATTRIBUTES["aria-controls"] = menuId.value;
+    }
 
     if (buttonTag.value === "button") {
       BUTTON_ATTRIBUTES.type = BUTTON_ATTRIBUTES.type || "button";
@@ -63,7 +78,7 @@ export default function AttributesAPI(props, {
       if (buttonTag.value === "button") {
         ATTRIBUTES.disabled = true;
       } else if (buttonTag.value === "a") {
-        ATTRIBUTES.ariaDisabled = true;
+        ATTRIBUTES["aria-disabled"] = "true";
       }
     }
 
@@ -85,9 +100,6 @@ export default function AttributesAPI(props, {
     return assign({}, DROPDOWN_ATTRIBUTES, eventsMenu.value);
   });
 
-  const isMenuRendered = computed(() => {
-    return statusExpanded.value || (persist.value && wasOpened.value);
-  });
 
   return {
     idLocal,
@@ -96,5 +108,6 @@ export default function AttributesAPI(props, {
     buttonTagLocal,
     dropdownAttributesLocal,
     isMenuRendered,
+    menuId,
   };
 }

@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   onBeforeUnmount,
   onMounted,
@@ -327,6 +328,7 @@ export default {
     "close",
   ],
   setup(props, context) {
+    const elementsForArrows = toRef(props, "elementsForArrows");
     const id = toRef(props, "id");
 
     const isMounted = ref(false);
@@ -342,8 +344,31 @@ export default {
     } = RefsAPI();
 
     const {
+      actionsFiltered,
+      hasActions,
+      hasTemplateActions,
+    } = ActionsAPI(props);
+
+    // WAI-ARIA menu only when the dropdown is built from actions; own content (slot dropdown, type template) is a disclosure
+    const isMenu = computed(() => {
+      return hasActions.value &&
+        !context.slots.dropdown &&
+        !hasTemplateActions.value;
+    });
+
+    // the menu items for the arrows, without disabled ones
+    const arrowsSelector = computed(() => {
+      return isMenu.value ?
+        "[role=\"menuitem\"]:not([disabled]):not([aria-disabled=\"true\"])" :
+        elementsForArrows.value;
+    });
+
+    const {
+      getElementsForArrows,
       setFocusToFirstElement,
+      setFocusToLastElement,
     } = FocusAPI(props, {
+      arrowsSelector,
       dropdownRef,
     });
 
@@ -374,8 +399,10 @@ export default {
       destroyPopover,
       dropdownButtonRef,
       dropdownRef,
+      getElementsForArrows,
       openPopup,
       setFocusToFirstElement,
+      setFocusToLastElement,
       startPopper,
     });
 
@@ -398,16 +425,13 @@ export default {
       buttonTagLocal,
       dropdownAttributesLocal,
       isMenuRendered,
+      menuId,
     } = AttributesAPI(props, {
       eventsMenu,
+      isMenu,
       statusExpanded,
       wasOpened,
     });
-
-    const {
-      actionsFiltered,
-      hasActions,
-    } = ActionsAPI(props);
 
     const {
       addPopperContainerInBody,
@@ -454,8 +478,10 @@ export default {
       eventsLocal,
       hasActions,
       idLocal,
+      isMenu,
       isMenuRendered,
       isMounted,
+      menuId,
       onClose,
       onOpen,
       popperContainerIdSelector,
@@ -525,17 +551,21 @@ export default {
           "div",
           {
             ref: "dropdownRef",
-            "aria-labelledby": this.idLocal,
-            ariaHidden: !this.statusExpanded,
+            "aria-hidden": this.statusExpanded ? undefined : "true",
             ...this.dropdownAttributesLocal,
           },
           [
-            h(this.dropdownTag, {}, [
+            h(this.dropdownTag, {
+              id: this.menuId,
+              role: this.isMenu ? "menu" : undefined,
+              "aria-labelledby": this.isMenu ? this.idLocal : undefined,
+            }, [
               this.$slots.dropdown && this.$slots.dropdown(),
               this.hasActions && h(ADropdownGroup, {
                 actions: this.actionsFiltered,
                 alwaysTranslate: this.alwaysTranslate,
                 dropdownId: this.idLocal,
+                isMenu: this.isMenu,
               }, this.$slots),
             ]),
           ],

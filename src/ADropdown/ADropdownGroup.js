@@ -23,6 +23,11 @@ export default {
       type: String,
       required: true,
     },
+    // role menu: groups get role="group", the label is the name of the group
+    isMenu: {
+      type: Boolean,
+      required: false,
+    },
     levelIndex: {
       type: Number,
       required: false,
@@ -38,6 +43,7 @@ export default {
             actions: action.children,
             alwaysTranslate: this.alwaysTranslate,
             dropdownId: this.dropdownId,
+            isMenu: this.isMenu,
             levelIndex: this.levelIndex + 1,
           }, this.$slots);
         }
@@ -50,6 +56,7 @@ export default {
             "a_dropdown__group",
             `a_dropdown__group_level_${ this.levelIndex }`,
           ],
+          role: this.isMenu ? "none" : undefined,
         }, [
           h(ATranslation, {
             id: labelId,
@@ -57,18 +64,23 @@ export default {
             class: [
               "a_dropdown__group__label",
               "a_dropdown__item_header",
+              action.groupClass,
             ],
+            extra: action.groupExtra,
             html: action.groupLabel,
             tag: "div",
+            role: this.isMenu ? "presentation" : undefined,
           }),
           h("ul", {
             class: "a_dropdown__group__list",
+            role: this.isMenu ? "group" : undefined,
             "aria-labelledby": labelId,
           }, [
             h(resolveComponent("ADropdownGroup"), {
               actions: action.children,
               alwaysTranslate: this.alwaysTranslate,
               dropdownId: this.dropdownId,
+              isMenu: this.isMenu,
               levelIndex: this.levelIndex + 1,
             }, this.$slots),
           ]),
@@ -79,6 +91,7 @@ export default {
         key: `action_${ this.levelIndex }_${ actionIndex }`,
         action,
         alwaysTranslate: this.alwaysTranslate,
+        isMenu: this.isMenu,
       }, this.$slots);
     });
   },
