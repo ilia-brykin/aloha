@@ -11,6 +11,7 @@ import PageShowMoreEvents from "./PageShowMoreEvents/PageShowMoreEvents.vue";
 import PageShowMoreExposes from "./PageShowMoreExposes/PageShowMoreExposes.vue";
 import PageShowMoreHeight from "./PageShowMoreHeight/PageShowMoreHeight.vue";
 import PageShowMoreHtml from "./PageShowMoreHtml/PageShowMoreHtml.vue";
+import PageShowMoreLinks from "./PageShowMoreLinks/PageShowMoreLinks.vue";
 import PageShowMoreNotLess from "./PageShowMoreNotLess/PageShowMoreNotLess.vue";
 import PageShowMoreOpenDefault from "./PageShowMoreOpenDefault/PageShowMoreOpenDefault.vue";
 import PageShowMoreSafeHtml from "./PageShowMoreSafeHtml/PageShowMoreSafeHtml.vue";
@@ -18,6 +19,7 @@ import PageShowMoreSlots from "./PageShowMoreSlots/PageShowMoreSlots.vue";
 import PageShowMoreText from "./PageShowMoreText/PageShowMoreText.vue";
 import PageShowMoreTextLength from "./PageShowMoreTextLength/PageShowMoreTextLength.vue";
 import PageShowMoreTexts from "./PageShowMoreTexts/PageShowMoreTexts.vue";
+import PageShowMoreVModel from "./PageShowMoreVModel/PageShowMoreVModel.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -32,6 +34,8 @@ import TranslateAPI from "./compositionAPI/TranslateAPI";
 export default {
   name: "PageShowMore",
   components: {
+    PageShowMoreLinks,
+    PageShowMoreVModel,
     AlohaPage,
     AlohaTableProps,
     AlohaTableTranslate,

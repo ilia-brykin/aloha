@@ -30,24 +30,24 @@ export default function ObservingAPI(props, {
     }
   };
 
+  const checkHeightDebounced = debounce(checkHeight, 300);
+
   const startObservingMutation = () => {
-    if (isBtnHiddenDependentOnTextLength.value) {
+    if (isBtnHiddenDependentOnTextLength.value ||
+      !containerRef.value ||
+      typeof ResizeObserver === "undefined") {
       return;
     }
-    observer.value = new ResizeObserver(
-      debounce(() => {
-        checkHeight();
-      }, 300),
-    );
+    observer.value = new ResizeObserver(checkHeightDebounced);
     observer.value.observe(containerRef.value);
   };
 
+  // disconnect and no delayed check after the unmount
   const stopObservingMutation = () => {
-    if (isBtnHiddenDependentOnTextLength.value) {
-      return;
-    }
+    checkHeightDebounced.cancel();
     if (observer.value) {
-      observer.value.unobserve(containerRef.value);
+      observer.value.disconnect();
+      observer.value = undefined;
     }
   };
 

@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Cambia lo stato del componente (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Cambia lo stato del componente (pulsante)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Questo evento viene scatenato quando l'utente fa clic sul pulsante \"Mostra di più/Mostra di meno\". Restituisce un oggetto che contiene informazioni sullo stato attuale del componente, inclusa <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Mostra testo abbreviato"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Mostra testo abbreviato",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Il pulsante ha <code>aria-expanded</code> e <code>aria-controls</code>: uno screen reader dice se il contenuto è aperto. Dopo il clic il focus resta sul pulsante; solo se il pulsante scompare (<code>show-less=\"false\"</code>), passa al contenuto.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> indica se il contenuto è aperto e lo apre o chiude anche dall'esterno. L'evento <code>toggle</code> arriva ancora.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Apri / chiudi dall'esterno",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Aperto o chiuso (<code>v-model</code>). Senza di essa, <code>is-open-default</code> imposta l'inizio.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Aperto o chiuso è cambiato (<code>v-model</code>). Arriva insieme a <code>toggle</code>."
 }

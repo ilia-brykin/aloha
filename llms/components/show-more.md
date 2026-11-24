@@ -2,6 +2,8 @@
 
 The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 
+With `text-length` the rest of the text is not in the page: the button has `aria-expanded` and `aria-controls`. With `height` the whole content is in the page and a screen reader reads it anyway: the button tells that it can be ignored. A link or button in the cut part opens the content when it gets the focus. After the click the focus stays on the button; only if the button disappears (`show-less="false"`), it goes to the content.
+
 ## Basic usage
 
 *slots: `default`*
@@ -213,7 +215,7 @@ export default {
 
 ## Text length
 
-The length represents the maximum number of characters after which the rest of the text becomes hidden.
+The maximum number of characters after which the rest of the text is hidden. The text is cut at the end of a word and gets an ellipsis (…).
 
 *props: `text`, `text-length`*
 
@@ -331,6 +333,29 @@ export default {
     };
   },
 };
+```
+
+## Links in the cut part
+
+Press Tab through the links: when a link in the cut part gets the focus, the content opens, so the focus is always visible (WCAG 2.4.11).
+
+*props: `height`*
+
+```html
+<a-show-more
+  :height="80"
+>
+  <p
+    v-for="index in 5"
+    :key="index"
+  >
+    <span>{{ index }}. Lorem ipsum dolor sit amet. </span>
+    <a
+      href="#"
+      @click.prevent
+    >Link {{ index }}</a>
+  </p>
+</a-show-more>
 ```
 
 ## Don't show less
@@ -726,6 +751,53 @@ export default {
 };
 ```
 
+## v-model
+
+`v-model` contains whether the content is open and also opens or closes it from outside. The event `toggle` still comes.
+
+*props: `model-value`*
+
+```html
+<a-show-more
+  v-model="isOpen"
+  :text="text"
+  :text-length="60"
+/>
+<p class="a_my_3">v-model: {{ isOpen }}</p>
+<a-button
+  class="a_btn a_btn_secondary"
+  text="_A_SHOW_MORE_EXAMPLE_TOGGLE_"
+  @click="isOpen = !isOpen"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AShowMore,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AShowMore,
+  },
+  setup() {
+    const isOpen = ref(false);
+    const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.";
+
+    return {
+      isOpen,
+      text,
+    };
+  },
+};
+```
+
 ## Slots
 
 You can use slots with parameters: **isButtonVisible**, **isOpen**.
@@ -949,6 +1021,7 @@ export default {
 | id | String |  |  | Specifies a unique ID for the HTML element corresponding to the component. |
 | is-btn-title-html | Boolean |  |  | If the title in the HTML format. |
 | is-open-default | Boolean | false |  | All text is shown by default. |
+| model-value | Boolean |  |  | Open or closed (`v-model`). Without it `is-open-default` sets the start. |
 | safe-html | String |  |  | Component content in safe HTML format. |
 | show-less | Boolean | true |  | Is button 'Show less' visible. |
 | text | String |  |  | Content of the component in plain text format. |
@@ -966,6 +1039,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | toggle | Function | Triggers when a button is pressed, ({ isOpen }) => {}. |
+| update:modelValue | Function | Open or closed changed (`v-model`). Comes together with `toggle`. |
 
 ## Exposes
 

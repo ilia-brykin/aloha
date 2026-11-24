@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "De inhoud van de component kan als platte tekst worden gedefinieerd.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Tekst",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "De lengte is het maximale aantal tekens waarna de rest van de tekst wordt verborgen.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Het maximale aantal tekens waarna de rest van de tekst verborgen wordt. De tekst wordt aan het einde van een woord afgekapt en krijgt een beletselteken (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Tekstlengte",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Minder tonen Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Meer tonen Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Inhoud die binnen de component wordt weergegeven.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "De component bedienen met de indicator \"isOpen\".",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "De component bedienen met de knop \"Meer tonen\".",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wordt geactiveerd wanneer op een knop wordt gedrukt, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wordt geactiveerd wanneer op een knop wordt gedrukt, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Met <code>text-length</code> staat de rest van de tekst niet in de pagina: de knop heeft <code>aria-expanded</code> en <code>aria-controls</code>. Met <code>height</code> staat de hele inhoud in de pagina en leest een schermlezer die toch: de knop meldt dat hij overgeslagen kan worden. Een link of knop in het afgesneden deel opent de inhoud als hij de focus krijgt. Na de klik blijft de focus op de knop; alleen als de knop verdwijnt (<code>show-less=\"false\"</code>), gaat hij naar de inhoud.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> bevat of de inhoud open is en opent of sluit die ook van buitenaf. Het event <code>toggle</code> komt nog steeds.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Links in het afgesneden deel",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Ga met Tab door de links: als een link in het afgesneden deel de focus krijgt, opent de inhoud, zodat de focus altijd zichtbaar is (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Van buitenaf openen / sluiten",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Open of gesloten (<code>v-model</code>). Zonder deze prop bepaalt <code>is-open-default</code> het begin.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Open of gesloten is gewijzigd (<code>v-model</code>). Komt samen met <code>toggle</code>."
 }

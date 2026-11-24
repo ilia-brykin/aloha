@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Перемкнути стан компонента (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Перемкнути стан компонента (кнопка)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ця подія викликається, коли користувач натискає кнопку \"Показати більше/Показати менше\". Вона повертає об'єкт з інформацією про поточний стан компонента, зокрема <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Показати скорочений текст"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Показати скорочений текст",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Кнопка має <code>aria-expanded</code> і <code>aria-controls</code>: скринрідер повідомляє, чи відкритий вміст. Після кліку фокус залишається на кнопці; лише якщо кнопка зникає (<code>show-less=\"false\"</code>), він переходить на вміст.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> містить, чи відкритий вміст, і дозволяє відкривати й закривати його ззовні. Подія <code>toggle</code> і далі надходить.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Відкрити / закрити ззовні",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Відкрито чи закрито (<code>v-model</code>). Без нього початковий стан задає <code>is-open-default</code>.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Змінилося відкрито/закрито (<code>v-model</code>). Надходить разом із <code>toggle</code>."
 }

@@ -15,31 +15,24 @@ export default function TextLengthAPI(props, {
   });
 
   const isTextShorterThanTextLength = computed(() => {
-    return textLength.value > text.value.length;
+    // the whole text fits: no cut, no button
+    return textLength.value >= text.value.length;
   });
 
   const isBtnHiddenDependentOnTextLength = computed(() => {
     return hasTextAndLength.value && isTextShorterThanTextLength.value;
   });
 
+  // cut at the end of a word, without punctuation at the end, with an ellipsis (…)
   const textLess = computed(() => {
-    const TEXT_LESS = text.value.slice(0, textLength.value).trimEnd();
-    let pointsSuffix = "...";
-    let hasPoint = true;
-    for (let i = TEXT_LESS.length - 1; i > TEXT_LESS.length - 4; i--) {
-      const SYMBOL = TEXT_LESS[i];
-      if (SYMBOL === ".") {
-        if (hasPoint) {
-          pointsSuffix = pointsSuffix.slice(0, -1);
-        } else {
-          break;
-        }
-        hasPoint = true;
-      } else {
-        break;
-      }
+    let textLessLocal = text.value.slice(0, textLength.value);
+    const IS_CUT_IN_WORD = /\S/.test(text.value.charAt(textLength.value)) && /\S$/.test(textLessLocal);
+    const LAST_SPACE = textLessLocal.search(/\s\S*$/);
+    if (IS_CUT_IN_WORD && LAST_SPACE > 0) {
+      textLessLocal = textLessLocal.slice(0, LAST_SPACE);
     }
-    return `${ TEXT_LESS }${ pointsSuffix }`;
+    textLessLocal = textLessLocal.trimEnd().replace(/[\s.,;:!?…-]+$/, "");
+    return `${ textLessLocal }…`;
   });
 
   const textLocal = computed(() => {

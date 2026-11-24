@@ -9,7 +9,7 @@
   "_A_SHOW_MORE_BTN_TEXT_LESS_DESCRIPTION_": "Tekst dugmeta za za skrivanje opširnijeg teksta, zadano \"Prikaži manje\".",
   "_A_SHOW_MORE_BTN_TEXT_MORE_DESCRIPTION_": "Tekst dugmeta za za prikaz opširnijeg teksta, zadano \"Prikaži više\".",
   "_A_SHOW_MORE_BTN_TITLE_LESS_DESCRIPTION_": "Dodatne informacije koje će se prikazati u oblačiću kad se mišem prijeđe preko dugmeta za skrivanje opširnijeg teksta.",
-  "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_":  "Dodatne informacije koje će se prikazati u oblačiću kad se mišem prijeđe preko dugmeta za prikaz opširnijeg teksta.",
+  "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_": "Dodatne informacije koje će se prikazati u oblačiću kad se mišem prijeđe preko dugmeta za prikaz opširnijeg teksta.",
   "_A_SHOW_MORE_BTN_TITLE_PLACEMENT_DESCRIPTION_": "Položaj u odnosu na dugme u kojem će se prikazati oblačić. Funkcionira samo ako is-btn-title-html ima vrijednost true.",
   "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "Komponenta AShowMore omogućuje prikaz opširnijeg teksta i njegovo ponovno sakrivanje po potrebi.",
   "_A_SHOW_MORE_COMPONENT_NAME_": "Prikaži više",
@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slotovi",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Sadržaj komponente može se definirati kao običan tekst.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Tekst",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Duljina predstavlja maksimalan broj znakova nakon kojeg ostatak teksta postaje skriven.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Najveći broj znakova nakon kojeg se ostatak teksta skriva. Tekst se reže na kraju riječi i dobiva tri točke (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Duljina bloka",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Prikaži manje Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Prikaži više Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Koristi se za definiranje prilagođenog sadržaja, odnosno teksta komponente.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Upravljanje komponentom pomoću \"isOpen\" indikatora.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Upravljanje komponentom pomoću dugmeta \"Prikaži više\".",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Funkcija pri promjeni statusa komponente (otvoreno/zatvoreno)."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Funkcija pri promjeni statusa komponente (otvoreno/zatvoreno).",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "S <code>text-length</code> ostatak teksta nije na stranici: gumb ima <code>aria-expanded</code> i <code>aria-controls</code>. S <code>height</code> cijeli je sadržaj na stranici i čitač zaslona ga ionako čita: gumb javlja da se može preskočiti. Poveznica ili gumb u odrezanom dijelu otvara sadržaj kad dobije fokus. Nakon klika fokus ostaje na gumbu; samo ako gumb nestane (<code>show-less=\"false\"</code>), prelazi na sadržaj.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> sadrži je li sadržaj otvoren te ga otvara ili zatvara i izvana. Događaj <code>toggle</code> i dalje stiže.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Poveznice u odrezanom dijelu",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Prođite poveznicama tipkom Tab: kad poveznica u odrezanom dijelu dobije fokus, sadržaj se otvara, pa je fokus uvijek vidljiv (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Otvori / zatvori izvana",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Otvoreno ili zatvoreno (<code>v-model</code>). Bez njega početak postavlja <code>is-open-default</code>.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Promijenilo se otvoreno/zatvoreno (<code>v-model</code>). Stiže zajedno s <code>toggle</code>."
 }

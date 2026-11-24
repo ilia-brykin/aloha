@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "تغيير حالة المكون (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "تغيير حالة المكون (الزر)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "يتم تنشيط هذا الحدث عند نقر المستخدم على زر \"عرض المزيد/إخفاء المزيد\". يُرجع كائنًا يحتوي على معلومات حول الحالة الحالية للعنصر، بما في ذلك <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "عرض النص المختصر"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "عرض النص المختصر",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "للزر <code>aria-expanded</code> و<code>aria-controls</code>: يعلن قارئ الشاشة ما إذا كان المحتوى مفتوحًا. بعد النقر يبقى التركيز على الزر؛ فقط إذا اختفى الزر (<code>show-less=\"false\"</code>) ينتقل إلى المحتوى.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "يحتوي <code>v-model</code> على ما إذا كان المحتوى مفتوحًا، ويفتحه أو يغلقه أيضًا من الخارج. يظل الحدث <code>toggle</code> يصل.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "فتح / إغلاق من الخارج",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "مفتوح أو مغلق (<code>v-model</code>). بدونها يحدد <code>is-open-default</code> البداية.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "تغيّر المفتوح/المغلق (<code>v-model</code>). يصل مع <code>toggle</code>."
 }

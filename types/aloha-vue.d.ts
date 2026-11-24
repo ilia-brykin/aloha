@@ -692,6 +692,7 @@ export interface ADisclosureProps {
   isBtnTitleHtml?: boolean;
   /** @default false */
   isOpenDefault?: boolean;
+  modelValue?: boolean;
   safeHtmlLess?: string;
   safeHtmlMore?: string;
   /** @default true */
@@ -701,7 +702,7 @@ export interface ADisclosureProps {
   textLess?: string;
   textMore?: string;
 }
-export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface ADrawerProps {
   alwaysTranslate?: boolean;
@@ -3275,13 +3276,14 @@ export interface AShowMoreProps {
   isBtnTitleHtml?: boolean;
   /** @default false */
   isOpenDefault?: boolean;
+  modelValue?: boolean;
   safeHtml?: string;
   /** @default true */
   showLess?: boolean;
   text?: string;
   textLength?: number;
 }
-export declare const AShowMore: DefineComponent<AShowMoreProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const AShowMore: DefineComponent<AShowMoreProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface ASkeletonProps {
   /** @default true */

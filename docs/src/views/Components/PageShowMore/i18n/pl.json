@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Sloty",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Zawartość komponentu można zdefiniować jako zwykły tekst.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Tekst",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Długość oznacza maksymalną liczbę znaków, po której reszta tekstu zostaje ukryta.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Maksymalna liczba znaków, po której reszta tekstu jest ukrywana. Tekst jest obcinany na końcu słowa i dostaje wielokropek (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Długość tekstu",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Pokaż mniej Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Pokaż więcej Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Zawartość wyświetlana wewnątrz komponentu.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Sterowanie komponentem za pomocą wskaźnika „isOpen”.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Sterowanie komponentem za pomocą przycisku „Pokaż więcej”.",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wywoływane po naciśnięciu przycisku, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wywoływane po naciśnięciu przycisku, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Z <code>text-length</code> reszty tekstu nie ma na stronie: przycisk ma <code>aria-expanded</code> i <code>aria-controls</code>. Z <code>height</code> cała treść jest na stronie, a czytnik ekranu i tak ją odczytuje: przycisk informuje, że można go pominąć. Link lub przycisk w obciętej części otwiera treść, gdy dostaje fokus. Po kliknięciu fokus zostaje na przycisku; tylko gdy przycisk znika (<code>show-less=\"false\"</code>), przechodzi do treści.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> zawiera informację, czy treść jest otwarta, i pozwala ją otwierać lub zamykać z zewnątrz. Zdarzenie <code>toggle</code> nadal przychodzi.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Linki w obciętej części",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Przejdź po linkach klawiszem Tab: gdy fokus dostaje link w obciętej części, treść się otwiera, więc fokus jest zawsze widoczny (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Otwórz / zamknij z zewnątrz",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Otwarte lub zamknięte (<code>v-model</code>). Bez niego stan początkowy ustawia <code>is-open-default</code>.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Zmieniło się otwarte/zamknięte (<code>v-model</code>). Przychodzi razem z <code>toggle</code>."
 }

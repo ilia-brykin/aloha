@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Слоты",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Содержимое компонента можно определить как обычный текст.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Текст",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Длина представляет собой максимальное количество символов, после которого остальная часть текста скрывается.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Максимальное число символов, после которого остальной текст скрывается. Текст обрезается по концу слова и получает многоточие (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Длина текста",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Показать меньше Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Показать больше Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Содержимое, отображаемое внутри компонента",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Управление компонентом с помощью индикатора \"isOpen\".",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Управление компонентом с помощью кнопки \"Показать больше\".",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Срабатывает при нажатии кнопки, ({ isOpen }) => {}"
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Срабатывает при нажатии кнопки, ({ isOpen }) => {}",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "С <code>text-length</code> остальной текст отсутствует на странице: у кнопки есть <code>aria-expanded</code> и <code>aria-controls</code>. С <code>height</code> всё содержимое есть на странице, и скринридер его всё равно читает: кнопка сообщает, что её можно пропустить. Ссылка или кнопка в обрезанной части открывает содержимое, когда получает фокус. После клика фокус остаётся на кнопке; только если кнопка исчезает (<code>show-less=\"false\"</code>), он переходит на содержимое.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> содержит, открыто ли содержимое, и позволяет открывать и закрывать его снаружи. Событие <code>toggle</code> по-прежнему приходит.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Ссылки в обрезанной части",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Пройдите по ссылкам клавишей Tab: когда фокус получает ссылка в обрезанной части, содержимое открывается, поэтому фокус всегда виден (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Открыть / закрыть снаружи",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Открыто или закрыто (<code>v-model</code>). Без него начальное состояние задаёт <code>is-open-default</code>.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Изменилось открыто/закрыто (<code>v-model</code>). Приходит вместе с <code>toggle</code>."
 }

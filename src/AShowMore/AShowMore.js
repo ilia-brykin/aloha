@@ -125,6 +125,12 @@ export default {
       required: false,
       default: false,
     },
+    // v-model: open or closed
+    modelValue: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     safeHtml: {
       type: String,
       required: false,
@@ -149,6 +155,7 @@ export default {
   },
   emits: [
     "toggle",
+    "update:modelValue",
   ],
   setup(props, context) {
     const {
@@ -156,8 +163,11 @@ export default {
     } = context;
 
     const {
+      initIsOpen,
       isOpen,
     } = IsOpenAPI(props);
+
+    initIsOpen();
 
     const {
       hasTextAndLength,
@@ -185,15 +195,6 @@ export default {
     });
 
     const {
-      toggleButton,
-    } = ToggleAPI(props, context, {
-      containerRef,
-      hasTextAndLength,
-      isOpen,
-      stopObservingMutation,
-    });
-
-    const {
       btnIconLeft,
       btnIconRight,
       btnText,
@@ -205,6 +206,17 @@ export default {
       isMoreButtonObservingVisible,
       isOpen,
       isTextShorterThanTextLength,
+    });
+
+    const {
+      onFocusinContent,
+      toggleButton,
+    } = ToggleAPI(props, context, {
+      containerRef,
+      hasTextAndLength,
+      isButtonVisible,
+      isOpen,
+      stopObservingMutation,
     });
 
     const {
@@ -257,6 +269,7 @@ export default {
       isOpen,
       isTextOrHtmlVisible,
       maxHeightStyle,
+      onFocusinContent,
       textLocal,
       textScreenReaderLocal,
       toggleButton,
@@ -274,12 +287,11 @@ export default {
       h("div", {
         class: "a_show_more__wrapper",
         style: this.maxHeightStyle,
+        onFocusin: this.onFocusinContent,
       }, [
         h("div", {
           ref: "containerRef",
           id: this.id,
-          ariaExpanded: this.ariaExpanded,
-          ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
             alwaysTranslate: this.alwaysTranslate,
@@ -302,6 +314,7 @@ export default {
           id: this.btnId,
           alwaysTranslate: this.alwaysTranslate,
           "aria-controls": this.id,
+          "aria-expanded": this.ariaExpanded,
           class: [
             "a_show_more__button",
             this.btnClass,

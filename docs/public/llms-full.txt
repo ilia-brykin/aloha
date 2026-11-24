@@ -575,6 +575,7 @@ The components now have accessible names and valid ARIA attributes by default. I
 - `AAlert`: the props `role` and `aria-atomic` have no default any more. They are set by the new prop `announce` (`alert`, `alert-changes`, `status`, `status-changes`, `none`, default `alert`), so the default markup is the same as in 2.x (`role="alert"` `aria-atomic="true"`). `role` and `aria-atomic` set as props or attributes win over `announce`. `:aria-atomic="false"` now renders `aria-atomic="false"` instead of removing the attribute. To switch the announcement off, use `announce="none"`.
 - `AAccordion`: the header is a `<button type="button">` instead of an `<a role="button">`, so it works with Enter and Space. `.a_accordion__header` is a heading, `h3` by default (prop `header-tag`), nested items get the next level. The panel has `aria-labelledby` and, with up to 6 items, `role="region"`. With `one-item-always-open` the open item stays a focusable button with `aria-disabled="true"`. Every accordion gets its own `id`. Labels and contents accept translation keys (`extra`, `always-translate`), the open items work with `v-model`. To check: own CSS and tests with `a.a_accordion__button`, `div.a_accordion__header`. If the heading level does not fit the page, set `header-tag` (e.g. `h2`); `header-tag="div"` gives the old markup without a heading. `item.disabled` now really disables the item (before, it could still be opened). With `always-open` closing an item no longer closes other items whose id starts the same way (`1` closed `10` too).
 - `ATooltip`: `aria-describedby` is on the focused element (e.g. the button inside), not on the wrapper `span` anymore, and the tooltip has `role="tooltip"`. It opens also when an element inside gets the focus (`focusin`) and stays open while the mouse or the focus is on it. Escape closes only the tooltip, the event does not reach e.g. a modal around it. The text of the tooltip is always in the DOM as a hidden element (`hidden`) and the element always has `aria-describedby`, so screen readers read it also without focus (browse mode). `render-description="visible"` creates both only while the tooltip is open, as in 2.x, e.g. for pages with very many tooltips.
+- `ADisclosure`, `AShowMore`: `aria-expanded` is on the button (with `AShowMore` only with `text-length`; with `height` the whole content is in the page anyway), not on the content. Own attributes (`class`, `data-*`, `aria-*`) are only on the root, not also on the inner content block. After the click the focus stays on the button, it goes to the content only when the button disappears (`show-less="false"`). `AShowMore`: `is-open-default` works now; a link or button in the part cut by `height` opens the content when it gets the focus; `text-length` cuts at the end of a word with `…` instead of `...`. Both support `v-model`.
 
 ## 7. Label position
 
@@ -7680,6 +7681,8 @@ export default {
 
 The component allows users to show or hide text content by clicking on a button. The button toggles between "Show More" and "Show Less," depending on whether the full text content is already displayed or not.
 
+The button has `aria-expanded` and `aria-controls`: a screen reader tells whether the content is open. After the click the focus stays on the button; only if the button disappears (`show-less="false"`), it goes to the content.
+
 ## Basic usage
 
 *props: `text-less`, `text-more`*
@@ -8199,6 +8202,55 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 };
 ```
 
+## v-model
+
+`v-model` contains whether the content is open and also opens or closes it from outside. The event `toggle` still comes.
+
+*props: `model-value`*
+
+```html
+<a-disclosure
+  v-model="isOpen"
+  :text-less="textLess"
+  :text-more="textMore"
+/>
+<p class="a_my_3">v-model: {{ isOpen }}</p>
+<a-button
+  class="a_btn a_btn_secondary"
+  text="_A_DISCLOSURE_EXAMPLE_TOGGLE_"
+  @click="isOpen = !isOpen"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  ADisclosure,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    ADisclosure,
+  },
+  setup() {
+    const isOpen = ref(false);
+    const textLess = "Lorem ipsum dolor sit amet.";
+    const textMore = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.";
+
+    return {
+      isOpen,
+      textLess,
+      textMore,
+    };
+  },
+};
+```
+
 ## Using Slots for Custom Styling
 
 This example demonstrates how to use slots to individually style the different parts of the component. It utilizes three slots: **button**, **less**, and **more** to customize the button and the underlying text sections.
@@ -8408,6 +8460,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 | id | String |  |  | ID for the component. |
 | is-btn-title-html | Boolean |  |  | A boolean value indicating whether the provided button titles should be interpreted and rendered as HTML. |
 | is-open-default | Boolean | false |  | A boolean value indicating whether the extended text content **(text-more)** should be displayed by default. |
+| model-value | Boolean |  |  | Open or closed (`v-model`). Without it `is-open-default` sets the start. |
 | safe-html-less | String |  |  | A string containing the shorter HTML-formatted text content to be displayed when the user clicks "Show Less." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
 | safe-html-more | String |  |  | A string containing the longer HTML-formatted text content to be displayed when the user clicks "Show More." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
 | show-less | Boolean | true |  | A boolean value indicating whether the "Show Less" button should be displayed. |
@@ -8428,6 +8481,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 | name | type | description |
 | --- | --- | --- |
 | toggle | Function | This event is triggered when the user clicks the "Show More/Show Less" button. It returns an object containing information about the current state of the component, including **isOpen**. |
+| update:modelValue | Function | Open or closed changed (`v-model`). Comes together with `toggle`. |
 
 ## Exposes
 
@@ -39339,6 +39393,8 @@ The **AProgressCircle** component allows you to display an indeterminate circula
 
 The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 
+With `text-length` the rest of the text is not in the page: the button has `aria-expanded` and `aria-controls`. With `height` the whole content is in the page and a screen reader reads it anyway: the button tells that it can be ignored. A link or button in the cut part opens the content when it gets the focus. After the click the focus stays on the button; only if the button disappears (`show-less="false"`), it goes to the content.
+
 ## Basic usage
 
 *slots: `default`*
@@ -39550,7 +39606,7 @@ export default {
 
 ## Text length
 
-The length represents the maximum number of characters after which the rest of the text becomes hidden.
+The maximum number of characters after which the rest of the text is hidden. The text is cut at the end of a word and gets an ellipsis (…).
 
 *props: `text`, `text-length`*
 
@@ -39668,6 +39724,29 @@ export default {
     };
   },
 };
+```
+
+## Links in the cut part
+
+Press Tab through the links: when a link in the cut part gets the focus, the content opens, so the focus is always visible (WCAG 2.4.11).
+
+*props: `height`*
+
+```html
+<a-show-more
+  :height="80"
+>
+  <p
+    v-for="index in 5"
+    :key="index"
+  >
+    <span>{{ index }}. Lorem ipsum dolor sit amet. </span>
+    <a
+      href="#"
+      @click.prevent
+    >Link {{ index }}</a>
+  </p>
+</a-show-more>
 ```
 
 ## Don't show less
@@ -40063,6 +40142,53 @@ export default {
 };
 ```
 
+## v-model
+
+`v-model` contains whether the content is open and also opens or closes it from outside. The event `toggle` still comes.
+
+*props: `model-value`*
+
+```html
+<a-show-more
+  v-model="isOpen"
+  :text="text"
+  :text-length="60"
+/>
+<p class="a_my_3">v-model: {{ isOpen }}</p>
+<a-button
+  class="a_btn a_btn_secondary"
+  text="_A_SHOW_MORE_EXAMPLE_TOGGLE_"
+  @click="isOpen = !isOpen"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AShowMore,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AShowMore,
+  },
+  setup() {
+    const isOpen = ref(false);
+    const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.";
+
+    return {
+      isOpen,
+      text,
+    };
+  },
+};
+```
+
 ## Slots
 
 You can use slots with parameters: **isButtonVisible**, **isOpen**.
@@ -40286,6 +40412,7 @@ export default {
 | id | String |  |  | Specifies a unique ID for the HTML element corresponding to the component. |
 | is-btn-title-html | Boolean |  |  | If the title in the HTML format. |
 | is-open-default | Boolean | false |  | All text is shown by default. |
+| model-value | Boolean |  |  | Open or closed (`v-model`). Without it `is-open-default` sets the start. |
 | safe-html | String |  |  | Component content in safe HTML format. |
 | show-less | Boolean | true |  | Is button 'Show less' visible. |
 | text | String |  |  | Content of the component in plain text format. |
@@ -40303,6 +40430,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | toggle | Function | Triggers when a button is pressed, ({ isOpen }) => {}. |
+| update:modelValue | Function | Open or closed changed (`v-model`). Comes together with `toggle`. |
 
 ## Exposes
 

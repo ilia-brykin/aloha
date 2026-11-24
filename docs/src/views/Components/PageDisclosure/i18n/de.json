@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Komponentenstatus ändern (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Komponentenstatus ändern (Schaltfläche)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": " Dieses Ereignis wird ausgelöst, wenn der Benutzer auf den \"Mehr anzeigen/Weniger anzeigen\"-Button klickt. Es gibt ein Objekt zurück, das Informationen über den aktuellen Zustand der Komponente enthält, einschließlich <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Gekürzten Text anzeigen"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Gekürzten Text anzeigen",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Der Button hat <code>aria-expanded</code> und <code>aria-controls</code>: Ein Screenreader sagt an, ob der Inhalt geöffnet ist. Nach dem Klick bleibt der Fokus auf dem Button; nur wenn der Button verschwindet (<code>show-less=\"false\"</code>), geht er zum Inhalt.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> enthält, ob der Inhalt geöffnet ist, und öffnet oder schließt ihn auch von außen. Das Event <code>toggle</code> kommt weiterhin.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Von außen öffnen / schließen",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Geöffnet oder geschlossen (<code>v-model</code>). Ohne dieses Prop setzt <code>is-open-default</code> den Anfang.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Geöffnet oder geschlossen hat sich geändert (<code>v-model</code>). Kommt zusammen mit <code>toggle</code>."
 }

@@ -2291,6 +2291,10 @@
               "default": "false"
             },
             {
+              "name": "modelValue",
+              "type": "boolean"
+            },
+            {
               "name": "safeHtmlLess",
               "type": "string"
             },
@@ -2321,6 +2325,9 @@
             "events": [
               {
                 "name": "toggle"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
           }
@@ -10608,6 +10615,10 @@
               "default": "false"
             },
             {
+              "name": "modelValue",
+              "type": "boolean"
+            },
+            {
               "name": "safeHtml",
               "type": "string"
             },
@@ -10629,6 +10640,9 @@
             "events": [
               {
                 "name": "toggle"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
           }

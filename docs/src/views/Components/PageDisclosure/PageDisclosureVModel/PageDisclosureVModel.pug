@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DISCLOSURE_GROUP_V_MODEL_HEADER_"
+  description="_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_"
+  :props="['model-value']"
+)
+  a-disclosure(
+    v-model="isOpen"
+    :text-less="textLess"
+    :text-more="textMore"
+  )
+  p.a_my_3 v-model: {{ isOpen }}
+  a-button(
+    class="a_btn a_btn_secondary"
+    text="_A_DISCLOSURE_EXAMPLE_TOGGLE_"
+    @click="isOpen = !isOpen"
+  )

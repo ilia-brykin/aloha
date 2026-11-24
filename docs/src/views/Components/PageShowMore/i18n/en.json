@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "The content of the component can be defined as plain text.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Text",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "The length represents the maximum number of characters after which the rest of the text becomes hidden.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "The maximum number of characters after which the rest of the text is hidden. The text is cut at the end of a word and gets an ellipsis (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Text length",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Show less Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Show more Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Content to be displayed within the component.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Manipulating the component using \"isOpen\" indicator.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Manipulating the component using the \"Show more\" button.",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Triggers when a button is pressed, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Triggers when a button is pressed, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "With <code>text-length</code> the rest of the text is not in the page: the button has <code>aria-expanded</code> and <code>aria-controls</code>. With <code>height</code> the whole content is in the page and a screen reader reads it anyway: the button tells that it can be ignored. A link or button in the cut part opens the content when it gets the focus. After the click the focus stays on the button; only if the button disappears (<code>show-less=\"false\"</code>), it goes to the content.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> contains whether the content is open and also opens or closes it from outside. The event <code>toggle</code> still comes.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Links in the cut part",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Press Tab through the links: when a link in the cut part gets the focus, the content opens, so the focus is always visible (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Open / close from outside",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Open or closed (<code>v-model</code>). Without it <code>is-open-default</code> sets the start.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Open or closed changed (<code>v-model</code>). Comes together with <code>toggle</code>."
 }

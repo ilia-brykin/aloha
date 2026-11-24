@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Changer l'état du composant (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Changer l'état du composant (bouton)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Cet événement est déclenché lorsque l'utilisateur clique sur le bouton \"Afficher plus/Afficher moins\". Il renvoie un objet contenant des informations sur l'état actuel du composant, y compris <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Afficher le texte abrégé"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Afficher le texte abrégé",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Le bouton a <code>aria-expanded</code> et <code>aria-controls</code> : un lecteur d'écran indique si le contenu est ouvert. Après le clic, le focus reste sur le bouton ; seulement si le bouton disparaît (<code>show-less=\"false\"</code>), il va au contenu.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> indique si le contenu est ouvert et l'ouvre ou le ferme aussi depuis l'extérieur. L'événement <code>toggle</code> arrive toujours.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Ouvrir / fermer depuis l'extérieur",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Ouvert ou fermé (<code>v-model</code>). Sans elle, <code>is-open-default</code> définit le départ.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Ouvert ou fermé a changé (<code>v-model</code>). Arrive avec <code>toggle</code>."
 }

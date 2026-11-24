@@ -15,6 +15,7 @@ import PageDisclosureNotLess from "./PageDisclosureNotLess/PageDisclosureNotLess
 import PageDisclosureOpenDefault from "./PageDisclosureOpenDefault/PageDisclosureOpenDefault.vue";
 import PageDisclosureSafeHtml from "./PageDisclosureSafeHtml/PageDisclosureSafeHtml.vue";
 import PageDisclosureSlots from "./PageDisclosureSlots/PageDisclosureSlots.vue";
+import PageDisclosureVModel from "./PageDisclosureVModel/PageDisclosureVModel.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -29,6 +30,7 @@ import TranslateAPI from "./compositionAPI/TranslateAPI";
 export default {
   name: "PageDisclosure",
   components: {
+    PageDisclosureVModel,
     AlohaPage,
     AlohaTableProps,
     AlohaTableTranslate,

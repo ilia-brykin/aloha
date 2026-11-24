@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Componentstatus omschakelen (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Componentstatus omschakelen (knop)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Deze gebeurtenis wordt geactiveerd wanneer de gebruiker op de knop \"Meer tonen/Minder tonen\" klikt. Ze retourneert een object met informatie over de huidige status van de component, waaronder <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Verkorte tekst tonen"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Verkorte tekst tonen",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "De knop heeft <code>aria-expanded</code> en <code>aria-controls</code>: een schermlezer meldt of de inhoud open is. Na de klik blijft de focus op de knop; alleen als de knop verdwijnt (<code>show-less=\"false\"</code>), gaat hij naar de inhoud.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> bevat of de inhoud open is en opent of sluit die ook van buitenaf. Het event <code>toggle</code> komt nog steeds.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Van buitenaf openen / sluiten",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Open of gesloten (<code>v-model</code>). Zonder deze prop bepaalt <code>is-open-default</code> het begin.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Open of gesloten is gewijzigd (<code>v-model</code>). Komt samen met <code>toggle</code>."
 }
