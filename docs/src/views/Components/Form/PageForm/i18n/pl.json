@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Treść przed polami",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Treść po polach",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Treść po formularzu",
-  "_A_FORM_A11Y_DESCRIPTION_": "Błędy: podsumowanie nad formularzem ma nagłówek (<code>h2</code>, <code>header-tag</code> w <code>AComponentsPlugin</code>) z liczbą pól z błędami (<code>{{ count }}</code>) i listę z linkami do pól. Po każdym wysłaniu z błędami fokus przechodzi na podsumowanie, więc czytnik ekranu odczytuje je raz (bez <code>auto-focus</code> to alert, <code>role=\"alert\"</code>). Błędy pola są z nim powiązane (aria-describedby). Enter w polu wywołuje <code>submit</code> zamiast przeładowania strony.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Błędy: podsumowanie nad formularzem pokazuje liczbę pól z błędami (<code>{{ count }}</code>) i listę z linkami do pól. Po każdym wysłaniu z błędami fokus przechodzi na podsumowanie, więc czytnik ekranu odczytuje je raz (bez <code>auto-focus</code> to alert, <code>role=\"alert\"</code>). Błędy pola są z nim powiązane (aria-describedby). Enter w polu wywołuje <code>submit</code> zamiast przeładowania strony.",
   "_A_FORM_SUBMIT_HEADER_": "Enter w polu",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Wpisz tekst i naciśnij Enter: formularz wywołuje <code>submit</code> (ze zdarzeniem, <code>preventDefault()</code> jest już wywołane) i strona nie jest przeładowywana.",
   "_A_FORM_EXAMPLE_SEARCH_": "Szukaj",

@@ -614,8 +614,6 @@ export default {
           h(AErrors, {
             autoFocus: true,
             closable: false,
-            // no heading in a table cell
-            headerTag: "div",
             errors: this.errorsLocal,
             optionsList: this.optionsListForErrors,
             idPrefix: this.idTr,

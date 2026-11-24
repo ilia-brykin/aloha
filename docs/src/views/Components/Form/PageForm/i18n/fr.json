@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Contenu avant les champs",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Contenu après les champs",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Contenu après le formulaire",
-  "_A_FORM_A11Y_DESCRIPTION_": "Erreurs : le récapitulatif au-dessus du formulaire a un titre (<code>h2</code>, <code>header-tag</code> dans <code>AComponentsPlugin</code>) avec le nombre de champs en erreur (<code>{{ count }}</code>) et une liste de liens vers les champs. Après chaque envoi avec erreurs, le focus va sur le récapitulatif, un lecteur d'écran le lit donc une fois (sans <code>auto-focus</code>, c'est une alerte, <code>role=\"alert\"</code>). Les erreurs d'un champ lui sont reliées (aria-describedby). Entrée dans un champ émet <code>submit</code> au lieu de recharger la page.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Erreurs : le récapitulatif au-dessus du formulaire indique le nombre de champs en erreur (<code>{{ count }}</code>) et une liste de liens vers les champs. Après chaque envoi avec erreurs, le focus va sur le récapitulatif, un lecteur d'écran le lit donc une fois (sans <code>auto-focus</code>, c'est une alerte, <code>role=\"alert\"</code>). Les erreurs d'un champ lui sont reliées (aria-describedby). Entrée dans un champ émet <code>submit</code> au lieu de recharger la page.",
   "_A_FORM_SUBMIT_HEADER_": "Entrée dans un champ",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Saisissez un texte et appuyez sur Entrée : le formulaire émet <code>submit</code> (avec l'événement, <code>preventDefault()</code> est déjà appelé) et la page n'est pas rechargée.",
   "_A_FORM_EXAMPLE_SEARCH_": "Rechercher",

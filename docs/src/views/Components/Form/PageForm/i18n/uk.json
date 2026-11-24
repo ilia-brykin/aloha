@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Вміст перед полями",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Вміст після полів",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Вміст після форми",
-  "_A_FORM_A11Y_DESCRIPTION_": "Помилки: зведення над формою має заголовок (<code>h2</code>, <code>header-tag</code> в <code>AComponentsPlugin</code>) з кількістю полів із помилками (<code>{{ count }}</code>) і список із посиланнями на поля. Після кожного надсилання з помилками фокус переходить на зведення, тому скринрідер читає його один раз (без <code>auto-focus</code> це alert, <code>role=\"alert\"</code>). Помилки поля пов'язані з ним (aria-describedby). Enter у полі викликає <code>submit</code> замість перезавантаження сторінки.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Помилки: зведення над формою показує кількість полів із помилками (<code>{{ count }}</code>) і список із посиланнями на поля. Після кожного надсилання з помилками фокус переходить на зведення, тому скринрідер читає його один раз (без <code>auto-focus</code> це alert, <code>role=\"alert\"</code>). Помилки поля пов'язані з ним (aria-describedby). Enter у полі викликає <code>submit</code> замість перезавантаження сторінки.",
   "_A_FORM_SUBMIT_HEADER_": "Enter у полі",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Введіть текст і натисніть Enter: форма викликає <code>submit</code> (з подією, <code>preventDefault()</code> уже викликано), і сторінка не перезавантажується.",
   "_A_FORM_EXAMPLE_SEARCH_": "Пошук",

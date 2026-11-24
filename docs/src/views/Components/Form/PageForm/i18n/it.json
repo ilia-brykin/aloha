@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Contenuto prima dei campi",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Contenuto dopo i campi",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Contenuto dopo il modulo",
-  "_A_FORM_A11Y_DESCRIPTION_": "Errori: il riepilogo sopra il modulo ha un titolo (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) con il numero di campi con errori (<code>{{ count }}</code>) e un elenco di link ai campi. Dopo ogni invio con errori il focus va sul riepilogo, quindi uno screen reader lo legge una volta (senza <code>auto-focus</code> è un alert, <code>role=\"alert\"</code>). Gli errori di un campo sono collegati a esso (aria-describedby). Invio in un campo emette <code>submit</code> invece di ricaricare la pagina.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Errori: il riepilogo sopra il modulo mostra il numero di campi con errori (<code>{{ count }}</code>) e un elenco di link ai campi. Dopo ogni invio con errori il focus va sul riepilogo, quindi uno screen reader lo legge una volta (senza <code>auto-focus</code> è un alert, <code>role=\"alert\"</code>). Gli errori di un campo sono collegati a esso (aria-describedby). Invio in un campo emette <code>submit</code> invece di ricaricare la pagina.",
   "_A_FORM_SUBMIT_HEADER_": "Invio in un campo",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Digitare un testo e premere Invio: il modulo emette <code>submit</code> (con l'evento, <code>preventDefault()</code> è già chiamato) e la pagina non viene ricaricata.",
   "_A_FORM_EXAMPLE_SEARCH_": "Cerca",

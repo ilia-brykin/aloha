@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Inhalt vor den Feldern",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Inhalt nach den Feldern",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Inhalt nach dem Formular",
-  "_A_FORM_A11Y_DESCRIPTION_": "Fehler: Die Zusammenfassung über dem Formular hat eine Überschrift (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) mit der Anzahl der Felder mit Fehlern (<code>{{ count }}</code>) und eine Liste mit Links zu den Feldern. Nach jedem Absenden mit Fehlern geht der Fokus auf die Zusammenfassung, daher liest ein Screenreader sie einmal vor (ohne <code>auto-focus</code> ist sie ein Alert, <code>role=\"alert\"</code>). Die Fehler eines Feldes sind mit ihm verbunden (aria-describedby). Enter in einem Feld löst <code>submit</code> aus, statt die Seite neu zu laden.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Fehler: Die Zusammenfassung über dem Formular zeigt die Anzahl der Felder mit Fehlern (<code>{{ count }}</code>) und eine Liste mit Links zu den Feldern. Nach jedem Absenden mit Fehlern geht der Fokus auf die Zusammenfassung, daher liest ein Screenreader sie einmal vor (ohne <code>auto-focus</code> ist sie ein Alert, <code>role=\"alert\"</code>). Die Fehler eines Feldes sind mit ihm verbunden (aria-describedby). Enter in einem Feld löst <code>submit</code> aus, statt die Seite neu zu laden.",
   "_A_FORM_SUBMIT_HEADER_": "Enter in einem Feld",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Einen Text eingeben und Enter drücken: Das Formular löst <code>submit</code> aus (mit dem Event, <code>preventDefault()</code> ist schon aufgerufen), und die Seite wird nicht neu geladen.",
   "_A_FORM_EXAMPLE_SEARCH_": "Suche",

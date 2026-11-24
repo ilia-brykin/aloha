@@ -74,20 +74,14 @@ describe("AErrors", () => {
     await nextTick();
   });
 
-  it("has a heading (h2) with the number of the fields with errors", async() => {
+  it("shows the number of the fields with errors in the text, without a heading", async() => {
     mountErrors();
     await flush();
 
     const HEADER = summary().querySelector(".a_errors__header");
-    expect(HEADER.tagName).toBe("H2");
+    expect(HEADER.tagName).toBe("DIV");
     expect(HEADER.textContent).toBe("Please check your entries. Errors: 2");
-  });
-
-  it("can use another tag for the heading", async() => {
-    mountErrors({ headerTag: "div" });
-    await flush();
-
-    expect(summary().querySelector(".a_errors__header").tagName).toBe("DIV");
+    expect(summary().querySelector("h1, h2, h3, h4, h5, h6")).toBeNull();
   });
 
   it("is a list (ul / li) also for several errors of a field", async() => {

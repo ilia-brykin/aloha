@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "محتوى قبل الحقول",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "محتوى بعد الحقول",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "محتوى بعد النموذج",
-  "_A_FORM_A11Y_DESCRIPTION_": "الأخطاء: لملخص الأخطاء فوق النموذج عنوان (<code>h2</code>، <code>header-tag</code> في <code>AComponentsPlugin</code>) مع عدد الحقول التي فيها أخطاء (<code>{{ count }}</code>) وقائمة بروابط إلى الحقول. بعد كل إرسال فيه أخطاء ينتقل التركيز إلى الملخص، فيقرؤه قارئ الشاشة مرة واحدة (بدون <code>auto-focus</code> يكون تنبيهًا، <code>role=\"alert\"</code>). ترتبط أخطاء الحقل به (aria-describedby). يطلق Enter في حقل الحدث <code>submit</code> بدلًا من إعادة تحميل الصفحة.",
+  "_A_FORM_A11Y_DESCRIPTION_": "الأخطاء: يعرض الملخص فوق النموذج عدد الحقول التي فيها أخطاء (<code>{{ count }}</code>) وقائمة بروابط إلى الحقول. بعد كل إرسال فيه أخطاء ينتقل التركيز إلى الملخص، فيقرؤه قارئ الشاشة مرة واحدة (بدون <code>auto-focus</code> يكون تنبيهًا، <code>role=\"alert\"</code>). ترتبط أخطاء الحقل به (aria-describedby). يطلق Enter في حقل الحدث <code>submit</code> بدلًا من إعادة تحميل الصفحة.",
   "_A_FORM_SUBMIT_HEADER_": "Enter في حقل",
   "_A_FORM_SUBMIT_DESCRIPTION_": "اكتب نصًا واضغط Enter: يطلق النموذج <code>submit</code> (مع الحدث، وقد استُدعي <code>preventDefault()</code> بالفعل) ولا تُعاد تحميل الصفحة.",
   "_A_FORM_EXAMPLE_SEARCH_": "بحث",

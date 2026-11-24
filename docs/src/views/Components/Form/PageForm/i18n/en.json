@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Content before the fields",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Content after the fields",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Content after the form",
-  "_A_FORM_A11Y_DESCRIPTION_": "Errors: the summary above the form has a heading (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) with the number of fields with errors (<code>{{ count }}</code>) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without <code>auto-focus</code> it is an alert, <code>role=\"alert\"</code>). The errors of a field are connected with it (aria-describedby). Enter in a field emits <code>submit</code> instead of reloading the page.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Errors: the summary above the form shows the number of fields with errors (<code>{{ count }}</code>) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without <code>auto-focus</code> it is an alert, <code>role=\"alert\"</code>). The errors of a field are connected with it (aria-describedby). Enter in a field emits <code>submit</code> instead of reloading the page.",
   "_A_FORM_SUBMIT_HEADER_": "Enter in a field",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Type a text and press Enter: the form emits <code>submit</code> (with the event, <code>preventDefault()</code> is already called) and the page is not reloaded.",
   "_A_FORM_EXAMPLE_SEARCH_": "Search",

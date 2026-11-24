@@ -2,7 +2,7 @@
 
 The **AForm** component builds a complete form from a configuration array. Each item in **data** selects a UI component through its **type**, uses its **id** as the model key, and accepts all props supported by that UI component. The form manages the shared model, validation errors, dependencies, responsive layout, read-only mode, events, and content slots.
 
-Errors: the summary above the form has a heading (`h2`, `header-tag` in `AComponentsPlugin`) with the number of fields with errors (`{{ count }}`) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without `auto-focus` it is an alert, `role="alert"`). The errors of a field are connected with it (aria-describedby). Enter in a field emits `submit` instead of reloading the page.
+Errors: the summary above the form shows the number of fields with errors (`{{ count }}`) and a list with links to the fields. After every submit with errors the focus goes to the summary, so a screen reader reads it once (without `auto-focus` it is an alert, `role="alert"`). The errors of a field are connected with it (aria-describedby). Enter in a field emits `submit` instead of reloading the page.
 
 ## Basic configuration
 

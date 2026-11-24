@@ -15,13 +15,6 @@ import ErrorsAPI from "./compositionAPI/ErrorsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import LabelsAPI from "./compositionAPI/LabelsAPI";
 
-import {
-  getPropDefault,
-} from "../../plugins/AComponentsPlugin";
-import {
-  uniqueId,
-} from "lodash-es";
-
 export default {
   name: "AErrors",
   props: {
@@ -43,12 +36,6 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
-    },
-    // heading of the summary, so it can be found with the headings of a screen reader
-    headerTag: {
-      type: String,
-      required: false,
-      default: () => getPropDefault("AErrors", "headerTag", "h2"),
     },
     goToError: {
       type: Function,
@@ -90,8 +77,6 @@ export default {
       hasErrors,
     } = ErrorsAPI(props);
 
-    const headerId = uniqueId("a_errors_header_");
-
     const {
       elRef,
       setFocusToElement,
@@ -121,7 +106,6 @@ export default {
       elRef,
       errorsCount,
       hasErrors,
-      headerId,
       labelsLocal,
     };
   },
@@ -139,8 +123,7 @@ export default {
       this.hasErrors && h("div", {
         class: "a_errors",
       }, [
-        h(this.headerTag, {
-          id: this.headerId,
+        h("div", {
           class: "a_errors__header",
         }, [
           h(ATranslation, {

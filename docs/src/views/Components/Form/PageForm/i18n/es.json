@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Contenido antes de los campos",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Contenido después de los campos",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Contenido después del formulario",
-  "_A_FORM_A11Y_DESCRIPTION_": "Errores: el resumen sobre el formulario tiene un encabezado (<code>h2</code>, <code>header-tag</code> en <code>AComponentsPlugin</code>) con el número de campos con errores (<code>{{ count }}</code>) y una lista con enlaces a los campos. Tras cada envío con errores el foco va al resumen, así un lector de pantalla lo lee una vez (sin <code>auto-focus</code> es una alerta, <code>role=\"alert\"</code>). Los errores de un campo están conectados con él (aria-describedby). Intro en un campo emite <code>submit</code> en lugar de recargar la página.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Errores: el resumen sobre el formulario muestra el número de campos con errores (<code>{{ count }}</code>) y una lista con enlaces a los campos. Tras cada envío con errores el foco va al resumen, así un lector de pantalla lo lee una vez (sin <code>auto-focus</code> es una alerta, <code>role=\"alert\"</code>). Los errores de un campo están conectados con él (aria-describedby). Intro en un campo emite <code>submit</code> en lugar de recargar la página.",
   "_A_FORM_SUBMIT_HEADER_": "Intro en un campo",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Escriba un texto y pulse Intro: el formulario emite <code>submit</code> (con el evento, <code>preventDefault()</code> ya se ha llamado) y la página no se recarga.",
   "_A_FORM_EXAMPLE_SEARCH_": "Buscar",

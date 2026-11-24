@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Sadržaj prije polja",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Sadržaj nakon polja",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Sadržaj nakon obrasca",
-  "_A_FORM_A11Y_DESCRIPTION_": "Pogreške: sažetak iznad obrasca ima naslov (<code>h2</code>, <code>header-tag</code> u <code>AComponentsPlugin</code>) s brojem polja s pogreškama (<code>{{ count }}</code>) i popis s poveznicama na polja. Nakon svakog slanja s pogreškama fokus ide na sažetak, pa ga čitač zaslona čita jednom (bez <code>auto-focus</code> to je upozorenje, <code>role=\"alert\"</code>). Pogreške polja povezane su s njim (aria-describedby). Enter u polju pokreće <code>submit</code> umjesto ponovnog učitavanja stranice.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Pogreške: sažetak iznad obrasca prikazuje broj polja s pogreškama (<code>{{ count }}</code>) i popis s poveznicama na polja. Nakon svakog slanja s pogreškama fokus ide na sažetak, pa ga čitač zaslona čita jednom (bez <code>auto-focus</code> to je upozorenje, <code>role=\"alert\"</code>). Pogreške polja povezane su s njim (aria-describedby). Enter u polju pokreće <code>submit</code> umjesto ponovnog učitavanja stranice.",
   "_A_FORM_SUBMIT_HEADER_": "Enter u polju",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Upišite tekst i pritisnite Enter: obrazac pokreće <code>submit</code> (s događajem, <code>preventDefault()</code> je već pozvan) i stranica se ne učitava ponovno.",
   "_A_FORM_EXAMPLE_SEARCH_": "Traži",

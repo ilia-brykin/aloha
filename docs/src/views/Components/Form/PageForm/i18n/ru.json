@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Содержимое перед полями",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Содержимое после полей",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Содержимое после формы",
-  "_A_FORM_A11Y_DESCRIPTION_": "Ошибки: у сводки над формой есть заголовок (<code>h2</code>, <code>header-tag</code> в <code>AComponentsPlugin</code>) с числом полей с ошибками (<code>{{ count }}</code>) и список со ссылками на поля. После каждой отправки с ошибками фокус переходит на сводку, поэтому скринридер читает её один раз (без <code>auto-focus</code> это alert, <code>role=\"alert\"</code>). Ошибки поля связаны с ним (aria-describedby). Enter в поле вызывает <code>submit</code> вместо перезагрузки страницы.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Ошибки: сводка над формой показывает число полей с ошибками (<code>{{ count }}</code>) и список со ссылками на поля. После каждой отправки с ошибками фокус переходит на сводку, поэтому скринридер читает её один раз (без <code>auto-focus</code> это alert, <code>role=\"alert\"</code>). Ошибки поля связаны с ним (aria-describedby). Enter в поле вызывает <code>submit</code> вместо перезагрузки страницы.",
   "_A_FORM_SUBMIT_HEADER_": "Enter в поле",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Введите текст и нажмите Enter: форма вызывает <code>submit</code> (с событием, <code>preventDefault()</code> уже вызван), и страница не перезагружается.",
   "_A_FORM_EXAMPLE_SEARCH_": "Поиск",

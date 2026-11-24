@@ -956,8 +956,6 @@ export interface AErrorsProps {
   closable?: boolean;
   /** @default {} */
   errors?: Record<string, any>;
-  /** @default "h2" */
-  headerTag?: string;
   goToError?: ((...args: any[]) => any);
   idPrefix?: string;
   /** @default true */

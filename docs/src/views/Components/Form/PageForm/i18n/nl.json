@@ -53,7 +53,7 @@
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Content vóór de velden",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Content na de velden",
   "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Content na het formulier",
-  "_A_FORM_A11Y_DESCRIPTION_": "Fouten: de samenvatting boven het formulier heeft een kop (<code>h2</code>, <code>header-tag</code> in <code>AComponentsPlugin</code>) met het aantal velden met fouten (<code>{{ count }}</code>) en een lijst met links naar de velden. Na elk verzenden met fouten gaat de focus naar de samenvatting, dus een schermlezer leest haar één keer voor (zonder <code>auto-focus</code> is het een alert, <code>role=\"alert\"</code>). De fouten van een veld zijn ermee verbonden (aria-describedby). Enter in een veld geeft <code>submit</code> in plaats van de pagina te herladen.",
+  "_A_FORM_A11Y_DESCRIPTION_": "Fouten: de samenvatting boven het formulier toont het aantal velden met fouten (<code>{{ count }}</code>) en een lijst met links naar de velden. Na elk verzenden met fouten gaat de focus naar de samenvatting, dus een schermlezer leest haar één keer voor (zonder <code>auto-focus</code> is het een alert, <code>role=\"alert\"</code>). De fouten van een veld zijn ermee verbonden (aria-describedby). Enter in een veld geeft <code>submit</code> in plaats van de pagina te herladen.",
   "_A_FORM_SUBMIT_HEADER_": "Enter in een veld",
   "_A_FORM_SUBMIT_DESCRIPTION_": "Typ een tekst en druk op Enter: het formulier geeft <code>submit</code> (met het event, <code>preventDefault()</code> is al aangeroepen) en de pagina wordt niet herladen.",
   "_A_FORM_EXAMPLE_SEARCH_": "Zoeken",
