@@ -607,6 +607,7 @@ pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.`
 | offset-skidding | Number | 0 |  | Shift in px of the tooltip along the element. |
 | placement | String | top |  | Position of the tooltip relative to the element, e.g. top, bottom, left, right, top-start. |
 | popper-container-id | String | a_tooltip_container |  | ID of the container at the end of the body in which the tooltip is rendered. |
+| render-description | String | always |  | `always`: the text of the tooltip is always in the DOM as a hidden element (`hidden`) and the element always has `aria-describedby`, so a screen reader reads it also without focus (browse mode). `visible`: the text and `aria-describedby` exist only while the tooltip is open, e.g. for pages with very many tooltips. |
 | show-arrow | Boolean | true |  | Shows the arrow of the tooltip. |
 | tag | String | span |  | HTML tag of the element around the default slot. |
 | time-open | Number | 0 |  | Delay in ms before the tooltip opens on mouse hover. The focus opens it at once. |

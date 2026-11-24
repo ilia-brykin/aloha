@@ -3784,6 +3784,8 @@ export interface ATooltipProps {
   placement?: string;
   /** @default "a_tooltip_container" */
   popperContainerId?: string;
+  /** @default "always" */
+  renderDescription?: string;
   /** @default true */
   showArrow?: boolean;
   /** @default "span" */

@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Затримка в мс перед відкриттям підказки під час наведення миші. Фокус відкриває її одразу.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Зберегти",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Зберігає документ (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Налаштування"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Налаштування",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: текст підказки завжди є в DOM як прихований елемент (<code>hidden</code>), а елемент завжди має <code>aria-describedby</code>, тому скринрідер читає його й без фокуса (режим перегляду). <code>visible</code>: текст і <code>aria-describedby</code> є лише поки підказка відкрита, наприклад для сторінок із дуже великою кількістю підказок."
 }

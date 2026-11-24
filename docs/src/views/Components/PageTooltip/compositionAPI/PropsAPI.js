@@ -64,6 +64,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "render-description",
+      description: "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_",
+      type: "String",
+      default: "always",
+      required: false,
+    },
+    {
       name: "show-arrow",
       description: "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_",
       type: "Boolean",

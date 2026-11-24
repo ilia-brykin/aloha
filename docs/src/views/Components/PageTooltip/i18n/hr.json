@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Odgoda u ms prije otvaranja opisa alata pri prelasku mišem. Fokus ga odmah otvara.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Spremi",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Sprema dokument (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Postavke"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Postavke",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: tekst opisa alata uvijek je u DOM-u kao skriveni element (<code>hidden</code>), a element uvijek ima <code>aria-describedby</code>, pa ga čitač zaslona čita i bez fokusa (način pregledavanja). <code>visible</code>: tekst i <code>aria-describedby</code> postoje samo dok je opis alata otvoren, npr. za stranice s jako mnogo opisa alata."
 }

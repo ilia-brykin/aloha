@@ -23,6 +23,11 @@ export default function AttributesAPI(props) {
     return `${ id.value }_title`;
   });
 
+  // the hidden text for aria-describedby (render-description="always")
+  const descriptionId = computed(() => {
+    return `${ id.value }_description`;
+  });
+
   const tooltipStyles = computed(() => {
     const STYLES_OBJ = {};
     if (!isNil(minWidth.value)) {
@@ -39,6 +44,7 @@ export default function AttributesAPI(props) {
   });
 
   return {
+    descriptionId,
     titleId,
     tooltipStyles,
   };

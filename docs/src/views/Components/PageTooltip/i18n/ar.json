@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "التأخير بالمللي ثانية قبل فتح التلميح عند تمرير الفأرة. يفتحه التركيز فورًا.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "حفظ",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "يحفظ المستند (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "الإعدادات"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "الإعدادات",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: يكون نص التلميح دائمًا في DOM كعنصر مخفي (<code>hidden</code>) ويحمل العنصر دائمًا <code>aria-describedby</code>، لذلك يقرؤه قارئ الشاشة حتى بدون تركيز (وضع التصفح). <code>visible</code>: لا يوجد النص و<code>aria-describedby</code> إلا ما دام التلميح مفتوحًا، مثلًا للصفحات التي تحتوي على عدد كبير جدًا من التلميحات."
 }

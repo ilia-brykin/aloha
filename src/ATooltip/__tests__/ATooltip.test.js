@@ -79,19 +79,41 @@ describe("ATooltip", () => {
     expect(titleEl().textContent).toBe("Saves the document");
   });
 
-  it("opens when a button inside gets the focus and puts aria-describedby on the button", async() => {
+  it("has the text always as a hidden description of the button, also without focus (render-description always)", async() => {
     mountTooltip();
     await flush();
+
+    const DESCRIPTION = document.getElementById("tip_description");
+    expect(DESCRIPTION.hidden).toBe(true);
+    expect(DESCRIPTION.textContent).toBe("Saves the document");
+    expect(titleEl()).toBeNull();
+    expect(innerButton().getAttribute("aria-describedby")).toBe("tip_description");
+    expect(wrapperEl().hasAttribute("aria-describedby")).toBe(false);
 
     innerButton().focus();
     await flush();
     expect(titleEl()).not.toBeNull();
+    expect(innerButton().getAttribute("aria-describedby")).toBe("tip_description");
+
+    innerButton().blur();
+    await flush();
+    expect(titleEl()).toBeNull();
+    expect(innerButton().getAttribute("aria-describedby")).toBe("tip_description");
+  });
+
+  it("puts aria-describedby on the button inside only while open with render-description visible", async() => {
+    mountTooltip({ props: { renderDescription: "visible" } });
+    await flush();
+    expect(document.getElementById("tip_description")).toBeNull();
+    expect(innerButton().hasAttribute("aria-describedby")).toBe(false);
+
+    innerButton().focus();
+    await flush();
     expect(innerButton().getAttribute("aria-describedby")).toBe("tip_title");
     expect(wrapperEl().hasAttribute("aria-describedby")).toBe(false);
 
     innerButton().blur();
     await flush();
-    expect(titleEl()).toBeNull();
     expect(innerButton().hasAttribute("aria-describedby")).toBe(false);
   });
 
@@ -99,13 +121,16 @@ describe("ATooltip", () => {
     mountTooltip({ props: { tag: "button" }, defaultSlot: () => "Save" });
     await flush();
 
-    wrapperEl().focus();
-    await flush();
-    expect(wrapperEl().getAttribute("aria-describedby")).toBe("tip_title");
+    expect(wrapperEl().getAttribute("aria-describedby")).toBe("tip_description");
+    expect(wrapperEl().textContent).toBe("SaveSaves the document");
+    expect(document.getElementById("tip_description").hidden).toBe(true);
   });
 
   it("keeps own ids in aria-describedby", async() => {
-    mountTooltip({ defaultSlot: () => h("button", { class: "inner", "aria-describedby": "hint" }, "Save") });
+    mountTooltip({
+      props: { renderDescription: "visible" },
+      defaultSlot: () => h("button", { class: "inner", "aria-describedby": "hint" }, "Save"),
+    });
     await flush();
 
     innerButton().focus();
@@ -115,12 +140,35 @@ describe("ATooltip", () => {
     innerButton().blur();
     await flush();
     expect(innerButton().getAttribute("aria-describedby")).toBe("hint");
+
+    wrappers.splice(0).forEach(wrapper => wrapper.unmount());
+    mountTooltip({ defaultSlot: () => h("button", { class: "inner", "aria-describedby": "hint" }, "Save") });
+    await flush();
+    expect(innerButton().getAttribute("aria-describedby")).toBe("hint tip_description");
+  });
+
+  it("has no description and no aria-describedby with is-hide", async() => {
+    mountTooltip({ props: { isHide: true } });
+    await flush();
+
+    expect(document.getElementById("tip_description")).toBeNull();
+    expect(innerButton().hasAttribute("aria-describedby")).toBe(false);
+  });
+
+  it("removes aria-describedby from the button on unmount", async() => {
+    mountTooltip({ defaultSlot: () => h("button", { class: "inner", "aria-describedby": "hint" }, "Save") });
+    await flush();
+    const BUTTON = innerButton();
+
+    wrappers.splice(0).forEach(wrapper => wrapper.unmount());
+    expect(BUTTON.getAttribute("aria-describedby")).toBe("hint");
   });
 
   it("does not set aria-describedby with without-aria-describedby", async() => {
     mountTooltip({ props: { withoutAriaDescribedby: true } });
     await flush();
 
+    expect(document.getElementById("tip_description")).toBeNull();
     innerButton().focus();
     await flush();
     expect(titleEl()).not.toBeNull();

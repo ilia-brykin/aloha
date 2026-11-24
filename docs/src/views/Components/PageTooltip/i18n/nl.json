@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Vertraging in ms voordat de tooltip bij muisaanwijzing opent. De focus opent hem direct.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Opslaan",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Slaat het document op (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Instellingen"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Instellingen",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: de tekst van de tooltip staat altijd als verborgen element (<code>hidden</code>) in de DOM en het element heeft altijd <code>aria-describedby</code>, dus een schermlezer leest hem ook zonder focus (bladermodus). <code>visible</code>: de tekst en <code>aria-describedby</code> bestaan alleen zolang de tooltip open is, bijv. voor pagina's met heel veel tooltips."
 }

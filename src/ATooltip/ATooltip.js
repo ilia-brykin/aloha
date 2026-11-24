@@ -70,6 +70,17 @@ export default {
       required: false,
       default: "a_tooltip_container",
     },
+
+    /*
+     * always: the text of the tooltip is always in the DOM (hidden) and the element always has aria-describedby,
+     * so a screen reader reads it also without focus; visible: only while the tooltip is open (2.x), e.g. for very many tooltips
+     */
+    renderDescription: {
+      type: String,
+      required: false,
+      default: "always",
+      validator: value => ["always", "visible"].indexOf(value) !== -1,
+    },
     showArrow: {
       type: Boolean,
       required: false,
@@ -138,12 +149,16 @@ export default {
     } = TagAPI(props);
 
     const {
+      descriptionId,
       titleId,
       tooltipStyles,
     } = AttributesAPI(props);
 
-    DescribedbyAPI(props, {
+    const {
+      isDescriptionRendered,
+    } = DescribedbyAPI(props, {
       componentRef,
+      descriptionId,
       focusedElement,
       isTitleVisible,
       titleId,
@@ -176,6 +191,8 @@ export default {
     return {
       closeTitle,
       componentRef,
+      descriptionId,
+      isDescriptionRendered,
       isMounted,
       isTitleVisible,
       mouseEnterTooltip,
@@ -209,6 +226,11 @@ export default {
     }, {
       default: () => [
         this.$slots.default && this.$slots.default(),
+        // not shown and not read in the reading order, only as the description of the element
+        !!(this.isDescriptionRendered && this.$slots.title) && h("span", {
+          id: this.descriptionId,
+          hidden: true,
+        }, this.$slots.title()),
         !this.isHide && h(Teleport, {
           to: this.popperContainerIdSelector,
         }, [

@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Delay in ms before the tooltip opens on mouse hover. The focus opens it at once.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Save",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Saves the document (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Settings"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Settings",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: the text of the tooltip is always in the DOM as a hidden element (<code>hidden</code>) and the element always has <code>aria-describedby</code>, so a screen reader reads it also without focus (browse mode). <code>visible</code>: the text and <code>aria-describedby</code> exist only while the tooltip is open, e.g. for pages with very many tooltips."
 }

@@ -12261,6 +12261,11 @@
               "default": "\"a_tooltip_container\""
             },
             {
+              "name": "renderDescription",
+              "type": "string",
+              "default": "\"always\""
+            },
+            {
               "name": "showArrow",
               "type": "boolean",
               "default": "true"

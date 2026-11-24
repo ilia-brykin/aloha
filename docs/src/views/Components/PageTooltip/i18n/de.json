@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Verzögerung in ms, bevor sich der Tooltip beim Überfahren mit der Maus öffnet. Der Fokus öffnet ihn sofort.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Speichern",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Speichert das Dokument (Strg+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Einstellungen"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Einstellungen",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: der Text des Tooltips ist immer als verstecktes Element (<code>hidden</code>) im DOM, und das Element hat immer <code>aria-describedby</code>, daher liest ein Screenreader ihn auch ohne Fokus (Lesemodus). <code>visible</code>: Text und <code>aria-describedby</code> gibt es nur, solange der Tooltip offen ist, z. B. für Seiten mit sehr vielen Tooltips."
 }

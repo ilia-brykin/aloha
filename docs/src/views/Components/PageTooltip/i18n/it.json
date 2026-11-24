@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Ritardo in ms prima che il tooltip si apra al passaggio del mouse. Il focus lo apre subito.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Salva",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Salva il documento (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Impostazioni"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Impostazioni",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: il testo del tooltip è sempre nel DOM come elemento nascosto (<code>hidden</code>) e l'elemento ha sempre <code>aria-describedby</code>, quindi uno screen reader lo legge anche senza focus (modalità di navigazione). <code>visible</code>: il testo e <code>aria-describedby</code> esistono solo finché il tooltip è aperto, ad es. per pagine con moltissimi tooltip."
 }

@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Délai en ms avant que l'infobulle s'ouvre au survol de la souris. Le focus l'ouvre immédiatement.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Enregistrer",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Enregistre le document (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Paramètres"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Paramètres",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code> : le texte de l'infobulle est toujours dans le DOM comme élément masqué (<code>hidden</code>) et l'élément a toujours <code>aria-describedby</code>, un lecteur d'écran le lit donc aussi sans focus (mode navigation). <code>visible</code> : le texte et <code>aria-describedby</code> n'existent que tant que l'infobulle est ouverte, p. ex. pour des pages avec énormément d'infobulles."
 }

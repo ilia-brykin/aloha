@@ -48,5 +48,6 @@
   "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_": "Opóźnienie w ms przed otwarciem podpowiedzi po najechaniu myszą. Fokus otwiera ją od razu.",
   "_A_TOOLTIP_EXAMPLE_SAVE_": "Zapisz",
   "_A_TOOLTIP_EXAMPLE_SAVE_TITLE_": "Zapisuje dokument (Ctrl+S)",
-  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Ustawienia"
+  "_A_TOOLTIP_EXAMPLE_SETTINGS_": "Ustawienia",
+  "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_": "<code>always</code>: tekst podpowiedzi jest zawsze w DOM jako ukryty element (<code>hidden</code>), a element zawsze ma <code>aria-describedby</code>, więc czytnik ekranu odczytuje go także bez fokusu (tryb przeglądania). <code>visible</code>: tekst i <code>aria-describedby</code> istnieją tylko, gdy podpowiedź jest otwarta, np. dla stron z bardzo wieloma podpowiedziami."
 }
