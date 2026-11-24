@@ -8,12 +8,14 @@ import {
 
 /**
  * WAI-ARIA tabs: arrows go to the previous / next tab (ArrowUp / ArrowDown in vertical tabs), Home / End to the first / last.
- * Disabled tabs are skipped, the arrows go round. The focused tab is opened at once (automatic activation).
+ * Disabled tabs are skipped, the arrows go round. activation "auto" opens the focused tab at once,
+ * "manual" only moves the focus: Enter or Space (click of the button) opens it.
  */
 export default function KeyboardAPI(props, {
   changeTab = () => {},
   tabs,
 }) {
+  const activation = toRef(props, "activation");
   const id = toRef(props, "id");
   const isVertical = toRef(props, "isVertical");
 
@@ -53,6 +55,9 @@ export default function KeyboardAPI(props, {
 
     $event.preventDefault();
     document.getElementById(getTabDomId({ parentId: id.value, tabId: target.tabId }))?.focus();
+    if (activation.value === "manual") {
+      return;
+    }
     changeTab({ $event, tab: target.tab, tabId: target.tabId, index: target.index });
   };
 

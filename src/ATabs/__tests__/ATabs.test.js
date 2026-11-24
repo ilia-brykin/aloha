@@ -113,6 +113,21 @@ describe("ATabs", () => {
     expect(selected(wrapper)).toEqual(["true", "false", "false"]);
   });
 
+  it("only moves the focus with activation manual, Enter or Space (click) opens the tab", async() => {
+    const wrapper = mountTabs({ activation: "manual" });
+    tabs(wrapper)[0].element.focus();
+
+    await press(wrapper, "ArrowRight");
+    expect(document.activeElement.id).toBe("tabs_b");
+    expect(selected(wrapper)).toEqual(["true", "false", "false"]);
+    expect(wrapper.emitted("change")).toBeUndefined();
+    expect(tabs(wrapper)[0].attributes("tabindex")).toBe("0");
+
+    // a button fires click on Enter and Space
+    await tabs(wrapper)[1].trigger("click");
+    expect(selected(wrapper)).toEqual(["false", "true", "false"]);
+  });
+
   it("skips disabled tabs with the arrows", async() => {
     const wrapper = mountTabs({
       data: [DATA[0], { ...DATA[1], disabled: true }, DATA[2]],

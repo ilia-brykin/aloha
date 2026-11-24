@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Name der Tab-Liste für Screenreader. Akzeptiert einen Übersetzungsschlüssel.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "id des Elements, das die Tab-Liste benennt, z. B. eine Überschrift.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: jeder Inhalt wird gerendert, die inaktiven werden ausgeblendet. <code>active</code>: nur der aktive Inhalt wird gerendert. <code>once</code>: ein Inhalt wird gerendert, wenn sein Tab zum ersten Mal geöffnet wird, und dann behalten.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id des neuen aktiven Tabs (<code>v-model:active-tab-id</code>). Kommt zusammen mit <code>change</code>, auch bei <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id des neuen aktiven Tabs (<code>v-model:active-tab-id</code>). Kommt zusammen mit <code>change</code>, auch bei <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Mit Enter öffnen",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Mit <code>activation</code>=\"manual\" verschieben die Pfeile nur den Fokus, Enter oder Leertaste öffnet den Tab. Sinnvoll, wenn der Inhalt eines Tabs lange lädt, z. B. vom Server, damit er nicht für jeden Tab auf dem Weg geladen wird.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: die Pfeile öffnen den fokussierten Tab sofort. <code>manual</code>: die Pfeile verschieben nur den Fokus, Enter oder Leertaste öffnet den Tab (WAI-ARIA), z. B. bei Inhalt, der lange lädt."
 }

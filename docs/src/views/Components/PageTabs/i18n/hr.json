@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Naziv popisa kartica za čitače zaslona. Prihvaća ključ prijevoda.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id elementa koji daje naziv popisu kartica, npr. naslova.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: renderira se sav sadržaj, neaktivni je skriven. <code>active</code>: renderira se samo aktivni sadržaj. <code>once</code>: sadržaj se renderira kad se njegova kartica prvi put otvori, a zatim ostaje.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id nove aktivne kartice (<code>v-model:active-tab-id</code>). Stiže zajedno s <code>change</code>, i uz <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id nove aktivne kartice (<code>v-model:active-tab-id</code>). Stiže zajedno s <code>change</code>, i uz <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Otvaranje tipkom Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "S <code>activation</code>=\"manual\" strelice samo pomiču fokus, karticu otvara Enter ili razmak. Koristite kad se sadržaj kartice dugo učitava, npr. s poslužitelja, da se ne učitava za svaku karticu usput.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: strelice odmah otvaraju fokusiranu karticu. <code>manual</code>: strelice samo pomiču fokus, karticu otvara Enter ili razmak (WAI-ARIA), npr. za sadržaj koji se dugo učitava."
 }

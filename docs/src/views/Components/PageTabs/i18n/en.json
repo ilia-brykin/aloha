@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Name of the tab list for screen readers. Accepts a translation key.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id of the element that names the tab list, e.g. a heading.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: every content is rendered, the inactive ones are hidden. <code>active</code>: only the active content is rendered. <code>once</code>: a content is rendered when its tab is opened first and then kept.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id of the new active tab (<code>v-model:active-tab-id</code>). Comes together with <code>change</code>, also with <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id of the new active tab (<code>v-model:active-tab-id</code>). Comes together with <code>change</code>, also with <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Open with Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "With <code>activation</code>=\"manual\" the arrows only move the focus, Enter or Space opens the tab. Use it when the content of a tab loads long, e.g. from the server, so it is not loaded for every tab on the way.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: the arrows open the focused tab at once. <code>manual</code>: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long."
 }

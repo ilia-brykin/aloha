@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nome dell'elenco di schede per gli screen reader. Accetta una chiave di traduzione.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id dell'elemento che dà il nome all'elenco di schede, ad es. un titolo.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: tutto il contenuto viene renderizzato, quello inattivo è nascosto. <code>active</code>: viene renderizzato solo il contenuto attivo. <code>once</code>: un contenuto viene renderizzato alla prima apertura della sua scheda e poi mantenuto.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id della nuova scheda attiva (<code>v-model:active-tab-id</code>). Arriva insieme a <code>change</code>, anche con <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id della nuova scheda attiva (<code>v-model:active-tab-id</code>). Arriva insieme a <code>change</code>, anche con <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Aprire con Invio",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Con <code>activation</code>=\"manual\" le frecce spostano solo il focus, Invio o Spazio apre la scheda. Utile quando il contenuto di una scheda si carica lentamente, ad es. dal server, così non viene caricato per ogni scheda attraversata.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: le frecce aprono subito la scheda con il focus. <code>manual</code>: le frecce spostano solo il focus, Invio o Spazio apre la scheda (WAI-ARIA), ad es. per contenuti che si caricano lentamente."
 }

@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "activation",
+      description: "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_",
+      type: "String",
+      default: "auto",
+      required: false,
+    },
+    {
       name: "aria-label",
       description: "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_",
       type: "String",

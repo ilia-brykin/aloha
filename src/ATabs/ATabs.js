@@ -21,7 +21,16 @@ import {
 export default {
   name: "ATabs",
   props: {
-    // name of the tab list for screen readers, e.g. when the page has several tabs
+    /*
+     * name of the tab list for screen readers, e.g. when the page has several tabs
+     * auto: the arrows open the focused tab at once; manual: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long
+     */
+    activation: {
+      type: String,
+      required: false,
+      default: "auto",
+      validator: value => ["auto", "manual"].indexOf(value) !== -1,
+    },
     ariaLabel: {
       type: String,
       required: false,

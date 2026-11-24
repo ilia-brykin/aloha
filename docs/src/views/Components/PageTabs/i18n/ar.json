@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "اسم قائمة علامات التبويب لقارئات الشاشة. يقبل مفتاح ترجمة.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "معرّف العنصر الذي يسمّي قائمة علامات التبويب، مثل عنوان.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: يُعرض كل المحتوى ويُخفى غير النشط. <code>active</code>: يُعرض المحتوى النشط فقط. <code>once</code>: يُعرض المحتوى عند فتح علامة تبويبه أول مرة ثم يُحتفظ به.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "معرّف علامة التبويب النشطة الجديدة (<code>v-model:active-tab-id</code>). يصل مع <code>change</code>، وأيضًا مع <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "معرّف علامة التبويب النشطة الجديدة (<code>v-model:active-tab-id</code>). يصل مع <code>change</code>، وأيضًا مع <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "الفتح بـ Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "مع <code>activation</code>=\"manual\" تنقل الأسهم التركيز فقط، ويفتح Enter أو المسافة علامة التبويب. استخدمه عندما يستغرق تحميل محتوى علامة التبويب وقتًا طويلًا، مثلًا من الخادم، حتى لا يُحمَّل لكل علامة تبويب في الطريق.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: تفتح الأسهم علامة التبويب التي عليها التركيز فورًا. <code>manual</code>: تنقل الأسهم التركيز فقط، ويفتح Enter أو المسافة علامة التبويب (WAI-ARIA)، مثلًا للمحتوى الذي يستغرق تحميله وقتًا طويلًا."
 }

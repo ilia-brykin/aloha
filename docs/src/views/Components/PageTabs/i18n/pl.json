@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nazwa listy kart dla czytników ekranu. Przyjmuje klucz tłumaczenia.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id elementu, który nadaje nazwę liście kart, np. nagłówka.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: renderowana jest cała treść, nieaktywna jest ukryta. <code>active</code>: renderowana jest tylko treść aktywnej karty. <code>once</code>: treść jest renderowana przy pierwszym otwarciu karty i potem zostaje.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id nowej aktywnej karty (<code>v-model:active-tab-id</code>). Przychodzi razem z <code>change</code>, także przy <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id nowej aktywnej karty (<code>v-model:active-tab-id</code>). Przychodzi razem z <code>change</code>, także przy <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Otwieranie klawiszem Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Z <code>activation</code>=\"manual\" strzałki tylko przenoszą fokus, kartę otwiera Enter lub spacja. Używaj, gdy treść karty długo się ładuje, np. z serwera, aby nie ładowała się dla każdej mijanej karty.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: strzałki od razu otwierają kartę z fokusem. <code>manual</code>: strzałki tylko przenoszą fokus, kartę otwiera Enter lub spacja (WAI-ARIA), np. dla treści, która długo się ładuje."
 }

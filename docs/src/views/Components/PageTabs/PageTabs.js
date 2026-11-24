@@ -1,5 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import PageTabsActivation from "./PageTabsActivation/PageTabsActivation.vue";
 import PageTabsActiveTabId from "./PageTabsActiveTabId/PageTabsActiveTabId.vue";
 import PageTabsAriaLabel from "./PageTabsAriaLabel/PageTabsAriaLabel.vue";
 import PageTabsBasic from "./PageTabsBasic/PageTabsBasic.vue";
@@ -34,6 +35,7 @@ export default {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
+    PageTabsActivation,
     PageTabsActiveTabId,
     PageTabsBasic,
     PageTabsRenderContent,

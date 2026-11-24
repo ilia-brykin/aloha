@@ -3656,6 +3656,8 @@ export interface ATableFormProps {
 export declare const ATableForm: DefineComponent<ATableFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("deleteRow" | "moveRow" | "updateRows")[]>;
 
 export interface ATabsProps {
+  /** @default "auto" */
+  activation?: string;
   ariaLabel?: string;
   ariaLabelledby?: string;
   activeTabId?: string | number;

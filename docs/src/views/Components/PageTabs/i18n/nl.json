@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Naam van de tablijst voor schermlezers. Accepteert een vertaalsleutel.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id van het element dat de tablijst een naam geeft, bijv. een kop.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: alle inhoud wordt gerenderd, de inactieve is verborgen. <code>active</code>: alleen de actieve inhoud wordt gerenderd. <code>once</code>: een inhoud wordt gerenderd als zijn tab voor het eerst wordt geopend en daarna gehouden.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id van de nieuwe actieve tab (<code>v-model:active-tab-id</code>). Komt samen met <code>change</code>, ook bij <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id van de nieuwe actieve tab (<code>v-model:active-tab-id</code>). Komt samen met <code>change</code>, ook bij <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Openen met Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Met <code>activation</code>=\"manual\" verplaatsen de pijlen alleen de focus, Enter of spatie opent de tab. Handig als de inhoud van een tab lang laadt, bijv. van de server, zodat die niet voor elke tab onderweg wordt geladen.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: de pijlen openen de gefocuste tab direct. <code>manual</code>: de pijlen verplaatsen alleen de focus, Enter of spatie opent de tab (WAI-ARIA), bijv. bij inhoud die lang laadt."
 }

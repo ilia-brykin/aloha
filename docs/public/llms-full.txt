@@ -45197,6 +45197,51 @@ export default {
 };
 ```
 
+## Open with Enter
+
+With `activation`="manual" the arrows only move the focus, Enter or Space opens the tab. Use it when the content of a tab loads long, e.g. from the server, so it is not loaded for every tab on the way.
+
+*props: `activation`*
+
+```html
+<a-tabs
+  :data="data"
+  activation="manual"
+/>
+```
+
+```js
+import {
+  ATabs,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ATabs,
+  },
+  setup() {
+    const data = [
+      {
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
+      },
+      {
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
+      },
+      {
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
+      },
+    ];
+
+    return {
+      data,
+    };
+  },
+};
+```
+
 ## Disabling tabs
 
 This example shows how to use **disabled** to disable all tabs. When set to **true**, users cannot interact with the tabs.
@@ -46375,6 +46420,7 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
+| activation | String | auto |  | `auto`: the arrows open the focused tab at once. `manual`: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long. |
 | aria-label | String |  |  | Name of the tab list for screen readers. Accepts a translation key. |
 | aria-labelledby | String |  |  | Id of the element that names the tab list, e.g. a heading. |
 | active-tab-id | String / Number |  |  | Defines the **ID** or index of the active tab. If **key-id** is not set, the tab index is used. The component tracks changes to this value to update the active tab. |

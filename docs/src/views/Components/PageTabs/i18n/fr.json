@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nom de la liste d'onglets pour les lecteurs d'écran. Accepte une clé de traduction.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id de l'élément qui nomme la liste d'onglets, p. ex. un titre.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code> : tout le contenu est rendu, l'inactif est masqué. <code>active</code> : seul le contenu actif est rendu. <code>once</code> : un contenu est rendu à la première ouverture de son onglet, puis gardé.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id du nouvel onglet actif (<code>v-model:active-tab-id</code>). Arrive avec <code>change</code>, aussi avec <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id du nouvel onglet actif (<code>v-model:active-tab-id</code>). Arrive avec <code>change</code>, aussi avec <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Ouvrir avec Entrée",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Avec <code>activation</code>=\"manual\", les flèches déplacent seulement le focus, Entrée ou Espace ouvre l'onglet. À utiliser quand le contenu d'un onglet met du temps à charger, p. ex. depuis le serveur, pour qu'il ne soit pas chargé pour chaque onglet traversé.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code> : les flèches ouvrent immédiatement l'onglet focalisé. <code>manual</code> : les flèches déplacent seulement le focus, Entrée ou Espace ouvre l'onglet (WAI-ARIA), p. ex. pour un contenu long à charger."
 }

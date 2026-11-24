@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nombre de la lista de pestañas para lectores de pantalla. Acepta una clave de traducción.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id del elemento que da nombre a la lista de pestañas, p. ej. un encabezado.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: se renderiza todo el contenido, el inactivo se oculta. <code>active</code>: solo se renderiza el contenido activo. <code>once</code>: un contenido se renderiza cuando su pestaña se abre por primera vez y luego se mantiene.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id de la nueva pestaña activa (<code>v-model:active-tab-id</code>). Llega junto con <code>change</code>, también con <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id de la nueva pestaña activa (<code>v-model:active-tab-id</code>). Llega junto con <code>change</code>, también con <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Abrir con Intro",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Con <code>activation</code>=\"manual\" las flechas solo mueven el foco, Intro o Espacio abre la pestaña. Úselo cuando el contenido de una pestaña tarda en cargar, p. ej. desde el servidor, para que no se cargue para cada pestaña por el camino.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: las flechas abren la pestaña enfocada de inmediato. <code>manual</code>: las flechas solo mueven el foco, Intro o Espacio abre la pestaña (WAI-ARIA), p. ej. para contenido que tarda en cargar."
 }

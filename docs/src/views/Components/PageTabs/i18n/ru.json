@@ -76,5 +76,8 @@
   "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Имя списка вкладок для скринридера. Принимает ключ перевода.",
   "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "id элемента, который даёт имя списку вкладок, например заголовка.",
   "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: рисуется всё содержимое, неактивное скрыто. <code>active</code>: рисуется только содержимое активной вкладки. <code>once</code>: содержимое рисуется при первом открытии вкладки и дальше остаётся.",
-  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id новой активной вкладки (<code>v-model:active-tab-id</code>). Приходит вместе с <code>change</code>, в том числе при <code>is-change-outside</code>."
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id новой активной вкладки (<code>v-model:active-tab-id</code>). Приходит вместе с <code>change</code>, в том числе при <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Открытие по Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "С <code>activation</code>=\"manual\" стрелки только переносят фокус, вкладку открывает Enter или пробел. Используйте, если содержимое вкладки долго загружается, например с сервера, чтобы оно не загружалось для каждой вкладки по пути.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: стрелки сразу открывают вкладку с фокусом. <code>manual</code>: стрелки только переносят фокус, вкладку открывает Enter или пробел (WAI-ARIA), например для долго загружаемого содержимого."
 }
