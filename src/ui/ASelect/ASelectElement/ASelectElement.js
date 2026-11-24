@@ -141,7 +141,7 @@ export default {
   },
   render() {
     return h("div", {
-      ariaSelected: this.isChecked,
+      "aria-selected": this.isChecked,
       class: ["a_select__menu__link a_select__element_clickable", {
         a_select__menu__link_invalid: this.dataItem.__invalidEntry__,
         a_select__menu__link_selected: this.isChecked,

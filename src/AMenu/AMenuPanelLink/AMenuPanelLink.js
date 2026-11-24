@@ -165,7 +165,7 @@ export default {
     }, [
       this.isLinkInSearchPanel && h("span", {
         class: "a_menu__breadcrumbs__item__divider",
-        ariaHidden: true,
+        "aria-hidden": true,
       }, "/"),
       this.currentSlot && this.$slots[this.currentSlot] ?
         this.$slots[this.currentSlot]({
@@ -240,7 +240,7 @@ export default {
               class: "a_menu__link__counter a_element__ml_0",
             }, [
               this.showCountChildren && h("span", {
-                ariaHidden: true,
+                "aria-hidden": true,
               }, this.countChildren),
               h(AIcon, {
                 class: "a_menu__link__counter__icon",

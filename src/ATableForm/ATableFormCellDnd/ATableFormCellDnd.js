@@ -155,7 +155,7 @@ export default {
               onClick: () => this.moveRowUp(this.rowIndex),
             }),
             h("span", {
-              ariaHidden: true,
+              "aria-hidden": true,
               class: [
                 "a_table_form__reorder_handle",
                 {

@@ -372,7 +372,7 @@ export default {
           value: model.progress || 0,
           indeterminate: isNil(model.progress),
           showValue: false,
-          ariaLabel: getTranslatedText({
+          "aria-label": getTranslatedText({
             placeholder: "_A_INPUT_FILE_UPLOADING_{{name}}_",
             extra: { name: model.name },
           }),

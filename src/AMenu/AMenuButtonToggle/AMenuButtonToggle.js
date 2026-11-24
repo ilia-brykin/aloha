@@ -82,15 +82,15 @@ export default {
       ...this.buttonToggleProps,
     }, () => [
       h("span", {
-        ariaHidden: true,
+        "aria-hidden": true,
         class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_1 a_element__ml_0",
       }),
       h("span", {
-        ariaHidden: true,
+        "aria-hidden": true,
         class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_2 a_element__ml_0",
       }),
       h("span", {
-        ariaHidden: true,
+        "aria-hidden": true,
         class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_3 a_element__ml_0",
       }),
     ]);

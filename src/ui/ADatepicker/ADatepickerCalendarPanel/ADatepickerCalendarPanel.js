@@ -716,7 +716,7 @@ export default {
           this.panel !== "TIME" && h("button", {
             class: "a_datepicker__icon_last_year a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonLastYear,
+            "aria-label": this.ariaLabelForButtonLastYear,
             innerHTML: "&laquo;",
             onClick: $event => {
               $event.stopPropagation();
@@ -726,7 +726,7 @@ export default {
           this.panel === "DATE" && h("button", {
             class: "a_datepicker__icon_last_month a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonLastMonth,
+            "aria-label": this.ariaLabelForButtonLastMonth,
             innerHTML: "&lsaquo;",
             onClick: $event => {
               $event.stopPropagation();
@@ -738,13 +738,13 @@ export default {
           this.panel === "DATE" && h("button", {
             class: "a_datepicker__current_month a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonCurrentMonth,
+            "aria-label": this.ariaLabelForButtonCurrentMonth,
             onClick: this.handleBtnMonth,
           }, this.months[this.calendarMonth]),
           (this.panel === "DATE" || this.panel === "MONTH") && h("button", {
             class: "a_datepicker__current_year a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonCurrentYear,
+            "aria-label": this.ariaLabelForButtonCurrentYear,
             onClick: this.handleBtnYear,
           }, this.calendarYear),
           this.panel === "YEAR" && h("span", {
@@ -758,7 +758,7 @@ export default {
               h("button", {
                 class: "a_datepicker__time_header a_datepicker__calendar__tab",
                 type: "button",
-                ariaLabel: this.ariaLabelForButtonToDays,
+                "aria-label": this.ariaLabelForButtonToDays,
                 onClick: this.handleTimeHeader,
               }, this.timeHeader),
           ]),
@@ -767,7 +767,7 @@ export default {
           this.panel === "DATE" && h("button", {
             class: "a_datepicker__icon_next_month a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonNextMonth,
+            "aria-label": this.ariaLabelForButtonNextMonth,
             innerHTML: "&rsaquo;",
             onClick: $event => {
               $event.stopPropagation();
@@ -777,7 +777,7 @@ export default {
           this.panel !== "TIME" && h("button", {
             class: "a_datepicker__icon_next_year a_datepicker__calendar__tab",
             type: "button",
-            ariaLabel: this.ariaLabelForButtonNextYear,
+            "aria-label": this.ariaLabelForButtonNextYear,
             innerHTML: "&raquo;",
             onClick: $event => {
               $event.stopPropagation();

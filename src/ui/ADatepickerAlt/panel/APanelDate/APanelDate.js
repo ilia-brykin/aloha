@@ -298,7 +298,7 @@ export default {
     return h("table", {
       class: "a_datepicker__panel a_datepicker__panel_date",
       role: "grid",
-      ariaReadonly: true,
+      "aria-readonly": true,
       "aria-labelledby": this.idForHeader,
       ...this.attributesForMainElement,
     }, [
@@ -307,7 +307,7 @@ export default {
           this.ths.map((thData, thIndex) => {
             return h("th", {
               key: thIndex,
-              ariaLabel: thData.longName,
+              "aria-label": thData.longName,
             }, thData.shortName);
           }),
         ]),
@@ -329,12 +329,12 @@ export default {
                   class: "a_datepicker__panel__button",
                   type: "button",
                   tabindex: -1,
-                  ariaHidden: true,
-                  ariaSelected: !!(tdData.isCurrentMonth && tdData.label === this.dayFromValue),
+                  "aria-hidden": true,
+                  "aria-selected": !!(tdData.isCurrentMonth && tdData.label === this.dayFromValue),
                   onClick: () => this.selectDate(tdData.date),
                 }, [
                   h("span", {
-                    ariaHidden: true,
+                    "aria-hidden": true,
                   }, tdData.label),
                   h("span", {
                     class: "a_sr_only",

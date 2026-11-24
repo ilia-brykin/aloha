@@ -1085,7 +1085,7 @@ export default {
       }, [
         isDividerBeforeInvalidVisible && h("div", {
           class: "a_select__divider",
-          ariaHidden: true,
+          "aria-hidden": true,
         }),
         h(ATranslation, {
           alwaysTranslate: this.alwaysTranslate,
@@ -1178,10 +1178,10 @@ export default {
               role: "combobox",
               tabindex: this.tabindex,
               "aria-haspopup": "listbox",
-              ariaExpanded: this.isOpen,
-              ariaRequired: this.required,
-              ariaDisabled: this.disabledLocal,
-              ariaInvalid: this.isErrors,
+              "aria-expanded": this.isOpen,
+              "aria-required": this.required,
+              "aria-disabled": this.disabledLocal,
+              "aria-invalid": this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
               title: this.hasSelectedTitle ? this.selectedTitle : undefined, // TODO: title
               onClick: this.togglePopover,
@@ -1317,7 +1317,7 @@ export default {
                           }),
                           h(AElement, {
                             alwaysTranslate: this.alwaysTranslate,
-                            ariaDisabled: this.loadingSearchApi,
+                            "aria-disabled": this.loadingSearchApi,
                             disabled: this.disabledLocal,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
@@ -1341,7 +1341,7 @@ export default {
                     ]),
                     (this.searchOutsideOrApi || this.search) && h("div", {
                       class: "a_select__divider",
-                      ariaHidden: true,
+                      "aria-hidden": true,
                     }),
                     h("div", {
                       class: "a_select_menu__child",
@@ -1398,7 +1398,7 @@ export default {
                       ]),
                       (this.isDividerSelectDeselectVisible) && h("div", {
                         class: "a_select__divider",
-                        ariaHidden: true,
+                        "aria-hidden": true,
                       }),
                       !!this.dataSelectedVisible.length && h("div", {
                         class: "a_select__selected_first",
@@ -1449,7 +1449,7 @@ export default {
                       (!!this.dataSelectedVisible.length &&
                         !!this.dataOptionsWithoutSelectedVisible.length) && h("div", {
                         class: "a_select__divider",
-                        ariaHidden: true,
+                        "aria-hidden": true,
                       }),
                       (this.loadingLocal || this.loadingSearchApi) ?
                         h(ACloak) :
@@ -1518,7 +1518,7 @@ export default {
                         !this.hasNotElementsExtraWithSearch &&
                         !this.hasNotElementsExclusiveWithSearch && h("div", {
                           class: "a_select__divider",
-                          ariaHidden: true,
+                          "aria-hidden": true,
                         }),
                       ]),
                       h("div", {}, this.hasKeyGroup ?

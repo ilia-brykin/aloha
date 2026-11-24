@@ -801,7 +801,7 @@ export default {
               }),
               this.showClearIcon && h("span", {
                 class: "a_datepicker__input_wrapper__append a_datepicker__input_wrapper__clear_wrapper",
-                ariaHidden: true,
+                "aria-hidden": true,
                 onMousedown: this.clearDate,
               }, [
                 h("i", {
@@ -818,8 +818,8 @@ export default {
               ref: "calendar",
               id: this.idForCalendar,
               class: "a_datepicker__popup",
-              ariaHidden: this.ariaHiddenForCalendar,
-              ariaExpanded: this.ariaExpandedForCalendar,
+              "aria-hidden": this.ariaHiddenForCalendar,
+              "aria-expanded": this.ariaExpandedForCalendar,
               style: [this.innerPopupStyle, !this.popupVisible ? "display: none;" : ""],
             }, [
               !!(this.range && this.innerShortcuts.length) && h("div", {

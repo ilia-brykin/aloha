@@ -335,7 +335,7 @@ export default {
                         fixedPlaceholder: () => [
                           h(ATranslation, {
                             tag: "span",
-                            ariaHidden: true,
+                            "aria-hidden": true,
                             class: "a_position_absolute_all",
                             title: "_A_FILTERS_ADD_FILTER_",
                           }),
@@ -360,7 +360,7 @@ export default {
                     }),
                     h(AElement, {
                       id: this.buttonDeleteId,
-                      ariaDisabled: this.isModelFilterSavedNew,
+                      "aria-disabled": this.isModelFilterSavedNew,
                       class: "a_btn a_btn_secondary",
                       iconLeft: Trash,
                       text: {

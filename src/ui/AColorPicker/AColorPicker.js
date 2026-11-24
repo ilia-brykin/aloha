@@ -453,7 +453,7 @@ export default {
               style: {
                 "--a_color_picker_color": this.modelCssColor,
               },
-              ariaHidden: true,
+              "aria-hidden": true,
             }),
             h("span", {}, this.modelValue),
           ]),
@@ -656,7 +656,7 @@ export default {
                 style: {
                   "--a_color_picker_color": this.cssColorLocal,
                 },
-                ariaHidden: true,
+                "aria-hidden": true,
               }),
             ]),
             h("div", {
@@ -684,7 +684,7 @@ export default {
               this.isFormatSwitch ?
                 h(AButton, {
                   alwaysTranslate: this.alwaysTranslate,
-                  ariaLabel: "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_",
+                  "aria-label": "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_",
                   extra: {
                     format: this.currentFormat.toUpperCase(),
                     next: this.nextFormat.toUpperCase(),

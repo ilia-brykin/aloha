@@ -524,8 +524,8 @@ export default {
       modalBody: () => [
         this.isWizardVisible && h(AWizard, {
           id: this.wizardId,
-          ariaLabel: this.ariaLabel,
-          ariaLabelSteps: this.ariaLabelSteps,
+          "aria-label": this.ariaLabel,
+          "aria-label-steps": this.ariaLabelSteps,
           backButtonAttributes: this.backButtonAttributes,
           backButtonClass: this.backButtonClass,
           backButtonIconLeft: this.backButtonIconLeft,

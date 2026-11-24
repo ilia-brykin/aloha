@@ -9,11 +9,11 @@ export default function AriaLabelHiddenAPI(props) {
   const attributesAriaLabelHidden = computed(() => {
     if (ariLabel.value) {
       return {
-        ariaLabel: ariLabel.value,
+        "aria-label": ariLabel.value,
       };
     }
     return {
-      ariaHidden: true,
+      "aria-hidden": true,
     };
   });
 

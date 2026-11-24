@@ -150,7 +150,7 @@ export default {
         }, [
           this.filter.hasNotClose && h(AElement, {
             class: this.btnNotCloseClass,
-            ariaHidden: true,
+            "aria-hidden": true,
             tabindex: -1,
             iconLeft: PinFill,
             type: "text",
@@ -169,7 +169,7 @@ export default {
             modelValue.filterLabelTranslated ?
               h("strong", {
                 class: "a_filters_center__item__label",
-                ariaHidden: true,
+                "aria-hidden": true,
               }, [
                 h(ATranslation, {
                   tag: "span",

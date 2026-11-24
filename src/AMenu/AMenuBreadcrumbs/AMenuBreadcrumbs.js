@@ -93,7 +93,7 @@ export default {
 
     if (this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
-        ariaLabel: "_A_MENU_2_BREADCRUMB_",
+        "aria-label": "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [
@@ -193,7 +193,7 @@ export default {
 
     if (!this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
-        ariaLabel: "_A_MENU_2_BREADCRUMB_",
+        "aria-label": "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [

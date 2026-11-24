@@ -22,7 +22,7 @@ export default {
   },
   render() {
     return h("span", {
-      ariaHidden: true,
+      "aria-hidden": true,
       innerHTML: this.svgHtml,
     });
   },

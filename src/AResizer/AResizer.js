@@ -77,7 +77,7 @@ export default {
         class: ["a_resizer", this.directionClass, {
           a_resizer_disabled: this.disabled,
         }],
-        ariaHidden: true,
+        "aria-hidden": true,
       };
       if (!this.disabled) {
         ATTRIBUTES.onMousedown = this.mousedown;

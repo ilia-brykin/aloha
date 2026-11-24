@@ -400,8 +400,8 @@ export default {
               h("input", {
                 id: this.htmlIdLocal,
                 "aria-describedby": this.ariaDescribedbyLocal,
-                ariaInvalid: this.isErrors,
-                ariaRequired: this.required,
+                "aria-invalid": this.isErrors,
+                "aria-required": this.required,
                 checked: this.isChecked,
                 class: [
                   "a_switch__input",

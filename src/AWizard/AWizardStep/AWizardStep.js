@@ -196,7 +196,7 @@ export default {
         h(AElement, {
           "aria-controls": this.contentId,
           "aria-describedby": this.stepStatusTextId,
-          ariaDisabled: this.isStepDisabled,
+          "aria-disabled": this.isStepDisabled,
           class: this.linkClass,
           classDefault: "",
           classDisabled: "disabled",
@@ -267,7 +267,7 @@ export default {
         }),
         h("span", {
           class: "a_wizard__step__divider",
-          ariaHidden: true,
+          "aria-hidden": true,
         }),
       ],
     );

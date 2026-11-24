@@ -41,6 +41,15 @@ export default [
   {
     rules: {
       ...pluginVuePug.configs["vue3-recommended"].rules,
+
+      /*
+       * aria attributes in h() as "aria-hidden", not ariaHidden: camelCase is a DOM property only in new browsers,
+       * the HTML of SSR and jsdom gets a wrong attribute (props of components still match "aria-label")
+       */
+      "no-restricted-syntax": [ERROR, {
+        selector: "CallExpression[callee.name='h'] > ObjectExpression > Property[key.name=/^aria[A-Z]/]",
+        message: "Write aria attributes as \"aria-hidden\", not ariaHidden.",
+      }],
       // @stylistic
       "@stylistic/array-bracket-newline": [WARN, "consistent"],
       "@stylistic/array-bracket-spacing": [WARN, "never"],

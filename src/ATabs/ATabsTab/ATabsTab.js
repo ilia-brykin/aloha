@@ -156,7 +156,7 @@ export default {
       h(AElement, {
         id: this.idLocal,
         "aria-controls": this.idForContent,
-        ariaDisabled: this.isDisabled || undefined,
+        "aria-disabled": this.isDisabled || undefined,
         "aria-selected": this.isActive ? "true" : "false",
         class: [
           "a_tabs__list__link",

@@ -134,8 +134,8 @@ export default {
               }],
               tabindex: -1,
               role: "option",
-              ariaSelected: !!time.isActive,
-              ariaLabel: time.ariaLabel,
+              "aria-selected": !!time.isActive,
+              "aria-label": time.ariaLabel,
               onClick: () => this.selectTime(time.time),
               onKeypress: $event => this.keypress($event, time.time, timeListIndex === this.timesFiltered.length - 1),
             }, time.label);

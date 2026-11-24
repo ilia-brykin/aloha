@@ -731,7 +731,7 @@ export default {
         hasEntriesBeforeInvalid ?
           h("div", {
             class: "a_divider",
-            ariaHidden: true,
+            "aria-hidden": true,
           }) :
           "",
         h(ATranslation, {
@@ -879,7 +879,7 @@ export default {
                       }),
                       h(AElement, {
                         alwaysTranslate: this.alwaysTranslate,
-                        ariaDisabled: this.loadingSearchApi,
+                        "aria-disabled": this.loadingSearchApi,
                         disabled: this.disabled,
                         class: "a_btn a_btn_primary",
                         type: "submit",
@@ -907,7 +907,7 @@ export default {
                     h(AElement, {
                       alwaysTranslate: this.alwaysTranslate,
                       class: "a_btn a_btn_outline_primary a_btn_small",
-                      ariaDisabled: this.isSelectAllDisabled,
+                      "aria-disabled": this.isSelectAllDisabled,
                       extra: this.extra,
                       text: this.textSelectAll,
                       type: "button",
@@ -918,7 +918,7 @@ export default {
                     h(AElement, {
                       alwaysTranslate: this.alwaysTranslate,
                       class: "a_btn a_btn_outline_primary a_btn_small",
-                      ariaDisabled: this.isDeselectAllDisabled,
+                      "aria-disabled": this.isDeselectAllDisabled,
                       extra: this.extra,
                       text: this.textDeselectAll,
                       type: "button",
@@ -992,7 +992,7 @@ export default {
                   !this.hasNotElementsExtraWithSearch ?
                     h("div", {
                       class: "a_divider",
-                      ariaHidden: true,
+                      "aria-hidden": true,
                     }) :
                     "",
                 ]) :

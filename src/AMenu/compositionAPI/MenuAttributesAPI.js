@@ -22,7 +22,7 @@ export default function MenuAttributesAPI(props, {
     if (isMobileWidth.value || onlyMobile.value) {
       return {
         role: "dialog",
-        ariaModal: true,
+        "aria-modal": true,
       };
     }
 
