@@ -137,6 +137,7 @@ export default function InputEventsAPI(props, {
     userInput.value = null;
   };
 
+  // the typed character, not the key code: "-" and "+" have other codes in Firefox and on the numpad
   const handleKeydown = $event => {
     if ($event.keyCode === AKeysCode.arrowUp) {
       increase();
@@ -144,13 +145,13 @@ export default function InputEventsAPI(props, {
     } else if ($event.keyCode === AKeysCode.arrowDown) {
       decrease();
       $event.preventDefault();
-    } else if (!eAllowed.value && $event.keyCode === AKeysCode.e) {
+    } else if (!eAllowed.value && ($event.key === "e" || $event.key === "E")) {
       $event.preventDefault();
       $event.stopPropagation();
-    } else if (min.value >= 0 && $event.keyCode === AKeysCode.minus) {
+    } else if (min.value >= 0 && $event.key === "-") {
       $event.preventDefault();
       $event.stopPropagation();
-    } else if ($event.keyCode === AKeysCode.plus) {
+    } else if ($event.key === "+") {
       $event.preventDefault();
       $event.stopPropagation();
     }

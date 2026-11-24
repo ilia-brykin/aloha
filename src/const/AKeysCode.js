@@ -1,3 +1,7 @@
+/**
+ * @deprecated $event.keyCode is deprecated in the browsers. Use $event.key ("Enter", "Escape", "ArrowUp" …).
+ * For typed characters ("-", "+", digits) keyCode differs between browsers and keyboard layouts.
+ */
 export default {
   arrowDown: 40,
   arrowLeft: 37,

@@ -302,3 +302,8 @@ app.use(AComponentsPlugin, {
   },
 });
 ```
+
+## 9. JavaScript
+
+- `AKeysCode` is deprecated and will be removed in a later version. It contains values of `$event.keyCode`, which is deprecated in the browsers. Use `$event.key` in own code, e.g. `$event.key === "Enter"` instead of `$event.keyCode === AKeysCode.enter`. In fields with input of Chinese or Japanese (IME) also check `$event.isComposing`.
+- `AInputNumber` checks minus, plus and `"e"` by the typed character (`$event.key`). Before, the minus with `min` ≥ 0 and the plus were not blocked in Firefox and on the numpad, because these keys have another `keyCode` there.

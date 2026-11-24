@@ -47,4 +47,11 @@ describe("AInputCurrency keydown", () => {
 
     expect(keydown(wrapper, { key: "v", keyCode: 86 }).defaultPrevented).toBe(true);
   });
+
+  it("takes the typed character, not the key: \"&\" on the key of 1 (AZERTY) is not a digit", () => {
+    const wrapper = mountCurrency();
+
+    expect(keydown(wrapper, { key: "&", keyCode: 49 }).defaultPrevented).toBe(true);
+    expect(keydown(wrapper, { key: "é", keyCode: 50 }).defaultPrevented).toBe(true);
+  });
 });

@@ -388,8 +388,9 @@ export default function InputEventsAPI(props, {
     const keyValue = $event.key;
     // Ctrl on Windows/Linux, Cmd on Mac: copy, paste, select all, undo
     const isShortcut = $event.ctrlKey || $event.metaKey;
-    const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
-    const keyIsZero = keyCode === 48 || keyCode === 96;
+    // the typed character, not the key: on AZERTY the keys 1-0 type & é " … without Shift
+    const keyIsNumber = /^[0-9]$/.test(keyValue);
+    const keyIsZero = keyValue === "0";
     const keyIsMinus = keyValue === "-";
     const keyIsPlus = keyValue === "+";
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
