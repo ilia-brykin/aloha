@@ -11,9 +11,25 @@ aloha-page(
 
     page-carousel-basic
 
+    page-carousel-model
+
+    page-carousel-autoplay
+
+    page-carousel-loop
+
+    page-carousel-transition
+
+    page-carousel-card
+
+    page-carousel-vertical
+
+    page-carousel-labels
+
     page-carousel-aria-disabled
 
     page-carousel-arrows-trigger
+
+    page-carousel-arrows-placement
 
     page-carousel-indicators-limit
 
@@ -27,6 +43,24 @@ aloha-page(
 
     aloha-table-props(
       :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
     )
 
     aloha-table-translate(

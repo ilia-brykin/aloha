@@ -1,36 +1,44 @@
 import {
+  computed,
   h,
 } from "vue";
 
 import ACarouselControlsIndicator from "./ACarouselControlsIndicator/ACarouselControlsIndicator";
+import AElement from "../../AElement/AElement";
+import {
+  getAutoplayHtmlId,
+} from "../utils/utils";
 
-import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import {
+  getTranslatedAttributes,
+} from "../../ATranslation/compositionAPI/UtilsAPI";
+
+import {
+  PauseFill,
+  PlayFill,
+} from "../utils/icons";
 
 export default {
   name: "ACarouselControls",
   props: {
     activeId: {
       type: [String, Number],
-      required: true,
-    },
-    autoplayInterval: {
-      type: Number,
       required: false,
-      default: 5000,
+      default: undefined,
     },
-    autoplayShow: {
+    ariaDisabled: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-    autoplayStart: {
-      type: Boolean,
-      default: false,
     },
     data: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    direction: {
+      type: String,
+      required: false,
+      default: "horizontal",
     },
     disabled: {
       type: Boolean,
@@ -41,10 +49,6 @@ export default {
       required: false,
       default: undefined,
     },
-    parentId: {
-      type: String,
-      required: true,
-    },
     indicatorsShow: {
       type: Boolean,
       required: false,
@@ -54,7 +58,18 @@ export default {
       type: String,
       required: false,
       default: "dots",
-      validator: value => ["dots", "squares"].indexOf(value) !== -1,
+    },
+    isAutoplayAvailable: {
+      type: Boolean,
+      required: false,
+    },
+    isPlaying: {
+      type: Boolean,
+      required: false,
+    },
+    parentId: {
+      type: String,
+      required: true,
     },
     texts: {
       type: Object,
@@ -63,52 +78,82 @@ export default {
   },
   emits: [
     "changeActiveId",
-    "toNextSlide",
-    "toPreviousSlide",
+    "keydownTablist",
+    "toggleAutoplay",
   ],
-  setup() {
-    const {
-      ariaLabelTabsAttributes,
-    } = AriaLabelAPI();
+  setup(props) {
+    const ariaLabelTabsAttributes = computed(() => {
+      return getTranslatedAttributes({
+        attr: "aria-label",
+        placeholder: props.texts.controlsSlides,
+        extra: props.extra,
+      });
+    });
+
+    const autoplayText = computed(() => {
+      return props.isPlaying ?
+        props.texts.controlsStop :
+        props.texts.controlsStart;
+    });
 
     return {
       ariaLabelTabsAttributes,
+      autoplayText,
     };
   },
   render() {
-    if (this.data.length <= 1) {
+    if (!this.indicatorsShow && !this.isAutoplayAvailable) {
       return null;
     }
 
-    return [
-      h("div", {
-        class: "a_carousel__tabs__wrapper",
-      }, [
+    return h("div", {
+      class: "a_carousel__tabs__wrapper",
+    }, [
+      this.isAutoplayAvailable ?
+        h(AElement, {
+          id: getAutoplayHtmlId({ parentId: this.parentId }),
+          "aria-disabled": this.ariaDisabled,
+          class: [
+            "a_carousel__autoplay",
+            {
+              a_carousel__autoplay_playing: this.isPlaying,
+            },
+          ],
+          disabled: this.disabled,
+          extra: this.extra,
+          iconLeft: this.isPlaying ? PauseFill : PlayFill,
+          textScreenReader: this.autoplayText,
+          title: this.autoplayText,
+          type: "button",
+          onClick: () => this.$emit("toggleAutoplay"),
+        }) :
+        undefined,
+      this.indicatorsShow ?
         h("div", {
           class: [
             "a_carousel__tabs",
-            this.indicatorsType ?
-              `a_carousel__tabs_${ this.indicatorsType }` :
-              "a_carousel__tabs_custom",
+            `a_carousel__tabs_${ this.indicatorsType }`,
           ],
           role: "tablist",
+          "aria-orientation": this.direction === "vertical" ? "vertical" : undefined,
           ...this.ariaLabelTabsAttributes,
+          onKeydown: $event => this.$emit("keydownTablist", $event),
         }, [
           ...this.data.map(item => {
             return h(ACarouselControlsIndicator, {
               activeId: this.activeId,
+              "aria-disabled": this.ariaDisabled,
               data: item,
               disabled: this.disabled,
+              extra: this.extra,
               indicatorsType: this.indicatorsType,
               parentId: this.parentId,
               texts: this.texts,
               onChangeActiveId: arg => this.$emit("changeActiveId", arg),
-              onToNextSlide: arg => this.$emit("toNextSlide", arg),
-              onToPreviousSlide: arg => this.$emit("toPreviousSlide", arg),
             });
           }),
-        ]),
-      ]),
-    ];
+        ]) :
+        undefined,
+    ]);
   },
 };

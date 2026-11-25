@@ -4,21 +4,34 @@ import {
 } from "vue";
 
 import {
+  getItemHtmlId,
+} from "../../utils/utils";
+
+import {
   getTranslatedAttributes,
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 export default function AttributesAPI(props) {
   const dataCount = toRef(props, "dataCount");
+  const hasTab = toRef(props, "hasTab");
   const itemIndex = toRef(props, "itemIndex");
   const parentId = toRef(props, "parentId");
   const texts = toRef(props, "texts");
 
-  const itemNumber = computed(() => {
-    return itemIndex.value + 1;
+  const idLocal = computed(() => {
+    return getItemHtmlId({ parentId: parentId.value, index: itemIndex.value });
   });
 
-  const idLocal = computed(() => {
-    return `${ parentId.value }_item_${ itemNumber.value }`;
+  // with tabs the slide is the tabpanel of its tab, without tabs a named group
+  const roleAttributes = computed(() => {
+    if (hasTab.value) {
+      return {
+        role: "tabpanel",
+      };
+    }
+    return {
+      role: "group",
+    };
   });
 
   const ariaLabelAttributes = computed(() => {
@@ -27,7 +40,7 @@ export default function AttributesAPI(props) {
       placeholder: texts.value.itemAriaLabel,
       extra: {
         count: dataCount.value,
-        number: itemNumber.value,
+        number: itemIndex.value + 1,
       },
     });
   });
@@ -35,5 +48,6 @@ export default function AttributesAPI(props) {
   return {
     ariaLabelAttributes,
     idLocal,
+    roleAttributes,
   };
 }

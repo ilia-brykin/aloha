@@ -1,0 +1,51 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_AUTOPLAY_HEADER_"
+  description="_A_CAROUSEL_GROUP_AUTOPLAY_DESCRIPTION_"
+  :props="['autoplay-start', 'autoplay-show', 'autoplay-interval', 'autoplay-pause-on-hover']"
+  :emits="['play', 'stop']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_AUTOPLAY_START_"
+      )
+      a-carousel(
+        :data="data"
+        :autoplay-interval="3000"
+        :autoplay-start="true"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+        @play="onPlay"
+        @stop="onStop"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_AUTOPLAY_SHOW_"
+      )
+      a-carousel(
+        :data="data"
+        :autoplay-show="true"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        indicators-placement="bottom-start"
+        key-id="id"
+        @play="onPlay"
+        @stop="onStop"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

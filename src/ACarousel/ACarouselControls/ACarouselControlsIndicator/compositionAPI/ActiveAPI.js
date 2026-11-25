@@ -20,7 +20,7 @@ export default function ActiveAPI(props) {
   });
 
   const isActiveInChildren = computed(() => {
-    if (!data.value?.[AKeyChildren].length) {
+    if (!data.value?.[AKeyChildren]?.length) {
       return false;
     }
     return some(data.value[AKeyChildren], [AKeyId, activeId.value]);

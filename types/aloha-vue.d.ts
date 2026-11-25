@@ -260,11 +260,9 @@ export interface ACarouselProps {
   ariaLabel: string;
   /** @default {} */
   arrowNextAttributes?: Record<string, any>;
-  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
   arrowNextIcon?: string;
   /** @default {} */
   arrowPreviousAttributes?: Record<string, any>;
-  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
   arrowPreviousIcon?: string;
   /** @default "sides-center" */
   arrowsPlacement?: string;
@@ -274,14 +272,21 @@ export interface ACarouselProps {
   arrowsTrigger?: string | any[];
   /** @default 5000 */
   autoplayInterval?: number;
+  /** @default true */
+  autoplayPauseOnHover?: boolean;
   /** @default false */
   autoplayShow?: boolean;
   /** @default false */
   autoplayStart?: boolean;
+  /** @default 0.83 */
+  cardScale?: number;
   /** @default [] */
   data?: any[];
+  /** @default "horizontal" */
+  direction?: string;
   disabled?: boolean;
   extra?: Record<string, any>;
+  height?: string;
   /** @default "a_carousel_4" */
   id?: string;
   /** @default false */
@@ -298,9 +303,18 @@ export interface ACarouselProps {
   /** @default 2.125 */
   indicatorWidth?: number;
   keyId?: string;
+  keyLabel?: string;
+  /** @default true */
+  loop?: boolean;
   modelValue?: number | string;
+  /** @default false */
+  motionBlur?: boolean;
   /** @default {"nextSlide":"_A_CAROUSEL_NEXT_SLIDE_","previousSlide":"_A_CAROUSEL_PREVIOUS_SLIDE_","controlsSlide":"_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_","controlsSlides":"_A_CAROUSEL_CONTROLS_SLIDES_","controlsStart":"_A_CAROUSEL_CONTROLS_START_","controlsStop":"_A_CAROUSEL_CONTROLS_STOP_","itemAriaLabel":"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_"} */
   texts?: Record<string, any>;
+  /** @default "slide" */
+  transition?: string;
+  /** @default "default" */
+  type?: string;
 }
 export declare const ACarousel: DefineComponent<ACarouselProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "init" | "play" | "stop" | "update:modelValue")[]>;
 

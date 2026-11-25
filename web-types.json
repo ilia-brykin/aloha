@@ -855,8 +855,7 @@
             },
             {
               "name": "arrowNextIcon",
-              "type": "string",
-              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+              "type": "string"
             },
             {
               "name": "arrowPreviousAttributes",
@@ -865,8 +864,7 @@
             },
             {
               "name": "arrowPreviousIcon",
-              "type": "string",
-              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+              "type": "string"
             },
             {
               "name": "arrowsPlacement",
@@ -889,6 +887,11 @@
               "default": "5000"
             },
             {
+              "name": "autoplayPauseOnHover",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "autoplayShow",
               "type": "boolean",
               "default": "false"
@@ -899,9 +902,19 @@
               "default": "false"
             },
             {
+              "name": "cardScale",
+              "type": "number",
+              "default": "0.83"
+            },
+            {
               "name": "data",
               "type": "any[]",
               "default": "[]"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "default": "\"horizontal\""
             },
             {
               "name": "disabled",
@@ -910,6 +923,10 @@
             {
               "name": "extra",
               "type": "Record<string, any>"
+            },
+            {
+              "name": "height",
+              "type": "string"
             },
             {
               "name": "id",
@@ -955,13 +972,37 @@
               "type": "string"
             },
             {
+              "name": "keyLabel",
+              "type": "string"
+            },
+            {
+              "name": "loop",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "modelValue",
               "type": "number | string"
+            },
+            {
+              "name": "motionBlur",
+              "type": "boolean",
+              "default": "false"
             },
             {
               "name": "texts",
               "type": "Record<string, any>",
               "default": "{\"nextSlide\":\"_A_CAROUSEL_NEXT_SLIDE_\",\"previousSlide\":\"_A_CAROUSEL_PREVIOUS_SLIDE_\",\"controlsSlide\":\"_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_\",\"controlsSlides\":\"_A_CAROUSEL_CONTROLS_SLIDES_\",\"controlsStart\":\"_A_CAROUSEL_CONTROLS_START_\",\"controlsStop\":\"_A_CAROUSEL_CONTROLS_STOP_\",\"itemAriaLabel\":\"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_\"}"
+            },
+            {
+              "name": "transition",
+              "type": "string",
+              "default": "\"slide\""
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"default\""
             }
           ],
           "js": {

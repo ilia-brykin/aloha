@@ -62,7 +62,8 @@ export default function IndicatorsAPI(props, {
 
   const initObserver = () => {
     if (observer ||
-      !useObserver.value) {
+      !useObserver.value ||
+      typeof ResizeObserver === "undefined") {
       return;
     }
 
@@ -80,8 +81,9 @@ export default function IndicatorsAPI(props, {
   };
 
   const removeObserver = () => {
-    if (observer && carouselRef.value) {
-      observer.unobserve(carouselRef.value);
+    if (observer) {
+      observer.disconnect();
+      observer = null;
     }
   };
 
