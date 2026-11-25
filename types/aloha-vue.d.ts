@@ -1936,6 +1936,8 @@ export interface AJsonEditorProps {
   mode?: string;
   /** @default ["tree","code","split"] */
   modes?: any[];
+  /** @default "warn" */
+  bigNumbers?: string;
   /** @default 100 */
   arrayPageSize?: number;
   /** @default "normal" */
@@ -2003,6 +2005,8 @@ export interface AJsonEditorProps {
   undoLimit?: number;
   /** @default true */
   searchable?: boolean;
+  /** @default true */
+  allowReplace?: boolean;
   /** @default false */
   searchCaseSensitive?: boolean;
   /** @default 200 */
@@ -4378,9 +4382,15 @@ export declare const AInputNumberI18n: any;
 export declare const AInputNumberRangeI18n: any;
 export declare const AInputOtpI18n: any;
 export declare const AInputTagsI18n: any;
+export declare const AJsonEditorColorPlugin: any;
+export declare const AJsonEditorDatePlugin: any;
 export declare const AJsonEditorI18n: any;
+export declare const AJsonEditorImagePlugin: any;
 export declare const AJsonEditorPlugin: any;
 export declare const AJsonEditorPluginOptions: any;
+export declare const AJsonEditorPlugins: any;
+export declare const AJsonEditorSwitchPlugin: any;
+export declare const AJsonEditorUrlPlugin: any;
 export declare const AJsonI18n: any;
 export declare const AKeyChildren: any;
 export declare const AKeyHide: any;
@@ -4547,6 +4557,7 @@ export declare const isString: any;
 export declare const isSymbol: any;
 export declare const isTranslate: any;
 export declare const isUndefined: any;
+export declare const isUnsafeNumber: any;
 export declare const isWeakMap: any;
 export declare const isWeakSet: any;
 export declare const minifyJson: any;
@@ -4556,6 +4567,7 @@ export declare const mixWhite: any;
 export declare const moveCalendarSeries: any;
 export declare const parseCalendarIcs: any;
 export declare const parseJson: any;
+export declare const repairJson: any;
 export declare const resolveVariables: any;
 export declare const rgbToHex: any;
 export declare const sanitize: any;

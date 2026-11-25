@@ -163,7 +163,19 @@ export function getSchemaAt(schema, tokens) {
   return current;
 }
 
-// the type of a rule or the schema at a path, e.g. for a variable: number in a field of a boolean
+/*
+ * the type of a rule or the schema at a path, e.g. for a variable: number in a field of a boolean
+ * the allowed values of a path (enum of the rules or of the schema), for the select of the editor; null without enum
+ */
+export function getEnumValues({ rules = {}, schema, tokens }) {
+  const RULE = Object.entries(rules || {}).find(([pattern, rule]) => Array.isArray(rule.enum) && matchesPattern(tokens, parsePointer(pattern)));
+  if (RULE) {
+    return RULE[1].enum;
+  }
+  const SCHEMA_ENUM = getSchemaAt(schema, tokens)?.enum;
+  return Array.isArray(SCHEMA_ENUM) ? SCHEMA_ENUM : null;
+}
+
 export function getExpectedTypes({ rules = {}, schema, tokens }) {
   const TYPES = [];
   Object.entries(rules).forEach(([pattern, rule]) => {

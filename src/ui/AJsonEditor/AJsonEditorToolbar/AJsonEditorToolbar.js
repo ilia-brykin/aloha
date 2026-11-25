@@ -2,6 +2,7 @@ import {
   computed,
   h,
   inject,
+  nextTick,
   ref,
   watch,
 } from "vue";
@@ -19,6 +20,7 @@ import {
   IconNext,
   IconPrev,
   IconRedo,
+  IconReplace,
   IconReset,
   IconSearch,
   IconSplit,
@@ -85,14 +87,47 @@ export default {
 
     const formatTime = time => new Date(time).toLocaleTimeString();
 
+    // ---------- replace ----------
+    const replaceText = ref("");
+    const focusById = name => nextTick(() => globalThis.document.getElementById(`${ API.htmlIdLocal.value }_${ name }`)?.focus());
+
+    const toggleReplace = () => {
+      API.isReplaceOpen.value = !API.isReplaceOpen.value;
+      if (API.isReplaceOpen.value) {
+        focusById("replace");
+      }
+    };
+
+    const replace = (all = false) => {
+      setQuery.flush();
+      return API.replaceMatches(replaceText.value, { all });
+    };
+
+    const onReplaceKeydown = $event => {
+      if ($event.key === "Enter") {
+        // Enter: the current match, Ctrl+Enter: all matches
+        $event.preventDefault();
+        replace($event.ctrlKey || $event.metaKey);
+      } else if ($event.key === "Escape") {
+        $event.preventDefault();
+        $event.stopPropagation();
+        API.isReplaceOpen.value = false;
+        focusById("replace_toggle");
+      }
+    };
+
     return {
       API,
       countText,
       formatTime,
       isHistoryOpen,
+      onReplaceKeydown,
       onSearchInput,
       onSearchKeydown,
+      replace,
+      replaceText,
       searchText,
+      toggleReplace,
     };
   },
   render() {
@@ -176,6 +211,7 @@ export default {
 
     const SEARCH_ID = `${ ID }_search`;
     const COUNT_ID = `${ ID }_search_count`;
+    const REPLACE_ID = `${ ID }_replace_group`;
     const OPTIONS = API.searchOptions.value;
     const option = (text, name, value) => h("button", {
       type: "button",
@@ -222,6 +258,60 @@ export default {
       option("_A_JSON_EDITOR_SEARCH_CASE_", "caseSensitive"),
       option("_A_JSON_EDITOR_SEARCH_REGEX_", "regex"),
       option("_A_JSON_EDITOR_SEARCH_FILTER_", "filter"),
+      API.canReplace.value && h("button", {
+        id: `${ ID }_replace_toggle`,
+        type: "button",
+        class: "a_btn a_btn_transparent_secondary a_btn_small a_json_editor__tool",
+        disabled: IS_DISABLED,
+        title: `${ t("_A_JSON_EDITOR_REPLACE_TOGGLE_") } (Ctrl+H)`,
+        "aria-expanded": `${ API.isReplaceOpen.value }`,
+        "aria-controls": API.isReplaceOpen.value ? REPLACE_ID : undefined,
+        "aria-keyshortcuts": "Control+H",
+        onClick: this.toggleReplace,
+      }, [
+        h(AIcon, { icon: IconReplace, class: "a_json_editor__tool__icon" }),
+        h("span", { class: "a_sr_only" }, t("_A_JSON_EDITOR_REPLACE_TOGGLE_")),
+      ]),
+    ]);
+
+    // the matches that can be replaced: only strings and keys
+    const HAS_MATCHES = API.matches.value.length > 0;
+    const REPLACE_GROUP = PROPS.searchable && API.canReplace.value && API.isReplaceOpen.value && h("div", {
+      id: REPLACE_ID,
+      class: "a_json_editor__replace",
+      role: "group",
+      "aria-label": t("_A_JSON_EDITOR_REPLACE_GROUP_"),
+    }, [
+      h("label", {
+        for: `${ ID }_replace`,
+        class: "a_json_editor__replace__label",
+      }, t("_A_JSON_EDITOR_REPLACE_WITH_")),
+      h("input", {
+        id: `${ ID }_replace`,
+        type: "text",
+        class: "a_form_control a_form_control_small a_json_editor__replace__input",
+        value: this.replaceText,
+        autocomplete: "off",
+        spellcheck: "false",
+        "aria-describedby": `${ COUNT_ID } ${ ID }_replace_hint`,
+        onInput: $event => {
+          this.replaceText = $event.target.value;
+        },
+        onKeydown: this.onReplaceKeydown,
+      }),
+      h("span", { id: `${ ID }_replace_hint`, class: "a_sr_only" }, t(OPTIONS.regex ? "_A_JSON_EDITOR_REPLACE_HINT_REGEX_" : "_A_JSON_EDITOR_REPLACE_HINT_")),
+      h("button", {
+        type: "button",
+        class: "a_btn a_btn_secondary a_btn_small",
+        disabled: !HAS_MATCHES || IS_DISABLED,
+        onClick: () => this.replace(false),
+      }, t("_A_JSON_EDITOR_REPLACE_")),
+      h("button", {
+        type: "button",
+        class: "a_btn a_btn_secondary a_btn_small",
+        disabled: !HAS_MATCHES || IS_DISABLED,
+        onClick: () => this.replace(true),
+      }, t("_A_JSON_EDITOR_REPLACE_ALL_")),
     ]);
 
     const PLUGIN_GROUP = API.pluginToolbar.value.length > 0 && group("_A_JSON_EDITOR_GROUP_MORE_", API.pluginToolbar.value.map(item => h("button", {
@@ -245,6 +335,7 @@ export default {
         PLUGIN_GROUP,
         API.slots.toolbarAppend && API.slots.toolbarAppend(),
       ]),
+      REPLACE_GROUP,
       // the list of the steps: a jump to a step is a step back or forward, the current step has aria-current
       this.isHistoryOpen && IS_EDITABLE && h("div", {
         id: HISTORY_ID,

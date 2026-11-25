@@ -21,6 +21,7 @@ import {
 /**
  * Search in keys and / or values, also in collapsed nodes; the matches go in the order of the document.
  * Options: searchIn ("keys" | "values" | "both"), caseSensitive, regex, filter (only matches and their parents).
+ * getReplacements: the new values and keys for "Replace" (strings only, with $1 of a regular expression).
  */
 export default function SearchAPI(props, {
   document = ref(undefined),
@@ -76,8 +77,10 @@ export default function SearchAPI(props, {
       }
       const KEY = tokens[tokens.length - 1];
       const IS_LEAF = !isArray(value) && !isPlainObject(value);
-      if ((IN_KEYS && !Number.isInteger(KEY) && test(KEY)) || (IN_VALUES && IS_LEAF && test(value === null ? "null" : value))) {
-        RESULT.push({ pointer: toPointer(tokens), tokens });
+      const IN_KEY = IN_KEYS && !Number.isInteger(KEY) && test(KEY);
+      const IN_VALUE = IN_VALUES && IS_LEAF && test(value === null ? "null" : value);
+      if (IN_KEY || IN_VALUE) {
+        RESULT.push({ pointer: toPointer(tokens), tokens, inKey: IN_KEY, inValue: IN_VALUE, value });
       }
     });
     return RESULT;
@@ -96,9 +99,49 @@ export default function SearchAPI(props, {
     return SET;
   });
 
+  // a new search starts at the first match; after a replacement the place stays
+  let lastSearch = "";
   watch(matches, () => {
-    currentIndex.value = matches.value.length ? 0 : -1;
+    const SEARCH = JSON.stringify([query.value, options.value]);
+    const IS_NEW = SEARCH !== lastSearch;
+    lastSearch = SEARCH;
+    const COUNT = matches.value.length;
+    currentIndex.value = !COUNT ? -1 : (IS_NEW ? 0 : Math.min(Math.max(currentIndex.value, 0), COUNT - 1));
   });
+
+  // the text with the replacement; without regex "$" stays as it is
+  const replaceText = (text, replacement) => {
+    matcher.value.lastIndex = 0;
+    return options.value.regex ? text.replace(matcher.value, replacement) : text.replace(matcher.value, () => replacement);
+  };
+
+  /**
+   * The changes for "Replace" of the current match or of all matches: [{ tokens, value?, newKey? }].
+   * Only strings are replaced (no numbers, booleans, null), so the types stay.
+   */
+  const getReplacements = (replacement, { all = false } = {}) => {
+    if (!matcher.value) {
+      return [];
+    }
+    const LIST = all ? matches.value : [matches.value[currentIndex.value]].filter(Boolean);
+    return LIST.map(match => {
+      const ITEM = { tokens: match.tokens };
+      if (match.inValue && typeof match.value === "string") {
+        const VALUE = replaceText(match.value, replacement);
+        if (VALUE !== match.value) {
+          ITEM.value = VALUE;
+        }
+      }
+      if (match.inKey) {
+        const KEY = match.tokens[match.tokens.length - 1];
+        const NEW_KEY = replaceText(KEY, replacement);
+        if (NEW_KEY !== KEY) {
+          ITEM.newKey = NEW_KEY;
+        }
+      }
+      return ITEM;
+    }).filter(item => "value" in item || "newKey" in item);
+  };
 
   // the parts of a text with the marks of the search: [{ text, isMatch }]
   const getHighlightParts = text => {
@@ -141,6 +184,7 @@ export default function SearchAPI(props, {
     currentMatch,
     filterSet,
     getHighlightParts,
+    getReplacements,
     isRegexInvalid,
     matches,
     moveMatch: move,

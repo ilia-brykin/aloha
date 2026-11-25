@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_BIG_NUMBERS_HEADER_"
+  description="_A_JSON_EDITOR_BIG_NUMBERS_DESCRIPTION_"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12.a_column_6_lg
+      a-json-editor(
+        v-model="modelWarn"
+        label="_A_JSON_EDITOR_EXAMPLE_BIG_WARN_"
+        model-type="string"
+      )
+      pre.a_mt_3 {{ modelWarn }}
+    .a_column.a_column_12.a_column_6_lg
+      a-json-editor(
+        v-model="modelBigint"
+        label="_A_JSON_EDITOR_EXAMPLE_BIG_BIGINT_"
+        model-type="string"
+        big-numbers="bigint"
+      )
+      pre.a_mt_3 {{ modelBigint }}

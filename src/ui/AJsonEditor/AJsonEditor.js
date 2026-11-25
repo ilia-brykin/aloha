@@ -113,6 +113,12 @@ export default {
     rootName: any(String, "_A_JSON_EDITOR_ROOT_"),
     mode: { type: String, required: false, default: "tree", validator: value => ["tree", "code", "split"].includes(value) },
     modes: plugin(Array, "modes", () => ["tree", "code", "split"]),
+
+    /*
+     * numbers of a JSON text that JavaScript can not keep exactly (12345678901234567890):
+     * "warn" (a warning, the number is rounded), "string" (they are strings), "bigint" (integers are BigInt)
+     */
+    bigNumbers: { ...plugin(String, "bigNumbers", "warn"), validator: value => ["bigint", "string", "warn"].includes(value) },
     // ---------- view ----------
     arrayPageSize: plugin(Number, "arrayPageSize", 100),
     density: { ...plugin(String, "density", "normal"), validator: value => ["compact", "normal"].includes(value) },
@@ -155,6 +161,8 @@ export default {
     undoLimit: plugin(Number, "undoLimit", 100),
     // ---------- search ----------
     searchable: bool(true),
+    // "Replace" and "Replace all" at the search (Ctrl+H); only strings and keys are replaced
+    allowReplace: plugin(Boolean, "allowReplace", true),
     searchCaseSensitive: bool(),
     searchDebounce: any(Number, 200),
     searchFilter: bool(),
@@ -263,9 +271,11 @@ export default {
       history,
       historyIndex,
       modelParseError,
+      parseText,
       redo,
       reset,
       undo,
+      unsafeNumbers,
     } = DocumentAPI(props, {
       changeModel,
       formatOptions: formatOptionsLocal,
@@ -309,6 +319,7 @@ export default {
       currentMatch,
       filterSet,
       getHighlightParts,
+      getReplacements,
       isRegexInvalid,
       matches,
       moveMatch,
@@ -350,6 +361,7 @@ export default {
       removeMany,
       rename,
       replaceDocument,
+      replaceMany,
       runAction,
       setValue,
       sortKeys: sortNodeKeys,
@@ -378,6 +390,7 @@ export default {
       getHooks,
       hasVariablesProp: computed(() => !!props.variables),
       resolveType,
+      unsafeNumbers,
       variablePattern,
       variablesByName,
     });
@@ -655,6 +668,16 @@ export default {
     // ---------- the value of a node for other components ----------
     const getValue = pointer => getAt(document.value, tokensOf(pointer));
 
+    // search and replace: one step of the history for all changed nodes
+    const isReplaceOpen = ref(false);
+    const canReplace = computed(() => props.searchable && props.allowReplace && props.showToolbar && !isReadonlyAll.value);
+    const replaceMatches = (replacement, { all = false } = {}) => {
+      if (isReadonlyAll.value) {
+        return Promise.resolve({ count: 0, skipped: 0 });
+      }
+      return replaceMany(getReplacements(`${ replacement ?? "" }`, { all }));
+    };
+
     const methods = {
       collapseAll: collapseAllAnnounced,
       expandAll: expandAllAnnounced,
@@ -671,6 +694,8 @@ export default {
       search: query => {
         searchQuery.value = query;
       },
+      // replaces the matches of the search (all: true) or the current match: { count, skipped }
+      replace: (replacement, { all = true } = {}) => replaceMatches(replacement, { all }),
       set: (path, value) => commit(setAt(document.value, Array.isArray(path) ? path : tokensOf(path), value), { label: "_A_JSON_EDITOR_HISTORY_SET_", extra: { path: pathText(Array.isArray(path) ? path : tokensOf(path)) } }),
       setMode,
       undo: undoAnnounced,
@@ -687,6 +712,12 @@ export default {
       if (MOD && KEY === "f" && props.searchable) {
         $event.preventDefault();
         document.value !== undefined && globalThis.document.getElementById(`${ htmlIdLocal.value }_search`)?.focus();
+        return;
+      }
+      if (MOD && KEY === "h" && canReplace.value) {
+        $event.preventDefault();
+        isReplaceOpen.value = true;
+        nextTick(() => globalThis.document.getElementById(`${ htmlIdLocal.value }_replace`)?.focus());
         return;
       }
       if (KEY === "f3" || $event.key === "F3") {
@@ -761,6 +792,9 @@ export default {
       lastRemoved,
       matches,
       mode: modeLocal,
+      canReplace,
+      isReplaceOpen,
+      modelParseError,
       pluginActions,
       pluginToolbar,
       props,
@@ -833,6 +867,7 @@ export default {
       },
       moveBefore: async(fromTokens, targetTokens) => afterOperation(await moveBefore(fromTokens, targetTokens)),
       paste: async tokens => afterOperation(await paste(tokens, { isExpanded: isExpanded(toPointer(tokens)) })),
+      parseText,
       pathText: tokens => (props.pathFormat === "pointer" ? toPointer(tokens) || "/" : pathText(tokens)),
       redo: redoAnnounced,
       registerTreeFocus,
@@ -852,6 +887,7 @@ export default {
       copySelected: () => copyNodes([...selected.value].map(tokensOf)),
       rename,
       replaceDocument,
+      replaceMatches,
       reset: resetAnnounced,
       resolveType,
       runAction: async(action, tokens) => afterOperation(await runAction(action, tokens)),

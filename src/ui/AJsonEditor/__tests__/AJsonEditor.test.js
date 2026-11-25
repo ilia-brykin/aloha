@@ -17,6 +17,8 @@ import {
 import {
   AJsonEditor,
   AJsonEditorPluginOptions,
+  AJsonEditorPlugins,
+  AJsonEditorSwitchPlugin,
 } from "../../../index";
 
 import {
@@ -725,5 +727,264 @@ describe("AJsonEditor", () => {
     } finally {
       delete HTMLElement.prototype.requestFullscreen;
     }
+  });
+
+  it("repair: the changes before, apply is one step of the history", async() => {
+    const wrapper = mountEditor({ mode: "code", modelValue: { a: 1 } });
+    await flush();
+    const TEXTAREA = wrapper.get("textarea");
+    await typeInto(TEXTAREA.element, "{a: 'x', b: [1 2],}");
+    expect(wrapper.find(".a_json_editor__repair").exists()).toBe(false);
+    const REPAIR = wrapper.get(".a_json_editor__repair_button");
+    expect(REPAIR.attributes("aria-expanded")).toBe("false");
+    await REPAIR.trigger("click");
+    await flush();
+    expect(REPAIR.attributes("aria-expanded")).toBe("true");
+    expect(REPAIR.attributes("aria-controls")).toBe("editor_code_repair");
+    const HEADING = wrapper.get(".a_json_editor__repair__heading");
+    expect(document.activeElement).toBe(HEADING.element);
+    expect(HEADING.text()).toBe("Suggested changes: 5");
+    const ITEMS = wrapper.findAll(".a_json_editor__repair__item").map(item => item.text());
+    expect(ITEMS).toContain("Line 1: Missing comma added");
+    expect(ITEMS).toContain("Line 1: Single quotes replaced");
+    expect(wrapper.get(".a_json_editor__repair__result").text()).toBe("{\"a\": \"x\", \"b\": [1, 2]}");
+    // nothing changes before "Apply"
+    expect(wrapper.emitted("update:modelValue")).toBeUndefined();
+
+    await wrapper.findAll(".a_json_editor__repair__actions button")[0].trigger("click");
+    await flush();
+    expect(lastModel(wrapper)).toEqual({ a: "x", b: [1, 2] });
+    expect(TEXTAREA.element.value).toBe("{\n  \"a\": \"x\",\n  \"b\": [\n    1,\n    2\n  ]\n}");
+    expect(wrapper.find(".a_json_editor__code__error").exists()).toBe(false);
+    expect(wrapper.find(".a_json_editor__repair").exists()).toBe(false);
+    expect(status(wrapper)).toBe("Repaired: 5 changes. Ctrl+Z undoes it.");
+    expect(document.activeElement).toBe(TEXTAREA.element);
+    wrapper.vm.undo();
+    await flush();
+    expect(lastModel(wrapper)).toEqual({ a: 1 });
+  });
+
+  it("repair: a text that can not be repaired, cancel, a string model that is no JSON", async() => {
+    const wrapper = mountEditor({ mode: "code", modelValue: { a: 1 } });
+    await flush();
+    const TEXTAREA = wrapper.get("textarea");
+    await typeInto(TEXTAREA.element, "{\"a\" 1}");
+    await wrapper.get(".a_json_editor__repair_button").trigger("click");
+    await flush();
+    expect(wrapper.get(".a_json_editor__repair__heading").text()).toBe("The text could not be repaired.");
+    expect(wrapper.findAll(".a_json_editor__repair__actions button")).toHaveLength(1);
+    await wrapper.get(".a_json_editor__repair__actions button").trigger("click");
+    await flush();
+    expect(wrapper.find(".a_json_editor__repair").exists()).toBe(false);
+    expect(document.activeElement).toBe(TEXTAREA.element);
+
+    const STRING = mountEditor({ id: "string", mode: "code", modelType: "string", modelValue: "{a: 1, // one\n}" });
+    await flush();
+    const STRING_TEXTAREA = STRING.get("textarea");
+    expect(STRING_TEXTAREA.element.value).toBe("{a: 1, // one\n}");
+    expect(STRING_TEXTAREA.attributes("aria-invalid")).toBe("true");
+    await STRING.get(".a_json_editor__repair_button").trigger("click");
+    await flush();
+    await STRING.findAll(".a_json_editor__repair__actions button")[0].trigger("click");
+    await flush();
+    expect(lastModel(STRING)).toBe("{\n  \"a\": 1\n}");
+  });
+
+  it("replace: the current match, all matches as one step, read-only and existing keys are skipped", async() => {
+    const wrapper = mountEditor({
+      modelValue: { title: "old title", note: "old", count: 5, oldKey: "x", old_b: 1, new_b: 2, list: ["old"] },
+      readonlyPaths: ["/note"],
+    });
+    await flush();
+    const TOGGLE = wrapper.get("#editor_replace_toggle");
+    expect(TOGGLE.attributes("aria-expanded")).toBe("false");
+    row("").focus();
+    await key(row(""), "h", { ctrlKey: true });
+    expect(TOGGLE.attributes("aria-expanded")).toBe("true");
+    expect(TOGGLE.attributes("aria-controls")).toBe("editor_replace_group");
+    expect(document.activeElement.id).toBe("editor_replace");
+    expect(wrapper.get("#editor_replace_group").attributes("role")).toBe("group");
+    expect(wrapper.get("label[for=\"editor_replace\"]").text()).toBe("Replace with");
+
+    wrapper.vm.search("old");
+    await flush();
+    const REPLACE = document.getElementById("editor_replace");
+    await typeInto(REPLACE, "new");
+    // Enter: the current match (the first one)
+    await key(REPLACE, "Enter");
+    expect(lastModel(wrapper).title).toBe("new title");
+    expect(lastModel(wrapper).oldKey).toBe("x");
+    expect(status(wrapper)).toBe("Replaced: 1");
+    // the place stays: the next match is the current one
+    expect(wrapper.get("#editor_search_count").text()).toBe("1 of 4");
+    wrapper.vm.$.setupState.API.goToMatch(1);
+    await flush();
+    await key(REPLACE, "Enter");
+    expect(lastModel(wrapper).newKey).toBe("x");
+    expect(wrapper.get("#editor_search_count").text()).toBe("2 of 3");
+
+    // Ctrl+Enter: all matches; /note is read-only, "new_b" exists already
+    await key(REPLACE, "Enter", { ctrlKey: true });
+    const MODEL = lastModel(wrapper);
+    expect(MODEL).toEqual({ title: "new title", note: "old", count: 5, newKey: "x", old_b: 1, new_b: 2, list: ["new"] });
+    expect(Object.keys(MODEL)).toEqual(["title", "note", "count", "newKey", "old_b", "new_b", "list"]);
+    expect(status(wrapper)).toBe("Replaced: 1, skipped: 2 (read-only, locked or the key exists)");
+    const HISTORY = wrapper.vm.$.setupState.API.history.value;
+    expect(HISTORY.at(-1).label).toBe("_A_JSON_EDITOR_HISTORY_REPLACE_");
+
+    wrapper.vm.undo();
+    await flush();
+    expect(lastModel(wrapper).list).toEqual(["old"]);
+    expect(lastModel(wrapper).newKey).toBe("x");
+
+    await key(REPLACE, "Escape");
+    expect(TOGGLE.attributes("aria-expanded")).toBe("false");
+    expect(document.activeElement).toBe(TOGGLE.element);
+  });
+
+  it("replace: with a regular expression $1 inserts a group, the method replace, not in readonly", async() => {
+    const wrapper = mountEditor({ modelValue: { a: "2025-03-05", b: "x $ y", k1: 1, k2: 2 } });
+    await flush();
+    await wrapper.findAll(".a_json_editor__search_option").find(button => button.text() === "Regular expression").trigger("click");
+    wrapper.vm.search("(\\d{4})-(\\d{2})-(\\d{2})");
+    await flush();
+    expect(await wrapper.vm.replace("$3.$2.$1")).toEqual({ count: 1, skipped: 0 });
+    await flush();
+    expect(lastModel(wrapper).a).toBe("05.03.2025");
+
+    // two keys can not get the same new key
+    wrapper.vm.search("^k\\d$");
+    await flush();
+    expect(await wrapper.vm.replace("k")).toEqual({ count: 1, skipped: 1 });
+    await flush();
+    expect(Object.keys(lastModel(wrapper))).toEqual(["a", "b", "k1", "k"]);
+
+    // without regex "$" stays as it is
+    await wrapper.findAll(".a_json_editor__search_option").find(button => button.text() === "Regular expression").trigger("click");
+    wrapper.vm.search("x");
+    await flush();
+    await wrapper.vm.replace("[$&]");
+    await flush();
+    expect(lastModel(wrapper).b).toBe("[$&] $ y");
+
+    const READONLY = mountEditor({ id: "readonly", readonly: true });
+    await flush();
+    expect(READONLY.find("#readonly_replace_toggle").exists()).toBe(false);
+  });
+
+  it("ready plugins: color, date, url, image and boolean as a switch", async() => {
+    const wrapper = mountEditor({
+      modelValue: {
+        color: "#ff0000",
+        day: "2025-03-05",
+        at: "2025-03-05T13:30:00",
+        site: "https://example.com/a",
+        logo: "https://example.com/logo.png",
+        on: true,
+        name: "Anna",
+      },
+      plugins: AJsonEditorPlugins,
+    });
+    await flush();
+    expect(row("/color").getAttribute("aria-label")).toBe("color: #ff0000, Color");
+    expect(row("/color").querySelector(".a_json_editor__plugin_color__swatch").getAttribute("aria-hidden")).toBe("true");
+    const DAY = row("/day").querySelector("time");
+    expect(DAY.getAttribute("datetime")).toBe("2025-03-05");
+    expect(DAY.textContent).toBe("05.03.2025");
+    expect(row("/day").getAttribute("aria-label")).toBe("day: 2025-03-05, Date");
+    expect(row("/at").querySelector("time").textContent).toBe("05.03.2025 13:30");
+    const LINK = row("/site").querySelector("a");
+    expect(LINK.getAttribute("href")).toBe("https://example.com/a");
+    expect(LINK.getAttribute("target")).toBe("_blank");
+    expect(LINK.getAttribute("rel")).toBe("noopener noreferrer");
+    expect(LINK.getAttribute("tabindex")).toBe("-1");
+    expect(LINK.textContent).toBe("https://example.com/a (opens in a new window)");
+    expect(row("/logo").querySelector("img").getAttribute("alt")).toBe("");
+    expect(row("/logo").getAttribute("aria-label")).toBe("logo: https://example.com/logo.png, Image");
+    expect(row("/name").querySelector(".a_json_editor__plugin_color, a, time")).toBeNull();
+    // no functions as attributes of the views
+    expect(row("/color").querySelector("[setvalue], [translate]")).toBeNull();
+
+    const SWITCH = row("/on").querySelector("[role=\"switch\"]");
+    expect(SWITCH.getAttribute("aria-checked")).toBe("true");
+    SWITCH.click();
+    await flush();
+    expect(lastModel(wrapper).on).toBe(false);
+
+    // the color picker as the editor, the focus is in it
+    row("/color").focus();
+    await key(row("/color"), "Enter");
+    const EDITOR = row("/color").querySelector(".a_json_editor__edit_plugin");
+    expect(EDITOR).not.toBeNull();
+    expect(EDITOR.contains(document.activeElement)).toBe(true);
+
+    mountEditor({ id: "readonly", readonly: true, modelValue: { on: true }, plugins: [AJsonEditorSwitchPlugin] });
+    await flush();
+    expect(document.getElementById(getRowId("readonly", "/on")).querySelector("[role=\"switch\"]").disabled).toBe(true);
+  });
+
+  it("enum of the schema and of the rules: a select of the allowed values", async() => {
+    const wrapper = mountEditor({
+      modelValue: { size: "m", level: 9 },
+      schema: { type: "object", properties: { size: { enum: ["s", "m", "l"] } } },
+      rules: { "/level": { enum: [1, 2, 3] } },
+    });
+    await flush();
+    row("/size").focus();
+    await key(row("/size"), "Enter");
+    const SELECT = row("/size").querySelector("select");
+    expect([...SELECT.options].map(option => option.textContent)).toEqual(["s", "m", "l"]);
+    expect(SELECT.value).toBe("1");
+    expect(SELECT.getAttribute("aria-label")).toBe("Value of size");
+    SELECT.value = "2";
+    SELECT.dispatchEvent(new Event("change"));
+    await key(SELECT, "Enter");
+    expect(lastModel(wrapper).size).toBe("l");
+
+    row("/level").focus();
+    await key(row("/level"), "Enter");
+    const LEVEL = row("/level").querySelector("select");
+    expect([...LEVEL.options].map(option => option.textContent)).toEqual(["9 (not allowed)", "1", "2", "3"]);
+    LEVEL.value = "2";
+    LEVEL.dispatchEvent(new Event("change"));
+    await key(LEVEL, "Enter");
+    expect(lastModel(wrapper).level).toBe(2);
+  });
+
+  it("big numbers: warn, bigint and string", async() => {
+    const TEXT = "{\"id\": 12345678901234567890, \"n\": 1}";
+    const WARN = mountEditor({ modelType: "string", modelValue: TEXT });
+    await flush();
+    expect(row("/id").textContent).toContain("The number is not exact in JavaScript (rounded).");
+    expect(row("/n").textContent).not.toContain("not exact");
+    row("/n").focus();
+    await key(row("/n"), "Enter");
+    await typeInto(row("/n").querySelector("input"), "98765432109876543210");
+    await key(row("/n").querySelector("input"), "Enter");
+    expect(row("/n").textContent).toContain("The number has too many digits for JavaScript and would be rounded.");
+    expect(WARN.emitted("update:modelValue")).toBeUndefined();
+    await key(row("/n").querySelector("input"), "Escape");
+    WARN.unmount();
+    wrappers.splice(wrappers.indexOf(WARN), 1);
+
+    const BIGINT = mountEditor({ modelType: "string", modelValue: TEXT, bigNumbers: "bigint" });
+    await flush();
+    expect(row("/id").textContent).toContain("12345678901234567890");
+    expect(row("/id").textContent).not.toContain("not exact");
+    row("/n").focus();
+    await key(row("/n"), "Enter");
+    await typeInto(row("/n").querySelector("input"), "98765432109876543210");
+    await key(row("/n").querySelector("input"), "Enter");
+    expect(lastModel(BIGINT)).toBe("{\n  \"id\": 12345678901234567890,\n  \"n\": 98765432109876543210\n}");
+    // copy, duplicate with BigInt
+    row("/n").focus();
+    await key(row("/n"), "d", { ctrlKey: true });
+    expect(lastModel(BIGINT)).toContain("\"n_1\": 98765432109876543210");
+    BIGINT.unmount();
+    wrappers.splice(wrappers.indexOf(BIGINT), 1);
+
+    mountEditor({ modelType: "string", modelValue: TEXT, bigNumbers: "string" });
+    await flush();
+    expect(row("/id").getAttribute("aria-label")).toBe("id: 12345678901234567890, String");
   });
 });

@@ -26,8 +26,15 @@ import {
   splitVariables,
 } from "../utils/variables";
 import {
+  isArray,
   isFunction,
 } from "lodash-es";
+
+// a view of a plugin gets value and path, the other props only when it declares them (no functions as attributes)
+function getViewProps(component, all) {
+  const DECLARED = isArray(component.props) ? component.props : Object.keys(component.props || {});
+  return Object.fromEntries(Object.entries(all).filter(([name]) => name === "value" || name === "path" || DECLARED.includes(name)));
+}
 
 /**
  * A row of the treegrid: key, value, type, actions. The row has the focus (roving tabindex),
@@ -253,7 +260,14 @@ export default {
         return SLOT({ value: VALUE, path: ROW.pointer, tokens: ROW.tokens, type: this.type.name });
       }
       if (this.type.pluginType?.view) {
-        return h(this.type.pluginType.view, { value: VALUE, path: ROW.pointer });
+        return h(this.type.pluginType.view, getViewProps(this.type.pluginType.view, {
+          value: VALUE,
+          path: ROW.pointer,
+          tokens: ROW.tokens,
+          readonly: !API.canEditValue(ROW.tokens) || !!API.resolvedDocument.value,
+          setValue: value => API.setValue(ROW.tokens, value),
+          translate: (text, extra) => API.translate(text, extra),
+        }));
       }
       if (typeof VALUE === "string" && !API.resolvedDocument.value) {
         if (VALUE === "") {

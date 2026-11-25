@@ -10,11 +10,20 @@ import {
 import VariablePickerAPI from "./compositionAPI/VariablePickerAPI";
 
 import {
+  formatJson,
+} from "../utils/format";
+import {
+  getEnumValues,
+} from "../utils/validate";
+import {
   getRowId,
 } from "../utils/ids";
 import {
   parseInputValue,
 } from "../utils/types";
+import {
+  isEqual,
+} from "lodash-es";
 
 /**
  * The editing of a cell: the key (rename), the value (by type) or the type (select).
@@ -36,6 +45,7 @@ export default {
   setup(props) {
     const API = inject("aJsonEditor");
     const inputRef = ref(undefined);
+    const pluginRef = ref(undefined);
     const error = ref(null);
     let isDone = false;
 
@@ -51,7 +61,22 @@ export default {
       }
       return props.row.value === null ? "" : `${ props.row.value }`;
     };
-    const text = ref(initialText());
+    // enum of the rules or of the schema: a select of the allowed values (the current value stays, when it is not allowed)
+    const enumOptions = computed(() => {
+      if (props.part !== "value" || type.value.pluginType?.editor) {
+        return null;
+      }
+      const VALUES = getEnumValues({ rules: API.props.rules, schema: API.props.schema, tokens: props.row.tokens });
+      if (!VALUES?.length) {
+        return null;
+      }
+      const OPTIONS = VALUES.map(value => ({ value, text: typeof value === "string" ? value : formatJson(value, { minify: true }) }));
+      if (!VALUES.some(value => isEqual(value, props.row.value))) {
+        OPTIONS.unshift({ value: props.row.value, text: API.translate("_A_JSON_EDITOR_ENUM_NOT_ALLOWED_", { value: formatJson(props.row.value, { minify: true }) }) });
+      }
+      return OPTIONS;
+    });
+    const text = ref(enumOptions.value ? `${ enumOptions.value.findIndex(option => isEqual(option.value, props.row.value)) }` : initialText());
 
     const picker = VariablePickerAPI({ API, inputRef, text });
 
@@ -64,7 +89,8 @@ export default {
 
     onMounted(() => {
       nextTick(() => {
-        inputRef.value?.focus();
+        // a plugin editor (e.g. AColorPicker): its first field
+        (inputRef.value || pluginRef.value?.querySelector("input, select, textarea, button"))?.focus();
         inputRef.value?.select?.();
         // the action "insert variable": the list is open at the end of the text
         if (props.part === "value" && IS_TEXT && API.editState.value?.openVariables) {
@@ -114,10 +140,18 @@ export default {
         }
         return;
       }
+      if (enumOptions.value) {
+        const OPTION = enumOptions.value[Number(text.value)];
+        if (OPTION && !isEqual(OPTION.value, props.row.value)) {
+          await API.setValue(TOKENS, OPTION.value);
+        }
+        finish();
+        return;
+      }
       const JSON_TYPE = props.row.type === "null" ? "string" : props.row.type;
-      const PARSED = parseInputValue(text.value, JSON_TYPE);
+      const PARSED = parseInputValue(text.value, JSON_TYPE, { bigNumbers: API.props.bigNumbers });
       if (PARSED.error) {
-        error.value = API.translate("_A_JSON_EDITOR_ERROR_NUMBER_");
+        error.value = API.translate(PARSED.error);
         return;
       }
       if (PARSED.value !== props.row.value) {
@@ -167,9 +201,11 @@ export default {
     return {
       API,
       commit,
+      enumOptions,
       error,
       id,
       inputRef,
+      pluginRef,
       isMultiline,
       IS_TEXT,
       rows,
@@ -218,6 +254,7 @@ export default {
 
     if (this.part === "value" && this.type.pluginType?.editor) {
       return h("span", {
+        ref: "pluginRef",
         class: "a_json_editor__edit a_json_editor__edit_plugin",
         onKeydown: $event => {
           $event.stopPropagation();
@@ -236,6 +273,25 @@ export default {
           class: "a_btn a_btn_secondary a_btn_small",
           onClick: () => API.stopEdit(),
         }, API.translate("_A_JSON_EDITOR_DONE_")),
+      ]);
+    }
+
+    if (this.enumOptions) {
+      return h("span", { class: "a_json_editor__edit" }, [
+        h("select", {
+          ref: "inputRef",
+          id: this.id,
+          class: "a_form_control a_form_control_small a_json_editor__edit_select",
+          value: this.text,
+          "aria-label": API.translate("_A_JSON_EDITOR_EDIT_VALUE_", { key: this.keyText }),
+          "aria-describedby": HINT_ID,
+          onChange: $event => {
+            this.text = $event.target.value;
+          },
+          onKeydown: this.onKeydown,
+          onBlur: this.onBlur,
+        }, this.enumOptions.map((option, index) => h("option", { value: `${ index }` }, option.text))),
+        HINT,
       ]);
     }
 

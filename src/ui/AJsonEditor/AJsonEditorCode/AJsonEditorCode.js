@@ -2,6 +2,7 @@ import {
   computed,
   h,
   inject,
+  nextTick,
   ref,
   watch,
 } from "vue";
@@ -11,6 +12,7 @@ import AIcon from "../../../AIcon/AIcon";
 import {
   IconFormat,
   IconMinify,
+  IconRepair,
 } from "../utils/icons";
 import {
   formatJson,
@@ -18,12 +20,16 @@ import {
   parseJson,
 } from "../utils/format";
 import {
+  repairJson,
+} from "../utils/repair";
+import {
   isEqual,
 } from "lodash-es";
 
 /**
  * The text of the JSON: every valid change is a step of the history, an error shows line and column
  * and keeps the last valid document (blockInvalidSave). Format and minify use the options of the props.
+ * "Repair" shows the changes of repairJson first, "Apply" makes them one step of the history.
  */
 export default {
   name: "AJsonEditorCode",
@@ -37,15 +43,26 @@ export default {
   setup() {
     const API = inject("aJsonEditor");
     const textareaRef = ref(undefined);
+    const repairHeadingRef = ref(undefined);
     const isFocused = ref(false);
+    // the result of repairJson before it is applied: { text, value, changes } or { error }
+    const repairPreview = ref(null);
 
-    const getText = () => (API.document.value === undefined ? "" : formatJson(API.document.value, API.formatOptions.value));
+    // a model text that is no JSON is shown as it is, so it can be fixed or repaired
+    const getText = () => {
+      if (API.document.value === undefined) {
+        return API.modelParseError.value && typeof API.props.modelValue === "string" ? API.props.modelValue : "";
+      }
+      return formatJson(API.document.value, API.formatOptions.value);
+    };
     const text = ref(getText());
+    const error = computed(() => API.codeError.value || API.modelParseError.value);
 
     // a change of the tree, of the history or of the model: the new text (not while typing)
     watch([API.document, API.formatOptions], () => {
+      repairPreview.value = null;
       if (!isFocused.value || API.codeError.value === null) {
-        const PARSED = parseJson(text.value);
+        const PARSED = parseJson(text.value, { bigNumbers: API.props.bigNumbers });
         if (PARSED.error || !isEqual(PARSED.value, API.document.value) || !isFocused.value) {
           text.value = getText();
           API.codeError.value = null;
@@ -55,7 +72,8 @@ export default {
 
     const onInput = $event => {
       text.value = $event.target.value;
-      const RESULT = parseJson(text.value);
+      repairPreview.value = null;
+      const RESULT = API.parseText(text.value);
       if (RESULT.error) {
         API.codeError.value = RESULT.error;
         return;
@@ -67,7 +85,7 @@ export default {
     };
 
     const format = (minify = false) => {
-      const RESULT = parseJson(text.value);
+      const RESULT = API.parseText(text.value);
       if (RESULT.error) {
         API.codeError.value = RESULT.error;
         return;
@@ -77,7 +95,7 @@ export default {
     };
 
     const goToError = () => {
-      const ERROR = API.codeError.value;
+      const ERROR = error.value;
       if (ERROR && textareaRef.value) {
         textareaRef.value.focus();
         textareaRef.value.setSelectionRange(ERROR.position, ERROR.position + 1);
@@ -96,15 +114,51 @@ export default {
     };
 
     const errorText = computed(() => {
-      const ERROR = API.codeError.value;
+      const ERROR = error.value;
       return ERROR ? API.translate("_A_JSON_EDITOR_ERROR_SYNTAX_", { line: ERROR.line, column: ERROR.column }) : "";
     });
 
+    const openRepair = () => {
+      const RESULT = repairJson(text.value);
+      repairPreview.value = RESULT;
+      API.announce(RESULT.error ?
+        API.translate("_A_JSON_EDITOR_REPAIR_FAILED_") :
+        API.translate("_A_JSON_EDITOR_REPAIR_PREVIEW_", { count: RESULT.changes.length }));
+      nextTick(() => repairHeadingRef.value?.focus());
+    };
+
+    const closeRepair = () => {
+      repairPreview.value = null;
+      textareaRef.value?.focus();
+    };
+
+    const applyRepair = () => {
+      const RESULT = repairPreview.value;
+      if (!RESULT || RESULT.error) {
+        return;
+      }
+      // the repaired text again with bigNumbers, so big numbers are not rounded
+      const PARSED = API.parseText(RESULT.text);
+      const VALUE = PARSED.error ? RESULT.value : PARSED.value;
+      text.value = formatJson(VALUE, API.formatOptions.value);
+      API.codeError.value = null;
+      API.replaceDocument(VALUE, { label: "_A_JSON_EDITOR_HISTORY_REPAIR_", extra: { count: RESULT.changes.length } });
+      repairPreview.value = null;
+      API.announce(API.translate("_A_JSON_EDITOR_ANNOUNCE_REPAIRED_", { count: RESULT.changes.length }));
+      textareaRef.value?.focus();
+    };
+
     return {
       API,
+      applyRepair,
+      closeRepair,
+      error,
       errorText,
       format,
       goToError,
+      openRepair,
+      repairHeadingRef,
+      repairPreview,
       onBlur,
       onFocus,
       onInput,
@@ -117,7 +171,10 @@ export default {
     const ID = `${ API.htmlIdLocal.value }_code`;
     const ERROR_ID = `${ ID }_error`;
     const IS_READONLY = API.isReadonlyAll.value;
-    const t = key => API.translate(key);
+    const t = (key, extra) => API.translate(key, extra);
+    const ERROR = this.error;
+    const PREVIEW = this.repairPreview;
+    const REPAIR_ID = `${ ID }_repair`;
 
     return h("div", { class: "a_json_editor__code" }, [
       !IS_READONLY && h("div", {
@@ -140,7 +197,7 @@ export default {
         ref: "textareaRef",
         id: ID,
         class: ["a_form_control a_json_editor__code__textarea", {
-          a_form_control_invalid: !!API.codeError.value,
+          a_form_control_invalid: !!ERROR,
         }],
         value: this.text,
         readonly: IS_READONLY,
@@ -151,14 +208,14 @@ export default {
         style: { height: API.props.height, maxHeight: API.props.height ? undefined : API.props.maxHeight },
         "aria-labelledby": this.labelId ? `${ this.labelId } ${ ID }_label` : undefined,
         "aria-label": this.labelId ? undefined : t("_A_JSON_EDITOR_MODE_CODE_"),
-        "aria-invalid": API.codeError.value ? "true" : undefined,
-        "aria-describedby": API.codeError.value ? ERROR_ID : undefined,
+        "aria-invalid": ERROR ? "true" : undefined,
+        "aria-describedby": ERROR ? ERROR_ID : undefined,
         onInput: this.onInput,
         onFocus: this.onFocus,
         onBlur: this.onBlur,
       }),
       h("span", { id: `${ ID }_label`, class: "a_sr_only" }, t("_A_JSON_EDITOR_MODE_CODE_")),
-      API.codeError.value && h("p", {
+      ERROR && h("p", {
         id: ERROR_ID,
         class: "a_json_editor__code__error",
       }, [
@@ -169,6 +226,52 @@ export default {
           class: "a_btn a_btn_link a_btn_small",
           onClick: this.goToError,
         }, t("_A_JSON_EDITOR_GO_TO_ERROR_")),
+        !IS_READONLY && h("button", {
+          type: "button",
+          class: "a_btn a_btn_link a_btn_small a_json_editor__repair_button",
+          "aria-expanded": `${ !!PREVIEW }`,
+          "aria-controls": PREVIEW ? REPAIR_ID : undefined,
+          onClick: this.openRepair,
+        }, [h(AIcon, { icon: IconRepair, class: "a_json_editor__tool__icon" }), t("_A_JSON_EDITOR_REPAIR_")]),
+      ]),
+      ERROR && PREVIEW && h("section", {
+        id: REPAIR_ID,
+        class: "a_json_editor__repair",
+        "aria-labelledby": `${ REPAIR_ID }_heading`,
+      }, [
+        h("h3", {
+          ref: "repairHeadingRef",
+          id: `${ REPAIR_ID }_heading`,
+          class: "a_json_editor__repair__heading",
+          tabindex: "-1",
+        }, PREVIEW.error ? t("_A_JSON_EDITOR_REPAIR_FAILED_") : t("_A_JSON_EDITOR_REPAIR_PREVIEW_", { count: PREVIEW.changes.length })),
+        PREVIEW.changes.length > 0 && h("ul", {
+          class: "a_json_editor__repair__list",
+        }, PREVIEW.changes.map((change, index) => h("li", {
+          key: index,
+          class: "a_json_editor__repair__item",
+        }, [
+          h("span", { class: "a_json_editor__repair__line" }, t("_A_JSON_EDITOR_REPAIR_LINE_", { line: change.line })),
+          " ",
+          t(change.message),
+        ]))),
+        !PREVIEW.error && h("pre", {
+          class: "a_json_editor__repair__result",
+          tabindex: "0",
+          "aria-label": t("_A_JSON_EDITOR_REPAIR_RESULT_"),
+        }, PREVIEW.text.trim()),
+        h("div", { class: "a_json_editor__repair__actions" }, [
+          !PREVIEW.error && h("button", {
+            type: "button",
+            class: "a_btn a_btn_primary a_btn_small",
+            onClick: this.applyRepair,
+          }, t("_A_JSON_EDITOR_REPAIR_APPLY_")),
+          h("button", {
+            type: "button",
+            class: "a_btn a_btn_secondary a_btn_small",
+            onClick: this.closeRepair,
+          }, t("_A_JSON_EDITOR_REPAIR_CANCEL_")),
+        ]),
       ]),
     ]);
   },

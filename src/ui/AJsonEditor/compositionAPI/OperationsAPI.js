@@ -15,6 +15,9 @@ import {
   getDefaultValue,
 } from "../utils/types";
 import {
+  formatJson,
+} from "../utils/format";
+import {
   getAt,
   getUniqueKey,
   insertAt,
@@ -33,6 +36,7 @@ import {
   getSchemaAt,
 } from "../utils/validate";
 import {
+  cloneDeep,
   isArray,
   isPlainObject,
 } from "lodash-es";
@@ -439,6 +443,68 @@ export default function OperationsAPI(props, {
   };
 
   /**
+   * Search and replace: new values and keys of many nodes as one step ([{ tokens, value?, newKey? }]).
+   * Read-only nodes, locked keys and keys that exist already are skipped; the hooks beforeSet / beforeRename run.
+   * Returns { count, skipped }.
+   */
+  const replaceMany = async items => {
+    // from the end: a renamed parent does not change the paths of its children before
+    const SORTED = items.slice().sort((a, b) => comparePaths(b.tokens, a.tokens));
+    let skipped = 0;
+    const CHANGES = await SORTED.reduce(async(previous, item) => {
+      const RESULT = await previous;
+      const CHANGE = { tokens: item.tokens };
+      if ("value" in item) {
+        const CONTEXT = canEditValue(item.tokens) && await runBefore("beforeSet", getContext("set", item.tokens, { value: item.value }));
+        if (CONTEXT) {
+          CHANGE.value = CONTEXT.value;
+        } else {
+          skipped++;
+        }
+      }
+      if ("newKey" in item) {
+        const PARENT = getAt(document.value, item.tokens.slice(0, -1));
+        const IS_FREE = isPlainObject(PARENT) && !Object.prototype.hasOwnProperty.call(PARENT, item.newKey);
+        const CONTEXT = IS_FREE && canRename(item.tokens) && await runBefore("beforeRename", getContext("rename", item.tokens, { newKey: item.newKey }));
+        if (CONTEXT && CONTEXT.newKey !== item.tokens[item.tokens.length - 1]) {
+          CHANGE.newKey = `${ CONTEXT.newKey }`;
+        } else {
+          skipped++;
+        }
+      }
+      return "value" in CHANGE || "newKey" in CHANGE ? [...RESULT, CHANGE] : RESULT;
+    }, Promise.resolve([]));
+    if (!CHANGES.length) {
+      announce(translate("_A_JSON_EDITOR_ANNOUNCE_REPLACED_", { count: 0, skipped }));
+      return { count: 0, skipped };
+    }
+    const OLD_DOCUMENT = document.value;
+    let count = 0;
+    const NEXT = CHANGES.reduce((result, change) => {
+      let next = result;
+      if ("value" in change) {
+        next = setAt(next, change.tokens, change.value);
+        count++;
+      }
+      if ("newKey" in change) {
+        // two keys of one object can not get the same new name
+        if (Object.prototype.hasOwnProperty.call(getAt(next, change.tokens.slice(0, -1)), change.newKey)) {
+          skipped++;
+        } else {
+          next = renameAt(next, change.tokens, change.newKey);
+          count += "value" in change ? 0 : 1;
+        }
+      }
+      return next;
+    }, OLD_DOCUMENT);
+    const EXTRA = { count, skipped };
+    commit(NEXT, { label: "_A_JSON_EDITOR_HISTORY_REPLACE_", extra: EXTRA });
+    announce(translate(skipped ? "_A_JSON_EDITOR_ANNOUNCE_REPLACED_SKIPPED_" : "_A_JSON_EDITOR_ANNOUNCE_REPLACED_", EXTRA));
+    runAfter({ operation: "replace", document: NEXT, oldDocument: OLD_DOCUMENT, changes: CHANGES });
+    return EXTRA;
+  };
+
+  /**
    * Moves many siblings one place up or down together; returns the new paths or null.
    */
   const moveMany = async(tokensList, direction) => {
@@ -483,7 +549,7 @@ export default function OperationsAPI(props, {
       items: LIST.map(tokens => ({ key: tokens[tokens.length - 1], value: getAt(document.value, tokens) })),
     };
     const VALUES = clipboard.value.items.map(item => item.value);
-    writeClipboardText(JSON.stringify(VALUES.length === 1 ? VALUES[0] : VALUES, null, 2));
+    writeClipboardText(formatJson(VALUES.length === 1 ? VALUES[0] : VALUES));
     announce(LIST.length === 1 ?
       translate("_A_JSON_EDITOR_ANNOUNCE_COPIED_", { path: pathText(LIST[0]) }) :
       translate("_A_JSON_EDITOR_ANNOUNCE_COPIED_MANY_", { count: LIST.length }));
@@ -603,6 +669,7 @@ export default function OperationsAPI(props, {
     pathText,
     remove,
     removeMany,
+    replaceMany,
     rename,
     replaceDocument,
     runAction,
@@ -612,8 +679,9 @@ export default function OperationsAPI(props, {
   };
 }
 
+// cloneDeep keeps BigInt (bigNumbers "bigint") and reads Vue proxies; JSON.stringify would throw, structuredClone too
 function structuredCloneSafe(value) {
-  return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
+  return cloneDeep(value);
 }
 
 export function writeClipboardText(text) {

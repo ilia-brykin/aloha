@@ -63,6 +63,9 @@ export function formatJson(value, optionsLocal = {}) {
     if (item === null || item === undefined) {
       return "null";
     }
+    if (typeof item === "bigint") {
+      return `${ item }`;
+    }
     if (typeof item === "number") {
       if (!Number.isFinite(item)) {
         return "null";
@@ -213,12 +216,92 @@ export function findJsonErrorPosition(text) {
   return TEXT.length;
 }
 
+// the digits of a number without sign, point, exponent and zeros at the start and the end
+function getSignificantDigits(text) {
+  return `${ text }`.replace(/^-/, "").replace(/e.*$/i, "").replace(".", "").replace(/^0+/, "").replace(/0+$/, "");
+}
+
 /**
- * JSON.parse with the place of an error: { value } or { error: { message, line, column, position } }.
+ * A number of the text is unsafe, when JavaScript can not keep it exactly:
+ * 12345678901234567890, 9007199254740993, 0.12345678901234567890, 1e400.
  */
-export function parseJson(text) {
+export function isUnsafeNumber(source) {
+  const NUMBER = Number(source);
+  return !Number.isFinite(NUMBER) || getSignificantDigits(source) !== getSignificantDigits(`${ NUMBER }`);
+}
+
+function isIntegerSource(source) {
+  return /^-?\d+$/.test(source);
+}
+
+/**
+ * JSON.parse with the place of an error: { value, unsafe } or { error: { message, line, column, position } }.
+ * bigNumbers: "warn" (the numbers stay, unsafe has their pointers), "string" (unsafe numbers as strings),
+ * "bigint" (unsafe integers as BigInt, other unsafe numbers as in "warn"). Without bigNumbers JSON.parse as it is.
+ * unsafe: [{ pointer }]; pointer is null in old browsers without the source of the numbers in the reviver.
+ */
+export function parseJson(text, { bigNumbers } = {}) {
   try {
-    return { value: JSON.parse(text) };
+    if (!bigNumbers) {
+      return { value: JSON.parse(text), unsafe: [] };
+    }
+    // holder → keys of the unsafe numbers, the pointers are found after the parse
+    const MARKED = new Map();
+    let withoutSource = 0;
+    const VALUE = JSON.parse(text, function(key, value, context) {
+      if (typeof value !== "number") {
+        return value;
+      }
+      if (!context || context.source === undefined) {
+        // shortcut: without the source only big integers are found, decimals are not (old browsers)
+        if (Number.isInteger(value) && !Number.isSafeInteger(value)) {
+          withoutSource++;
+        }
+        return value;
+      }
+      const SOURCE = context.source;
+      if (!isUnsafeNumber(SOURCE)) {
+        return value;
+      }
+      if (bigNumbers === "string") {
+        return SOURCE;
+      }
+      if (bigNumbers === "bigint" && isIntegerSource(SOURCE)) {
+        return BigInt(SOURCE);
+      }
+      if (!MARKED.has(this)) {
+        MARKED.set(this, new Set());
+      }
+      MARKED.get(this).add(key);
+      return value;
+    });
+    const UNSAFE = [];
+    if (MARKED.size) {
+      const visit = (item, pointer) => {
+        if (item === null || typeof item !== "object") {
+          return;
+        }
+        const KEYS = MARKED.get(item);
+        Object.keys(item).forEach(key => {
+          const CHILD_POINTER = `${ pointer }/${ key.replace(/~/g, "~0").replace(/\//g, "~1") }`;
+          if (KEYS?.has(key)) {
+            UNSAFE.push({ pointer: CHILD_POINTER });
+          }
+          visit(item[key], CHILD_POINTER);
+        });
+      };
+      // the root number itself
+      MARKED.forEach((keys, holder) => {
+        if (keys.has("") && holder[""] === VALUE && Object.keys(holder).length === 1) {
+          UNSAFE.push({ pointer: "" });
+        }
+      });
+      visit(VALUE, "");
+    }
+    for (let i = 0; i < withoutSource; i++) {
+      UNSAFE.push({ pointer: null });
+    }
+    return { value: VALUE, unsafe: UNSAFE };
   } catch(error) {
     const POSITION = findJsonErrorPosition(text);
     const BEFORE = `${ text }`.slice(0, POSITION).split("\n");

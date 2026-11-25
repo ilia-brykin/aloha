@@ -20,4 +20,6 @@ export const IconFormat = svg("<path d=\"M2.5 4h11M5 8h8.5M5 12h8.5M2.5 8h0M2.5 
 export const IconMinify = svg("<path d=\"M2.5 6.5h11M2.5 9.5h7\"/>");
 export const IconError = svg("<circle cx=\"8\" cy=\"8\" r=\"6\"/><path d=\"M8 5v3.5M8 11h0\"/>");
 export const IconFullscreen = svg("<path d=\"M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10\"/>");
+export const IconRepair = svg("<path d=\"M9.5 2.5a3 3 0 0 0-2.9 3.8L2.5 10.4a1.4 1.4 0 0 0 2 2l4.1-4.1a3 3 0 0 0 3.8-2.9l-1.7 1.1-1.5-.4-.4-1.5 1.1-1.7Z\"/>");
+export const IconReplace = svg("<path d=\"M2.5 5h8M8.5 2.5 11 5 8.5 7.5\"/><path d=\"M13.5 11h-8M7.5 8.5 5 11l2.5 2.5\"/>");
 export const IconFullscreenExit = svg("<path d=\"M6 2.5V6H2.5M13.5 6H10V2.5M10 13.5V10h3.5M2.5 10H6v3.5\"/>");

@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageJsonEditorBasic from "./PageJsonEditorBasic/PageJsonEditorBasic.vue";
 import PageJsonEditorBig from "./PageJsonEditorBig/PageJsonEditorBig.vue";
+import PageJsonEditorBigNumbers from "./PageJsonEditorBigNumbers/PageJsonEditorBigNumbers.vue";
 import PageJsonEditorForm from "./PageJsonEditorForm/PageJsonEditorForm.vue";
 import PageJsonEditorFormat from "./PageJsonEditorFormat/PageJsonEditorFormat.vue";
 import PageJsonEditorFullscreen from "./PageJsonEditorFullscreen/PageJsonEditorFullscreen.vue";
@@ -12,6 +13,9 @@ import PageJsonEditorModelString from "./PageJsonEditorModelString/PageJsonEdito
 import PageJsonEditorMultiline from "./PageJsonEditorMultiline/PageJsonEditorMultiline.vue";
 import PageJsonEditorPlugin from "./PageJsonEditorPlugin/PageJsonEditorPlugin.vue";
 import PageJsonEditorReadonly from "./PageJsonEditorReadonly/PageJsonEditorReadonly.vue";
+import PageJsonEditorReadyPlugins from "./PageJsonEditorReadyPlugins/PageJsonEditorReadyPlugins.vue";
+import PageJsonEditorRepair from "./PageJsonEditorRepair/PageJsonEditorRepair.vue";
+import PageJsonEditorReplace from "./PageJsonEditorReplace/PageJsonEditorReplace.vue";
 import PageJsonEditorRights from "./PageJsonEditorRights/PageJsonEditorRights.vue";
 import PageJsonEditorRules from "./PageJsonEditorRules/PageJsonEditorRules.vue";
 import PageJsonEditorSchema from "./PageJsonEditorSchema/PageJsonEditorSchema.vue";
@@ -36,6 +40,10 @@ export default {
     PageJsonEditorBasic,
     PageJsonEditorHistory,
     PageJsonEditorSearch,
+    PageJsonEditorRepair,
+    PageJsonEditorReplace,
+    PageJsonEditorReadyPlugins,
+    PageJsonEditorBigNumbers,
     PageJsonEditorSelection,
     PageJsonEditorMultiline,
     PageJsonEditorFullscreen,

@@ -11,6 +11,10 @@ import {
   parseJson,
 } from "../utils/format";
 import {
+  getAt,
+  parsePointer,
+} from "../utils/jsonPointer";
+import {
   isEqual,
   isFunction,
   isString,
@@ -35,8 +39,19 @@ export default function DocumentAPI(props, {
   const historyIndex = ref(0);
   // the model of a string that is no JSON: the tree is empty, the code shows the text
   const modelParseError = ref(null);
+  // the numbers of the last parsed text that JavaScript can not keep exactly: pointer → value (null: without a pointer)
+  const unsafeNumbers = shallowRef(new Map());
   let lastEmitted;
   let lastCommitTime = 0;
+
+  // a JSON text with the option bigNumbers; the unsafe numbers are kept for the warnings
+  const parseText = text => {
+    const RESULT = parseJson(text, { bigNumbers: props.bigNumbers });
+    if (!RESULT.error) {
+      unsafeNumbers.value = new Map(RESULT.unsafe.map(({ pointer }) => [pointer, pointer === null ? null : getAt(RESULT.value, parsePointer(pointer))]));
+    }
+    return RESULT;
+  };
 
   const fromModel = value => {
     if (modelType.value !== "string") {
@@ -48,7 +63,7 @@ export default function DocumentAPI(props, {
     if (!isString(value) || value.trim() === "") {
       return { value: undefined };
     }
-    return parseJson(value);
+    return parseText(value);
   };
 
   const toModel = value => {
@@ -149,8 +164,10 @@ export default function DocumentAPI(props, {
     historyIndex,
     initialDocument,
     modelParseError,
+    parseText,
     redo,
     reset,
     undo,
+    unsafeNumbers,
   };
 }

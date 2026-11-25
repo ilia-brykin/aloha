@@ -217,9 +217,21 @@ export {
 } from "./ui/AJsonEditor/compositionAPI/PluginsAPI";
 export {
   formatJson,
+  isUnsafeNumber,
   minifyJson,
   parseJson,
 } from "./ui/AJsonEditor/utils/format";
+export {
+  repairJson,
+} from "./ui/AJsonEditor/utils/repair";
+export {
+  AJsonEditorColorPlugin,
+  AJsonEditorDatePlugin,
+  AJsonEditorImagePlugin,
+  AJsonEditorPlugins,
+  AJsonEditorSwitchPlugin,
+  AJsonEditorUrlPlugin,
+} from "./ui/AJsonEditor/plugins/AJsonEditorPlugins";
 export {
   resolveVariables,
 } from "./ui/AJsonEditor/utils/variables";

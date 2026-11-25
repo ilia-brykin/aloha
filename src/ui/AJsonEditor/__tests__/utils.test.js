@@ -24,6 +24,7 @@ import {
 } from "../utils/flatten";
 import {
   formatJson,
+  isUnsafeNumber,
   minifyJson,
   parseJson,
 } from "../utils/format";
@@ -47,6 +48,9 @@ import {
   validateRules,
   validateSchema,
 } from "../utils/validate";
+import {
+  repairJson,
+} from "../utils/repair";
 
 const DOC = {
   name: "Anna",
@@ -109,7 +113,12 @@ describe("types", () => {
     expect(convertType("x", "array")).toEqual(["x"]);
     expect(convertType(null, "object")).toEqual({});
     expect(parseInputValue("1,5", "number")).toEqual({ value: 1.5 });
-    expect(parseInputValue("x", "number")).toEqual({ error: true });
+    expect(parseInputValue("x", "number")).toEqual({ error: "_A_JSON_EDITOR_ERROR_NUMBER_" });
+    expect(parseInputValue("12345678901234567890", "number")).toEqual({ value: 12345678901234567000 });
+    expect(parseInputValue("12345678901234567890", "number", { bigNumbers: "warn" })).toEqual({ error: "_A_JSON_EDITOR_ERROR_NUMBER_PRECISION_" });
+    expect(parseInputValue("12345678901234567890", "number", { bigNumbers: "bigint" })).toEqual({ value: 12345678901234567890n });
+    expect(parseInputValue("12345678901234567890", "number", { bigNumbers: "string" })).toEqual({ value: "12345678901234567890" });
+    expect(parseInputValue("42", "number", { bigNumbers: "warn" })).toEqual({ value: 42 });
   });
 });
 
@@ -185,7 +194,7 @@ describe("format", () => {
   });
 
   it("parses with line and column of an error", () => {
-    expect(parseJson("{\"a\": 1}")).toEqual({ value: { a: 1 } });
+    expect(parseJson("{\"a\": 1}")).toEqual({ value: { a: 1 }, unsafe: [] });
     const RESULT = parseJson("{\n  \"a\": 1,\n  \"b\": x\n}");
     expect(RESULT.error.line).toBe(3);
     expect(RESULT.error.column).toBeGreaterThan(1);
@@ -235,5 +244,84 @@ describe("validate", () => {
     expect(ERRORS).toContain("/tags _A_JSON_EDITOR_ERROR_MAX_ITEMS_");
     expect(validateSchema({ a: 1 }, { type: "object", properties: { a: { type: "string" } } })[0].pointer).toBe("/a");
     expect(getSchemaAt(SCHEMA, ["tags", 0])).toEqual({ type: "string" });
+  });
+});
+
+describe("repairJson", () => {
+  const messages = result => result.changes.map(item => item.message.replace("_A_JSON_EDITOR_REPAIR_", ""));
+
+  it("repairs keys, quotes, commas and constants", () => {
+    const RESULT = repairJson("{name: 'Anna', age: 30, active: True, note: None,}");
+    expect(RESULT.value).toEqual({ name: "Anna", age: 30, active: true, note: null });
+    expect(messages(RESULT)).toEqual(expect.arrayContaining(["KEY_QUOTES_", "SINGLE_QUOTES_", "CONSTANT_", "COMMA_REMOVED_"]));
+  });
+
+  it("removes comments and adds missing commas with the line", () => {
+    const RESULT = repairJson("// settings\n{\n  \"a\": 1\n  \"b\": [1 2], /* old */\n}");
+    expect(RESULT.value).toEqual({ a: 1, b: [1, 2] });
+    expect(RESULT.changes.filter(item => item.message === "_A_JSON_EDITOR_REPAIR_COMMA_ADDED_").map(item => item.line)).toEqual([4, 4]);
+    expect(messages(RESULT).filter(item => item === "COMMENT_")).toHaveLength(2);
+  });
+
+  it("closes strings and brackets and fixes wrong brackets", () => {
+    expect(repairJson("{\"a\": {\"b\": \"text").value).toEqual({ a: { b: "text" } });
+    expect(repairJson("{\"a\": [1, 2}").value).toEqual({ a: [1, 2] });
+    expect(repairJson("[1, 2]]").value).toEqual([1, 2]);
+    expect(repairJson("{\"a\": 1, \"b\":").value).toEqual({ a: 1, b: null });
+  });
+
+  it("repairs numbers, typographic quotes, newlines and texts without quotes", () => {
+    expect(repairJson("{\"a\": +1, \"b\": .5, \"c\": 5., \"d\": -Infinity}").value).toEqual({ a: 1, b: 0.5, c: 5, d: null });
+    expect(repairJson("{“a”: ‘b’}").value).toEqual({ a: "b" });
+    expect(repairJson("{\"text\": \"line\nnext\"}").value).toEqual({ text: "line\nnext" });
+    expect(repairJson("{\"a\": hello world}").value).toEqual({ a: "hello world" });
+    expect(repairJson("{\"a\": 'it\\'s \"ok\"'}").value).toEqual({ a: "it's \"ok\"" });
+  });
+
+  it("puts several values at the root into an array", () => {
+    const RESULT = repairJson("{\"a\": 1}\n{\"a\": 2}");
+    expect(RESULT.value).toEqual([{ a: 1 }, { a: 2 }]);
+    expect(messages(RESULT)).toEqual(["ROOT_ARRAY_"]);
+  });
+
+  it("changes nothing in valid JSON and gives an error when it can not repair", () => {
+    expect(repairJson("{\"a\": [1, \"x\"]}").changes).toEqual([]);
+    expect(repairJson("{\"a\" 1}").error).toBeTruthy();
+  });
+});
+
+describe("big numbers", () => {
+  const TEXT = "{\"id\": 12345678901234567890, \"list\": [1, 9007199254740993, 0.1, 0.123456789012345678901], \"safe\": 9007199254740992}";
+
+  it("finds numbers that are not exact in JavaScript", () => {
+    expect(isUnsafeNumber("12345678901234567890")).toBe(true);
+    expect(isUnsafeNumber("9007199254740993")).toBe(true);
+    expect(isUnsafeNumber("9007199254740992")).toBe(false);
+    expect(isUnsafeNumber("1.10")).toBe(false);
+    expect(isUnsafeNumber("-0.0")).toBe(false);
+    expect(isUnsafeNumber("1e400")).toBe(true);
+  });
+
+  it("warn: the numbers stay and their pointers are found", () => {
+    const RESULT = parseJson(TEXT, { bigNumbers: "warn" });
+    expect(RESULT.unsafe.map(item => item.pointer)).toEqual(["/id", "/list/1", "/list/3"]);
+    expect(typeof RESULT.value.id).toBe("number");
+    expect(parseJson("12345678901234567890", { bigNumbers: "warn" }).unsafe).toEqual([{ pointer: "" }]);
+  });
+
+  it("string and bigint keep the digits", () => {
+    const STRING = parseJson(TEXT, { bigNumbers: "string" });
+    expect(STRING.value.id).toBe("12345678901234567890");
+    expect(STRING.value.list).toEqual([1, "9007199254740993", 0.1, "0.123456789012345678901"]);
+    expect(STRING.unsafe).toEqual([]);
+    const BIGINT = parseJson(TEXT, { bigNumbers: "bigint" });
+    expect(BIGINT.value.id).toBe(12345678901234567890n);
+    expect(BIGINT.unsafe.map(item => item.pointer)).toEqual(["/list/3"]);
+    expect(formatJson(BIGINT.value, { minify: true })).toBe("{\"id\":12345678901234567890,\"list\":[1,9007199254740993,0.1,0.12345678901234568],\"safe\":9007199254740992}");
+  });
+
+  it("without bigNumbers JSON.parse as it is", () => {
+    expect(parseJson(TEXT).unsafe).toEqual([]);
+    expect(getJsonType(1n)).toBe("number");
   });
 });

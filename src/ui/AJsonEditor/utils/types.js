@@ -1,4 +1,7 @@
 import {
+  isUnsafeNumber,
+} from "./format";
+import {
   isArray,
   isPlainObject,
 } from "lodash-es";
@@ -15,7 +18,8 @@ export function getJsonType(value) {
   if (isPlainObject(value)) {
     return "object";
   }
-  return typeof value;
+  // a BigInt of the option bigNumbers is a number of JSON
+  return typeof value === "bigint" ? "number" : typeof value;
 }
 
 export function getDefaultValue(type) {
@@ -68,11 +72,27 @@ export function convertType(value, toType) {
   }
 }
 
-// "42" in the field of a number is the number 42
-export function parseInputValue(text, type) {
+/**
+ * "42" in the field of a number is the number 42. bigNumbers (see parseJson): a number that JavaScript can not keep
+ * exactly is a BigInt ("bigint", integers), a string ("string") or an error ("warn").
+ */
+export function parseInputValue(text, type, { bigNumbers } = {}) {
   if (type === "number") {
-    const NUMBER = Number(`${ text }`.trim().replace(",", "."));
-    return `${ text }`.trim() !== "" && Number.isFinite(NUMBER) ? { value: NUMBER } : { error: true };
+    const TEXT = `${ text }`.trim().replace(",", ".");
+    const NUMBER = Number(TEXT);
+    if (TEXT === "" || !Number.isFinite(NUMBER)) {
+      return { error: "_A_JSON_EDITOR_ERROR_NUMBER_" };
+    }
+    if (bigNumbers && isUnsafeNumber(TEXT)) {
+      if (bigNumbers === "bigint" && /^-?\d+$/.test(TEXT)) {
+        return { value: BigInt(TEXT) };
+      }
+      if (bigNumbers === "string") {
+        return { value: TEXT };
+      }
+      return { error: "_A_JSON_EDITOR_ERROR_NUMBER_PRECISION_" };
+    }
+    return { value: NUMBER };
   }
   if (type === "boolean") {
     return { value: text === true || text === "true" };

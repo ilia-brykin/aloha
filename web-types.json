@@ -6417,6 +6417,11 @@
               "default": "[\"tree\",\"code\",\"split\"]"
             },
             {
+              "name": "bigNumbers",
+              "type": "string",
+              "default": "\"warn\""
+            },
+            {
               "name": "arrayPageSize",
               "type": "number",
               "default": "100"
@@ -6585,6 +6590,11 @@
             },
             {
               "name": "searchable",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowReplace",
               "type": "boolean",
               "default": "true"
             },

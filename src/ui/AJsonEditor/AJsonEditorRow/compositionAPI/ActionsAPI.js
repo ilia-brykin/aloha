@@ -111,7 +111,7 @@ export default function ActionsAPI(props, {
       ...API.pluginActions.value,
       ...API.getHooks("getNodeActions").flatMap(hook => hook(CONTEXT) || []),
     ].filter(action => !isFunction(action.when) || action.when(CONTEXT))
-      .map(action => button(action.label, () => API.runAction(action, TOKENS), { isHidden: API.isReadonly(TOKENS) }));
+      .map(action => button(action.label, () => API.runAction(action, TOKENS), { isHidden: API.isReadonly(TOKENS) && !action.isAllowedReadonly }));
 
     const REMOVE = [
       button("_A_JSON_EDITOR_ACTION_REMOVE_", () => API.remove(TOKENS), {

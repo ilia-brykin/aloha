@@ -53,6 +53,7 @@ export default function ValidationAPI(props, { emit }, {
   getHooks = () => [],
   hasVariablesProp = computed(() => false),
   resolveType = () => ({}),
+  unsafeNumbers = shallowRef(new Map()),
   variablePattern = computed(() => undefined),
   variablesByName = computed(() => new Map()),
 }) {
@@ -88,6 +89,10 @@ export default function ValidationAPI(props, { emit }, {
     if (schema.value) {
       ERRORS.push(...validateSchema(DOCUMENT, schema.value, "", { skip: isWholeVariable }));
     }
+    // numbers of the text that JavaScript can not keep exactly (bigNumbers "warn"), while they are not changed
+    if (unsafeNumbers.value.has(null)) {
+      ERRORS.push({ pointer: "", level: "warning", message: "_A_JSON_EDITOR_WARNING_NUMBER_PRECISION_" });
+    }
     const NODE_HOOKS = getHooks("validateNode");
     walk(DOCUMENT, (value, tokens) => {
       const POINTER = toPointer(tokens);
@@ -111,6 +116,9 @@ export default function ValidationAPI(props, { emit }, {
         if (EXPECTED.length && !EXPECTED.includes(TYPE)) {
           ERRORS.push({ pointer: POINTER, level: "warning", message: "_A_JSON_EDITOR_WARNING_VARIABLE_TYPE_", extra: { name: WHOLE, type: TYPE, expected: EXPECTED.join(" / ") } });
         }
+      }
+      if (typeof value === "number" && unsafeNumbers.value.get(POINTER) === value) {
+        ERRORS.push({ pointer: POINTER, level: "warning", message: "_A_JSON_EDITOR_WARNING_NUMBER_PRECISION_" });
       }
       const TYPE = resolveType({ value, pointer: POINTER, tokens });
       if (isFunction(TYPE.pluginType?.validate)) {

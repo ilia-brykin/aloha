@@ -18,6 +18,7 @@ Keys in the tree:
 - Insert / Ctrl+Enter add, Delete remove, Ctrl+D duplicate, Alt+↑ Alt+↓ move, Ctrl+C Ctrl+X Ctrl+V
 - Shift+F10 actions, Ctrl+Z undo, Ctrl+Y redo, Ctrl+F search, F3 next match, F8 next error; in a text field {{ or Ctrl+Space opens the variables
 - Space select a row, Shift+↑ Shift+↓ more rows, Ctrl+A all, Escape clear the selection; in a text Shift+Enter a new line
+- Ctrl+H search and replace; in the text with an error the button **Repair**
 
 ## Basic usage
 
@@ -151,6 +152,68 @@ export default {
 
     return {
       model,
+    };
+  },
+};
+```
+
+## Search and replace
+
+The button next to the search (or Ctrl+H) opens the field **Replace with**: **Replace** (Enter) changes the current match, **Replace all** (Ctrl+Enter) all matches as one step of the history. Strings and keys are replaced (numbers and booleans stay), with a regular expression `$1` inserts a group. Read-only nodes, locked keys and keys that exist already are skipped, the hooks `before-set` and `before-rename` run. The method `replace(text, { all })` does the same.
+
+```html
+<a-json-editor
+  ref="editorRef"
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_CONFIG_"
+  :expand-level="2"
+/>
+<a-button
+  class="a_btn a_btn_outline_primary"
+  text="_A_JSON_EDITOR_EXAMPLE_REPLACE_HOST_"
+  @click="replaceHost"
+/>
+<p v-if="result">{{ result }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AJsonEditor,
+  },
+  setup() {
+    const model = ref({
+      api: "https://old.example.com/api",
+      login: "https://old.example.com/login",
+      cdn: {
+        images: "https://old.example.com/images",
+        fonts: "https://fonts.example.com",
+      },
+      old_timeout: 30,
+    });
+    const editorRef = ref(undefined);
+    const result = ref(undefined);
+    // the same as Ctrl+H: search and "Replace all", one step of the history
+    const replaceHost = async() => {
+      editorRef.value.search("old.example.com");
+      result.value = await editorRef.value.replace("new.example.com");
+    };
+
+    return {
+      editorRef,
+      model,
+      replaceHost,
+      result,
     };
   },
 };
@@ -520,6 +583,52 @@ export default {
 };
 ```
 
+## Repair JSON
+
+When the text is no JSON, the button **Repair** appears next to the error. It shows the changes with their lines and the result first; **Apply** makes them one step of the history (Ctrl+Z undoes it). It repairs comments, single and typographic quotes, keys without quotes, missing and extra commas, `True` / `None` / `undefined` / `NaN`, `+1` / `.5`, line breaks in strings, missing brackets and quotes and several values at the root. Also as a function: `repairJson(text)`.
+
+```html
+<a-json-editor
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_CONFIG_"
+  model-type="string"
+  mode="split"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    // almost JSON: a comment, quotes, a missing comma, a trailing comma, Python constants
+    const model = ref([
+      "{",
+      "  // the server",
+      "  host: 'localhost',",
+      "  port: 8080,",
+      "  tls: False,",
+      "  proxy: None,",
+      "  features: [\"search\" \"export\",],",
+      "}",
+    ].join("\n"));
+
+    return {
+      model,
+    };
+  },
+};
+```
+
 ## Model as JSON text
 
 With `model-type="string"` the model is the formatted text (e.g. a field of a database); `parse` and `stringify` allow other formats.
@@ -722,6 +831,64 @@ export default {
 };
 ```
 
+## Ready plugins and enum
+
+`AJsonEditorPlugins` contains all ready plugins, each one can be used alone: `AJsonEditorColorPlugin` (swatch, **AColorPicker** as the editor), `AJsonEditorDatePlugin` (date and date with time in ISO format, localized view, **ADateInput** as the editor), `AJsonEditorImagePlugin` (picture and link), `AJsonEditorUrlPlugin` (link to a new window, the action **Open link** for the keyboard), `AJsonEditorSwitchPlugin` (a boolean as a switch, a click toggles it). An `enum` of the schema or of the rules is always edited with a select.
+
+```html
+<a-json-editor
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_PRODUCT_"
+  :plugins="plugins"
+  :schema="schema"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+  AJsonEditorPlugins,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    const model = ref({
+      name: "Desk lamp",
+      color: "#0775b0",
+      background: "rgba(7, 117, 176, 0.25)",
+      size: "m",
+      released: "2025-03-05",
+      updatedAt: "2025-11-20T08:15:00Z",
+      website: "https://github.com/ilia-brykin/aloha",
+      picture: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+      available: true,
+    });
+    // all ready plugins: color, date, image, url, boolean as a switch (or only some: [AJsonEditorColorPlugin])
+    const plugins = AJsonEditorPlugins;
+    // "enum" of the schema (or of the rules): the value is edited with a select
+    const schema = {
+      type: "object",
+      properties: {
+        size: { enum: ["s", "m", "l", "xl"] },
+      },
+    };
+
+    return {
+      model,
+      plugins,
+      schema,
+    };
+  },
+};
+```
+
 ## Rights: readonly paths, locked keys, depth
 
 `readonly-paths` cannot be changed (the row says "read only"), `locked-keys` cannot be removed or renamed, `hidden-paths` are not shown, `allowed-types` limits the types (no null), `max-depth` the levels.
@@ -850,6 +1017,52 @@ export default {
 };
 ```
 
+## Big numbers
+
+JavaScript keeps only about 15–17 digits exactly: `12345678901234567890` becomes `12345678901234567000`. The prop `big-numbers` decides what happens with such numbers of a JSON text: `"warn"` (default) shows a warning at the node and refuses such a number in the editor, `"bigint"` keeps integers exactly as `BigInt`, `"string"` keeps them as strings. The paths are found with `JSON.parse` and the source of the numbers (JSON.parse source text access); without it only a warning for the document.
+
+```html
+<!-- "warn" (default): a warning, the number is rounded -->
+<a-json-editor
+  v-model="modelWarn"
+  label="_A_JSON_EDITOR_EXAMPLE_BIG_WARN_"
+  model-type="string"
+/>
+<!-- "bigint": the integer stays exact as BigInt; "string": as a string -->
+<a-json-editor
+  v-model="modelBigint"
+  label="_A_JSON_EDITOR_EXAMPLE_BIG_BIGINT_"
+  model-type="string"
+  big-numbers="bigint"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    const TEXT = "{\n  \"id\": 12345678901234567890,\n  \"price\": 9.99\n}";
+    const modelWarn = ref(TEXT);
+    const modelBigint = ref(TEXT);
+
+    return {
+      modelBigint,
+      modelWarn,
+    };
+  },
+};
+```
+
 ## In a form
 
 In `AForm` the element has the type `jsonEditor`; all props can be set in the element.
@@ -970,6 +1183,7 @@ export default {
 | allow-move | Boolean | true |  | Elements can be moved (Alt+arrows, drag and drop, cut and paste). |
 | allow-remove | Boolean | true |  | Elements can be removed. |
 | allow-rename | Boolean | true |  | Keys can be renamed. |
+| allow-replace | Boolean | true |  | Shows "Replace" and "Replace all" at the search (Ctrl+H). Only strings and keys are replaced. The default can be set with AComponentsPlugin. |
 | allow-type-change | Boolean | true |  | The type of a value can be changed. |
 | allow-unknown-variables | Boolean | false |  | Unknown variables are warnings, not errors. |
 | allowed-types | Array |  |  | Types that can be chosen, e.g. ["string", "number"]. |
@@ -982,6 +1196,7 @@ export default {
 | before-rename | Function |  |  | Hook before renaming: false stops it, a string is the new key. |
 | before-set | Function |  |  | Hook before a new value: false stops it, another value replaces it. |
 | before-type-change | Function |  |  | Hook before a change of the type: false stops it, another value replaces the converted value. |
+| big-numbers | String | "warn" |  | Numbers of a JSON text that JavaScript can not keep exactly: "warn" (a warning, the number is rounded, the editor refuses such numbers), "bigint" (integers as BigInt), "string" (as strings). The default can be set with AComponentsPlugin. |
 | block-invalid-save | Boolean | true |  | A text with a syntax error does not change the model. |
 | change | Function | () => {} |  | Function called when the model changes. It accepts the new model value and additional parameters for processing the change. |
 | confirm-remove | Boolean / String | false |  | true or "containers": the removal is confirmed with AConfirm (needs AModalConfirm). Without it the removal can be undone. |
@@ -1118,6 +1333,7 @@ export default {
 | minify | The document as compact text. |
 | redo | Redoes the next step of the history. |
 | remove | Removes the node of a path. |
+| replace | replace(text, { all = true }): replaces the matches of the current search (all or the current one) as one step of the history; returns { count, skipped }. |
 | reset | Goes back to the start value (a step of the history). |
 | search | Searches a text. |
 | set | Sets the value of a path (a step of the history). |
@@ -1142,6 +1358,7 @@ export default {
 | `_A_JSON_EDITOR_ACTION_INSERT_VARIABLE_` | Insert variable |
 | `_A_JSON_EDITOR_ACTION_MOVE_DOWN_` | Move down |
 | `_A_JSON_EDITOR_ACTION_MOVE_UP_` | Move up |
+| `_A_JSON_EDITOR_ACTION_OPEN_LINK_` | Open link |
 | `_A_JSON_EDITOR_ACTION_PASTE_` | Paste |
 | `_A_JSON_EDITOR_ACTION_REMOVE_` | Remove |
 | `_A_JSON_EDITOR_ACTION_RENAME_` | Rename key |
@@ -1151,28 +1368,41 @@ export default {
 | `_A_JSON_EDITOR_ANNOUNCE_COLLAPSED_ALL_` | All nodes collapsed |
 | `_A_JSON_EDITOR_ANNOUNCE_COPIED_` | Copied: {{ path }} |
 | `_A_JSON_EDITOR_ANNOUNCE_COPIED_KEY_` | Key copied: {{ key }} |
+| `_A_JSON_EDITOR_ANNOUNCE_COPIED_MANY_` | Copied: {{ count }} nodes |
 | `_A_JSON_EDITOR_ANNOUNCE_COPIED_PATH_` | Path copied: {{ path }} |
 | `_A_JSON_EDITOR_ANNOUNCE_EXPANDED_ALL_` | All nodes expanded |
 | `_A_JSON_EDITOR_ANNOUNCE_FORMATTED_` | Text formatted |
+| `_A_JSON_EDITOR_ANNOUNCE_FULLSCREEN_OFF_` | Full screen ended |
+| `_A_JSON_EDITOR_ANNOUNCE_FULLSCREEN_ON_` | Full screen. Escape ends it. |
 | `_A_JSON_EDITOR_ANNOUNCE_HISTORY_` | Step: {{ step }} |
 | `_A_JSON_EDITOR_ANNOUNCE_MINIFIED_` | Text minified |
 | `_A_JSON_EDITOR_ANNOUNCE_REDO_` | Redone: {{ step }} |
 | `_A_JSON_EDITOR_ANNOUNCE_REMOVED_` | Removed: {{ path }}. Ctrl+Z undoes it. |
+| `_A_JSON_EDITOR_ANNOUNCE_REMOVED_MANY_` | Removed: {{ count }} nodes. Ctrl+Z undoes it. |
+| `_A_JSON_EDITOR_ANNOUNCE_REPAIRED_` | Repaired: {{ count }} changes. Ctrl+Z undoes it. |
+| `_A_JSON_EDITOR_ANNOUNCE_REPLACED_` | Replaced: {{ count }} |
+| `_A_JSON_EDITOR_ANNOUNCE_REPLACED_SKIPPED_` | Replaced: {{ count }}, skipped: {{ skipped }} (read-only, locked or the key exists) |
 | `_A_JSON_EDITOR_ANNOUNCE_RESET_` | Reset to the start. Ctrl+Z undoes it. |
+| `_A_JSON_EDITOR_ANNOUNCE_SELECTED_` | {{ count }} selected |
+| `_A_JSON_EDITOR_ANNOUNCE_SELECTION_CLEARED_` | Selection cleared |
 | `_A_JSON_EDITOR_ANNOUNCE_UNDO_` | Undone: {{ step }} |
 | `_A_JSON_EDITOR_ANNOUNCE_VARIABLE_INSERTED_` | Variable inserted: {{ name }} |
+| `_A_JSON_EDITOR_CLEAR_SELECTION_` | Clear selection |
 | `_A_JSON_EDITOR_COLLAPSE_ALL_` | Collapse all |
 | `_A_JSON_EDITOR_CONFIRM_REMOVE_BODY_` | Remove {{ path }} with all its content? |
 | `_A_JSON_EDITOR_CONFIRM_REMOVE_HEADER_` | Remove |
+| `_A_JSON_EDITOR_CONFIRM_REMOVE_MANY_BODY_` | Remove {{ count }} nodes with all their content? |
 | `_A_JSON_EDITOR_COUNT_ITEMS_` | {{ count }} items |
 | `_A_JSON_EDITOR_COUNT_KEYS_` | {{ count }} keys |
 | `_A_JSON_EDITOR_DONE_` | Done |
 | `_A_JSON_EDITOR_EDIT_HINT_` | Enter saves, Escape cancels. |
+| `_A_JSON_EDITOR_EDIT_HINT_MULTILINE_` | Enter saves, Shift+Enter adds a line, Escape cancels. |
 | `_A_JSON_EDITOR_EDIT_KEY_` | Key of {{ key }} |
 | `_A_JSON_EDITOR_EDIT_TYPE_` | Type of {{ key }} |
 | `_A_JSON_EDITOR_EDIT_VALUE_` | Value of {{ key }} |
 | `_A_JSON_EDITOR_EMPTY_` | No data |
 | `_A_JSON_EDITOR_EMPTY_STRING_` | empty text |
+| `_A_JSON_EDITOR_ENUM_NOT_ALLOWED_` | {{ value }} (not allowed) |
 | `_A_JSON_EDITOR_ERRORS_COUNT_` | {{ errors }} errors, {{ warnings }} warnings |
 | `_A_JSON_EDITOR_ERRORS_INSIDE_` | {{ count }} errors inside |
 | `_A_JSON_EDITOR_ERROR_ENUM_` | Allowed values: {{ values }} |
@@ -1187,6 +1417,7 @@ export default {
 | `_A_JSON_EDITOR_ERROR_MIN_ITEMS_` | At least {{ min }} items |
 | `_A_JSON_EDITOR_ERROR_MIN_LENGTH_` | At least {{ min }} characters |
 | `_A_JSON_EDITOR_ERROR_NUMBER_` | Enter a number |
+| `_A_JSON_EDITOR_ERROR_NUMBER_PRECISION_` | The number has too many digits for JavaScript and would be rounded. |
 | `_A_JSON_EDITOR_ERROR_PATTERN_` | The value has the wrong format |
 | `_A_JSON_EDITOR_ERROR_REQUIRED_KEY_` | The key {{ key }} is required |
 | `_A_JSON_EDITOR_ERROR_SYNTAX_` | Syntax error in line {{ line }}, column {{ column }} |
@@ -1196,6 +1427,7 @@ export default {
 | `_A_JSON_EDITOR_ERROR_UNKNOWN_VARIABLE_SIMILAR_` | Unknown variable {{ name }}, did you mean {{ similar }}? |
 | `_A_JSON_EDITOR_EXPAND_ALL_` | Expand all |
 | `_A_JSON_EDITOR_FORMAT_` | Format |
+| `_A_JSON_EDITOR_FULLSCREEN_` | Full screen |
 | `_A_JSON_EDITOR_GO_TO_ERROR_` | Go to the error |
 | `_A_JSON_EDITOR_GROUP_ADD_` | Add |
 | `_A_JSON_EDITOR_GROUP_COPY_` | Copy |
@@ -1205,6 +1437,7 @@ export default {
 | `_A_JSON_EDITOR_GROUP_MOVE_` | Move |
 | `_A_JSON_EDITOR_GROUP_REMOVE_` | Remove |
 | `_A_JSON_EDITOR_GROUP_SEARCH_` | Search |
+| `_A_JSON_EDITOR_GROUP_SELECTION_` | Selected ({{ count }}) |
 | `_A_JSON_EDITOR_GROUP_TEXT_` | Text |
 | `_A_JSON_EDITOR_GROUP_VIEW_` | View |
 | `_A_JSON_EDITOR_HISTORY_` | History of the changes |
@@ -1213,27 +1446,66 @@ export default {
 | `_A_JSON_EDITOR_HISTORY_CODE_` | Text edited |
 | `_A_JSON_EDITOR_HISTORY_LOAD_` | Loaded: {{ path }} |
 | `_A_JSON_EDITOR_HISTORY_MOVE_` | Moved: {{ path }} |
+| `_A_JSON_EDITOR_HISTORY_MOVE_MANY_` | Moved: {{ count }} nodes |
+| `_A_JSON_EDITOR_HISTORY_PASTE_` | Pasted: {{ count }} in {{ path }} |
 | `_A_JSON_EDITOR_HISTORY_REMOVE_` | Removed: {{ path }} |
+| `_A_JSON_EDITOR_HISTORY_REMOVE_MANY_` | Removed: {{ count }} nodes |
 | `_A_JSON_EDITOR_HISTORY_RENAME_` | Renamed: {{ from }} → {{ to }} |
+| `_A_JSON_EDITOR_HISTORY_REPAIR_` | Repaired: {{ count }} changes |
+| `_A_JSON_EDITOR_HISTORY_REPLACE_` | Replaced: {{ count }} |
 | `_A_JSON_EDITOR_HISTORY_RESET_` | Reset |
 | `_A_JSON_EDITOR_HISTORY_SET_` | Value changed: {{ path }} |
 | `_A_JSON_EDITOR_HISTORY_SORT_` | Sorted: {{ path }} |
 | `_A_JSON_EDITOR_HISTORY_START_` | Start |
 | `_A_JSON_EDITOR_HISTORY_TYPE_` | Type changed: {{ path }} → {{ type }} |
-| `_A_JSON_EDITOR_KEYBOARD_HINT_` | Arrow up and down move between the rows, right and left open and close a node, Enter or F2 edits the value, Shift+F2 renames the key, Alt+F2 changes the type, Insert adds, Delete removes, Alt+arrow up or down moves, Ctrl+C, Ctrl+X and Ctrl+V copy, cut and paste, Shift+F10 opens the actions, Ctrl+Z undoes, Ctrl+F searches, F8 goes to the next error. Space selects a row, Shift+arrows select more rows, Ctrl+A selects all, Escape clears the selection. |
+| `_A_JSON_EDITOR_KEYBOARD_HINT_` | Arrow up and down move between the rows, right and left open and close a node, Enter or F2 edits the value, Shift+F2 renames the key, Alt+F2 changes the type, Insert adds, Delete removes, Alt+arrow up or down moves, Ctrl+C, Ctrl+X and Ctrl+V copy, cut and paste, Shift+F10 opens the actions, Ctrl+Z undoes, Ctrl+F searches, F8 goes to the next error. Space selects a row, Shift+arrows select more rows, Ctrl+A selects all, Escape clears the selection. Ctrl+H opens search and replace. |
 | `_A_JSON_EDITOR_LEVEL_ERROR_` | Error |
 | `_A_JSON_EDITOR_LEVEL_INFO_` | Note |
 | `_A_JSON_EDITOR_LEVEL_WARNING_` | Warning |
+| `_A_JSON_EDITOR_LINES_` | {{ count }} lines |
 | `_A_JSON_EDITOR_MINIFY_` | Minify |
 | `_A_JSON_EDITOR_MODE_CODE_` | Text |
 | `_A_JSON_EDITOR_MODE_SPLIT_` | Tree and text |
 | `_A_JSON_EDITOR_MODE_TREE_` | Tree |
+| `_A_JSON_EDITOR_MORE_LINES_` | +{{ count }} lines |
 | `_A_JSON_EDITOR_NEW_KEY_` | key |
+| `_A_JSON_EDITOR_NEW_WINDOW_` | opens in a new window |
 | `_A_JSON_EDITOR_NODES_` | {{ count }} nodes |
 | `_A_JSON_EDITOR_PATH_` | Path |
 | `_A_JSON_EDITOR_READONLY_` | read only |
 | `_A_JSON_EDITOR_REDO_` | Redo |
 | `_A_JSON_EDITOR_REMOVED_` | Removed: {{ path }} |
+| `_A_JSON_EDITOR_REPAIR_` | Repair |
+| `_A_JSON_EDITOR_REPAIR_APPLY_` | Apply |
+| `_A_JSON_EDITOR_REPAIR_BRACKET_CLOSED_` | Missing closing brackets added |
+| `_A_JSON_EDITOR_REPAIR_BRACKET_FIXED_` | Wrong closing bracket corrected |
+| `_A_JSON_EDITOR_REPAIR_BRACKET_REMOVED_` | Extra closing bracket removed |
+| `_A_JSON_EDITOR_REPAIR_CANCEL_` | Cancel |
+| `_A_JSON_EDITOR_REPAIR_CHAR_REMOVED_` | Invalid character removed |
+| `_A_JSON_EDITOR_REPAIR_COMMA_ADDED_` | Missing comma added |
+| `_A_JSON_EDITOR_REPAIR_COMMA_REMOVED_` | Extra comma removed |
+| `_A_JSON_EDITOR_REPAIR_COMMENT_` | Comment removed |
+| `_A_JSON_EDITOR_REPAIR_CONSTANT_` | Constant replaced (True, None, undefined, NaN …) |
+| `_A_JSON_EDITOR_REPAIR_FAILED_` | The text could not be repaired. |
+| `_A_JSON_EDITOR_REPAIR_KEY_QUOTES_` | Quotes added to a key |
+| `_A_JSON_EDITOR_REPAIR_LINE_` | Line {{ line }}: |
+| `_A_JSON_EDITOR_REPAIR_NEWLINE_` | Line break in a string escaped |
+| `_A_JSON_EDITOR_REPAIR_NUMBER_` | Number corrected (+1, .5, 5.) |
+| `_A_JSON_EDITOR_REPAIR_PREVIEW_` | Suggested changes: {{ count }} |
+| `_A_JSON_EDITOR_REPAIR_RESULT_` | Repaired text |
+| `_A_JSON_EDITOR_REPAIR_ROOT_ARRAY_` | Several values put into an array |
+| `_A_JSON_EDITOR_REPAIR_SINGLE_QUOTES_` | Single quotes replaced |
+| `_A_JSON_EDITOR_REPAIR_STRING_CLOSED_` | Missing closing quote added |
+| `_A_JSON_EDITOR_REPAIR_TEXT_QUOTES_` | Quotes added to a text |
+| `_A_JSON_EDITOR_REPAIR_TYPOGRAPHIC_QUOTES_` | Typographic quotes replaced |
+| `_A_JSON_EDITOR_REPAIR_VALUE_ADDED_` | Missing value added (null) |
+| `_A_JSON_EDITOR_REPLACE_` | Replace |
+| `_A_JSON_EDITOR_REPLACE_ALL_` | Replace all |
+| `_A_JSON_EDITOR_REPLACE_GROUP_` | Replace |
+| `_A_JSON_EDITOR_REPLACE_HINT_` | Strings and keys are replaced. Enter replaces the current match, Ctrl+Enter all matches. |
+| `_A_JSON_EDITOR_REPLACE_HINT_REGEX_` | Strings and keys are replaced, $1 inserts a group. Enter replaces the current match, Ctrl+Enter all matches. |
+| `_A_JSON_EDITOR_REPLACE_TOGGLE_` | Search and replace |
+| `_A_JSON_EDITOR_REPLACE_WITH_` | Replace with |
 | `_A_JSON_EDITOR_RESET_` | Reset |
 | `_A_JSON_EDITOR_ROOT_` | root |
 | `_A_JSON_EDITOR_SEARCH_` | Search |
@@ -1248,20 +1520,27 @@ export default {
 | `_A_JSON_EDITOR_SEARCH_REGEX_` | Regular expression |
 | `_A_JSON_EDITOR_SEARCH_REGEX_INVALID_` | Invalid regular expression |
 | `_A_JSON_EDITOR_SEARCH_VALUES_` | Values |
+| `_A_JSON_EDITOR_SELECTED_` | {{ count }} selected |
 | `_A_JSON_EDITOR_SHOW_ALL_` | Show all ({{ count }}) |
 | `_A_JSON_EDITOR_SHOW_LESS_` | Show less |
 | `_A_JSON_EDITOR_SHOW_MORE_` | Show {{ count }} more |
 | `_A_JSON_EDITOR_SHOW_RESOLVED_` | Show with the values of the variables |
 | `_A_JSON_EDITOR_TYPE_ARRAY_` | Array |
 | `_A_JSON_EDITOR_TYPE_BOOLEAN_` | Boolean |
+| `_A_JSON_EDITOR_TYPE_COLOR_` | Color |
+| `_A_JSON_EDITOR_TYPE_DATETIME_` | Date and time |
+| `_A_JSON_EDITOR_TYPE_DATE_` | Date |
+| `_A_JSON_EDITOR_TYPE_IMAGE_` | Image |
 | `_A_JSON_EDITOR_TYPE_NULL_` | Null |
 | `_A_JSON_EDITOR_TYPE_NUMBER_` | Number |
 | `_A_JSON_EDITOR_TYPE_OBJECT_` | Object |
 | `_A_JSON_EDITOR_TYPE_STRING_` | String |
+| `_A_JSON_EDITOR_TYPE_URL_` | Link |
 | `_A_JSON_EDITOR_TYPE_VARIABLE_` | Variable |
 | `_A_JSON_EDITOR_UNDO_` | Undo |
 | `_A_JSON_EDITOR_VARIABLES_` | Variables |
 | `_A_JSON_EDITOR_VARIABLES_NONE_` | No matching variables |
+| `_A_JSON_EDITOR_WARNING_NUMBER_PRECISION_` | The number is not exact in JavaScript (rounded). |
 | `_A_JSON_EDITOR_WARNING_VARIABLE_TYPE_` | The variable {{ name }} has the type {{ type }}, expected: {{ expected }} |
 
 ## CSS variables (`scss/components/ui/AJsonEditor.scss`)
@@ -1296,3 +1575,9 @@ export default {
 | `--a_json_editor_variable_color` |  | Text of a variable chip. |
 | `--a_json_editor_variable_bg` |  | Background of a variable chip. |
 | `--a_json_editor_variable_border_color` |  | Border of a variable chip. |
+| `--a_json_editor_repair_bg` |  | Background of the preview of "Repair". |
+| `--a_json_editor_repair_border_color` |  | Border of the preview of "Repair". |
+| `--a_json_editor_swatch_size` |  | Size of the color swatch (color plugin). |
+| `--a_json_editor_thumb_size` |  | Height of the picture (image plugin). |
+| `--a_json_editor_switch_on_bg` |  | Background of a switch with true (switch plugin). |
+| `--a_json_editor_switch_off_bg` |  | Background of a switch with false (switch plugin). |

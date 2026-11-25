@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_READY_PLUGINS_HEADER_"
+  description="_A_JSON_EDITOR_READY_PLUGINS_DESCRIPTION_"
+)
+  a-json-editor(
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_PRODUCT_"
+    :plugins="plugins"
+    :schema="schema"
+  )

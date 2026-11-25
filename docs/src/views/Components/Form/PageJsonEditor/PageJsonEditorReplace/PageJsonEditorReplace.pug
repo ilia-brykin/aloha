@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_REPLACE_HEADER_"
+  description="_A_JSON_EDITOR_REPLACE_DESCRIPTION_"
+)
+  a-json-editor(
+    ref="editorRef"
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_CONFIG_"
+    :expand-level="2"
+  )
+  a-button.a_mt_3(
+    class="a_btn a_btn_outline_primary"
+    text="_A_JSON_EDITOR_EXAMPLE_REPLACE_HOST_"
+    @click="replaceHost"
+  )
+  p.a_mt_3(
+    v-if="result"
+  ) {{ result }}

@@ -87,6 +87,100 @@
   }
 }
 
+// ---------- replace ----------
+.a_json_editor__replace {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_space_xs);
+  padding: var(--a_space_xs) var(--a_space_sm);
+  border-bottom: var(--a_border_width) solid var(--a_json_editor_border_color);
+}
+
+.a_json_editor__replace__label {
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__replace__input {
+  width: var(--a_json_editor_search_width);
+}
+
+// ---------- ready plugins: color, date, url, image, switch ----------
+.a_json_editor__plugin_color,
+.a_json_editor__plugin_image,
+.a_json_editor__plugin_switch {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+}
+
+.a_json_editor__plugin_color__swatch {
+  flex: 0 0 auto;
+  width: var(--a_json_editor_swatch_size);
+  height: var(--a_json_editor_swatch_size);
+  border: var(--a_border_width) solid var(--a_json_editor_border_color);
+  border-radius: var(--a_border_radius_small);
+}
+
+.a_json_editor__plugin_link {
+  color: var(--a_color_link, var(--a_color_primary));
+  word-break: break-all;
+}
+
+.a_json_editor__plugin_image__thumb {
+  flex: 0 0 auto;
+  height: var(--a_json_editor_thumb_size);
+  max-width: calc(var(--a_json_editor_thumb_size) * 2);
+  object-fit: contain;
+  border-radius: var(--a_border_radius_small);
+}
+
+.a_json_editor__plugin_switch__button {
+  position: relative;
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1rem;
+  padding: 0;
+  background-color: var(--a_json_editor_switch_off_bg);
+  border: 0;
+  border-radius: 1rem;
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+    opacity: .6;
+  }
+}
+
+.a_json_editor__plugin_switch__button_on {
+  background-color: var(--a_json_editor_switch_on_bg);
+  .a_json_editor__plugin_switch__thumb {
+    inset-inline-start: calc(100% - .875rem);
+  }
+}
+
+.a_json_editor__plugin_switch__thumb {
+  position: absolute;
+  top: .125rem;
+  inset-inline-start: .125rem;
+  width: .75rem;
+  height: .75rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: inset-inline-start .15s ease;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .a_json_editor__plugin_switch__button {
+    border: 1px solid ButtonText;
+  }
+  .a_json_editor__plugin_switch__thumb {
+    background-color: ButtonText;
+  }
+}
+
 .a_json_editor__history {
   max-height: 12rem;
   padding: var(--a_space_xs) var(--a_space_sm);
@@ -596,6 +690,59 @@
   color: var(--a_color_danger_text);
 }
 
+.a_json_editor__repair_button {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+// ---------- repair: the changes before they are applied ----------
+.a_json_editor__repair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_xs);
+  padding: var(--a_space_sm);
+  background-color: var(--a_json_editor_repair_bg);
+  border: var(--a_border_width) solid var(--a_json_editor_repair_border_color);
+  border-radius: var(--a_border_radius_small);
+}
+
+.a_json_editor__repair__heading {
+  margin: 0;
+  font-size: var(--a_font_size_base, 1rem);
+  font-weight: 600;
+  @include focus.focus-visible;
+}
+
+.a_json_editor__repair__list {
+  max-height: 8rem;
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  overflow: auto;
+}
+
+.a_json_editor__repair__line {
+  font-weight: 600;
+}
+
+.a_json_editor__repair__result {
+  max-height: 12rem;
+  margin: 0;
+  padding: var(--a_space_xs) var(--a_space_sm);
+  overflow: auto;
+  font-family: var(--a_json_editor_font_family);
+  font-size: var(--a_json_editor_font_size);
+  background-color: var(--a_json_editor_bg);
+  border: var(--a_border_width) solid var(--a_json_editor_border_color);
+  border-radius: var(--a_border_radius_small);
+  @include focus.focus-visible;
+}
+
+.a_json_editor__repair__actions {
+  display: flex;
+  gap: var(--a_space_xs);
+}
+
 .a_json_editor__split {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -725,4 +872,10 @@
   --a_json_editor_variable_color: var(--a_color_primary_text_emphasis); // Text of a variable chip.
   --a_json_editor_variable_bg: var(--a_color_primary_bg_subtle); // Background of a variable chip.
   --a_json_editor_variable_border_color: var(--a_color_primary_border_subtle); // Border of a variable chip.
+  --a_json_editor_repair_bg: var(--a_color_warning_bg_subtle); // Background of the preview of "Repair".
+  --a_json_editor_repair_border_color: var(--a_color_warning_border_subtle); // Border of the preview of "Repair".
+  --a_json_editor_swatch_size: 1rem; // Size of the color swatch (color plugin).
+  --a_json_editor_thumb_size: 1.5rem; // Height of the picture (image plugin).
+  --a_json_editor_switch_on_bg: var(--a_color_primary); // Background of a switch with true (switch plugin).
+  --a_json_editor_switch_off_bg: var(--a_color_gray_600); // Background of a switch with false (switch plugin).
 }
