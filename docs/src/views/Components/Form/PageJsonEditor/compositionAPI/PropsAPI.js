@@ -1,5 +1,9 @@
 // the props of the form elements use the shared descriptions
 const PROPS = [
+  ["allow-fullscreen", "_A_JSON_EDITOR_PROPS_ALLOW_FULLSCREEN_DESCRIPTION_", "Boolean", true],
+  ["multiline-max-rows", "_A_JSON_EDITOR_PROPS_MULTILINE_MAX_ROWS_DESCRIPTION_", "Number", 8],
+  ["multiline-strings", "_A_JSON_EDITOR_PROPS_MULTILINE_STRINGS_DESCRIPTION_", "Boolean", true],
+  ["selectable", "_A_JSON_EDITOR_PROPS_SELECTABLE_DESCRIPTION_", "Boolean", true],
   ["always-translate", "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_", "Boolean", undefined],
   ["change", "_A_UI_PROPS_CHANGE_DESCRIPTION_", "Function", "() => {}"],
   ["dependencies", "_A_UI_PROPS_DEPENDENCIES_DESCRIPTION_", "Array / Object", undefined],
@@ -124,9 +128,11 @@ export default function PropsAPI() {
   const dataEvents = [
     { name: "collapse", type: "Function", description: "_A_JSON_EDITOR_EVENTS_COLLAPSE_DESCRIPTION_" },
     { name: "expand", type: "Function", description: "_A_JSON_EDITOR_EVENTS_EXPAND_DESCRIPTION_" },
+    { name: "fullscreen", type: "Function", description: "_A_JSON_EDITOR_EVENTS_FULLSCREEN_DESCRIPTION_" },
     { name: "mode-change", type: "Function", description: "_A_JSON_EDITOR_EVENTS_MODE_CHANGE_DESCRIPTION_" },
     { name: "search", type: "Function", description: "_A_JSON_EDITOR_EVENTS_SEARCH_DESCRIPTION_" },
     { name: "select", type: "Function", description: "_A_JSON_EDITOR_EVENTS_SELECT_DESCRIPTION_" },
+    { name: "selection-change", type: "Function", description: "_A_JSON_EDITOR_EVENTS_SELECTION_CHANGE_DESCRIPTION_" },
     { name: "update:modelValue", type: "Function", description: "_A_UI_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_" },
     { name: "validate", type: "Function", description: "_A_JSON_EDITOR_EVENTS_VALIDATE_DESCRIPTION_" },
   ];

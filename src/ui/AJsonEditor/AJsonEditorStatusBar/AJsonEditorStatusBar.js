@@ -70,6 +70,25 @@ export default {
         ]))),
       ]),
       h("span", { class: "a_json_editor__status__count" }, t("_A_JSON_EDITOR_NODES_", { count: this.nodeCount })),
+      API.selected.value.size > 0 && h("span", { class: "a_json_editor__status__selection" }, [
+        t("_A_JSON_EDITOR_SELECTED_", { count: API.selected.value.size }),
+        " ",
+        h("button", {
+          type: "button",
+          class: "a_btn a_btn_link a_btn_small",
+          onClick: API.copySelected,
+        }, t("_A_JSON_EDITOR_ACTION_COPY_NODE_")),
+        !API.isReadonlyAll.value && h("button", {
+          type: "button",
+          class: "a_btn a_btn_link a_btn_small",
+          onClick: API.removeSelected,
+        }, t("_A_JSON_EDITOR_ACTION_REMOVE_")),
+        h("button", {
+          type: "button",
+          class: "a_btn a_btn_link a_btn_small",
+          onClick: () => API.clearSelection(),
+        }, t("_A_JSON_EDITOR_CLEAR_SELECTION_")),
+      ]),
       (this.errorCount > 0 || this.warningCount > 0) && h("button", {
         type: "button",
         class: "a_btn a_btn_link a_btn_small a_json_editor__status__errors",

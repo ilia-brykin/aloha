@@ -27,6 +27,9 @@ import {
 
 import AUiComponents from "../../AUiComponents";
 import {
+  componentsPluginOptions,
+} from "../../../plugins/AComponentsPlugin";
+import {
   en as i18nEN,
 } from "../../../i18n/allLanguages";
 import {
@@ -167,7 +170,7 @@ describe("AJsonEditor", () => {
     await flush();
     row("/name").focus();
     await key(row("/name"), "Enter");
-    const INPUT = row("/name").querySelector("input");
+    const INPUT = row("/name").querySelector("input, textarea");
     expect(INPUT.getAttribute("aria-label")).toBe("Value of name");
     expect(document.activeElement).toBe(INPUT);
     await typeInto(INPUT, "Berta");
@@ -176,13 +179,13 @@ describe("AJsonEditor", () => {
     expect(document.activeElement.id).toBe(getRowId("editor", "/name"));
 
     await key(row("/name"), "F2");
-    await typeInto(row("/name").querySelector("input"), "Xaver");
-    await key(row("/name").querySelector("input"), "Escape");
+    await typeInto(row("/name").querySelector("input, textarea"), "Xaver");
+    await key(row("/name").querySelector("input, textarea"), "Escape");
     expect(lastModel(wrapper).name).toBe("Berta");
 
     row("/age").focus();
     await key(row("/age"), "F2");
-    const AGE = row("/age").querySelector("input");
+    const AGE = row("/age").querySelector("input, textarea");
     await typeInto(AGE, "abc");
     await key(AGE, "Enter");
     expect(AGE.getAttribute("aria-invalid")).toBe("true");
@@ -197,7 +200,7 @@ describe("AJsonEditor", () => {
     await flush();
     row("/name").focus();
     await key(row("/name"), "F2", { shiftKey: true });
-    const INPUT = row("/name").querySelector("input");
+    const INPUT = row("/name").querySelector("input, textarea");
     expect(INPUT.getAttribute("aria-label")).toBe("Key of name");
     await typeInto(INPUT, "age");
     await key(INPUT, "Enter");
@@ -352,7 +355,7 @@ describe("AJsonEditor", () => {
 
     row("/greeting").focus();
     await key(row("/greeting"), "Enter");
-    const INPUT = row("/greeting").querySelector("input");
+    const INPUT = row("/greeting").querySelector("input, textarea");
     expect(INPUT.getAttribute("role")).toBe("combobox");
     INPUT.value = "Hi {{ ord";
     INPUT.setSelectionRange(9, 9);
@@ -423,8 +426,8 @@ describe("AJsonEditor", () => {
     await flush();
     row("/a").focus();
     await key(row("/a"), "Enter");
-    await typeInto(row("/a").querySelector("input"), "2");
-    await key(row("/a").querySelector("input"), "Enter");
+    await typeInto(row("/a").querySelector("input, textarea"), "2");
+    await key(row("/a").querySelector("input, textarea"), "Enter");
     expect(lastModel(wrapper)).toBe("{\n\t\"a\": 2\n}");
   });
 
@@ -497,7 +500,7 @@ describe("AJsonEditor", () => {
     await key(row("/name"), "Delete");
     expect(wrapper.emitted("update:modelValue")).toBeUndefined();
     await key(row("/name"), "F2", { shiftKey: true });
-    expect(row("/name").querySelector("input")).toBeNull();
+    expect(row("/name").querySelector("input, textarea")).toBeNull();
     // max-depth 1: nothing inside "tags" (level 2), the new key goes next to it
     row("/tags").focus();
     await key(row("/tags"), "Insert");
@@ -579,5 +582,148 @@ describe("AJsonEditor", () => {
     wrapper.vm.undo();
     await flush();
     expect(lastModel(wrapper).name).toBe("Anna");
+  });
+  it("selects many rows with Space, Shift+arrows, Ctrl+click, Shift+click and Ctrl+A, Escape clears", async() => {
+    const wrapper = mountEditor();
+    await flush();
+    const API = wrapper.vm.$.setupState.API;
+    expect(wrapper.get("[role=\"treegrid\"]").attributes("aria-multiselectable")).toBe("true");
+    expect(row("/name").getAttribute("aria-selected")).toBe("false");
+    expect(row("").hasAttribute("aria-selected")).toBe(false);
+
+    row("/name").focus();
+    await key(row("/name"), " ");
+    expect(row("/name").getAttribute("aria-selected")).toBe("true");
+    await key(row("/name"), "ArrowDown", { shiftKey: true });
+    expect(document.activeElement.id).toBe(getRowId("editor", "/age"));
+    expect(row("/age").getAttribute("aria-selected")).toBe("true");
+    expect(status(wrapper)).toBe("2 selected");
+    expect(wrapper.get(".a_json_editor__status__selection").text()).toContain("2 selected");
+
+    await key(document.activeElement, "Escape");
+    expect(row("/name").getAttribute("aria-selected")).toBe("false");
+
+    await wrapper.get(`#${ getRowId("editor", "/active") }`).trigger("click", { ctrlKey: true });
+    await wrapper.get(`#${ getRowId("editor", "/address") }`).trigger("click", { ctrlKey: true });
+    expect(API.selected.value.size).toBe(2);
+    await wrapper.get(`#${ getRowId("editor", "/name") }`).trigger("click", { shiftKey: true });
+    // the range from the anchor (address) to name
+    expect([...API.selected.value]).toEqual(["/name", "/age", "/active", "/tags", "/address"]);
+    await wrapper.get(`#${ getRowId("editor", "/age") }`).trigger("click");
+    expect(API.selected.value.size).toBe(0);
+
+    row("/age").focus();
+    await key(row("/age"), "a", { ctrlKey: true });
+    expect(API.selected.value.size).toBe(5);
+    expect(wrapper.emitted("selectionChange").at(-1)[0].paths).toHaveLength(5);
+  });
+
+  it("removes, moves, copies and pastes the selected rows as one step", async() => {
+    const wrapper = mountEditor();
+    await flush();
+    row("/name").focus();
+    await key(row("/name"), " ");
+    await key(row("/name"), "ArrowDown", { shiftKey: true });
+    // move both down together
+    await key(document.activeElement, "ArrowDown", { altKey: true });
+    expect(Object.keys(lastModel(wrapper))).toEqual(["active", "name", "age", "tags", "address"]);
+    expect(row("/name").getAttribute("aria-selected")).toBe("true");
+    expect(status(wrapper)).toBe("Moved: 2 nodes");
+
+    // copy both and paste them into the open address
+    await key(document.activeElement, "c", { ctrlKey: true });
+    expect(status(wrapper)).toBe("Copied: 2 nodes");
+    row("/address").focus();
+    await key(row("/address"), "ArrowRight");
+    await key(row("/address"), "v", { ctrlKey: true });
+    expect(lastModel(wrapper).address).toEqual({ city: "Bonn", zip: "53111", name: "Anna", age: 30 });
+
+    // remove both: one step of the history
+    await key(document.activeElement, "Escape");
+    expect(wrapper.vm.$.setupState.API.selected.value.size).toBe(0);
+    await wrapper.get(`#${ getRowId("editor", "/name") }`).trigger("click", { ctrlKey: true });
+    await wrapper.get(`#${ getRowId("editor", "/age") }`).trigger("click", { ctrlKey: true });
+    row("/age").focus();
+    await key(row("/age"), "Delete");
+    expect(Object.keys(lastModel(wrapper))).toEqual(["active", "tags", "address"]);
+    expect(status(wrapper)).toBe("Removed: 2 nodes. Ctrl+Z undoes it.");
+    expect(wrapper.vm.$.setupState.API.selected.value.size).toBe(0);
+    await tool(wrapper, "Undo").trigger("click");
+    await flush();
+    expect(Object.keys(lastModel(wrapper))).toEqual(["active", "name", "age", "tags", "address"]);
+  });
+
+  it("multiline strings: a textarea, Shift+Enter adds a line, the view shows the first lines", async() => {
+    const wrapper = mountEditor({ modelValue: { note: "one" }, multilineMaxRows: 4 });
+    await flush();
+    row("/note").focus();
+    await key(row("/note"), "Enter");
+    const AREA = row("/note").querySelector("textarea");
+    expect(AREA).not.toBeNull();
+    expect(AREA.getAttribute("rows")).toBe("1");
+    const EVENT = await key(AREA, "Enter", { shiftKey: true });
+    expect(EVENT.defaultPrevented).toBe(false);
+    expect(row("/note").querySelector("textarea")).not.toBeNull();
+    await typeInto(AREA, "1\n2\n3\n4\n5");
+    expect(AREA.getAttribute("rows")).toBe("4");
+    await key(AREA, "Enter");
+    expect(lastModel(wrapper).note).toBe("1\n2\n3\n4\n5");
+    expect(row("/note").querySelector(".a_json_editor__value_multiline").textContent).toBe("1\n2\n3 +2 lines");
+    expect(row("/note").getAttribute("aria-label")).toBe("note: 1 2 3 4 5, String, 5 lines");
+
+    mountEditor({ id: "single", modelValue: { note: "one" }, multilineStrings: false });
+    await flush();
+    const SINGLE = document.getElementById(getRowId("single", "/note"));
+    SINGLE.focus();
+    await key(SINGLE, "Enter");
+    expect(SINGLE.querySelector("textarea")).toBeNull();
+    expect(SINGLE.querySelector("input")).not.toBeNull();
+  });
+
+  it("takes the defaults of AComponentsPlugin", async() => {
+    componentsPluginOptions.AJsonEditor = { props: { density: "compact", showTypes: false, allowFullscreen: false } };
+    try {
+      const wrapper = mountEditor();
+      await flush();
+      expect(wrapper.get(".a_json_editor").classes()).toContain("a_json_editor_compact");
+      expect(wrapper.find(".a_json_editor__cell_type").exists()).toBe(false);
+      expect(wrapper.find(".a_json_editor__tool_fullscreen").exists()).toBe(false);
+      // a prop wins
+      const OWN = mountEditor({ id: "own", density: "normal" });
+      await flush();
+      expect(OWN.get(".a_json_editor").classes()).toContain("a_json_editor_normal");
+    } finally {
+      delete componentsPluginOptions.AJsonEditor;
+    }
+  });
+
+  it("full screen: the Fullscreen API, else a layer that Escape ends", async() => {
+    const wrapper = mountEditor();
+    await flush();
+    const BUTTON = wrapper.get(".a_json_editor__tool_fullscreen");
+    expect(BUTTON.attributes("aria-pressed")).toBe("false");
+    await BUTTON.trigger("click");
+    await flush();
+    expect(BUTTON.attributes("aria-pressed")).toBe("true");
+    expect(wrapper.get(".a_json_editor").classes()).toContain("a_json_editor_fullscreen");
+    expect(document.documentElement.classList.contains("a_json_editor_fullscreen_open")).toBe(true);
+    expect(status(wrapper)).toBe("Full screen. Escape ends it.");
+    expect(wrapper.emitted("fullscreen")[0][0]).toEqual({ isFullscreen: true });
+    row("").focus();
+    await key(row(""), "Escape");
+    expect(BUTTON.attributes("aria-pressed")).toBe("false");
+    expect(document.documentElement.classList.contains("a_json_editor_fullscreen_open")).toBe(false);
+
+    // with the Fullscreen API
+    const requestFullscreen = vi.fn(() => Promise.resolve());
+    HTMLElement.prototype.requestFullscreen = requestFullscreen;
+    try {
+      await BUTTON.trigger("click");
+      await flush();
+      expect(requestFullscreen).toHaveBeenCalledTimes(1);
+      expect(document.documentElement.classList.contains("a_json_editor_fullscreen_open")).toBe(false);
+    } finally {
+      delete HTMLElement.prototype.requestFullscreen;
+    }
   });
 });

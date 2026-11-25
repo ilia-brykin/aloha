@@ -55,6 +55,10 @@ export default {
 
     const picker = VariablePickerAPI({ API, inputRef, text });
 
+    // strings in a textarea: Enter saves, Shift+Enter adds a line
+    const isMultiline = computed(() => props.part === "value" && IS_TEXT && API.props.multilineStrings);
+    const rows = computed(() => Math.max(1, Math.min(text.value.split("\n").length, API.props.multilineMaxRows)));
+
     const id = computed(() => `${ getRowId(API.htmlIdLocal.value, props.row.pointer) }_edit_${ props.part }`);
     const keyText = computed(() => (props.row.tokens.length ? `${ props.row.key }` : API.rootNameText.value));
 
@@ -131,6 +135,8 @@ export default {
       if ($event.key === "Escape") {
         $event.preventDefault();
         cancel();
+      } else if ($event.key === "Enter" && $event.shiftKey && isMultiline.value) {
+        // Shift+Enter: a new line (the default of the textarea)
       } else if ($event.key === "Enter") {
         $event.preventDefault();
         commit();
@@ -164,7 +170,9 @@ export default {
       error,
       id,
       inputRef,
+      isMultiline,
       IS_TEXT,
+      rows,
       keyText,
       onBlur,
       onInput,
@@ -185,7 +193,7 @@ export default {
       class: "a_json_editor__edit_error",
       role: "alert",
     }, this.error);
-    const HINT = h("span", { id: HINT_ID, class: "a_sr_only" }, API.translate("_A_JSON_EDITOR_EDIT_HINT_"));
+    const HINT = h("span", { id: HINT_ID, class: "a_sr_only" }, API.translate(this.isMultiline ? "_A_JSON_EDITOR_EDIT_HINT_MULTILINE_" : "_A_JSON_EDITOR_EDIT_HINT_"));
 
     if (this.part === "type") {
       const TYPES = API.typesAllowed.value;
@@ -257,12 +265,14 @@ export default {
     const IS_LIST = IS_COMBOBOX && PICKER.isOpen.value;
 
     return h("span", { class: "a_json_editor__edit" }, [
-      h("input", {
+      h(this.isMultiline ? "textarea" : "input", {
         ref: "inputRef",
         id: this.id,
-        type: "text",
+        type: this.isMultiline ? undefined : "text",
+        rows: this.isMultiline ? this.rows : undefined,
         class: ["a_form_control a_form_control_small a_json_editor__edit_input", {
           a_form_control_invalid: !!this.error,
+          a_json_editor__edit_textarea: this.isMultiline,
         }],
         value: this.text,
         inputmode: this.part === "value" && this.row.type === "number" ? "decimal" : undefined,

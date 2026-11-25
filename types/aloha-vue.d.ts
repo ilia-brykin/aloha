@@ -1954,6 +1954,14 @@ export interface AJsonEditorProps {
   /** @default 32 */
   rowHeight?: number;
   /** @default true */
+  allowFullscreen?: boolean;
+  /** @default true */
+  multilineStrings?: boolean;
+  /** @default 8 */
+  multilineMaxRows?: number;
+  /** @default true */
+  selectable?: boolean;
+  /** @default true */
   showCounts?: boolean;
   /** @default true */
   showGuides?: boolean;
@@ -2061,7 +2069,7 @@ export interface AJsonEditorProps {
   /** @default "_A_JSON_EDITOR_KEYBOARD_HINT_" */
   keyboardHint?: string;
 }
-export declare const AJsonEditor: DefineComponent<AJsonEditorProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("collapse" | "expand" | "modeChange" | "search" | "select" | "update:modelValue" | "validate")[]>;
+export declare const AJsonEditor: DefineComponent<AJsonEditorProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("collapse" | "expand" | "fullscreen" | "selectionChange" | "modeChange" | "search" | "select" | "update:modelValue" | "validate")[]>;
 
 export interface ALabelProps {
   alwaysTranslate?: boolean;

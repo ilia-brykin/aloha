@@ -2,6 +2,8 @@ import {
   computed,
   h,
   nextTick,
+  onBeforeUnmount,
+  onMounted,
   provide,
   ref,
   watch,
@@ -49,6 +51,9 @@ import {
   toPointer,
 } from "./utils/jsonPointer";
 import {
+  getPropDefault,
+} from "../../plugins/AComponentsPlugin";
+import {
   resolveVariables,
 } from "./utils/variables";
 import {
@@ -61,6 +66,12 @@ const FORMAT_PROPS = Object.keys(DEFAULT_FORMAT_OPTIONS);
 const bool = (defaultValue = false) => ({ type: Boolean, required: false, default: defaultValue });
 const fn = () => ({ type: Function, required: false, default: undefined });
 const any = (type, defaultValue = undefined) => ({ type, required: false, default: defaultValue });
+// the default can be set for all editors: app.use(AComponentsPlugin, { AJsonEditor: { props: { density: "compact" } } })
+const plugin = (type, name, defaultValue) => ({
+  type,
+  required: false,
+  default: () => getPropDefault("AJsonEditor", name, typeof defaultValue === "function" ? defaultValue() : defaultValue),
+});
 
 export default {
   name: "AJsonEditor",
@@ -101,26 +112,33 @@ export default {
     resetValue: { required: false, default: undefined },
     rootName: any(String, "_A_JSON_EDITOR_ROOT_"),
     mode: { type: String, required: false, default: "tree", validator: value => ["tree", "code", "split"].includes(value) },
-    modes: any(Array, () => ["tree", "code", "split"]),
+    modes: plugin(Array, "modes", () => ["tree", "code", "split"]),
     // ---------- view ----------
-    arrayPageSize: any(Number, 100),
-    density: { type: String, required: false, default: "normal", validator: value => ["compact", "normal"].includes(value) },
+    arrayPageSize: plugin(Number, "arrayPageSize", 100),
+    density: { ...plugin(String, "density", "normal"), validator: value => ["compact", "normal"].includes(value) },
     displayFormatters: any(Object, () => ({})),
     expandLevel: any(Number, 1),
     expandedPaths: any(Array, () => []),
     height: any(String),
-    maxHeight: any(String, "32rem"),
-    pathFormat: { type: String, required: false, default: "dot", validator: value => ["dot", "pointer"].includes(value) },
-    rowHeight: any(Number, 32),
-    showCounts: bool(true),
-    showGuides: bool(true),
-    showHistory: bool(true),
-    showIndexes: bool(true),
-    showStatusBar: bool(true),
-    showToolbar: bool(true),
-    showTypes: bool(true),
-    stringMaxLength: any(Number, 120),
-    virtualThreshold: any(Number, 300),
+    maxHeight: plugin(String, "maxHeight", "32rem"),
+    pathFormat: { ...plugin(String, "pathFormat", "dot"), validator: value => ["dot", "pointer"].includes(value) },
+    rowHeight: plugin(Number, "rowHeight", 32),
+    // the button "full screen" (Fullscreen API, else a fixed layer)
+    allowFullscreen: plugin(Boolean, "allowFullscreen", true),
+    // strings are edited in a textarea: Enter saves, Shift+Enter adds a line; the view shows the lines
+    multilineStrings: plugin(Boolean, "multilineStrings", true),
+    multilineMaxRows: plugin(Number, "multilineMaxRows", 8),
+    // more rows can be chosen (Shift / Ctrl + click, Shift + arrows, Space, Ctrl+A) for remove, move, copy
+    selectable: plugin(Boolean, "selectable", true),
+    showCounts: plugin(Boolean, "showCounts", true),
+    showGuides: plugin(Boolean, "showGuides", true),
+    showHistory: plugin(Boolean, "showHistory", true),
+    showIndexes: plugin(Boolean, "showIndexes", true),
+    showStatusBar: plugin(Boolean, "showStatusBar", true),
+    showToolbar: plugin(Boolean, "showToolbar", true),
+    showTypes: plugin(Boolean, "showTypes", true),
+    stringMaxLength: plugin(Number, "stringMaxLength", 120),
+    virtualThreshold: plugin(Number, "virtualThreshold", 300),
     // ---------- edit ----------
     allowAdd: bool(true),
     allowMove: bool(true),
@@ -129,12 +147,12 @@ export default {
     allowTypeChange: bool(true),
     allowedTypes: any(Array),
     // false, true or "containers": confirm the removal with AConfirm (AModalConfirm in the app)
-    confirmRemove: any([Boolean, String], false),
+    confirmRemove: plugin([Boolean, String], "confirmRemove", false),
     hiddenPaths: any(Array, () => []),
     lockedKeys: any(Array, () => []),
     maxDepth: any(Number),
     readonlyPaths: any(Array, () => []),
-    undoLimit: any(Number, 100),
+    undoLimit: plugin(Number, "undoLimit", 100),
     // ---------- search ----------
     searchable: bool(true),
     searchCaseSensitive: bool(),
@@ -161,7 +179,7 @@ export default {
     escapeSlashes: any(Boolean, undefined),
     escapeUnicode: any(Boolean, undefined),
     formatOn: { type: String, required: false, default: "none", validator: value => ["none", "blur"].includes(value) },
-    formatOptions: any(Object, () => ({})),
+    formatOptions: plugin(Object, "formatOptions", () => ({})),
     indent: any([Number, String]),
     inlineArrays: any([Boolean, Number], undefined),
     inlineObjects: any([Boolean, Number], undefined),
@@ -196,6 +214,8 @@ export default {
   emits: [
     "collapse",
     "expand",
+    "fullscreen",
+    "selectionChange",
     "modeChange",
     "search",
     "select",
@@ -315,7 +335,7 @@ export default {
       canRename,
       changeType,
       clipboard,
-      copyNode,
+      copyNodes,
       duplicate,
       isReadonly,
       isReadonlyAll,
@@ -323,9 +343,11 @@ export default {
       loadChildren,
       move,
       moveBefore,
+      moveMany,
       paste,
       pathText,
       remove,
+      removeMany,
       rename,
       replaceDocument,
       runAction,
@@ -480,6 +502,110 @@ export default {
       announce(translate("_A_JSON_EDITOR_ANNOUNCE_COLLAPSED_ALL_"));
     };
 
+    // ---------- selection of many rows ----------
+    const selected = ref(new Set());
+    const selectionAnchor = ref(null);
+    const selectableRows = computed(() => rows.value.filter(row => !row.isMore && row.tokens.length));
+
+    const setSelection = pointers => {
+      selected.value = new Set(pointers);
+      context.emit("selectionChange", { paths: [...selected.value] });
+      if (selected.value.size) {
+        announce(translate("_A_JSON_EDITOR_ANNOUNCE_SELECTED_", { count: selected.value.size }));
+      }
+    };
+    const isSelected = pointer => selected.value.has(pointer);
+    const toggleSelected = pointer => {
+      if (!props.selectable || pointer === "") {
+        return;
+      }
+      const NEXT = new Set(selected.value);
+      if (NEXT.has(pointer)) {
+        NEXT.delete(pointer);
+      } else {
+        NEXT.add(pointer);
+      }
+      selectionAnchor.value = pointer;
+      setSelection(NEXT);
+    };
+    // Shift: from the anchor to the row, in the order of the visible rows
+    const selectRange = pointer => {
+      if (!props.selectable) {
+        return;
+      }
+      const POINTERS = selectableRows.value.map(row => row.pointer);
+      const FROM = POINTERS.indexOf(selectionAnchor.value ?? activePointer.value);
+      const TO = POINTERS.indexOf(pointer);
+      if (TO === -1) {
+        return;
+      }
+      const START = FROM === -1 ? TO : Math.min(FROM, TO);
+      const END = FROM === -1 ? TO : Math.max(FROM, TO);
+      if (selectionAnchor.value === null) {
+        selectionAnchor.value = POINTERS[FROM] ?? pointer;
+      }
+      setSelection(POINTERS.slice(START, END + 1));
+    };
+    const selectAll = () => {
+      if (props.selectable) {
+        setSelection(selectableRows.value.map(row => row.pointer));
+      }
+    };
+    // silent: after an operation, its own message stays
+    const clearSelection = ({ silent = false } = {}) => {
+      selectionAnchor.value = null;
+      if (selected.value.size) {
+        selected.value = new Set();
+        context.emit("selectionChange", { paths: [] });
+        if (!silent) {
+          announce(translate("_A_JSON_EDITOR_ANNOUNCE_SELECTION_CLEARED_"));
+        }
+      }
+    };
+    // the operations use the selection when the active row is in it
+    const getTargets = tokens => {
+      const POINTER = toPointer(tokens);
+      if (selected.value.size && selected.value.has(POINTER)) {
+        return [...selected.value].map(tokensOf).filter(item => getAt(document.value, item) !== undefined);
+      }
+      return [tokens];
+    };
+
+    // ---------- full screen ----------
+    const isFullscreen = ref(false);
+    const editorRef = ref(undefined);
+    const canNativeFullscreen = () => !!editorRef.value?.requestFullscreen && globalThis.document.fullscreenEnabled !== false;
+    const setFullscreen = value => {
+      if (value === isFullscreen.value) {
+        return;
+      }
+      if (canNativeFullscreen()) {
+        if (value) {
+          editorRef.value.requestFullscreen()?.catch?.(() => {
+            isFullscreen.value = true;
+          });
+        } else if (globalThis.document.fullscreenElement) {
+          globalThis.document.exitFullscreen();
+        }
+      }
+      isFullscreen.value = value;
+      globalThis.document.documentElement.classList.toggle("a_json_editor_fullscreen_open", value && !canNativeFullscreen());
+      context.emit("fullscreen", { isFullscreen: value });
+      announce(translate(value ? "_A_JSON_EDITOR_ANNOUNCE_FULLSCREEN_ON_" : "_A_JSON_EDITOR_ANNOUNCE_FULLSCREEN_OFF_"));
+    };
+    // Escape of the browser ends the native full screen
+    const onFullscreenChange = () => {
+      if (isFullscreen.value && globalThis.document.fullscreenElement !== editorRef.value && canNativeFullscreen()) {
+        isFullscreen.value = false;
+        context.emit("fullscreen", { isFullscreen: false });
+      }
+    };
+    onMounted(() => globalThis.document.addEventListener("fullscreenchange", onFullscreenChange));
+    onBeforeUnmount(() => {
+      globalThis.document.removeEventListener("fullscreenchange", onFullscreenChange);
+      globalThis.document.documentElement.classList.remove("a_json_editor_fullscreen_open");
+    });
+
     // ---------- history ----------
     const historyStep = (fnStep, announcementKey) => {
       if (fnStep()) {
@@ -573,6 +699,19 @@ export default {
         goToError($event.shiftKey ? -1 : 1);
         return;
       }
+      if ($event.key === "Escape" && !IS_FIELD) {
+        if (selected.value.size) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          clearSelection();
+        } else if (isFullscreen.value) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          setFullscreen(false);
+          nextTick(() => treeFocus(activePointer.value));
+        }
+        return;
+      }
       if (IS_FIELD || !MOD) {
         return;
       }
@@ -599,6 +738,8 @@ export default {
     const API = {
       // state
       activePointer,
+      isFullscreen,
+      selected,
       announcement,
       clipboard,
       codeError,
@@ -641,6 +782,13 @@ export default {
       canUndo,
       // functions
       add: async(tokens, options) => afterOperation(await add(tokens, options)),
+      clearSelection,
+      isSelected,
+      selectAll,
+      selectRange,
+      setFullscreen,
+      toggleSelected,
+      selectionAnchor,
       announce,
       canAddInside,
       canAddSibling,
@@ -651,8 +799,12 @@ export default {
       canRename,
       changeType: async(tokens, type) => afterOperation(await changeType(tokens, type)),
       collapseAll: collapseAllAnnounced,
-      copyNode,
-      cutNode: async tokens => afterOperation(await copyNode(tokens, { cut: true })),
+      copyNode: tokens => copyNodes(getTargets(tokens)),
+      cutNode: async tokens => {
+        const RESULT = afterOperation(await copyNodes(getTargets(tokens), { cut: true }));
+        clearSelection({ silent: true });
+        return RESULT;
+      },
       duplicate: async tokens => afterOperation(await duplicate(tokens)),
       expandAll: expandAllAnnounced,
       findVariables: query => findVariables(query, text => translate(text)),
@@ -665,13 +817,39 @@ export default {
       goToMatch,
       isExpanded,
       isReadonly,
-      move: async(tokens, direction) => afterOperation(await move(tokens, direction)),
+      move: async(tokens, direction) => {
+        const TARGETS = getTargets(tokens);
+        if (TARGETS.length < 2) {
+          return afterOperation(await move(tokens, direction));
+        }
+        const NEW_TOKENS = await moveMany(TARGETS, direction);
+        if (!NEW_TOKENS) {
+          return null;
+        }
+        // the selection and the active row move with the nodes
+        const INDEX = TARGETS.findIndex(item => toPointer(item) === toPointer(tokens));
+        selected.value = new Set(NEW_TOKENS.map(toPointer));
+        return afterOperation(NEW_TOKENS[Math.max(0, INDEX)] || NEW_TOKENS[0]);
+      },
       moveBefore: async(fromTokens, targetTokens) => afterOperation(await moveBefore(fromTokens, targetTokens)),
       paste: async tokens => afterOperation(await paste(tokens, { isExpanded: isExpanded(toPointer(tokens)) })),
       pathText: tokens => (props.pathFormat === "pointer" ? toPointer(tokens) || "/" : pathText(tokens)),
       redo: redoAnnounced,
       registerTreeFocus,
-      remove: async tokens => afterOperation(await remove(tokens)),
+      remove: async tokens => {
+        const TARGETS = getTargets(tokens);
+        const RESULT = afterOperation(await (TARGETS.length > 1 ? removeMany(TARGETS) : remove(tokens)));
+        if (RESULT) {
+          clearSelection({ silent: true });
+        }
+        return RESULT;
+      },
+      removeSelected: async() => {
+        const RESULT = afterOperation(await removeMany([...selected.value].map(tokensOf)));
+        clearSelection({ silent: true });
+        return RESULT;
+      },
+      copySelected: () => copyNodes([...selected.value].map(tokensOf)),
       rename,
       replaceDocument,
       reset: resetAnnounced,
@@ -702,6 +880,8 @@ export default {
       isErrors,
       labelDescriptionId,
       modeLocal,
+      editorRef,
+      isFullscreen,
       onFocusout,
       onKeydown,
       rootRef,
@@ -751,10 +931,14 @@ export default {
           isLabelFloat: false,
         }),
         h("div", {
-          ref: "rootRef",
+          ref: element => {
+            this.rootRef = element;
+            this.editorRef = element;
+          },
           class: ["a_json_editor", `a_json_editor_${ this.density }`, `a_json_editor_mode_${ this.modeLocal }`, {
             a_json_editor_disabled: this.disabled,
             a_json_editor_readonly: this.readonly,
+            a_json_editor_fullscreen: this.isFullscreen,
           }],
           onKeydown: this.onKeydown,
           onFocusout: this.onFocusout,

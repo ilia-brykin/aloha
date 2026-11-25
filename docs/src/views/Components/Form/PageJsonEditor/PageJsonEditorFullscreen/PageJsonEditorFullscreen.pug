@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_FULLSCREEN_HEADER_"
+  description="_A_JSON_EDITOR_FULLSCREEN_DESCRIPTION_"
+)
+  a-json-editor(
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_CONFIG_"
+    density="compact"
+    @fullscreen="onFullscreen"
+  )
+  p.a_mt_3(
+    v-if="isFullscreen !== undefined"
+  ) fullscreen: {{ isFullscreen }}

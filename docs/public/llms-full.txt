@@ -24771,6 +24771,7 @@ Keys in the tree:
 - Enter / F2 edit the value, Shift+F2 rename, Alt+F2 type, Escape cancel
 - Insert / Ctrl+Enter add, Delete remove, Ctrl+D duplicate, Alt+↑ Alt+↓ move, Ctrl+C Ctrl+X Ctrl+V
 - Shift+F10 actions, Ctrl+Z undo, Ctrl+Y redo, Ctrl+F search, F3 next match, F8 next error; in a text field {{ or Ctrl+Space opens the variables
+- Space select a row, Shift+↑ Shift+↓ more rows, Ctrl+A all, Escape clear the selection; in a text Shift+Enter a new line
 
 ## Basic usage
 
@@ -24904,6 +24905,148 @@ export default {
 
     return {
       model,
+    };
+  },
+};
+```
+
+## Many rows at once
+
+Space selects a row, Shift+arrows or Shift+click a range, Ctrl+click one more, Ctrl+A all; Escape clears. Delete, Alt+arrows, Ctrl+C / Ctrl+X / Ctrl+V and the menu "Selected" work on all rows as one step of the history. The rows have `aria-selected`, the status bar says the number.
+
+```html
+<a-json-editor
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_SETTINGS_"
+  :expand-level="2"
+  @selection-change="onSelectionChange"
+/>
+<p>{{ paths.join(", ") }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    const model = ref({
+      title: "Newsletter",
+      active: true,
+      sendAt: "09:00",
+      recipients: ["anna@example.com", "ben@example.com", "carl@example.com", "dora@example.com"],
+      layout: {
+        columns: 2,
+        theme: "light",
+      },
+    });
+    const paths = ref([]);
+    const onSelectionChange = ({ paths: selected }) => {
+      paths.value = selected;
+    };
+
+    return {
+      model,
+      onSelectionChange,
+      paths,
+    };
+  },
+};
+```
+
+## Multiline strings
+
+The text of the e-mail has line breaks: the tree shows the first 3 lines and "+N lines", the editor is a textarea (Enter saves, Shift+Enter adds a line, `multiline-max-rows` limits its height). The row says the number of the lines.
+
+```html
+<a-json-editor
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_TEMPLATE_"
+  :multiline-max-rows="6"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    const model = ref({
+      subject: "Your order",
+      body: "Hello,\n\nthank you for your order.\nWe send it tomorrow.\n\nBest regards\nThe team",
+      footer: "Aloha GmbH · Bonn",
+    });
+
+    return {
+      model,
+    };
+  },
+};
+```
+
+## Full screen and defaults for all editors
+
+The button "full screen" uses the Fullscreen API: the page behind it cannot be reached, Escape of the browser ends it; without the API a fixed layer that Escape ends. The visual props (`density`, `show-types`, `max-height`, `modes`, `allow-fullscreen`, `selectable`, `multiline-strings`…) can be set for all editors with `AComponentsPlugin`; a prop of the editor wins.
+
+```html
+<!-- main.js: the defaults for all editors
+app.use(AComponentsPlugin, {
+  AJsonEditor: { props: { density: "compact", showTypes: false } },
+});
+-->
+<a-json-editor
+  v-model="model"
+  label="_A_JSON_EDITOR_EXAMPLE_CONFIG_"
+  density="compact"
+  @fullscreen="onFullscreen"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AJsonEditor,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AJsonEditor,
+  },
+  setup() {
+    const model = ref({
+      server: { host: "localhost", port: 8080, tls: false },
+      features: ["search", "export", "history"],
+      limits: { requests: 1000, burst: 50 },
+    });
+    const isFullscreen = ref(undefined);
+    const onFullscreen = ({ isFullscreen: value }) => {
+      isFullscreen.value = value;
+    };
+
+    return {
+      isFullscreen,
+      model,
+      onFullscreen,
     };
   },
 };
@@ -25577,6 +25720,7 @@ export default {
 | --- | --- | --- | --- | --- |
 | after-change | Function |  |  | Hook after every change: ({ operation, path, value, document }). |
 | allow-add | Boolean | true |  | Elements can be added. |
+| allow-fullscreen | Boolean | true |  | The button "full screen": the Fullscreen API (Escape of the browser ends it), else a fixed layer. |
 | allow-move | Boolean | true |  | Elements can be moved (Alt+arrows, drag and drop, cut and paste). |
 | allow-remove | Boolean | true |  | Elements can be removed. |
 | allow-rename | Boolean | true |  | Keys can be renamed. |
@@ -25643,6 +25787,8 @@ export default {
 | model-undefined | Any | null |  | The value used to reset the model to an undefined state. Useful for clearing the model value. |
 | model-value | Any |  |  | The document: an object, an array, a primitive or (model-type="string") a JSON text. |
 | modes | Array | ["tree", "code", "split"] |  | The modes of the switch in the toolbar. |
+| multiline-max-rows | Number | 8 |  | Maximal number of rows of the textarea of a string. |
+| multiline-strings | Boolean | true |  | Strings are edited in a textarea (Enter saves, Shift+Enter adds a line); the view shows the first lines and "+N lines". |
 | number-format | Function |  |  | Function for numbers in the text, e.g. value => value.toFixed(2). |
 | on-select | Function |  |  | Hook when a node gets active: ({ path, tokens, value }). |
 | parse | Function |  |  | Own parse of the model with model-type="string", e.g. JSON5. |
@@ -25662,6 +25808,7 @@ export default {
 | search-in | String | "both" |  | Search in "keys", "values" or "both". |
 | search-regex | Boolean | false |  | The search is a regular expression at the start. |
 | searchable | Boolean | true |  | The search in the toolbar. |
+| selectable | Boolean | true |  | More rows can be selected (aria-multiselectable): Space, Shift+arrows, Ctrl / Shift + click, Ctrl+A; Delete, Alt+arrows, Ctrl+C, Ctrl+X work on all of them as one step. |
 | show-counts | Boolean | true |  | The number of the elements of objects and arrays. |
 | show-error-summary | Boolean | true |  | The summary of the errors with links to the nodes. |
 | show-guides | Boolean | true |  | The guide lines of the levels. |
@@ -25692,9 +25839,11 @@ export default {
 | --- | --- | --- |
 | collapse | Function | A node was collapsed: { path }. |
 | expand | Function | A node was expanded: { path }. |
+| fullscreen | Function | The full screen was changed: { isFullscreen }. |
 | mode-change | Function | The mode was changed: { mode }. |
 | search | Function | The search was changed: { query, count }. |
 | select | Function | A node got active: { path, tokens, value }. |
+| selection-change | Function | The selected rows were changed: { paths }. |
 | update:modelValue | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | validate | Function | The errors were changed: { isValid, errors: [{ pointer, level, message, extra }] }. |
 
@@ -25825,7 +25974,7 @@ export default {
 | `_A_JSON_EDITOR_HISTORY_SORT_` | Sorted: {{ path }} |
 | `_A_JSON_EDITOR_HISTORY_START_` | Start |
 | `_A_JSON_EDITOR_HISTORY_TYPE_` | Type changed: {{ path }} → {{ type }} |
-| `_A_JSON_EDITOR_KEYBOARD_HINT_` | Arrow up and down move between the rows, right and left open and close a node, Enter or F2 edits the value, Shift+F2 renames the key, Alt+F2 changes the type, Insert adds, Delete removes, Alt+arrow up or down moves, Ctrl+C, Ctrl+X and Ctrl+V copy, cut and paste, Shift+F10 opens the actions, Ctrl+Z undoes, Ctrl+F searches, F8 goes to the next error. |
+| `_A_JSON_EDITOR_KEYBOARD_HINT_` | Arrow up and down move between the rows, right and left open and close a node, Enter or F2 edits the value, Shift+F2 renames the key, Alt+F2 changes the type, Insert adds, Delete removes, Alt+arrow up or down moves, Ctrl+C, Ctrl+X and Ctrl+V copy, cut and paste, Shift+F10 opens the actions, Ctrl+Z undoes, Ctrl+F searches, F8 goes to the next error. Space selects a row, Shift+arrows select more rows, Ctrl+A selects all, Escape clears the selection. |
 | `_A_JSON_EDITOR_LEVEL_ERROR_` | Error |
 | `_A_JSON_EDITOR_LEVEL_INFO_` | Note |
 | `_A_JSON_EDITOR_LEVEL_WARNING_` | Warning |
@@ -25890,6 +26039,8 @@ export default {
 | `--a_json_editor_guide_color` |  | Color of the guide lines of the levels. |
 | `--a_json_editor_row_hover_bg` |  | Background of a row on hover. |
 | `--a_json_editor_row_active_bg` |  | Background of the active row. |
+| `--a_json_editor_row_selected_bg` |  | Background of the selected rows. |
+| `--a_json_editor_fullscreen_z_index` |  | z-index of the full screen layer (without the Fullscreen API). |
 | `--a_json_editor_match_bg` |  | Background of a search match in the text. |
 | `--a_json_editor_match_row_bg` |  | Background of the row of the current match. |
 | `--a_json_editor_key_color` |  | Color of the keys. |

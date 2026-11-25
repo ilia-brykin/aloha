@@ -127,6 +127,28 @@ export default {
           return;
         }
       }
+      // Shift+arrows: the selection grows from the anchor
+      if ($event.shiftKey && !$event.altKey && (KEY === "ArrowUp" || KEY === "ArrowDown")) {
+        run(() => {
+          const NEXT = rows.value[Math.max(0, Math.min(INDEX + (KEY === "ArrowUp" ? -1 : 1), rows.value.length - 1))];
+          if (NEXT && !NEXT.isMore) {
+            if (API.selectionAnchor.value === null) {
+              API.selectionAnchor.value = ROW.pointer;
+            }
+            API.setActive(NEXT.pointer, { focus: true });
+            API.selectRange(NEXT.pointer);
+          }
+        });
+        return;
+      }
+      if (KEY === " " && !MOD) {
+        run(() => API.toggleSelected(ROW.pointer));
+        return;
+      }
+      if (MOD && KEY.toLowerCase() === "a") {
+        run(() => API.selectAll());
+        return;
+      }
       if ($event.altKey && (KEY === "ArrowUp" || KEY === "ArrowDown")) {
         run(() => API.move(TOKENS, KEY === "ArrowUp" ? -1 : 1));
         return;
@@ -297,6 +319,7 @@ export default {
         "aria-labelledby": this.labelId,
         "aria-describedby": `${ this.API.htmlIdLocal.value }_keyboard_hint`,
         "aria-readonly": this.API.isReadonlyAll.value ? "true" : undefined,
+        "aria-multiselectable": PROPS.selectable ? "true" : undefined,
         "aria-rowcount": this.isVirtual ? ROWS.length : undefined,
         onKeydown: this.onKeydown,
       }, [

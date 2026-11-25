@@ -213,16 +213,15 @@ export default function OperationsAPI(props, {
     return done(CONTEXT, NEXT, { label: "_A_JSON_EDITOR_HISTORY_ADD_", focusTokens: NEW_TOKENS });
   };
 
-  const confirmRemoval = tokens => {
-    const VALUE = getAt(document.value, tokens);
-    const IS_NEEDED = props.confirmRemove === true || (props.confirmRemove === "containers" && isContainer(VALUE));
-    if (!IS_NEEDED) {
-      return true;
+  const confirmText = bodyHtml => {
+    // the confirmation is outside of the editor: a native full screen would hide it
+    if (globalThis.document.fullscreenElement) {
+      globalThis.document.exitFullscreen?.();
     }
     return new Promise(resolve => {
       openConfirm({
         headerText: "_A_JSON_EDITOR_CONFIRM_REMOVE_HEADER_",
-        bodyHtml: translate("_A_JSON_EDITOR_CONFIRM_REMOVE_BODY_", { path: pathText(tokens) }),
+        bodyHtml,
         save: () => {
           closeConfirm();
           resolve(true);
@@ -230,6 +229,15 @@ export default function OperationsAPI(props, {
         close: () => resolve(false),
       });
     });
+  };
+
+  const confirmRemoval = tokens => {
+    const VALUE = getAt(document.value, tokens);
+    const IS_NEEDED = props.confirmRemove === true || (props.confirmRemove === "containers" && isContainer(VALUE));
+    if (!IS_NEEDED) {
+      return true;
+    }
+    return confirmText(translate("_A_JSON_EDITOR_CONFIRM_REMOVE_BODY_", { path: pathText(tokens) }));
   };
 
   const remove = async tokens => {
@@ -373,26 +381,170 @@ export default function OperationsAPI(props, {
     return done(CONTEXT, setAt(document.value, tokens, CONTEXT.value), { label: "_A_JSON_EDITOR_HISTORY_SORT_" });
   };
 
-  const copyNode = (tokens, { cut = false } = {}) => {
-    clipboard.value = { key: tokens[tokens.length - 1], value: getAt(document.value, tokens) };
-    writeClipboardText(JSON.stringify(clipboard.value.value, null, 2));
-    announce(translate("_A_JSON_EDITOR_ANNOUNCE_COPIED_", { path: pathText(tokens) }));
-    return cut ? remove(tokens) : null;
+  // the order of the document: "/a/0" before "/a/1", keys in the order of the object
+  const comparePaths = (a, b) => {
+    const LENGTH = Math.min(a.length, b.length);
+    for (let index = 0; index < LENGTH; index++) {
+      if (`${ a[index] }` !== `${ b[index] }`) {
+        const PARENT = getAt(document.value, a.slice(0, index));
+        if (isArray(PARENT)) {
+          return a[index] - b[index];
+        }
+        const KEYS = Object.keys(PARENT || {});
+        return KEYS.indexOf(a[index]) - KEYS.indexOf(b[index]);
+      }
+    }
+    return a.length - b.length;
   };
 
-  // paste: into an open container, else after the node
-  const paste = (tokens, { isExpanded = false } = {}) => {
-    if (!clipboard.value) {
+  const hasPath = tokens => getAt(document.value, tokens.slice(0, -1)) !== undefined && tokens[tokens.length - 1] in (getAt(document.value, tokens.slice(0, -1)) || {});
+
+  // the selected nodes without the ones inside another selected node, in the order of the document
+  const normalizeSelection = tokensList => {
+    const LIST = tokensList.filter(tokens => tokens.length && hasPath(tokens));
+    return LIST.filter(tokens => !LIST.some(other => isAncestor(other, tokens)))
+      .sort(comparePaths);
+  };
+
+  // many nodes at once: one confirmation, the hooks for every node, one step of the history
+  const removeMany = async tokensList => {
+    const LIST = normalizeSelection(tokensList).filter(canRemove);
+    if (!LIST.length) {
+      return null;
+    }
+    if (LIST.length === 1) {
+      return remove(LIST[0]);
+    }
+    const NEEDS_CONFIRM = props.confirmRemove === true || (props.confirmRemove === "containers" && LIST.some(tokens => isContainer(getAt(document.value, tokens))));
+    if (NEEDS_CONFIRM && !await confirmText(translate("_A_JSON_EDITOR_CONFIRM_REMOVE_MANY_BODY_", { count: LIST.length }))) {
+      return null;
+    }
+    const ALLOWED = await LIST.reduce(async(previous, tokens) => {
+      const RESULT = await previous;
+      const CONTEXT = await runBefore("beforeRemove", getContext("remove", tokens));
+      return CONTEXT ? [...RESULT, tokens] : RESULT;
+    }, Promise.resolve([]));
+    if (!ALLOWED.length) {
+      return null;
+    }
+    // from the end: the indexes of the arrays before stay valid
+    const NEXT = ALLOWED.slice().reverse().reduce((result, tokens) => removeAt(result, tokens), document.value);
+    const EXTRA = { count: ALLOWED.length };
+    lastRemoved.value = { path: ALLOWED.slice(0, 3).map(pathText).join(", ") + (ALLOWED.length > 3 ? ", …" : "") };
+    commit(NEXT, { label: "_A_JSON_EDITOR_HISTORY_REMOVE_MANY_", extra: EXTRA });
+    announce(translate("_A_JSON_EDITOR_ANNOUNCE_REMOVED_MANY_", EXTRA));
+    ALLOWED.forEach(tokens => runAfter({ ...getContext("remove", tokens), document: NEXT }));
+    // the focus goes to the parent of the first node
+    return ALLOWED[0].slice(0, -1);
+  };
+
+  /**
+   * Moves many siblings one place up or down together; returns the new paths or null.
+   */
+  const moveMany = async(tokensList, direction) => {
+    const LIST = normalizeSelection(tokensList);
+    if (LIST.length < 2) {
+      return LIST.length ? move(LIST[0], direction) : null;
+    }
+    const PARENT_POINTER = toPointer(LIST[0].slice(0, -1));
+    if (LIST.some(tokens => toPointer(tokens.slice(0, -1)) !== PARENT_POINTER || !canMove(tokens))) {
+      return null;
+    }
+    const ORDERED = direction < 0 ? LIST : LIST.slice().reverse();
+    let next = document.value;
+    const NEW_TOKENS = [];
+    for (const TOKENS of ORDERED) {
+      const RESULT = moveSibling(next, TOKENS, direction);
+      // the block is at the start or the end of the parent: no move
+      if (RESULT.document === next) {
+        return null;
+      }
+      next = RESULT.document;
+      NEW_TOKENS.push(RESULT.tokens);
+    }
+    const ALLOWED = await runBefore("beforeMove", getContext("move", LIST[0], { direction, paths: LIST.map(toPointer) }));
+    if (!ALLOWED) {
+      return null;
+    }
+    const EXTRA = { count: LIST.length };
+    commit(next, { label: "_A_JSON_EDITOR_HISTORY_MOVE_MANY_", extra: EXTRA });
+    announce(translate("_A_JSON_EDITOR_HISTORY_MOVE_MANY_", EXTRA));
+    runAfter({ ...ALLOWED, document: next });
+    return direction < 0 ? NEW_TOKENS : NEW_TOKENS.slice().reverse();
+  };
+
+  // copy: one or many nodes; the system clipboard gets the JSON (one value or an array)
+  const copyNodes = (tokensList, { cut = false } = {}) => {
+    const LIST = normalizeSelection(tokensList);
+    if (!LIST.length) {
+      return null;
+    }
+    clipboard.value = {
+      items: LIST.map(tokens => ({ key: tokens[tokens.length - 1], value: getAt(document.value, tokens) })),
+    };
+    const VALUES = clipboard.value.items.map(item => item.value);
+    writeClipboardText(JSON.stringify(VALUES.length === 1 ? VALUES[0] : VALUES, null, 2));
+    announce(LIST.length === 1 ?
+      translate("_A_JSON_EDITOR_ANNOUNCE_COPIED_", { path: pathText(LIST[0]) }) :
+      translate("_A_JSON_EDITOR_ANNOUNCE_COPIED_MANY_", { count: LIST.length }));
+    if (!cut) {
+      return null;
+    }
+    return LIST.length === 1 ? remove(LIST[0]) : removeMany(LIST);
+  };
+
+  const copyNode = (tokens, options) => copyNodes([tokens], options);
+
+  // paste: into an open container, else after the node; all items are one step of the history
+  const paste = async(tokens, { isExpanded = false } = {}) => {
+    const ITEMS = clipboard.value?.items || [];
+    if (!ITEMS.length) {
       return null;
     }
     const VALUE = getAt(document.value, tokens);
-    const KEY = Number.isInteger(clipboard.value.key) ? undefined : clipboard.value.key;
     const IS_INSIDE = isContainer(VALUE) && (isExpanded || !tokens.length);
-    return add(tokens, {
-      position: IS_INSIDE ? "end" : "after",
-      value: structuredCloneSafe(clipboard.value.value),
-      key: KEY,
-    });
+    if (!(IS_INSIDE ? canAddInside(tokens) : canAddSibling(tokens))) {
+      return null;
+    }
+    const PARENT_TOKENS = IS_INSIDE ? tokens : tokens.slice(0, -1);
+    const START = {
+      document: document.value,
+      lastTokens: null,
+      afterKey: IS_INSIDE ? undefined : tokens[tokens.length - 1],
+      count: 0,
+    };
+    // one item after the other: beforeAdd can change or stop every item
+    const RESULT = await ITEMS.reduce(async(previous, item) => {
+      const STATE = await previous;
+      const PARENT = getAt(STATE.document, PARENT_TOKENS);
+      const KEY = isArray(PARENT) ? undefined : getUniqueKey(PARENT, Number.isInteger(item.key) ? translate("_A_JSON_EDITOR_NEW_KEY_") : `${ item.key }`);
+      let index;
+      if (isArray(PARENT)) {
+        index = STATE.afterKey === undefined ? PARENT.length : STATE.afterKey + 1;
+      }
+      const NEW_TOKENS = [...PARENT_TOKENS, isArray(PARENT) ? index : KEY];
+      const CONTEXT = await runBefore("beforeAdd", { ...getContext("add", NEW_TOKENS), document: STATE.document, oldValue: undefined, value: structuredCloneSafe(item.value) });
+      if (!CONTEXT) {
+        return STATE;
+      }
+      const NEXT = insertAt(STATE.document, PARENT_TOKENS, isArray(PARENT) ?
+        { value: CONTEXT.value, index } :
+        { key: KEY, value: CONTEXT.value, afterKey: STATE.afterKey });
+      return {
+        document: NEXT,
+        lastTokens: NEW_TOKENS,
+        afterKey: isArray(PARENT) ? index : KEY,
+        count: STATE.count + 1,
+      };
+    }, Promise.resolve(START));
+    if (!RESULT.count) {
+      return null;
+    }
+    const EXTRA = { count: RESULT.count, path: pathText(PARENT_TOKENS) };
+    commit(RESULT.document, { label: "_A_JSON_EDITOR_HISTORY_PASTE_", extra: EXTRA });
+    announce(translate("_A_JSON_EDITOR_HISTORY_PASTE_", EXTRA));
+    runAfter({ operation: "paste", path: toPointer(PARENT_TOKENS), tokens: PARENT_TOKENS, document: document.value });
+    return RESULT.lastTokens;
   };
 
   // a whole new document (the code mode, loadChildren, a plugin action)
@@ -438,6 +590,7 @@ export default function OperationsAPI(props, {
     changeType,
     clipboard,
     copyNode,
+    copyNodes,
     duplicate,
     isReadonly,
     isReadonlyAll,
@@ -445,9 +598,11 @@ export default function OperationsAPI(props, {
     loadChildren,
     move,
     moveBefore,
+    moveMany,
     paste,
     pathText,
     remove,
+    removeMany,
     rename,
     replaceDocument,
     runAction,

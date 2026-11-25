@@ -6461,6 +6461,26 @@
               "default": "32"
             },
             {
+              "name": "allowFullscreen",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "multilineStrings",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "multilineMaxRows",
+              "type": "number",
+              "default": "8"
+            },
+            {
+              "name": "selectable",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "showCounts",
               "type": "boolean",
               "default": "true"
@@ -6791,6 +6811,12 @@
               },
               {
                 "name": "expand"
+              },
+              {
+                "name": "fullscreen"
+              },
+              {
+                "name": "selectionChange"
               },
               {
                 "name": "modeChange"

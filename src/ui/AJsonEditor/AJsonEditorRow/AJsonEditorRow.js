@@ -111,6 +111,9 @@ export default {
       return `${ VALUE }`;
     });
 
+    // the lines of a multiline string (the view shows the first ones)
+    const lines = computed(() => (typeof viewValue.value === "string" ? viewValue.value.split("\n") : []));
+
     // the name of the row: "name: Anna, String" / "address, Object, 2 keys" / + "3 errors inside"
     const rowLabel = computed(() => {
       if (props.row.isMore) {
@@ -120,7 +123,10 @@ export default {
       const TYPE = API.translate(type.value.label);
       const PARTS = props.row.isContainer ?
         [keyText.value, TYPE, valueText.value] :
-        [`${ keyText.value }: ${ valueText.value === "" ? API.translate("_A_JSON_EDITOR_EMPTY_STRING_") : valueText.value }`, TYPE];
+        [`${ keyText.value }: ${ valueText.value === "" ? API.translate("_A_JSON_EDITOR_EMPTY_STRING_") : valueText.value.replace(/\n/g, " ") }`, TYPE];
+      if (lines.value.length > 1) {
+        PARTS.push(API.translate("_A_JSON_EDITOR_LINES_", { count: lines.value.length }));
+      }
       if (errorsInside.value) {
         PARTS.push(API.translate("_A_JSON_EDITOR_ERRORS_INSIDE_", { count: errorsInside.value }));
       }
@@ -137,8 +143,18 @@ export default {
       type,
     });
 
-    const onClick = () => {
-      API.setActive(props.row.pointer);
+    // Ctrl / Cmd + click: one more row, Shift + click: a range, a click alone ends the selection
+    const onClick = $event => {
+      const POINTER = props.row.pointer;
+      if ($event?.ctrlKey || $event?.metaKey) {
+        API.toggleSelected(POINTER);
+      } else if ($event?.shiftKey) {
+        API.selectRange(POINTER);
+      } else if (API.selected.value.size) {
+        API.clearSelection();
+        API.selectionAnchor.value = POINTER;
+      }
+      API.setActive(POINTER);
     };
 
     const onDblclick = $event => {
@@ -166,6 +182,7 @@ export default {
       isHovered,
       isMatch,
       keyText,
+      lines,
       onClick,
       onDblclick,
       onFocus,
@@ -243,11 +260,20 @@ export default {
           return h("span", { class: "a_json_editor__value a_json_editor__value_empty" }, "\"\"");
         }
         const MAX = PROPS.stringMaxLength;
-        const TEXT = MAX && VALUE.length > MAX ? `${ VALUE.slice(0, MAX) }…` : VALUE;
+        // multiline: the first 3 lines and "+5 lines"
+        const MAX_LINES = 3;
+        const IS_MORE_LINES = this.lines.length > MAX_LINES;
+        let text = IS_MORE_LINES ? this.lines.slice(0, MAX_LINES).join("\n") : VALUE;
+        if (MAX && text.length > MAX) {
+          text = `${ text.slice(0, MAX) }…`;
+        }
+        const TEXT = text;
         return h("span", {
-          class: "a_json_editor__value a_json_editor__value_string",
+          class: ["a_json_editor__value a_json_editor__value_string", {
+            a_json_editor__value_multiline: this.lines.length > 1,
+          }],
           title: TEXT !== VALUE ? VALUE : undefined,
-        }, splitVariables(TEXT, API.variablePattern.value).map(part => {
+        }, [...splitVariables(TEXT, API.variablePattern.value).map(part => {
           if (part.variable) {
             const IS_KNOWN = !API.props.variables || API.variablesByName.value.has(part.variable);
             return h("span", {
@@ -256,7 +282,9 @@ export default {
             }, highlight(part.variable));
           }
           return highlight(part.text);
-        }));
+        }), IS_MORE_LINES && h("span", {
+          class: "a_json_editor__more_lines",
+        }, ` ${ API.translate("_A_JSON_EDITOR_MORE_LINES_", { count: this.lines.length - MAX_LINES }) }`)]);
       }
       return h("span", {
         class: ["a_json_editor__value", `a_json_editor__value_${ ROW.type }`, {
@@ -289,7 +317,9 @@ export default {
         a_json_editor__row_warning: !HAS_ERROR && ERRORS.length > 0,
         a_json_editor__row_match: this.isMatch,
         a_json_editor__row_readonly: API.isReadonly(ROW.tokens),
+        a_json_editor__row_selected: API.isSelected(ROW.pointer),
       }],
+      "aria-selected": PROPS.selectable && ROW.tokens.length ? `${ API.isSelected(ROW.pointer) }` : undefined,
       "aria-label": this.rowLabel,
       "aria-expanded": ROW.isContainer ? `${ ROW.isExpanded }` : undefined,
       "aria-setsize": ROW.setsize,
@@ -369,7 +399,8 @@ export default {
           buttonTitle: API.translate("_A_JSON_EDITOR_ACTIONS_", { key: this.keyText }),
           buttonAttributes: { tabindex: "-1" },
           placement: "bottom-end",
-          inBody: true,
+          // a menu in body is not visible in the native full screen
+          inBody: !API.isFullscreen.value,
           hasCaret: false,
         }),
       ]),

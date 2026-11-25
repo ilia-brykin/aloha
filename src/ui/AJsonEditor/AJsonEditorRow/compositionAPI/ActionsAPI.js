@@ -120,8 +120,23 @@ export default function ActionsAPI(props, {
       }),
     ];
 
+    // the selection: the actions work on all selected rows
+    const COUNT = API.selected.value.size;
+    const IS_IN_SELECTION = COUNT > 1 && API.isSelected(ROW.pointer);
+    const SELECTION = IS_IN_SELECTION
+? [
+  button("_A_JSON_EDITOR_ACTION_COPY_NODE_", () => API.copyNode(TOKENS), { shortcut: "Ctrl+C" }),
+  button("_A_JSON_EDITOR_ACTION_CUT_", () => API.cutNode(TOKENS), { isHidden: API.isReadonlyAll.value, shortcut: "Ctrl+X" }),
+  button("_A_JSON_EDITOR_ACTION_MOVE_UP_", () => API.move(TOKENS, -1), { isHidden: API.isReadonlyAll.value, shortcut: "Alt+↑" }),
+  button("_A_JSON_EDITOR_ACTION_MOVE_DOWN_", () => API.move(TOKENS, 1), { isHidden: API.isReadonlyAll.value, shortcut: "Alt+↓" }),
+  button("_A_JSON_EDITOR_ACTION_REMOVE_", () => API.remove(TOKENS), { isHidden: API.isReadonlyAll.value, shortcut: "Delete" }),
+  button("_A_JSON_EDITOR_CLEAR_SELECTION_", () => API.clearSelection(), { shortcut: "Escape" }),
+]
+: [];
+
     // a group only with visible actions
     const GROUPS = [
+      [t("_A_JSON_EDITOR_GROUP_SELECTION_", { count: COUNT }), SELECTION],
       ["_A_JSON_EDITOR_GROUP_EDIT_", EDIT],
       ["_A_JSON_EDITOR_GROUP_ADD_", ADD],
       ["_A_JSON_EDITOR_GROUP_MOVE_", MOVE],

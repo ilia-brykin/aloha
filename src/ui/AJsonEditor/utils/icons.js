@@ -19,3 +19,5 @@ export const IconBraces = svg("<path d=\"M6 2.5c-1.5 0-2 .7-2 2v1.5c0 1-.6 2-1.5
 export const IconFormat = svg("<path d=\"M2.5 4h11M5 8h8.5M5 12h8.5M2.5 8h0M2.5 12h0\"/>");
 export const IconMinify = svg("<path d=\"M2.5 6.5h11M2.5 9.5h7\"/>");
 export const IconError = svg("<circle cx=\"8\" cy=\"8\" r=\"6\"/><path d=\"M8 5v3.5M8 11h0\"/>");
+export const IconFullscreen = svg("<path d=\"M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10\"/>");
+export const IconFullscreenExit = svg("<path d=\"M6 2.5V6H2.5M13.5 6H10V2.5M10 13.5V10h3.5M2.5 10H6v3.5\"/>");

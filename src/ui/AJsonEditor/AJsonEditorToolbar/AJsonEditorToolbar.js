@@ -13,6 +13,8 @@ import {
   IconCollapseAll,
   IconExpandAll,
   IconEye,
+  IconFullscreen,
+  IconFullscreenExit,
   IconHistory,
   IconNext,
   IconPrev,
@@ -160,6 +162,16 @@ export default {
         },
         pressed: API.showResolved.value,
       }),
+      PROPS.allowFullscreen && h("button", {
+        type: "button",
+        class: "a_btn a_btn_transparent_secondary a_btn_small a_json_editor__tool a_json_editor__tool_fullscreen",
+        title: t("_A_JSON_EDITOR_FULLSCREEN_"),
+        "aria-pressed": `${ API.isFullscreen.value }`,
+        onClick: () => API.setFullscreen(!API.isFullscreen.value),
+      }, [
+        h(AIcon, { icon: API.isFullscreen.value ? IconFullscreenExit : IconFullscreen, class: "a_json_editor__tool__icon" }),
+        h("span", { class: "a_sr_only" }, t("_A_JSON_EDITOR_FULLSCREEN_")),
+      ]),
     ]);
 
     const SEARCH_ID = `${ ID }_search`;

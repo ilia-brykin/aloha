@@ -5,15 +5,18 @@ import PageJsonEditorBasic from "./PageJsonEditorBasic/PageJsonEditorBasic.vue";
 import PageJsonEditorBig from "./PageJsonEditorBig/PageJsonEditorBig.vue";
 import PageJsonEditorForm from "./PageJsonEditorForm/PageJsonEditorForm.vue";
 import PageJsonEditorFormat from "./PageJsonEditorFormat/PageJsonEditorFormat.vue";
+import PageJsonEditorFullscreen from "./PageJsonEditorFullscreen/PageJsonEditorFullscreen.vue";
 import PageJsonEditorHistory from "./PageJsonEditorHistory/PageJsonEditorHistory.vue";
 import PageJsonEditorHooks from "./PageJsonEditorHooks/PageJsonEditorHooks.vue";
 import PageJsonEditorModelString from "./PageJsonEditorModelString/PageJsonEditorModelString.vue";
+import PageJsonEditorMultiline from "./PageJsonEditorMultiline/PageJsonEditorMultiline.vue";
 import PageJsonEditorPlugin from "./PageJsonEditorPlugin/PageJsonEditorPlugin.vue";
 import PageJsonEditorReadonly from "./PageJsonEditorReadonly/PageJsonEditorReadonly.vue";
 import PageJsonEditorRights from "./PageJsonEditorRights/PageJsonEditorRights.vue";
 import PageJsonEditorRules from "./PageJsonEditorRules/PageJsonEditorRules.vue";
 import PageJsonEditorSchema from "./PageJsonEditorSchema/PageJsonEditorSchema.vue";
 import PageJsonEditorSearch from "./PageJsonEditorSearch/PageJsonEditorSearch.vue";
+import PageJsonEditorSelection from "./PageJsonEditorSelection/PageJsonEditorSelection.vue";
 import PageJsonEditorSlots from "./PageJsonEditorSlots/PageJsonEditorSlots.vue";
 import PageJsonEditorVariables from "./PageJsonEditorVariables/PageJsonEditorVariables.vue";
 import {
@@ -33,6 +36,9 @@ export default {
     PageJsonEditorBasic,
     PageJsonEditorHistory,
     PageJsonEditorSearch,
+    PageJsonEditorSelection,
+    PageJsonEditorMultiline,
+    PageJsonEditorFullscreen,
     PageJsonEditorVariables,
     PageJsonEditorRules,
     PageJsonEditorSchema,
