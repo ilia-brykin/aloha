@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_SLOTS_HEADER_"
+  description="_A_JSON_EDITOR_SLOTS_DESCRIPTION_"
+)
+  a-json-editor(
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_FEATURES_"
+  )
+    template(
+      v-slot:value-boolean="{ value }"
+    )
+      a-translation.a_badge(
+        :class="value ? 'a_badge_success' : 'a_badge_secondary'"
+        tag="span"
+        :text="value ? '_A_JSON_EDITOR_EXAMPLE_ON_' : '_A_JSON_EDITOR_EXAMPLE_OFF_'"
+      )
+    template(
+      v-slot:status="{ document }"
+    )
+      a-translation(
+        tag="span"
+        text="_A_JSON_EDITOR_EXAMPLE_ACTIVE_COUNT_"
+        :extra="{ count: Object.values(document || {}).filter(Boolean).length }"
+      )

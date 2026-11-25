@@ -11,6 +11,7 @@ import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AInputOtp from "./AInputOtp/AInputOtp";
 import AInputTags from "./AInputTags/AInputTags";
 import AJson from "./AJson/AJson";
+import AJsonEditor from "./AJsonEditor/AJsonEditor";
 import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
@@ -43,6 +44,7 @@ export default {
   integerPositiveRange: AInputNumberRange,
   integerRange: AInputNumberRange,
   json: AJson,
+  jsonEditor: AJsonEditor,
   multiselect: ASelect,
   multiselectIcon: ASelectIcon,
   multiselectStyle: ASelectStyle,

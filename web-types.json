@@ -6278,6 +6278,539 @@
           }
         },
         {
+          "name": "AJsonEditor",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "AJsonEditor"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_json_editor_22\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelUndefined",
+              "type": "any[] | Record<string, any> | string | number | boolean",
+              "default": "null"
+            },
+            {
+              "name": "modelValue",
+              "type": "any"
+            },
+            {
+              "name": "readonly",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"jsonEditor\""
+            },
+            {
+              "name": "modelType",
+              "type": "string",
+              "default": "\"object\""
+            },
+            {
+              "name": "resetValue",
+              "type": "any"
+            },
+            {
+              "name": "rootName",
+              "type": "string",
+              "default": "\"_A_JSON_EDITOR_ROOT_\""
+            },
+            {
+              "name": "mode",
+              "type": "string",
+              "default": "\"tree\""
+            },
+            {
+              "name": "modes",
+              "type": "any[]",
+              "default": "[\"tree\",\"code\",\"split\"]"
+            },
+            {
+              "name": "arrayPageSize",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "density",
+              "type": "string",
+              "default": "\"normal\""
+            },
+            {
+              "name": "displayFormatters",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "expandLevel",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "expandedPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "height",
+              "type": "string"
+            },
+            {
+              "name": "maxHeight",
+              "type": "string",
+              "default": "\"32rem\""
+            },
+            {
+              "name": "pathFormat",
+              "type": "string",
+              "default": "\"dot\""
+            },
+            {
+              "name": "rowHeight",
+              "type": "number",
+              "default": "32"
+            },
+            {
+              "name": "showCounts",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showGuides",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showHistory",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showIndexes",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showStatusBar",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showToolbar",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showTypes",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "stringMaxLength",
+              "type": "number",
+              "default": "120"
+            },
+            {
+              "name": "virtualThreshold",
+              "type": "number",
+              "default": "300"
+            },
+            {
+              "name": "allowAdd",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowMove",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowRemove",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowRename",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowTypeChange",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowedTypes",
+              "type": "any[]"
+            },
+            {
+              "name": "confirmRemove",
+              "type": "boolean | string",
+              "default": "false"
+            },
+            {
+              "name": "hiddenPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "lockedKeys",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "maxDepth",
+              "type": "number"
+            },
+            {
+              "name": "readonlyPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "undoLimit",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "searchable",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "searchCaseSensitive",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchDebounce",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "searchFilter",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchIn",
+              "type": "string",
+              "default": "\"both\""
+            },
+            {
+              "name": "searchRegex",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "allowUnknownVariables",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "showResolved",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "variablePattern",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "variableValues",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "variables",
+              "type": "any[] | ((...args: any[]) => any)"
+            },
+            {
+              "name": "blockInvalidSave",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "errorSummaryPosition",
+              "type": "string",
+              "default": "\"top\""
+            },
+            {
+              "name": "maxErrors",
+              "type": "number"
+            },
+            {
+              "name": "rules",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "schema",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "showErrorSummary",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "validateOn",
+              "type": "string",
+              "default": "\"change\""
+            },
+            {
+              "name": "emptyContainers",
+              "type": "string"
+            },
+            {
+              "name": "escapeSlashes",
+              "type": "boolean"
+            },
+            {
+              "name": "escapeUnicode",
+              "type": "boolean"
+            },
+            {
+              "name": "formatOn",
+              "type": "string",
+              "default": "\"none\""
+            },
+            {
+              "name": "formatOptions",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "indent",
+              "type": "number | string"
+            },
+            {
+              "name": "inlineArrays",
+              "type": "boolean | number"
+            },
+            {
+              "name": "inlineObjects",
+              "type": "boolean | number"
+            },
+            {
+              "name": "lineEnding",
+              "type": "string"
+            },
+            {
+              "name": "maxLineLength",
+              "type": "number"
+            },
+            {
+              "name": "minify",
+              "type": "boolean"
+            },
+            {
+              "name": "numberFormat",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "sortKeys",
+              "type": "boolean | string | ((...args: any[]) => any)"
+            },
+            {
+              "name": "spaceAfterColon",
+              "type": "boolean"
+            },
+            {
+              "name": "trailingNewline",
+              "type": "boolean"
+            },
+            {
+              "name": "afterChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeAdd",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeMove",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeRemove",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeRename",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeSet",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeTypeChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "getNodeActions",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "getValueType",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "loadChildren",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "onSelect",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "parse",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "stringify",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "validateDocument",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "validateNode",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "plugins",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "keyboardHint",
+              "type": "string",
+              "default": "\"_A_JSON_EDITOR_KEYBOARD_HINT_\""
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "collapse"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "modeChange"
+              },
+              {
+                "name": "search"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "update:modelValue"
+              },
+              {
+                "name": "validate"
+              }
+            ]
+          }
+        },
+        {
           "name": "ALabel",
           "source": {
             "module": "aloha-vue",
@@ -6469,7 +7002,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_link_22\""
+              "default": "\"a_link_23\""
             },
             {
               "name": "isTitleHtml",
@@ -6895,7 +7428,7 @@
             {
               "name": "menuId",
               "type": "string",
-              "default": "\"a_menu_23\""
+              "default": "\"a_menu_24\""
             },
             {
               "name": "onlyMobile",
@@ -7095,7 +7628,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_24\""
+              "default": "\"a_modal_25\""
             },
             {
               "name": "isCloseButtonHide",
@@ -7336,7 +7869,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_form_25\""
+              "default": "\"a_modal_form_26\""
             },
             {
               "name": "idPrefix",
@@ -7765,7 +8298,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_wizard_26\""
+              "default": "\"a_modal_wizard_27\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -8044,7 +8577,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_m_select_ordered_27\""
+              "default": "\"a_m_select_ordered_28\""
             },
             {
               "name": "idPrefix",
@@ -8447,7 +8980,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_28\""
+              "default": "\"a_one_checkbox_29\""
             },
             {
               "name": "idPrefix",
@@ -8931,7 +9464,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_29\""
+              "default": "\"a_radio_30\""
             },
             {
               "name": "idPrefix",
@@ -9237,7 +9770,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_30\""
+              "default": "\"a_rate_31\""
             },
             {
               "name": "idPrefix",
@@ -9540,7 +10073,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_31\""
+              "default": "\"a_router_link_config_32\""
             },
             {
               "name": "idPrefix",
@@ -9928,7 +10461,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_32\""
+              "default": "\"a_ui_33\""
             },
             {
               "name": "idPrefix",
@@ -10337,7 +10870,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_33\""
+              "default": "\"a_select_icon_34\""
             },
             {
               "name": "idPrefix",
@@ -10668,7 +11201,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_34\""
+              "default": "\"a_select_styles_35\""
             },
             {
               "name": "idPrefix",
@@ -10973,7 +11506,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_35\""
+              "default": "\"a_show_more_36\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -11204,7 +11737,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_36\""
+              "default": "\"a_slider_37\""
             },
             {
               "name": "idPrefix",
@@ -11475,7 +12008,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_37\""
+              "default": "\"a_switch_38\""
             },
             {
               "name": "idPrefix",
@@ -11712,7 +12245,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table38\""
+              "default": "\"a_table39\""
             },
             {
               "name": "isActionColumnVisible",
@@ -12084,7 +12617,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_39\""
+              "default": "\"a_table_form_40\""
             },
             {
               "name": "isActionsSticky",
@@ -12233,7 +12766,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_40\""
+              "default": "\"a_tabs_41\""
             },
             {
               "name": "isBoxed",
@@ -12474,7 +13007,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_41\""
+              "default": "\"a_textarea_42\""
             },
             {
               "name": "idPrefix",
@@ -12610,7 +13143,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_42\""
+              "default": "\"a_tooltip_43\""
             },
             {
               "name": "isHide",
@@ -12788,7 +13321,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_43\""
+              "default": "\"a_tree_44\""
             },
             {
               "name": "indent",
@@ -12983,7 +13516,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_44\""
+              "default": "\"a_validated_json_45\""
             },
             {
               "name": "idPrefix",
@@ -13248,7 +13781,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_45\""
+              "default": "\"a_wizard_46\""
             },
             {
               "name": "isBackButtonDisabled",

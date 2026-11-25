@@ -22,6 +22,7 @@ import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
 import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 import AInputOtpI18n from "../ui/AInputOtp/i18n/AInputOtpI18n";
 import AInputTagsI18n from "../ui/AInputTags/i18n/AInputTagsI18n";
+import AJsonEditorI18n from "../ui/AJsonEditor/i18n/AJsonEditorI18n";
 import AJsonI18n from "../ui/AJson/i18n/AJsonI18n";
 import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
 import ALoadingI18n from "../ALoading/i18n/ALoadingI18n";
@@ -89,6 +90,7 @@ export const ar = {
   ...AInputTagsI18n.ar,
   ...ARateI18n.ar,
   ...AJsonI18n.ar,
+  ...AJsonEditorI18n.ar,
   ...ALinkCopyI18n.ar,
   ...ALoadingI18n.ar,
   ...AMenu2I18n.ar,
@@ -143,6 +145,7 @@ export const de = {
   ...AInputTagsI18n.de,
   ...ARateI18n.de,
   ...AJsonI18n.de,
+  ...AJsonEditorI18n.de,
   ...ALinkCopyI18n.de,
   ...ALoadingI18n.de,
   ...AMenu2I18n.de,
@@ -197,6 +200,7 @@ export const en = {
   ...AInputTagsI18n.en,
   ...ARateI18n.en,
   ...AJsonI18n.en,
+  ...AJsonEditorI18n.en,
   ...ALinkCopyI18n.en,
   ...ALoadingI18n.en,
   ...AMenu2I18n.en,
@@ -251,6 +255,7 @@ export const es = {
   ...AInputTagsI18n.es,
   ...ARateI18n.es,
   ...AJsonI18n.es,
+  ...AJsonEditorI18n.es,
   ...ALinkCopyI18n.es,
   ...ALoadingI18n.es,
   ...AMenu2I18n.es,
@@ -305,6 +310,7 @@ export const fr = {
   ...AInputTagsI18n.fr,
   ...ARateI18n.fr,
   ...AJsonI18n.fr,
+  ...AJsonEditorI18n.fr,
   ...ALinkCopyI18n.fr,
   ...ALoadingI18n.fr,
   ...AMenu2I18n.fr,
@@ -359,6 +365,7 @@ export const hr = {
   ...AInputTagsI18n.hr,
   ...ARateI18n.hr,
   ...AJsonI18n.hr,
+  ...AJsonEditorI18n.hr,
   ...ALinkCopyI18n.hr,
   ...ALoadingI18n.hr,
   ...AMenu2I18n.hr,
@@ -413,6 +420,7 @@ export const it = {
   ...AInputTagsI18n.it,
   ...ARateI18n.it,
   ...AJsonI18n.it,
+  ...AJsonEditorI18n.it,
   ...ALinkCopyI18n.it,
   ...ALoadingI18n.it,
   ...AMenu2I18n.it,
@@ -467,6 +475,7 @@ export const nl = {
   ...AInputTagsI18n.nl,
   ...ARateI18n.nl,
   ...AJsonI18n.nl,
+  ...AJsonEditorI18n.nl,
   ...ALinkCopyI18n.nl,
   ...ALoadingI18n.nl,
   ...AMenu2I18n.nl,
@@ -521,6 +530,7 @@ export const pl = {
   ...AInputTagsI18n.pl,
   ...ARateI18n.pl,
   ...AJsonI18n.pl,
+  ...AJsonEditorI18n.pl,
   ...ALinkCopyI18n.pl,
   ...ALoadingI18n.pl,
   ...AMenu2I18n.pl,
@@ -575,6 +585,7 @@ export const ru = {
   ...AInputTagsI18n.ru,
   ...ARateI18n.ru,
   ...AJsonI18n.ru,
+  ...AJsonEditorI18n.ru,
   ...ALinkCopyI18n.ru,
   ...ALoadingI18n.ru,
   ...AMenu2I18n.ru,
@@ -629,6 +640,7 @@ export const uk = {
   ...AInputTagsI18n.uk,
   ...ARateI18n.uk,
   ...AJsonI18n.uk,
+  ...AJsonEditorI18n.uk,
   ...ALinkCopyI18n.uk,
   ...ALoadingI18n.uk,
   ...AMenu2I18n.uk,

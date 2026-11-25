@@ -1,0 +1,662 @@
+@use "../../utils/focus";
+
+.a_json_editor {
+  position: relative;
+  color: var(--a_json_editor_color);
+  background-color: var(--a_json_editor_bg);
+  border: var(--a_border_width) solid var(--a_json_editor_border_color);
+  border-radius: var(--a_json_editor_border_radius);
+  font-size: var(--a_json_editor_font_size);
+}
+
+.a_json_editor_disabled {
+  opacity: .65;
+  .a_json_editor__scroll {
+    pointer-events: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Toolbar, history
+// ---------------------------------------------------------------------------
+.a_json_editor__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_space_xs) var(--a_space_md);
+  padding: var(--a_space_xs) var(--a_space_sm);
+  border-bottom: var(--a_border_width) solid var(--a_json_editor_border_color);
+  background-color: var(--a_json_editor_toolbar_bg);
+  border-radius: var(--a_json_editor_border_radius) var(--a_json_editor_border_radius) 0 0;
+}
+
+.a_json_editor__toolbar__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .125rem;
+}
+
+.a_json_editor__tool {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+  &[aria-pressed="true"] {
+    color: var(--a_json_editor_pressed_color);
+    background-color: var(--a_json_editor_pressed_bg);
+  }
+}
+
+.a_json_editor__tool__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.a_json_editor__search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.a_json_editor__search__icon {
+  position: absolute;
+  inset-inline-start: .5rem;
+  width: .875rem;
+  height: .875rem;
+  color: var(--a_color_text_muted);
+  pointer-events: none;
+}
+
+.a_json_editor__search__input {
+  width: var(--a_json_editor_search_width);
+  padding-inline-start: 1.75rem;
+}
+
+.a_json_editor__search__count {
+  min-width: 4.5rem;
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+  white-space: nowrap;
+}
+
+.a_json_editor__search_option {
+  font-size: var(--a_font_size_sm);
+  &[aria-pressed="true"] {
+    color: var(--a_json_editor_pressed_color);
+    background-color: var(--a_json_editor_pressed_bg);
+  }
+}
+
+.a_json_editor__history {
+  max-height: 12rem;
+  padding: var(--a_space_xs) var(--a_space_sm);
+  overflow: auto;
+  border-bottom: var(--a_border_width) solid var(--a_json_editor_border_color);
+}
+
+.a_json_editor__history__title {
+  margin: 0 0 var(--a_space_xs);
+  font-weight: 600;
+}
+
+.a_json_editor__history__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a_json_editor__history__button {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--a_space_md);
+  width: 100%;
+  padding: .25rem var(--a_space_sm);
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  background: none;
+  border: 0;
+  border-inline-start: 3px solid transparent;
+  border-radius: var(--a_border_radius_small);
+  cursor: pointer;
+  @include focus.focus-visible;
+  &:hover {
+    background-color: var(--a_json_editor_row_hover_bg);
+  }
+  &[aria-current="step"] {
+    font-weight: 600;
+    border-inline-start-color: var(--a_color_primary);
+    background-color: var(--a_json_editor_row_active_bg);
+  }
+}
+
+// steps after the current one: they can be redone
+.a_json_editor__history__item_future .a_json_editor__history__button {
+  color: var(--a_color_text_muted);
+}
+
+.a_json_editor__history__time {
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+  white-space: nowrap;
+}
+
+// ---------------------------------------------------------------------------
+// Error summary
+// ---------------------------------------------------------------------------
+.a_json_editor__summary {
+  padding: var(--a_space_sm);
+  color: var(--a_color_danger_text_emphasis);
+  background-color: var(--a_color_danger_bg_subtle);
+  border-bottom: var(--a_border_width) solid var(--a_color_danger_border_subtle);
+  @include focus.focus-visible;
+}
+
+.a_json_editor__summary_warning {
+  color: var(--a_color_warning_text_emphasis);
+  background-color: var(--a_color_warning_bg_subtle);
+}
+
+.a_json_editor__summary__title {
+  margin: 0 0 var(--a_space_xs);
+  font-weight: 600;
+}
+
+.a_json_editor__summary__list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.a_json_editor__summary__button {
+  padding: 0;
+  text-align: start;
+}
+
+// ---------------------------------------------------------------------------
+// Tree (treegrid)
+// ---------------------------------------------------------------------------
+.a_json_editor__scroll {
+  overflow: auto;
+}
+
+.a_json_editor__empty {
+  padding: var(--a_space_md);
+  color: var(--a_color_text_muted);
+}
+
+.a_json_editor__tree {
+  min-width: max-content;
+  padding: var(--a_space_xs) 0;
+  font-family: var(--a_json_editor_font_family);
+}
+
+.a_json_editor__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(var(--a_json_editor_key_width), max-content) minmax(8rem, 1fr) auto 2.5rem;
+  align-items: center;
+  min-height: var(--a_json_editor_row_height);
+  padding-inline-end: var(--a_space_xs);
+  border-inline-start: 3px solid transparent;
+  cursor: default;
+  outline: 0;
+  &:hover {
+    background-color: var(--a_json_editor_row_hover_bg);
+  }
+  &:focus-visible {
+    box-shadow: var(--a_focus_ring_inset);
+  }
+}
+
+.a_json_editor__tree:not(.a_json_editor__tree_types) .a_json_editor__row {
+  grid-template-columns: minmax(var(--a_json_editor_key_width), max-content) minmax(8rem, 1fr) 2.5rem;
+}
+
+.a_json_editor__row_active {
+  background-color: var(--a_json_editor_row_active_bg);
+}
+
+.a_json_editor__row_match {
+  background-color: var(--a_json_editor_match_row_bg);
+}
+
+.a_json_editor__row_error {
+  border-inline-start-color: var(--a_color_danger);
+}
+
+.a_json_editor__row_warning {
+  border-inline-start-color: var(--a_color_warning);
+}
+
+.a_json_editor__row_dragged {
+  opacity: .5;
+}
+
+.a_json_editor__row_drop {
+  box-shadow: inset 0 2px 0 var(--a_color_primary);
+}
+
+.a_json_editor__row_readonly .a_json_editor__value {
+  opacity: .8;
+}
+
+.a_json_editor__row_more {
+  display: flex;
+  color: var(--a_color_primary_text);
+  cursor: pointer;
+}
+
+.a_json_editor__cell {
+  min-width: 0;
+  padding: .125rem var(--a_space_xs);
+}
+
+.a_json_editor__cell_key {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .125rem;
+  padding-inline-start: calc(var(--a_json_editor_level) * var(--a_json_editor_indent) + var(--a_space_xs));
+  white-space: nowrap;
+}
+
+.a_json_editor__cell_more {
+  padding-inline-start: calc(var(--a_json_editor_level) * var(--a_json_editor_indent) + 1.5rem);
+}
+
+// the guides: one line per level
+.a_json_editor__scroll_guides .a_json_editor__cell_key::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: calc(var(--a_space_xs) + .5rem);
+  width: calc(var(--a_json_editor_level) * var(--a_json_editor_indent));
+  background-image: linear-gradient(to right, var(--a_json_editor_guide_color) 1px, transparent 1px);
+  background-size: var(--a_json_editor_indent) 100%;
+  pointer-events: none;
+}
+
+.a_json_editor__toggle {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--a_color_text_muted);
+  border-radius: var(--a_border_radius_small);
+  cursor: pointer;
+  &:hover {
+    color: var(--a_json_editor_color);
+    background-color: var(--a_json_editor_row_active_bg);
+  }
+}
+
+.a_json_editor__toggle__icon {
+  width: .875rem;
+  height: .875rem;
+  transition: transform var(--a_duration_fast, .15s) var(--a_easing, ease);
+}
+
+.a_json_editor__toggle_open .a_json_editor__toggle__icon {
+  transform: rotate(90deg);
+}
+
+[dir="rtl"] .a_json_editor__toggle:not(.a_json_editor__toggle_open) .a_json_editor__toggle__icon {
+  transform: rotate(180deg);
+}
+
+.a_json_editor__toggle_hidden {
+  visibility: hidden;
+}
+
+.a_json_editor__key_text {
+  color: var(--a_json_editor_key_color);
+  font-weight: 500;
+}
+
+.a_json_editor__key_text_index {
+  color: var(--a_color_text_muted);
+  font-weight: 400;
+}
+
+.a_json_editor__key_text_root {
+  font-weight: 600;
+}
+
+.a_json_editor__colon {
+  color: var(--a_color_text_muted);
+}
+
+.a_json_editor__value {
+  overflow-wrap: anywhere;
+}
+
+.a_json_editor__value_string {
+  color: var(--a_json_editor_string_color);
+}
+
+.a_json_editor__value_number {
+  color: var(--a_json_editor_number_color);
+}
+
+.a_json_editor__value_boolean {
+  color: var(--a_json_editor_boolean_color);
+  font-weight: 500;
+}
+
+.a_json_editor__value_null,
+.a_json_editor__value_empty {
+  color: var(--a_color_text_muted);
+  font-style: italic;
+}
+
+.a_json_editor__value_resolved {
+  text-decoration: underline dotted;
+}
+
+.a_json_editor__count {
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__mark {
+  padding: 0 .0625rem;
+  color: inherit;
+  background-color: var(--a_json_editor_match_bg);
+  border-radius: 2px;
+}
+
+.a_json_editor__variable {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 .0625rem;
+  padding: 0 .375rem;
+  color: var(--a_json_editor_variable_color);
+  background-color: var(--a_json_editor_variable_bg);
+  border: 1px solid var(--a_json_editor_variable_border_color);
+  border-radius: var(--a_border_radius_pill);
+  font-size: .875em;
+  white-space: nowrap;
+  &::before {
+    content: "{ }";
+    margin-inline-end: .25rem;
+    opacity: .7;
+    font-size: .8em;
+  }
+}
+
+.a_json_editor__variable_unknown {
+  color: var(--a_color_danger_text_emphasis);
+  background-color: var(--a_color_danger_bg_subtle);
+  border-style: dashed;
+  border-color: var(--a_color_danger);
+}
+
+.a_json_editor__type {
+  display: inline-block;
+  padding: 0 .375rem;
+  color: var(--a_color_text_muted);
+  border: 1px solid var(--a_json_editor_border_color);
+  border-radius: var(--a_border_radius_pill);
+  font-family: var(--a_body_font_family, inherit);
+  font-size: .75rem;
+  white-space: nowrap;
+}
+
+.a_json_editor__type_variable {
+  color: var(--a_json_editor_variable_color);
+  border-color: var(--a_json_editor_variable_border_color);
+}
+
+.a_json_editor__row_errors {
+  display: block;
+  font-family: var(--a_body_font_family, inherit);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__row_error {
+  display: block;
+}
+
+.a_json_editor__row_error_error {
+  color: var(--a_color_danger_text);
+}
+
+.a_json_editor__row_error_warning,
+.a_json_editor__row_error_info {
+  color: var(--a_color_warning_text_emphasis);
+}
+
+.a_json_editor__cell_actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .125rem;
+}
+
+.a_json_editor__errors_inside {
+  display: inline-flex;
+  align-items: center;
+  gap: .125rem;
+  color: var(--a_color_danger_text);
+  font-size: .75rem;
+}
+
+.a_json_editor__errors_inside__icon {
+  width: .875rem;
+  height: .875rem;
+}
+
+.a_json_editor__actions_button {
+  --a_btn_padding_x: .25rem;
+  --a_btn_padding_y: .125rem;
+}
+
+// ---------------------------------------------------------------------------
+// Editing
+// ---------------------------------------------------------------------------
+.a_json_editor__edit {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem;
+  width: 100%;
+}
+
+.a_json_editor__edit_input,
+.a_json_editor__edit_select {
+  flex: 1 1 10rem;
+  min-width: 6rem;
+  font-family: var(--a_json_editor_font_family);
+}
+
+.a_json_editor__edit_error {
+  flex-basis: 100%;
+  color: var(--a_color_danger_text);
+  font-family: var(--a_body_font_family, inherit);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__insert_variable {
+  font-family: var(--a_json_editor_font_family);
+}
+
+.a_json_editor__variables {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: calc(var(--a_z_index_popup) + 1);
+  min-width: 16rem;
+  max-height: 14rem;
+  margin: .125rem 0 0;
+  padding: var(--a_space_xs) 0;
+  overflow: auto;
+  list-style: none;
+  background-color: var(--a_json_editor_popup_bg);
+  border: var(--a_border_width) solid var(--a_json_editor_border_color);
+  border-radius: var(--a_border_radius);
+  box-shadow: var(--a_shadow_md);
+  font-family: var(--a_body_font_family, inherit);
+}
+
+.a_json_editor__variables__option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 var(--a_space_sm);
+  padding: .25rem var(--a_space_sm);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--a_json_editor_row_hover_bg);
+  }
+}
+
+.a_json_editor__variables__option_active {
+  outline: 2px solid var(--a_color_primary);
+  outline-offset: -2px;
+  background-color: var(--a_json_editor_row_active_bg);
+}
+
+.a_json_editor__variables__name {
+  color: var(--a_json_editor_variable_color);
+}
+
+.a_json_editor__variables__label,
+.a_json_editor__variables__example {
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__variables__type {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: .75rem;
+}
+
+.a_json_editor__variables_empty {
+  flex-basis: 100%;
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+}
+
+// ---------------------------------------------------------------------------
+// Code, split, status bar
+// ---------------------------------------------------------------------------
+.a_json_editor__code {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_xs);
+  padding: var(--a_space_xs) var(--a_space_sm);
+}
+
+.a_json_editor__code__toolbar {
+  display: flex;
+  gap: .125rem;
+}
+
+.a_json_editor__code__textarea {
+  min-height: 16rem;
+  font-family: var(--a_json_editor_font_family);
+  font-size: var(--a_json_editor_font_size);
+  white-space: pre;
+  tab-size: 2;
+  resize: vertical;
+}
+
+.a_json_editor__code__error {
+  margin: 0;
+  color: var(--a_color_danger_text);
+}
+
+.a_json_editor__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  @media (min-width: 60rem) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    .a_json_editor__code {
+      border-inline-start: var(--a_border_width) solid var(--a_json_editor_border_color);
+    }
+  }
+}
+
+.a_json_editor__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_space_xs) var(--a_space_md);
+  padding: var(--a_space_xs) var(--a_space_sm);
+  color: var(--a_color_text_muted);
+  border-top: var(--a_border_width) solid var(--a_json_editor_border_color);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_json_editor__breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--a_json_editor_font_family);
+}
+
+.a_json_editor__breadcrumbs__item + .a_json_editor__breadcrumbs__item::before {
+  content: "›" / "";
+  margin: 0 .25rem;
+}
+
+.a_json_editor__breadcrumbs__button {
+  padding: 0;
+}
+
+.a_json_editor__status__removed {
+  color: var(--a_json_editor_color);
+}
+
+// ---------------------------------------------------------------------------
+// Density, motion
+// ---------------------------------------------------------------------------
+.a_json_editor_compact {
+  --a_json_editor_row_height: 1.625rem;
+  --a_json_editor_indent: 1rem;
+  --a_json_editor_font_size: .8125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a_json_editor__toggle__icon {
+    transition: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_json_editor) {
+  --a_json_editor_bg: var(--a_color_surface); // Background of the editor.
+  --a_json_editor_color: var(--a_color_text); // Text color of the editor.
+  --a_json_editor_border_color: var(--a_border_color); // Border of the editor, the toolbar and the status bar.
+  --a_json_editor_border_radius: var(--a_border_radius); // Corner radius of the editor.
+  --a_json_editor_font_size: var(--a_font_size_sm); // Font size of the editor.
+  --a_json_editor_font_family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace; // Font of keys, values and the text.
+  --a_json_editor_toolbar_bg: var(--a_color_surface_raised); // Background of the toolbar.
+  --a_json_editor_popup_bg: var(--a_color_surface_raised); // Background of the list of the variables.
+  --a_json_editor_pressed_color: var(--a_color_primary_text_emphasis); // Text of a pressed toggle button (mode, search options).
+  --a_json_editor_pressed_bg: var(--a_color_primary_bg_subtle); // Background of a pressed toggle button.
+  --a_json_editor_search_width: 14rem; // Width of the search field.
+  --a_json_editor_row_height: 2rem; // Minimal height of a row (also the height of the virtual rows).
+  --a_json_editor_indent: 1.25rem; // Indent per level.
+  --a_json_editor_key_width: 12rem; // Minimal width of the column of the keys.
+  --a_json_editor_guide_color: var(--a_border_color); // Color of the guide lines of the levels.
+  --a_json_editor_row_hover_bg: var(--a_color_gray_100, rgba(0, 0, 0, .04)); // Background of a row on hover.
+  --a_json_editor_row_active_bg: var(--a_color_primary_bg_subtle); // Background of the active row.
+  --a_json_editor_match_bg: var(--a_color_warning_bg_subtle); // Background of a search match in the text.
+  --a_json_editor_match_row_bg: var(--a_color_warning_bg_subtle); // Background of the row of the current match.
+  --a_json_editor_key_color: var(--a_color_text); // Color of the keys.
+  --a_json_editor_string_color: var(--a_color_success_text); // Color of strings.
+  --a_json_editor_number_color: var(--a_color_info_text); // Color of numbers.
+  --a_json_editor_boolean_color: var(--a_color_tertiary_text); // Color of booleans.
+  --a_json_editor_variable_color: var(--a_color_primary_text_emphasis); // Text of a variable chip.
+  --a_json_editor_variable_bg: var(--a_color_primary_bg_subtle); // Background of a variable chip.
+  --a_json_editor_variable_border_color: var(--a_color_primary_border_subtle); // Border of a variable chip.
+}

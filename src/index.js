@@ -54,6 +54,7 @@ export { default as AInputNumberRange } from "./ui/AInputNumberRange/AInputNumbe
 export { default as AInputOtp } from "./ui/AInputOtp/AInputOtp";
 export { default as AInputTags } from "./ui/AInputTags/AInputTags";
 export { default as AJson } from "./ui/AJson/AJson";
+export { default as AJsonEditor } from "./ui/AJsonEditor/AJsonEditor";
 export { default as ALabel } from "./ui/ALabel/ALabel";
 export { default as ALink } from "./ALink/ALink";
 export { default as ALinkCopy } from "./ALinkCopy/ALinkCopy";
@@ -210,6 +211,18 @@ export {
   AFormPluginOptions,
 } from "./plugins/AFormPlugin";
 export { default as AHttpPlugin } from "./plugins/AHttpPlugin";
+export {
+  AJsonEditorPlugin,
+  AJsonEditorPluginOptions,
+} from "./ui/AJsonEditor/compositionAPI/PluginsAPI";
+export {
+  formatJson,
+  minifyJson,
+  parseJson,
+} from "./ui/AJsonEditor/utils/format";
+export {
+  resolveVariables,
+} from "./ui/AJsonEditor/utils/variables";
 export { default as AI18nPlugin } from "./plugins/AI18nPlugin";
 export { default as AIconPlugin } from "./plugins/AIconPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
@@ -384,6 +397,7 @@ export { default as AInputOtpI18n } from "./ui/AInputOtp/i18n/AInputOtpI18n";
 export { default as AInputTagsI18n } from "./ui/AInputTags/i18n/AInputTagsI18n";
 export { default as ARateI18n } from "./ui/ARate/i18n/ARateI18n";
 export { default as AJsonI18n } from "./ui/AJson/i18n/AJsonI18n";
+export { default as AJsonEditorI18n } from "./ui/AJsonEditor/i18n/AJsonEditorI18n";
 export { default as ALinkCopyI18n } from "./ALinkCopy/i18n/ALinkCopyI18n";
 export { default as ALoadingI18n } from "./ALoading/i18n/ALoadingI18n";
 export { default as AMenu2I18n } from "./AMenu/i18n/AMenu2I18n";

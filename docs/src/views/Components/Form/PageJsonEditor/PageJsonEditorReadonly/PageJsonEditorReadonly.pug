@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_READONLY_HEADER_"
+  description="_A_JSON_EDITOR_READONLY_DESCRIPTION_"
+)
+  a-json-editor(
+    :model-value="model"
+    label="_A_JSON_EDITOR_EXAMPLE_RESPONSE_"
+    readonly
+    :expand-level="2"
+    :modes="['tree', 'code']"
+  )

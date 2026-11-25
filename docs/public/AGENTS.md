@@ -171,6 +171,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Input OTP](llms/components/input-otp.md) — The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
   - [Input tags](llms/components/input-tags.md) — **AInputTags** enters several free values in one field, e.g.
   - [JSON](llms/components/json.md) — **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
+  - [JSON editor](llms/components/json-editor.md) — **AJsonEditor** edits JSON as a tree and as text: keys and values in place, types, adding, removing, moving, search, history with undo, redo and reset, own variables, rules and JSON Schema, formatting by props, hooks and plugins.
   - [Multiselect ordered](llms/components/multiselect-ordered.md) — The component allows selecting multiple items with the ability to set their order.
   - [One checkbox](llms/components/one-checkbox.md) — The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.
   - [Radio](llms/components/radio.md) — The **ARadio** component represents a set of radio buttons, where the user can select only one item from the given options.

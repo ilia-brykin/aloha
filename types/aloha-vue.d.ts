@@ -1891,6 +1891,178 @@ export interface AJsonProps {
 }
 export declare const AJson: DefineComponent<AJsonProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "focus" | "update:modelValue")[]>;
 
+export interface AJsonEditorProps {
+  /** @default false */
+  alwaysTranslate?: boolean;
+  change?: ((...args: any[]) => any);
+  dependencies?: any[] | Record<string, any>;
+  /** @default false */
+  disabled?: boolean;
+  errors?: string | any[];
+  errorsClass?: string | Record<string, any>;
+  /** @default [] */
+  excludeRenderAttributes?: any[];
+  extra?: Record<string, any>;
+  helpText?: string;
+  htmlId?: string;
+  /** @default "a_json_editor_22" */
+  id?: string | number;
+  idPrefix?: string;
+  /** @default false */
+  isHide?: boolean;
+  /** @default true */
+  isRender?: boolean;
+  label?: string | number;
+  labelClass?: string | Record<string, any>;
+  labelDescription?: string;
+  labelScreenReader?: string | number;
+  /** @default {} */
+  modelDependencies?: Record<string, any>;
+  /** @default null */
+  modelUndefined?: any[] | Record<string, any> | string | number | boolean;
+  modelValue?: any;
+  /** @default false */
+  readonly?: boolean;
+  /** @default false */
+  required?: boolean;
+  /** @default "jsonEditor" */
+  type?: string;
+  /** @default "object" */
+  modelType?: string;
+  resetValue?: any;
+  /** @default "_A_JSON_EDITOR_ROOT_" */
+  rootName?: string;
+  /** @default "tree" */
+  mode?: string;
+  /** @default ["tree","code","split"] */
+  modes?: any[];
+  /** @default 100 */
+  arrayPageSize?: number;
+  /** @default "normal" */
+  density?: string;
+  /** @default {} */
+  displayFormatters?: Record<string, any>;
+  /** @default 1 */
+  expandLevel?: number;
+  /** @default [] */
+  expandedPaths?: any[];
+  height?: string;
+  /** @default "32rem" */
+  maxHeight?: string;
+  /** @default "dot" */
+  pathFormat?: string;
+  /** @default 32 */
+  rowHeight?: number;
+  /** @default true */
+  showCounts?: boolean;
+  /** @default true */
+  showGuides?: boolean;
+  /** @default true */
+  showHistory?: boolean;
+  /** @default true */
+  showIndexes?: boolean;
+  /** @default true */
+  showStatusBar?: boolean;
+  /** @default true */
+  showToolbar?: boolean;
+  /** @default true */
+  showTypes?: boolean;
+  /** @default 120 */
+  stringMaxLength?: number;
+  /** @default 300 */
+  virtualThreshold?: number;
+  /** @default true */
+  allowAdd?: boolean;
+  /** @default true */
+  allowMove?: boolean;
+  /** @default true */
+  allowRemove?: boolean;
+  /** @default true */
+  allowRename?: boolean;
+  /** @default true */
+  allowTypeChange?: boolean;
+  allowedTypes?: any[];
+  /** @default false */
+  confirmRemove?: boolean | string;
+  /** @default [] */
+  hiddenPaths?: any[];
+  /** @default [] */
+  lockedKeys?: any[];
+  maxDepth?: number;
+  /** @default [] */
+  readonlyPaths?: any[];
+  /** @default 100 */
+  undoLimit?: number;
+  /** @default true */
+  searchable?: boolean;
+  /** @default false */
+  searchCaseSensitive?: boolean;
+  /** @default 200 */
+  searchDebounce?: number;
+  /** @default false */
+  searchFilter?: boolean;
+  /** @default "both" */
+  searchIn?: string;
+  /** @default false */
+  searchRegex?: boolean;
+  /** @default false */
+  allowUnknownVariables?: boolean;
+  /** @default false */
+  showResolved?: boolean;
+  variablePattern?: Record<string, any>;
+  variableValues?: Record<string, any>;
+  variables?: any[] | ((...args: any[]) => any);
+  /** @default true */
+  blockInvalidSave?: boolean;
+  /** @default "top" */
+  errorSummaryPosition?: string;
+  maxErrors?: number;
+  rules?: Record<string, any>;
+  schema?: Record<string, any>;
+  /** @default true */
+  showErrorSummary?: boolean;
+  /** @default "change" */
+  validateOn?: string;
+  emptyContainers?: string;
+  escapeSlashes?: boolean;
+  escapeUnicode?: boolean;
+  /** @default "none" */
+  formatOn?: string;
+  /** @default {} */
+  formatOptions?: Record<string, any>;
+  indent?: number | string;
+  inlineArrays?: boolean | number;
+  inlineObjects?: boolean | number;
+  lineEnding?: string;
+  maxLineLength?: number;
+  minify?: boolean;
+  numberFormat?: ((...args: any[]) => any);
+  sortKeys?: boolean | string | ((...args: any[]) => any);
+  spaceAfterColon?: boolean;
+  trailingNewline?: boolean;
+  afterChange?: ((...args: any[]) => any);
+  beforeAdd?: ((...args: any[]) => any);
+  beforeChange?: ((...args: any[]) => any);
+  beforeMove?: ((...args: any[]) => any);
+  beforeRemove?: ((...args: any[]) => any);
+  beforeRename?: ((...args: any[]) => any);
+  beforeSet?: ((...args: any[]) => any);
+  beforeTypeChange?: ((...args: any[]) => any);
+  getNodeActions?: ((...args: any[]) => any);
+  getValueType?: ((...args: any[]) => any);
+  loadChildren?: ((...args: any[]) => any);
+  onSelect?: ((...args: any[]) => any);
+  parse?: ((...args: any[]) => any);
+  stringify?: ((...args: any[]) => any);
+  validateDocument?: ((...args: any[]) => any);
+  validateNode?: ((...args: any[]) => any);
+  /** @default [] */
+  plugins?: any[];
+  /** @default "_A_JSON_EDITOR_KEYBOARD_HINT_" */
+  keyboardHint?: string;
+}
+export declare const AJsonEditor: DefineComponent<AJsonEditorProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("collapse" | "expand" | "modeChange" | "search" | "select" | "update:modelValue" | "validate")[]>;
+
 export interface ALabelProps {
   alwaysTranslate?: boolean;
   clickLabel?: ((...args: any[]) => any);
@@ -1946,7 +2118,7 @@ export interface ALinkProps {
   iconLeft?: string | Record<string, any>;
   iconRight?: string | Record<string, any>;
   iconTag?: string;
-  /** @default "a_link_22" */
+  /** @default "a_link_23" */
   id?: string;
   isTitleHtml?: boolean;
   /** @default false */
@@ -2089,7 +2261,7 @@ export interface AMenuProps {
   /** @default "parent" */
   keyParent?: string;
   keySlot?: string;
-  /** @default "a_menu_23" */
+  /** @default "a_menu_24" */
   menuId?: string;
   /** @default false */
   onlyMobile?: boolean;
@@ -2155,7 +2327,7 @@ export interface AModalProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_24" */
+  /** @default "a_modal_25" */
   id?: string;
   /** @default false */
   isCloseButtonHide?: boolean;
@@ -2234,7 +2406,7 @@ export interface AModalFormProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_form_25" */
+  /** @default "a_modal_form_26" */
   id?: string;
   idPrefix?: string;
   /** @default false */
@@ -2376,7 +2548,7 @@ export interface AModalWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_modal_wizard_26" */
+  /** @default "a_modal_wizard_27" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -2468,7 +2640,7 @@ export interface AMultiselectOrderedProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_m_select_ordered_27" */
+  /** @default "a_m_select_ordered_28" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -2594,7 +2766,7 @@ export interface AOneCheckboxProps {
   falseValue?: boolean | string | number;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_one_checkbox_28" */
+  /** @default "a_one_checkbox_29" */
   id?: string | number;
   idPrefix?: string;
   indeterminate?: boolean;
@@ -2743,7 +2915,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_29" */
+  /** @default "a_radio_30" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -2826,7 +2998,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_30" */
+  /** @default "a_rate_31" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -2916,7 +3088,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_31" */
+  /** @default "a_router_link_config_32" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3045,7 +3217,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_32" */
+  /** @default "a_ui_33" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3174,7 +3346,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_33" */
+  /** @default "a_select_icon_34" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3279,7 +3451,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_34" */
+  /** @default "a_select_styles_35" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3376,7 +3548,7 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_35" */
+  /** @default "a_show_more_36" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
@@ -3447,7 +3619,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_36" */
+  /** @default "a_slider_37" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3531,7 +3703,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_37" */
+  /** @default "a_switch_38" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3604,7 +3776,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table38" */
+  /** @default "a_table39" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -3722,7 +3894,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_39" */
+  /** @default "a_table_form_40" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -3770,7 +3942,7 @@ export interface ATabsProps {
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_40" */
+  /** @default "a_tabs_41" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -3839,7 +4011,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_41" */
+  /** @default "a_textarea_42" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3878,7 +4050,7 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_42" */
+  /** @default "a_tooltip_43" */
   id?: string;
   isHide?: boolean;
   maxWidth?: number | string;
@@ -3936,7 +4108,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_43" */
+  /** @default "a_tree_44" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -3989,7 +4161,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_44" */
+  /** @default "a_validated_json_45" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -4079,7 +4251,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_45" */
+  /** @default "a_wizard_46" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -4198,6 +4370,9 @@ export declare const AInputNumberI18n: any;
 export declare const AInputNumberRangeI18n: any;
 export declare const AInputOtpI18n: any;
 export declare const AInputTagsI18n: any;
+export declare const AJsonEditorI18n: any;
+export declare const AJsonEditorPlugin: any;
+export declare const AJsonEditorPluginOptions: any;
 export declare const AJsonI18n: any;
 export declare const AKeyChildren: any;
 export declare const AKeyHide: any;
@@ -4309,6 +4484,7 @@ export declare const filterUpperCase: any;
 export declare const filterValueByCondition: any;
 export declare const focusableList: any;
 export declare const focusableSelector: any;
+export declare const formatJson: any;
 export declare const getCalendarIcs: any;
 export declare const getComponentOption: any;
 export declare const getPropDefault: any;
@@ -4365,11 +4541,14 @@ export declare const isTranslate: any;
 export declare const isUndefined: any;
 export declare const isWeakMap: any;
 export declare const isWeakSet: any;
+export declare const minifyJson: any;
 export declare const mixBlack: any;
 export declare const mixColor: any;
 export declare const mixWhite: any;
 export declare const moveCalendarSeries: any;
 export declare const parseCalendarIcs: any;
+export declare const parseJson: any;
+export declare const resolveVariables: any;
 export declare const rgbToHex: any;
 export declare const sanitize: any;
 export declare const sanitizeLocal: any;
@@ -4453,6 +4632,7 @@ declare module "vue" {
     AInputOtp: typeof AInputOtp;
     AInputTags: typeof AInputTags;
     AJson: typeof AJson;
+    AJsonEditor: typeof AJsonEditor;
     ALabel: typeof ALabel;
     ALink: typeof ALink;
     ALinkCopy: typeof ALinkCopy;

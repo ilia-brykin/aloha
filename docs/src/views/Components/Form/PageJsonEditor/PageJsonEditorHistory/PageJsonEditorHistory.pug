@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_HISTORY_HEADER_"
+  description="_A_JSON_EDITOR_HISTORY_DESCRIPTION_"
+)
+  a-json-editor(
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_SETTINGS_"
+    :reset-value="resetValue"
+    :undo-limit="50"
+  )

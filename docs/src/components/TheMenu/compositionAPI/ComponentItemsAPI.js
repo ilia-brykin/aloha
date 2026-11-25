@@ -290,6 +290,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "json-editor",
+            to: {
+              name: "PageJsonEditor",
+            },
+            class: "test_menu_json_editor",
+            label: "JSON editor",
+          },
+          {
             id: "PageMultiselectOrdered",
             label: "Multiselect ordered",
             class: "test_menu_multiselect_ordered",

@@ -56,6 +56,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Form: Input OTP](https://ilia-brykin.github.io/aloha/llms/components/input-otp.md): The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
 - [Form: Input tags](https://ilia-brykin.github.io/aloha/llms/components/input-tags.md): **AInputTags** enters several free values in one field, e.g.
 - [Form: JSON](https://ilia-brykin.github.io/aloha/llms/components/json.md): **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
+- [Form: JSON editor](https://ilia-brykin.github.io/aloha/llms/components/json-editor.md): **AJsonEditor** edits JSON as a tree and as text: keys and values in place, types, adding, removing, moving, search, history with undo, redo and reset, own variables, rules and JSON Schema, formatting by props, hooks and plugins.
 - [Form: Multiselect ordered](https://ilia-brykin.github.io/aloha/llms/components/multiselect-ordered.md): The component allows selecting multiple items with the ability to set their order.
 - [Form: One checkbox](https://ilia-brykin.github.io/aloha/llms/components/one-checkbox.md): The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.
 - [Form: Radio](https://ilia-brykin.github.io/aloha/llms/components/radio.md): The **ARadio** component represents a set of radio buttons, where the user can select only one item from the given options.

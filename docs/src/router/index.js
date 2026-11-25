@@ -138,6 +138,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageInput/PageInput.vue"),
   },
   {
+    path: "/json-editor",
+    name: "PageJsonEditor",
+    component: () => import("../views/Components/Form/PageJsonEditor/PageJsonEditor.vue"),
+  },
+  {
     path: "/json",
     name: "PageJson",
     component: () => import("../views/Components/Form/PageJson/PageJson.vue"),
