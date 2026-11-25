@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.87.2
+
+- fix(ATranslation): avoid rendering undefined HTML
+
 ## 2.87.1
 
 - fix(color-picker): default cleared model to undefined

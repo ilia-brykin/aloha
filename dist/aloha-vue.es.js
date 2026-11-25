@@ -14074,7 +14074,7 @@ function Qy(e, { hasTextAfter: t = n(() => !1), hasTextBefore: r = n(() => !1), 
 		hasHtml: b,
 		hasSafeHtml: y,
 		htmlLocalOptions: C,
-		htmlLocalWithBeforeAndAfter: n(() => `${x.value}${C.value.safeHtml || C.value.html}${S.value}`)
+		htmlLocalWithBeforeAndAfter: n(() => `${x.value}${C.value.safeHtml || C.value.html || ""}${S.value}`)
 	};
 }
 //#endregion
