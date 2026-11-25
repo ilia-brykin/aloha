@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Uitgeschakelde status",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Schakel <strong lang=\"en\">disabled</strong> om om alle paginanavigatie te blokkeren.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Navigatiemodus",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Kies tussen de weergaven <strong lang=\"en\">short</strong> en <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Kies tussen de weergaven <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> en <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> toont een knop die de volgende rijen toevoegt (event <strong lang=\"en\">update:limit</strong>) en een status met het aantal getoonde rijen, die de schermlezer na elke klik voorleest.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Modus",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Kort",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normaal"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normaal",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Meer laden"
 }

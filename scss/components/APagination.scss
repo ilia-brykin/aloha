@@ -32,6 +32,18 @@
 .a_pagination__item {
   white-space: nowrap;
 }
+.a_pagination__load_more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--a_space_sm);
+  width: 100%;
+}
+.a_pagination__load_more__status {
+  margin: 0;
+  border-radius: var(--a_pagination_link_border_radius);
+  @include focus.focus-visible;
+}
 .a_pagination__item__text {
   position: relative;
   display: block;

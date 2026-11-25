@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Etat desactive",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Basculez <strong lang=\"en\">disabled</strong> pour bloquer toute navigation de pages.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Mode de navigation",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Choisissez entre les modes <strong lang=\"en\">short</strong> et <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Choisissez entre les modes <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> et <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> affiche un bouton qui ajoute les lignes suivantes (événement <strong lang=\"en\">update:limit</strong>) et un statut avec le nombre de lignes affichées, lu par le lecteur d'écran après chaque clic.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Mode",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Court",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Charger plus"
 }

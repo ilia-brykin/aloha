@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Вимкнений стан",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Перемкніть <strong lang=\"en\">disabled</strong>, щоб заблокувати всю навігацію сторінками.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Режим навігації",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Виберіть між компонуваннями <strong lang=\"en\">short</strong> і <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Виберіть між компонуваннями <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> і <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> показує кнопку, яка додає наступні рядки (подія <strong lang=\"en\">update:limit</strong>), і статус із кількістю показаних рядків, який скринрідер читає після кожного натискання.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Режим",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Короткий",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Звичайний"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Звичайний",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Завантажити ще"
 }

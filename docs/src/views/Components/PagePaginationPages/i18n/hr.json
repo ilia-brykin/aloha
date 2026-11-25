@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Onemoguceno stanje",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Prebacite <strong lang=\"en\">disabled</strong> kako biste blokirali navigaciju po stranicama.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Nacin navigacije",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Odaberite izmedu <strong lang=\"en\">short</strong> i <strong lang=\"en\">normal</strong> nacina.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Odaberite između načina <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> i <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> prikazuje gumb koji dodaje sljedeće retke (događaj <strong lang=\"en\">update:limit</strong>) i status s brojem prikazanih redaka koji čitač zaslona pročita nakon svakog klika.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Nacin",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Kratko",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalno"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalno",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Učitaj još"
 }

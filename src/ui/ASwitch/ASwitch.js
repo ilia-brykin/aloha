@@ -236,6 +236,8 @@ export default {
   ],
   setup(props, context) {
     const errorIcon = toRef(props, "errorIcon");
+    const label = toRef(props, "label");
+    const labelScreenReader = toRef(props, "labelScreenReader");
 
     const {
       disabledAttribut,
@@ -295,9 +297,16 @@ export default {
 
     initDefaultModel();
     const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
+    // the id of ALabel (idSuffix "_label")
+    const ariaLabelledbyLocal = computed(() => {
+      return (label.value || labelScreenReader.value) ?
+        `${ htmlIdLocal.value }_label` :
+        undefined;
+    });
 
     return {
       ariaDescribedbyLocal,
+      ariaLabelledbyLocal,
       attributesToExcludeFromRender,
       clearModel,
       componentStyleHide,
@@ -399,10 +408,15 @@ export default {
             default: () => [
               h("input", {
                 id: this.htmlIdLocal,
+                // the name is the label, not the changing state text ("Yes" / "No"); the state is "on" / "off"
+                "aria-labelledby": this.ariaLabelledbyLocal,
                 "aria-describedby": this.ariaDescribedbyLocal,
                 "aria-invalid": this.isErrors,
                 "aria-required": this.required,
                 checked: this.isChecked,
+                // three states: a checkbox with "mixed", a switch has only on and off
+                indeterminate: this.isThreeState && this.isModelDefault,
+                role: this.isThreeState ? undefined : "switch",
                 class: [
                   "a_switch__input",
                   this.inputClass,

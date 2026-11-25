@@ -44,6 +44,14 @@ export default function TextsAPI(props, {
     return texts.value.pagesMobile || "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_";
   });
 
+  const textLoadMore = computed(() => {
+    return texts.value.pagesLoadMore || "_A_PAGINATION_LOAD_MORE_";
+  });
+
+  const textCountFromTo = computed(() => {
+    return texts.value.countFromTo || "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_";
+  });
+
   const isTextToPageFunction = computed(() => {
     return isFunction(texts.value.pagesToPage);
   });
@@ -63,8 +71,10 @@ export default function TextsAPI(props, {
   return {
     getTextToPage,
     isTextToPageFunction,
+    textCountFromTo,
     textFirstPage,
     textLastPage,
+    textLoadMore,
     textMobile,
     textNavigation,
     textNextPage,

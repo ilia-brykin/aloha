@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Отключенное состояние",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Переключайте <strong lang=\"en\">disabled</strong>, чтобы заблокировать навигацию по страницам.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Режим навигации",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Выберите между режимами <strong lang=\"en\">short</strong> и <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Выберите между режимами <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> и <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> показывает кнопку, которая добавляет следующие строки (событие <strong lang=\"en\">update:limit</strong>), и статус с количеством показанных строк, который скринридер читает после каждого нажатия.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Режим",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Короткий",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Обычный"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Обычный",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Загрузить ещё"
 }

@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Disabled state",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Toggle <strong lang=\"en\">disabled</strong> to block all page navigation.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Navigation mode",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Choose between the <strong lang=\"en\">short</strong> and <strong lang=\"en\">normal</strong> layouts.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Choose between the <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> and <strong lang=\"en\">loadMore</strong> layouts. <strong lang=\"en\">loadMore</strong> shows a button that adds the next rows (event <strong lang=\"en\">update:limit</strong>) and a status with the count of the shown rows, read by the screen reader after every click.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Mode",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Short",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Load more"
 }

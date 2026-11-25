@@ -2,6 +2,8 @@
 
 The **ASwitch** component is a switch with support for various states that can be bound to a data model. The component supports both two-state and three-state modes, as well as the display of custom labels.
 
+Accessibility: the field is a native **checkbox** with **role="switch"**, the screen reader announces the state "on" or "off". The name is the **label**, not the changing text of the state. Space and **Enter** toggle. With **is-three-state** the field stays a **checkbox** with the state "mixed" for the empty value.
+
 ## Basic usage
 
 *props: `model-value`*

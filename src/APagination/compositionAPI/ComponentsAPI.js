@@ -65,6 +65,7 @@ export default function ComponentsAPI(props, {
           offset: offset.value,
           texts: texts.value,
           totalCount: totalCount.value,
+          "onUpdate:limit": updateLimit,
           "onUpdate:offset": updateOffset,
         }));
       }

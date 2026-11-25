@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "إذا تم ضبطه على <strong lang=\"en\">true</strong>، يشغل المفتاح العرض الكامل المتاح.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "يتم استخدامه لمفتاح بثلاث حالات: <strong lang=\"en\">trueValue</strong>، <strong lang=\"en\">falseValue</strong> و<strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "التسمية التي يتم عرضها عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي يتم تخصيصها للنموذج عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي يتم تخصيصها للنموذج عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "إمكانية الوصول: الحقل هو <strong lang=\"en\">checkbox</strong> أصلي مع <strong lang=\"en\">role=\"switch\"</strong>، فيُعلن قارئ الشاشة عن الحالة «تشغيل» أو «إيقاف». الاسم هو <strong lang=\"en\">label</strong> وليس نص الحالة المتغير. تبدّل المسافة و<strong lang=\"en\">Enter</strong> الحالة. مع <strong lang=\"en\">is-three-state</strong> يبقى الحقل <strong lang=\"en\">checkbox</strong> مع الحالة «مختلط» للقيمة الفارغة."
 }

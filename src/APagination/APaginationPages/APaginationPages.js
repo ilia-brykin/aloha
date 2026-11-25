@@ -6,6 +6,7 @@ import AElement from "../../AElement/AElement";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import DisabledAPI from "./compositionAPI/DisabledAPI";
+import LoadMoreAPI from "./compositionAPI/LoadMoreAPI";
 import PaginationItemsAPI from "./compositionAPI/PaginationItemsAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 import UpdateOffsetAPI from "./compositionAPI/UpdateOffsetAPI";
@@ -64,6 +65,7 @@ export default {
       default: () => ({
         pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",
         pagesLastPage: "_A_PAGINATION_LAST_PAGE_",
+        pagesLoadMore: "_A_PAGINATION_LOAD_MORE_",
         pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
         pagesNavigation: "_A_PAGINATION_NAVIGATION_",
         pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",
@@ -78,6 +80,7 @@ export default {
     },
   },
   emits: [
+    "update:limit",
     "update:offset",
   ],
   setup(props, context) {
@@ -114,10 +117,20 @@ export default {
     });
 
     const {
+      countShown,
+      countShownStart,
+      isAllShown,
+      loadMore,
+      loadMoreStatusRef,
+    } = LoadMoreAPI(props, context);
+
+    const {
       getTextToPage,
       isTextToPageFunction,
+      textCountFromTo,
       textFirstPage,
       textLastPage,
+      textLoadMore,
       textMobile,
       textNavigation,
       textNextPage,
@@ -129,20 +142,27 @@ export default {
     });
 
     return {
+      countShown,
+      countShownStart,
       currentItem,
       disabledButtonFirstPage,
       disabledButtonLastPage,
       getTextToPage,
+      isAllShown,
       isTextToPageFunction,
       keyDownUpdateOffset,
       keyDownUpdateOffsetFirst,
       keyDownUpdateOffsetLast,
       keyDownUpdateOffsetNext,
       keyDownUpdateOffsetPrevious,
+      loadMore,
+      loadMoreStatusRef,
       maxItems,
       paginationItems,
+      textCountFromTo,
       textFirstPage,
       textLastPage,
+      textLoadMore,
       textMobile,
       textNavigation,
       textNextPage,
@@ -163,11 +183,36 @@ export default {
     }, {
       default: () => {
         if (this.mode === "loadMore") {
-          return h(AElement, {
-            class: "a_btn a_btn_primary",
-            text: "Load more", // TODO:
-            type: "button",
-          });
+          return h("div", {
+            class: "a_pagination__load_more",
+          }, [
+            // the new count is read out after every click
+            h("p", {
+              ref: "loadMoreStatusRef",
+              class: "a_pagination__load_more__status",
+              role: "status",
+              tabindex: -1,
+            }, [
+              h(ATranslation, {
+                tag: "span",
+                html: this.textCountFromTo,
+                extra: {
+                  count: this.totalCount,
+                  current: this.countShown,
+                  start: this.countShownStart,
+                },
+              }),
+            ]),
+            this.isAllShown ?
+              "" :
+              h(AElement, {
+                class: "a_btn a_btn_primary a_pagination__load_more__btn",
+                disabled: this.disabled,
+                text: this.textLoadMore,
+                type: "button",
+                onClick: this.loadMore,
+              }),
+          ]);
         }
         return [
           h("ul", {

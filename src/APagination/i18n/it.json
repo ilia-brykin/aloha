@@ -4,6 +4,7 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} a {{ current }} di {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "Alla prima pagina",
   "_A_PAGINATION_LAST_PAGE_": "All'ultima pagina",
+  "_A_PAGINATION_LOAD_MORE_": "Carica altro",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} di {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Navigazione dell'impaginazione",
   "_A_PAGINATION_NEXT_PAGE_": "Alla pagina successiva",

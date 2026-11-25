@@ -2828,7 +2828,7 @@ export interface APaginationProps {
   modes?: Record<string, any>;
   offset: number;
   rowsLength: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
@@ -2842,11 +2842,11 @@ export interface APaginationPagesProps {
   /** @default "normal" */
   mode?: string;
   offset: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
-export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:offset")[]>;
+export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:limit" | "update:offset")[]>;
 
 export interface AProgressProps {
   /** @default "_A_PROGRESS_ARIA_LABEL_" */

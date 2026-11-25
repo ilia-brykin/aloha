@@ -4,6 +4,7 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} – {{ current }} з {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "На першу сторінку",
   "_A_PAGINATION_LAST_PAGE_": "На останню сторінку",
+  "_A_PAGINATION_LOAD_MORE_": "Завантажити ще",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} з {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Навігація сторінками",
   "_A_PAGINATION_NEXT_PAGE_": "На наступну сторінку",

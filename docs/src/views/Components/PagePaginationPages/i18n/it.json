@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Stato disabilitato",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Attiva/disattiva <strong lang=\"en\">disabled</strong> per bloccare la navigazione delle pagine.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Modalità di navigazione",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Scegli tra le modalità <strong lang=\"en\">short</strong> e <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Scegli tra le modalità <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> e <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> mostra un pulsante che aggiunge le righe successive (evento <strong lang=\"en\">update:limit</strong>) e uno stato con il numero delle righe mostrate, letto dallo screen reader dopo ogni clic.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Modalità",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Corto",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normale"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normale",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Carica altro"
 }

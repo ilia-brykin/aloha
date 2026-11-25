@@ -2,6 +2,7 @@ export default function JsAPI() {
   const codeJs = `import {
   computed,
   ref,
+  watch,
 } from "vue";
 import {
   APaginationPages,
@@ -28,6 +29,10 @@ export default {
         id: "normal",
         label: "_A_PAGINATION_PAGES_MODE_NORMAL_",
       },
+      {
+        id: "loadMore",
+        label: "_A_PAGINATION_PAGES_MODE_LOAD_MORE_",
+      },
     ];
 
     const rowsLength = computed(() => {
@@ -51,6 +56,16 @@ export default {
       offset.value = value;
     };
 
+    // "loadMore": the next rows are added to the shown rows
+    const updateLimit = value => {
+      limit.value = value;
+    };
+
+    watch(mode, () => {
+      limit.value = 10;
+      offset.value = 0;
+    });
+
     return {
       blockNumbers,
       limit,
@@ -59,6 +74,7 @@ export default {
       offset,
       rowsLength,
       totalCount,
+      updateLimit,
       updateOffset,
     };
   },

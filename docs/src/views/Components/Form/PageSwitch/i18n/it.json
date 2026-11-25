@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Se impostato su <strong lang=\"en\">true</strong>, l'interruttore occupa l'intera larghezza disponibile.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Utilizzato per un interruttore a tre stati: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> e <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "L'etichetta visualizzata quando l'interruttore è in stato <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Il valore assegnato al modello quando l'interruttore è in stato <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Il valore assegnato al modello quando l'interruttore è in stato <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "Accessibilità: il campo è una <strong lang=\"en\">checkbox</strong> nativa con <strong lang=\"en\">role=\"switch\"</strong>, lo screen reader annuncia lo stato «attivo» o «disattivo». Il nome è la <strong lang=\"en\">label</strong>, non il testo variabile dello stato. Spazio e <strong lang=\"en\">Enter</strong> cambiano lo stato. Con <strong lang=\"en\">is-three-state</strong> il campo resta una <strong lang=\"en\">checkbox</strong> con lo stato «misto» per il valore vuoto."
 }

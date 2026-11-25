@@ -172,7 +172,7 @@ export default {
 
 ## Navigation mode
 
-Choose between the **short** and **normal** layouts.
+Choose between the **short**, **normal** and **loadMore** layouts. **loadMore** shows a button that adds the next rows (event **update:limit**) and a status with the count of the shown rows, read by the screen reader after every click.
 
 *props: `mode`*
 
@@ -208,6 +208,7 @@ Choose between the **short** and **normal** layouts.
   :limit="limit"
   :offset="offset"
   :total-count="totalCount"
+  @update:limit="updateLimit"
   @update:offset="updateOffset"
 ></a-pagination-pages>
 ```
@@ -216,6 +217,7 @@ Choose between the **short** and **normal** layouts.
 import {
   computed,
   ref,
+  watch,
 } from "vue";
 import {
   APaginationPages,
@@ -242,6 +244,10 @@ export default {
         id: "normal",
         label: "_A_PAGINATION_PAGES_MODE_NORMAL_",
       },
+      {
+        id: "loadMore",
+        label: "_A_PAGINATION_PAGES_MODE_LOAD_MORE_",
+      },
     ];
 
     const rowsLength = computed(() => {
@@ -265,6 +271,16 @@ export default {
       offset.value = value;
     };
 
+    // "loadMore": the next rows are added to the shown rows
+    const updateLimit = value => {
+      limit.value = value;
+    };
+
+    watch(mode, () => {
+      limit.value = 10;
+      offset.value = 0;
+    });
+
     return {
       blockNumbers,
       limit,
@@ -273,6 +289,7 @@ export default {
       offset,
       rowsLength,
       totalCount,
+      updateLimit,
       updateOffset,
     };
   },
@@ -379,15 +396,17 @@ export default {
 | max-pages | Number | 5 |  | Maximum amount of page buttons that may be shown at once. |
 | mode | String | normal |  | Navigation layout mode: **normal**, **short**, or **loadMore**. |
 | offset | Number |  | yes | Index of the first item on the current page. The component emits **update:offset** when navigation changes. |
-| texts | Object | () => ({   pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",   pagesLastPage: "_A_PAGINATION_LAST_PAGE_",   pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",   pagesNavigation: "_A_PAGINATION_NAVIGATION_",   pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",   pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",   pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_", }) |  | Object with translation keys or text labels used by the pager. |
+| texts | Object | () => ({   pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",   pagesLastPage: "_A_PAGINATION_LAST_PAGE_",   pagesLoadMore: "_A_PAGINATION_LOAD_MORE_",   pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",   pagesNavigation: "_A_PAGINATION_NAVIGATION_",   pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",   pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",   pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_", }) |  | Object with translation keys or text labels used by the pager. |
 | total-count | Number |  | yes | Total number of items in the data set. Used to calculate the number of pages and the button range. |
 
 ## Translations
 
 | key | en |
 | --- | --- |
+| `_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_` | {{ start }} to {{ current }} of {{ count }} |
 | `_A_PAGINATION_FIRST_PAGE_` | To first page |
 | `_A_PAGINATION_LAST_PAGE_` | To last page |
+| `_A_PAGINATION_LOAD_MORE_` | Load more |
 | `_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_` | {{ currentPage }} of {{ allPages }} |
 | `_A_PAGINATION_NAVIGATION_` | Pagination navigation |
 | `_A_PAGINATION_NEXT_PAGE_` | To next page |

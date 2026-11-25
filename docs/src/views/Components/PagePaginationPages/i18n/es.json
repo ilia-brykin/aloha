@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Estado deshabilitado",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Alterna <strong lang=\"en\">disabled</strong> para bloquear toda la navegacion de paginas.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Modo de navegación",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Elige entre los modos <strong lang=\"en\">short</strong> y <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Elige entre los modos <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> y <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> muestra un botón que añade las filas siguientes (evento <strong lang=\"en\">update:limit</strong>) y un estado con el número de filas mostradas, que el lector de pantalla lee después de cada clic.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Modo",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Corto",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Cargar más"
 }

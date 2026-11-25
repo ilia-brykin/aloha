@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Stan wyłączony",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Przełącz <strong lang=\"en\">disabled</strong>, aby zablokować całą nawigację po stronach.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Tryb nawigacji",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Wybierz między układami <strong lang=\"en\">short</strong> i <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Wybierz między układami <strong lang=\"en\">short</strong>, <strong lang=\"en\">normal</strong> i <strong lang=\"en\">loadMore</strong>. <strong lang=\"en\">loadMore</strong> pokazuje przycisk, który dodaje kolejne wiersze (zdarzenie <strong lang=\"en\">update:limit</strong>), oraz status z liczbą pokazanych wierszy, odczytywany przez czytnik ekranu po każdym kliknięciu.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "Tryb",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "Krótki",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalny\n"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalny\n",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "Załaduj więcej"
 }

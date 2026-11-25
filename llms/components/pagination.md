@@ -432,7 +432,7 @@ export default {
 | offset | Number |  | yes | Index of the first row that belongs to the current page. The component emits **update:offset** every time the user navigates. |
 | rows-length | Number |  | yes | How many rows are actually rendered on the current page. Needed to correctly display the 'from-to' counter when the last page is incomplete. |
 | modes | Object | () => ({   perPage: {     mode: "group",     position: 0,     showTextCountFromTo: true,   },   pagination: {     mode: "normal",     position: 1,   }, }) |  | Configuration for per-page controls and the pager. Use **perPage** and **pagination** to define **mode** (inline/group/select or normal/short/loadMore), **position**, and **showTextCountFromTo**. |
-| texts | Object | () => ({   pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",   pagesLastPage: "_A_PAGINATION_LAST_PAGE_",   pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",   pagesNavigation: "_A_PAGINATION_NAVIGATION_",   pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",   pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",   pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_",   countFromTo: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",   countPerPage: "_A_COUNT_PER_PAGE_",   countPerPageItem: "_A_COUNT_PER_PAGE_ITEM_{{count}}_", }) |  | Object with translation keys or custom texts for page navigation labels and per-page counters. |
+| texts | Object | () => ({   pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",   pagesLastPage: "_A_PAGINATION_LAST_PAGE_",   pagesLoadMore: "_A_PAGINATION_LOAD_MORE_",   pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",   pagesNavigation: "_A_PAGINATION_NAVIGATION_",   pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",   pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",   pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_",   countFromTo: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",   countPerPage: "_A_COUNT_PER_PAGE_",   countPerPageItem: "_A_COUNT_PER_PAGE_ITEM_{{count}}_", }) |  | Object with translation keys or custom texts for page navigation labels and per-page counters. |
 | total-count | Number |  | yes | Total number of items in the entire data set. This value drives the **from-to** counter and the number of available pages. |
 
 ## Translations
@@ -444,6 +444,7 @@ export default {
 | `_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_` | {{ start }} to {{ current }} of {{ count }} |
 | `_A_PAGINATION_FIRST_PAGE_` | To first page |
 | `_A_PAGINATION_LAST_PAGE_` | To last page |
+| `_A_PAGINATION_LOAD_MORE_` | Load more |
 | `_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_` | {{ currentPage }} of {{ allPages }} |
 | `_A_PAGINATION_NAVIGATION_` | Pagination navigation |
 | `_A_PAGINATION_NEXT_PAGE_` | To next page |

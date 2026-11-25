@@ -14,8 +14,9 @@
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "حالة التعطيل",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "بدل <strong lang=\"en\">disabled</strong> لتعطيل تنقل الصفحات.",
   "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "وضع التنقل",
-  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "اختر بين وضعي <strong lang=\"en\">short</strong> و<strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "اختر بين الأوضاع <strong lang=\"en\">short</strong> و<strong lang=\"en\">normal</strong> و<strong lang=\"en\">loadMore</strong>. يعرض <strong lang=\"en\">loadMore</strong> زرًا يضيف الصفوف التالية (الحدث <strong lang=\"en\">update:limit</strong>) وحالة بعدد الصفوف المعروضة يقرؤها قارئ الشاشة بعد كل نقرة.",
   "_A_PAGINATION_PAGES_MODE_LABEL_": "الوضع",
   "_A_PAGINATION_PAGES_MODE_SHORT_": "قصير",
-  "_A_PAGINATION_PAGES_MODE_NORMAL_": "عادي"
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "عادي",
+  "_A_PAGINATION_PAGES_MODE_LOAD_MORE_": "تحميل المزيد"
 }

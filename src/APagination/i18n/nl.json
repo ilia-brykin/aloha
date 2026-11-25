@@ -4,6 +4,7 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} tot {{ current }} van {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "Naar eerste pagina",
   "_A_PAGINATION_LAST_PAGE_": "Naar laatste pagina",
+  "_A_PAGINATION_LOAD_MORE_": "Meer laden",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} van {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Paginanavigatie",
   "_A_PAGINATION_NEXT_PAGE_": "Naar volgende pagina",

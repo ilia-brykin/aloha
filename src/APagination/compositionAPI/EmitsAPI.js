@@ -3,8 +3,9 @@ export default function EmitsAPI(props, { emit }) {
     emit("update:offset", offset);
   };
 
-  const updateLimit = limit => {
-    emit("update:limit", limit);
+  // options: { loadMore: true } of the button "Load more"
+  const updateLimit = (limit, options) => {
+    emit("update:limit", limit, options);
   };
 
   return {
