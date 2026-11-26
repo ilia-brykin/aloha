@@ -41,6 +41,7 @@ beforeAll(() => {
 afterEach(() => {
   isMobileWidth.value = undefined;
   vi.restoreAllMocks();
+  vi.unstubAllEnvs();
   document.body.innerHTML = "";
 });
 
@@ -160,6 +161,15 @@ describe("APopover: own trigger that is no button", () => {
     // the re-render does not warn again
     await wrapper.setProps({ header: "New" });
     expect(WARN).toHaveBeenCalledTimes(1);
+  });
+
+  it("production: the same fix, no warning", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const WARN = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const wrapper = mountTrigger(attributes => h("span", { ...attributes }, "?"));
+
+    expect(wrapper.find("#info_button").attributes("role")).toBe("button");
+    expect(WARN).not.toHaveBeenCalled();
   });
 
   it("own role and tabindex stay", () => {

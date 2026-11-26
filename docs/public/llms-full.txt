@@ -560,6 +560,7 @@ h(AButton, {
 - Tabs: underline indicator for the active tab. Menu: light primary background for the current item.
 - Checkbox, radio, switch, select, datepicker, dropdown and modal: new shapes, shadows and radii from tokens.
 - Wizard: contrast fixes, the warning step has black text.
+- The space of the scrollbar under an open modal (`.a_modal_open`) is measured, before it was always `0.9375rem`: no empty strip anymore where the scrollbar is not shown (macOS, iOS, Android, overlay scrollbars). Remove own CSS that corrected it. The old behavior: `AComponentsPlugin` `{ AModal: { scrollbarCompensation: 15 } }`.
 
 ## 6. Accessibility
 
@@ -846,6 +847,8 @@ app.mount("#app");
  `cssClasses`  `ASelectStyle`  Classes added to the standard classes.
 
  `routes`, `excludedPathRoutes`  `ARouterLinkConfig`  Routes of the router for the select of the route (only routes with a name, without the excluded paths).
+
+ `scrollbarCompensation`  `AModal`, `ADrawer`, `APopover` (bottom sheet)  Space of the scrollbar while a modal is open (the page does not move). `"auto"` (default): measured, 0 without a scrollbar (macOS, iOS, Android, overlay scrollbars); a number (px) or a CSS length: fixed; `false`: none.
 
  `extends`  all  Parent for the prop defaults (see below).
 

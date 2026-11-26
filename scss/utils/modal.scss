@@ -3,7 +3,8 @@
 
 .a_modal_open {
   overflow: hidden;
-  padding-right: 0.9375rem;
+  // the measured scrollbar (ModalStackAPI), 0 without a scrollbar
+  padding-right: var(--a_scrollbar_width, 0px);
 }
 
 .a_modal {

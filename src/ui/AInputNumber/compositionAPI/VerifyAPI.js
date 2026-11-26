@@ -4,6 +4,9 @@ import {
 } from "vue";
 
 import {
+  isDev,
+} from "../../../utils/isDev";
+import {
   toPrecision,
 } from "../../../utils/utilsMath";
 import {
@@ -39,7 +42,7 @@ export default function VerifyAPI(props, {
   const numPrecision = computed(() => {
     const stepPrecision = getPrecision(step.value);
     if (!isUndefined(precision.value)) {
-      if (stepPrecision > precision.value) {
+      if (stepPrecision > precision.value && isDev()) {
         console.warn(
           "AInputNumber",
           "precision should not be less than the decimal places of step",

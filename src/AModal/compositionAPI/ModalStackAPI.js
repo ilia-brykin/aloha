@@ -2,6 +2,13 @@ import {
   ref,
 } from "vue";
 
+import {
+  getComponentOption,
+} from "../../plugins/AComponentsPlugin";
+import {
+  isNumber,
+} from "lodash-es";
+
 // containers outside of the modal that must stay usable: popups (dropdown, select, tooltip, datepicker…), notifications, live regions
 const SELECTOR_NOT_INERT = [
   ".a_popup_container",
@@ -57,8 +64,33 @@ function setInert() {
   });
 }
 
+/**
+ * The space of the scrollbar that overflow: hidden removes, so the page does not move.
+ * AComponentsPlugin: { AModal: { scrollbarCompensation: "auto" } }
+ * "auto" (default): measured, 0 without a scrollbar (macOS, iOS, Android, overlay scrollbars);
+ * a number (px) or a CSS length: fixed; false: no compensation.
+ */
+export function getScrollbarCompensation() {
+  const OPTION = getComponentOption("AModal", "scrollbarCompensation", "auto");
+  if (OPTION === "auto") {
+    return `${ Math.max(window.innerWidth - document.documentElement.clientWidth, 0) }px`;
+  }
+  if (isNumber(OPTION)) {
+    return `${ OPTION }px`;
+  }
+  return OPTION || "0px";
+}
+
 function update() {
-  document.body.classList.toggle("a_modal_open", modals.value.length > 0);
+  const IS_OPEN = modals.value.length > 0;
+  const BODY = document.body;
+  // measured before overflow: hidden removes the scrollbar; the next modals keep the value
+  if (IS_OPEN && !BODY.classList.contains("a_modal_open")) {
+    BODY.style.setProperty("--a_scrollbar_width", getScrollbarCompensation());
+  } else if (!IS_OPEN) {
+    BODY.style.removeProperty("--a_scrollbar_width");
+  }
+  BODY.classList.toggle("a_modal_open", IS_OPEN);
   setInert();
 }
 

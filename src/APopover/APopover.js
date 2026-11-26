@@ -27,6 +27,9 @@ import {
   getPropDefault,
 } from "../plugins/AComponentsPlugin";
 import {
+  isDev,
+} from "../utils/isDev";
+import {
   isNil,
   uniqueId,
 } from "lodash-es";
@@ -286,7 +289,9 @@ export default {
       }
       ELEMENT.setAttribute("data-a-popover-trigger", "");
       if (hasNativeKeyboard(ELEMENT)) {
-        console.warn(`APopover "${ id.value }": the trigger is a link, use a button (a link goes to another page).`);
+        if (isDev()) {
+          console.warn(`APopover "${ id.value }": the trigger is a link, use a button (a link goes to another page).`);
+        }
         return;
       }
       if (!ELEMENT.hasAttribute("role")) {
@@ -295,7 +300,9 @@ export default {
       if (!ELEMENT.hasAttribute("tabindex")) {
         ELEMENT.setAttribute("tabindex", "0");
       }
-      console.warn(`APopover "${ id.value }": the trigger <${ ELEMENT.tagName.toLowerCase() }> got role="button" and tabindex="0", use a <button>.`);
+      if (isDev()) {
+        console.warn(`APopover "${ id.value }": the trigger <${ ELEMENT.tagName.toLowerCase() }> got role="button" and tabindex="0", use a <button>.`);
+      }
     };
 
     const onPopoverKeydown = $event => {

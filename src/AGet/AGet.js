@@ -8,6 +8,9 @@ import {
 } from "../index";
 
 import {
+  isDev,
+} from "../utils/isDev";
+import {
   forEach,
   get,
   isArray,
@@ -81,7 +84,9 @@ export default {
         if (isFunction(this[FILTER_FUNCTION_NAME])) {
           return this[FILTER_FUNCTION_NAME](value, this.filterParameters);
         }
-        console.warn(`filter "${ FILTER_FUNCTION_NAME }" ist not defined`);
+        if (isDev()) {
+          console.warn(`filter "${ FILTER_FUNCTION_NAME }" ist not defined`);
+        }
       }
       return value;
     },

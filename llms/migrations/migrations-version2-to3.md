@@ -185,6 +185,7 @@ h(AButton, {
 - Tabs: underline indicator for the active tab. Menu: light primary background for the current item.
 - Checkbox, radio, switch, select, datepicker, dropdown and modal: new shapes, shadows and radii from tokens.
 - Wizard: contrast fixes, the warning step has black text.
+- The space of the scrollbar under an open modal (`.a_modal_open`) is measured, before it was always `0.9375rem`: no empty strip anymore where the scrollbar is not shown (macOS, iOS, Android, overlay scrollbars). Remove own CSS that corrected it. The old behavior: `AComponentsPlugin` `{ AModal: { scrollbarCompensation: 15 } }`.
 
 ## 6. Accessibility
 
