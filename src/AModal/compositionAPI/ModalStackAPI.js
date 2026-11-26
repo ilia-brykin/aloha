@@ -86,7 +86,9 @@ function update() {
   const BODY = document.body;
   // measured before overflow: hidden removes the scrollbar; the next modals keep the value
   if (IS_OPEN && !BODY.classList.contains("a_modal_open")) {
-    BODY.style.setProperty("--a_scrollbar_width", getScrollbarCompensation());
+    // own padding of the body (px, also from rem) + the scrollbar: the class must not replace it
+    const OWN_PADDING = parseFloat(getComputedStyle(BODY).paddingRight) || 0;
+    BODY.style.setProperty("--a_scrollbar_width", `calc(${ OWN_PADDING }px + ${ getScrollbarCompensation() })`);
   } else if (!IS_OPEN) {
     BODY.style.removeProperty("--a_scrollbar_width");
   }

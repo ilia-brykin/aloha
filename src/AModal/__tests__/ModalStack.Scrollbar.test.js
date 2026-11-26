@@ -41,16 +41,16 @@ afterEach(() => {
 describe("ModalStackAPI: the space of the scrollbar", () => {
   it("auto: measured once at the first modal, removed after the last one", () => {
     open("one");
-    expect(getWidth()).toBe("17px");
+    expect(getWidth()).toBe("calc(0px + 17px)");
     expect(document.body.classList.contains("a_modal_open")).toBe(true);
 
     // the scrollbar is gone with overflow: hidden, the second modal keeps the value
     setScrollbar(0);
     open("two");
-    expect(getWidth()).toBe("17px");
+    expect(getWidth()).toBe("calc(0px + 17px)");
 
     removeModal("two");
-    expect(getWidth()).toBe("17px");
+    expect(getWidth()).toBe("calc(0px + 17px)");
     removeModal("one");
     expect(getWidth()).toBe("");
     expect(document.body.classList.contains("a_modal_open")).toBe(false);
@@ -60,23 +60,32 @@ describe("ModalStackAPI: the space of the scrollbar", () => {
     setScrollbar(0);
     open("one");
 
-    expect(getWidth()).toBe("0px");
+    expect(getWidth()).toBe("calc(0px + 0px)");
   });
 
   it("AComponentsPlugin: a number, a CSS length or false", () => {
     componentsPluginOptions.AModal = { scrollbarCompensation: 15 };
     open("one");
-    expect(getWidth()).toBe("15px");
+    expect(getWidth()).toBe("calc(0px + 15px)");
     removeModal("one");
 
     componentsPluginOptions.AModal = { scrollbarCompensation: "1rem" };
     open("one");
-    expect(getWidth()).toBe("1rem");
+    expect(getWidth()).toBe("calc(0px + 1rem)");
     removeModal("one");
 
     componentsPluginOptions.AModal = { scrollbarCompensation: false };
     open("one");
-    expect(getWidth()).toBe("0px");
+    expect(getWidth()).toBe("calc(0px + 0px)");
+  });
+
+  it("the own padding of the body is kept and added", () => {
+    document.body.style.paddingRight = "20px";
+    open("one");
+
+    expect(getWidth()).toBe("calc(20px + 17px)");
+    removeModal("one");
+    document.body.style.paddingRight = "";
   });
 });
 
