@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_PAGE_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_PAGE_DESCRIPTION_"
+)
+  a-pagination-pages(
+    v-model:page="page"
+    :limit="10"
+    :total-count="87"
+    @change="onChange"
+  )
+  pre.a_mt_3 page: {{ page }}, change: {{ lastChange }}

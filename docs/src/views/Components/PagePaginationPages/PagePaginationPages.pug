@@ -8,14 +8,37 @@ aloha-page(
       tag="p"
       html="_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_"
     )
+    a-translation(
+      tag="p"
+      html="_A_PAGINATION_PAGES_ACCESSIBILITY_"
+    )
 
     page-pagination-pages-basic
     page-pagination-pages-max-pages
+    page-pagination-pages-edges
+    page-pagination-pages-jumper
+    page-pagination-pages-page
     page-pagination-pages-mode
+    page-pagination-pages-infinite
+    page-pagination-pages-hide-on-single-page
+    page-pagination-pages-size
+    page-pagination-pages-slots
     page-pagination-pages-disabled
 
     aloha-table-props(
       :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
     )
 
     aloha-table-translate(

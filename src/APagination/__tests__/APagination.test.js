@@ -52,7 +52,7 @@ describe("APaginationPages", () => {
     const LINKS = wrapper.findAll(".a_pagination__item__link");
     // first, previous, 1, 2, 3, 4, next, last
     expect(LINKS).toHaveLength(8);
-    expect(LINKS[2].attributes("aria-current")).toBe("true");
+    expect(LINKS[2].attributes("aria-current")).toBe("page");
 
     await LINKS[6].trigger("click");
     await LINKS[3].trigger("click");

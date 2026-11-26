@@ -50,5 +50,7 @@
   "_A_TABLE_SORT_ADDITIONAL_CLOSE_DROPDOWN_": "Fermer",
   "_A_TABLE_SORT_ADDITIONAL_START_": "Trier",
   "_A_TABLE_SORT_ADDITIONAL_DROPDOWN_TITLE_{{count}}_": "Modifier le tri (colonnes sélectionnées : {{ count }})",
-  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Supprimer le tri"
+  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Supprimer le tri",
+  "_A_TABLE_PAGINATION_BOTTOM_": "Pagination sous le tableau",
+  "_A_TABLE_PAGINATION_TOP_": "Pagination au-dessus du tableau"
 }

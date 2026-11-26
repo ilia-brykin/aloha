@@ -2828,7 +2828,7 @@ export interface APaginationProps {
   modes?: Record<string, any>;
   offset: number;
   rowsLength: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesJumperButton":"_A_PAGINATION_JUMPER_BUTTON_","pagesJumperError":"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_","pagesJumperLabel":"_A_PAGINATION_JUMPER_LABEL_","pagesJumperOf":"_A_PAGINATION_JUMPER_OF_{{allPages}}_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
@@ -2836,17 +2836,34 @@ export declare const APagination: DefineComponent<APaginationProps, {}, {}, {}, 
 
 export interface APaginationPagesProps {
   disabled?: boolean;
+  hideOnSinglePage?: boolean;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-double-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n  <path fill-rule=\"evenodd\" d=\"M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
+  iconFirst?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-double-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708\"/>\n  <path fill-rule=\"evenodd\" d=\"M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
+  iconLast?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
+  iconNext?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
+  iconPrevious?: string | Record<string, any>;
+  /** @default "a_pagination_pages_30" */
+  id?: string;
   limit: number;
   /** @default 5 */
   maxPages?: number;
   /** @default "normal" */
   mode?: string;
-  offset: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
+  /** @default 0 */
+  offset?: number;
+  page?: number;
+  showEdges?: boolean;
+  showJumper?: boolean;
+  /** @default "medium" */
+  size?: string;
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesJumperButton":"_A_PAGINATION_JUMPER_BUTTON_","pagesJumperError":"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_","pagesJumperLabel":"_A_PAGINATION_JUMPER_LABEL_","pagesJumperOf":"_A_PAGINATION_JUMPER_OF_{{allPages}}_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
-export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:limit" | "update:offset")[]>;
+export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "update:limit" | "update:offset" | "update:page")[]>;
 
 export interface AProgressProps {
   /** @default "_A_PROGRESS_ARIA_LABEL_" */
@@ -2927,7 +2944,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_30" */
+  /** @default "a_radio_31" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -3010,7 +3027,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_31" */
+  /** @default "a_rate_32" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3100,7 +3117,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_32" */
+  /** @default "a_router_link_config_33" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3229,7 +3246,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_33" */
+  /** @default "a_ui_34" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3358,7 +3375,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_34" */
+  /** @default "a_select_icon_35" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3463,7 +3480,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_35" */
+  /** @default "a_select_styles_36" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3560,7 +3577,7 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_36" */
+  /** @default "a_show_more_37" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
@@ -3631,7 +3648,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_37" */
+  /** @default "a_slider_38" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3715,7 +3732,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_38" */
+  /** @default "a_switch_39" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3788,7 +3805,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table39" */
+  /** @default "a_table40" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -3906,7 +3923,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_40" */
+  /** @default "a_table_form_41" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -3954,7 +3971,7 @@ export interface ATabsProps {
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_41" */
+  /** @default "a_tabs_42" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -4023,7 +4040,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_42" */
+  /** @default "a_textarea_43" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -4062,7 +4079,7 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_43" */
+  /** @default "a_tooltip_44" */
   id?: string;
   isHide?: boolean;
   maxWidth?: number | string;
@@ -4120,7 +4137,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_44" */
+  /** @default "a_tree_45" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -4173,7 +4190,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_45" */
+  /** @default "a_validated_json_46" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -4263,7 +4280,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_46" */
+  /** @default "a_wizard_47" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;

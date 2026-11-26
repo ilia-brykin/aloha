@@ -50,5 +50,7 @@
   "_A_TABLE_SORT_ADDITIONAL_CLOSE_DROPDOWN_": "Cerrar",
   "_A_TABLE_SORT_ADDITIONAL_START_": "Ordenar",
   "_A_TABLE_SORT_ADDITIONAL_DROPDOWN_TITLE_{{count}}_": "Cambiar orden (columnas seleccionadas: {{ count }})",
-  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Eliminar orden"
+  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Eliminar orden",
+  "_A_TABLE_PAGINATION_BOTTOM_": "Paginación debajo de la tabla",
+  "_A_TABLE_PAGINATION_TOP_": "Paginación encima de la tabla"
 }

@@ -9,5 +9,9 @@
   "_A_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
   "_A_PAGINATION_NEXT_PAGE_": "Na sljedeću stranicu",
   "_A_PAGINATION_PREVIOUS_PAGE_": "Na prethodnu stranicu",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "Na stranicu {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Na stranicu {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "Idi",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "Unesite stranicu od 1 do {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "Idi na stranicu",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "od {{ allPages }}"
 }

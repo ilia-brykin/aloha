@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_HIDE_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_HIDE_DESCRIPTION_"
+)
+  .a_mb_3
+    a-button.a_mr_2(
+      class="a_btn a_btn_outline_primary"
+      text="total-count: 8"
+      @click="totalCount = 8"
+    )
+    a-button(
+      class="a_btn a_btn_outline_primary"
+      text="total-count: 80"
+      @click="totalCount = 80"
+    )
+  a-pagination-pages(
+    v-model:page="page"
+    :hide-on-single-page="true"
+    :limit="10"
+    :total-count="totalCount"
+  )

@@ -9,5 +9,9 @@
   "_A_PAGINATION_NAVIGATION_": "التنقل بين الصفحات",
   "_A_PAGINATION_NEXT_PAGE_": "إلى الصفحة التالية",
   "_A_PAGINATION_PREVIOUS_PAGE_": "إلى الصفحة السابقة",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "إلى الصفحة رقم {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "إلى الصفحة رقم {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "انتقال",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "أدخل صفحة من 1 إلى {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "الانتقال إلى الصفحة",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "من {{ allPages }}"
 }

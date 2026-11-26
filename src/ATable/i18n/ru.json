@@ -50,5 +50,7 @@
   "_A_TABLE_SORT_ADDITIONAL_CLOSE_DROPDOWN_": "Закрыть",
   "_A_TABLE_SORT_ADDITIONAL_START_": "Сортировать",
   "_A_TABLE_SORT_ADDITIONAL_DROPDOWN_TITLE_{{count}}_": "Изменить сортировку (выбрано столбцов: {{ count }})",
-  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Отменить сортировку"
+  "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_": "Отменить сортировку",
+  "_A_TABLE_PAGINATION_BOTTOM_": "Пагинация под таблицей",
+  "_A_TABLE_PAGINATION_TOP_": "Пагинация над таблицей"
 }

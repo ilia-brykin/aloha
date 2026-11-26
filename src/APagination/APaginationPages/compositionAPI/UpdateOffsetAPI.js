@@ -1,107 +1,66 @@
 import {
   computed,
+  ref,
   toRef,
+  watch,
 } from "vue";
-
-import AKeysCode from "../../../const/AKeysCode";
 
 export default function UpdateOffsetAPI(props, { emit }, {
   currentItem = computed(() => 1),
-  disabledButtonFirstPage = computed(() => false),
-  disabledButtonLastPage = computed(() => false),
   maxItems = computed(() => 1),
 }) {
   const disabled = toRef(props, "disabled");
   const limit = toRef(props, "limit");
-  const offset = toRef(props, "offset");
 
-  const updateOffset = item => {
-    if (disabled.value || item === currentItem.value) {
+  const navRef = ref(undefined);
+  let isPageChangeRequested = false;
+
+  const goToPage = page => {
+    if (disabled.value ||
+      page === currentItem.value ||
+      page < 1 ||
+      page > maxItems.value) {
       return;
     }
-    const OFFSET = (item - 1) * limit.value;
+    isPageChangeRequested = true;
+    const OFFSET = (page - 1) * limit.value;
     emit("update:offset", OFFSET);
+    emit("update:page", page);
+    emit("change", {
+      limit: limit.value,
+      offset: OFFSET,
+      page,
+    });
   };
 
-  const updateOffsetFirst = () => {
-    if (disabledButtonFirstPage.value) {
+  const updateOffset = page => goToPage(page);
+  const updateOffsetFirst = () => goToPage(1);
+  const updateOffsetPrevious = () => goToPage(currentItem.value - 1);
+  const updateOffsetNext = () => goToPage(currentItem.value + 1);
+  const updateOffsetLast = () => goToPage(maxItems.value);
+
+  // "next" on the last but one page is disabled now or a page button is gone: the focus goes to the current page
+  watch(currentItem, () => {
+    if (!isPageChangeRequested) {
       return;
     }
-    emit("update:offset", 0);
-  };
-
-  const updateOffsetPrevious = () => {
-    if (disabledButtonFirstPage.value) {
+    isPageChangeRequested = false;
+    const NAV = navRef.value?.$el || navRef.value;
+    const ACTIVE = document.activeElement;
+    const IS_FOCUS_LOST = !ACTIVE ||
+      ACTIVE === document.body ||
+      (ACTIVE.disabled && NAV?.contains(ACTIVE));
+    if (!NAV || !IS_FOCUS_LOST) {
       return;
     }
-    emit("update:offset", offset.value - limit.value);
-  };
-
-  const updateOffsetLast = () => {
-    if (disabledButtonLastPage.value) {
-      return;
-    }
-    emit("update:offset", (maxItems.value - 1) * limit.value);
-  };
-
-  const updateOffsetNext = () => {
-    if (disabledButtonLastPage.value) {
-      return;
-    }
-    emit("update:offset", offset.value + limit.value);
-  };
-
-  const keyDownUpdateOffsetFirst = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      updateOffsetFirst();
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
-
-  const keyDownUpdateOffset = ($event, item) => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      updateOffset(item);
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
-
-  const keyDownUpdateOffsetPrevious = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      updateOffsetPrevious();
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
-
-  const keyDownUpdateOffsetLast = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      updateOffsetLast();
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
-
-  const keyDownUpdateOffsetNext = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      updateOffsetNext();
-      $event.stopPropagation();
-      $event.preventDefault();
-    }
-  };
+    const TARGET = NAV.querySelector("[aria-current='page']") ||
+      NAV.querySelector("button:not([disabled])");
+    TARGET?.focus();
+  }, { flush: "post" });
 
   return {
-    keyDownUpdateOffset,
-    keyDownUpdateOffsetFirst,
-    keyDownUpdateOffsetLast,
-    keyDownUpdateOffsetNext,
-    keyDownUpdateOffsetPrevious,
+    goToPage,
+    navRef,
     updateOffset,
     updateOffsetFirst,
     updateOffsetLast,

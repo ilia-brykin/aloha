@@ -9,5 +9,9 @@
   "_A_PAGINATION_NAVIGATION_": "Navegación de paginación",
   "_A_PAGINATION_NEXT_PAGE_": "A la página siguiente",
   "_A_PAGINATION_PREVIOUS_PAGE_": "A la página anterior",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "A la página {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "A la página {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "Ir",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "Introduce una página de 1 a {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "Ir a la página",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "de {{ allPages }}"
 }

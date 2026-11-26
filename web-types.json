@@ -9191,7 +9191,7 @@
             {
               "name": "texts",
               "type": "Record<string, any>",
-              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\",\"countFromTo\":\"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_\",\"countPerPage\":\"_A_COUNT_PER_PAGE_\",\"countPerPageItem\":\"_A_COUNT_PER_PAGE_ITEM_{{count}}_\"}"
+              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesJumperButton\":\"_A_PAGINATION_JUMPER_BUTTON_\",\"pagesJumperError\":\"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_\",\"pagesJumperLabel\":\"_A_PAGINATION_JUMPER_LABEL_\",\"pagesJumperOf\":\"_A_PAGINATION_JUMPER_OF_{{allPages}}_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\",\"countFromTo\":\"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_\",\"countPerPage\":\"_A_COUNT_PER_PAGE_\",\"countPerPageItem\":\"_A_COUNT_PER_PAGE_ITEM_{{count}}_\"}"
             },
             {
               "name": "totalCount",
@@ -9223,6 +9223,35 @@
               "type": "boolean"
             },
             {
+              "name": "hideOnSinglePage",
+              "type": "boolean"
+            },
+            {
+              "name": "iconFirst",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-double-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconLast",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-double-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconNext",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconPrevious",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_pagination_pages_30\""
+            },
+            {
               "name": "limit",
               "type": "number",
               "required": true
@@ -9240,12 +9269,29 @@
             {
               "name": "offset",
               "type": "number",
-              "required": true
+              "default": "0"
+            },
+            {
+              "name": "page",
+              "type": "number"
+            },
+            {
+              "name": "showEdges",
+              "type": "boolean"
+            },
+            {
+              "name": "showJumper",
+              "type": "boolean"
+            },
+            {
+              "name": "size",
+              "type": "string",
+              "default": "\"medium\""
             },
             {
               "name": "texts",
               "type": "Record<string, any>",
-              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\"}"
+              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesJumperButton\":\"_A_PAGINATION_JUMPER_BUTTON_\",\"pagesJumperError\":\"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_\",\"pagesJumperLabel\":\"_A_PAGINATION_JUMPER_LABEL_\",\"pagesJumperOf\":\"_A_PAGINATION_JUMPER_OF_{{allPages}}_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\"}"
             },
             {
               "name": "totalCount",
@@ -9256,10 +9302,16 @@
           "js": {
             "events": [
               {
+                "name": "change"
+              },
+              {
                 "name": "update:limit"
               },
               {
                 "name": "update:offset"
+              },
+              {
+                "name": "update:page"
               }
             ]
           }
@@ -9503,7 +9555,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_30\""
+              "default": "\"a_radio_31\""
             },
             {
               "name": "idPrefix",
@@ -9809,7 +9861,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_31\""
+              "default": "\"a_rate_32\""
             },
             {
               "name": "idPrefix",
@@ -10112,7 +10164,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_32\""
+              "default": "\"a_router_link_config_33\""
             },
             {
               "name": "idPrefix",
@@ -10500,7 +10552,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_33\""
+              "default": "\"a_ui_34\""
             },
             {
               "name": "idPrefix",
@@ -10909,7 +10961,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_34\""
+              "default": "\"a_select_icon_35\""
             },
             {
               "name": "idPrefix",
@@ -11240,7 +11292,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_35\""
+              "default": "\"a_select_styles_36\""
             },
             {
               "name": "idPrefix",
@@ -11545,7 +11597,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_36\""
+              "default": "\"a_show_more_37\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -11776,7 +11828,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_37\""
+              "default": "\"a_slider_38\""
             },
             {
               "name": "idPrefix",
@@ -12047,7 +12099,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_38\""
+              "default": "\"a_switch_39\""
             },
             {
               "name": "idPrefix",
@@ -12284,7 +12336,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table39\""
+              "default": "\"a_table40\""
             },
             {
               "name": "isActionColumnVisible",
@@ -12656,7 +12708,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_40\""
+              "default": "\"a_table_form_41\""
             },
             {
               "name": "isActionsSticky",
@@ -12805,7 +12857,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_41\""
+              "default": "\"a_tabs_42\""
             },
             {
               "name": "isBoxed",
@@ -13046,7 +13098,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_42\""
+              "default": "\"a_textarea_43\""
             },
             {
               "name": "idPrefix",
@@ -13182,7 +13234,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_43\""
+              "default": "\"a_tooltip_44\""
             },
             {
               "name": "isHide",
@@ -13360,7 +13412,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_44\""
+              "default": "\"a_tree_45\""
             },
             {
               "name": "indent",
@@ -13555,7 +13607,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_45\""
+              "default": "\"a_validated_json_46\""
             },
             {
               "name": "idPrefix",
@@ -13820,7 +13872,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_46\""
+              "default": "\"a_wizard_47\""
             },
             {
               "name": "isBackButtonDisabled",

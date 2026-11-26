@@ -33,6 +33,10 @@ export default {
         id: "loadMore",
         label: "_A_PAGINATION_PAGES_MODE_LOAD_MORE_",
       },
+      {
+        id: "infinite",
+        label: "_A_PAGINATION_PAGES_MODE_INFINITE_",
+      },
     ];
 
     const rowsLength = computed(() => {
