@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "Intestazione propria al posto della prop header, anche il nome del dialogo. Props: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Apre il popover.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Chiude il popover.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Apre o chiude il popover."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Apre o chiude il popover.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Su uno schermo piccolo (<strong lang=\"en\">AMobilePlugin</strong>) il popover è un pannello in basso nella finestra con uno sfondo, senza freccia.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Ordine di sovrapposizione. Senza, vale il token --a_popover_z_index: sopra le modali, così un popover in AModal è visibile. Imposta un valore minore se il popover deve restare sotto livelli fissi propri.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Elemento proprio al posto del pulsante. Collega <strong lang=\"en\">attributes</strong> (id, ARIA, eventi). Props: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Trigger proprio",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "Lo slot trigger sostituisce il pulsante, ad es. con un <strong lang=\"en\">AButton</strong> proprio. <strong lang=\"en\">v-bind=\"attributes\"</strong> gli dà l'id, gli attributi ARIA e gli eventi. Usa un pulsante: è focalizzabile e funziona con Invio e Spazio.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Popover annidati",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Un popover in un popover: focus e clic in quello interno tengono aperto quello esterno, Esc chiude prima quello interno, un clic in quello esterno chiude solo quello interno.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notifiche",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nessuna nuova notifica."
 }

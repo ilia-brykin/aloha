@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "Свой заголовок вместо prop header, он же имя диалога. Параметры: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Открывает поповер.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Закрывает поповер.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Открывает или закрывает поповер."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Открывает или закрывает поповер.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "На маленьком экране (<strong lang=\"en\">AMobilePlugin</strong>) поповер становится панелью внизу окна с затемнением, без стрелки.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Порядок слоёв. Без него действует токен --a_popover_z_index: выше модальных окон, чтобы поповер в AModal был виден. Задайте меньшее значение, если поповер должен быть под вашими фиксированными слоями.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Свой элемент вместо кнопки. Привяжите к нему <strong lang=\"en\">attributes</strong> (id, ARIA, события). Параметры: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Свой триггер",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "Слот trigger заменяет кнопку, например своим <strong lang=\"en\">AButton</strong>. <strong lang=\"en\">v-bind=\"attributes\"</strong> передаёт ему id, ARIA-атрибуты и события. Используйте кнопку: она фокусируемая и работает с Enter и пробелом.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Вложенные поповеры",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Поповер в поповере: фокус и клики во внутреннем оставляют внешний открытым, Escape сначала закрывает внутренний, клик во внешнем закрывает только внутренний.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Уведомления",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Новых уведомлений нет."
 }

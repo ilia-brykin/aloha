@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "Vlastito zaglavlje umjesto prop header, ujedno naziv dijaloga. Parametri: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Otvara popover.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Zatvara popover.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Otvara ili zatvara popover."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Otvara ili zatvara popover.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Na malom zaslonu (<strong lang=\"en\">AMobilePlugin</strong>) popover je ploča na dnu prozora s pozadinom, bez strelice.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Redoslijed slojeva. Bez njega vrijedi token --a_popover_z_index: iznad modala, da bi popover u AModal bio vidljiv. Postavite manju vrijednost ako popover mora ostati ispod vlastitih fiksnih slojeva.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Vlastiti element umjesto gumba. Povežite s njim <strong lang=\"en\">attributes</strong> (id, ARIA, događaji). Parametri: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Vlastiti okidač",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "Slot trigger zamjenjuje gumb, npr. vlastitim <strong lang=\"en\">AButton</strong>. <strong lang=\"en\">v-bind=\"attributes\"</strong> mu daje id, ARIA atribute i događaje. Koristite gumb: fokusabilan je i radi s Enter i razmaknicom.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Ugniježđeni popoveri",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Popover u popoveru: fokus i klikovi u unutarnjem ostavljaju vanjski otvorenim, Escape najprije zatvara unutarnji, klik u vanjskom zatvara samo unutarnji.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Obavijesti",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nema novih obavijesti."
 }

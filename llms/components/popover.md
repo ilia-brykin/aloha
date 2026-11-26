@@ -237,6 +237,57 @@ export default {
 };
 ```
 
+## Own trigger
+
+The slot trigger replaces the button, e.g. with an own **AButton**. **v-bind="attributes"** gives it the id, the ARIA attributes and the events. Use a button: it is focusable and works with Enter and Space.
+
+```html
+<a-popover
+  header="_A_POPOVER_EXAMPLE_NOTIFICATIONS_"
+>
+  <template #trigger="{ attributes }">
+    <a-button
+      v-bind="attributes"
+      class="a_btn a_btn_primary"
+      icon-left="Bell"
+      text="_A_POPOVER_EXAMPLE_NOTIFICATIONS_"
+    />
+  </template>
+  <a-translation
+    class="a_mb_0"
+    tag="p"
+    text="_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_"
+  />
+</a-popover>
+```
+
+## Nested popovers
+
+A popover in a popover: the focus and the clicks in the inner one keep the outer one open, Escape closes the inner one first, a click in the outer one closes only the inner one.
+
+```html
+<a-popover
+  button-text="_A_POPOVER_EXAMPLE_BUTTON_"
+  header="_A_POPOVER_EXAMPLE_HEADER_"
+>
+  <a-translation
+    tag="p"
+    text="_A_POPOVER_EXAMPLE_TEXT_"
+  />
+  <a-popover
+    button-class="a_btn a_btn_link"
+    button-text="_A_POPOVER_EXAMPLE_HELP_"
+    placement="right"
+  >
+    <a-translation
+      class="a_mb_0"
+      tag="p"
+      text="_A_POPOVER_EXAMPLE_HELP_TEXT_"
+    />
+  </a-popover>
+</a-popover>
+```
+
 ## Props
 
 | name | type | default | required | description |
@@ -261,6 +312,7 @@ export default {
 | header-tag | String | "div" |  | Tag of the header, e.g. h2 for a heading of the page structure. |
 | id | String | uniqueId("a_popover_") |  | Unique identifier for the component |
 | in-body | Boolean | true |  | The popover is in a container in body, so a parent with overflow: hidden does not cut it. |
+| is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (**AMobilePlugin**) the popover is a panel at the bottom of the window with a backdrop, without the arrow. |
 | model-value | Boolean |  |  | Open state for v-model. Without it the popover has its own state. |
 | offset | Number | 8 |  | Distance to the button in px. |
 | open-delay | Number | 100 |  | trigger hover: delay in ms before opening. |
@@ -270,6 +322,7 @@ export default {
 | popper-container-id | String | "a_tooltip_container" |  | Id of the container in body for in-body. |
 | trigger | String | "click" |  | click (default) or hover. With hover the keyboard still uses the button. |
 | use-escape | Boolean | true |  | Escape closes the popover. |
+| z-index | Number / String |  |  | Stack order. Without it the token --a_popover_z_index: above modals, so a popover in AModal is visible. Set a smaller value if the popover must stay under own fixed layers. |
 
 ## Events
 
@@ -287,6 +340,7 @@ export default {
 | default | Content of the popover. Props: **{ close }**. |
 | footer | Footer, e.g. buttons. Props: **{ close }**. |
 | header | Own header instead of the prop header, also the name of the dialog. Props: **{ close }**. |
+| trigger | Own element instead of the button. Bind **attributes** to it (id, ARIA, events). Props: **{ attributes, isOpen, close }**. |
 
 ## Methods
 
@@ -307,7 +361,9 @@ export default {
 
 | name | value | description |
 | --- | --- | --- |
-| `--a_popover_z_index` |  | Stack order of the popover, above modals. |
+| `--a_popover_z_index` |  | Stack order of the popover and the backdrop of the bottom sheet, above modals. The prop z-index sets it. |
+| `--a_popover_backdrop_bg` |  | Backdrop behind the bottom sheet. |
+| `--a_popover_sheet_max_height` |  | Maximum height of the bottom sheet. |
 | `--a_popover_bg` |  | Background of the popover and its arrow. |
 | `--a_popover_color` |  | Text color of the popover. |
 | `--a_popover_font_size` |  | Font size of the popover. |

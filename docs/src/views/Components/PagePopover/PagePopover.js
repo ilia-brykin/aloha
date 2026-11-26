@@ -7,7 +7,9 @@ import PagePopoverForm from "./PagePopoverForm/PagePopoverForm.vue";
 import PagePopoverHover from "./PagePopoverHover/PagePopoverHover.vue";
 import PagePopoverIcon from "./PagePopoverIcon/PagePopoverIcon.vue";
 import PagePopoverModel from "./PagePopoverModel/PagePopoverModel.vue";
+import PagePopoverNested from "./PagePopoverNested/PagePopoverNested.vue";
 import PagePopoverPlacement from "./PagePopoverPlacement/PagePopoverPlacement.vue";
+import PagePopoverTrigger from "./PagePopoverTrigger/PagePopoverTrigger.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -29,6 +31,8 @@ export default {
     PagePopoverPlacement,
     PagePopoverHover,
     PagePopoverModel,
+    PagePopoverTrigger,
+    PagePopoverNested,
   },
   setup() {
     const {

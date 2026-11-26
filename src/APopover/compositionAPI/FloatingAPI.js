@@ -1,4 +1,5 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
@@ -26,6 +27,7 @@ const ARROW_SIDES = {
 export default function FloatingAPI(props, {
   arrowRef = ref(undefined),
   getButtonElement = () => undefined,
+  isSheet = computed(() => false),
   popoverRef = ref(undefined),
 }) {
   const hasArrow = toRef(props, "hasArrow");
@@ -90,6 +92,11 @@ export default function FloatingAPI(props, {
     stopFloating();
     const BUTTON = getButtonElement();
     if (!BUTTON || !popoverRef.value) {
+      return;
+    }
+    // bottom sheet: the CSS places it at the bottom of the window
+    if (isSheet.value) {
+      Object.assign(popoverRef.value.style, { left: "", top: "" });
       return;
     }
     cleanup = autoUpdate(BUTTON, popoverRef.value, updatePosition);

@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "En-tête propre à la place de la prop header, aussi le nom du dialogue. Props : <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Ouvre le popover.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Ferme le popover.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Ouvre ou ferme le popover."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Ouvre ou ferme le popover.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Sur un petit écran (<strong lang=\"en\">AMobilePlugin</strong>), le popover est un panneau en bas de la fenêtre avec un fond, sans flèche.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Ordre d'empilement. Sans lui, le jeton --a_popover_z_index s'applique : au-dessus des modales, pour qu'un popover dans AModal soit visible. Indiquez une valeur plus petite si le popover doit rester sous vos propres couches fixes.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Élément propre à la place du bouton. Liez-lui <strong lang=\"en\">attributes</strong> (id, ARIA, événements). Props : <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Déclencheur propre",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "Le slot trigger remplace le bouton, p. ex. par un <strong lang=\"en\">AButton</strong> propre. <strong lang=\"en\">v-bind=\"attributes\"</strong> lui donne l'id, les attributs ARIA et les événements. Utilisez un bouton : il est focalisable et fonctionne avec Entrée et Espace.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Popovers imbriqués",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Un popover dans un popover : le focus et les clics dans l'intérieur gardent l'extérieur ouvert, Échap ferme d'abord l'intérieur, un clic dans l'extérieur ferme seulement l'intérieur.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notifications",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Aucune nouvelle notification."
 }

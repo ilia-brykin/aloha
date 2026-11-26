@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "عنوان خاص بدل الخاصية header، وهو اسم الحوار أيضًا. المعاملات: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "يفتح النافذة المنبثقة.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "يغلق النافذة المنبثقة.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "يفتح النافذة المنبثقة أو يغلقها."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "يفتح النافذة المنبثقة أو يغلقها.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "على شاشة صغيرة (<strong lang=\"en\">AMobilePlugin</strong>) تصبح النافذة المنبثقة لوحة أسفل النافذة مع خلفية ومن دون سهم.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "ترتيب الطبقات. من دونه يُستخدم الرمز --a_popover_z_index: فوق النوافذ المشروطة، كي تظهر النافذة المنبثقة داخل AModal. اضبط قيمة أصغر إذا وجب أن تبقى تحت طبقاتك الثابتة.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "عنصر خاص بدل الزر. اربط به <strong lang=\"en\">attributes</strong> (id وARIA والأحداث). المعاملات: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "مشغّل خاص",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "تستبدل الفتحة trigger الزر، مثلًا بـ <strong lang=\"en\">AButton</strong> خاص. يمنحه <strong lang=\"en\">v-bind=\"attributes\"</strong> المعرّف وسمات ARIA والأحداث. استخدم زرًا: فهو قابل للتركيز ويعمل مع Enter والمسافة.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "نوافذ منبثقة متداخلة",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "نافذة منبثقة داخل أخرى: التركيز والنقرات في الداخلية تُبقي الخارجية مفتوحة، ويغلق Escape الداخلية أولًا، والنقر في الخارجية يغلق الداخلية فقط.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "الإشعارات",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "لا توجد إشعارات جديدة."
 }

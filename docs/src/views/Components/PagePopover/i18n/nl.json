@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "Eigen kop in plaats van de prop header, ook de naam van het dialoogvenster. Props: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Opent de popover.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Sluit de popover.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Opent of sluit de popover."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Opent of sluit de popover.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Op een klein scherm (<strong lang=\"en\">AMobilePlugin</strong>) is de popover een paneel onderaan het venster met een achtergrond, zonder pijl.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Stapelvolgorde. Zonder geldt het token --a_popover_z_index: boven modals, zodat een popover in AModal zichtbaar is. Zet een kleinere waarde als de popover onder eigen vaste lagen moet blijven.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Eigen element in plaats van de knop. Bind <strong lang=\"en\">attributes</strong> eraan (id, ARIA, events). Props: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Eigen trigger",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "De slot trigger vervangt de knop, bijv. door een eigen <strong lang=\"en\">AButton</strong>. <strong lang=\"en\">v-bind=\"attributes\"</strong> geeft hem de id, de ARIA-attributen en de events. Gebruik een knop: die is focusbaar en werkt met Enter en spatie.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Geneste popovers",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Een popover in een popover: focus en klikken in de binnenste houden de buitenste open, Escape sluit eerst de binnenste, een klik in de buitenste sluit alleen de binnenste.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Meldingen",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Geen nieuwe meldingen."
 }

@@ -18,6 +18,15 @@ import {
 
 // these closes give the focus back to the button; a click outside or Tab leave it where the user is
 const TRIGGERS_FOCUS_BUTTON = ["close", "escape"];
+// the open popovers, the last one is on top: Escape closes only it (nested popovers)
+const OPEN_STACK = [];
+
+const removeFromStack = idLocal => {
+  const INDEX = OPEN_STACK.lastIndexOf(idLocal);
+  if (INDEX !== -1) {
+    OPEN_STACK.splice(INDEX, 1);
+  }
+};
 
 export default function ToggleAPI(props, { emit }, {
   getButtonElement = () => undefined,
@@ -94,7 +103,7 @@ export default function ToggleAPI(props, { emit }, {
   };
 
   const onDocumentKeydown = $event => {
-    if ($event.key !== "Escape" || !useEscape.value) {
+    if ($event.key !== "Escape" || !useEscape.value || OPEN_STACK[OPEN_STACK.length - 1] !== id.value) {
       return;
     }
     if (triggerOpen !== "hover" && !isFocusInside()) {
@@ -139,6 +148,7 @@ export default function ToggleAPI(props, { emit }, {
       triggerOpen = TRIGGER;
       // AModal: Escape closes the popover, not the modal
       openPopup({ id: id.value });
+      OPEN_STACK.push(id.value);
       addListeners();
       await nextTick();
       startFloating();
@@ -150,6 +160,7 @@ export default function ToggleAPI(props, { emit }, {
     }
     triggerOpen = undefined;
     closePopup({ id: id.value });
+    removeFromStack(id.value);
     removeListeners();
     stopFloating();
     if (TRIGGERS_FOCUS_BUTTON.indexOf(TRIGGER) !== -1) {
@@ -163,6 +174,7 @@ export default function ToggleAPI(props, { emit }, {
     if (isOpen.value) {
       triggerOpen = "model";
       openPopup({ id: id.value });
+      OPEN_STACK.push(id.value);
       addListeners();
       nextTick(startFloating);
     }
@@ -173,6 +185,9 @@ export default function ToggleAPI(props, { emit }, {
     removeListeners();
     stopFloating();
     closePopup({ id: id.value });
+    if (isOpen.value) {
+      removeFromStack(id.value);
+    }
   });
 
   return {

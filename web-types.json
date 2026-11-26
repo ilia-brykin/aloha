@@ -9416,6 +9416,11 @@
               "default": "true"
             },
             {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "modelValue",
               "type": "boolean"
             },
@@ -9457,6 +9462,10 @@
               "name": "useEscape",
               "type": "boolean",
               "default": "true"
+            },
+            {
+              "name": "zIndex",
+              "type": "number | string"
             }
           ],
           "js": {

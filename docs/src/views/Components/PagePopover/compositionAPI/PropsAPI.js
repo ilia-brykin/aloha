@@ -141,6 +141,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-bottom-sheet-on-mobile",
+      description: "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "model-value",
       description: "_A_POPOVER_PROPS_MODEL_VALUE_DESCRIPTION_",
       type: "Boolean",
@@ -203,6 +210,13 @@ export default function PropsAPI() {
       default: true,
       required: false,
     },
+    {
+      name: "z-index",
+      description: "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_",
+      type: "Number / String",
+      default: undefined,
+      required: false,
+    },
   ];
 
   const dataEvents = [
@@ -216,6 +230,7 @@ export default function PropsAPI() {
     { name: "default", description: "_A_POPOVER_SLOTS_DEFAULT_DESCRIPTION_" },
     { name: "footer", description: "_A_POPOVER_SLOTS_FOOTER_DESCRIPTION_" },
     { name: "header", description: "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_" },
+    { name: "trigger", description: "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_" },
   ];
 
   const dataMethods = [

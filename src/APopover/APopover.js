@@ -1,15 +1,20 @@
 import {
   computed,
   h,
+  inject,
+  onBeforeUnmount,
   onMounted,
+  provide,
   ref,
   Teleport,
   toRef,
+  watch,
 } from "vue";
 
 import AElement from "../AElement/AElement";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AMobileAPI from "../compositionAPI/AMobileAPI";
 import FloatingAPI from "./compositionAPI/FloatingAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
@@ -21,6 +26,7 @@ import {
   getPropDefault,
 } from "../plugins/AComponentsPlugin";
 import {
+  isNil,
   uniqueId,
 } from "lodash-es";
 
@@ -102,6 +108,7 @@ export default {
       default: () => uniqueId("a_popover_"),
     },
     inBody: plugin(Boolean, "inBody", true),
+    isBottomSheetOnMobile: plugin(Boolean, "isBottomSheetOnMobile", true),
     modelValue: {
       type: Boolean,
       required: false,
@@ -137,6 +144,8 @@ export default {
       validator: value => ["click", "hover"].indexOf(value) !== -1,
     },
     useEscape: plugin(Boolean, "useEscape", true),
+    // undefined: the token --a_popover_z_index (above modals)
+    zIndex: plugin([Number, String], "zIndex", undefined),
   },
   emits: [
     "close",
@@ -151,9 +160,15 @@ export default {
     const arrowRef = ref(undefined);
     const isMounted = ref(false);
 
-    const getButtonElement = () => buttonRef.value?.$el || buttonRef.value;
-
     const buttonId = computed(() => `${ id.value }_button`);
+    // the own trigger of the slot trigger has the id of the button
+    const getButtonElement = () => buttonRef.value?.$el || buttonRef.value || document.getElementById(buttonId.value);
+
+    const {
+      isMobileWidth,
+    } = AMobileAPI();
+    // AMobilePlugin: on a small screen the popover is a panel at the bottom of the window
+    const isSheet = computed(() => !!(props.isBottomSheetOnMobile && isMobileWidth.value));
     const popoverId = computed(() => `${ id.value }_popover`);
     const headerId = computed(() => `${ id.value }_header`);
 
@@ -169,10 +184,12 @@ export default {
     } = FloatingAPI(props, {
       arrowRef,
       getButtonElement,
+      isSheet,
       popoverRef,
     });
 
     const {
+      children,
       isFocusInside,
       onKeydownTab,
       setFocusOnOpen,
@@ -203,6 +220,39 @@ export default {
     });
 
     const closeByButton = () => close({ trigger: "close" });
+
+    // nested popovers: the focus and the clicks in a child popover count as inside
+    const parent = inject("aPopover", undefined);
+    provide("aPopover", {
+      addChild: fn => children.add(fn),
+      removeChild: fn => children.delete(fn),
+    });
+    parent?.addChild(isFocusInside);
+    onBeforeUnmount(() => parent?.removeChild(isFocusInside));
+
+    // the window became small or large while the popover is open
+    watch(isSheet, () => {
+      if (isOpen.value) {
+        startFloating();
+      }
+    }, { flush: "post" });
+
+    // the prop sets the token, so the popover and the backdrop of the bottom sheet use it
+    const zIndexStyle = computed(() => {
+      return isNil(props.zIndex) ? undefined : { "--a_popover_z_index": props.zIndex };
+    });
+
+    // the attributes and events for an own element in the slot trigger
+    const triggerAttributes = computed(() => ({
+      id: buttonId.value,
+      "aria-controls": isOpen.value ? popoverId.value : undefined,
+      "aria-expanded": isOpen.value ? "true" : "false",
+      "aria-haspopup": "dialog",
+      onClick: onButtonClick,
+      onFocusout,
+      onMouseenter,
+      onMouseleave,
+    }));
 
     const onPopoverKeydown = $event => {
       if ($event.key === "Tab") {
@@ -237,6 +287,7 @@ export default {
       headerId,
       isMounted,
       isOpen,
+      isSheet,
       onButtonClick,
       onFocusout,
       onMouseenter,
@@ -246,6 +297,8 @@ export default {
       popoverId,
       popoverRef,
       popperContainerIdSelector,
+      triggerAttributes,
+      zIndexStyle,
     };
   },
   render() {
@@ -253,30 +306,36 @@ export default {
     const HAS_HEADER = !!(this.header || this.$slots.header);
     const HAS_NAME = this.buttonText || this.buttonTitle || this.$attrs["aria-label"] || this.$slots.button;
 
-    const BUTTON = h(AElement, {
-      ref: "buttonRef",
-      ...this.$attrs,
-      id: this.buttonId,
-      alwaysTranslate: this.alwaysTranslate,
-      "aria-controls": this.isOpen ? this.popoverId : undefined,
-      "aria-expanded": this.isOpen ? "true" : "false",
-      "aria-haspopup": "dialog",
-      class: this.buttonClass,
-      disabled: this.disabled,
-      extra: this.extra,
-      iconLeft: this.buttonIconLeft,
-      iconRight: this.buttonIconRight,
-      text: this.buttonText,
+    const BUTTON = this.$slots.trigger ?
+      this.$slots.trigger({
+        attributes: this.triggerAttributes,
+        close: this.closeByButton,
+        isOpen: this.isOpen,
+      }) :
+      h(AElement, {
+        ref: "buttonRef",
+        ...this.$attrs,
+        id: this.buttonId,
+        alwaysTranslate: this.alwaysTranslate,
+        "aria-controls": this.isOpen ? this.popoverId : undefined,
+        "aria-expanded": this.isOpen ? "true" : "false",
+        "aria-haspopup": "dialog",
+        class: this.buttonClass,
+        disabled: this.disabled,
+        extra: this.extra,
+        iconLeft: this.buttonIconLeft,
+        iconRight: this.buttonIconRight,
+        text: this.buttonText,
       // a button with only an icon needs a name
-      textScreenReader: this.buttonTextScreenReader ?? (HAS_NAME ? undefined : "_A_POPOVER_BUTTON_"),
-      title: this.buttonTitle,
-      type: "button",
-      ...this.buttonAttributes,
-      onClick: this.onButtonClick,
-      onFocusout: this.onFocusout,
-      onMouseenter: this.onMouseenter,
-      onMouseleave: this.onMouseleave,
-    }, this.$slots.button ? { default: () => this.$slots.button() } : undefined);
+        textScreenReader: this.buttonTextScreenReader ?? (HAS_NAME ? undefined : "_A_POPOVER_BUTTON_"),
+        title: this.buttonTitle,
+        type: "button",
+        ...this.buttonAttributes,
+        onClick: this.onButtonClick,
+        onFocusout: this.onFocusout,
+        onMouseenter: this.onMouseenter,
+        onMouseleave: this.onMouseleave,
+      }, this.$slots.button ? { default: () => this.$slots.button() } : undefined);
 
     // always the same root (a fragment): else the button is created again and loses the focus
     if (!this.isMounted || !this.isOpen) {
@@ -289,9 +348,10 @@ export default {
       // non-modal dialog: the page stays usable, no aria-modal
       role: "dialog",
       "aria-labelledby": HAS_HEADER ? this.headerId : this.buttonId,
-      class: ["a_popover", this.popoverClass],
+      class: ["a_popover", { a_popover_sheet: this.isSheet }, this.popoverClass],
       "data-owner": this.id,
-      "data-placement": this.placementCurrent,
+      "data-placement": this.isSheet ? undefined : this.placementCurrent,
+      style: this.zIndexStyle,
       tabindex: -1,
       ...this.popoverAttributes,
       onFocusout: this.onFocusout,
@@ -299,7 +359,7 @@ export default {
       onMouseenter: this.onMouseenter,
       onMouseleave: this.onMouseleave,
     }, [
-      this.hasArrow ?
+      (this.hasArrow && !this.isSheet) ?
         h("div", {
           ref: "arrowRef",
           "aria-hidden": "true",
@@ -350,10 +410,20 @@ export default {
 
     return [
       BUTTON,
+      // the bottom sheet is always in body: position fixed does not work in a parent with transform
       h(Teleport, {
         to: this.popperContainerIdSelector,
-        disabled: !this.inBody,
-      }, [POPOVER]),
+        disabled: !this.inBody && !this.isSheet,
+      }, [
+        this.isSheet ?
+          h("div", {
+            "aria-hidden": "true",
+            class: "a_popover__backdrop",
+            style: this.zIndexStyle,
+          }) :
+          null,
+        POPOVER,
+      ]),
     ];
   },
 };

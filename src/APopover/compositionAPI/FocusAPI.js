@@ -11,6 +11,8 @@ export default function FocusAPI(props, {
   getButtonElement = () => undefined,
   popoverRef = ref(undefined),
 }) {
+  // nested popovers: their popovers are in the container in body, not in this popover
+  const children = new Set();
   const focusOnOpen = toRef(props, "focusOnOpen");
 
   const getFocusableElements = () => {
@@ -44,7 +46,8 @@ export default function FocusAPI(props, {
     const BUTTON = getButtonElement();
     return !!element && (
       !!popoverRef.value?.contains(element) ||
-      (!!BUTTON && (BUTTON === element || BUTTON.contains(element)))
+      (!!BUTTON && (BUTTON === element || BUTTON.contains(element))) ||
+      Array.from(children).some(isInsideChild => isInsideChild(element))
     );
   };
 
@@ -83,6 +86,7 @@ export default function FocusAPI(props, {
 
 
   return {
+    children,
     isFocusInside,
     onKeydownTab,
     setFocusOnOpen,

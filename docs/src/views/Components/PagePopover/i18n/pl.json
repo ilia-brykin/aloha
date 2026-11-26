@@ -59,5 +59,14 @@
   "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_": "Własny nagłówek zamiast prop header, także nazwa dialogu. Parametry: <strong lang=\"en\">{ close }</strong>.",
   "_A_POPOVER_METHODS_OPEN_DESCRIPTION_": "Otwiera popover.",
   "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_": "Zamyka popover.",
-  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Otwiera lub zamyka popover."
+  "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_": "Otwiera lub zamyka popover.",
+  "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Na małym ekranie (<strong lang=\"en\">AMobilePlugin</strong>) popover jest panelem u dołu okna z tłem, bez strzałki.",
+  "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_": "Kolejność warstw. Bez niego działa token --a_popover_z_index: nad oknami modalnymi, aby popover w AModal był widoczny. Ustaw mniejszą wartość, jeśli popover ma być pod własnymi stałymi warstwami.",
+  "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_": "Własny element zamiast przycisku. Powiąż z nim <strong lang=\"en\">attributes</strong> (id, ARIA, zdarzenia). Parametry: <strong lang=\"en\">{ attributes, isOpen, close }</strong>.",
+  "_A_POPOVER_GROUP_TRIGGER_HEADER_": "Własny wyzwalacz",
+  "_A_POPOVER_GROUP_TRIGGER_DESCRIPTION_": "Slot trigger zastępuje przycisk, np. własnym <strong lang=\"en\">AButton</strong>. <strong lang=\"en\">v-bind=\"attributes\"</strong> przekazuje mu id, atrybuty ARIA i zdarzenia. Użyj przycisku: jest fokusowalny i działa z Enter i spacją.",
+  "_A_POPOVER_GROUP_NESTED_HEADER_": "Zagnieżdżone popovery",
+  "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Popover w popoverze: fokus i kliknięcia w wewnętrznym zostawiają zewnętrzny otwarty, Escape najpierw zamyka wewnętrzny, kliknięcie w zewnętrznym zamyka tylko wewnętrzny.",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Powiadomienia",
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Brak nowych powiadomień."
 }

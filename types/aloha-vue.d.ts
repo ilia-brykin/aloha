@@ -2897,6 +2897,8 @@ export interface APopoverProps {
   id?: string;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
   modelValue?: boolean;
   /** @default 8 */
   offset?: number;
@@ -2913,6 +2915,7 @@ export interface APopoverProps {
   trigger?: string;
   /** @default true */
   useEscape?: boolean;
+  zIndex?: number | string;
 }
 export declare const APopover: DefineComponent<APopoverProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("close" | "open" | "update:modelValue")[]>;
 
