@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Popovers anidados",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Un popover dentro de otro: el foco y los clics en el interior mantienen abierto el exterior, Escape cierra primero el interior y un clic en el exterior cierra solo el interior.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notificaciones",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "No hay notificaciones nuevas."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "No hay notificaciones nuevas.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "En una pantalla pequeña el popover es un panel inferior modal: <code lang=\"en\">aria-modal=\"true\"</code>, Tab y Shift+Tab se quedan en el panel, el resto de la página es <code lang=\"en\">inert</code>. Un disparador propio en el slot trigger que no es un botón recibe <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter y Espacio y un aviso en la consola; un enlace con href recibe solo el aviso."
 }

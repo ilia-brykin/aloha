@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Geneste popovers",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Een popover in een popover: focus en klikken in de binnenste houden de buitenste open, Escape sluit eerst de binnenste, een klik in de buitenste sluit alleen de binnenste.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Meldingen",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Geen nieuwe meldingen."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Geen nieuwe meldingen.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Op een klein scherm is de popover een modaal paneel onderaan: <code lang=\"en\">aria-modal=\"true\"</code>, Tab en Shift+Tab blijven in het paneel, de rest van de pagina is <code lang=\"en\">inert</code>. Een eigen trigger in de slot trigger die geen knop is, krijgt <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter en spatie en een waarschuwing in de console; een link met href krijgt alleen de waarschuwing."
 }

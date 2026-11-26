@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Nested popovers",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "A popover in a popover: the focus and the clicks in the inner one keep the outer one open, Escape closes the inner one first, a click in the outer one closes only the inner one.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notifications",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "No new notifications."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "No new notifications.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "On a small screen the popover is a modal bottom sheet: <code lang=\"en\">aria-modal=\"true\"</code>, Tab and Shift+Tab stay in the sheet, the rest of the page is <code lang=\"en\">inert</code>. An own trigger in the slot trigger that is no button gets <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter and Space and a warning in the console; a link with href gets only the warning."
 }

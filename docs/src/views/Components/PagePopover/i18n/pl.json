@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Zagnieżdżone popovery",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Popover w popoverze: fokus i kliknięcia w wewnętrznym zostawiają zewnętrzny otwarty, Escape najpierw zamyka wewnętrzny, kliknięcie w zewnętrznym zamyka tylko wewnętrzny.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Powiadomienia",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Brak nowych powiadomień."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Brak nowych powiadomień.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Na małym ekranie popover jest modalnym panelem u dołu: <code lang=\"en\">aria-modal=\"true\"</code>, Tab i Shift+Tab zostają w panelu, reszta strony jest <code lang=\"en\">inert</code>. Własny wyzwalacz w slocie trigger, który nie jest przyciskiem, otrzymuje <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter i spację oraz ostrzeżenie w konsoli; link z href otrzymuje tylko ostrzeżenie."
 }

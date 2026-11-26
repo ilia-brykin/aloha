@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Вкладені поповери",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Поповер у поповері: фокус і кліки у внутрішньому залишають зовнішній відкритим, Escape спочатку закриває внутрішній, клік у зовнішньому закриває лише внутрішній.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Сповіщення",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Нових сповіщень немає."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Нових сповіщень немає.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "На малому екрані поповер — модальна панель знизу: <code lang=\"en\">aria-modal=\"true\"</code>, Tab і Shift+Tab залишаються всередині панелі, решта сторінки <code lang=\"en\">inert</code>. Власний тригер у слоті trigger, який не є кнопкою, отримує <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter і пробіл та попередження в консолі; посилання з href отримує лише попередження."
 }

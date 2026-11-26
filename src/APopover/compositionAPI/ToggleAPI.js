@@ -8,6 +8,10 @@ import {
 } from "vue";
 
 import {
+  addModal,
+  removeModal,
+} from "../../AModal/compositionAPI/ModalStackAPI";
+import {
   closePopup,
   openPopup,
 } from "../../compositionAPI/APopupAPI";
@@ -31,6 +35,7 @@ const removeFromStack = idLocal => {
 export default function ToggleAPI(props, { emit }, {
   getButtonElement = () => undefined,
   isFocusInside = () => false,
+  isSheet = computed(() => false),
   popoverRef = ref(undefined),
   setFocusOnOpen = () => {},
   setFocusToButton = () => {},
@@ -131,6 +136,27 @@ export default function ToggleAPI(props, { emit }, {
     }
   };
 
+  // the bottom sheet is modal (it covers the page): the rest of the page is inert, like behind AModal
+  const getModalKey = () => `popover_${ id.value }`;
+  const updateSheetModal = () => {
+    if (isOpen.value && isSheet.value && popoverRef.value) {
+      addModal({
+        key: getModalKey(),
+        getWrapper: () => popoverRef.value,
+        useInert: true,
+      });
+    } else {
+      removeModal(getModalKey());
+    }
+  };
+
+  // the window became small or large while the popover is open
+  watch(isSheet, () => {
+    if (isOpen.value) {
+      updateSheetModal();
+    }
+  }, { flush: "post" });
+
   const addListeners = () => {
     document.addEventListener("keydown", onDocumentKeydown);
     document.addEventListener("pointerdown", onDocumentPointerdown);
@@ -152,6 +178,7 @@ export default function ToggleAPI(props, { emit }, {
       addListeners();
       await nextTick();
       startFloating();
+      updateSheetModal();
       if (TRIGGER !== "hover") {
         setFocusOnOpen();
       }
@@ -163,6 +190,8 @@ export default function ToggleAPI(props, { emit }, {
     removeFromStack(id.value);
     removeListeners();
     stopFloating();
+    // first without inert, else the button can not get the focus
+    updateSheetModal();
     if (TRIGGERS_FOCUS_BUTTON.indexOf(TRIGGER) !== -1) {
       setFocusToButton();
     }
@@ -176,7 +205,10 @@ export default function ToggleAPI(props, { emit }, {
       openPopup({ id: id.value });
       OPEN_STACK.push(id.value);
       addListeners();
-      nextTick(startFloating);
+      nextTick(() => {
+        startFloating();
+        updateSheetModal();
+      });
     }
   };
 
@@ -188,6 +220,7 @@ export default function ToggleAPI(props, { emit }, {
     if (isOpen.value) {
       removeFromStack(id.value);
     }
+    removeModal(getModalKey());
   });
 
   return {

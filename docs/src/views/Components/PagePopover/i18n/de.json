@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Verschachtelte Popover",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Ein Popover im Popover: Fokus und Klicks im inneren halten das äußere offen, Escape schließt zuerst das innere, ein Klick im äußeren schließt nur das innere.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Benachrichtigungen",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Keine neuen Benachrichtigungen."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Keine neuen Benachrichtigungen.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Auf einem kleinen Bildschirm ist das Popover ein modales Bottom Sheet: <code lang=\"en\">aria-modal=\"true\"</code>, Tab und Shift+Tab bleiben im Sheet, der Rest der Seite ist <code lang=\"en\">inert</code>. Ein eigener Auslöser im Slot trigger, der kein Button ist, bekommt <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter und Leertaste und eine Warnung in der Konsole; ein Link mit href bekommt nur die Warnung."
 }

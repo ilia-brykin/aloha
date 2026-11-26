@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "نوافذ منبثقة متداخلة",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "نافذة منبثقة داخل أخرى: التركيز والنقرات في الداخلية تُبقي الخارجية مفتوحة، ويغلق Escape الداخلية أولًا، والنقر في الخارجية يغلق الداخلية فقط.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "الإشعارات",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "لا توجد إشعارات جديدة."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "لا توجد إشعارات جديدة.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "على شاشة صغيرة تصبح النافذة المنبثقة لوحة سفلية مشروطة: <code lang=\"en\">aria-modal=\"true\"</code>، ويبقى Tab وShift+Tab داخل اللوحة، وبقية الصفحة <code lang=\"en\">inert</code>. المشغّل الخاص في الفتحة trigger إن لم يكن زرًا يحصل على <code lang=\"en\">role=\"button\"</code> و<code lang=\"en\">tabindex=\"0\"</code> وEnter والمسافة وتحذير في وحدة التحكم؛ والرابط مع href يحصل على التحذير فقط."
 }

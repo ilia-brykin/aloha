@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Ugniježđeni popoveri",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Popover u popoveru: fokus i klikovi u unutarnjem ostavljaju vanjski otvorenim, Escape najprije zatvara unutarnji, klik u vanjskom zatvara samo unutarnji.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Obavijesti",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nema novih obavijesti."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nema novih obavijesti.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Na malom zaslonu popover je modalna ploča pri dnu: <code lang=\"en\">aria-modal=\"true\"</code>, Tab i Shift+Tab ostaju u ploči, ostatak stranice je <code lang=\"en\">inert</code>. Vlastiti okidač u slotu trigger koji nije gumb dobiva <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Enter i razmaknicu te upozorenje u konzoli; poveznica s href dobiva samo upozorenje."
 }

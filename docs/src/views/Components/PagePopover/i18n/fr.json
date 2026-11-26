@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Popovers imbriqués",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Un popover dans un popover : le focus et les clics dans l'intérieur gardent l'extérieur ouvert, Échap ferme d'abord l'intérieur, un clic dans l'extérieur ferme seulement l'intérieur.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notifications",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Aucune nouvelle notification."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Aucune nouvelle notification.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Sur un petit écran, le popover est un panneau inférieur modal : <code lang=\"en\">aria-modal=\"true\"</code>, Tab et Maj+Tab restent dans le panneau, le reste de la page est <code lang=\"en\">inert</code>. Un déclencheur propre dans le slot trigger qui n'est pas un bouton reçoit <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Entrée et Espace et un avertissement dans la console ; un lien avec href reçoit seulement l'avertissement."
 }

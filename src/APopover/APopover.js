@@ -4,6 +4,7 @@ import {
   inject,
   onBeforeUnmount,
   onMounted,
+  onUpdated,
   provide,
   ref,
   Teleport,
@@ -192,6 +193,7 @@ export default {
       children,
       isFocusInside,
       onKeydownTab,
+      onKeydownTrap,
       setFocusOnOpen,
       setFocusToButton,
     } = FocusAPI(props, {
@@ -212,6 +214,7 @@ export default {
     } = ToggleAPI(props, context, {
       getButtonElement,
       isFocusInside,
+      isSheet,
       popoverRef,
       setFocusOnOpen,
       setFocusToButton,
@@ -242,6 +245,20 @@ export default {
       return isNil(props.zIndex) ? undefined : { "--a_popover_z_index": props.zIndex };
     });
 
+    // a button and a link with href have Enter (and Space) natively
+    const hasNativeKeyboard = element => {
+      return element.tagName === "BUTTON" || (element.tagName === "A" && element.hasAttribute("href"));
+    };
+
+    // Enter and Space for an own element that is no button (div, span)
+    const onTriggerKeydown = $event => {
+      if (hasNativeKeyboard($event.currentTarget) || ($event.key !== "Enter" && $event.key !== " ")) {
+        return;
+      }
+      $event.preventDefault();
+      onButtonClick();
+    };
+
     // the attributes and events for an own element in the slot trigger
     const triggerAttributes = computed(() => ({
       id: buttonId.value,
@@ -250,12 +267,41 @@ export default {
       "aria-haspopup": "dialog",
       onClick: onButtonClick,
       onFocusout,
+      onKeydown: onTriggerKeydown,
       onMouseenter,
       onMouseleave,
     }));
 
+    /**
+     * An own element that is no button gets role button and tabindex 0, so the keyboard and the screen reader can use it.
+     * A link with href is not changed: a link goes to another page, the popover needs a button.
+     */
+    const prepareTrigger = () => {
+      if (!context.slots.trigger) {
+        return;
+      }
+      const ELEMENT = document.getElementById(buttonId.value);
+      if (!ELEMENT || ELEMENT.tagName === "BUTTON" || ELEMENT.hasAttribute("data-a-popover-trigger")) {
+        return;
+      }
+      ELEMENT.setAttribute("data-a-popover-trigger", "");
+      if (hasNativeKeyboard(ELEMENT)) {
+        console.warn(`APopover "${ id.value }": the trigger is a link, use a button (a link goes to another page).`);
+        return;
+      }
+      if (!ELEMENT.hasAttribute("role")) {
+        ELEMENT.setAttribute("role", "button");
+      }
+      if (!ELEMENT.hasAttribute("tabindex")) {
+        ELEMENT.setAttribute("tabindex", "0");
+      }
+      console.warn(`APopover "${ id.value }": the trigger <${ ELEMENT.tagName.toLowerCase() }> got role="button" and tabindex="0", use a <button>.`);
+    };
+
     const onPopoverKeydown = $event => {
-      if ($event.key === "Tab") {
+      if ($event.key === "Tab" && isSheet.value) {
+        onKeydownTrap($event);
+      } else if ($event.key === "Tab") {
         onKeydownTab($event, {
           close: () => {
             if (props.closeOnFocusOut) {
@@ -271,7 +317,10 @@ export default {
       // a_popup_container: not inert behind an open AModal
       addPopperContainerInBody({ className: "a_popup_container" });
       initOpen();
+      prepareTrigger();
     });
+    // the own trigger can be replaced (v-if)
+    onUpdated(prepareTrigger);
 
     context.expose({
       close,
@@ -347,6 +396,8 @@ export default {
       id: this.popoverId,
       // non-modal dialog: the page stays usable, no aria-modal
       role: "dialog",
+      // the bottom sheet covers the page: modal, the rest of the page is inert
+      "aria-modal": this.isSheet ? "true" : undefined,
       "aria-labelledby": HAS_HEADER ? this.headerId : this.buttonId,
       class: ["a_popover", { a_popover_sheet: this.isSheet }, this.popoverClass],
       "data-owner": this.id,

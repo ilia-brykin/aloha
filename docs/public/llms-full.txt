@@ -46316,6 +46316,8 @@ export default {
 
 Accessibility: a native button with `aria-haspopup="dialog"` and `aria-expanded` opens a non-modal `role="dialog"`, named by the header or by the button. The focus goes to the first element of the content, Escape and the close button give it back to the button. In the container in body Tab after the last element goes to the element after the button. Inside **AModal** Escape closes only the popover. With hover the popover can be hovered and Escape closes it (WCAG 1.4.13).
 
+On a small screen the popover is a modal bottom sheet: `aria-modal="true"`, Tab and Shift+Tab stay in the sheet, the rest of the page is `inert`. An own trigger in the slot trigger that is no button gets `role="button"`, `tabindex="0"`, Enter and Space and a warning in the console; a link with href gets only the warning.
+
 ## Basic usage
 
 A button with a header and a text. A click outside, Escape and the close button close the popover.

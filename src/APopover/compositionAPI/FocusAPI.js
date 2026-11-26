@@ -85,8 +85,29 @@ export default function FocusAPI(props, {
   };
 
 
+  // the modal bottom sheet: Tab and Shift+Tab go round in the popover
+  const onKeydownTrap = $event => {
+    const ELEMENTS = getFocusableElements();
+    const FIRST = ELEMENTS[0];
+    const LAST = ELEMENTS[ELEMENTS.length - 1];
+    const ACTIVE = document.activeElement;
+    if (!FIRST) {
+      $event.preventDefault();
+      popoverRef.value?.focus();
+      return;
+    }
+    if ($event.shiftKey && (ACTIVE === FIRST || ACTIVE === popoverRef.value)) {
+      $event.preventDefault();
+      LAST.focus();
+    } else if (!$event.shiftKey && ACTIVE === LAST) {
+      $event.preventDefault();
+      FIRST.focus();
+    }
+  };
+
   return {
     children,
+    onKeydownTrap,
     isFocusInside,
     onKeydownTab,
     setFocusOnOpen,

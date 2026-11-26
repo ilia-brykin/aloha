@@ -68,5 +68,6 @@
   "_A_POPOVER_GROUP_NESTED_HEADER_": "Popover annidati",
   "_A_POPOVER_GROUP_NESTED_DESCRIPTION_": "Un popover in un popover: focus e clic in quello interno tengono aperto quello esterno, Esc chiude prima quello interno, un clic in quello esterno chiude solo quello interno.",
   "_A_POPOVER_EXAMPLE_NOTIFICATIONS_": "Notifiche",
-  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nessuna nuova notifica."
+  "_A_POPOVER_EXAMPLE_NOTIFICATIONS_TEXT_": "Nessuna nuova notifica.",
+  "_A_POPOVER_ACCESSIBILITY_MOBILE_": "Su uno schermo piccolo il popover è un pannello inferiore modale: <code lang=\"en\">aria-modal=\"true\"</code>, Tab e Maiusc+Tab restano nel pannello, il resto della pagina è <code lang=\"en\">inert</code>. Un trigger proprio nello slot trigger che non è un pulsante riceve <code lang=\"en\">role=\"button\"</code>, <code lang=\"en\">tabindex=\"0\"</code>, Invio e Spazio e un avviso nella console; un link con href riceve solo l'avviso."
 }
