@@ -2865,6 +2865,57 @@ export interface APaginationPagesProps {
 }
 export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "update:limit" | "update:offset" | "update:page")[]>;
 
+export interface APopoverProps {
+  alwaysTranslate?: boolean;
+  /** @default {} */
+  buttonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_secondary" */
+  buttonClass?: string | Record<string, any> | any[];
+  buttonIconLeft?: string | Record<string, any>;
+  buttonIconRight?: string | Record<string, any>;
+  buttonText?: string | number;
+  buttonTextScreenReader?: string | number;
+  buttonTitle?: string | number;
+  /** @default 200 */
+  closeDelay?: number;
+  /** @default true */
+  closeOnClickOutside?: boolean;
+  /** @default true */
+  closeOnFocusOut?: boolean;
+  disabled?: boolean;
+  extra?: Record<string, any>;
+  /** @default "first" */
+  focusOnOpen?: string;
+  /** @default true */
+  hasArrow?: boolean;
+  /** @default true */
+  hasCloseButton?: boolean;
+  header?: string | number;
+  /** @default "div" */
+  headerTag?: string;
+  /** @default "a_popover_31" */
+  id?: string;
+  /** @default true */
+  inBody?: boolean;
+  modelValue?: boolean;
+  /** @default 8 */
+  offset?: number;
+  /** @default 100 */
+  openDelay?: number;
+  /** @default "bottom" */
+  placement?: string;
+  /** @default {} */
+  popoverAttributes?: Record<string, any>;
+  popoverClass?: string | Record<string, any> | any[];
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
+  /** @default "click" */
+  trigger?: string;
+  /** @default true */
+  useEscape?: boolean;
+}
+export declare const APopover: DefineComponent<APopoverProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("close" | "open" | "update:modelValue")[]>;
+
 export interface AProgressProps {
   /** @default "_A_PROGRESS_ARIA_LABEL_" */
   ariaLabel?: string;
@@ -2944,7 +2995,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_31" */
+  /** @default "a_radio_32" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -3027,7 +3078,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_32" */
+  /** @default "a_rate_33" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3117,7 +3168,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_33" */
+  /** @default "a_router_link_config_34" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3246,7 +3297,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_34" */
+  /** @default "a_ui_35" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3375,7 +3426,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_35" */
+  /** @default "a_select_icon_36" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3480,7 +3531,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_36" */
+  /** @default "a_select_styles_37" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3577,7 +3628,7 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_37" */
+  /** @default "a_show_more_38" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
@@ -3648,7 +3699,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_38" */
+  /** @default "a_slider_39" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3732,7 +3783,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_39" */
+  /** @default "a_switch_40" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3805,7 +3856,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table40" */
+  /** @default "a_table41" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -3923,7 +3974,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_41" */
+  /** @default "a_table_form_42" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -3971,7 +4022,7 @@ export interface ATabsProps {
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_42" */
+  /** @default "a_tabs_43" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -4040,7 +4091,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_43" */
+  /** @default "a_textarea_44" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -4079,7 +4130,7 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_44" */
+  /** @default "a_tooltip_45" */
   id?: string;
   isHide?: boolean;
   maxWidth?: number | string;
@@ -4137,7 +4188,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_45" */
+  /** @default "a_tree_46" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -4190,7 +4241,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_46" */
+  /** @default "a_validated_json_47" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -4280,7 +4331,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_47" */
+  /** @default "a_wizard_48" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -4444,6 +4495,7 @@ export declare const APageTabTitleAPI_setBaseTitle: any;
 export declare const APageTabTitlePlugin: any;
 export declare const APaginationI18n: any;
 export declare const APlacements: any;
+export declare const APopoverI18n: any;
 export declare const APopupAPI: any;
 export declare const APopupAPI_closePopup: any;
 export declare const APopupAPI_isCurrentPopupOpen: any;
@@ -4687,6 +4739,7 @@ declare module "vue" {
     APageTabTitle: typeof APageTabTitle;
     APagination: typeof APagination;
     APaginationPages: typeof APaginationPages;
+    APopover: typeof APopover;
     AProgress: typeof AProgress;
     AProgressCircle: typeof AProgressCircle;
     ARadio: typeof ARadio;

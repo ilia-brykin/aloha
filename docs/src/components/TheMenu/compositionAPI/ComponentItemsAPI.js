@@ -560,6 +560,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "popover",
+        label: "Popover",
+        class: "test_menu_popover",
+        to: {
+          name: "PagePopover",
+        },
+      },
+      {
         id: "Table",
         label: "Tables",
         class: "test_menu_tables",

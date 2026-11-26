@@ -1,0 +1,56 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_POPOVER_COMPONENT_DESCRIPTION_"
+    )
+    a-translation(
+      tag="p"
+      html="_A_POPOVER_ACCESSIBILITY_"
+    )
+
+    page-popover-basic
+
+    page-popover-form
+
+    page-popover-icon
+
+    page-popover-placement
+
+    page-popover-hover
+
+    page-popover-model
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Methods"
+      :data="dataMethods"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/APopover"
+    )

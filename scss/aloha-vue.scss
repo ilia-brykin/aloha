@@ -73,6 +73,7 @@
   @include meta.load-css("components/ATree");
   @include meta.load-css("components/AModal");
   @include meta.load-css("components/ADrawer");
+  @include meta.load-css("components/APopover");
   @include meta.load-css("components/ACarousel");
 }
 

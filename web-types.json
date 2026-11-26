@@ -9317,6 +9317,163 @@
           }
         },
         {
+          "name": "APopover",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "APopover"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "buttonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "buttonClass",
+              "type": "string | Record<string, any> | any[]",
+              "default": "\"a_btn a_btn_secondary\""
+            },
+            {
+              "name": "buttonIconLeft",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "buttonIconRight",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "buttonText",
+              "type": "string | number"
+            },
+            {
+              "name": "buttonTextScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "buttonTitle",
+              "type": "string | number"
+            },
+            {
+              "name": "closeDelay",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "closeOnClickOutside",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "closeOnFocusOut",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "focusOnOpen",
+              "type": "string",
+              "default": "\"first\""
+            },
+            {
+              "name": "hasArrow",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "hasCloseButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "header",
+              "type": "string | number"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"div\""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_popover_31\""
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "modelValue",
+              "type": "boolean"
+            },
+            {
+              "name": "offset",
+              "type": "number",
+              "default": "8"
+            },
+            {
+              "name": "openDelay",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"bottom\""
+            },
+            {
+              "name": "popoverAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "popoverClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
+            },
+            {
+              "name": "trigger",
+              "type": "string",
+              "default": "\"click\""
+            },
+            {
+              "name": "useEscape",
+              "type": "boolean",
+              "default": "true"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "close"
+              },
+              {
+                "name": "open"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
           "name": "AProgress",
           "source": {
             "module": "aloha-vue",
@@ -9555,7 +9712,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_31\""
+              "default": "\"a_radio_32\""
             },
             {
               "name": "idPrefix",
@@ -9861,7 +10018,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_32\""
+              "default": "\"a_rate_33\""
             },
             {
               "name": "idPrefix",
@@ -10164,7 +10321,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_33\""
+              "default": "\"a_router_link_config_34\""
             },
             {
               "name": "idPrefix",
@@ -10552,7 +10709,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_34\""
+              "default": "\"a_ui_35\""
             },
             {
               "name": "idPrefix",
@@ -10961,7 +11118,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_35\""
+              "default": "\"a_select_icon_36\""
             },
             {
               "name": "idPrefix",
@@ -11292,7 +11449,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_36\""
+              "default": "\"a_select_styles_37\""
             },
             {
               "name": "idPrefix",
@@ -11597,7 +11754,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_37\""
+              "default": "\"a_show_more_38\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -11828,7 +11985,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_38\""
+              "default": "\"a_slider_39\""
             },
             {
               "name": "idPrefix",
@@ -12099,7 +12256,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_39\""
+              "default": "\"a_switch_40\""
             },
             {
               "name": "idPrefix",
@@ -12336,7 +12493,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table40\""
+              "default": "\"a_table41\""
             },
             {
               "name": "isActionColumnVisible",
@@ -12708,7 +12865,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_41\""
+              "default": "\"a_table_form_42\""
             },
             {
               "name": "isActionsSticky",
@@ -12857,7 +13014,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_42\""
+              "default": "\"a_tabs_43\""
             },
             {
               "name": "isBoxed",
@@ -13098,7 +13255,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_43\""
+              "default": "\"a_textarea_44\""
             },
             {
               "name": "idPrefix",
@@ -13234,7 +13391,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_44\""
+              "default": "\"a_tooltip_45\""
             },
             {
               "name": "isHide",
@@ -13412,7 +13569,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_45\""
+              "default": "\"a_tree_46\""
             },
             {
               "name": "indent",
@@ -13607,7 +13764,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_46\""
+              "default": "\"a_validated_json_47\""
             },
             {
               "name": "idPrefix",
@@ -13872,7 +14029,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_47\""
+              "default": "\"a_wizard_48\""
             },
             {
               "name": "isBackButtonDisabled",

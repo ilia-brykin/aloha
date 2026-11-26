@@ -87,6 +87,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Spinner](https://ilia-brykin.github.io/aloha/llms/components/spinner.md): The **ASpinner** component is used to display a loading indicator.
 - [Pagination](https://ilia-brykin.github.io/aloha/llms/components/pagination.md): The **APagination** component renders navigation for large data sets.
 - [Pagination pages](https://ilia-brykin.github.io/aloha/llms/components/pagination-pages.md): The **APaginationPages** component renders page navigation only.
+- [Popover](https://ilia-brykin.github.io/aloha/llms/components/popover.md): **APopover** shows a small window at a button with own content: text, links, fields and buttons.
 - [Tables: Table complex](https://ilia-brykin.github.io/aloha/llms/components/table-complex.md): The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
 - [Tables: Table pagination](https://ilia-brykin.github.io/aloha/llms/components/table-pagination.md)
 - [Tables: Table simple](https://ilia-brykin.github.io/aloha/llms/components/table-simple.md)
