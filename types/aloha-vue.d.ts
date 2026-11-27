@@ -595,6 +595,7 @@ export interface AComboboxProps {
   urlParams?: Record<string, any>;
   /** @default {} */
   urlTemplateData?: Record<string, any>;
+  zIndex?: number | string;
 }
 export declare const ACombobox: DefineComponent<AComboboxProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("select" | "update:modelValue")[]>;
 

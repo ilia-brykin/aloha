@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "القائمة داخل حاوية في body وتوضع بجانب الحقل (floating-ui): لا يقصّها عنصر أب يحمل overflow: hidden (جدول، نافذة مشروطة).",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "على شاشة صغيرة (AMobilePlugin) تصبح القائمة لوحة أسفل النافذة، فوق لوحة المفاتيح الافتراضية (visualViewport). يبقى التركيز في الحقل.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "معرّف الحاوية في body لـ in-body واللوحة السفلية.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "ترتيب طبقة القائمة. من دونه يُستخدم الرمز --a_combobox_z_index: فوق النوافذ المشروطة، كي تظهر القائمة داخل AModal. اضبط قيمة أصغر إذا وجب أن تبقى القائمة تحت طبقاتك الثابتة.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "يعرض زرًا يمسح النص. تُضبط القيمة الافتراضية عبر <strong lang=\"en\">AComponentsPlugin</strong>.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "البيانات مصفوفة من النصوص أو الأرقام.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "مفتاح المعرّف في البيانات.",

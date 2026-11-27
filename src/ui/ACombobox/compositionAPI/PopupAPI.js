@@ -1,5 +1,6 @@
 import {
   computed,
+  nextTick,
   onBeforeUnmount,
   ref,
   toRef,
@@ -41,6 +42,20 @@ export default function PopupAPI(props, {
   const isTeleported = computed(() => isMounted.value && (inBody.value || isSheet.value));
   const sheetBottom = ref(0);
   let cleanup;
+  let resizeObserver;
+
+  // WCAG 2.4.11: the field with the focus is not hidden by the sheet
+  const keepInputVisible = () => {
+    const INPUT = inputRef.value;
+    const POPUP = popupRef.value;
+    if (!isSheet.value || !INPUT || !POPUP) {
+      return;
+    }
+    const OVERLAP = INPUT.getBoundingClientRect().bottom - POPUP.getBoundingClientRect().top + 8;
+    if (OVERLAP > 0) {
+      window.scrollBy({ top: OVERLAP });
+    }
+  };
 
   // the virtual keyboard makes the visual viewport smaller: the sheet stays above it
   const updateSheetBottom = () => {
@@ -48,6 +63,8 @@ export default function PopupAPI(props, {
     sheetBottom.value = VIEWPORT ?
       Math.max(window.innerHeight - VIEWPORT.height - VIEWPORT.offsetTop, 0) :
       0;
+    // after the new bottom of the sheet is in the DOM
+    nextTick(keepInputVisible);
   };
 
   const stop = () => {
@@ -55,6 +72,8 @@ export default function PopupAPI(props, {
     cleanup = undefined;
     window.visualViewport?.removeEventListener("resize", updateSheetBottom);
     window.visualViewport?.removeEventListener("scroll", updateSheetBottom);
+    resizeObserver?.disconnect();
+    resizeObserver = undefined;
   };
 
   const start = () => {
@@ -70,6 +89,11 @@ export default function PopupAPI(props, {
       updateSheetBottom();
       window.visualViewport?.addEventListener("resize", updateSheetBottom);
       window.visualViewport?.addEventListener("scroll", updateSheetBottom);
+      // more or less suggestions: the sheet gets higher or lower
+      if (typeof ResizeObserver !== "undefined") {
+        resizeObserver = new ResizeObserver(keepInputVisible);
+        resizeObserver.observe(POPUP);
+      }
       return;
     }
     if (!isTeleported.value) {

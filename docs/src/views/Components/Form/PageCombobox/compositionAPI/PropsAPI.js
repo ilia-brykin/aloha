@@ -48,6 +48,7 @@ const OWN = [
   ["url", "_A_COMBOBOX_PROPS_URL_DESCRIPTION_", "String", undefined],
   ["url-params", "_A_COMBOBOX_PROPS_URL_PARAMS_DESCRIPTION_", "Object", undefined],
   ["url-template-data", "_A_COMBOBOX_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_", "Object", "{}"],
+  ["z-index", "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_", "Number / String", undefined],
 ];
 
 export default function PropsAPI() {

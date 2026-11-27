@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "Die Liste ist in einem Container im body und wird am Feld platziert (floating-ui): Ein Eltern-Element mit overflow: hidden (Tabelle, Modal) schneidet sie nicht ab.",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Auf einem kleinen Bildschirm (AMobilePlugin) ist die Liste ein Panel unten im Fenster, über der Bildschirmtastatur (visualViewport). Der Fokus bleibt im Feld.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "Id des Containers im body für in-body und das Bottom Sheet.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "Stapelreihenfolge der Liste. Ohne sie gilt das Token --a_combobox_z_index: über Modals, damit die Liste in AModal sichtbar ist. Einen kleineren Wert setzen, wenn die Liste unter eigenen festen Ebenen bleiben soll.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "Zeigt einen Button, der den Text leert. Der Standard kann mit <strong lang=\"en\">AComponentsPlugin</strong> gesetzt werden.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Die Daten sind ein Array von Strings oder Zahlen.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "Schlüssel der id in den Daten.",

@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "Список находится в контейнере в body и располагается у поля (floating-ui): родитель с overflow: hidden (таблица, модальное окно) его не обрезает.",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "На маленьком экране (AMobilePlugin) список становится панелью внизу окна, над экранной клавиатурой (visualViewport). Фокус остаётся в поле.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "Id контейнера в body для in-body и панели снизу.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "Порядок слоя списка. Без него действует токен --a_combobox_z_index: выше модальных окон, чтобы список в AModal был виден. Задайте меньшее значение, если список должен быть под вашими фиксированными слоями.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "Показывает кнопку очистки текста. Значение по умолчанию задаётся через <strong lang=\"en\">AComponentsPlugin</strong>.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Данные — массив строк или чисел.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "Ключ id в данных.",

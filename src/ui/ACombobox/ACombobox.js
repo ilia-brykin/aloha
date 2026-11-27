@@ -39,6 +39,7 @@ import {
   isBrowser,
 } from "../../utils/isBrowser";
 import {
+  isNil,
   toLower,
   toString,
   uniqueId,
@@ -279,6 +280,8 @@ export default {
       required: false,
       default: () => ({}),
     },
+    // undefined: the token --a_combobox_z_index (above modals)
+    zIndex: plugin([Number, String], "zIndex", undefined),
   },
   emits: [
     "select",
@@ -404,6 +407,14 @@ export default {
       isMounted.value = true;
     });
 
+    // the prop sets the token, the sheet gets its bottom above the virtual keyboard
+    const popupStyle = computed(() => {
+      return {
+        bottom: isSheet.value ? `${ sheetBottom.value }px` : undefined,
+        "--a_combobox_z_index": isNil(props.zIndex) ? undefined : props.zIndex,
+      };
+    });
+
     return {
       activeId,
       activeIndex,
@@ -434,6 +445,7 @@ export default {
       onOptionMousedown,
       popperContainerIdSelector,
       popupRef,
+      popupStyle,
       searchText,
       selectOption,
       sheetBottom,
@@ -570,7 +582,7 @@ export default {
               }],
               "data-owner": this.htmlIdLocal,
               hidden: !this.isPopupVisible,
-              style: this.isSheet ? { bottom: `${ this.sheetBottom }px` } : undefined,
+              style: this.popupStyle,
               // a click in the list keeps the focus in the input
               onMousedown: this.onOptionMousedown,
             }, [

@@ -140,6 +140,41 @@ describe("ACombobox: bottom sheet on mobile", () => {
     expect(getPopup().style.width).toBe("");
   });
 
+  it("the field hidden by the sheet is scrolled above it (WCAG 2.4.11), a visible field not", async() => {
+    const SCROLL = vi.spyOn(window, "scrollBy").mockImplementation(() => {});
+    isMobileWidth.value = true;
+    const wrapper = mountCombobox();
+    await flushPromises();
+    const INPUT = wrapper.find("input").element;
+    let inputBottom = 700;
+    INPUT.getBoundingClientRect = () => ({ bottom: inputBottom });
+    const POPUP = getPopup();
+    POPUP.getBoundingClientRect = () => ({ top: 500 });
+
+    await type(wrapper, "ber");
+    await flushPromises();
+    // 700 - 500 + 8 px of space
+    expect(SCROLL).toHaveBeenCalledWith({ top: 208 });
+
+    SCROLL.mockClear();
+    inputBottom = 300;
+    await wrapper.find("input").trigger("blur");
+    await type(wrapper, "bern");
+    await flushPromises();
+    expect(SCROLL).not.toHaveBeenCalled();
+    SCROLL.mockRestore();
+  });
+
+  it("z-index: the prop sets the token on the list, without it the CSS token stays", async() => {
+    const wrapper = mountCombobox();
+    await flushPromises();
+    await type(wrapper, "ber");
+    expect(getPopup().style.getPropertyValue("--a_combobox_z_index")).toBe("");
+
+    await wrapper.setProps({ zIndex: 1040 });
+    expect(getPopup().style.getPropertyValue("--a_combobox_z_index")).toBe("1040");
+  });
+
   it("is-bottom-sheet-on-mobile false: the normal list", async() => {
     isMobileWidth.value = true;
     const wrapper = mountCombobox({ isBottomSheetOnMobile: false });

@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "Lista jest w kontenerze w body i jest umieszczana przy polu (floating-ui): rodzic z overflow: hidden (tabela, okno modalne) jej nie przycina.",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Na małym ekranie (AMobilePlugin) lista jest panelem u dołu okna, nad klawiaturą ekranową (visualViewport). Fokus pozostaje w polu.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "Id kontenera w body dla in-body i panelu u dołu.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "Kolejność warstwy listy. Bez niego działa token --a_combobox_z_index: nad oknami modalnymi, aby lista w AModal była widoczna. Ustaw mniejszą wartość, jeśli lista ma być pod własnymi stałymi warstwami.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "Pokazuje przycisk czyszczący tekst. Wartość domyślną ustawia się przez <strong lang=\"en\">AComponentsPlugin</strong>.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Dane to tablica ciągów lub liczb.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "Klucz id w danych.",

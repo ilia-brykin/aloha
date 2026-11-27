@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "L'elenco è in un contenitore in body e posizionato accanto al campo (floating-ui): un genitore con overflow: hidden (tabella, modale) non lo taglia.",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Su uno schermo piccolo (AMobilePlugin) l'elenco è un pannello in basso nella finestra, sopra la tastiera virtuale (visualViewport). Il focus resta nel campo.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "Id del contenitore in body per in-body e il pannello inferiore.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "Ordine di sovrapposizione dell'elenco. Senza, vale il token --a_combobox_z_index: sopra le modali, così l'elenco in AModal è visibile. Imposta un valore minore se l'elenco deve restare sotto livelli fissi propri.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "Mostra un pulsante che cancella il testo. Il valore predefinito si imposta con <strong lang=\"en\">AComponentsPlugin</strong>.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "I dati sono un array di stringhe o numeri.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "Chiave dell'id nei dati.",

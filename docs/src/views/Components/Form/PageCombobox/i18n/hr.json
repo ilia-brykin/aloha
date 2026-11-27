@@ -16,6 +16,7 @@
   "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_": "Popis je u spremniku u body i postavlja se uz polje (floating-ui): roditelj s overflow: hidden (tablica, modal) ga ne odsijeca.",
   "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_": "Na malom zaslonu (AMobilePlugin) popis je ploča na dnu prozora, iznad virtualne tipkovnice (visualViewport). Fokus ostaje u polju.",
   "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "Id spremnika u body za in-body i ploču na dnu.",
+  "_A_COMBOBOX_PROPS_Z_INDEX_DESCRIPTION_": "Redoslijed sloja popisa. Bez njega vrijedi token --a_combobox_z_index: iznad modala, da bi popis u AModal bio vidljiv. Postavite manju vrijednost ako popis mora ostati ispod vlastitih fiksnih slojeva.",
   "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_": "Prikazuje gumb koji briše tekst. Zadana vrijednost postavlja se s <strong lang=\"en\">AComponentsPlugin</strong>.",
   "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Podaci su niz nizova znakova ili brojeva.",
   "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_": "Ključ id u podacima.",

@@ -241,6 +241,7 @@ export default {
 | url | String |  |  | Address of the server for the suggestions (it filters by the text). |
 | url-params | Object |  |  | Other parameters of the request. |
 | url-template-data | Object | {} |  | Values for placeholders in the url: **api/{{ id }}/**. |
+| z-index | Number / String |  |  | Stack order of the list. Without it the token --a_combobox_z_index: above modals, so the list in AModal is visible. Set a smaller value if the list must stay under own fixed layers. |
 
 ## Events
 
