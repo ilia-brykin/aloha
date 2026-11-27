@@ -75,8 +75,10 @@
     background-color: var(--a_navbar_link_hover_bg);
   }
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled="true"],
+  &:is(a):not([href]) {
     color: var(--a_color_text_muted);
+    background: none;
     cursor: not-allowed;
   }
 }
@@ -91,8 +93,9 @@
   color: var(--a_navbar_link_active_color);
   font-weight: var(--a_navbar_link_active_font_weight);
 }
-.a_navbar__item_level_0 > .a_navbar__link[aria-current="page"],
-.a_navbar__item_level_0.a_navbar__item_active_parent > .a_navbar__control {
+// the line under the current page only in the bar, not in the drawer
+.a_navbar > .a_navbar__list > .a_navbar__item_level_0 > .a_navbar__link[aria-current="page"],
+.a_navbar > .a_navbar__list > .a_navbar__item_level_0.a_navbar__item_active_parent > .a_navbar__control {
   box-shadow: inset 0 calc(var(--a_navbar_active_border_width) * -1) 0 var(--a_navbar_link_active_color);
 }
 
@@ -134,7 +137,7 @@
   position: fixed;
 }
 // the arrow to the side points to the other side in right-to-left
-.a_navbar__submenu_floating .a_button__icon_right:dir(rtl) {
+[dir="rtl"] .a_navbar__submenu_floating .a_button__icon_right {
   transform: scaleX(-1);
 }
 

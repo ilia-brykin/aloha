@@ -30,6 +30,8 @@ const byId = id => document.getElementById(id);
 
 // jsdom has no layout: the widths come from the classes
 let listWidth = 0;
+let itemWidth = 100;
+let listGap = 0;
 let resizeCallbacks = [];
 const OFFSET_WIDTH = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "offsetWidth");
 const CLIENT_WIDTH = Object.getOwnPropertyDescriptor(Element.prototype, "clientWidth");
@@ -52,7 +54,7 @@ beforeAll(() => {
       if (this.classList.contains("a_navbar__more")) {
         return 40;
       }
-      return this.classList.contains("a_navbar__item_top") ? 100 : 0;
+      return this.classList.contains("a_navbar__item_top") ? itemWidth : 0;
     },
   });
   Object.defineProperty(Element.prototype, "clientWidth", {
@@ -60,6 +62,15 @@ beforeAll(() => {
     get() {
       return this.classList.contains("a_navbar__list") ? listWidth : 0;
     },
+  });
+});
+
+// the gap of the list (jsdom computes no flex gap)
+const GET_COMPUTED_STYLE = window.getComputedStyle;
+beforeAll(() => {
+  vi.spyOn(window, "getComputedStyle").mockImplementation((element, ...args) => {
+    const STYLE = GET_COMPUTED_STYLE(element, ...args);
+    return element.classList?.contains("a_navbar__list") ? { ...STYLE, direction: STYLE.direction, columnGap: `${ listGap }px` } : STYLE;
   });
 });
 
@@ -114,6 +125,8 @@ afterEach(() => {
   wrappers = [];
   isMobileWidth.value = undefined;
   listWidth = 0;
+  itemWidth = 100;
+  listGap = 0;
   resizeCallbacks = [];
   vi.useRealTimers();
   document.body.innerHTML = "";
@@ -337,6 +350,24 @@ describe("ANavbar: keyboard", () => {
     expect(document.activeElement).toBe(B);
   });
 
+  it("the arrows skip a disabled item (a link without href, a disabled button)", async() => {
+    mountNavbar({
+      data: [
+        { id: "a", label: "A", href: "/a" },
+        { id: "b", label: "B", href: "/b", disabled: true },
+        { id: "c", label: "C", disabled: true, children: [{ id: "c1", label: "C1", href: "/c1" }] },
+        { id: "d", label: "D", href: "/d" },
+      ],
+    });
+    await flushPromises();
+    const A = document.querySelector("a[href='/a']");
+    A.focus();
+    keydown(A, "ArrowRight");
+    expect(document.activeElement.getAttribute("href")).toBe("/d");
+    keydown(document.activeElement, "ArrowRight");
+    expect(document.activeElement).toBe(A);
+  });
+
   it("other keys are not taken (Tab, letters)", async() => {
     mountNavbar();
     await flushPromises();
@@ -418,6 +449,28 @@ describe("ANavbar: overflow", () => {
     await flushPromises();
     expect(byId("nav_button_more")).toBeNull();
     expect(wrapper.findAll(".a_navbar__item_top")).toHaveLength(4);
+  });
+
+  it("more: no layout at the mount (hidden, late CSS), the resize measures again", async() => {
+    listWidth = 250;
+    itemWidth = 0;
+    const wrapper = mountNavbar();
+    await flushPromises();
+    expect(byId("nav_button_more")).toBeNull();
+    itemWidth = 100;
+    resizeCallbacks.forEach(callback => callback());
+    await flushPromises();
+    expect(byId("nav_button_more")).not.toBeNull();
+    expect(wrapper.findAll(".a_navbar__item_top")).toHaveLength(2);
+  });
+
+  it("more: the gap between the items counts", async() => {
+    // 4 × 100 = 400 fits in 410, with 3 gaps of 8 not
+    listWidth = 410;
+    listGap = 8;
+    mountNavbar();
+    await flushPromises();
+    expect(byId("nav_button_more")).not.toBeNull();
   });
 
   it("more: everything fits, no button", async() => {

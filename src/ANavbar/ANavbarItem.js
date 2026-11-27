@@ -24,8 +24,11 @@ import {
 const ChevronDown = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>`;
 const ChevronRight = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>`;
 
+// a disabled item can not get the focus (AElement removes href of a disabled link): the arrows skip it
 const getControls = list => {
-  return list ? Array.from(list.querySelectorAll(":scope > li > .a_navbar__control")) : [];
+  return list ?
+    Array.from(list.querySelectorAll(":scope > li > .a_navbar__control")).filter(element => !element.matches(":disabled, a:not([href])")) :
+    [];
 };
 
 const isRtl = element => !!element && getComputedStyle(element).direction === "rtl";
