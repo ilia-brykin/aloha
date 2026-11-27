@@ -30,6 +30,8 @@
     padding-right: calc(var(--a_alert_padding_x) * 3);
   }
   .a_btn_close {
+    // the button is as high as the alert: no gray box on hover, only the icon gets darker
+    --a_btn_close_hover_bg: transparent;
     position: absolute;
     top: 0;
     right: 0;
@@ -54,7 +56,8 @@
 // ---------------------------------------------------------------------------
 // Component tokens
 // ---------------------------------------------------------------------------
-:where(.a_alert) {
+// also on the parent: the close button is next to .a_alert, not in it
+:where(.a_alert, .a_alert__parent) {
   --a_alert_bg: transparent; // Background. Set by the color classes (e.g. .a_alert_danger).
   --a_alert_padding_x: var(--a_space_md); // Horizontal padding. A closable alert has three times this padding on the right for the close button.
   --a_alert_padding_y: var(--a_space_md); // Vertical padding.

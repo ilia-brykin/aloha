@@ -1,6 +1,7 @@
 import vue from "@vitejs/plugin-vue";
-import path from "path";
+
 import eslintPlugin from "vite-plugin-eslint2";
+import path from "path";
 import {
   defineConfig,
 } from "vite";
@@ -28,8 +29,8 @@ export default defineConfig({
       targets: [
         {
           src: "dist/index.html", // исходный файл
-          dest: "./",            // директория назначения
-          rename: "404.html",    // переименование файла
+          dest: "./", // директория назначения
+          rename: "404.html", // переименование файла
         },
         {
           src: "assets",
@@ -65,7 +66,7 @@ export default defineConfig({
   server: {
     port: 9000,
     strictPort: true,
-    open: true,
+    open: false,
     hmr: true,
     fs: {
       allow: [

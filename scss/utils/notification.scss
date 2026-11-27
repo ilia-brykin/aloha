@@ -9,6 +9,8 @@
   text-align: var(--a_notification_text_align);
   max-height: 100vh;
   overflow-y: auto;
+  // overflow-y: auto makes overflow-x auto too: no horizontal scrollbar for a pixel of rounding
+  overflow-x: hidden;
 }
 @media (min-width: #{breakpoint.$tablet}) {
   .a_notification_parent {
