@@ -169,7 +169,7 @@ export default function HtmlAPI(props, {
   });
 
   const htmlLocalWithBeforeAndAfter = computed(() => {
-    return `${ textBeforeHtml.value }${ htmlLocalOptions.value.safeHtml || htmlLocalOptions.value.html }${ textAfterHtml.value }`;
+    return `${ textBeforeHtml.value }${ htmlLocalOptions.value.safeHtml || htmlLocalOptions.value.html || "" }${ textAfterHtml.value }`;
   });
 
   return {
