@@ -44,6 +44,8 @@ const mountCombobox = (props = {}) => {
       id: "city",
       label: "City",
       data: CITIES,
+      // the list in the field: wrapper.find sees it (in-body has own tests)
+      inBody: false,
       modelValue: "",
       "onUpdate:modelValue": value => wrapper.setProps({ modelValue: value }),
       ...props,
@@ -347,6 +349,8 @@ describe("ACombobox in a form", () => {
     await flushPromises();
 
     expect(wrapper.vm.city).toBe("ber");
-    expect(wrapper.findAll("[role='option']")).toHaveLength(2);
+    // by default the list is in the container in body
+    expect(document.querySelectorAll("#a_tooltip_container [role='option']")).toHaveLength(2);
+    wrapper.unmount();
   });
 });

@@ -544,7 +544,11 @@ export interface AComboboxProps {
   idPrefix?: string;
   /** @default {} */
   inputAttributes?: Record<string, any>;
+  /** @default true */
+  inBody?: boolean;
   inputClass?: string | Record<string, any>;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
   /** @default true */
   isClearButton?: boolean;
   isDataSimpleArray?: boolean;
@@ -572,6 +576,8 @@ export interface AComboboxProps {
   /** @default false */
   openOnFocus?: boolean;
   placeholder?: string;
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
   readonly?: boolean;
   /** @default "" */
   readonlyDefault?: string;

@@ -1,6 +1,9 @@
 import {
   computed,
   h,
+  onMounted,
+  ref,
+  Teleport,
 } from "vue";
 import {
   AErrorsText,
@@ -18,6 +21,8 @@ import {
 } from "../../index";
 
 import ListboxAPI from "./compositionAPI/ListboxAPI";
+import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
+import PopupAPI from "./compositionAPI/PopupAPI";
 import SuggestionsAPI from "./compositionAPI/SuggestionsAPI";
 import {
   getTranslatedText,
@@ -30,6 +35,9 @@ import {
 import {
   getPropDefault,
 } from "../../plugins/AComponentsPlugin";
+import {
+  isBrowser,
+} from "../../utils/isBrowser";
 import {
   toLower,
   toString,
@@ -142,11 +150,13 @@ export default {
       required: false,
       default: () => ({}),
     },
+    inBody: plugin(Boolean, "inBody", true),
     inputClass: {
       type: [String, Object],
       required: false,
       default: undefined,
     },
+    isBottomSheetOnMobile: plugin(Boolean, "isBottomSheetOnMobile", true),
     isClearButton: plugin(Boolean, "isClearButton", true),
     isDataSimpleArray: {
       type: Boolean,
@@ -218,6 +228,11 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: "a_tooltip_container",
     },
     readonly: {
       type: Boolean,
@@ -353,6 +368,42 @@ export default {
       close();
     };
 
+    const inputRef = ref(undefined);
+    const popupRef = ref(undefined);
+    const isMounted = ref(false);
+
+    const isEmptyVisible = computed(() => {
+      return isOpen.value && !loading.value && !suggestions.value.length;
+    });
+    const isPopupVisible = computed(() => isListVisible.value || isEmptyVisible.value);
+
+    const {
+      addPopperContainerInBody,
+      popperContainerIdSelector,
+    } = PopperContainerAPI(props);
+
+    const {
+      isSheet,
+      isTeleported,
+      sheetBottom,
+    } = PopupAPI(props, {
+      inputRef,
+      isMounted,
+      isPopupVisible,
+      popupRef,
+    });
+
+    /*
+     * before the first render: Teleport finds its target only at the mount
+     * a_popup_container: not inert behind an open AModal
+     */
+    if (isBrowser()) {
+      addPopperContainerInBody({ className: "a_popup_container" });
+    }
+    onMounted(() => {
+      isMounted.value = true;
+    });
+
     return {
       activeId,
       activeIndex,
@@ -365,10 +416,15 @@ export default {
       getOptionId,
       helpTextId,
       htmlIdLocal,
+      inputRef,
       isClearButtonLocal,
+      isEmptyVisible,
       isErrors,
       isListVisible,
       isOpen,
+      isPopupVisible,
+      isSheet,
+      isTeleported,
       labelDescriptionId,
       loading,
       onBlur,
@@ -376,11 +432,30 @@ export default {
       onInput,
       onKeydown,
       onOptionMousedown,
+      popperContainerIdSelector,
+      popupRef,
       searchText,
       selectOption,
+      sheetBottom,
       statusText,
       suggestions,
     };
+  },
+  methods: {
+    renderOptions() {
+      return this.suggestions.map((item, index) => h("li", {
+        key: `${ index }_${ toString(item[AKeyId]) }`,
+        id: this.getOptionId(index),
+        role: "option",
+        "aria-selected": index === this.activeIndex ? "true" : "false",
+        class: ["a_combobox__option", {
+          a_combobox__option_active: index === this.activeIndex,
+        }],
+        onClick: () => this.selectOption(index),
+      }, getHighlightParts(item[AKeyLabel], this.searchText).map(part => {
+        return part.isMatch ? h("mark", { class: "a_search_highlight" }, part.text) : part.text;
+      })));
+    },
   },
   render() {
     if (!this.isRender) {
@@ -440,6 +515,7 @@ export default {
           class: "a_form_element a_combobox",
         }, [
           h("input", {
+            ref: "inputRef",
             id: this.htmlIdLocal,
             role: "combobox",
             type: "text",
@@ -481,32 +557,36 @@ export default {
               onClear: this.clear,
             }),
           ]),
-          // in the page all the time (aria-controls), hidden while closed
-          h("ul", {
-            id: LISTBOX_ID,
-            role: "listbox",
-            "aria-labelledby": HAS_LABEL ? `${ this.htmlIdLocal }_label` : undefined,
-            class: "a_combobox__listbox",
-            hidden: !this.isListVisible,
-          }, this.isListVisible
-? this.suggestions.map((item, index) => h("li", {
-  key: `${ index }_${ toString(item[AKeyId]) }`,
-  id: this.getOptionId(index),
-  role: "option",
-  "aria-selected": index === this.activeIndex ? "true" : "false",
-  class: ["a_combobox__option", {
-    a_combobox__option_active: index === this.activeIndex,
-  }],
-  onMousedown: this.onOptionMousedown,
-  onClick: () => this.selectOption(index),
-}, getHighlightParts(item[AKeyLabel], this.searchText).map(part => {
-  return part.isMatch ? h("mark", { class: "a_search_highlight" }, part.text) : part.text;
-})))
-: []),
-          this.isOpen && !this.loading && !this.suggestions.length && h("div", {
-            "aria-hidden": "true",
-            class: "a_combobox__empty",
-          }, this.statusText),
+          // in the page all the time (aria-controls of the listbox), hidden while closed
+          h(Teleport, {
+            to: this.popperContainerIdSelector,
+            disabled: !this.isTeleported,
+          }, [
+            h("div", {
+              ref: "popupRef",
+              class: ["a_combobox__popup", {
+                a_combobox__popup_in_body: this.isTeleported && !this.isSheet,
+                a_combobox__popup_sheet: this.isSheet,
+              }],
+              "data-owner": this.htmlIdLocal,
+              hidden: !this.isPopupVisible,
+              style: this.isSheet ? { bottom: `${ this.sheetBottom }px` } : undefined,
+              // a click in the list keeps the focus in the input
+              onMousedown: this.onOptionMousedown,
+            }, [
+              h("ul", {
+                id: LISTBOX_ID,
+                role: "listbox",
+                "aria-labelledby": HAS_LABEL ? `${ this.htmlIdLocal }_label` : undefined,
+                class: "a_combobox__listbox",
+                hidden: !this.isListVisible,
+              }, this.isListVisible ? this.renderOptions() : []),
+              this.isEmptyVisible && h("div", {
+                "aria-hidden": "true",
+                class: "a_combobox__empty",
+              }, this.statusText),
+            ]),
+          ]),
           // the live region is always in the page, only its text changes
           h("span", {
             class: "a_sr_only a_combobox__status",

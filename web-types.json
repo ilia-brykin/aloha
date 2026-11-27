@@ -1827,8 +1827,18 @@
               "default": "{}"
             },
             {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "inputClass",
               "type": "string | Record<string, any>"
+            },
+            {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
             },
             {
               "name": "isClearButton",
@@ -1910,6 +1920,11 @@
             {
               "name": "placeholder",
               "type": "string"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
             },
             {
               "name": "readonly",

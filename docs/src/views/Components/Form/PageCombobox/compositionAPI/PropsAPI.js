@@ -29,6 +29,8 @@ const SHARED = [
 
 const OWN = [
   ["data", "_A_COMBOBOX_PROPS_DATA_DESCRIPTION_", "Array", "[]"],
+  ["in-body", "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_", "Boolean", "true"],
+  ["is-bottom-sheet-on-mobile", "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_", "Boolean", "true"],
   ["is-clear-button", "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_", "Boolean", "true"],
   ["is-data-simple-array", "_A_COMBOBOX_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_", "Boolean", undefined],
   ["key-id", "_A_COMBOBOX_PROPS_KEY_ID_DESCRIPTION_", "String", "\"id\""],
@@ -38,6 +40,7 @@ const OWN = [
   ["min-length", "_A_COMBOBOX_PROPS_MIN_LENGTH_DESCRIPTION_", "Number", "1"],
   ["model-value", "_A_COMBOBOX_PROPS_MODEL_VALUE_DESCRIPTION_", "String / Number", undefined],
   ["open-on-focus", "_A_COMBOBOX_PROPS_OPEN_ON_FOCUS_DESCRIPTION_", "Boolean", "false"],
+  ["popper-container-id", "_A_COMBOBOX_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_", "String", "\"a_tooltip_container\""],
   ["search-api-key", "_A_COMBOBOX_PROPS_SEARCH_API_KEY_DESCRIPTION_", "String", "\"search\""],
   ["search-timeout", "_A_COMBOBOX_PROPS_SEARCH_TIMEOUT_DESCRIPTION_", "Number", "300"],
   ["translate-data", "_A_COMBOBOX_PROPS_TRANSLATE_DATA_DESCRIPTION_", "Boolean", undefined],
