@@ -15,6 +15,7 @@ import LabelAPI from "./compositionAPI/LabelAPI";
 import LinkAPI from "./compositionAPI/LinkAPI";
 import LinkOpenAPI from "./compositionAPI/LinkOpenAPI";
 import SlotAPI from "./compositionAPI/SlotAPI";
+import SplitAPI from "./compositionAPI/SplitAPI";
 import TabindexAPI from "./compositionAPI/TabindexAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
@@ -96,6 +97,7 @@ export default {
 
     const {
       linkId,
+      toggleId,
     } = IdAPI(props, {
       id,
     });
@@ -119,11 +121,20 @@ export default {
     });
 
     const {
-      isTitleHtml,
-      titleLocal,
-      titleAttributes,
-    } = TitleAPI(props, {
+      isLinkRendered,
+      isSplit,
+    } = SplitAPI(props, {
+      countChildren,
       isItemLink,
+    });
+
+    const {
+      isTitleHtml,
+      titleAttributes,
+      titleLocal,
+      titleSubmenu,
+    } = TitleAPI(props, {
+      isLinkRendered,
       isLinkOpenPanelMain,
       isLinkOpenPanelSecondaryMenuClose,
       labelWithoutFilter,
@@ -147,6 +158,8 @@ export default {
       isLinkActive,
       isLinkDisabled,
       isLinkOpen,
+      isLinkRendered,
+      isSplit,
       isTitleHtml,
       label,
       labelWithoutFilter,
@@ -156,12 +169,83 @@ export default {
       tabindex,
       titleAttributes,
       titleLocal,
+      titleSubmenu,
+      toggleId,
       toLocal,
     };
   },
+  methods: {
+    renderCounter() {
+      return h("span", {
+        class: "a_menu__link__counter a_element__ml_0",
+      }, [
+        this.showCountChildren && h("span", {
+          "aria-hidden": true,
+        }, this.countChildren),
+        h(AIcon, {
+          class: "a_menu__link__counter__icon",
+          icon: ChevronRight,
+        }),
+      ]);
+    },
+
+    renderLink() {
+      return h(ALink, {
+        id: this.linkId,
+        class: [
+          "a_menu__link a_menu__link__text_truncated",
+          this.item.class,
+          {
+            a_menu__link_disabled: this.isLinkDisabled,
+            a_menu__link_active: this.isLinkActive,
+            a_menu__link_panel_main: this.isPanelMain,
+          },
+        ],
+        html: this.label,
+        iconClass: this.iconClassLocal,
+        iconLeft: this.icon,
+        isTitleHtml: this.isTitleHtml,
+        tabindex: this.tabindex,
+        textAriaHidden: true,
+        textClass: "a_menu__link__text a_element__ml_0",
+        textScreenReader: this.titleLocal,
+        title: this.titleLocal,
+        titleAttributes: this.titleAttributes,
+        titlePlacement: "right",
+        to: this.toLocal,
+        onClick: this.clickLink,
+      });
+    },
+
+    // split item: only the counter and the arrow, the name for the screen reader
+    renderToggle() {
+      return h(AButton, {
+        id: this.toggleId,
+        class: [
+          "a_menu__link a_menu__link_btn a_menu__link_toggle",
+          {
+            a_menu__link_open: this.isLinkOpen,
+          },
+        ],
+        // a disabled page can have children that are not disabled
+        role: "button",
+        tabindex: this.tabindex,
+        tag: "a",
+        textScreenReader: this.titleSubmenu,
+        title: this.titleSubmenu,
+        titlePlacement: "right",
+        onClick: this.openSubMenu,
+        onKeydown: this.onKeydown,
+      }, () => [
+        this.renderCounter(),
+      ]);
+    },
+  },
   render() {
     return h("li", {
-      class: "a_menu__listitem",
+      class: ["a_menu__listitem", {
+        a_menu__listitem_split: this.isSplit,
+      }],
     }, [
       this.isLinkInSearchPanel && h("span", {
         class: "a_menu__breadcrumbs__item__divider",
@@ -177,38 +261,17 @@ export default {
           isLinkOpen: this.isLinkOpen,
           isPanelOpen: this.isPanelOpen,
           isPanelMain: this.isPanelMain,
+          isSplit: this.isSplit,
           label: this.label,
           labelWithoutFilter: this.labelWithoutFilter,
           onKeydown: this.onKeydown,
           openSubMenu: this.openSubMenu,
           tabindex: this.tabindex,
         }) :
-        this.isItemLink ?
-          h(ALink, {
-            id: this.linkId,
-            class: [
-              "a_menu__link a_menu__link__text_truncated",
-              this.item.class,
-              {
-                a_menu__link_disabled: this.isLinkDisabled,
-                a_menu__link_active: this.isLinkActive,
-                a_menu__link_panel_main: this.isPanelMain,
-              },
-            ],
-            html: this.label,
-            iconClass: this.iconClassLocal,
-            iconLeft: this.icon,
-            isTitleHtml: this.isTitleHtml,
-            tabindex: this.tabindex,
-            textAriaHidden: true,
-            textClass: "a_menu__link__text a_element__ml_0",
-            textScreenReader: this.titleLocal,
-            title: this.titleLocal,
-            titleAttributes: this.titleAttributes,
-            titlePlacement: "right",
-            to: this.toLocal,
-            onClick: this.clickLink,
-          }) :
+        this.isSplit ?
+          [this.renderLink(), this.renderToggle()] :
+        this.isLinkRendered ?
+          this.renderLink() :
           h(AButton, {
             id: this.linkId,
             class: [
@@ -236,17 +299,7 @@ export default {
             onClick: this.openSubMenu,
             onKeydown: this.onKeydown,
           }, () => [
-            h("span", {
-              class: "a_menu__link__counter a_element__ml_0",
-            }, [
-              this.showCountChildren && h("span", {
-                "aria-hidden": true,
-              }, this.countChildren),
-              h(AIcon, {
-                class: "a_menu__link__counter__icon",
-                icon: ChevronRight,
-              }),
-            ]),
+            this.renderCounter(),
           ]),
     ]);
   },

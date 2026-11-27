@@ -147,6 +147,82 @@ export default {
 };
 ```
 
+## Item with a page and children
+
+An item with **to** and children is split: the link opens the page, the button on the right (counter and arrow) opens the children like before. Forms and Choice have a page, Overlays only children. In the open panel the last breadcrumb is the link to the page. In the closed menu (only icons) the item opens the panel and the header of the panel is the link to the page.
+
+*props: `data, key-children`*
+
+```html
+<a-menu-button-toggle
+  :can-change-body-class="false"
+  :button-toggle-props="{ id: 'docs_menu_split_toggle' }"
+  menu-id="docs_menu_split"
+/>
+<div style="height: 24rem; overflow: hidden;">
+  <a-menu
+    :can-change-body-class="false"
+    :data="menuItems"
+    :is-inline="true"
+    :use-backdrop-mobile="false"
+    menu-id="docs_menu_split"
+    key-children="children"
+  />
+</div>
+```
+
+```js
+import {
+  AMenu,
+  AMenuButtonToggle,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AMenu,
+    AMenuButtonToggle,
+  },
+  setup() {
+    // to + children: the link opens the page, the toggle on the right the children
+    const menuItems = [
+      {
+        id: "forms",
+        label: "Forms",
+        icon: "FileEarmarkText",
+        to: { name: "PageForm" },
+        children: [
+          { id: "input", label: "Input", to: { name: "PageInput" } },
+          { id: "select", label: "Select", to: { name: "PageSelect" } },
+          {
+            id: "choice",
+            label: "Choice",
+            to: { name: "PageCheckbox" },
+            children: [
+              { id: "checkbox", label: "Checkbox", to: { name: "PageCheckbox" } },
+              { id: "radio", label: "Radio", to: { name: "PageRadio" } },
+            ],
+          },
+        ],
+      },
+      {
+        id: "overlays",
+        label: "Overlays",
+        icon: "Window",
+        children: [
+          { id: "modal", label: "Modal", to: { name: "PageModal" } },
+          { id: "popover", label: "Popover", to: { name: "PagePopover" } },
+        ],
+      },
+      { id: "button", label: "Button", icon: "CheckLg", to: { name: "PageButton" } },
+    ];
+
+    return {
+      menuItems,
+    };
+  },
+};
+```
+
 ## Menu behind a button (only-mobile)
 
 With `only-mobile` the menu works like the mobile menu at every screen width: it is closed and only the button is visible. The button opens the menu; a click on a link, Esc or the backdrop (`use-backdrop-mobile`) closes it. The window width does not matter. Give the toggle button `:only-mobile="true"` as well, otherwise it is hidden on the desktop, and connect both with the same `menu-id`.
@@ -484,6 +560,10 @@ export default {
 | `--a_menu_link_border_color` |  | Border color of a link. |
 | `--a_menu_link_border_radius` |  | Corner radius of a link. |
 | `--a_menu_link_focus_box_shadow` |  | Focus ring of a link. |
+| `--a_menu_split_divider_color` |  | Line between the link and the toggle of an item with a page and children. |
+| `--a_menu_split_gap` |  | Space between the link and the toggle of an item with a page and children. |
+| `--a_menu_toggle_min_width` |  | Minimum width of the toggle (counter and arrow) of an item with a page and children. |
+| `--a_menu_toggle_padding_x` |  | Horizontal padding of that toggle. |
 | `--a_menu_icon_color` |  | Color of a link icon. |
 | `--a_menu_list_header_bg` |  | Background of the list header in a panel. |
 | `--a_menu_breadcrumb_min_height` |  | Height of the breadcrumb bar above a submenu panel. |

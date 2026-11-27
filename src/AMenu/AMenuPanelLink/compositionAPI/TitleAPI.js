@@ -4,7 +4,7 @@ import {
 } from "vue";
 
 export default function TitleAPI(props, {
-  isItemLink = computed(() => false),
+  isLinkRendered = computed(() => false),
   isLinkOpenPanelMain = computed(() => false),
   isLinkOpenPanelSecondaryMenuClose = computed(() => false),
   labelWithoutFilter = computed(() => ""),
@@ -15,7 +15,8 @@ export default function TitleAPI(props, {
     return !!item.value.isTitleHtml;
   });
 
-  const titleLocal = computed(() => {
+  // the button that opens the panel (also the toggle of a split item)
+  const titleSubmenu = computed(() => {
     if (isLinkOpenPanelMain.value) {
       return "_A_MENU_2_TO_MAIN_MENU_";
     }
@@ -27,14 +28,17 @@ export default function TitleAPI(props, {
       ];
     }
 
-    if (isItemLink.value) {
-      return item.value.title || labelWithoutFilter.value;
-    }
-
     return [
       "_A_MENU_2_OPEN_SUBMENU_",
       item.value.title || labelWithoutFilter.value,
     ];
+  });
+
+  const titleLocal = computed(() => {
+    if (isLinkRendered.value) {
+      return item.value.title || labelWithoutFilter.value;
+    }
+    return titleSubmenu.value;
   });
 
   const titleAttributes = computed(() => {
@@ -47,6 +51,7 @@ export default function TitleAPI(props, {
 
   return {
     isTitleHtml,
+    titleSubmenu,
     titleLocal,
     titleAttributes,
   };

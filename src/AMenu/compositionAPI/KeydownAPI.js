@@ -6,6 +6,7 @@ import {
 
 import {
   getElementId,
+  getElementOpener,
 } from "../utils/utils";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
@@ -85,12 +86,10 @@ export default function KeydownAPI(props, {
   };
 
   const setFocusToLinkInPreviousSubPanel = ({ panelIndex, panelId }) => {
-    const LINK_HTML_ID = getElementId({
+    const LINK = getElementOpener({
       menuId: menuId.value,
       id: panelId,
-      suffix: "link",
     });
-    const LINK = document.getElementById(LINK_HTML_ID);
     if (LINK) {
       if (panelIndex > 0) {
         const PANEL_PARENTS_OPEN_NEW = panelParentsOpen.value.slice(0, panelIndex);
@@ -114,12 +113,10 @@ export default function KeydownAPI(props, {
   };
 
   const setFocusToParentLinkInMainPanel = ({ panelId }) => {
-    const LINK_ID = getElementId({
+    const LINK_ELEMENT = getElementOpener({
       menuId: menuId.value,
       id: panelId,
-      suffix: "link",
     });
-    const LINK_ELEMENT = document.getElementById(LINK_ID);
     if (LINK_ELEMENT) {
       togglePanel({ parentIds: [], withoutFocus: true });
       LINK_ELEMENT.focus();

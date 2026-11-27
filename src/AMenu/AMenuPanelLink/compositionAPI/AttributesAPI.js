@@ -29,7 +29,7 @@ export default function AttributesAPI(props) {
   const iconClassLocal = computed(() => {
     const CLASS = "a_menu__link__icon";
     if (item.value.iconClass) {
-      return `{ CLASS } ${ item.value.iconClass }`;
+      return `${ CLASS } ${ item.value.iconClass }`;
     }
     return CLASS;
   });

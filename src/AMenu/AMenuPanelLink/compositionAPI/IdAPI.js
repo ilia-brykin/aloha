@@ -20,7 +20,16 @@ export default function IdAPI(props, {
     });
   });
 
+  const toggleId = computed(() => {
+    return getElementId({
+      menuId: menuId.value,
+      id: id.value,
+      suffix: "toggle",
+    });
+  });
+
   return {
     linkId,
+    toggleId,
   };
 }

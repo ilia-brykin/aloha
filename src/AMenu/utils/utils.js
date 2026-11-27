@@ -12,6 +12,15 @@ export function setFocusToFirstLinkInPanel({
   });
 }
 
+// split item (link + toggle): the toggle opens the panel, so the focus goes back to it
+export function getElementOpener({
+  menuId = "a_menu_",
+  id = "",
+}) {
+  return document.getElementById(getElementId({ menuId, id, suffix: "toggle" })) ||
+    document.getElementById(getElementId({ menuId, id, suffix: "link" }));
+}
+
 export function getElementId({
   menuId = "a_menu_",
   id = "",
