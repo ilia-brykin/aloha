@@ -3,9 +3,11 @@ import {
   h,
   ref,
   shallowRef,
+  watch,
 } from "vue";
 import {
   AErrorsText,
+  AFormElementBtnClear,
   AFormHelpText,
   AFormLabelDescription,
   AFormReadonly,
@@ -18,13 +20,16 @@ import {
   UiStyleHideAPI,
 } from "../../index";
 
+import AHttpAPI from "../../compositionAPI/AHttpAPI";
 import ComboboxAPI, {
   TEXTS_SUGGESTIONS_DEFAULT,
 } from "../ACombobox/compositionAPI/ComboboxAPI";
 import TagsAPI from "./compositionAPI/TagsAPI";
+import UiUrlAPI from "../compositionApi/UiUrlAPI";
 
 import Close from "../../AIcon/Icons/Close";
 import {
+  AKeyId,
   AKeyLabel,
 } from "../../const/AKeys";
 import {
@@ -38,6 +43,8 @@ import {
   renderListboxStatus,
 } from "../ACombobox/utils/render";
 import {
+  get,
+  isFunction,
   uniqueId,
 } from "lodash-es";
 
@@ -47,9 +54,14 @@ export const TEXTS_DEFAULT = {
   added: "_A_INPUT_TAGS_ADDED_",
   counter: "_A_INPUT_TAGS_COUNTER_",
   duplicate: "_A_INPUT_TAGS_DUPLICATE_",
+  editing: "_A_INPUT_TAGS_EDITING_",
   hint: "_A_INPUT_TAGS_HINT_",
   hintAddAll: "_A_INPUT_TAGS_HINT_ADD_ALL_",
+  hintSortable: "_A_INPUT_TAGS_HINT_SORTABLE_",
+  invalid: "_A_INPUT_TAGS_INVALID_",
   max: "_A_INPUT_TAGS_MAX_",
+  maxlength: "_A_INPUT_TAGS_MAXLENGTH_",
+  moved: "_A_INPUT_TAGS_MOVED_",
   onlyFromList: "_A_INPUT_TAGS_ONLY_FROM_LIST_",
   remove: "_A_INPUT_TAGS_REMOVE_",
   removeAll: "_A_INPUT_TAGS_REMOVE_ALL_",
@@ -71,6 +83,8 @@ export default {
   name: "AInputTags",
   inheritAttrs: false,
   props: {
+    // add-on-blur false: the typed text stays in the input when the field loses the focus
+    addOnBlur: plugin(Boolean, "addOnBlur", true),
     allowDuplicates: {
       type: Boolean,
       required: false,
@@ -101,6 +115,11 @@ export default {
     },
     errors: {
       type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorIcon: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -150,6 +169,16 @@ export default {
       required: false,
       default: undefined,
     },
+    iconAppend: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    iconPrepend: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     ignoreDiacritics: plugin(Boolean, "ignoreDiacritics", true),
     inBody: plugin(Boolean, "inBody", true),
     inlineAutocomplete: plugin(Boolean, "inlineAutocomplete", false),
@@ -166,6 +195,8 @@ export default {
     // a button "add all" under the suggestions (and Ctrl+Enter)
     isAddAll: plugin(Boolean, "isAddAll", false),
     isBottomSheetOnMobile: plugin(Boolean, "isBottomSheetOnMobile", true),
+    // a button that clears the typed text (not the tags)
+    isClearButton: plugin(Boolean, "isClearButton", true),
     isDataSimpleArray: {
       type: Boolean,
       required: false,
@@ -173,6 +204,11 @@ export default {
     isHide: {
       type: Boolean,
       required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     // only values of the suggestions, no own text
     isOnlyFromList: {
@@ -185,6 +221,8 @@ export default {
       required: false,
       default: true,
     },
+    // the order of the tags: Alt+arrows on a tag and drag and drop
+    isSortable: plugin(Boolean, "isSortable", false),
     keyDisabled: {
       type: String,
       required: false,
@@ -225,6 +263,12 @@ export default {
       required: false,
       default: undefined,
     },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -236,6 +280,12 @@ export default {
       required: false,
       default: undefined,
     },
+    // maximum length of one tag
+    maxlength: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
     // more tags are behind a button "+N"
     maxVisibleTags: plugin(Number, "maxVisibleTags", undefined),
     minLength: plugin(Number, "minLength", 1),
@@ -243,6 +293,13 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    // "id": the model has the ids of the suggestions, the tags show their labels
+    modelKey: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["id"].indexOf(value) !== -1,
     },
     modelUndefined: {
       type: [Array, Object, String],
@@ -285,6 +342,18 @@ export default {
       default: false,
     },
     searchApiKey: plugin(String, "searchApiKey", "search"),
+    size: {
+      type: String,
+      required: false,
+      default: () => getPropDefault("AInputTags", "size", "medium"),
+      validator: value => ["small", "medium", "large"].indexOf(value) !== -1,
+    },
+    // a class of every tag, or ({ tag, label, index }) => class
+    tagClass: {
+      type: [String, Object, Array, Function],
+      required: false,
+      default: undefined,
+    },
     searchTimeout: plugin(Number, "searchTimeout", 300),
     // keys that add the text as a tag; one-character separators also split pasted text
     separators: {
@@ -293,6 +362,12 @@ export default {
       default: () => ["Enter", ","],
     },
     texts: plugin(Object, "texts", {}),
+    // the text before the checks, e.g. value => value.toLowerCase()
+    transform: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     translateData: {
       type: Boolean,
       required: false,
@@ -312,11 +387,18 @@ export default {
       required: false,
       default: undefined,
     },
+    // model-key "id": the labels of the ids in the model (else url)
+    urlRetrieve: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     urlTemplateData: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    // ({ tag, tags }) => true | false | "message"
     validator: {
       type: Function,
       required: false,
@@ -349,6 +431,8 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      isLabelFloatLocal,
+      isLabelInset,
       labelDescriptionId,
     } = UiAPI(props, context);
 
@@ -359,18 +443,42 @@ export default {
 
     // the data of the suggestions: ComboboxAPI needs the tags first, so the computed is set after it
     const dataSource = shallowRef(undefined);
-    // is-only-from-list: the text is a label of the data (case and diacritics like the filter)
-    const isInData = value => {
+    const getData = () => dataSource.value?.value || [];
+    // the item of a text (case and diacritics like the filter)
+    const findItemByLabel = value => {
       const VALUE = foldText(value, { ignoreDiacritics: props.ignoreDiacritics }).folded;
-      return (dataSource.value?.value || []).some(item => {
+      return getData().find(item => {
         return foldText(item[AKeyLabel], { ignoreDiacritics: props.ignoreDiacritics }).folded === VALUE;
       });
+    };
+    // is-only-from-list: the text is a label of the data
+    const isInData = value => !!findItemByLabel(value);
+
+    // model-key "id": the labels of the ids (data, chosen suggestions, retrieve)
+    const isIdModel = computed(() => props.modelKey === "id");
+    const labelsById = shallowRef({});
+    const getLabel = value => {
+      if (!isIdModel.value) {
+        return String(value);
+      }
+      const ITEM = getData().find(item => String(item[AKeyId]) === String(value));
+      return ITEM ? String(ITEM[AKeyLabel]) : labelsById.value[String(value)] ?? String(value);
+    };
+    // a text of a suggestion is its id, an own text stays a text
+    const toValue = text => {
+      if (!isIdModel.value) {
+        return text;
+      }
+      const ITEM = findItemByLabel(text);
+      return ITEM ? ITEM[AKeyId] : text;
     };
 
     const tagsApi = TagsAPI(props, {
       changeModel,
+      getLabel,
       isInData,
       textsLocal,
+      toValue,
     });
     const {
       addTags,
@@ -385,12 +493,14 @@ export default {
       inputRef,
       // the tags that are chosen are no suggestions
       isExcluded: item => {
-        return !props.allowDuplicates && tags.value.some(tag => {
-          return String(tag).toLowerCase() === String(item[AKeyLabel]).toLowerCase();
-        });
+        const VALUE = String(isIdModel.value ? item[AKeyId] : item[AKeyLabel]).toLowerCase();
+        return !props.allowDuplicates && tags.value.some(tag => String(tag).toLowerCase() === VALUE);
       },
-      onSelectOption: ({ label }) => {
-        addTags([label]);
+      onSelectOption: ({ id, label }) => {
+        labelsById.value = { ...labelsById.value, [String(id)]: label };
+        // an edited tag goes back to its place
+        inputValue.value = label;
+        tagsApi.addInputValue();
         inputValue.value = "";
       },
       referenceRef: controlRef,
@@ -401,6 +511,39 @@ export default {
       textsLocal,
     });
     dataSource.value = combobox.dataLocal;
+
+    // model-key "id" with url: the labels of the ids that are not in the suggestions (like urlRetrieve of ASelect)
+    const {
+      urlLocal,
+    } = UiUrlAPI(props);
+    const {
+      getListHttp,
+    } = AHttpAPI();
+    watch([tags, isIdModel], () => {
+      if (!isIdModel.value || !(props.urlRetrieve || urlLocal.value)) {
+        return;
+      }
+      const MISSING = tags.value.filter(value => getLabel(value) === String(value) && !findItemByLabel(String(value)));
+      if (!MISSING.length) {
+        return;
+      }
+      getListHttp({
+        url: props.urlRetrieve || urlLocal.value,
+        urlParams: {
+          ...(props.urlParams || {}),
+          [props.keyId]: MISSING,
+          limit: MISSING.length,
+        },
+      }).then(response => {
+        const LABELS = { ...labelsById.value };
+        (response || []).forEach(item => {
+          LABELS[String(get(item, props.keyId))] = isFunction(props.keyLabelCallback) ?
+            props.keyLabelCallback({ item }) :
+            get(item, props.keyLabel);
+        });
+        labelsById.value = LABELS;
+      }, () => {});
+    }, { immediate: true });
 
     const addableSuggestions = computed(() => {
       return combobox.suggestions.value.filter(item => !combobox.isItemDisabled(item));
@@ -420,6 +563,12 @@ export default {
     };
 
     const onKeydown = $event => {
+      // Escape while editing: the old tag is back (before the list of the suggestions)
+      if ($event.key === "Escape" && tagsApi.editIndex.value !== -1) {
+        combobox.close();
+        tagsApi.onKeydown($event);
+        return;
+      }
       if (hasSuggestions.value) {
         if (props.isAddAll && combobox.isOpen.value && $event.key === "Enter" && ($event.ctrlKey || $event.metaKey)) {
           $event.preventDefault();
@@ -461,6 +610,26 @@ export default {
     const hiddenTagsCount = computed(() => tags.value.length - visibleTags.value.length);
     const isMoreButton = computed(() => !!props.maxVisibleTags && tags.value.length > props.maxVisibleTags);
 
+    const isClearButtonLocal = computed(() => {
+      return !!(props.isClearButton && inputValue.value && !props.disabled);
+    });
+
+    const clearText = () => {
+      inputValue.value = "";
+      combobox.close();
+      inputRef.value?.focus();
+    };
+
+    const sizeClass = computed(() => {
+      return { small: "a_form_control_small", large: "a_form_control_large" }[props.size];
+    });
+
+    const getTagClass = (tag, index) => {
+      return isFunction(props.tagClass) ?
+        props.tagClass({ tag, label: getLabel(tag), index }) :
+        props.tagClass;
+    };
+
     context.expose({
       focus: tagsApi.focus,
     });
@@ -470,6 +639,20 @@ export default {
       addableSuggestions,
       addAllFound,
       announcement: tagsApi.announcement,
+      clearText,
+      editIndex: tagsApi.editIndex,
+      feedback: tagsApi.feedback,
+      flashIndex: tagsApi.flashIndex,
+      getLabel,
+      getTagClass,
+      isClearButtonLocal,
+      isLabelFloatLocal,
+      isLabelInset,
+      onDragover: tagsApi.onDragover,
+      onDragstart: tagsApi.onDragstart,
+      onDrop: tagsApi.onDrop,
+      sizeClass,
+      startEdit: tagsApi.startEdit,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       componentStyleHide,
@@ -518,7 +701,7 @@ export default {
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,
-        modelValue: this.tags.join(", "),
+        modelValue: this.tags.map(this.getLabel).join(", "),
         readonlyDefault: this.readonlyDefault,
         required: this.required,
         style: this.componentStyleHide,
@@ -531,6 +714,11 @@ export default {
     const LISTBOX_ID = `${ this.htmlIdLocal }_listbox`;
     const HAS_LABEL = !!(this.label || this.labelScreenReader);
     const IS_ADD_ALL = this.isAddAll && this.hasSuggestions;
+    const HAS_ERROR_ICON = !!(this.isErrors && this.errorIcon);
+    const ACTIONS_COUNT = [this.iconAppend, this.isClearButtonLocal, this.loading].filter(Boolean).length;
+    const ACTIONS_CLASS = ACTIONS_COUNT ?
+      ["", "a_form_element_with_one_btn", "a_form_element_with_two_btns", "a_form_element_with_three_btns"][ACTIONS_COUNT] :
+      undefined;
     const COMBOBOX_ATTRIBUTES = this.hasSuggestions ?
       {
         role: "combobox",
@@ -548,7 +736,12 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent", {
-          a_form_element__parent_not_empty: this.tags.length > 0,
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_inset: this.isLabelInset,
+          a_form_element__parent_float_has_error_icon: HAS_ERROR_ICON,
+          a_form_element__parent_not_empty: this.tags.length > 0 || !!this.inputValueTags,
+          a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
+          a_form_element__parent_float_has_two_icons_prepend: this.iconPrepend && HAS_ERROR_ICON,
         }],
       }, [
         HAS_LABEL && h(ALabel, {
@@ -556,6 +749,7 @@ export default {
           alwaysTranslate: this.alwaysTranslate,
           extra: this.extra,
           isError: this.isErrors,
+          isLabelFloat: this.isLabelFloatLocal,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -566,15 +760,25 @@ export default {
           alwaysTranslate: this.alwaysTranslate,
           html: this.labelDescription,
           extra: this.extra,
-          isLabelFloat: false,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
         h("div", {
           class: "a_form_element a_combobox",
         }, [
+          HAS_ERROR_ICON && h(AIcon, {
+            icon: this.errorIcon,
+            class: "a_input__icon_error",
+          }),
+          this.iconPrepend && h(AIcon, {
+            icon: this.iconPrepend,
+            class: "a_input__icon_prepend",
+          }),
           h("div", {
             ref: "controlRef",
             class: [
               "a_form_control a_input_tags",
+              this.sizeClass,
+              ACTIONS_CLASS,
               {
                 a_form_control_invalid: this.isErrors,
                 disabled: this.disabled,
@@ -587,14 +791,29 @@ export default {
               class: "a_input_tags__list",
               role: "list",
             }, this.visibleTags.map((tag, index) => {
-              const REMOVE = this.translate("remove", { tag });
+              const LABEL = this.getLabel(tag);
+              const REMOVE = this.translate("remove", { tag: LABEL });
               return h("li", {
                 key: `${ tag }_${ index }`,
-                class: "a_input_tags__tag",
+                class: [
+                  "a_input_tags__tag",
+                  this.getTagClass(tag, index),
+                  {
+                    a_input_tags__tag_flash: index === this.flashIndex,
+                    a_input_tags__tag_sortable: this.isSortable,
+                  },
+                ],
+                // drag and drop for the mouse, Alt+arrows for the keyboard
+                draggable: this.isSortable && !this.disabled ? "true" : undefined,
+                onDragstart: this.isSortable ? $event => this.onDragstart($event, index) : undefined,
+                onDragover: this.isSortable ? this.onDragover : undefined,
+                onDrop: this.isSortable ? $event => this.onDrop($event, index) : undefined,
               }, [
+                // a double click edits the tag (the keyboard: F2 on the remove button)
                 h("span", {
                   class: "a_input_tags__text",
-                }, tag),
+                  onDblclick: () => this.startEdit(index),
+                }, LABEL),
                 h("button", {
                   type: "button",
                   class: "a_input_tags__remove",
@@ -650,14 +869,27 @@ export default {
               onKeydown: this.onKeydown,
               onPaste: this.onPaste,
             }),
-            this.loading && h(ASpinner, {
-              class: "a_spinner_small a_input_tags__spinner",
-              "aria-hidden": "true",
-            }),
             this.maxTags && h("span", {
               "aria-hidden": "true",
               class: "a_input_tags__counter",
             }, `${ this.tags.length } / ${ this.maxTags }`),
+          ]),
+          ACTIONS_COUNT > 0 && h("div", {
+            class: "a_form_control__actions a_input_tags__actions",
+          }, [
+            this.loading && h(ASpinner, {
+              class: "a_spinner_small",
+              "aria-hidden": "true",
+            }),
+            this.iconAppend && h(AIcon, {
+              icon: this.iconAppend,
+              class: "a_input__icon_append",
+            }),
+            this.isClearButtonLocal && h(AFormElementBtnClear, {
+              alwaysTranslate: this.alwaysTranslate,
+              disabled: this.disabled,
+              onClear: this.clearText,
+            }),
           ]),
           this.hasSuggestions && renderListboxPopup(this, {
             listboxId: LISTBOX_ID,
@@ -682,7 +914,13 @@ export default {
           }, [
             this.translate("hint"),
             IS_ADD_ALL ? ` ${ this.translate("hintAddAll") }` : "",
+            this.isSortable ? ` ${ this.translate("hintSortable") }` : "",
           ]),
+          // the reason of the last refused value; the live region reads it, so here only for the eyes
+          this.feedback && h("div", {
+            "aria-hidden": "true",
+            class: "a_input_tags__feedback",
+          }, this.feedback),
           this.maxTags && h("span", {
             id: COUNTER_ID,
             class: "a_sr_only",

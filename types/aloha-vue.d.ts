@@ -1891,6 +1891,8 @@ export interface AInputOtpProps {
 export declare const AInputOtp: DefineComponent<AInputOtpProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "finish" | "focus" | "update:modelValue")[]>;
 
 export interface AInputTagsProps {
+  /** @default true */
+  addOnBlur?: boolean;
   allowDuplicates?: boolean;
   alwaysTranslate?: boolean;
   change?: ((...args: any[]) => any);
@@ -1899,6 +1901,7 @@ export interface AInputTagsProps {
   dependencies?: any[] | Record<string, any>;
   disabled?: boolean;
   errors?: string | any[];
+  errorIcon?: string | Record<string, any>;
   errorsClass?: string | Record<string, any>;
   /** @default [] */
   excludeRenderAttributes?: any[];
@@ -1911,6 +1914,8 @@ export interface AInputTagsProps {
   /** @default "a_input_tags_21" */
   id?: string | number;
   idPrefix?: string;
+  iconAppend?: string;
+  iconPrepend?: string;
   /** @default true */
   ignoreDiacritics?: boolean;
   /** @default true */
@@ -1924,13 +1929,18 @@ export interface AInputTagsProps {
   isAddAll?: boolean;
   /** @default true */
   isBottomSheetOnMobile?: boolean;
+  /** @default true */
+  isClearButton?: boolean;
   isDataSimpleArray?: boolean;
   isHide?: boolean;
+  isLabelFloat?: boolean;
   isOnlyFromList?: boolean;
   /** @default false */
   isRemoveAll?: boolean;
   /** @default true */
   isRender?: boolean;
+  /** @default false */
+  isSortable?: boolean;
   keyDisabled?: string;
   keyGroup?: string;
   /** @default "id" */
@@ -1941,15 +1951,18 @@ export interface AInputTagsProps {
   label?: string | number;
   labelClass?: string | Record<string, any>;
   labelDescription?: string;
+  labelPosition?: string;
   labelScreenReader?: string | number;
   /** @default 10 */
   maxItems?: number;
   maxTags?: number;
+  maxlength?: number;
   maxVisibleTags?: number;
   /** @default 1 */
   minLength?: number;
   /** @default {} */
   modelDependencies?: Record<string, any>;
+  modelKey?: string;
   /** @default [] */
   modelUndefined?: any[] | Record<string, any> | string;
   modelValue?: any[];
@@ -1966,17 +1979,22 @@ export interface AInputTagsProps {
   required?: boolean;
   /** @default "search" */
   searchApiKey?: string;
+  /** @default "medium" */
+  size?: string;
+  tagClass?: string | Record<string, any> | any[] | ((...args: any[]) => any);
   /** @default 300 */
   searchTimeout?: number;
   /** @default ["Enter",","] */
   separators?: any[];
   /** @default {} */
   texts?: Record<string, any>;
+  transform?: ((...args: any[]) => any);
   translateData?: boolean;
   /** @default "tags" */
   type?: string;
   url?: string;
   urlParams?: Record<string, any>;
+  urlRetrieve?: string;
   /** @default {} */
   urlTemplateData?: Record<string, any>;
   validator?: ((...args: any[]) => any);

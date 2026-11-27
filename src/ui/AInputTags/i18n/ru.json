@@ -4,7 +4,7 @@
   "_A_INPUT_TAGS_REMOVED_": "Удалено: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} уже есть в списке",
   "_A_INPUT_TAGS_MAX_": "Не больше {{ max }} значений",
-  "_A_INPUT_TAGS_HINT_": "Enter или запятая добавляет значение, Backspace в пустом поле удаляет последнее. Стрелка влево в начале поля переходит к значениям, Delete удаляет значение.",
+  "_A_INPUT_TAGS_HINT_": "Enter или запятая добавляет значение, Backspace в пустом поле удаляет последнее. Стрелка влево в начале поля переходит к значениям, Delete удаляет значение, F2 или двойной клик редактирует его.",
   "_A_INPUT_TAGS_REMOVE_ALL_": "Удалить все",
   "_A_INPUT_TAGS_REMOVED_ALL_": "Все значения удалены ({{ count }})",
   "_A_INPUT_TAGS_SHOW_MORE_": "Показать ещё {{ count }}",
@@ -12,5 +12,10 @@
   "_A_INPUT_TAGS_COUNTER_": "{{ count }} из {{ max }} значений",
   "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} нет в списке",
   "_A_INPUT_TAGS_ADD_ALL_": "Добавить все ({{ count }})",
-  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter добавляет все подсказки."
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter добавляет все подсказки.",
+  "_A_INPUT_TAGS_EDITING_": "Редактирование {{ tag }}: Enter сохраняет, Escape отменяет",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} недопустимо",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} длиннее {{ max }} символов",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: позиция {{ position }} из {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+стрелка влево и Alt+стрелка вправо на значении перемещают его."
 }

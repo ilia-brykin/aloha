@@ -4,7 +4,7 @@
   "_A_INPUT_TAGS_REMOVED_": "Usunięto: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} jest już na liście",
   "_A_INPUT_TAGS_MAX_": "Nie więcej niż {{ max }} wartości",
-  "_A_INPUT_TAGS_HINT_": "Enter lub przecinek dodaje wartość, Backspace w pustym polu usuwa ostatnią. Strzałka w lewo na początku przechodzi do wartości, Delete usuwa wartość.",
+  "_A_INPUT_TAGS_HINT_": "Enter lub przecinek dodaje wartość, Backspace w pustym polu usuwa ostatnią. Strzałka w lewo na początku przechodzi do wartości, Delete usuwa wartość, F2 lub podwójne kliknięcie ją edytuje.",
   "_A_INPUT_TAGS_REMOVE_ALL_": "Usuń wszystko",
   "_A_INPUT_TAGS_REMOVED_ALL_": "Usunięto wszystkie wartości ({{ count }})",
   "_A_INPUT_TAGS_SHOW_MORE_": "Pokaż jeszcze {{ count }}",
@@ -12,5 +12,10 @@
   "_A_INPUT_TAGS_COUNTER_": "{{ count }} z {{ max }} wartości",
   "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} nie ma na liście",
   "_A_INPUT_TAGS_ADD_ALL_": "Dodaj wszystkie ({{ count }})",
-  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter dodaje wszystkie podpowiedzi."
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter dodaje wszystkie podpowiedzi.",
+  "_A_INPUT_TAGS_EDITING_": "Edycja {{ tag }}: Enter zapisuje, Escape anuluje",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} jest nieprawidłowe",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} ma więcej niż {{ max }} znaków",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: pozycja {{ position }} z {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+strzałka w lewo i Alt+strzałka w prawo na wartości przesuwają ją."
 }

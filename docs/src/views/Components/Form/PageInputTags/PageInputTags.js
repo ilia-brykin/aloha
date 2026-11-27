@@ -5,7 +5,10 @@ import PageInputTagsBasic from "./PageInputTagsBasic/PageInputTagsBasic.vue";
 import PageInputTagsEmails from "./PageInputTagsEmails/PageInputTagsEmails.vue";
 import PageInputTagsForm from "./PageInputTagsForm/PageInputTagsForm.vue";
 import PageInputTagsLimits from "./PageInputTagsLimits/PageInputTagsLimits.vue";
+import PageInputTagsModelKey from "./PageInputTagsModelKey/PageInputTagsModelKey.vue";
+import PageInputTagsOrder from "./PageInputTagsOrder/PageInputTagsOrder.vue";
 import PageInputTagsSuggestions from "./PageInputTagsSuggestions/PageInputTagsSuggestions.vue";
+import PageInputTagsValidation from "./PageInputTagsValidation/PageInputTagsValidation.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -24,7 +27,10 @@ export default {
     PageInputTagsEmails,
     PageInputTagsForm,
     PageInputTagsLimits,
+    PageInputTagsModelKey,
+    PageInputTagsOrder,
     PageInputTagsSuggestions,
+    PageInputTagsValidation,
   },
   setup() {
     const {

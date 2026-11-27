@@ -4,7 +4,7 @@
   "_A_INPUT_TAGS_REMOVED_": "Uklonjeno: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} je već na popisu",
   "_A_INPUT_TAGS_MAX_": "Najviše {{ max }} vrijednosti",
-  "_A_INPUT_TAGS_HINT_": "Enter ili zarez dodaje vrijednost, Backspace u praznom polju uklanja zadnju. Strelica lijevo na početku ide na vrijednosti, Delete uklanja vrijednost.",
+  "_A_INPUT_TAGS_HINT_": "Enter ili zarez dodaje vrijednost, Backspace u praznom polju uklanja zadnju. Strelica lijevo na početku ide na vrijednosti, Delete uklanja vrijednost, F2 ili dvostruki klik je uređuje.",
   "_A_INPUT_TAGS_REMOVE_ALL_": "Ukloni sve",
   "_A_INPUT_TAGS_REMOVED_ALL_": "Sve vrijednosti uklonjene ({{ count }})",
   "_A_INPUT_TAGS_SHOW_MORE_": "Prikaži još {{ count }}",
@@ -12,5 +12,10 @@
   "_A_INPUT_TAGS_COUNTER_": "{{ count }} od {{ max }} vrijednosti",
   "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} nije na popisu",
   "_A_INPUT_TAGS_ADD_ALL_": "Dodaj sve ({{ count }})",
-  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter dodaje sve prijedloge."
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter dodaje sve prijedloge.",
+  "_A_INPUT_TAGS_EDITING_": "Uređivanje {{ tag }}: Enter sprema, Escape odustaje",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} nije valjano",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} je dulje od {{ max }} znakova",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: položaj {{ position }} od {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+strelica lijevo i Alt+strelica desno na vrijednosti premještaju je."
 }

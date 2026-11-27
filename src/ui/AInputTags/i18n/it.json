@@ -4,7 +4,7 @@
   "_A_INPUT_TAGS_REMOVED_": "Rimosso: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} è già nell'elenco",
   "_A_INPUT_TAGS_MAX_": "Non più di {{ max }} valori",
-  "_A_INPUT_TAGS_HINT_": "Invio o virgola aggiunge un valore, Backspace nel campo vuoto rimuove l'ultimo. Freccia sinistra all'inizio va ai valori, Canc rimuove il valore.",
+  "_A_INPUT_TAGS_HINT_": "Invio o virgola aggiunge un valore, Backspace nel campo vuoto rimuove l'ultimo. Freccia sinistra all'inizio va ai valori, Canc rimuove il valore, F2 o un doppio clic lo modifica.",
   "_A_INPUT_TAGS_REMOVE_ALL_": "Rimuovi tutto",
   "_A_INPUT_TAGS_REMOVED_ALL_": "Tutti i valori rimossi ({{ count }})",
   "_A_INPUT_TAGS_SHOW_MORE_": "Mostra altri {{ count }} valori",
@@ -12,5 +12,10 @@
   "_A_INPUT_TAGS_COUNTER_": "{{ count }} di {{ max }} valori",
   "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} non è nell'elenco",
   "_A_INPUT_TAGS_ADD_ALL_": "Aggiungi tutto ({{ count }})",
-  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Invio aggiunge tutti i suggerimenti."
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Invio aggiunge tutti i suggerimenti.",
+  "_A_INPUT_TAGS_EDITING_": "Modifica {{ tag }}: Invio salva, Esc annulla",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} non è valido",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} supera {{ max }} caratteri",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: posizione {{ position }} di {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+freccia sinistra e Alt+freccia destra su un valore lo spostano."
 }

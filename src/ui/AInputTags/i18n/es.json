@@ -4,7 +4,7 @@
   "_A_INPUT_TAGS_REMOVED_": "Quitado: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} ya está en la lista",
   "_A_INPUT_TAGS_MAX_": "No más de {{ max }} valores",
-  "_A_INPUT_TAGS_HINT_": "Enter o coma añade un valor, Retroceso en el campo vacío elimina el último. Flecha izquierda al inicio va a los valores, Supr elimina el valor.",
+  "_A_INPUT_TAGS_HINT_": "Enter o coma añade un valor, Retroceso en el campo vacío elimina el último. Flecha izquierda al inicio va a los valores, Supr elimina el valor, F2 o un doble clic lo edita.",
   "_A_INPUT_TAGS_REMOVE_ALL_": "Eliminar todo",
   "_A_INPUT_TAGS_REMOVED_ALL_": "Todos los valores eliminados ({{ count }})",
   "_A_INPUT_TAGS_SHOW_MORE_": "Mostrar {{ count }} valores más",
@@ -12,5 +12,10 @@
   "_A_INPUT_TAGS_COUNTER_": "{{ count }} de {{ max }} valores",
   "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} no está en la lista",
   "_A_INPUT_TAGS_ADD_ALL_": "Añadir todo ({{ count }})",
-  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter añade todas las sugerencias."
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter añade todas las sugerencias.",
+  "_A_INPUT_TAGS_EDITING_": "Editar {{ tag }}: Enter guarda, Escape cancela",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} no es válido",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} tiene más de {{ max }} caracteres",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: posición {{ position }} de {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+flecha izquierda y Alt+flecha derecha sobre un valor lo mueven."
 }

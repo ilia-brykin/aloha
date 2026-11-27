@@ -6251,6 +6251,11 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "addOnBlur",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "allowDuplicates",
               "type": "boolean"
             },
@@ -6278,6 +6283,10 @@
             {
               "name": "errors",
               "type": "string | any[]"
+            },
+            {
+              "name": "errorIcon",
+              "type": "string | Record<string, any>"
             },
             {
               "name": "errorsClass",
@@ -6319,6 +6328,14 @@
               "type": "string"
             },
             {
+              "name": "iconAppend",
+              "type": "string"
+            },
+            {
+              "name": "iconPrepend",
+              "type": "string"
+            },
+            {
               "name": "ignoreDiacritics",
               "type": "boolean",
               "default": "true"
@@ -6353,11 +6370,20 @@
               "default": "true"
             },
             {
+              "name": "isClearButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "isDataSimpleArray",
               "type": "boolean"
             },
             {
               "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isLabelFloat",
               "type": "boolean"
             },
             {
@@ -6373,6 +6399,11 @@
               "name": "isRender",
               "type": "boolean",
               "default": "true"
+            },
+            {
+              "name": "isSortable",
+              "type": "boolean",
+              "default": "false"
             },
             {
               "name": "keyDisabled",
@@ -6409,6 +6440,10 @@
               "type": "string"
             },
             {
+              "name": "labelPosition",
+              "type": "string"
+            },
+            {
               "name": "labelScreenReader",
               "type": "string | number"
             },
@@ -6419,6 +6454,10 @@
             },
             {
               "name": "maxTags",
+              "type": "number"
+            },
+            {
+              "name": "maxlength",
               "type": "number"
             },
             {
@@ -6434,6 +6473,10 @@
               "name": "modelDependencies",
               "type": "Record<string, any>",
               "default": "{}"
+            },
+            {
+              "name": "modelKey",
+              "type": "string"
             },
             {
               "name": "modelUndefined",
@@ -6482,6 +6525,15 @@
               "default": "\"search\""
             },
             {
+              "name": "size",
+              "type": "string",
+              "default": "\"medium\""
+            },
+            {
+              "name": "tagClass",
+              "type": "string | Record<string, any> | any[] | ((...args: any[]) => any)"
+            },
+            {
               "name": "searchTimeout",
               "type": "number",
               "default": "300"
@@ -6495,6 +6547,10 @@
               "name": "texts",
               "type": "Record<string, any>",
               "default": "{}"
+            },
+            {
+              "name": "transform",
+              "type": "((...args: any[]) => any)"
             },
             {
               "name": "translateData",
@@ -6512,6 +6568,10 @@
             {
               "name": "urlParams",
               "type": "Record<string, any>"
+            },
+            {
+              "name": "urlRetrieve",
+              "type": "string"
             },
             {
               "name": "urlTemplateData",
