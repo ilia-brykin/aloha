@@ -7,6 +7,35 @@
 ---
 # Versions
 
+## 3.0.0-alpha.4
+
+Changes since 3.0.0-alpha.3. Migration notes: docs page **Migration 2.x → 3.0**. Most breaking changes are accessibility fixes (WAI-ARIA roles, native buttons, keyboard): the props stay, the markup changes.
+
+### Breaking
+
+- `AAccordion`, `ATabs`, `ATooltip`, `ADisclosure` / `AShowMore`, `ADropdown` (WAI-ARIA menu for actions), `ASelect` (no `role="application"`, listbox only with options), `AWizard` / `AModalWizard`, `APaginationPages` (native buttons), `AErrors` / `AForm` (error summary without `role="alert"`, `AForm` cancels the native submit and emits `submit`): new roles, markup and keyboard.
+- `AModal`: stack of open modals (Escape only for the top one), focus back to the opener, inert page.
+- `AAlert`: `role` and `aria-atomic` without defaults, the new prop `announce` (default `"alert"`) sets them.
+- `ACarousel`: rebuilt (autoplay, loop, animation, card, vertical); v-model in both directions, own texts merged with the defaults.
+- css: `a_gap_x_*` is `column-gap`, `a_gap_y_*` is `row-gap` (swapped in 2.x).
+
+### Features
+
+- New components: `ANavbar` (horizontal navigation, submenus of any depth, "…" for items that do not fit, drawer on mobile), `APopover`, `ACombobox` (form type `"combobox"`), `AInputTags` (form type `"tags"`, suggestions, validator, sorting), `AJsonEditor`, `ADrawer`, `AEmptyState`, `ASkipLink`, `ABreadcrumb`.
+- `AMenu`: an item with `to` and children is split: the link opens the page, the toggle opens the children.
+- `ANotification`: placement, sizes, title, actions, progress, containers, pause on hover / focus, `removeNotification`, `clearNotifications`.
+- `ADateInput`: time steps and limits, week and quarter modes, two months, inline calendar, `in-body`, `model-format`.
+- `ATabs`: `activation` (auto / manual). `ATooltip`: `render-description`. `ADropdown`: action type `"header"`.
+- `APaginationPages`: `show-edges`, `show-jumper`, `v-model:page`, mode `infinite`, slots. `APagination` / `ATable`: working "Load more".
+- `AModal`: scrollbar compensation is measured (`AComponentsPlugin`: `AModal.scrollbarCompensation`).
+- filters: `filterNewlines`. css: ratio, object-fit, stacks, stretched link, hover colors, sizing, `a_radius_*`, `a_border_style_*`, `a_divider_vertical`, `a_tile`.
+
+### Fixes
+
+- aria attributes as `aria-*` instead of camelCase (SSR, older browsers).
+- `ASwitch`: `role="switch"`, name from the label. `AInputNumber` / `AInputCurrency`: keys by the typed character (Firefox, numpad). `AInfiniteScroll`: `disabled` was inverted. `AColorPicker`: a cleared model is `undefined`. `AInputCurrency`, `AMenu`: Cmd on Mac like Ctrl.
+- `AMenu`: own `iconClass` of an item, no error when the panel of the closed menu is already gone.
+
 ## 3.0.0-alpha.3
 
 ### Features
