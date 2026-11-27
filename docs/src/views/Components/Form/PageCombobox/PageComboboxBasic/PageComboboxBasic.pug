@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_COMBOBOX_GROUP_BASIC_DESCRIPTION_"
+)
+  a-combobox(
+    v-model="model"
+    :data="cities"
+    label="_A_COMBOBOX_EXAMPLE_CITY_"
+    @select="selected = $event"
+  )
+  pre.a_mt_3 v-model: {{ model }}, select: {{ selected }}

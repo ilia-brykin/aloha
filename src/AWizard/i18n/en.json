@@ -1,6 +1,5 @@
 {
   "_A_WIZARD_ARIA_LABEL_": "Wizard",
-  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Step {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "Next",
   "_A_WIZARD_NEXT_TITLE_": "Next step",
   "_A_WIZARD_PREVIOUS_": "Previous",
@@ -12,5 +11,7 @@
   "_A_WIZARD_STEP_VISITED_": "Step visited",
   "_A_WIZARD_STEP_WARNING_": "Step warning",
   "_A_WIZARD_STEPS_ARIA_LABEL_": "Wizard steps",
-  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Step {{ stepActive }} of {{ stepsCount }}"
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Step {{ stepActive }} of {{ stepsCount }}",
+  "_A_WIZARD_FINISH_": "Finish",
+  "_A_WIZARD_STEP_HEADING_{{stepNumber}}_{{stepsCount}}_{{label}}_": "Step {{ stepNumber }} of {{ stepsCount }}: {{ label }}"
 }

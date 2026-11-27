@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "Zadatak je izbrisan.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "Zadatak je spremljen.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Slot koji se prikazuje u sadržaju nakon obrasca.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot koji se prikazuje u sadržaju prije teksta (<code>body-html</code>) i obrasca."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot koji se prikazuje u sadržaju prije teksta (<code>body-html</code>) i obrasca.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Spremanje tipkom Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter u polju obrasca poziva <code>save</code>, kao gumb za spremanje, ali ne kad je spremanje onemogućeno, skriveno ili u tijeku učitavanja.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Naslov"
 }

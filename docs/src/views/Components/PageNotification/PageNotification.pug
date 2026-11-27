@@ -1,20 +1,46 @@
-div
-  h1 {{ pageTitle }}
-  a-button.a_btn.a_mr_2(
-    v-for="type in types"
-    :key="type"
-    :class="'a_btn_' + type"
-    type="button"
-    :text="'_A_NOTIFICATION_ADD_{{type}}_'"
-    :extra="{type: type}"
-    @click="addNotificationLocal(type)"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-  .a_mt_4
-    a-button.a_btn.a_btn_primary(
-      text="_A_NOTIFICATION_OBJECT_"
-      @click="addNotificationLocal({ sdf: 'x', abc: 'y', aloha: 'z' })"
+    a-translation(
+      tag="p"
+      html="_A_NOTIFICATION_COMPONENT_DESCRIPTION_"
     )
 
-  aloha-table-css-vars(
-    files="utils/notification"
-  )
+    page-notification-basic
+
+    page-notification-title
+
+    page-notification-actions
+
+    page-notification-placement
+
+    page-notification-progress
+
+    page-notification-deduplicate
+
+    page-notification-remove
+
+    page-notification-own-component
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="_A_NOTIFICATION_FUNCTIONS_HEADER_"
+      :data="dataFunctions"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="_A_NOTIFICATION_OPTIONS_HEADER_"
+      :data="dataOptions"
+      :columns="['name', 'type', 'default', 'description']"
+    )
+
+    aloha-table-css-vars(
+      files="utils/notification"
+    )

@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Enlace de salto",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> es el primer enlace de la página: <em>Saltar al contenido principal</em>. Está oculto hasta que recibe el foco del teclado; entonces aparece en la esquina superior izquierda. Los usuarios de teclado y lectores de pantalla saltan la cabecera y la navegación con una tecla (WCAG 2.4.1). El enlace mueve el foco al destino por sí mismo, por eso funciona también con un router hash y con un elemento como <code>&lt;main&gt;</code> que no puede recibir el foco.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Ponga <code>a-skip-link</code> como primer elemento de la página y dé al contenido principal <code>&lt;main id=\"main\"&gt;</code>. Pruébelo en esta página: recárguela y pulse <kbd>Tab</kbd>. El ejemplo de abajo salta al cuadro que hay debajo.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> del elemento que recibe el foco, p. ej. <code>&lt;main id=\"main\"&gt;</code>. Si el elemento no existe, el enlace funciona como un enlace normal.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Texto del enlace. Acepta una clave de traducción.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Destino del enlace de salto en este ejemplo. Tras un clic en el enlace el foco está aquí."
+}

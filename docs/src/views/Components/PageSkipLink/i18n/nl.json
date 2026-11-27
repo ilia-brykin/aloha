@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Skiplink",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> is de eerste link van de pagina: <em>Naar de hoofdinhoud</em>. Hij is verborgen tot hij de toetsenbordfocus krijgt; dan verschijnt hij linksboven. Toetsenbord- en schermlezergebruikers slaan de kop en de navigatie met één toets over (WCAG 2.4.1). De link verplaatst de focus zelf naar het doel, daarom werkt hij ook met een hash-router en met een element als <code>&lt;main&gt;</code> dat geen focus kan krijgen.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Zet <code>a-skip-link</code> als eerste element van de pagina en geef de hoofdinhoud <code>&lt;main id=\"main\"&gt;</code>. Probeer het op deze pagina: herlaad hem en druk op <kbd>Tab</kbd>. Het voorbeeld hieronder springt naar het vak eronder.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> van het element dat de focus krijgt, bijv. <code>&lt;main id=\"main\"&gt;</code>. Als het element niet bestaat, werkt de link als een gewone link.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Tekst van de link. Accepteert een vertaalsleutel.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Doel van de skiplink in dit voorbeeld. Na een klik op de link staat de focus hier."
+}

@@ -1,5 +1,8 @@
 import {
+  computed,
   h,
+  ref,
+  watch,
 } from "vue";
 
 import AModal from "../AModal/AModal";
@@ -11,19 +14,16 @@ import ScrollAPI from "./compositionAPI/ScrollAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import {
+  ExclamationCircleFill,
+  XCircleFill,
+} from "../AWizard/utils/icons";
+import {
   getPropDefault,
 } from "../plugins/AComponentsPlugin";
 import {
   isNil,
   uniqueId,
 } from "lodash-es";
-
-const ExclamationCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
-</svg>`;
-const XCircleFill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
-</svg>`;
 
 // @vue/component
 export default {
@@ -76,7 +76,7 @@ export default {
     closeButtonTextScreenReaderFooter: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModalWizard", "closeButtonTextScreenReaderFooter", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_"),
+      default: () => getPropDefault("AModalWizard", "closeButtonTextScreenReaderFooter"),
     },
     closeButtonTextScreenReaderHeader: {
       type: String,
@@ -127,6 +127,12 @@ export default {
       required: false,
       default: () => getPropDefault("AModalWizard", "isFooterSticky", false),
     },
+    // the save button only on the last step of the wizard
+    isSaveButtonLastStepOnly: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("AModalWizard", "isSaveButtonLastStepOnly", false),
+    },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
@@ -174,7 +180,7 @@ export default {
     saveButtonTextScreenReader: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModalWizard", "saveButtonTextScreenReader", "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_"),
+      default: () => getPropDefault("AModalWizard", "saveButtonTextScreenReader"),
     },
     selectorClose: {
       type: [String, Array],
@@ -215,11 +221,15 @@ export default {
       required: false,
       default: undefined,
     },
-    // WIZARD
+
+    /*
+     * WIZARD
+     * the modal is named by its heading, the wizard in it needs no own name
+     */
     ariaLabel: {
       type: String,
       required: false,
-      default: "_A_WIZARD_ARIA_LABEL_",
+      default: "",
     },
     ariaLabelSteps: {
       type: String,
@@ -251,6 +261,11 @@ export default {
       required: false,
       default: "_A_WIZARD_PREVIOUS_",
     },
+    beforeStepChange: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     backButtonTitle: {
       type: String,
       required: false,
@@ -280,6 +295,21 @@ export default {
       type: String,
       required: false,
       default: "_A_WIZARD_NEXT_",
+    },
+    finishButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    finishButtonClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn a_btn_primary",
+    },
+    finishButtonText: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     forwardButtonTitle: {
       type: String,
@@ -370,6 +400,15 @@ export default {
       required: false,
       default: true,
     },
+    isStepHeadingVisible: {
+      type: Boolean,
+      required: false,
+    },
+    stepHeadingTag: {
+      type: String,
+      required: false,
+      default: "h3",
+    },
     stepActive: {
       type: Number,
       default: undefined,
@@ -439,6 +478,7 @@ export default {
   },
   emits: [
     "changeStep",
+    "finish",
     "goStepBack",
     "goStepForward",
   ],
@@ -468,7 +508,29 @@ export default {
 
     initWizard();
 
+    // the active step for isSaveButtonLastStepOnly: from changeStep, or from stepActive with isControlOutside
+    const stepActiveCurrent = ref(0);
+    watch(() => props.stepActive, value => {
+      if (!isNil(value)) {
+        stepActiveCurrent.value = value;
+      }
+    }, { immediate: true });
+
+    const changeStep = arg => {
+      stepActiveCurrent.value = arg.stepIndex;
+      changeStepLocal(arg);
+    };
+
+    const isSaveButtonHideLocal = computed(() => {
+      if (props.isSaveButtonHide) {
+        return true;
+      }
+      return props.isSaveButtonLastStepOnly && stepActiveCurrent.value < props.steps.length - 1;
+    });
+
     return {
+      changeStep,
+      isSaveButtonHideLocal,
       footerId,
       changeStepLocal,
       goStepBackLocal,
@@ -501,7 +563,7 @@ export default {
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
       isFooterSticky: this.isFooterSticky,
-      isSaveButtonHide: this.isSaveButtonHide,
+      isSaveButtonHide: this.isSaveButtonHideLocal,
       loading: this.loading,
       modalClass: this.modalClass,
       modalStyle: this.modalStyle,
@@ -524,8 +586,14 @@ export default {
       modalBody: () => [
         this.isWizardVisible && h(AWizard, {
           id: this.wizardId,
-          ariaLabel: this.ariaLabel,
-          ariaLabelSteps: this.ariaLabelSteps,
+          "aria-label": this.ariaLabel,
+          "aria-label-steps": this.ariaLabelSteps,
+          beforeStepChange: this.beforeStepChange,
+          finishButtonAttributes: this.finishButtonAttributes,
+          finishButtonClass: this.finishButtonClass,
+          finishButtonText: this.finishButtonText,
+          isStepHeadingVisible: this.isStepHeadingVisible,
+          stepHeadingTag: this.stepHeadingTag,
           backButtonAttributes: this.backButtonAttributes,
           backButtonClass: this.backButtonClass,
           backButtonIconLeft: this.backButtonIconLeft,
@@ -569,7 +637,8 @@ export default {
           subType: this.subType,
           toolbarBottomTeleportId: this.footerId,
           type: this.type,
-          onChangeStep: this.changeStepLocal,
+          onChangeStep: this.changeStep,
+          onFinish: arg => this.$emit("finish", arg),
           onGoStepBack: this.goStepBackLocal,
           onGoStepForward: this.goStepForwardLocal,
         }, this.$slots),

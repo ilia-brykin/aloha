@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COMBOBOX_GROUP_GROUPS_HEADER_"
+  description="_A_COMBOBOX_GROUP_GROUPS_DESCRIPTION_"
+)
+  a-combobox(
+    v-model="model"
+    :data="stations"
+    :min-length="0"
+    :open-on-focus="true"
+    key-disabled="isClosed"
+    key-group="line"
+    label="_A_COMBOBOX_EXAMPLE_STATION_"
+  )

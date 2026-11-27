@@ -1,25 +1,31 @@
 import {
+  computed,
   ref,
-  toRef,
 } from "vue";
 
 export default function FocusAPI(props, {
+  arrowsSelector = computed(() => ""),
   dropdownRef = ref(undefined),
 }) {
-  const elementsForArrows = toRef(props, "elementsForArrows");
+  const getElementsForArrows = () => {
+    if (!dropdownRef.value || !arrowsSelector.value) {
+      return [];
+    }
+    return Array.from(dropdownRef.value.querySelectorAll(arrowsSelector.value));
+  };
 
   const setFocusToFirstElement = () => {
-    if (!dropdownRef.value) {
-      return;
-    }
-    const ELEMENTS = dropdownRef.value.querySelectorAll(elementsForArrows.value);
-    if (ELEMENTS.length === 0) {
-      return;
-    }
-    ELEMENTS[0].focus();
+    getElementsForArrows()[0]?.focus();
+  };
+
+  const setFocusToLastElement = () => {
+    const ELEMENTS = getElementsForArrows();
+    ELEMENTS[ELEMENTS.length - 1]?.focus();
   };
 
   return {
+    getElementsForArrows,
     setFocusToFirstElement,
+    setFocusToLastElement,
   };
 }

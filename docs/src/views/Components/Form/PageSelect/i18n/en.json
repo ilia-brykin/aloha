@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Disabling by key",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Loads the base list and retrieve candidates from local JSON files without a backend. Missing selected values are fetched through the retrieve callback and marked as invalid entries when they are not present in the base list.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve from local JSON",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option. A screen reader hears how many options the search found (\"Results: 3\" / \"No results\"); Enter in the search field does not submit the form around.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Search",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "With <strong lang=\"en\">show-selected-first</strong>, selected options are displayed directly below the search and action buttons. They keep their groups when grouping is enabled, are separated from the remaining options by one divider, and are not duplicated in the main list.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Selected options first",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "The list is rendered in the container popper-container-id at the end of the body, otherwise directly after the button.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Closes the list after an item is chosen. By default: yes for select, no for multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Deprecated, use label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. The values are next to the field (not in it), their remove buttons can be reached with Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Label of the field (text or translation key).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Additional CSS class of the label.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Label that is read only by screen readers.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "If the model contains a value that is not in <code>data</code>, the text <code>label-not-found</code> is shown instead (with <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "Positive",
   "_TXT_NEGATIVE_": "Negative",
-  "_TXT_NEUTRAL_": "Neutral"
+  "_TXT_NEUTRAL_": "Neutral",
+  "_A_SELECT_A11Y_DESCRIPTION_": "The field is a <code>role=\"combobox\"</code> with <code>aria-controls</code> to the <code>role=\"listbox\"</code>; in the listbox are only the options (and groups), the search and \"Select all\" are above it. Keyboard: Enter, Space or ArrowDown open the list, the arrows go round, Home and End go to the first and last option, a letter to the next option that starts with it, Escape closes and gives the focus back to the field. The search tells a screen reader how many options it found. With <code>type=\"multiselect\"</code> the list has <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Multiple selection with removable values",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "The selected values are buttons next to the field: they can be reached with Tab, and their name says which value is removed (\"Remove Berlin\"). The field itself tells a screen reader how many values are selected.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Cities"
 }

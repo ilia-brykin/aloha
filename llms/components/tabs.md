@@ -4,6 +4,8 @@ The **ATabs** component is used for organizing content through tabs. Each tab co
 
 ## Basic usage
 
+The tabs follow the WAI-ARIA pattern: Tab goes to the active tab, the arrows (↑ and ↓ in vertical tabs), Home and End move between the tabs and open them, disabled tabs are skipped. The next Tab goes into the content.
+
 *props: `data`*
 
 ```html
@@ -38,6 +40,100 @@ export default {
       },
     ];
     
+    return {
+      data,
+    };
+  },
+};
+```
+
+## Name of the tab list
+
+`aria-label` (a translation key) or `aria-labelledby` (the id of a heading) names the tab list for screen readers. It is needed when the page has several tab lists.
+
+*props: `aria-label`, `aria-labelledby`*
+
+```html
+<a-tabs
+  :data="data"
+  aria-label="_A_TABS_EXAMPLE_ARIA_LABEL_"
+  key-id="id"
+/>
+```
+
+```js
+import {
+  ATabs,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ATabs,
+  },
+  setup() {
+    const data = [
+      {
+        id: "tab1",
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
+      },
+      {
+        id: "tab2",
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
+      },
+      {
+        id: "tab3",
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
+      },
+    ];
+
+    return {
+      data,
+    };
+  },
+};
+```
+
+## Open with Enter
+
+With `activation`="manual" the arrows only move the focus, Enter or Space opens the tab. Use it when the content of a tab loads long, e.g. from the server, so it is not loaded for every tab on the way.
+
+*props: `activation`*
+
+```html
+<a-tabs
+  :data="data"
+  activation="manual"
+/>
+```
+
+```js
+import {
+  ATabs,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ATabs,
+  },
+  setup() {
+    const data = [
+      {
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
+      },
+      {
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
+      },
+      {
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
+      },
+    ];
+
     return {
       data,
     };
@@ -617,6 +713,69 @@ export default {
 };
 ```
 
+## v-model
+
+`v-model:active-tab-id` contains the id of the active tab and also changes it from outside. The event `change` still comes.
+
+*props: `active-tab-id`*
+
+```html
+<a-tabs
+  v-model:active-tab-id="activeTabId"
+  :data="data"
+  key-id="id"
+/>
+<p class="a_my_3">active-tab-id: {{ activeTabId }}</p>
+<a-button
+  class="a_btn a_btn_secondary"
+  text="_A_TABS_EXAMPLE_OPEN_TAB_3_"
+  @click="activeTabId = 'tab3'"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  ATabs,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    ATabs,
+  },
+  setup() {
+    const data = [
+      {
+        id: "tab1",
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
+      },
+      {
+        id: "tab2",
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
+      },
+      {
+        id: "tab3",
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
+      },
+    ];
+    const activeTabId = ref("tab1");
+
+    return {
+      activeTabId,
+      data,
+    };
+  },
+};
+```
+
 ## Tab changes only through event
 
 This example shows how to use **is-change-outside**. When set to **true**, clicking on an inactive tab will not automatically activate it. Instead, the **change** event and the **active-tab-id** property must be used to change the active tab.
@@ -676,6 +835,55 @@ export default {
     return {
       activeTabId,
       changeTab,
+      data,
+    };
+  },
+};
+```
+
+## Render the content
+
+`render-content`: `all` (default) renders every content and hides the inactive ones, `active` renders only the active content, `once` renders a content when its tab is opened first and keeps it. `active` and `once` help with heavy content, e.g. tables.
+
+*props: `render-content`*
+
+```html
+<a-tabs
+  :data="data"
+  key-id="id"
+  render-content="once"
+/>
+```
+
+```js
+import {
+  ATabs,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ATabs,
+  },
+  setup() {
+    const data = [
+      {
+        id: "tab1",
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
+      },
+      {
+        id: "tab2",
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
+      },
+      {
+        id: "tab3",
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
+      },
+    ];
+
+    return {
       data,
     };
   },
@@ -1111,6 +1319,9 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
+| activation | String | auto |  | `auto`: the arrows open the focused tab at once. `manual`: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long. |
+| aria-label | String |  |  | Name of the tab list for screen readers. Accepts a translation key. |
+| aria-labelledby | String |  |  | Id of the element that names the tab list, e.g. a heading. |
 | active-tab-id | String / Number |  |  | Defines the **ID** or index of the active tab. If **key-id** is not set, the tab index is used. The component tracks changes to this value to update the active tab. |
 | data | Array |  | yes | The array of data describing the tabs. Each element in the array is an object with properties for the tab's title, content, and other settings. |
 | disabled | Boolean |  |  | Disables tab interaction. If set to **true**, tabs cannot be switched. |
@@ -1125,6 +1336,7 @@ export default {
 | key-id | String |  |  | Unique identifier for the tabs. If **key-id** is not specified, the tab index is used. |
 | key-label | String | label |  | Key for specifying the field that will be used for the tab labels. |
 | key-title | String | title |  | Allows specifying the key for the data that will be used for the tab titles. |
+| render-content | String | all |  | `all`: every content is rendered, the inactive ones are hidden. `active`: only the active content is rendered. `once`: a content is rendered when its tab is opened first and then kept. |
 | title-placement | String | top |  | Specifies the position of the tooltip relative to the element. Various positions are supported, such as **top**, **bottom**, **left**, **right**, and others. This property only works if **isTitleHtml** is set to **true**. |
 
 ## Slots
@@ -1141,6 +1353,7 @@ export default {
 | name | type | description |
 | --- | --- | --- |
 | change | Function | The event triggered when a tab is clicked. Returns an object with the following arguments: **$event** — event information, **tab** — tab data, **tabId** — unique identifier for the tab or its index, **index** — the tab's index in the data array. |
+| update:activeTabId | Function | Id of the new active tab (`v-model:active-tab-id`). Comes together with `change`, also with `is-change-outside`. |
 
 ## CSS variables (`scss/components/ATabs.scss`)
 

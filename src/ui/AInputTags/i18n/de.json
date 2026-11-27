@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "{{ tag }} entfernen",
+  "_A_INPUT_TAGS_ADDED_": "Hinzugefügt: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Entfernt: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} ist bereits in der Liste",
+  "_A_INPUT_TAGS_MAX_": "Höchstens {{ max }} Werte",
+  "_A_INPUT_TAGS_HINT_": "Enter oder Komma fügt einen Wert hinzu, Rücktaste im leeren Feld entfernt den letzten. Pfeil links am Anfang geht zu den Werten, Entf entfernt den Wert, F2 oder ein Doppelklick bearbeitet ihn.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Alle entfernen",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "Alle Werte entfernt ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "{{ count }} weitere Werte anzeigen",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Weniger Werte anzeigen",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} von {{ max }} Werten",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} ist nicht in der Liste",
+  "_A_INPUT_TAGS_ADD_ALL_": "Alle hinzufügen ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Strg+Enter fügt alle Vorschläge hinzu.",
+  "_A_INPUT_TAGS_EDITING_": "{{ tag }} bearbeiten: Enter speichert, Escape bricht ab",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} ist nicht gültig",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} ist länger als {{ max }} Zeichen",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: Position {{ position }} von {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+Pfeil links und Alt+Pfeil rechts auf einem Wert verschieben ihn."
+}

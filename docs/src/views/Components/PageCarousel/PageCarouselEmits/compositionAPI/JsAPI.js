@@ -51,8 +51,8 @@ export default {
       console.log("init", id, item);
     };
 
-    const change = ({ id, item }) => {
-      console.log("change", id, item);
+    const change = ({ id, item, previousId, previousItem }) => {
+      console.log("change", id, item, previousId, previousItem);
     };
 
     return {

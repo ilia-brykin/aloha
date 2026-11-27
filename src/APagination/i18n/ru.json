@@ -4,9 +4,14 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} из {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "К первой странице",
   "_A_PAGINATION_LAST_PAGE_": "К последней странице",
+  "_A_PAGINATION_LOAD_MORE_": "Загрузить ещё",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} из {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Навигация по страницам",
   "_A_PAGINATION_NEXT_PAGE_": "К следующей странице",
   "_A_PAGINATION_PREVIOUS_PAGE_": "К предыдущей странице",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "К странице номер {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "К странице номер {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "Перейти",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "Введите страницу от 1 до {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "Перейти на страницу",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "из {{ allPages }}"
 }

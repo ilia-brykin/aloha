@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Remove {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Added: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Removed: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} is already in the list",
+  "_A_INPUT_TAGS_MAX_": "No more than {{ max }} values",
+  "_A_INPUT_TAGS_HINT_": "Enter or comma adds a value, Backspace in the empty field removes the last one. ArrowLeft at the start goes to the values, Delete removes the value, F2 or a double click edits it.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Remove all",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "All values removed ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "Show {{ count }} more values",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Show fewer values",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} of {{ max }} values",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} is not in the list",
+  "_A_INPUT_TAGS_ADD_ALL_": "Add all ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter adds all suggestions.",
+  "_A_INPUT_TAGS_EDITING_": "Edit {{ tag }}: Enter saves, Escape cancels",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} is not valid",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} is longer than {{ max }} characters",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: position {{ position }} of {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+ArrowLeft and Alt+ArrowRight on a value move it."
+}

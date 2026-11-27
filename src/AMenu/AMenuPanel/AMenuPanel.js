@@ -1,9 +1,11 @@
 import {
   h,
+  inject,
   provide,
   toRef,
 } from "vue";
 
+import ALink from "../../ALink/ALink";
 import AMenuBreadcrumbs from "../AMenuBreadcrumbs/AMenuBreadcrumbs";
 import AMenuPanelGroup from "../AMenuPanelGroup/AMenuPanelGroup";
 import ATranslation from "../../ATranslation/ATranslation";
@@ -105,9 +107,12 @@ export default {
       openedLevelIndex,
     });
 
+    const clickMenuLink = inject("clickMenuLink");
+
     const {
       isHeaderPanelVisible,
       parentLabel,
+      parentTo,
     } = HeaderAPI(props, {
       openedLevelIndex,
     });
@@ -115,7 +120,12 @@ export default {
     provide("isChildPanelOpen", isChildPanelOpen);
     provide("isPanelMain", isPanelMain);
 
+    const clickHeaderLink = ({ $event } = {}) => {
+      clickMenuLink({ ctrlKey: !!($event?.ctrlKey || $event?.metaKey) });
+    };
+
     return {
+      clickHeaderLink,
       isChildPanelOpen,
       isHeaderPanelVisible,
       isItemsWithoutGroup,
@@ -123,6 +133,7 @@ export default {
       itemsGroup,
       panelId,
       parentLabel,
+      parentTo,
       styleZIndex,
     };
   },
@@ -149,11 +160,18 @@ export default {
       (this.isHeaderPanelVisible) && h("div", {
         class: "a_menu__panel_header",
       }, [
-        h(ATranslation, {
-          class: "a_menu__panel_header__text",
-          html: this.parentLabel,
-          tag: "strong",
-        }),
+        this.parentTo ?
+          h(ALink, {
+            class: "a_menu__panel_header__text a_menu__panel_header__link",
+            html: this.parentLabel,
+            to: this.parentTo,
+            onClick: this.clickHeaderLink,
+          }) :
+          h(ATranslation, {
+            class: "a_menu__panel_header__text",
+            html: this.parentLabel,
+            tag: "strong",
+          }),
       ]),
       h("ul", {
         class: "a_menu__listview",

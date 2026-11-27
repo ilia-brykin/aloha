@@ -4,9 +4,14 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} do {{ current }} z {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "Do pierwszej strony",
   "_A_PAGINATION_LAST_PAGE_": "Do ostatniej strony",
+  "_A_PAGINATION_LOAD_MORE_": "Załaduj więcej",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} z {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Nawigacja po stronach",
   "_A_PAGINATION_NEXT_PAGE_": "Do następnej strony",
   "_A_PAGINATION_PREVIOUS_PAGE_": "Do poprzedniej strony",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "Do strony {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Do strony {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "Przejdź",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "Wpisz stronę od 1 do {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "Przejdź do strony",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "z {{ allPages }}"
 }

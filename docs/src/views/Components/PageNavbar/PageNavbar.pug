@@ -1,0 +1,50 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_NAVBAR_COMPONENT_DESCRIPTION_"
+    )
+    a-translation(
+      tag="p"
+      html="_A_NAVBAR_ACCESSIBILITY_"
+    )
+    a-translation(
+      tag="p"
+      html="_A_NAVBAR_MOBILE_"
+    )
+
+    page-navbar-basic
+
+    page-navbar-overflow
+
+    page-navbar-hover
+
+    page-navbar-slot-item
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ANavbar"
+    )

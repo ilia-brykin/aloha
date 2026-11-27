@@ -1,0 +1,5 @@
+{
+  "_A_COMBOBOX_LOADING_": "Ładowanie podpowiedzi…",
+  "_A_COMBOBOX_NO_RESULTS_": "Brak podpowiedzi",
+  "_A_COMBOBOX_RESULTS_{{count}}_": "Dostępne podpowiedzi: {{ count }}"
+}

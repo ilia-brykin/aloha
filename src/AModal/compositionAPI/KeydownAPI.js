@@ -1,22 +1,27 @@
-import AKeysCode from "../../const/AKeysCode";
+import {
+  isTopModal,
+} from "./ModalStackAPI";
 
 export default function KeydownAPI({
+  modalKey,
   pressEscape = () => {},
   trapFocus = () => {},
 }) {
+  // only the top modal: Escape in a nested modal closes only it
   const keydown = $event => {
-    const EVENT = $event || window.$event;
-    if (EVENT.key === "Escape" || EVENT.keyCode === AKeysCode.escape) {
+    if (!isTopModal(modalKey)) {
+      return;
+    }
+    if ($event.key === "Escape") {
       pressEscape($event);
-    } else if (EVENT.key === "Tab" || EVENT.keyCode === AKeysCode.tab) {
-      trapFocus(EVENT);
+    } else if ($event.key === "Tab") {
+      trapFocus($event);
     }
   };
 
   const setListenerForKeydown = () => {
     document.addEventListener("keydown", keydown);
   };
-
 
   const removeListenerForKeydown = () => {
     document.removeEventListener("keydown", keydown);

@@ -9,8 +9,12 @@ import {
 import CloseAPI from "./compositionAPI/CloseAPI";
 import GroupAPI from "./compositionAPI/GroupAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
+import {
+  getTranslatedText,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 import Close from "../../../AIcon/Icons/Close";
+import filterStripHtml from "../../../filters/filterStripHtml";
 
 
 export default {
@@ -131,8 +135,11 @@ export default {
           iconLeft: Close,
           prevent: true,
           stop: true,
-          tabindex: -1,
-          textScreenReader: "_A_SELECT_REMOVE_",
+          // reachable with Tab (the values are next to the combobox), the name says which value is removed
+          textScreenReader: "_A_SELECT_REMOVE_{{label}}_",
+          extra: {
+            label: filterStripHtml(getTranslatedText({ placeholder: this.currentLabel, extra: this.data.extra }) || ""),
+          },
           type: "button",
           onClick: this.closeModel,
         }) :

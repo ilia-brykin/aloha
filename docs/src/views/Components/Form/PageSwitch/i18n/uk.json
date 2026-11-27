@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Якщо встановлено <strong lang=\"en\">true</strong>, перемикач займає всю доступну ширину.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Використовується для тристанового перемикача: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> і <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Мітка, що відображається, коли перемикач у стані <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Значення, що присвоюється моделі, коли перемикач у стані <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Значення, що присвоюється моделі, коли перемикач у стані <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "Доступність: поле — нативний <strong lang=\"en\">checkbox</strong> з <strong lang=\"en\">role=\"switch\"</strong>, скринрідер оголошує стан «увімк.» або «вимк.». Ім'я — це <strong lang=\"en\">label</strong>, а не змінний текст стану. Пробіл і <strong lang=\"en\">Enter</strong> перемикають. З <strong lang=\"en\">is-three-state</strong> поле залишається <strong lang=\"en\">checkbox</strong> зі станом «змішаний» для порожнього значення."
 }

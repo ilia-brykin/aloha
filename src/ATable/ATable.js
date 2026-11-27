@@ -969,6 +969,10 @@ export default {
           h(APagination, {
             class: "a_table__pagination_top",
             disabled: this.pagination.disabled,
+            // two navigations with the same name are hard to tell apart in the list of the landmarks
+            texts: (this.usePaginationTop && this.usePaginationBottom) ?
+              { pagesNavigation: "_A_TABLE_PAGINATION_TOP_" } :
+              undefined,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             modes: this.paginationModes,
@@ -1145,6 +1149,9 @@ export default {
           h(APagination, {
             class: "a_table__pagination_bottom",
             disabled: this.pagination.disabled,
+            texts: (this.usePaginationTop && this.usePaginationBottom) ?
+              { pagesNavigation: "_A_TABLE_PAGINATION_BOTTOM_" } :
+              undefined,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,

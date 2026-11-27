@@ -63,5 +63,21 @@
   "_A_TABS_TAB_1_": "Onglet 1",
   "_A_TABS_TAB_2_": "Onglet 2",
   "_A_TABS_TAB_3_": "Onglet 3",
-  "_A_TABS_TAB_4_": "Onglet 4"
+  "_A_TABS_TAB_4_": "Onglet 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Les onglets suivent le motif WAI-ARIA : Tab va à l'onglet actif, les flèches (↑ et ↓ pour les onglets verticaux), Début et Fin passent d'un onglet à l'autre et l'ouvrent, les onglets désactivés sont ignorés. Le Tab suivant va dans le contenu.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Nom de la liste d'onglets",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (une clé de traduction) ou <code>aria-labelledby</code> (l'id d'un titre) nomme la liste d'onglets pour les lecteurs d'écran. C'est nécessaire lorsque la page a plusieurs listes d'onglets.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> contient l'id de l'onglet actif et le change aussi depuis l'extérieur. L'événement <code>change</code> arrive toujours.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Rendu du contenu",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code> : <code>all</code> (par défaut) rend tout le contenu et masque l'inactif, <code>active</code> ne rend que le contenu actif, <code>once</code> rend un contenu à la première ouverture de son onglet et le garde. <code>active</code> et <code>once</code> aident avec un contenu lourd, p. ex. des tableaux.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Paramètres du profil",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Ouvrir l'onglet 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Nom de la liste d'onglets pour les lecteurs d'écran. Accepte une clé de traduction.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id de l'élément qui nomme la liste d'onglets, p. ex. un titre.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code> : tout le contenu est rendu, l'inactif est masqué. <code>active</code> : seul le contenu actif est rendu. <code>once</code> : un contenu est rendu à la première ouverture de son onglet, puis gardé.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id du nouvel onglet actif (<code>v-model:active-tab-id</code>). Arrive avec <code>change</code>, aussi avec <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Ouvrir avec Entrée",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Avec <code>activation</code>=\"manual\", les flèches déplacent seulement le focus, Entrée ou Espace ouvre l'onglet. À utiliser quand le contenu d'un onglet met du temps à charger, p. ex. depuis le serveur, pour qu'il ne soit pas chargé pour chaque onglet traversé.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code> : les flèches ouvrent immédiatement l'onglet focalisé. <code>manual</code> : les flèches déplacent seulement le focus, Entrée ou Espace ouvre l'onglet (WAI-ARIA), p. ex. pour un contenu long à charger."
 }

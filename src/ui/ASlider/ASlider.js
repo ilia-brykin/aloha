@@ -559,6 +559,8 @@ export default {
                 id: this.htmlIdLocal,
                 type: "button",
                 tag: "div",
+                // the prop of AElement (blocks the click); the attribute is "aria-disabled" below
+                // eslint-disable-next-line no-restricted-syntax
                 ariaDisabled: this.disabled,
                 classDefault: "",
                 class: ["a_slider__button", {
@@ -594,6 +596,8 @@ export default {
                 id: this.secondButtonHtmlId,
                 type: "button",
                 tag: "div",
+                // the prop of AElement (blocks the click); the attribute is "aria-disabled" below
+                // eslint-disable-next-line no-restricted-syntax
                 ariaDisabled: this.disabled,
                 classDefault: "",
                 class: ["a_slider__button", {

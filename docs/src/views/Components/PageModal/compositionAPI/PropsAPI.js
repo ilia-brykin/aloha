@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "aria-label",
+      description: "_A_MODAL_PROPS_ARIA_LABEL_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "always-translate",
       description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
       type: "Boolean",
@@ -43,6 +50,13 @@ export default function PropsAPI() {
       required: true,
     },
     {
+      name: "close-on-backdrop",
+      description: "_A_MODAL_PROPS_CLOSE_ON_BACKDROP_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "close-button-attributes",
       description: "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_",
       type: "Object",
@@ -74,7 +88,7 @@ export default function PropsAPI() {
       name: "close-button-text-screen-reader-footer",
       description: "_A_MODAL_PROPS_CLOSE_BUTTON_TEXT_SCREEN_READER_FOOTER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_",
+      default: undefined,
       required: false,
     },
     {
@@ -242,7 +256,7 @@ export default function PropsAPI() {
       name: "save-button-text-screen-reader",
       description: "_A_MODAL_PROPS_SAVE_BUTTON_TEXT_SCREEN_READER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_",
+      default: undefined,
       required: false,
     },
     {
@@ -297,6 +311,13 @@ export default function PropsAPI() {
     {
       name: "use-focus-on-start",
       description: "_A_MODAL_PROPS_USE_FOCUS_ON_START_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "use-inert",
+      description: "_A_MODAL_PROPS_USE_INERT_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,

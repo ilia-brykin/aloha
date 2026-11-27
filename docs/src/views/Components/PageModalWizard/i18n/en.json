@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Step 1",
   "_A_MODAL_WIZARD_STEP_2_": "Step 2",
   "_A_MODAL_WIZARD_STEP_3_": "Step 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Step 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Step 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "The save button is only on the last step of the wizard.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Name of the wizard; empty by default, the modal is named by its heading.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Save on the last step",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> shows the save button only on the last step.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Open",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "New entry"
 }

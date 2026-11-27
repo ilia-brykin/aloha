@@ -1,3 +1,4 @@
 {
-  "_A_BREADCRUMB_ARIA_LABEL_": "Percorso di navigazione"
+  "_A_BREADCRUMB_ARIA_LABEL_": "Percorso di navigazione",
+  "_A_BREADCRUMB_SHOW_HIDDEN_": "Mostra i livelli nascosti ({{ count }})"
 }

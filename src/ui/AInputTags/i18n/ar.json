@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "إزالة {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "تمت الإضافة: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "تمت الإزالة: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} موجود بالفعل في القائمة",
+  "_A_INPUT_TAGS_MAX_": "لا أكثر من {{ max }} قيم",
+  "_A_INPUT_TAGS_HINT_": "يضيف Enter أو الفاصلة قيمة، ويزيل Backspace في الحقل الفارغ آخر قيمة. ينتقل السهم الأيسر في البداية إلى القيم، ويزيل Delete القيمة، ويحررها F2 أو النقر المزدوج.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "إزالة الكل",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "تمت إزالة كل القيم ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "عرض {{ count }} قيم أخرى",
+  "_A_INPUT_TAGS_SHOW_LESS_": "عرض قيم أقل",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} من {{ max }} قيمة",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} غير موجود في القائمة",
+  "_A_INPUT_TAGS_ADD_ALL_": "إضافة الكل ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter يضيف كل الاقتراحات.",
+  "_A_INPUT_TAGS_EDITING_": "تحرير {{ tag }}: Enter يحفظ، Escape يلغي",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} غير صالح",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} أطول من {{ max }} حرفًا",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: الموضع {{ position }} من {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "ينقل Alt+السهم الأيسر وAlt+السهم الأيمن على قيمة هذه القيمة."
+}

@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "Pola warunkowe",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "Pole może zadeklarować jeden warunek jako obiekt <strong lang=\"en\">dependencies</strong> lub wiele wymaganych warunków jako tablicę. <strong lang=\"en\">AForm</strong> automatycznie przekazuje bieżący model do każdego komponentu UI.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "Błędy i tryb tylko do odczytu",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Obiekt <strong lang=\"en\">errors</strong> jest indeksowany identyfikatorami pól. Nawigację po błędach na poziomie formularza oraz informację o polach wymaganych można konfigurować niezależnie, natomiast <strong lang=\"en\">readonly</strong> przełącza każde pole do reprezentacji tylko do odczytu.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "Obiekt <code>errors</code> ma klucze według ID pól. Podsumowanie nad formularzem pokazuje liczbę pól z błędami i linki do nich; po każdej walidacji z błędami przechodzi na nie fokus. Informację o polach obowiązkowych ustawia się osobno, a <code>readonly</code> przełącza każde pole w tryb tylko do odczytu.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "Zdarzenia i sloty",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "Nasłuchuj <strong lang=\"en\">update:modelValue</strong>, aby otrzymać cały model, oraz <strong lang=\"en\">change</strong>, aby uzyskać szczegóły zmienionego pola. Sloty wstawiają treść przed formularzem i kontenerem pól lub po nich.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "Domyślna klasa CSS stosowana do każdego skonfigurowanego pola, gdy element nie definiuje własnego <strong lang=\"en\">classColumn</strong>.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "Wyczyść błędy",
   "_A_FORM_EXAMPLE_EDIT_": "Edytuj",
   "_A_FORM_EXAMPLE_READONLY_": "Tylko do odczytu",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Popraw następujące pola",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Popraw następujące pola ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "Pola wymagane są oznaczone",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "To pole jest wymagane.",
   "_A_FORM_EXAMPLE_TITLE_": "Tytuł",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "Treść po informacji o polach wymaganych",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Treść przed polami",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Treść po polach",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Treść po formularzu"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Treść po formularzu",
+  "_A_FORM_A11Y_DESCRIPTION_": "Błędy: podsumowanie nad formularzem pokazuje liczbę pól z błędami (<code>{{ count }}</code>) i listę z linkami do pól. Po każdym wysłaniu z błędami fokus przechodzi na podsumowanie, więc czytnik ekranu odczytuje je raz (bez <code>auto-focus</code> to alert, <code>role=\"alert\"</code>). Błędy pola są z nim powiązane (aria-describedby). Enter w polu wywołuje <code>submit</code> zamiast przeładowania strony.",
+  "_A_FORM_SUBMIT_HEADER_": "Enter w polu",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "Wpisz tekst i naciśnij Enter: formularz wywołuje <code>submit</code> (ze zdarzeniem, <code>preventDefault()</code> jest już wywołane) i strona nie jest przeładowywana.",
+  "_A_FORM_EXAMPLE_SEARCH_": "Szukaj",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "Wywoływane przy wysłaniu formularza, np. klawiszem Enter w polu tekstowym. Argumentem jest natywne zdarzenie; strona nie jest przeładowywana."
 }

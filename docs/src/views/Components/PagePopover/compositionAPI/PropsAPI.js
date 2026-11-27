@@ -1,0 +1,254 @@
+export default function PropsAPI() {
+  const dataProps = [
+    {
+      name: "always-translate",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "button-attributes",
+      description: "_A_POPOVER_PROPS_BUTTON_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "button-class",
+      description: "_A_POPOVER_PROPS_BUTTON_CLASS_DESCRIPTION_",
+      type: "String / Object / Array",
+      default: "\"a_btn a_btn_secondary\"",
+      required: false,
+    },
+    {
+      name: "button-icon-left",
+      description: "_A_POPOVER_PROPS_BUTTON_ICON_DESCRIPTION_",
+      type: "String / Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "button-icon-right",
+      description: "_A_POPOVER_PROPS_BUTTON_ICON_DESCRIPTION_",
+      type: "String / Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "button-text",
+      description: "_A_POPOVER_PROPS_BUTTON_TEXT_DESCRIPTION_",
+      type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "button-text-screen-reader",
+      description: "_A_POPOVER_PROPS_BUTTON_TEXT_SCREEN_READER_DESCRIPTION_",
+      type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "button-title",
+      description: "_A_POPOVER_PROPS_BUTTON_TITLE_DESCRIPTION_",
+      type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "close-delay",
+      description: "_A_POPOVER_PROPS_CLOSE_DELAY_DESCRIPTION_",
+      type: "Number",
+      default: 200,
+      required: false,
+    },
+    {
+      name: "close-on-click-outside",
+      description: "_A_POPOVER_PROPS_CLOSE_ON_CLICK_OUTSIDE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "close-on-focus-out",
+      description: "_A_POPOVER_PROPS_CLOSE_ON_FOCUS_OUT_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "disabled",
+      description: "_A_POPOVER_PROPS_DISABLED_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "extra",
+      description: "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_",
+      type: "Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "focus-on-open",
+      description: "_A_POPOVER_PROPS_FOCUS_ON_OPEN_DESCRIPTION_",
+      type: "String",
+      default: "\"first\"",
+      required: false,
+    },
+    {
+      name: "has-arrow",
+      description: "_A_POPOVER_PROPS_HAS_ARROW_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "has-close-button",
+      description: "_A_POPOVER_PROPS_HAS_CLOSE_BUTTON_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "header",
+      description: "_A_POPOVER_PROPS_HEADER_DESCRIPTION_",
+      type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "header-tag",
+      description: "_A_POPOVER_PROPS_HEADER_TAG_DESCRIPTION_",
+      type: "String",
+      default: "\"div\"",
+      required: false,
+    },
+    {
+      name: "id",
+      description: "_A_GLOBAL_PROPS_ID_DESCRIPTION_",
+      type: "String",
+      default: "uniqueId(\"a_popover_\")",
+      required: false,
+    },
+    {
+      name: "in-body",
+      description: "_A_POPOVER_PROPS_IN_BODY_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "is-bottom-sheet-on-mobile",
+      description: "_A_POPOVER_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "model-value",
+      description: "_A_POPOVER_PROPS_MODEL_VALUE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "offset",
+      description: "_A_POPOVER_PROPS_OFFSET_DESCRIPTION_",
+      type: "Number",
+      default: 8,
+      required: false,
+    },
+    {
+      name: "open-delay",
+      description: "_A_POPOVER_PROPS_OPEN_DELAY_DESCRIPTION_",
+      type: "Number",
+      default: 100,
+      required: false,
+    },
+    {
+      name: "placement",
+      description: "_A_POPOVER_PROPS_PLACEMENT_DESCRIPTION_",
+      type: "String",
+      default: "\"bottom\"",
+      required: false,
+    },
+    {
+      name: "popover-attributes",
+      description: "_A_POPOVER_PROPS_POPOVER_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "popover-class",
+      description: "_A_POPOVER_PROPS_POPOVER_CLASS_DESCRIPTION_",
+      type: "String / Object / Array",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "popper-container-id",
+      description: "_A_POPOVER_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_",
+      type: "String",
+      default: "\"a_tooltip_container\"",
+      required: false,
+    },
+    {
+      name: "trigger",
+      description: "_A_POPOVER_PROPS_TRIGGER_DESCRIPTION_",
+      type: "String",
+      default: "\"click\"",
+      required: false,
+    },
+    {
+      name: "use-escape",
+      description: "_A_POPOVER_PROPS_USE_ESCAPE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "z-index",
+      description: "_A_POPOVER_PROPS_Z_INDEX_DESCRIPTION_",
+      type: "Number / String",
+      default: undefined,
+      required: false,
+    },
+  ];
+
+  const dataEvents = [
+    { name: "close", type: "Function", description: "_A_POPOVER_EVENTS_CLOSE_DESCRIPTION_" },
+    { name: "open", type: "Function", description: "_A_POPOVER_EVENTS_OPEN_DESCRIPTION_" },
+    { name: "update:modelValue", type: "Function", description: "_A_POPOVER_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_" },
+  ];
+
+  const dataSlots = [
+    { name: "button", description: "_A_POPOVER_SLOTS_BUTTON_DESCRIPTION_" },
+    { name: "default", description: "_A_POPOVER_SLOTS_DEFAULT_DESCRIPTION_" },
+    { name: "footer", description: "_A_POPOVER_SLOTS_FOOTER_DESCRIPTION_" },
+    { name: "header", description: "_A_POPOVER_SLOTS_HEADER_DESCRIPTION_" },
+    { name: "trigger", description: "_A_POPOVER_SLOTS_TRIGGER_DESCRIPTION_" },
+  ];
+
+  const dataMethods = [
+    { name: "close", description: "_A_POPOVER_METHODS_CLOSE_DESCRIPTION_" },
+    { name: "open", description: "_A_POPOVER_METHODS_OPEN_DESCRIPTION_" },
+    { name: "toggle", description: "_A_POPOVER_METHODS_TOGGLE_DESCRIPTION_" },
+  ];
+
+  const dataTranslate = [
+    "_A_POPOVER_BUTTON_",
+    "_A_POPOVER_CLOSE_",
+  ];
+
+  return {
+    dataEvents,
+    dataMethods,
+    dataProps,
+    dataSlots,
+    dataTranslate,
+  };
+}

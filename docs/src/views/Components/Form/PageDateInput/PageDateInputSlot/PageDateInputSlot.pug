@@ -1,0 +1,24 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_SLOT_HEADER_"
+  description="_A_DATE_INPUT_SLOT_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    label="_A_DATE_INPUT_EXAMPLE_VACATION_"
+  )
+    template(
+      v-slot:day="{ date }"
+    )
+      template(
+        v-if="holidays.includes(date)"
+      )
+        span.a_color_danger(
+          aria-hidden="true"
+        ) •
+        a-translation.a_sr_only(
+          tag="span"
+          text="_A_DATE_INPUT_EXAMPLE_HOLIDAY_"
+        )
+  pre.a_mt_3 {{ model }}

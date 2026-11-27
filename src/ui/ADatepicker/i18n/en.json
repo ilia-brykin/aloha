@@ -54,5 +54,6 @@
   "_A_DATEPICKER_HOURS_": "Hours",
   "_A_DATEPICKER_MINUTES_": "Minutes",
   "_A_DATEPICKER_SECONDS_": "Seconds",
-  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} to {{ lastYear }}"
+  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} to {{ lastYear }}",
+  "_A_DATEPICKER_DIALOG_LABEL_": "Choose a date"
 }

@@ -5,27 +5,24 @@ import {
 
 import ADropdownGlobalAPI from "../../compositionAPI/ADropdownGlobalAPI";
 
-import AKeysCode from "../../const/AKeysCode";
 import {
   setFocusToNextFocusableElement,
   setFocusToPreviousFocusableElement,
 } from "../../utils/utilsDOM";
-import {
-  forEach,
-} from "lodash-es";
 
 export default function ToggleAPI(props, { emit }, {
   closePopup = () => {},
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
   destroyPopover = () => {},
+  getElementsForArrows = () => [],
   openPopup = () => {},
   setFocusToFirstElement = () => {},
+  setFocusToLastElement = () => {},
   startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
-  const elementsForArrows = toRef(props, "elementsForArrows");
   const id = toRef(props, "id");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
   const isCloseByClickOutside = toRef(props, "isCloseByClickOutside");
@@ -51,31 +48,41 @@ export default function ToggleAPI(props, { emit }, {
     wasOpened.value = dropdownRenderDefault.value || false;
   };
 
-  const pressArrows = ({ down }) => {
-    const ELEMENTS = dropdownRef.value.querySelectorAll(elementsForArrows.value);
+  /**
+   * WAI-ARIA menu: ArrowDown / ArrowUp go round, Home / End to the first / last item,
+   * a letter to the next item that starts with it.
+   */
+  const moveFocus = ({ key }) => {
+    const ELEMENTS = getElementsForArrows();
     if (ELEMENTS.length === 0) {
-      return;
+      return false;
     }
-    if (dropdownButtonRef.value?.$el === document.activeElement) {
-      if (down) {
-        ELEMENTS[0].focus();
-      } else {
-        ELEMENTS[ELEMENTS.length - 1].focus();
-      }
-      return;
-    }
-    forEach(ELEMENTS, (element, index) => {
-      if (element === document.activeElement) {
-        if (down) {
-          if (index < ELEMENTS.length - 1) {
-            ELEMENTS[index + 1].focus();
-          }
-        } else if (index > 0) {
-          ELEMENTS[index - 1].focus();
+    const INDEX = ELEMENTS.indexOf(document.activeElement);
+    const COUNT = ELEMENTS.length;
+    let target;
+    if (key === "ArrowDown") {
+      target = INDEX === -1 ? ELEMENTS[0] : ELEMENTS[(INDEX + 1) % COUNT];
+    } else if (key === "ArrowUp") {
+      target = INDEX === -1 ? ELEMENTS[COUNT - 1] : ELEMENTS[(INDEX - 1 + COUNT) % COUNT];
+    } else if (key === "Home") {
+      target = ELEMENTS[0];
+    } else if (key === "End") {
+      target = ELEMENTS[COUNT - 1];
+    } else {
+      const CHAR = key.toLowerCase();
+      for (let i = 1; i <= COUNT; i++) {
+        const ELEMENT = ELEMENTS[(Math.max(INDEX, -1) + i + COUNT) % COUNT];
+        if (ELEMENT.textContent.trim().toLowerCase().startsWith(CHAR)) {
+          target = ELEMENT;
+          break;
         }
-        return false;
       }
-    });
+    }
+    if (!target) {
+      return false;
+    }
+    target.focus();
+    return true;
   };
 
   const getDropdownButtonElement = () => {
@@ -86,28 +93,55 @@ export default function ToggleAPI(props, { emit }, {
     getDropdownButtonElement()?.focus?.();
   };
 
+  // the keyboard is handled only when the focus is on the button or in the menu, not e.g. in another field of the page
+  const isFocusInDropdown = () => {
+    const ACTIVE = document.activeElement;
+    const BUTTON = getDropdownButtonElement();
+    return !!ACTIVE && (
+      (BUTTON && (BUTTON === ACTIVE || BUTTON.contains?.(ACTIVE))) ||
+      !!dropdownRef.value?.contains(ACTIVE)
+    );
+  };
+
+  const isTypeaheadKey = $event => {
+    return $event.key.length === 1 &&
+      $event.key !== " " &&
+      !$event.ctrlKey &&
+      !$event.metaKey &&
+      !$event.altKey;
+  };
+
   const pressButton = $event => {
-    const EVENT = $event || window.$event;
-    if (EVENT.keyCode === AKeysCode.arrowDown ||
-      EVENT.keyCode === AKeysCode.arrowUp) { // arrow down or up
-      if (!lockArrowsNavigation.value) {
-        return;
-      }
-      const DOWN = EVENT.keyCode === AKeysCode.arrowDown;
-      pressArrows({ down: DOWN });
-      $event.preventDefault();
-      $event.stopPropagation();
-    } else if (EVENT.keyCode === AKeysCode.escape) {
+    // Escape closes also a dropdown opened by hover (WCAG 1.4.13)
+    if ($event.key === "Escape") {
       if (useEscape.value) {
         onClose({ trigger: "click" });
         $event.preventDefault();
         $event.stopPropagation();
       }
-    } else if (EVENT.keyCode === AKeysCode.tab) {
+      return;
+    }
+    if (!isFocusInDropdown()) {
+      return;
+    }
+    if (["ArrowDown", "ArrowUp", "Home", "End"].indexOf($event.key) !== -1 || isTypeaheadKey($event)) {
+      if (!lockArrowsNavigation.value) {
+        return;
+      }
+      // letters in a field of the menu are typed, not used for the search
+      const IS_FIELD = ["INPUT", "TEXTAREA", "SELECT"].indexOf(document.activeElement?.tagName) !== -1;
+      if (isTypeaheadKey($event) && IS_FIELD) {
+        return;
+      }
+      if (moveFocus({ key: $event.key })) {
+        $event.preventDefault();
+        $event.stopPropagation();
+      }
+    } else if ($event.key === "Tab") {
       if (!lockTabNavigation.value) {
         return;
       }
-      if (EVENT.shiftKey) {
+      if ($event.shiftKey) {
         onClose();
         setTimeout(() => {
           setFocusToPreviousFocusableElement({
@@ -163,7 +197,8 @@ export default function ToggleAPI(props, { emit }, {
     }
   };
 
-  const onOpen = ({ trigger = "click", selectorToFocus } = {}) => {
+  // focus: "first" or "last" item (ArrowUp on the button opens the menu at the last item)
+  const onOpen = ({ trigger = "click", selectorToFocus, focus = "first" } = {}) => {
     if (trigger === "hover" && triggerOpen.value === "hover") {
       clearTimeout(timerCloseHover.value);
     }
@@ -187,7 +222,11 @@ export default function ToggleAPI(props, { emit }, {
         });
       } else if (trigger === "click") {
         setTimeout(() => {
-          setFocusToFirstElement();
+          if (focus === "last") {
+            setFocusToLastElement();
+          } else {
+            setFocusToFirstElement();
+          }
         });
       }
       openDropdownGlobal();
@@ -212,17 +251,17 @@ export default function ToggleAPI(props, { emit }, {
   };
 
   const onKeydown = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
+    if ($event.key === "Enter" || $event.key === " ") {
       onToggle({ $event });
       $event.stopPropagation();
       $event.preventDefault();
+      return;
     }
-    if ($event.keyCode === AKeysCode.arrowUp ||
-      $event.keyCode === AKeysCode.arrowDown) {
-      if (!statusExpanded.value) {
-        onOpen();
-      }
+    // a closed menu opens at the first (ArrowDown) or last (ArrowUp) item
+    if (($event.key === "ArrowUp" || $event.key === "ArrowDown") && !statusExpanded.value) {
+      onOpen({ focus: $event.key === "ArrowUp" ? "last" : "first" });
+      $event.stopPropagation();
+      $event.preventDefault();
     }
   };
 
@@ -269,7 +308,7 @@ export default function ToggleAPI(props, { emit }, {
   }
 
   function onClickEvent($event) {
-    if (dropdownRef.value.contains($event.target)) {
+    if (dropdownRef.value?.contains($event.target)) {
       if (isCloseByClickInside.value) {
         onClose();
         setFocusToButton();

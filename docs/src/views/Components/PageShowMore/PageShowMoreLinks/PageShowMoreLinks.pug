@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SHOW_MORE_GROUP_LINKS_HEADER_"
+  description="_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_"
+  :props="['height']"
+)
+  a-show-more(
+    :height="80"
+  )
+    p(
+      v-for="index in 5"
+      :key="index"
+    )
+      span {{ index }}. Lorem ipsum dolor sit amet.
+      a(
+        href="#"
+        @click.prevent
+      ) Link {{ index }}

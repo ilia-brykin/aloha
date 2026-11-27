@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_RANGE_HEADER_"
+  description="_A_DATE_INPUT_RANGE_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="modelRange"
+    range
+    label="_A_DATE_INPUT_EXAMPLE_TRAVEL_"
+  )
+  pre.a_mt_3 {{ modelRange }}
+  a-date-input.a_mt_4(
+    v-model="modelRangeDatetime"
+    range
+    mode="datetime"
+    label="_A_DATE_INPUT_EXAMPLE_EVENT_"
+    :default-time="['00:00', '23:59']"
+  )
+  pre.a_mt_3 {{ modelRangeDatetime }}

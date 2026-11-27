@@ -7,11 +7,14 @@ import PageDropdownButtonLoading from "./PageDropdownButtonLoading/PageDropdownB
 import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonText.vue";
 import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
 import PageDropdownCloseByButtonInvisibleInViewport from "./PageDropdownCloseByButtonInvisibleInViewport/PageDropdownCloseByButtonInvisibleInViewport.vue";
+import PageDropdownDisabledItems from "./PageDropdownDisabledItems/PageDropdownDisabledItems.vue";
 import PageDropdownGroup from "./PageDropdownGroup/PageDropdownGroup.vue";
 import PageDropdownGroupHideEmpty from "./PageDropdownGroupHideEmpty/PageDropdownGroupHideEmpty.vue";
 import PageDropdownGroupSort from "./PageDropdownGroupSort/PageDropdownGroupSort.vue";
 import PageDropdownHasCaret from "./PageDropdownHasCaret/PageDropdownHasCaret.vue";
+import PageDropdownHeader from "./PageDropdownHeader/PageDropdownHeader.vue";
 import PageDropdownInBody from "./PageDropdownInBody/PageDropdownInBody.vue";
+import PageDropdownOwnContent from "./PageDropdownOwnContent/PageDropdownOwnContent.vue";
 import PageDropdownReadonly from "./PageDropdownReadonly/PageDropdownReadonly.vue";
 import PageDropdownTriggers from "./PageDropdownTriggers/PageDropdownTriggers.vue";
 import {
@@ -27,6 +30,9 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageDropdown",
   components: {
+    PageDropdownOwnContent,
+    PageDropdownHeader,
+    PageDropdownDisabledItems,
     AlohaPage,
     AlohaTableProps,
     ATranslation,

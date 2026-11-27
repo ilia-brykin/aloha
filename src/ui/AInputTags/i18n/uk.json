@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_TAGS_REMOVE_": "Видалити {{ tag }}",
+  "_A_INPUT_TAGS_ADDED_": "Додано: {{ tag }}",
+  "_A_INPUT_TAGS_REMOVED_": "Видалено: {{ tag }}",
+  "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} вже є у списку",
+  "_A_INPUT_TAGS_MAX_": "Не більше {{ max }} значень",
+  "_A_INPUT_TAGS_HINT_": "Enter або кома додає значення, Backspace у порожньому полі видаляє останнє. Стрілка вліво на початку поля переходить до значень, Delete видаляє значення, F2 або подвійний клік редагує його.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Видалити всі",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "Усі значення видалено ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "Показати ще {{ count }}",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Показати менше",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} з {{ max }} значень",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} немає в списку",
+  "_A_INPUT_TAGS_ADD_ALL_": "Додати всі ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter додає всі підказки.",
+  "_A_INPUT_TAGS_EDITING_": "Редагування {{ tag }}: Enter зберігає, Escape скасовує",
+  "_A_INPUT_TAGS_INVALID_": "{{ tag }} неприпустиме",
+  "_A_INPUT_TAGS_MAXLENGTH_": "{{ tag }} довше за {{ max }} символів",
+  "_A_INPUT_TAGS_MOVED_": "{{ tag }}: позиція {{ position }} з {{ count }}",
+  "_A_INPUT_TAGS_HINT_SORTABLE_": "Alt+стрілка вліво й Alt+стрілка вправо на значенні переміщують його."
+}

@@ -14,5 +14,7 @@
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "افتح Components → Form controls → Text fields. مع <code>is-breadcrumbs-truncated</code> تنتقل روابط الآباء التي لا تتسع إلى قائمة التنقل المنسدلة. يتحكم المفتاح في <code>show-count-children</code> لإظهار عدد عناصر القوائم الفرعية أو إخفائه.",
   "_A_PAGE_MENU_SHOW_COUNTS_": "إظهار عدد عناصر القوائم الفرعية",
   "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "قائمة خلف زر (only-mobile)",
-  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "مع <code>only-mobile</code> تعمل القائمة مثل قائمة الجوال عند أي عرض للشاشة: تكون مغلقة ولا يظهر سوى الزر. يفتح الزر القائمة، ويغلقها النقر على رابط أو <kbd>Esc</kbd> أو الخلفية (<code>use-backdrop-mobile</code>). لا يهم عرض النافذة. أعطِ الزر أيضًا <code>:only-mobile=\"true\"</code> وإلا فسيُخفى على سطح المكتب، واربط بينهما بنفس <code>menu-id</code>."
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "مع <code>only-mobile</code> تعمل القائمة مثل قائمة الجوال عند أي عرض للشاشة: تكون مغلقة ولا يظهر سوى الزر. يفتح الزر القائمة، ويغلقها النقر على رابط أو <kbd>Esc</kbd> أو الخلفية (<code>use-backdrop-mobile</code>). لا يهم عرض النافذة. أعطِ الزر أيضًا <code>:only-mobile=\"true\"</code> وإلا فسيُخفى على سطح المكتب، واربط بينهما بنفس <code>menu-id</code>.",
+  "_A_PAGE_MENU_SPLIT_HEADER_": "عنصر بصفحة وعناصر فرعية",
+  "_A_PAGE_MENU_SPLIT_DESCRIPTION_": "العنصر الذي له <strong lang=\"en\">to</strong> وعناصر فرعية مقسوم: الرابط يفتح الصفحة، والزر على الجانب (العدّاد والسهم) يفتح العناصر الفرعية كما من قبل. لـ Forms وChoice صفحة، ولـ Overlays عناصر فرعية فقط. في اللوحة المفتوحة يكون آخر مسار تنقل رابطًا إلى الصفحة. في القائمة المطوية (أيقونات فقط) يفتح العنصر اللوحة ويكون عنوان اللوحة رابطًا إلى الصفحة."
 }

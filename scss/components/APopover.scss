@@ -1,0 +1,150 @@
+@use "../utils/focus";
+
+.a_popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--a_popover_z_index);
+  width: max-content;
+  max-width: min(var(--a_popover_max_width), calc(100vw - 1rem));
+  color: var(--a_popover_color);
+  font-size: var(--a_popover_font_size);
+  background-color: var(--a_popover_bg);
+  border: var(--a_popover_border_width) solid var(--a_popover_border_color);
+  border-radius: var(--a_popover_border_radius);
+  box-shadow: var(--a_popover_box_shadow);
+  animation: a_popover_in .12s ease-out;
+  @include focus.focus-visible;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes a_popover_in {
+  from {
+    opacity: 0;
+  }
+}
+
+// AMobilePlugin, small screen: a panel at the bottom of the window
+.a_popover.a_popover_sheet {
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  max-width: none;
+  max-height: var(--a_popover_sheet_max_height);
+  overflow-y: auto;
+  border-bottom-width: 0;
+  border-radius: var(--a_popover_border_radius) var(--a_popover_border_radius) 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  animation: a_popover_sheet_in .2s ease-out;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+  .a_popover__body {
+    max-height: none;
+  }
+}
+@keyframes a_popover_sheet_in {
+  from {
+    transform: translateY(100%);
+  }
+}
+// only for the eyes: a tap on it is a click outside
+.a_popover__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--a_popover_z_index);
+  background-color: var(--a_popover_backdrop_bg);
+}
+
+// a rotated square: the two outer sides have the border, the inner half has the background of the popover
+.a_popover__arrow {
+  position: absolute;
+  width: var(--a_popover_arrow_size);
+  height: var(--a_popover_arrow_size);
+  background-color: var(--a_popover_bg);
+  border: 0 solid var(--a_popover_border_color);
+  transform: rotate(45deg);
+  [data-placement^="bottom"] > & {
+    border-top-width: var(--a_popover_border_width);
+    border-left-width: var(--a_popover_border_width);
+  }
+  [data-placement^="top"] > & {
+    border-right-width: var(--a_popover_border_width);
+    border-bottom-width: var(--a_popover_border_width);
+  }
+  [data-placement^="right"] > & {
+    border-bottom-width: var(--a_popover_border_width);
+    border-left-width: var(--a_popover_border_width);
+  }
+  [data-placement^="left"] > & {
+    border-top-width: var(--a_popover_border_width);
+    border-right-width: var(--a_popover_border_width);
+  }
+}
+
+.a_popover__header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--a_space_sm);
+  padding: var(--a_popover_padding_y) var(--a_popover_padding_x) 0;
+}
+.a_popover__header_empty {
+  justify-content: flex-end;
+  // the close button is above the body, the body keeps its padding
+  float: right;
+  padding-inline-start: 0;
+}
+.a_popover__title {
+  margin: 0;
+  font-size: var(--a_popover_title_font_size);
+  font-weight: var(--a_popover_title_font_weight);
+  line-height: var(--a_body_line_height);
+}
+.a_popover__close {
+  flex-shrink: 0;
+}
+.a_popover__body {
+  position: relative;
+  max-height: var(--a_popover_max_height);
+  overflow-y: auto;
+  padding: var(--a_popover_padding_y) var(--a_popover_padding_x);
+}
+.a_popover__footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--a_space_sm);
+  padding: var(--a_popover_padding_y) var(--a_popover_padding_x);
+  border-top: var(--a_popover_border_width) solid var(--a_popover_border_color);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_popover, .a_popover__backdrop) {
+  --a_popover_z_index: calc(var(--a_z_index_popup) + 1); // Stack order of the popover and the backdrop of the bottom sheet, above modals. The prop z-index sets it.
+  --a_popover_backdrop_bg: rgb(0 0 0 / .3); // Backdrop behind the bottom sheet.
+  --a_popover_sheet_max_height: 70vh; // Maximum height of the bottom sheet.
+  --a_popover_bg: var(--a_color_surface); // Background of the popover and its arrow.
+  --a_popover_color: var(--a_color_text); // Text color of the popover.
+  --a_popover_font_size: var(--a_body_font_size); // Font size of the popover.
+  --a_popover_border_width: var(--a_border_width); // Border width of the popover and its arrow.
+  --a_popover_border_color: var(--a_border_color); // Border color of the popover, its arrow and the footer.
+  --a_popover_border_radius: var(--a_border_radius_large); // Corner radius of the popover.
+  --a_popover_box_shadow: var(--a_shadow_md); // Shadow of the popover.
+  --a_popover_max_width: 20rem; // Maximum width of the popover. Not wider than the window.
+  --a_popover_max_height: 25rem; // Maximum height of the body. Longer content scrolls.
+  --a_popover_padding_x: var(--a_space_md); // Horizontal padding of the header, the body and the footer.
+  --a_popover_padding_y: var(--a_space_sm); // Vertical padding of the header, the body and the footer.
+  --a_popover_title_font_size: var(--a_font_size_lg); // Font size of the header.
+  --a_popover_title_font_weight: var(--a_font_weight_bold); // Font weight of the header.
+  --a_popover_arrow_size: .75rem; // Size of the arrow (side of the rotated square).
+}

@@ -67,7 +67,7 @@ export default {
       h(this.sentinelTag, {
         ref: "sentinelRef",
         style: "height: 1px; display: block;",
-        ariaHidden: true,
+        "aria-hidden": true,
       }),
     ]);
   },

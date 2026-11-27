@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Onemogucavanje",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Ucitava osnovni popis i retrieve kandidate iz lokalnih JSON datoteka bez backenda. Nedostajuce odabrane vrijednosti dohvacaju se kroz retrieve callback i oznacavaju kao neispravni unosi kada nisu prisutni u osnovnom popisu.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve iz lokalnog JSON-a",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Vrijednosti opcija u padajucem izborniku mogu se filtrirati na temelju upita za pretragu. Ovo je korisno za komponente s dugim popisom opcija kako bi korisnicima olaksalo pronalazenje i odabir zeljene opcije.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Vrijednosti opcija u padajucem izborniku mogu se filtrirati na temelju upita za pretragu. Ovo je korisno za komponente s dugim popisom opcija kako bi korisnicima olaksalo pronalazenje i odabir zeljene opcije. Čitač zaslona čuje koliko je opcija pretraživanje pronašlo („Rezultati: 3” / „Nema rezultata”); Enter u polju za pretraživanje ne šalje okolni obrazac.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Pretraga",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Uz <strong lang=\"en\">show-selected-first</strong>, odabrane se opcije prikazuju neposredno ispod pretraživanja i akcijskih gumba. Grupe se zadržavaju, jedna ih linija odvaja od preostalih opcija i ne dupliciraju se na glavnom popisu.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Najprije odabrane opcije",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "Popis se renderira u spremnik popper-container-id na kraju body, inače odmah nakon gumba.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Zatvara popis nakon odabira stavke. Zadano: da za select, ne za multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Zastarjelo, koristite label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: sve odabrane stavke prikazuju se u gumbu. Uz false prikazuje se samo broj ako ih ima više od count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: sve odabrane stavke prikazuju se u gumbu. Uz false prikazuje se samo broj ako ih ima više od count-multiselect. Vrijednosti su pokraj polja (ne u njemu), njihovi gumbi za uklanjanje dostupni su tipkom Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Oznaka polja (tekst ili ključ prijevoda).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Dodatna CSS klasa oznake.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Oznaka koju čitaju samo čitači zaslona.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Ako model sadrži vrijednost koja nije u <code>data</code>, umjesto nje prikazuje se tekst <code>label-not-found</code> (uz <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "Pozitivno",
   "_TXT_NEGATIVE_": "Negativno",
-  "_TXT_NEUTRAL_": "Neutralno"
+  "_TXT_NEUTRAL_": "Neutralno",
+  "_A_SELECT_A11Y_DESCRIPTION_": "Polje je <code>role=\"combobox\"</code> s <code>aria-controls</code> na <code>role=\"listbox\"</code>; na popisu su samo opcije (i grupe), pretraživanje i „Odaberi sve” nalaze se iznad. Tipkovnica: Enter, razmak ili strelica dolje otvaraju popis, strelice idu u krug, Home i End idu na prvu i posljednju opciju, slovo na sljedeću opciju koja njime počinje, Escape zatvara i vraća fokus na polje. Pretraživanje javlja čitaču zaslona koliko je opcija pronašlo. S <code>type=\"multiselect\"</code> popis ima <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Višestruki odabir s uklonjivim vrijednostima",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "Odabrane vrijednosti su gumbi pokraj polja: dostupni su tipkom Tab, a njihov naziv govori koja se vrijednost uklanja („Ukloni Berlin”). Samo polje javlja čitaču zaslona koliko je vrijednosti odabrano.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Gradovi"
 }

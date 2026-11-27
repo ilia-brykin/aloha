@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accepte un chemin ou un objet de route et utilise <strong>ALink</strong>. Seul le dernier élément est marqué comme page actuelle. <code>label</code> et <code>aria-label</code> acceptent des clés de traduction et suivent les changements de langue.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Nom accessible de la navigation. Accepte une clé de traduction ; utilisez des noms distincts pour plusieurs fils d’Ariane.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Éléments de la racine à la page actuelle. Les champs sont décrits ci-dessous.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Séparateur décoratif entre les éléments. Une chaîne vide masque son texte.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Séparateur décoratif entre les éléments, masqué pour les lecteurs d'écran. Une chaîne vide n'affiche aucun séparateur.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL d’une page parente. Ignorée sur le dernier élément.",
   "_A_BREADCRUMB_PROPS_ID_": "Clé stable facultative. L’index est utilisé si elle est omise.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Texte visible ou clé de traduction compatible avec ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "Destination Vue Router d’une page parente. Prioritaire sur href ; ignorée sur le dernier élément."
+  "_A_BREADCRUMB_PROPS_TO_": "Destination Vue Router d’une page parente. Prioritaire sur href ; ignorée sur le dernier élément.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Nombre maximal d'éléments visibles (au moins 2). Un chemin plus long affiche le premier élément, un bouton <code>…</code> et les <code>max-items - 1</code> derniers éléments. Le bouton affiche tous les éléments et déplace le focus sur le premier élément masqué. Un nouveau tableau <code>items</code> est de nouveau replié.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Valeurs des espaces réservés de ce <code>label</code>. Remplace la prop <code>extra</code> du composant.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Icône devant le texte, un nom enregistré avec <code>AIconPlugin</code>. Elle est décorative et masquée pour les lecteurs d'écran.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Icônes et espaces réservés",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> affiche une icône devant un élément, p. ex. une maison pour la page d'accueil. <code>label</code> peut contenir des espaces réservés comme <code>{{ number }}</code> ; les valeurs viennent de la prop <code>extra</code> ou de <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Chemin long",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Avec <code>max-items</code>, un chemin profond est réduit au premier élément, à un bouton <code>…</code> et aux derniers éléments. Le bouton a un texte pour les lecteurs d'écran avec le nombre de niveaux masqués. Après un clic, tous les éléments sont affichés et le focus passe au premier élément masqué.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Accueil",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Commandes",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Commande {{ number }}"
 }

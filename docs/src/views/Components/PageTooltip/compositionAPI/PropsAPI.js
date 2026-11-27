@@ -24,14 +24,14 @@ export default function PropsAPI() {
     {
       name: "max-width",
       description: "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_",
-      type: "Number",
+      type: "Number / String",
       default: undefined,
       required: false,
     },
     {
       name: "min-width",
       description: "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_",
-      type: "Number",
+      type: "Number / String",
       default: undefined,
       required: false,
     },
@@ -64,6 +64,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "render-description",
+      description: "_A_TOOLTIP_PROPS_RENDER_DESCRIPTION_DESCRIPTION_",
+      type: "String",
+      default: "always",
+      required: false,
+    },
+    {
       name: "show-arrow",
       description: "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_",
       type: "Boolean",
@@ -78,6 +85,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "time-open",
+      description: "_A_TOOLTIP_PROPS_TIME_OPEN_DESCRIPTION_",
+      type: "Number",
+      default: 0,
+      required: false,
+    },
+    {
       name: "time-close",
       description: "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_",
       type: "Number",
@@ -87,7 +101,7 @@ export default function PropsAPI() {
     {
       name: "width",
       description: "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_",
-      type: "Number",
+      type: "Number / String",
       default: undefined,
       required: false,
     },

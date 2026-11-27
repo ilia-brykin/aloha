@@ -1,3 +1,4 @@
 {
-  "_A_BREADCRUMB_ARIA_LABEL_": "Ruta de navegación"
+  "_A_BREADCRUMB_ARIA_LABEL_": "Ruta de navegación",
+  "_A_BREADCRUMB_SHOW_HIDDEN_": "Mostrar niveles ocultos ({{ count }})"
 }

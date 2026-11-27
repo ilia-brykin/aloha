@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "الحقول الشرطية",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "يمكن للحقل تعريف شرط واحد ككائن <strong lang=\"en\">dependencies</strong> أو عدة شروط كمصفوفة. يوفّر <strong lang=\"en\">AForm</strong> النموذج الحالي تلقائيًا لكل مكونات الواجهة.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "الأخطاء ووضع القراءة فقط",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "يستخدم كائن <strong lang=\"en\">errors</strong> معرّفات الحقول كمفاتيح. يمكن إعداد ملخص الأخطاء وإشعار الحقول المطلوبة بشكل مستقل، ويحوّل <strong lang=\"en\">readonly</strong> جميع الحقول إلى القراءة فقط.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "مفاتيح الكائن <code>errors</code> هي معرّفات الحقول. يعرض الملخص فوق النموذج عدد الحقول التي فيها أخطاء وروابط إليها؛ وبعد كل تحقق فيه أخطاء ينتقل إليه التركيز. تُضبط معلومات الحقول الإلزامية بشكل مستقل، ويحوّل <code>readonly</code> كل حقل إلى عرض القراءة فقط.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "الأحداث والمنافذ",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "يوفر <strong lang=\"en\">update:modelValue</strong> النموذج الكامل ويوفر <strong lang=\"en\">change</strong> تفاصيل الحقل المتغير. تُدرج المنافذ المحتوى في المواضع المحددة.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "فئة CSS الافتراضية للحقول التي لا تملك <strong lang=\"en\">classColumn</strong> خاصًا.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "مسح الأخطاء",
   "_A_FORM_EXAMPLE_EDIT_": "تحرير",
   "_A_FORM_EXAMPLE_READONLY_": "قراءة فقط",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "يرجى تصحيح الحقول التالية",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "يرجى تصحيح الحقول التالية ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "الحقول المطلوبة مميزة",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "هذا الحقل مطلوب.",
   "_A_FORM_EXAMPLE_TITLE_": "العنوان",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "محتوى بعد إشعار الحقول المطلوبة",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "محتوى قبل الحقول",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "محتوى بعد الحقول",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "محتوى بعد النموذج"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "محتوى بعد النموذج",
+  "_A_FORM_A11Y_DESCRIPTION_": "الأخطاء: يعرض الملخص فوق النموذج عدد الحقول التي فيها أخطاء (<code>{{ count }}</code>) وقائمة بروابط إلى الحقول. بعد كل إرسال فيه أخطاء ينتقل التركيز إلى الملخص، فيقرؤه قارئ الشاشة مرة واحدة (بدون <code>auto-focus</code> يكون تنبيهًا، <code>role=\"alert\"</code>). ترتبط أخطاء الحقل به (aria-describedby). يطلق Enter في حقل الحدث <code>submit</code> بدلًا من إعادة تحميل الصفحة.",
+  "_A_FORM_SUBMIT_HEADER_": "Enter في حقل",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "اكتب نصًا واضغط Enter: يطلق النموذج <code>submit</code> (مع الحدث، وقد استُدعي <code>preventDefault()</code> بالفعل) ولا تُعاد تحميل الصفحة.",
+  "_A_FORM_EXAMPLE_SEARCH_": "بحث",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "يُطلق عند إرسال النموذج، مثلًا بـ Enter في حقل نصي. الوسيط هو الحدث الأصلي؛ لا تُعاد تحميل الصفحة."
 }

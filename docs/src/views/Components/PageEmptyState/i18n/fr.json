@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "État vide",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> indique qu'il n'y a pas de données : une icône, un titre, un texte et des boutons. Utilisez-le dans les tableaux, les listes et les arbres, p. ex. « Aucune entrée pour l'instant » ou « Aucun résultat ».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Balise du titre. <code>p</code> par défaut, pour que la structure des titres de la page reste correcte. Définissez un niveau de titre (p. ex. <code>h2</code>, <code>h3</code>) si l'état vide est une section à part. La valeur par défaut peut être modifiée pour toute l'application avec <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Titre. Accepte une clé de traduction.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Icône au-dessus du titre, un nom enregistré avec <code>AIconPlugin</code>. Elle est décorative et masquée pour les lecteurs d'écran.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Texte sous le titre. Accepte une clé de traduction.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Boutons ou liens sous le texte, p. ex. pour créer la première entrée ou réinitialiser les filtres.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Contenu propre à la place de la prop <code>icon</code>, p. ex. une illustration. Il est masqué pour les lecteurs d'écran.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Une liste vide avec un bouton pour la première entrée. <code>header-tag</code> fait du titre un titre du bon niveau. La classe <code>a_tile</code> ajoute un cadre.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Aucune entrée pour l'instant",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Créez la première entrée pour la voir ici.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Créer une entrée",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Aucun résultat",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "L'état vide apparaît quand la recherche n'a pas de résultat. Il se trouve dans un élément avec <code>role=\"status\"</code> qui est toujours dans la page, un lecteur d'écran l'annonce donc. Un élément avec <code>role=\"status\"</code> ajouté en même temps que son contenu n'est souvent pas annoncé. L'espace réservé <code>{{ search }}</code> vient de <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Rechercher une ville",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Aucun résultat pour « {{ search }} »",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Vérifiez l'orthographe ou essayez un terme plus court.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Effacer la recherche"
+}

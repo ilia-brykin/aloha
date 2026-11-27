@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "If set to <strong lang=\"en\">true</strong>, the switch takes up the full available width.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Used for a three-state switch: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong>, and <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "The label displayed when the switch is in the <strong lang=\"en\">true</strong> state.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "The value assigned to the model when the switch is in the <strong lang=\"en\">true</strong> state."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "The value assigned to the model when the switch is in the <strong lang=\"en\">true</strong> state.",
+  "_A_SWITCH_ACCESSIBILITY_": "Accessibility: the field is a native <strong lang=\"en\">checkbox</strong> with <strong lang=\"en\">role=\"switch\"</strong>, the screen reader announces the state \"on\" or \"off\". The name is the <strong lang=\"en\">label</strong>, not the changing text of the state. Space and <strong lang=\"en\">Enter</strong> toggle. With <strong lang=\"en\">is-three-state</strong> the field stays a <strong lang=\"en\">checkbox</strong> with the state \"mixed\" for the empty value."
 }

@@ -63,5 +63,21 @@
   "_A_TABS_TAB_1_": "Tabblad 1",
   "_A_TABS_TAB_2_": "Tabblad 2",
   "_A_TABS_TAB_3_": "Tabblad 3",
-  "_A_TABS_TAB_4_": "Tabblad 4"
+  "_A_TABS_TAB_4_": "Tabblad 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "De tabs volgen het WAI-ARIA-patroon: Tab gaat naar de actieve tab, de pijlen (↑ en ↓ bij verticale tabs), Home en End wisselen tussen de tabs en openen ze, uitgeschakelde tabs worden overgeslagen. De volgende Tab gaat naar de inhoud.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Naam van de tablijst",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (een vertaalsleutel) of <code>aria-labelledby</code> (de id van een kop) geeft de tablijst een naam voor schermlezers. Dat is nodig als de pagina meerdere tablijsten heeft.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> bevat de id van de actieve tab en wijzigt die ook van buitenaf. Het event <code>change</code> komt nog steeds.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Inhoud renderen",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (standaard) rendert alle inhoud en verbergt de inactieve, <code>active</code> rendert alleen de actieve inhoud, <code>once</code> rendert een inhoud als zijn tab voor het eerst wordt geopend en houdt die. <code>active</code> en <code>once</code> helpen bij zware inhoud, bijv. tabellen.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Profielinstellingen",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Tab 3 openen",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Naam van de tablijst voor schermlezers. Accepteert een vertaalsleutel.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id van het element dat de tablijst een naam geeft, bijv. een kop.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: alle inhoud wordt gerenderd, de inactieve is verborgen. <code>active</code>: alleen de actieve inhoud wordt gerenderd. <code>once</code>: een inhoud wordt gerenderd als zijn tab voor het eerst wordt geopend en daarna gehouden.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id van de nieuwe actieve tab (<code>v-model:active-tab-id</code>). Komt samen met <code>change</code>, ook bij <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Openen met Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "Met <code>activation</code>=\"manual\" verplaatsen de pijlen alleen de focus, Enter of spatie opent de tab. Handig als de inhoud van een tab lang laadt, bijv. van de server, zodat die niet voor elke tab onderweg wordt geladen.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: de pijlen openen de gefocuste tab direct. <code>manual</code>: de pijlen verplaatsen alleen de focus, Enter of spatie opent de tab (WAI-ARIA), bijv. bij inhoud die lang laadt."
 }

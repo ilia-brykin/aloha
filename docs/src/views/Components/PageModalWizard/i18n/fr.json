@@ -5,5 +5,11 @@
   "_A_MODAL_WIZARD_STEP_1_": "Étape 1",
   "_A_MODAL_WIZARD_STEP_2_": "Étape 2",
   "_A_MODAL_WIZARD_STEP_3_": "Étape 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Étape 4"
+  "_A_MODAL_WIZARD_STEP_4_": "Étape 4",
+  "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_": "Le bouton d'enregistrement est seulement à la dernière étape de l'assistant.",
+  "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_": "Nom de l'assistant ; vide par défaut, le modal est nommé par son titre.",
+  "_A_MODAL_WIZARD_LAST_STEP_HEADER_": "Enregistrer à la dernière étape",
+  "_A_MODAL_WIZARD_LAST_STEP_DESCRIPTION_": "<code>is-save-button-last-step-only</code> affiche le bouton d'enregistrement seulement à la dernière étape.",
+  "_A_MODAL_WIZARD_EXAMPLE_OPEN_": "Ouvrir",
+  "_A_MODAL_WIZARD_EXAMPLE_HEADER_": "Nouvelle entrée"
 }

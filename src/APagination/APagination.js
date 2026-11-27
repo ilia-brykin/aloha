@@ -64,7 +64,12 @@ export default {
       required: false,
       default: () => ({
         pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",
+        pagesJumperButton: "_A_PAGINATION_JUMPER_BUTTON_",
+        pagesJumperError: "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_",
+        pagesJumperLabel: "_A_PAGINATION_JUMPER_LABEL_",
+        pagesJumperOf: "_A_PAGINATION_JUMPER_OF_{{allPages}}_",
         pagesLastPage: "_A_PAGINATION_LAST_PAGE_",
+        pagesLoadMore: "_A_PAGINATION_LOAD_MORE_",
         pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
         pagesNavigation: "_A_PAGINATION_NAVIGATION_",
         pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",
@@ -93,6 +98,7 @@ export default {
     const {
       components,
     } = ComponentsAPI(props, {
+      slots: context.slots,
       updateLimit,
       updateOffset,
     });

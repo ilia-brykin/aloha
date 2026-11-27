@@ -1,5 +1,7 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
 import AColorPicker from "./AColorPicker/AColorPicker";
+import ACombobox from "./ACombobox/ACombobox";
+import ADateInput from "./ADateInput/ADateInput";
 import ADatepicker from "./ADatepicker/ADatepicker";
 import ADatepickerRange from "./ADatepickerRange/ADatepickerRange";
 import AInput from "./AInput/AInput";
@@ -8,7 +10,9 @@ import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AInputOtp from "./AInputOtp/AInputOtp";
+import AInputTags from "./AInputTags/AInputTags";
 import AJson from "./AJson/AJson";
+import AJsonEditor from "./AJsonEditor/AJsonEditor";
 import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
@@ -27,8 +31,10 @@ export default {
   checkbox: ACheckbox,
   color: AInput,
   colorPicker: AColorPicker,
+  combobox: ACombobox,
   currency: AInputCurrency,
   date: ADatepicker,
+  dateInput: ADateInput,
   dateRange: ADatepickerRange,
   datetime: ADatepicker,
   email: AInput,
@@ -40,6 +46,7 @@ export default {
   integerPositiveRange: AInputNumberRange,
   integerRange: AInputNumberRange,
   json: AJson,
+  jsonEditor: AJsonEditor,
   multiselect: ASelect,
   multiselectIcon: ASelectIcon,
   multiselectStyle: ASelectStyle,
@@ -50,6 +57,7 @@ export default {
   numberRange: AInputNumberRange,
   oneCheckbox: AOneCheckbox,
   otp: AInputOtp,
+  tags: AInputTags,
   password: AInput,
   radio: ARadio,
   rate: ARate,

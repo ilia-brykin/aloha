@@ -54,5 +54,6 @@
   "_A_DATEPICKER_HOURS_": "ساعات",
   "_A_DATEPICKER_MINUTES_": "دقائق",
   "_A_DATEPICKER_SECONDS_": "ثوان",
-  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} إلى {{ lastYear }}"
+  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} إلى {{ lastYear }}",
+  "_A_DATEPICKER_DIALOG_LABEL_": "اختر تاريخًا"
 }

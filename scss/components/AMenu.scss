@@ -156,6 +156,33 @@
   position: relative;
   width: auto;
 }
+// split item: the link opens the page, the toggle (counter and arrow) the panel of the children
+.a_menu__listitem_split {
+  flex-wrap: nowrap;
+  gap: var(--a_menu_split_gap);
+  // a thin line shows that the toggle is a second target
+  > .a_menu__link_toggle {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+  > .a_menu__link_toggle:not(.a_menu__link_open) {
+    border-inline-start-color: var(--a_menu_split_divider_color);
+  }
+}
+.a_menu__link_toggle {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--a_menu_toggle_min_width);
+  padding-inline: var(--a_menu_toggle_padding_x);
+  .a_menu__link__counter {
+    display: flex;
+    align-items: center;
+    float: none;
+    padding-inline-start: 0;
+  }
+}
 
 .a_menu_clickable {
   cursor: pointer;
@@ -535,6 +562,18 @@
   display: inline-block;
   padding: var(--a_menu_link_padding_y) var(--a_menu_link_padding_x);
 }
+// the page of the open panel (split item): bold like the current place, but a link
+.a_menu__panel_header__link,
+.a_menu__breadcrumbs__link_page {
+  font-weight: var(--a_font_weight_bold);
+}
+.a_menu__panel_header__link {
+  color: var(--a_color_link);
+  &:hover {
+    color: var(--a_color_link_hover);
+  }
+  @include focus.focus-visible;
+}
 .a_menu__backdrop {
   opacity: 0.5;
   z-index: 1;
@@ -585,6 +624,10 @@
   --a_menu_link_border_color: transparent; // Border color of a link.
   --a_menu_link_border_radius: var(--a_border_radius); // Corner radius of a link.
   --a_menu_link_focus_box_shadow: var(--a_focus_ring_inset); // Focus ring of a link.
+  --a_menu_split_divider_color: var(--a_border_color); // Line between the link and the toggle of an item with a page and children.
+  --a_menu_split_gap: .125rem; // Space between the link and the toggle of an item with a page and children.
+  --a_menu_toggle_min_width: 2.75rem; // Minimum width of the toggle (counter and arrow) of an item with a page and children.
+  --a_menu_toggle_padding_x: calc(.5rem * var(--a_density)); // Horizontal padding of that toggle.
   --a_menu_icon_color: var(--a_menu_link_color); // Color of a link icon.
   // header and breadcrumbs
   --a_menu_list_header_bg: var(--a_color_gray_100); // Background of the list header in a panel.

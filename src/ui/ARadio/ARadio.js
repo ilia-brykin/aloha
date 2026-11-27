@@ -679,7 +679,7 @@ export default {
         hasEntriesBeforeInvalid ?
           h("div", {
             class: "a_divider",
-            ariaHidden: true,
+            "aria-hidden": true,
           }) :
           "",
         h(ATranslation, {
@@ -825,7 +825,7 @@ export default {
                       }),
                       h(AElement, {
                         alwaysTranslate: this.alwaysTranslate,
-                        ariaDisabled: this.loadingSearchApi,
+                        "aria-disabled": this.loadingSearchApi,
                         class: "a_btn a_btn_primary",
                         disabled: this.disabled,
                         iconLeft: Search,
@@ -908,7 +908,7 @@ export default {
                   !this.hasNotElementsExtraWithSearch ?
                     h("div", {
                       class: "a_divider",
-                      ariaHidden: true,
+                      "aria-hidden": true,
                     }) :
                     "",
                 ]) :

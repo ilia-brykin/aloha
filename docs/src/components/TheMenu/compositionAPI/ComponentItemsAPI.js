@@ -102,6 +102,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageDrawer",
+        label: "Drawer",
+        class: "test_menu_drawer",
+        to: {
+          name: "PageDrawer",
+        },
+      },
+      {
         id: "dropdown",
         label: "Dropdown",
         class: "test_menu_dropdown",
@@ -115,6 +123,14 @@ export default function ComponentItemsAPI() {
         class: "test_menu_element",
         to: {
           name: "PageElement",
+        },
+      },
+      {
+        id: "PageEmptyState",
+        label: "Empty state",
+        class: "test_menu_empty_state",
+        to: {
+          name: "PageEmptyState",
         },
       },
       {
@@ -137,6 +153,22 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageColorPicker",
             },
+          },
+          {
+            id: "PageCombobox",
+            label: "Combobox",
+            class: "test_menu_combobox",
+            to: {
+              name: "PageCombobox",
+            },
+          },
+          {
+            id: "date-input",
+            to: {
+              name: "PageDateInput",
+            },
+            class: "test_menu_date_input",
+            label: "Date input",
           },
           {
             id: "datepicker",
@@ -250,12 +282,28 @@ export default function ComponentItemsAPI() {
             label: "Input OTP",
           },
           {
+            id: "input-tags",
+            to: {
+              name: "PageInputTags",
+            },
+            class: "test_menu_input_tags",
+            label: "Input tags",
+          },
+          {
             id: "json",
             label: "JSON",
             class: "test_menu_json",
             to: {
               name: "PageJson",
             },
+          },
+          {
+            id: "json-editor",
+            to: {
+              name: "PageJsonEditor",
+            },
+            class: "test_menu_json_editor",
+            label: "JSON editor",
           },
           {
             id: "PageMultiselectOrdered",
@@ -441,6 +489,14 @@ export default function ComponentItemsAPI() {
         ],
       },
       {
+        id: "navbar",
+        label: "Navbar",
+        class: "test_menu_navbar",
+        to: {
+          name: "PageNavbar",
+        },
+      },
+      {
         id: "notification",
         label: "Notification",
         class: "test_menu_notification",
@@ -488,6 +544,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageSkipLink",
+        label: "Skip link",
+        class: "test_menu_skip_link",
+        to: {
+          name: "PageSkipLink",
+        },
+      },
+      {
         id: "spinner",
         label: "Spinner",
         class: "test_menu_spinner",
@@ -509,6 +573,14 @@ export default function ComponentItemsAPI() {
         class: "test_menu_pagination_pages",
         to: {
           name: "PagePaginationPages",
+        },
+      },
+      {
+        id: "popover",
+        label: "Popover",
+        class: "test_menu_popover",
+        to: {
+          name: "PagePopover",
         },
       },
       {

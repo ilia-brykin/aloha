@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Lege staat",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> laat zien dat er geen gegevens zijn: een pictogram, een titel, een tekst en knoppen. Gebruik het in tabellen, lijsten en bomen, bijv. ‘Nog geen items’ of ‘Niets gevonden’.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Tag van de titel. Standaard <code>p</code>, zodat de kopstructuur van de pagina correct blijft. Stel een kopniveau in (bijv. <code>h2</code>, <code>h3</code>) als de lege staat een eigen sectie is. De standaard kan voor de hele app worden gewijzigd met <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Titel. Accepteert een vertaalsleutel.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Pictogram boven de titel, een naam die met <code>AIconPlugin</code> is geregistreerd. Het is decoratief en verborgen voor schermlezers.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Tekst onder de titel. Accepteert een vertaalsleutel.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Knoppen of links onder de tekst, bijv. om het eerste item aan te maken of de filters te resetten.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Eigen inhoud in plaats van de prop <code>icon</code>, bijv. een illustratie. Die is verborgen voor schermlezers.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Een lege lijst met een knop voor het eerste item. <code>header-tag</code> maakt de titel een kop van het juiste niveau. De klasse <code>a_tile</code> voegt een kader toe.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Nog geen items",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Maak het eerste item aan om het hier te zien.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Item aanmaken",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Niets gevonden",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "De lege staat verschijnt als de zoekopdracht geen resultaten heeft. Hij staat in een element met <code>role=\"status\"</code> dat altijd in de pagina staat, daarom kondigt een schermlezer hem aan. Een element met <code>role=\"status\"</code> dat samen met zijn inhoud wordt toegevoegd, wordt vaak niet aangekondigd. De placeholder <code>{{ search }}</code> komt uit <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Zoek een stad",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Niets gevonden voor ‘{{ search }}’",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Controleer de spelling of probeer een kortere term.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Zoekopdracht wissen"
+}

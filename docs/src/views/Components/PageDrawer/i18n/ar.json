@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "لوحة جانبية",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> لوحة عند الحافة اليسرى أو اليمنى للنافذة، مثلًا لتفاصيل صف في جدول أو للمرشحات أو الإعدادات. وهي حوار نمطي: لها جميع خصائص وفتحات <a href=\"/#/modal\">AModal</a> (الرأس، التذييل مع الأزرار، <code>save</code>، <code>selector-close-ids</code>…)، وتحتجز التركيز، وتُغلق بمفتاح <kbd>Escape</kbd>، وتعيد التركيز إلى الزر الذي فتحها.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "حافة النافذة: <code>right</code> أو <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "تحدد <code>placement</code> الحافة. تعيد <code>selector-close-ids</code> التركيز إلى الزر الذي فتح اللوحة. في النافذة الضيقة تأخذ اللوحة العرض كله. تنزلق اللوحة إلى الداخل، بلا حركة إذا فضّل المستخدم تقليل الحركة.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "فتح على اليمين",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "فتح على اليسار",
+  "_A_DRAWER_EXAMPLE_BODY_": "اللوحة حوار نمطي: لا يمكن الوصول إلى الصفحة خلفها حتى تُغلق.",
+  "_A_DRAWER_SIZES_HEADER_": "العرض",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "تحدد الخاصية <code>size</code> من <a href=\"/#/modal\">AModal</a> العرض: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px، وبدون <code>size</code> 400px. العروض متغيرات CSS.",
+  "_A_DRAWER_FORM_HEADER_": "التحرير في لوحة جانبية",
+  "_A_DRAWER_FORM_DESCRIPTION_": "نموذج في اللوحة مع زري الحفظ والإلغاء. مع <code>is-footer-sticky</code> تبقى الأزرار مرئية أثناء تمرير النموذج. يحرر النموذج نسخة من البيانات، لذلك لا يغيّر الإلغاء البيانات.",
+  "_A_DRAWER_BTN_EDIT_": "تحرير"
+}

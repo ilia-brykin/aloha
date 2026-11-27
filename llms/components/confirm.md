@@ -265,8 +265,8 @@ export default {
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](translation.md) |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | loading | Boolean | false |  | Specifies whether the modal is in a loading state. |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |

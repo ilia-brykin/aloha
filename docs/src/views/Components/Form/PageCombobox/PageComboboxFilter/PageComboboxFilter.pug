@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COMBOBOX_GROUP_FILTER_HEADER_"
+  description="_A_COMBOBOX_GROUP_FILTER_DESCRIPTION_"
+)
+  a-combobox(
+    v-model="model"
+    :data="cities"
+    :inline-autocomplete="true"
+    filter-mode="startsWith"
+    label="_A_COMBOBOX_EXAMPLE_CITY_"
+  )

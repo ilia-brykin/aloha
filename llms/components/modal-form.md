@@ -381,11 +381,94 @@ export default {
 };
 ```
 
+## Save with Enter
+
+Enter in a field of the form calls `save`, like the save button, but not when saving is disabled, hidden or loading.
+
+*props: `save`*
+
+```html
+<a-button
+  id="btn_modal_form_enter"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :save="save"
+  header-text="_A_MODAL_FORM_ENTER_HEADER_"
+/>
+<p
+  v-if="saved"
+  class="a_mt_3"
+>{{ saved }}</p>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModalForm,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModalForm,
+  },
+  setup() {
+    const dataForm = [
+      {
+        type: "text",
+        id: "title",
+        label: "_A_MODAL_FORM_ENTER_FIELD_",
+      },
+    ];
+    const isModalVisible = ref(false);
+    const model = ref({});
+    const saved = ref("");
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    // the save button and Enter in the field
+    const save = () => {
+      saved.value = model.value.title || "";
+      closeModal();
+    };
+
+    return {
+      closeModal,
+      dataForm,
+      isModalVisible,
+      model,
+      openModal,
+      save,
+      saved,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
@@ -396,8 +479,9 @@ export default {
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | data-form | Array |  | yes | Required array of field configurations. Every item needs a **type** and **id**, and may contain props supported by the selected UI component. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
@@ -426,9 +510,9 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
 | teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
@@ -439,6 +523,7 @@ export default {
 | use-flat-model | Boolean | true |  | When enabled, container fields work with the shared flat model. Disable it to store container values in nested objects. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
 | use-html-id-as-key | Boolean | false |  | Uses each field's resolved HTML ID as its Vue key instead of the array index. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Emits
@@ -447,6 +532,7 @@ export default {
 | --- | --- | --- |
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | change | Function | Emitted after a field changes. The payload contains the field ID, new and previous values, complete model, item data when available, and reactive props. |
+| submit | Function | Emitted on submit of the form, e.g. Enter in a text field. The argument is the native event; the page is not reloaded. |
 
 ## Slots
 

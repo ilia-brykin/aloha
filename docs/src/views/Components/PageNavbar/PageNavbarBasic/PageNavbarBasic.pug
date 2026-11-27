@@ -1,0 +1,24 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_NAVBAR_GROUP_BASIC_DESCRIPTION_"
+)
+  a-navbar(
+    :data="data"
+    @navigate="onNavigate"
+  )
+    template(
+      v-slot:start
+    )
+      strong Aloha
+    template(
+      v-slot:end
+    )
+      a-button(
+        class="a_btn a_btn_primary"
+        text="Login"
+      )
+  div(
+    class="a_mt_3"
+  ) navigate: {{ lastLabel }}

@@ -5,9 +5,7 @@ import {
 
 import UtilsAPI from "../../ATranslation/compositionAPI/UtilsAPI";
 
-export default function AttributesAPI(props, {
-  stepActiveComputed = computed(() => 0),
-}) {
+export default function AttributesAPI(props) {
   const ariaLabel = toRef(props, "ariaLabel");
   const ariaLabelSteps = toRef(props, "ariaLabelSteps");
   const extra = toRef(props, "extra");
@@ -19,70 +17,30 @@ export default function AttributesAPI(props, {
     isPlaceholderTranslate,
   } = UtilsAPI();
 
-  const isAriaLabelTranslated = computed(() => {
-    return isPlaceholderTranslate(ariaLabel.value);
-  });
+  const getAttributes = value => {
+    const IS_TRANSLATE = isPlaceholderTranslate(value);
+    return getTranslationAttributes({
+      attr: "aria-label",
+      value,
+      translation: IS_TRANSLATE ? getTranslatedText({ placeholder: value, extra: extra.value }) : undefined,
+      isTranslate: IS_TRANSLATE,
+    });
+  };
 
-  const isAriaLabelStepsTranslated = computed(() => {
-    return isPlaceholderTranslate(ariaLabelSteps.value);
-  });
-
-  const ariaLabelTranslated = computed(() => {
-    if (isAriaLabelTranslated.value) {
-      return getTranslatedText({
-        placeholder: ariaLabel.value,
-        extra: extra.value,
-      });
-    }
-
-    return undefined;
-  });
-
-  const ariaLabelStepsTranslated = computed(() => {
-    if (isAriaLabelStepsTranslated.value) {
-      return getTranslatedText({
-        placeholder: ariaLabelSteps.value,
-        extra: extra.value,
-      });
-    }
-
-    return undefined;
-  });
-
+  // without a name (e.g. in AModalWizard, the modal has the heading) the wizard is no group
   const ariaLabelAttributes = computed(() => {
-    return getTranslationAttributes({
-      attr: "aria-label",
-      value: ariaLabel.value,
-      translation: ariaLabelTranslated.value,
-      isTranslate: isAriaLabelTranslated.value,
-    });
+    return ariaLabel.value ? { role: "group", ...getAttributes(ariaLabel.value) } : {};
   });
 
-  const ariaLabelStepsAttributes = computed(() => {
-    return getTranslationAttributes({
-      attr: "aria-label",
-      value: ariaLabelSteps.value,
-      translation: ariaLabelStepsTranslated.value,
-      isTranslate: isAriaLabelStepsTranslated.value,
-    });
-  });
+  const ariaLabelStepsAttributes = computed(() => getAttributes(ariaLabelSteps.value));
 
   const idProgressbar = computed(() => {
     return `${ id.value }_progressbar`;
-  });
-
-  const idStepTextActive = computed(() => {
-    return `${ id.value }_step_text_${ stepActiveComputed.value }`;
-  });
-
-  const wizardAriaDescribedby = computed(() => {
-    return `${ idProgressbar.value } ${ idStepTextActive.value }`;
   });
 
   return {
     ariaLabelAttributes,
     ariaLabelStepsAttributes,
     idProgressbar,
-    wizardAriaDescribedby,
   };
 }

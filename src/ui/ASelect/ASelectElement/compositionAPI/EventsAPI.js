@@ -3,7 +3,6 @@ import {
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../../const/AKeysCode";
 
 export default function EventsAPI(props, { emit }, {
   disabledElement = computed(() => undefined),
@@ -30,8 +29,7 @@ export default function EventsAPI(props, { emit }, {
     if (disabledElement.value) {
       return;
     }
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
+    if ($event.key === "Enter" || $event.key === " ") {
       onClick($event);
     }
   };

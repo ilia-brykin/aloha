@@ -16,6 +16,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "before-step-change",
+      description: "_A_WIZARD_PROPS_BEFORE_STEP_CHANGE_DESCRIPTION_",
+      type: "Function",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "class-extra",
       description: "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_",
       type: "String / Object",
@@ -68,7 +75,7 @@ export default function PropsAPI() {
       name: "close-button-text-screen-reader-footer",
       description: "_A_MODAL_PROPS_CLOSE_BUTTON_TEXT_SCREEN_READER_FOOTER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_",
+      default: undefined,
       required: false,
     },
     {
@@ -96,6 +103,27 @@ export default function PropsAPI() {
       name: "extra",
       description: "_A_MODAL_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "finish-button-attributes",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "finish-button-class",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_CLASS_DESCRIPTION_",
+      type: "String / Array / Object",
+      default: "a_btn a_btn_primary",
+      required: false,
+    },
+    {
+      name: "finish-button-text",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_TEXT_DESCRIPTION_",
+      type: "String",
       default: undefined,
       required: false,
     },
@@ -144,6 +172,20 @@ export default function PropsAPI() {
     {
       name: "is-save-button-hide",
       description: "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
+      name: "is-save-button-last-step-only",
+      description: "_A_MODAL_WIZARD_PROPS_IS_SAVE_BUTTON_LAST_STEP_ONLY_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
+      name: "is-step-heading-visible",
+      description: "_A_WIZARD_PROPS_IS_STEP_HEADING_VISIBLE_DESCRIPTION_",
       type: "Boolean",
       default: false,
       required: false,
@@ -208,7 +250,7 @@ export default function PropsAPI() {
       name: "save-button-text-screen-reader",
       description: "_A_MODAL_PROPS_SAVE_BUTTON_TEXT_SCREEN_READER_DESCRIPTION_",
       type: "String",
-      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_",
+      default: undefined,
       required: false,
     },
     {
@@ -237,6 +279,13 @@ export default function PropsAPI() {
       description: "_A_MODAL_PROPS_SIZE_DESCRIPTION_",
       type: "String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "step-heading-tag",
+      description: "_A_WIZARD_PROPS_STEP_HEADING_TAG_DESCRIPTION_",
+      type: "String",
+      default: "h3",
       required: false,
     },
     {
@@ -270,9 +319,9 @@ export default function PropsAPI() {
     // Wizard
     {
       name: "aria-label",
-      description: "_A_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_",
+      description: "_A_MODAL_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_",
       type: "String",
-      default: "_A_WIZARD_ARIA_LABEL_",
+      default: "\"\"",
       required: false,
     },
     {

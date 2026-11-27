@@ -1,0 +1,119 @@
+// The list is under the field: in the field (CSS), in the container in body (in-body, floating-ui)
+// or a bottom sheet on a small screen. The focus stays in the input.
+.a_combobox {
+  position: relative;
+}
+.a_combobox__input_clear {
+  padding-inline-end: 2.5rem;
+}
+.a_combobox__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+}
+.a_combobox__popup {
+  position: absolute;
+  top: calc(100% + var(--a_space_xs));
+  inset-inline: 0;
+  z-index: var(--a_combobox_z_index);
+  max-height: var(--a_combobox_max_height);
+  overflow-y: auto;
+  padding: var(--a_combobox_padding);
+  font-size: var(--a_combobox_font_size);
+  color: var(--a_combobox_color);
+  background-color: var(--a_combobox_bg);
+  border: var(--a_combobox_border_width) solid var(--a_combobox_border_color);
+  border-radius: var(--a_combobox_border_radius);
+  box-shadow: var(--a_combobox_box_shadow);
+  &[hidden] {
+    display: none;
+  }
+}
+// in-body: floating-ui sets left, top, width and max-height
+.a_combobox__popup_in_body {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+// AMobilePlugin, small screen: at the bottom of the window, bottom above the virtual keyboard (JS)
+.a_combobox__popup_sheet {
+  position: fixed;
+  top: auto;
+  right: 0;
+  left: 0;
+  max-height: var(--a_combobox_sheet_max_height);
+  border-bottom-width: 0;
+  border-radius: var(--a_combobox_border_radius) var(--a_combobox_border_radius) 0 0;
+  padding-bottom: calc(var(--a_combobox_padding) + env(safe-area-inset-bottom));
+}
+.a_combobox__listbox {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &[hidden] {
+    display: none;
+  }
+}
+.a_combobox__option {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  border-radius: var(--a_combobox_option_border_radius);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--a_combobox_option_hover_bg);
+  }
+}
+// the active option is not focused (aria-activedescendant): it needs a visible mark, also in forced colors
+.a_combobox__option_active {
+  color: var(--a_combobox_option_active_color);
+  background-color: var(--a_combobox_option_active_bg);
+  outline: var(--a_border_width) solid var(--a_combobox_option_active_color);
+  outline-offset: calc(var(--a_border_width) * -1);
+}
+.a_combobox__option_disabled {
+  color: var(--a_color_text_muted);
+  cursor: not-allowed;
+  &:hover {
+    background-color: transparent;
+  }
+}
+.a_combobox__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a_combobox__group__label {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  font-size: var(--a_combobox_group_font_size);
+  font-weight: var(--a_combobox_group_font_weight);
+  color: var(--a_combobox_group_color);
+}
+.a_combobox__empty {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  color: var(--a_color_text_muted);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens (also on the list in body)
+// ---------------------------------------------------------------------------
+:where(.a_combobox, .a_combobox__popup) {
+  --a_combobox_z_index: calc(var(--a_z_index_popup) + 1); // Stack order of the list, above modals.
+  --a_combobox_max_height: 18rem; // Maximum height of the list. Longer lists scroll. In body: not higher than the free space.
+  --a_combobox_sheet_max_height: 50vh; // Maximum height of the bottom sheet on a small screen.
+  --a_combobox_padding: var(--a_space_xs); // Padding inside the list.
+  --a_combobox_font_size: var(--a_body_font_size); // Font size of the list.
+  --a_combobox_color: var(--a_color_text); // Text color of the list.
+  --a_combobox_bg: var(--a_color_surface_raised); // Background of the list.
+  --a_combobox_border_width: var(--a_border_width); // Border width of the list.
+  --a_combobox_border_color: var(--a_border_color); // Border color of the list.
+  --a_combobox_border_radius: var(--a_border_radius_large); // Corner radius of the list.
+  --a_combobox_box_shadow: var(--a_shadow_md); // Shadow of the list.
+  --a_combobox_option_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of an option.
+  --a_combobox_option_padding_y: calc(.375rem * var(--a_density)); // Vertical padding of an option.
+  --a_combobox_option_border_radius: var(--a_border_radius); // Corner radius of an option.
+  --a_combobox_option_hover_bg: var(--a_color_gray_100); // Background of a hovered option.
+  --a_combobox_option_active_color: var(--a_color_primary_text_emphasis); // Text color of the active option (arrow keys).
+  --a_combobox_option_active_bg: var(--a_color_primary_bg_subtle); // Background of the active option (arrow keys).
+  --a_combobox_group_color: var(--a_color_text_muted); // Text color of the header of a group.
+  --a_combobox_group_font_size: var(--a_font_size_sm); // Font size of the header of a group.
+  --a_combobox_group_font_weight: var(--a_font_weight_bold); // Font weight of the header of a group.
+}

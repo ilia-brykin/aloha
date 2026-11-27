@@ -179,7 +179,7 @@ export default {
     }, [
       h("div", {
         role: this.roleLocal,
-        ariaAtomic: this.ariaAtomicLocal,
+        "aria-atomic": this.ariaAtomicLocal,
       }, [
         this.isVisible && h("div", {
           class: [this.alertClass, this.alertClassLocal],

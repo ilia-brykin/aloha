@@ -14,7 +14,8 @@ export default function FocusAPI(props, {
   const setFocusToElement = () => {
     if (autoFocus.value && hasErrors.value) {
       setTimeout(() => {
-        elRef.value.$el.focus();
+        // the component can be unmounted in the meantime
+        elRef.value?.$el?.focus?.();
       });
     }
   };

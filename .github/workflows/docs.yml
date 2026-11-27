@@ -16,33 +16,23 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22.12.0
+          node-version: 24
 
-      - name: Run Tests
-        run: |
-          npm install
-          npm test
+      # tests run locally and in "npm run build", not here
+      - name: Install dependencies of the library
+        run: npm install
 
-      - name: Tests failed
-        if: ${{ failure() }}
-        run: |
-          echo "Tests failed. Exiting workflow."
-          exit 1
-
-      - name: Install dependencies
-        if: ${{ success() }}
+      - name: Install dependencies of the documentation
         run: |
           cd docs/
           npm install
 
       - name: Build documentation
-        if: ${{ success() }}
         run: |
           cd docs/
           npm run build-production
 
       - name: Deploy to GitHub Pages
-        if: ${{ success() }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

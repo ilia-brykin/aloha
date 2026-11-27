@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "تم حذف المهمة.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "تم حفظ المهمة.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "فتحة تُعرض في المحتوى بعد النموذج.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "فتحة تُعرض في المحتوى قبل النص (<code>body-html</code>) والنموذج."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "فتحة تُعرض في المحتوى قبل النص (<code>body-html</code>) والنموذج.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "الحفظ بـ Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "يستدعي Enter في حقل النموذج <code>save</code> مثل زر الحفظ، لكن ليس عندما يكون الحفظ معطلًا أو مخفيًا أو قيد التحميل.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "العنوان"
 }

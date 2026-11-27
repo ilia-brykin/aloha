@@ -1,0 +1,80 @@
+// ADrawer: an AModal at the edge of the window (classes .a_drawer + .a_drawer_left / .a_drawer_right on .a_modal).
+.a_drawer {
+  .a_modal_dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: min(var(--a_drawer_width), 100%);
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    animation: var(--a_duration_normal) var(--a_easing) both a_drawer_in_right;
+  }
+
+  .a_modal_content {
+    height: 100%;
+    max-height: none;
+    border-width: 0;
+    border-radius: 0;
+    box-shadow: var(--a_drawer_box_shadow);
+  }
+
+  .a_modal_header,
+  .a_modal_footer {
+    border-radius: 0;
+  }
+
+  // the sizes of AModal set the width of the panel
+  .a_modal_small {
+    --a_drawer_width: var(--a_drawer_width_small);
+  }
+  .a_modal_large {
+    --a_drawer_width: var(--a_drawer_width_large);
+  }
+  .a_modal_xl,
+  .a_modal_xxl,
+  .a_modal_fullscreen {
+    --a_drawer_width: var(--a_drawer_width_xl);
+  }
+}
+
+.a_drawer_right {
+  .a_modal_dialog {
+    right: 0;
+  }
+  .a_modal_content {
+    border-left: var(--a_modal_border_width) solid var(--a_modal_border_color);
+  }
+}
+
+.a_drawer_left {
+  .a_modal_dialog {
+    left: 0;
+    animation-name: a_drawer_in_left;
+  }
+  .a_modal_content {
+    border-right: var(--a_modal_border_width) solid var(--a_modal_border_color);
+  }
+}
+
+@keyframes a_drawer_in_right {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes a_drawer_in_left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_drawer) {
+  --a_drawer_width: 25rem; // Width of the panel. On a narrow window the panel takes the whole width.
+  --a_drawer_width_small: 18.75rem; // Width with size="small".
+  --a_drawer_width_large: 37.5rem; // Width with size="large".
+  --a_drawer_width_xl: 56.25rem; // Width with size="xl", "xxl" or "fullscreen".
+  --a_drawer_box_shadow: var(--a_shadow_lg); // Shadow of the panel.
+}

@@ -1,0 +1,55 @@
+.a_empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--a_empty_state_gap);
+  padding: var(--a_empty_state_padding);
+  color: var(--a_empty_state_color);
+  text-align: center;
+}
+
+.a_empty_state__icon {
+  display: flex;
+  color: var(--a_empty_state_icon_color);
+
+  .a_icon {
+    width: var(--a_empty_state_icon_size);
+    height: var(--a_empty_state_icon_size);
+  }
+}
+
+.a_empty_state__title {
+  margin: 0;
+  font-size: var(--a_empty_state_title_font_size);
+  font-weight: var(--a_empty_state_title_font_weight);
+  color: var(--a_empty_state_title_color);
+}
+
+.a_empty_state__text {
+  max-width: var(--a_empty_state_text_max_width);
+  margin: 0;
+}
+
+.a_empty_state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--a_space_sm);
+  margin-top: var(--a_empty_state_actions_margin_top);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_empty_state) {
+  --a_empty_state_padding: var(--a_space_xl) var(--a_space_md); // Padding around the content.
+  --a_empty_state_gap: var(--a_space_sm); // Space between the icon, the title and the text.
+  --a_empty_state_color: var(--a_color_text_muted); // Color of the text.
+  --a_empty_state_icon_size: 3rem; // Size of the icon.
+  --a_empty_state_icon_color: var(--a_color_text_muted); // Color of the icon.
+  --a_empty_state_title_font_size: 1.125rem; // Font size of the title.
+  --a_empty_state_title_font_weight: var(--a_font_weight_semibold); // Font weight of the title.
+  --a_empty_state_title_color: var(--a_color_text); // Color of the title.
+  --a_empty_state_text_max_width: 32rem; // Maximum width of the text, for readable lines.
+  --a_empty_state_actions_margin_top: var(--a_space_sm); // Additional space above the buttons.
+}

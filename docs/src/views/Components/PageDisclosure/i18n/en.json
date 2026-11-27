@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Toggle component state (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Toggle component state (button)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "This event is triggered when the user clicks the \"Show More/Show Less\" button. It returns an object containing information about the current state of the component, including <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Show shortened text"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Show shortened text",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "The button has <code>aria-expanded</code> and <code>aria-controls</code>: a screen reader tells whether the content is open. After the click the focus stays on the button; only if the button disappears (<code>show-less=\"false\"</code>), it goes to the content.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> contains whether the content is open and also opens or closes it from outside. The event <code>toggle</code> still comes.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Open / close from outside",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Open or closed (<code>v-model</code>). Without it <code>is-open-default</code> sets the start.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Open or closed changed (<code>v-model</code>). Comes together with <code>toggle</code>."
 }

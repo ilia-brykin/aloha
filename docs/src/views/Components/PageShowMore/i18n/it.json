@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slot",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Il contenuto del componente può essere definito come testo normale.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Testo",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "La lunghezza rappresenta il numero massimo di caratteri dopo i quali il resto del testo viene nascosto.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Numero massimo di caratteri dopo il quale il resto del testo viene nascosto. Il testo viene tagliato alla fine di una parola e riceve i puntini di sospensione (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Lunghezza del testo",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Mostra meno Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Mostra di più Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Contenuto da visualizzare all'interno del componente.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Manipolazione del componente utilizzando l'indicatore \"isOpen\".",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Manipolazione del componente utilizzando il pulsante \"Mostra di più\".",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Viene attivato quando si preme un pulsante, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Viene attivato quando si preme un pulsante, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Con <code>text-length</code> il resto del testo non è nella pagina: il pulsante ha <code>aria-expanded</code> e <code>aria-controls</code>. Con <code>height</code> tutto il contenuto è nella pagina e uno screen reader lo legge comunque: il pulsante dice che può essere ignorato. Un link o pulsante nella parte tagliata apre il contenuto quando riceve il focus. Dopo il clic il focus resta sul pulsante; solo se il pulsante scompare (<code>show-less=\"false\"</code>), passa al contenuto.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> indica se il contenuto è aperto e lo apre o chiude anche dall'esterno. L'evento <code>toggle</code> arriva ancora.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Link nella parte tagliata",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Scorrere i link con Tab: quando un link nella parte tagliata riceve il focus, il contenuto si apre, così il focus è sempre visibile (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Apri / chiudi dall'esterno",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Aperto o chiuso (<code>v-model</code>). Senza di essa, <code>is-open-default</code> imposta l'inizio.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Aperto o chiuso è cambiato (<code>v-model</code>). Arriva insieme a <code>toggle</code>."
 }

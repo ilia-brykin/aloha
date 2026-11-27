@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "الحالة الفارغة",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "يُظهر <strong lang=\"en\">AEmptyState</strong> أنه لا توجد بيانات: أيقونة وعنوان ونص وأزرار. استخدمه في الجداول والقوائم والأشجار، مثل «لا توجد إدخالات بعد» أو «لم يُعثر على شيء».",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "وسم العنوان. <code>p</code> افتراضيًا، لتبقى بنية عناوين الصفحة صحيحة. حدّد مستوى العنوان (مثل <code>h2</code>، <code>h3</code>) إذا كانت الحالة الفارغة قسمًا مستقلًا. يمكن تغيير القيمة الافتراضية للتطبيق كله عبر <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "العنوان. يقبل مفتاح ترجمة.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "أيقونة فوق العنوان، اسم مسجل عبر <code>AIconPlugin</code>. وهي زخرفية ومخفية عن قارئات الشاشة.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "النص تحت العنوان. يقبل مفتاح ترجمة.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "أزرار أو روابط تحت النص، مثلًا لإنشاء أول إدخال أو لإعادة تعيين المرشحات.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "محتوى خاص بدل الخاصية <code>icon</code>، مثل رسم توضيحي. وهو مخفي عن قارئات الشاشة.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "قائمة فارغة مع زر لأول إدخال. يجعل <code>header-tag</code> العنوان عنوانًا بالمستوى المناسب. تضيف الفئة <code>a_tile</code> إطارًا.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "لا توجد إدخالات بعد",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "أنشئ أول إدخال لتراه هنا.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "إنشاء إدخال",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "لم يُعثر على شيء",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "تظهر الحالة الفارغة عندما لا يجد البحث نتائج. وهي داخل عنصر مع <code>role=\"status\"</code> موجود دائمًا في الصفحة، لذلك يعلن عنها قارئ الشاشة. العنصر مع <code>role=\"status\"</code> الذي يُضاف مع محتواه غالبًا لا يُعلَن عنه. يأتي العنصر النائب <code>{{ search }}</code> من <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "ابحث عن مدينة",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "لم يُعثر على شيء لـ «{{ search }}»",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "تحقق من الإملاء أو جرّب كلمة أقصر.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "مسح البحث"
+}

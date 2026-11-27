@@ -26,6 +26,12 @@ export default function HeaderAPI(props, {
       openedLevelIndex.value === 0;
   });
 
+  // split item: the header is the link to the page of the parent
+  const parentTo = computed(() => {
+    const PARENT = get(dataKeyById.value, parentId.value);
+    return PARENT && !PARENT.disabled ? PARENT.to : undefined;
+  });
+
   const parentLabel = computed(() => {
     return get(dataKeyById.value, `${ parentId.value }.${ AKeyLabel }`);
   });
@@ -33,5 +39,6 @@ export default function HeaderAPI(props, {
   return {
     isHeaderPanelVisible,
     parentLabel,
+    parentTo,
   };
 }

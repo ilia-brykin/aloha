@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_LIMITS_HEADER_"
+  description="_A_DATE_INPUT_LIMITS_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    label="_A_DATE_INPUT_EXAMPLE_DELIVERY_"
+    :min="min"
+    :max="max"
+    :is-date-disabled="isWeekend"
+  )
+  pre.a_mt_3 {{ model }}

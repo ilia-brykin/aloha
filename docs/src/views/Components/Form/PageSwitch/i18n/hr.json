@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Ako je postavljeno na <strong lang=\"en\">true</strong>, prekidač zauzima cijelu dostupnu širinu.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Koristi se za prekidač s tri stanja: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> i <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Oznaka koja se prikazuje kada je prekidač u stanju <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Vrijednost koja se dodjeljuje modelu kada je prekidač u stanju <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Vrijednost koja se dodjeljuje modelu kada je prekidač u stanju <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "Pristupačnost: polje je izvorni <strong lang=\"en\">checkbox</strong> s <strong lang=\"en\">role=\"switch\"</strong>, čitač zaslona najavljuje stanje „uključeno” ili „isključeno”. Naziv je <strong lang=\"en\">label</strong>, a ne promjenjivi tekst stanja. Razmaknica i <strong lang=\"en\">Enter</strong> mijenjaju stanje. S <strong lang=\"en\">is-three-state</strong> polje ostaje <strong lang=\"en\">checkbox</strong> sa stanjem „mješovito” za praznu vrijednost."
 }

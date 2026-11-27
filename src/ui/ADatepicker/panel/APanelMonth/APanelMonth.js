@@ -118,7 +118,7 @@ export default {
             a_datepicker__panel__cell_focus: monthIndex === this.monthIndexForFocus,
           }],
           role: "option",
-          ariaSelected: !!month.isActive,
+          "aria-selected": !!month.isActive,
           tabindex: -1,
           onClick: $event => this.selectMonth($event, monthIndex),
           onKeypress: $event => this.keypress($event, monthIndex),

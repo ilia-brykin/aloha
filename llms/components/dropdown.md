@@ -2,6 +2,8 @@
 
 The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu. This documentation provides information on how to use the component and describes the available props.
 
+Built from `actions`, the dropdown is a WAI-ARIA menu: the button has `aria-haspopup="menu"` and `aria-expanded`, the list `role="menu"`, the actions are `menuitem`, groups and headers `role="group"`. Keyboard: Enter, Space or ArrowDown open it at the first item, ArrowUp at the last; the arrows go round, Home and End go to the first and last item, a letter to the next item that starts with it; Escape closes and gives the focus back to the button, Tab closes and goes on. With own content (slot `dropdown` or `type: "template"`) it is not a menu: the button has `aria-expanded` and `aria-controls`, the arrows move between the elements of `elements-for-arrows`.
+
 ## Basic usage
 
 *props: `actions`*
@@ -269,6 +271,133 @@ export default {
 
     return {
       dropdownActions,
+    };
+  },
+};
+```
+
+## Groups with headers
+
+An action with `type: "header"` is a heading for the following actions until the next header or `divider`. A screen reader announces the group with its name (`role="group"` with aria-labelledby). A header without actions after it is not shown.
+
+*props: `actions`*
+
+```html
+<a-dropdown
+  :actions="actions"
+  button-text="_A_DROPDOWN_EXAMPLE_EXPORT_SHARE_"
+/>
+```
+
+```js
+import {
+  ADropdown,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ADropdown,
+  },
+  setup() {
+    const actions = [
+      {
+        type: "header",
+        text: "_A_DROPDOWN_EXAMPLE_EXPORT_",
+      },
+      {
+        type: "button",
+        text: "PDF",
+        callback: () => {},
+      },
+      {
+        type: "button",
+        text: "CSV",
+        callback: () => {},
+      },
+      {
+        type: "header",
+        text: "_A_DROPDOWN_EXAMPLE_SHARE_",
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_EMAIL_",
+        callback: () => {},
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_COPY_LINK_",
+        callback: () => {},
+      },
+      {
+        type: "divider",
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_SETTINGS_",
+        callback: () => {},
+      },
+    ];
+
+    return {
+      actions,
+    };
+  },
+};
+```
+
+## Disabled items and dividers
+
+A disabled action is shown but skipped by the arrows and the letter search. A `divider` is a separator of the menu.
+
+*props: `actions`*
+
+```html
+<a-dropdown
+  :actions="actions"
+  button-text="_A_DROPDOWN_EXAMPLE_ACTIONS_"
+/>
+```
+
+```js
+import {
+  ADropdown,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ADropdown,
+  },
+  setup() {
+    const actions = [
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_EDIT_",
+        callback: () => {},
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_DUPLICATE_",
+        callback: () => {},
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_ARCHIVE_",
+        disabled: true,
+        callback: () => {},
+      },
+      {
+        type: "divider",
+      },
+      {
+        type: "button",
+        text: "_A_DROPDOWN_EXAMPLE_DELETE_",
+        class: "a_dropdown__item a_text_danger",
+        callback: () => {},
+      },
+    ];
+
+    return {
+      actions,
     };
   },
 };
@@ -594,6 +723,39 @@ export default {
     };
   },
 };
+```
+
+## Own content
+
+With the slot `dropdown` the content is not a menu: the button has `aria-expanded` and `aria-controls` instead of `aria-haspopup="menu"`. The arrows move between the elements of `elements-for-arrows`, letters are typed into fields.
+
+*props: `elements-for-arrows`*
+
+```html
+<a-dropdown
+  button-text="_A_DROPDOWN_EXAMPLE_FILTER_"
+  :is-close-by-click-inside="false"
+>
+  <template v-slot:dropdown>
+    <li class="a_p_3">
+      <label
+        class="a_d_block a_mb_2"
+        for="dropdown_own_search"
+      >
+        <a-translation text="_A_DROPDOWN_EXAMPLE_SEARCH_" />
+      </label>
+      <input
+        id="dropdown_own_search"
+        class="a_form_control a_mb_2"
+        type="search"
+      >
+      <a-button
+        class="a_btn a_btn_primary a_btn_small"
+        text="_A_DROPDOWN_EXAMPLE_APPLY_"
+      />
+    </li>
+  </template>
+</a-dropdown>
 ```
 
 ## Dropdown Content in Body or Directly After Dropdown Button
@@ -958,7 +1120,7 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
-| actions | Array | () => [] |  | A list of actions to choose from. |
+| actions | Array | () => [] |  | A list of actions. `type`: `button`, `link`, `divider`, `header`, `template`. `type: "header"` starts a group with a heading. |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
 | button-attributes | Object | () => ({}) |  | Additional attributes for customizing the dropdown button. The attributes are passed as an object containing the names of the desired attributes and their corresponding values. |
 | button-class | String / Object | a_btn a_btn_secondary |  | Specifies an additional class for the dropdown button. |
@@ -987,7 +1149,7 @@ export default {
 | dropdown-class | String |  |  | Additional CSS class for the dropdown menu. |
 | dropdown-render-default | Boolean |  |  | Determines whether the dropdown menu will initially be open. The default value is false. |
 | dropdown-tag | String | ul |  | Specifies the HTML tag to be used for dropdown menu elements. The default value is ul. |
-| elements-for-arrows | String | a[href]:not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), area[href]:not([tabindex='-1']), input:not([disabled]):not([tabindex='-1']), select:not([disabled]):not([tabindex='-1']), textarea:not([disabled]):not([tabindex='-1']), iframe:not([tabindex='-1']), [tabindex]:not([tabindex='-1']), [contentEditable=true]:not([tabindex='-1']) |  | Defines the elements that can be navigated with the arrows within the drop-down menu. |
+| elements-for-arrows | String | a[href]:not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), area[href]:not([tabindex='-1']), input:not([disabled]):not([tabindex='-1']), select:not([disabled]):not([tabindex='-1']), textarea:not([disabled]):not([tabindex='-1']), iframe:not([tabindex='-1']), [tabindex]:not([tabindex='-1']), [contentEditable=true]:not([tabindex='-1']) |  | Elements that are moved between with the arrows, only for own content (slot dropdown, type template). In a menu built from actions the menu items are used. |
 | extra | Object |  |  | Additional values used for insertion into translations. |
 | key-group | String / Number / Array |  |  | A field name or an array of field names used to group actions. Arrays create nested groups. |
 | key-group-label-callback | Function |  |  | Callback for customizing the displayed label of a group. |

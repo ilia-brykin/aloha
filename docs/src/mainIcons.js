@@ -35,6 +35,7 @@ import Gear from "aloha-svg/dist/js/bootstrap/Gear";
 import GlobeEuropeAfrica from "aloha-svg/dist/js/bootstrap/GlobeEuropeAfrica";
 import HourglassSplit from "aloha-svg/dist/js/bootstrap/HourglassSplit";
 import House from "aloha-svg/dist/js/bootstrap/House";
+import Inbox from "aloha-svg/dist/js/bootstrap/Inbox";
 import InputCursor from "aloha-svg/dist/js/bootstrap/InputCursor";
 import ListNested from "aloha-svg/dist/js/bootstrap/ListNested";
 import ListUl from "aloha-svg/dist/js/bootstrap/ListUl";
@@ -45,6 +46,7 @@ import Plugin from "aloha-svg/dist/js/bootstrap/Plugin";
 import PlusLg from "aloha-svg/dist/js/bootstrap/PlusLg";
 import Puzzle from "aloha-svg/dist/js/bootstrap/Puzzle";
 import Reception2 from "aloha-svg/dist/js/bootstrap/Reception2";
+import Search from "aloha-svg/dist/js/bootstrap/Search";
 import SegmentedNav from "aloha-svg/dist/js/bootstrap/SegmentedNav";
 import Shuffle from "aloha-svg/dist/js/bootstrap/Shuffle";
 import Star from "aloha-svg/dist/js/bootstrap3/StarEmpty";
@@ -94,6 +96,7 @@ export default {
   GlobeEuropeAfrica,
   HourglassSplit,
   House,
+  Inbox,
   InputCursor,
   ListNested,
   ListUl,
@@ -104,6 +107,7 @@ export default {
   PlusLg,
   Puzzle,
   Reception2,
+  Search,
   SegmentedNav,
   Shuffle,
   Star,

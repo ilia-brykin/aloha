@@ -22,7 +22,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 
 ## Components
 
-- [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md)
+- [Accordion](https://ilia-brykin.github.io/aloha/llms/components/accordion.md): **AAccordion** shows sections that can be opened and closed, e.g.
 - [Alert](https://ilia-brykin.github.io/aloha/llms/components/alert.md): Displays important alert messages.
 - [Avatar](https://ilia-brykin.github.io/aloha/llms/components/avatar.md): The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
 - [Breadcrumb](https://ilia-brykin.github.io/aloha/llms/components/breadcrumb.md): **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.
@@ -34,10 +34,14 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Disclosure](https://ilia-brykin.github.io/aloha/llms/components/disclosure.md): The component allows users to show or hide text content by clicking on a button.
 - [filters](https://ilia-brykin.github.io/aloha/llms/components/filters.md): Allows filtering data by various criteria.
 - [filtersRight](https://ilia-brykin.github.io/aloha/llms/components/filters-right.md): With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
+- [Drawer](https://ilia-brykin.github.io/aloha/llms/components/drawer.md): **ADrawer** is a panel at the left or the right edge of the window, e.g.
 - [Dropdown](https://ilia-brykin.github.io/aloha/llms/components/dropdown.md): The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](https://ilia-brykin.github.io/aloha/llms/components/element.md): The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
+- [Empty state](https://ilia-brykin.github.io/aloha/llms/components/empty-state.md): **AEmptyState** shows that there is no data: an icon, a title, a text and buttons.
 - [Form: Checkbox](https://ilia-brykin.github.io/aloha/llms/components/checkbox.md): The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.
 - [Form: Color picker](https://ilia-brykin.github.io/aloha/llms/components/color-picker.md): The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors.
+- [Form: Combobox](https://ilia-brykin.github.io/aloha/llms/components/combobox.md): **ACombobox** is a text field with suggestions: the text is free, a suggestion fills it.
+- [Form: Date input](https://ilia-brykin.github.io/aloha/llms/components/date-input.md): **ADateInput** is a text field for a date, a date with time or a time, also as a range (from – to).
 - [Form: Datepicker](https://ilia-brykin.github.io/aloha/llms/components/datepicker.md): Allows interactive selection of a date and, depending on the configuration, also time.
 - [Form: DatepickerRange](https://ilia-brykin.github.io/aloha/llms/components/datepicker-range.md): Allows interactive selection of a date range by providing two date fields to define 'From' and 'To' values.
 - [Fieldset: Fieldset](https://ilia-brykin.github.io/aloha/llms/components/fieldset.md): The **AFieldset** component is used to group form elements into a logical set.
@@ -51,7 +55,9 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Form: Input number range](https://ilia-brykin.github.io/aloha/llms/components/input-number-range.md): The **AInputNumberRange** component consists of two number fields "from" and "to".
 - [Form: Input file](https://ilia-brykin.github.io/aloha/llms/components/input-file.md): The **AInputFile** component chooses files with a button or a dropzone, checks the type, the size and the number of the files, shows them in a list and shows the upload status of every file.
 - [Form: Input OTP](https://ilia-brykin.github.io/aloha/llms/components/input-otp.md): The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
+- [Form: Input tags](https://ilia-brykin.github.io/aloha/llms/components/input-tags.md): **AInputTags** enters several free values in one field, e.g.
 - [Form: JSON](https://ilia-brykin.github.io/aloha/llms/components/json.md): **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
+- [Form: JSON editor](https://ilia-brykin.github.io/aloha/llms/components/json-editor.md): **AJsonEditor** edits JSON as a tree and as text: keys and values in place, types, adding, removing, moving, search, history with undo, redo and reset, own variables, rules and JSON Schema, formatting by props, hooks and plugins.
 - [Form: Multiselect ordered](https://ilia-brykin.github.io/aloha/llms/components/multiselect-ordered.md): The component allows selecting multiple items with the ability to set their order.
 - [Form: One checkbox](https://ilia-brykin.github.io/aloha/llms/components/one-checkbox.md): The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.
 - [Form: Radio](https://ilia-brykin.github.io/aloha/llms/components/radio.md): The **ARadio** component represents a set of radio buttons, where the user can select only one item from the given options.
@@ -73,14 +79,17 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Menu: Menu basic](https://ilia-brykin.github.io/aloha/llms/components/menu-basic.md): AMenu provides navigation with nested panels, search, groups and disabled links.
 - [Modal: Modal](https://ilia-brykin.github.io/aloha/llms/components/modal.md): AModal is a component that enables the implementation of modal windows.
 - [Modal: Modal form](https://ilia-brykin.github.io/aloha/llms/components/modal-form.md): **AModalForm** is a modal window (AModal) with a form (AForm) in the body.
-- [Notification](https://ilia-brykin.github.io/aloha/llms/components/notification.md)
+- [Navbar](https://ilia-brykin.github.io/aloha/llms/components/navbar.md): **ANavbar** is a horizontal navigation: links, submenus with any number of levels, a logo and buttons in the slots.
+- [Notification](https://ilia-brykin.github.io/aloha/llms/components/notification.md): **ANotification** shows short messages at the edge of the window, e.g.
 - [Progress: Progress bar](https://ilia-brykin.github.io/aloha/llms/components/progress.md): AProgress component is a customisable progress bar for Vue.js applications.
 - [Progress: Progress circle](https://ilia-brykin.github.io/aloha/llms/components/progress-circle.md): The **AProgressCircle** component displays progress as a circular indicator.
 - [Show more](https://ilia-brykin.github.io/aloha/llms/components/show-more.md): The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 - [Skeleton](https://ilia-brykin.github.io/aloha/llms/components/skeleton.md): The **ASkeleton** component shows gray placeholders in the shape of the content while it is loading.
+- [Skip link](https://ilia-brykin.github.io/aloha/llms/components/skip-link.md): **ASkipLink** is the first link of the page: *Skip to main content*.
 - [Spinner](https://ilia-brykin.github.io/aloha/llms/components/spinner.md): The **ASpinner** component is used to display a loading indicator.
 - [Pagination](https://ilia-brykin.github.io/aloha/llms/components/pagination.md): The **APagination** component renders navigation for large data sets.
 - [Pagination pages](https://ilia-brykin.github.io/aloha/llms/components/pagination-pages.md): The **APaginationPages** component renders page navigation only.
+- [Popover](https://ilia-brykin.github.io/aloha/llms/components/popover.md): **APopover** shows a small window at a button with own content: text, links, fields and buttons.
 - [Tables: Table complex](https://ilia-brykin.github.io/aloha/llms/components/table-complex.md): The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
 - [Tables: Table pagination](https://ilia-brykin.github.io/aloha/llms/components/table-pagination.md)
 - [Tables: Table simple](https://ilia-brykin.github.io/aloha/llms/components/table-simple.md)

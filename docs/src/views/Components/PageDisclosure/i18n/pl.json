@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Przełącz stan komponentu (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Przełącz stan komponentu (przycisk)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "To zdarzenie jest wywoływane, gdy użytkownik kliknie przycisk „Pokaż więcej/Pokaż mniej”. Zwraca obiekt zawierający informacje o bieżącym stanie komponentu, w tym <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Pokaż skrócony tekst"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Pokaż skrócony tekst",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Przycisk ma <code>aria-expanded</code> i <code>aria-controls</code>: czytnik ekranu informuje, czy treść jest otwarta. Po kliknięciu fokus zostaje na przycisku; tylko gdy przycisk znika (<code>show-less=\"false\"</code>), przechodzi do treści.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> zawiera informację, czy treść jest otwarta, i pozwala ją otwierać lub zamykać z zewnątrz. Zdarzenie <code>toggle</code> nadal przychodzi.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Otwórz / zamknij z zewnątrz",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Otwarte lub zamknięte (<code>v-model</code>). Bez niego stan początkowy ustawia <code>is-open-default</code>.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Zmieniło się otwarte/zamknięte (<code>v-model</code>). Przychodzi razem z <code>toggle</code>."
 }

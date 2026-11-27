@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import PageModalFormColumns from "./PageModalFormColumns/PageModalFormColumns.vue";
 import PageModalFormDelete from "./PageModalFormDelete/PageModalFormDelete.vue";
 import PageModalFormElements from "./PageModalFormElements/PageModalFormElements.vue";
+import PageModalFormEnter from "./PageModalFormEnter/PageModalFormEnter.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -15,6 +16,7 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageModalForm",
   components: {
+    PageModalFormEnter,
     AlohaPage,
     AlohaTableProps,
     ATranslation,

@@ -23,6 +23,7 @@ import PageWizardStepsErrors from "./PageWizardStepsErrors/PageWizardStepsErrors
 import PageWizardStepsWarnings from "./PageWizardStepsWarnings/PageWizardStepsWarnings.vue";
 import PageWizardSubType from "./PageWizardSubType/PageWizardSubType.vue";
 import PageWizardType from "./PageWizardType/PageWizardType.vue";
+import PageWizardValidation from "./PageWizardValidation/PageWizardValidation.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -47,6 +48,7 @@ export default {
     PageWizardButtonsHide,
     PageWizardDemo,
     PageWizardHasFocusJump,
+    PageWizardValidation,
     PageWizardIcon,
     PageWizardIsButtonsLoading,
     PageWizardIsControlOutside,

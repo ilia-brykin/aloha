@@ -62,5 +62,11 @@
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Promjeni stanje komponente (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Promjeni stanje komponente (gumb)",
   "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ovaj događaj se aktivira kada korisnik klikne na gumb \"Prikaži više/Prikaži manje\". Vraća objekt koji sadrži informacije o trenutačnom stanju komponente, uključujući <strong>isOpen</strong>.",
-  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Prikaži skraćeni tekst"
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Prikaži skraćeni tekst",
+  "_A_DISCLOSURE_A11Y_DESCRIPTION_": "Gumb ima <code>aria-expanded</code> i <code>aria-controls</code>: čitač zaslona javlja je li sadržaj otvoren. Nakon klika fokus ostaje na gumbu; samo ako gumb nestane (<code>show-less=\"false\"</code>), prelazi na sadržaj.",
+  "_A_DISCLOSURE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_DISCLOSURE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> sadrži je li sadržaj otvoren te ga otvara ili zatvara i izvana. Događaj <code>toggle</code> i dalje stiže.",
+  "_A_DISCLOSURE_EXAMPLE_TOGGLE_": "Otvori / zatvori izvana",
+  "_A_DISCLOSURE_PROPS_MODEL_VALUE_DESCRIPTION_": "Otvoreno ili zatvoreno (<code>v-model</code>). Bez njega početak postavlja <code>is-open-default</code>.",
+  "_A_DISCLOSURE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Promijenilo se otvoreno/zatvoreno (<code>v-model</code>). Stiže zajedno s <code>toggle</code>."
 }

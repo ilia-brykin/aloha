@@ -1,12 +1,13 @@
 import {
   h,
+  inject,
   onBeforeUnmount,
   resolveComponent,
   watch,
-  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
@@ -14,7 +15,6 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
-import ASafeHtml from "../../directives/ASafeHtml";
 import {
   AKeyId,
 } from "../../const/AKeys";
@@ -40,6 +40,12 @@ export default {
     itemIndex: {
       type: Number,
       required: true,
+    },
+    // number of the items on this level: role="region" only for a few panels
+    itemsCount: {
+      type: Number,
+      required: false,
+      default: 1,
     },
     keyId: {
       type: String,
@@ -90,10 +96,15 @@ export default {
       isRender,
     } = VisibleAPI(props);
 
+    const alwaysTranslate = inject("alwaysTranslate");
+    const extra = inject("extra");
+
     const {
       buttonAttributes,
       buttonTag,
+      collapseAttributes,
       contentLocal,
+      headerTagLocal,
       idForCollapse,
       isCaretLocal,
       labelLocal,
@@ -117,9 +128,13 @@ export default {
     });
 
     return {
+      alwaysTranslate,
       buttonAttributes,
       buttonTag,
       children,
+      collapseAttributes,
+      extra,
+      headerTagLocal,
       classBodyLocal,
       classButtonLocal,
       classHeaderLocal,
@@ -158,9 +173,12 @@ export default {
               id: this.id,
               currentId: this.currentId,
             }) :
-            this.contentLocal && withDirectives(h("div"), [
-              [ASafeHtml, this.contentLocal],
-            ]),
+            this.contentLocal && h(ATranslation, {
+              tag: "div",
+              alwaysTranslate: this.alwaysTranslate,
+              extra: this.item.extra || this.extra,
+              html: this.contentLocal,
+            }),
         this.hasChildren && h("div", {
           class: ["a_accordion"],
         }, [
@@ -169,6 +187,7 @@ export default {
               key: itemChild[AKeyId],
               item: itemChild,
               itemIndex: itemChildIndex,
+              itemsCount: this.children.length,
               isParentOpen: this.isOpen,
               parentsIds: this.parentsIdsForChild,
               parentIndexes: this.parentIndexesForChild,
@@ -190,7 +209,7 @@ export default {
         },
       ],
     }, [
-      h("div", {
+      h(this.headerTagLocal, {
         class: ["a_accordion__header", this.classHeader, this.classHeaderLocal],
       }, [
         h(this.buttonTag, this.buttonAttributes, [
@@ -211,9 +230,12 @@ export default {
               id: this.id,
               currentId: this.currentId,
             }),
-          this.labelLocal && withDirectives(h("span"), [
-            [ASafeHtml, this.labelLocal],
-          ]),
+          this.labelLocal && h(ATranslation, {
+            tag: "span",
+            alwaysTranslate: this.alwaysTranslate,
+            extra: this.item.extra || this.extra,
+            html: this.labelLocal,
+          }),
           this.isCaretLocal && h(AIcon, {
             class: "a_accordion__button__icon",
             icon: this.isOpen ? ChevronUp : ChevronDown,
@@ -221,7 +243,7 @@ export default {
         ]),
       ]),
       h("div", {
-        id: this.idForCollapse,
+        ...this.collapseAttributes,
         class: ["a_accordion__collapse_box", {
           a_accordion__collapse_box_show: this.isOpen,
         }],

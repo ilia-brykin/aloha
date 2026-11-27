@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Si défini sur <strong lang=\"en\">true</strong>, l'interrupteur occupe toute la largeur disponible.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Utilisé pour un interrupteur à trois états : <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> et <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "L'étiquette affichée lorsque l'interrupteur est en état <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "La valeur assignée au modèle lorsque l'interrupteur est en état <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "La valeur assignée au modèle lorsque l'interrupteur est en état <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "Accessibilité : le champ est une <strong lang=\"en\">checkbox</strong> native avec <strong lang=\"en\">role=\"switch\"</strong>, le lecteur d'écran annonce l'état « activé » ou « désactivé ». Le nom est le <strong lang=\"en\">label</strong>, pas le texte changeant de l'état. Espace et <strong lang=\"en\">Enter</strong> basculent. Avec <strong lang=\"en\">is-three-state</strong>, le champ reste une <strong lang=\"en\">checkbox</strong> avec l'état « mixte » pour la valeur vide."
 }

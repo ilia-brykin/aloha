@@ -57,6 +57,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "before-step-change",
+      description: "_A_WIZARD_PROPS_BEFORE_STEP_CHANGE_DESCRIPTION_",
+      type: "Function",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "class-extra",
       description: "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_",
       type: "String / Object",
@@ -68,6 +75,27 @@ export default function PropsAPI() {
       description: "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",
       default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "finish-button-attributes",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "finish-button-class",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_CLASS_DESCRIPTION_",
+      type: "String / Array / Object",
+      default: "a_btn a_btn_primary",
+      required: false,
+    },
+    {
+      name: "finish-button-text",
+      description: "_A_WIZARD_PROPS_FINISH_BUTTON_TEXT_DESCRIPTION_",
+      type: "String",
+      default: undefined,
       required: false,
     },
     {
@@ -204,6 +232,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-step-heading-visible",
+      description: "_A_WIZARD_PROPS_IS_STEP_HEADING_VISIBLE_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "is-step-number-visible",
       description: "_A_WIZARD_PROPS_IS_STEP_NUMBER_VISIBLE_DESCRIPTION_",
       type: "Boolean",
@@ -250,6 +285,13 @@ export default function PropsAPI() {
       description: "_A_WIZARD_PROPS_STEP_ACTIVE_DESCRIPTION_",
       type: "Number",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "step-heading-tag",
+      description: "_A_WIZARD_PROPS_STEP_HEADING_TAG_DESCRIPTION_",
+      type: "String",
+      default: "h3",
       required: false,
     },
     {

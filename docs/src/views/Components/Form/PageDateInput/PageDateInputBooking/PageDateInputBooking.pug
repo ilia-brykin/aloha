@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_BOOKING_HEADER_"
+  description="_A_DATE_INPUT_BOOKING_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    range
+    label="_A_DATE_INPUT_EXAMPLE_STAY_"
+    :months="2"
+    :min-days="1"
+    :max-days="14"
+    show-today
+    show-week-numbers
+  )
+  pre.a_mt_3 {{ model }}

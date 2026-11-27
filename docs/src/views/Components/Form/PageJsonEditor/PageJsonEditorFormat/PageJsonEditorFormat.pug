@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_JSON_EDITOR_FORMAT_HEADER_"
+  description="_A_JSON_EDITOR_FORMAT_DESCRIPTION_"
+)
+  a-json-editor(
+    v-model="model"
+    label="_A_JSON_EDITOR_EXAMPLE_SETTINGS_"
+    mode="split"
+    :indent="4"
+    sort-keys
+    :inline-arrays="60"
+    empty-containers="{ }"
+    format-on="blur"
+  )

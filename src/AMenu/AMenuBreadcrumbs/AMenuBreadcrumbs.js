@@ -6,6 +6,7 @@ import {
 
 import AButton from "../../AButton/AButton";
 import ADropdown from "../../ADropdown/ADropdown";
+import ALink from "../../ALink/ALink";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -54,6 +55,7 @@ export default {
   },
   setup(props) {
     const breadcrumbsTruncatedOffset = inject("breadcrumbsTruncatedOffset");
+    const clickMenuLink = inject("clickMenuLink");
 
     const {
       breadcrumbsItems,
@@ -75,8 +77,13 @@ export default {
       breadcrumbsTruncatedOffset,
     });
 
+    const clickPageLink = ({ $event } = {}) => {
+      clickMenuLink({ ctrlKey: !!($event?.ctrlKey || $event?.metaKey) });
+    };
+
     return {
       breadcrumbsItems,
+      clickPageLink,
       breadcrumbsItemsDropdown,
       breadcrumbsItemsTruncated,
       goBack,
@@ -86,6 +93,44 @@ export default {
       renderParent,
     };
   },
+  methods: {
+    renderItemLink(breadcrumbsItem) {
+      if (breadcrumbsItem.panelParentId) {
+        return h(AButton, {
+          class: [
+            "a_menu__breadcrumbs__link",
+            this.breadcrumbsLinkClass,
+          ],
+          role: "button",
+          tabindex: 0,
+          tag: "a",
+          text: breadcrumbsItem.label,
+          title: breadcrumbsItem.label,
+          onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
+          onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
+        });
+      }
+      // the open panel of a split item: the link to its page
+      if (breadcrumbsItem.to) {
+        return h(ALink, {
+          class: [
+            "a_menu__breadcrumbs__link a_menu__breadcrumbs__link_page",
+            this.breadcrumbsLinkClass,
+          ],
+          text: breadcrumbsItem.label,
+          title: breadcrumbsItem.label,
+          to: breadcrumbsItem.to,
+          onClick: this.clickPageLink,
+        });
+      }
+      return h(AButton, {
+        class: "a_menu__breadcrumbs__link",
+        tag: "strong",
+        text: breadcrumbsItem.label,
+        title: breadcrumbsItem.label,
+      });
+    },
+  },
   render() {
     if (this.isSearchActive || this.isPanelMain) {
       return null;
@@ -93,7 +138,7 @@ export default {
 
     if (this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
-        ariaLabel: "_A_MENU_2_BREADCRUMB_",
+        "aria-label": "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [
@@ -118,31 +163,11 @@ export default {
               }, {
                 dropdown: () => [
                   this.breadcrumbsItemsDropdown.map(breadcrumbsItem => {
-                    const ATTR = breadcrumbsItem.panelParentId ?
-                      {
-                        tag: "a",
-                        class: [
-                          "a_menu__breadcrumbs__link",
-                          this.breadcrumbsLinkClass,
-                        ],
-                        role: "button",
-                        tabindex: 0,
-                        onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
-                        onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
-                      } :
-                      {
-                        class: "a_menu__breadcrumbs__link",
-                        tag: "strong",
-                      };
                     return h("li", {
                       key: breadcrumbsItem.panelParentId,
                       class: "a_menu__breadcrumbs__item",
                     }, [
-                      h(AButton, {
-                        text: breadcrumbsItem.label,
-                        title: breadcrumbsItem.label,
-                        ...ATTR,
-                      }),
+                      this.renderItemLink(breadcrumbsItem),
                       h("span", {
                         class: "a_menu__breadcrumbs__item__divider",
                       }, "/"),
@@ -153,22 +178,6 @@ export default {
             ]) :
             "",
           this.breadcrumbsItemsTruncated.map(breadcrumbsItem => {
-            const ATTR = breadcrumbsItem.panelParentId ?
-              {
-                tag: "a",
-                class: [
-                  "a_menu__breadcrumbs__link",
-                  this.breadcrumbsLinkClass,
-                ],
-                role: "button",
-                tabindex: 0,
-                onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
-                onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
-              } :
-              {
-                class: "a_menu__breadcrumbs__link",
-                tag: "strong",
-              };
             return withDirectives(h("li", {
               key: breadcrumbsItem.panelParentId,
               class: "a_menu__breadcrumbs__item",
@@ -176,11 +185,7 @@ export default {
               !breadcrumbsItem.isFirst && h("span", {
                 class: "a_menu__breadcrumbs__item__divider",
               }, "/"),
-              h(AButton, {
-                text: breadcrumbsItem.label,
-                title: breadcrumbsItem.label,
-                ...ATTR,
-              }),
+              this.renderItemLink(breadcrumbsItem),
             ]), [
               [AOnHooks, { mounted: this.renderItem }],
             ]);
@@ -193,7 +198,7 @@ export default {
 
     if (!this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
-        ariaLabel: "_A_MENU_2_BREADCRUMB_",
+        "aria-label": "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [
@@ -203,22 +208,6 @@ export default {
           ],
         }, [
           this.breadcrumbsItems.map(breadcrumbsItem => {
-            const ATTR = breadcrumbsItem.panelParentId ?
-              {
-                tag: "a",
-                class: [
-                  "a_menu__breadcrumbs__link",
-                  this.breadcrumbsLinkClass,
-                ],
-                role: "button",
-                tabindex: 0,
-                onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
-                onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
-              } :
-              {
-                class: "a_menu__breadcrumbs__link",
-                tag: "strong",
-              };
             return h("li", {
               key: breadcrumbsItem.panelParentId,
               class: "a_menu__breadcrumbs__item",
@@ -226,11 +215,7 @@ export default {
               !breadcrumbsItem.isFirst && h("span", {
                 class: "a_menu__breadcrumbs__item__divider",
               }, "/"),
-              h(AButton, {
-                text: breadcrumbsItem.label,
-                title: breadcrumbsItem.label,
-                ...ATTR,
-              }),
+              this.renderItemLink(breadcrumbsItem),
             ]);
           }),
         ]),

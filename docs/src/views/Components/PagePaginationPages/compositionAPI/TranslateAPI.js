@@ -1,7 +1,13 @@
 export default function TranslateAPI() {
   const dataTranslate = [
+    "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
     "_A_PAGINATION_FIRST_PAGE_",
+    "_A_PAGINATION_JUMPER_BUTTON_",
+    "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_",
+    "_A_PAGINATION_JUMPER_LABEL_",
+    "_A_PAGINATION_JUMPER_OF_{{allPages}}_",
     "_A_PAGINATION_LAST_PAGE_",
+    "_A_PAGINATION_LOAD_MORE_",
     "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
     "_A_PAGINATION_NAVIGATION_",
     "_A_PAGINATION_NEXT_PAGE_",

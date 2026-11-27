@@ -74,7 +74,17 @@ export default function LimitOffsetAPI(props, { emit }, {
     }
   };
 
-  const changeLimit = limitLocal => {
+  const changeLimit = (limitLocal, { loadMore } = {}) => {
+    // "Load more" adds rows below: the offset, the scroll position and the focus (on the button) stay
+    if (loadMore) {
+      limit.value = limitLocal;
+      emit("changeLimit", {
+        offset: offset.value,
+        limit: limitLocal,
+        loadMore: true,
+      });
+      return;
+    }
     setFocusToTable();
     scrollToTable();
     limit.value = limitLocal;

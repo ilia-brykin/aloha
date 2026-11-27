@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_TAGS_LIMITS_HEADER_"
+  description="_A_INPUT_TAGS_LIMITS_DESCRIPTION_"
+)
+  a-input-tags(
+    v-model="model"
+    :data="languages"
+    :is-data-simple-array="true"
+    :is-only-from-list="true"
+    :is-remove-all="true"
+    :max-tags="6"
+    :max-visible-tags="3"
+    :min-length="0"
+    :open-on-focus="true"
+    label="_A_INPUT_TAGS_EXAMPLE_LANGUAGES_"
+  )

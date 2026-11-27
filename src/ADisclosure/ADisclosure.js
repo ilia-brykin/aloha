@@ -118,6 +118,12 @@ export default {
       required: false,
       default: false,
     },
+    // v-model: open or closed
+    modelValue: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     safeHtmlLess: {
       type: String,
       required: false,
@@ -151,6 +157,7 @@ export default {
   },
   emits: [
     "toggle",
+    "update:modelValue",
   ],
   setup(props, context) {
     const {
@@ -172,13 +179,6 @@ export default {
     });
 
     const {
-      containerRef,
-      toggleButton,
-    } = ToggleAPI(props, context, {
-      isOpen,
-    });
-
-    const {
       btnIconLeft,
       btnIconRight,
       btnText,
@@ -186,6 +186,14 @@ export default {
       buttonRef,
       isButtonVisible,
     } = BtnAttributesAPI(props, {
+      isOpen,
+    });
+
+    const {
+      containerRef,
+      toggleButton,
+    } = ToggleAPI(props, context, {
+      isButtonVisible,
       isOpen,
     });
 
@@ -229,8 +237,6 @@ export default {
         h("div", {
           ref: "containerRef",
           id: this.id,
-          ariaExpanded: this.isOpen,
-          ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
             alwaysTranslate: this.alwaysTranslate,
@@ -258,6 +264,7 @@ export default {
           id: this.btnId,
           alwaysTranslate: this.alwaysTranslate,
           "aria-controls": this.id,
+          "aria-expanded": this.isOpen ? "true" : "false",
           class: [
             "a_show_more__button",
             this.btnClass,

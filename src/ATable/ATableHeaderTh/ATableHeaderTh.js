@@ -135,7 +135,7 @@ export default {
           text: this.titlesLocal,
           tag: "span",
           class: "a_sr_only",
-          ariaHidden: true,
+          "aria-hidden": true,
         }),
         h(AButton, {
           class: [
@@ -164,7 +164,7 @@ export default {
               tag: "span",
               extra: this.column.extra,
               class: "a_table__th__text a_element__ml_0",
-              ariaHidden: !!this.column.textScreenReader,
+              "aria-hidden": !!this.column.textScreenReader,
             }),
           this.isSortable && h("span", {
             class: "a_table__th__sort__box a_element__ml_0",

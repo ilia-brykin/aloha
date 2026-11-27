@@ -9,7 +9,6 @@
   *::after {
     box-sizing: border-box;
   }
-  @include focus.focus-visible;
 }
 
 .a_wizard_basic {
@@ -110,7 +109,7 @@
       &:focus-visible {
         box-shadow: none;
         z-index: 4;
-        & + .a_wizard__step__divider {
+        & ~ .a_wizard__step__divider {
           display: block;
         }
         &:after {
@@ -412,8 +411,21 @@
   margin-bottom: 0;
 }
 
+// the step is a flex box, so the button fills it like the link before (also with the negative margins of "basic")
+.a_wizard__step {
+  display: flex;
+}
+
 .a_wizard__step__link {
+  flex: 1 1 auto;
+  min-width: 0;
   display: block;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: inherit;
+  background-color: transparent;
+  border: 0;
   padding: calc(.5rem * var(--a_density)) calc(1rem * var(--a_density));
   text-decoration: none;
   &:hover,
@@ -439,6 +451,23 @@
   }
   &.active {
     font-weight: var(--a_wizard_step_active_font_weight);
+  }
+  // upcoming: looks like "default", but can be clicked and focused
+  &.default.upcoming {
+    cursor: pointer !important;
+    --a_wizard_step_focus_box_shadow: var(--a_focus_ring);
+  }
+}
+
+// the heading of the step (visible with isStepHeadingVisible), it gets the focus after a change of the step
+.a_wizard__step_heading {
+  margin: 0 0 var(--a_space_md);
+  font-size: var(--a_font_size_lg);
+  &:focus {
+    outline: 0;
+  }
+  &:focus-visible {
+    box-shadow: var(--a_focus_ring);
   }
 }
 .a_wizard__step__number {

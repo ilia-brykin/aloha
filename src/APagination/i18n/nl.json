@@ -4,9 +4,14 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} tot {{ current }} van {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "Naar eerste pagina",
   "_A_PAGINATION_LAST_PAGE_": "Naar laatste pagina",
+  "_A_PAGINATION_LOAD_MORE_": "Meer laden",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} van {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Paginanavigatie",
   "_A_PAGINATION_NEXT_PAGE_": "Naar volgende pagina",
   "_A_PAGINATION_PREVIOUS_PAGE_": "Naar vorige pagina",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "Naar pagina {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Naar pagina {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "Ga",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "Voer een pagina van 1 tot {{ allPages }} in.",
+  "_A_PAGINATION_JUMPER_LABEL_": "Ga naar pagina",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "van {{ allPages }}"
 }

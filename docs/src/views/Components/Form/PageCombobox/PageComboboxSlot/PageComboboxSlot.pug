@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COMBOBOX_GROUP_SLOT_HEADER_"
+  description="_A_COMBOBOX_GROUP_SLOT_DESCRIPTION_"
+)
+  a-combobox(
+    v-model="model"
+    :data="people"
+    :texts="texts"
+    label="_A_COMBOBOX_EXAMPLE_PERSON_"
+  )
+    template(v-slot:option="{ item, highlight }")
+      span.a_d_block
+        component(:is="() => highlight")
+      small.a_text_muted {{ item.email }}

@@ -1,0 +1,62 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_TRANSITION_HEADER_"
+  description="_A_CAROUSEL_GROUP_TRANSITION_DESCRIPTION_"
+  :props="['transition', 'motion-blur']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_TRANSITION_FADE_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+        transition="fade"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_TRANSITION_MOTION_BLUR_"
+      )
+      a-carousel(
+        :data="data"
+        :motion-blur="true"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_TRANSITION_NONE_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+        transition="none"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

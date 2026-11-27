@@ -27,6 +27,17 @@ export default function HtmlAPI() {
       class="a_text_center"
     >Aloha</div>
   </template>
+</a-tooltip>
+<a-tooltip
+  class="a_btn a_btn_primary a_ml_3"
+  tag="button"
+  width="20rem"
+>
+  <span>width="20rem"</span>
+
+  <template v-slot:title>
+    <div>Aloha</div>
+  </template>
 </a-tooltip>`;
 
   return {

@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_FORM_SUBMIT_HEADER_"
+  description="_A_FORM_SUBMIT_DESCRIPTION_"
+  :props="['tag']"
+)
+  a-form(
+    v-model="model"
+    :data="data"
+    @submit="onSubmit"
+  )
+  p.a_mt_3(
+    v-if="countSubmit"
+  ) submit: {{ countSubmit }}

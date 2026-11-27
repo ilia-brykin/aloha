@@ -1,0 +1,45 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_ARROWS_PLACEMENT_HEADER_"
+  description="_A_CAROUSEL_GROUP_ARROWS_PLACEMENT_DESCRIPTION_"
+  props="arrows-placement"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_ARROWS_PLACEMENT_SIDES_TOP_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-placement="sides-top"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        html="_A_CAROUSEL_COMPONENT_ARROWS_PLACEMENT_SIDES_BOTTOM_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-placement="sides-bottom"
+        indicators-placement="top"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

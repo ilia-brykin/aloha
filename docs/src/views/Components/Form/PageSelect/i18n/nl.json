@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Uitschakelen op sleutel",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Laadt de basislijst en de op te halen kandidaten uit lokale JSON-bestanden zonder backend. Ontbrekende geselecteerde waarden worden via de retrieve-callback opgehaald en als ongeldige invoer gemarkeerd wanneer ze niet in de basislijst voorkomen.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Ophalen uit lokale JSON",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Optiewaarden kunnen worden gefilterd op basis van de zoekopdracht. Dit is handig voor componenten met een lange lijst met opties, omdat gebruikers zo gemakkelijker de gewenste optie kunnen vinden en kiezen.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Optiewaarden kunnen worden gefilterd op basis van de zoekopdracht. Dit is handig voor componenten met een lange lijst met opties, omdat gebruikers zo gemakkelijker de gewenste optie kunnen vinden en kiezen. Een schermlezer hoort hoeveel opties de zoekfunctie vond (‘Resultaten: 3’ / ‘Geen resultaten’); Enter in het zoekveld verzendt het formulier eromheen niet.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Zoeken",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Met <strong lang=\"en\">show-selected-first</strong> worden geselecteerde opties direct onder de zoek- en actieknoppen weergegeven. Ze behouden hun groepen wanneer groeperen is ingeschakeld, worden door één scheidingslijn van de overige opties gescheiden en komen niet dubbel voor in de hoofdlijst.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Geselecteerde opties eerst",
@@ -40,7 +40,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "De lijst wordt gerenderd in de container popper-container-id aan het einde van de body, anders direct na de knop.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Sluit de lijst nadat een item is gekozen. Standaard: ja voor select, nee voor multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Verouderd, gebruik label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: alle geselecteerde items worden in de knop getoond. Bij false wordt alleen het aantal getoond als het er meer zijn dan count-multiselect.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: alle geselecteerde items worden in de knop getoond. Bij false wordt alleen het aantal getoond als het er meer zijn dan count-multiselect. De waarden staan naast het veld (niet erin), hun verwijderknoppen zijn bereikbaar met Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Label van het veld (tekst of vertaalsleutel).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Extra CSS-klasse van het label.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Label die alleen door schermlezers wordt voorgelezen.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_MODE_ONE_PER_GROUP_HEADER_": "Eén item per groep",
   "_A_SELECT_GROUP_MODE_ONE_PER_GROUP_DESCRIPTION_": "Met <code>mode=\"one_per_group\"</code> en <code>key-group</code> staat een multiselect slechts één item per groep toe: een item kiezen deselecteert het andere item van zijn groep.",
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_HEADER_": "Geselecteerde waarde niet gevonden",
-  "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Als het model een waarde bevat die niet in <code>data</code> staat, wordt in plaats daarvan de tekst <code>label-not-found</code> getoond (met <code>show-not-found</code>)."
+  "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Als het model een waarde bevat die niet in <code>data</code> staat, wordt in plaats daarvan de tekst <code>label-not-found</code> getoond (met <code>show-not-found</code>).",
+  "_A_SELECT_A11Y_DESCRIPTION_": "Het veld is een <code>role=\"combobox\"</code> met <code>aria-controls</code> naar de <code>role=\"listbox\"</code>; in de lijst staan alleen de opties (en groepen), de zoekfunctie en ‘Alles selecteren’ staan erboven. Toetsenbord: Enter, spatie of pijl omlaag openen de lijst, de pijlen gaan rond, Home en End gaan naar de eerste en laatste optie, een letter naar de volgende optie die ermee begint, Escape sluit en geeft de focus terug aan het veld. De zoekfunctie meldt een schermlezer hoeveel opties hij vond. Met <code>type=\"multiselect\"</code> heeft de lijst <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Meervoudige selectie met verwijderbare waarden",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "De geselecteerde waarden zijn knoppen naast het veld: ze zijn bereikbaar met Tab en hun naam zegt welke waarde wordt verwijderd (‘Berlin verwijderen’). Het veld zelf meldt een schermlezer hoeveel waarden geselecteerd zijn.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Steden"
 }

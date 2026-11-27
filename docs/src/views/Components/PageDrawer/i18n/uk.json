@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Бічна панель",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> — панель біля лівого або правого краю вікна, наприклад для деталей рядка таблиці, фільтрів чи налаштувань. Це модальний діалог: у неї всі пропси та слоти <a href=\"/#/modal\">AModal</a> (шапка, футер з кнопками, <code>save</code>, <code>selector-close-ids</code>…), вона утримує фокус, закривається за <kbd>Escape</kbd> і повертає фокус на кнопку, яка її відкрила.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Край вікна: <code>right</code> або <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> задає край. <code>selector-close-ids</code> повертає фокус на кнопку, яка відкрила панель. У вузькому вікні панель займає всю ширину. Панель виїжджає, без анімації, якщо користувач надає перевагу зменшеному руху.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Відкрити праворуч",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Відкрити ліворуч",
+  "_A_DRAWER_EXAMPLE_BODY_": "Панель — модальний діалог: сторінка за нею недоступна, доки панель не закрита.",
+  "_A_DRAWER_SIZES_HEADER_": "Ширина",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "Пропс <code>size</code> з <a href=\"/#/modal\">AModal</a> задає ширину: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, без <code>size</code> 400px. Ширини — CSS-змінні.",
+  "_A_DRAWER_FORM_HEADER_": "Редагування в бічній панелі",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Форма в панелі з кнопками «Зберегти» та «Скасувати». З <code>is-footer-sticky</code> кнопки залишаються видимими, поки форма прокручується. Форма редагує копію моделі, тому «Скасувати» не змінює дані.",
+  "_A_DRAWER_BTN_EDIT_": "Редагувати"
+}

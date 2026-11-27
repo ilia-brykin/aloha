@@ -5,12 +5,16 @@ import type { ComponentOptionsMixin, DefineComponent } from "vue";
 export interface AAccordionProps {
   /** @default false */
   alwaysOpen?: boolean;
+  alwaysTranslate?: boolean;
   /** @default "" */
   classBody?: string | Record<string, any>;
   classButton?: string | Record<string, any>;
   /** @default "" */
   classHeader?: string | Record<string, any>;
   disabled?: boolean;
+  extra?: Record<string, any>;
+  /** @default "h3" */
+  headerTag?: string;
   /** @default "accordion_1" */
   id?: string;
   /** @default [] */
@@ -37,6 +41,7 @@ export interface AAccordionProps {
   oneItemAlwaysOpen?: boolean;
   /** @default "children" */
   keyChildren?: string;
+  modelValue?: any[];
   prevent?: boolean;
   readonly?: boolean;
   stop?: boolean;
@@ -44,7 +49,7 @@ export interface AAccordionProps {
   /** @default [] */
   indexesForOpen?: any[];
 }
-export declare const AAccordion: DefineComponent<AAccordionProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const AAccordion: DefineComponent<AAccordionProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface AAlertProps {
   alertClass?: string | Record<string, any>;
@@ -112,10 +117,13 @@ export interface AAvatarGroupProps {
 export declare const AAvatarGroup: DefineComponent<AAvatarGroupProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface ABreadcrumbProps {
+  alwaysTranslate?: boolean;
   /** @default "_A_BREADCRUMB_ARIA_LABEL_" */
   ariaLabel?: string;
+  extra?: Record<string, any>;
   /** @default [] */
   items?: any[];
+  maxItems?: number;
   /** @default "›" */
   separator?: string;
 }
@@ -252,11 +260,9 @@ export interface ACarouselProps {
   ariaLabel: string;
   /** @default {} */
   arrowNextAttributes?: Record<string, any>;
-  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
   arrowNextIcon?: string;
   /** @default {} */
   arrowPreviousAttributes?: Record<string, any>;
-  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
   arrowPreviousIcon?: string;
   /** @default "sides-center" */
   arrowsPlacement?: string;
@@ -266,14 +272,21 @@ export interface ACarouselProps {
   arrowsTrigger?: string | any[];
   /** @default 5000 */
   autoplayInterval?: number;
+  /** @default true */
+  autoplayPauseOnHover?: boolean;
   /** @default false */
   autoplayShow?: boolean;
   /** @default false */
   autoplayStart?: boolean;
+  /** @default 0.83 */
+  cardScale?: number;
   /** @default [] */
   data?: any[];
+  /** @default "horizontal" */
+  direction?: string;
   disabled?: boolean;
   extra?: Record<string, any>;
+  height?: string;
   /** @default "a_carousel_4" */
   id?: string;
   /** @default false */
@@ -290,9 +303,18 @@ export interface ACarouselProps {
   /** @default 2.125 */
   indicatorWidth?: number;
   keyId?: string;
+  keyLabel?: string;
+  /** @default true */
+  loop?: boolean;
   modelValue?: number | string;
+  /** @default false */
+  motionBlur?: boolean;
   /** @default {"nextSlide":"_A_CAROUSEL_NEXT_SLIDE_","previousSlide":"_A_CAROUSEL_PREVIOUS_SLIDE_","controlsSlide":"_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_","controlsSlides":"_A_CAROUSEL_CONTROLS_SLIDES_","controlsStart":"_A_CAROUSEL_CONTROLS_START_","controlsStop":"_A_CAROUSEL_CONTROLS_STOP_","itemAriaLabel":"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_"} */
   texts?: Record<string, any>;
+  /** @default "slide" */
+  transition?: string;
+  /** @default "default" */
+  type?: string;
 }
 export declare const ACarousel: DefineComponent<ACarouselProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "init" | "play" | "stop" | "update:modelValue")[]>;
 
@@ -503,6 +525,169 @@ export interface AColorPickerProps {
 }
 export declare const AColorPicker: DefineComponent<AColorPickerProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "close" | "focus" | "open" | "update:modelValue")[]>;
 
+export interface AComboboxProps {
+  alwaysTranslate?: boolean;
+  change?: ((...args: any[]) => any);
+  /** @default [] */
+  data?: any[];
+  dependencies?: any[] | Record<string, any>;
+  disabled?: boolean;
+  errors?: string | any[];
+  errorsClass?: string | Record<string, any>;
+  /** @default [] */
+  excludeRenderAttributes?: any[];
+  extra?: Record<string, any>;
+  filterCallback?: ((...args: any[]) => any);
+  /** @default "contains" */
+  filterMode?: string;
+  helpText?: string;
+  htmlId?: string;
+  /** @default "a_combobox_7" */
+  id?: string | number;
+  /** @default true */
+  ignoreDiacritics?: boolean;
+  idPrefix?: string;
+  /** @default {} */
+  inputAttributes?: Record<string, any>;
+  /** @default true */
+  inBody?: boolean;
+  /** @default false */
+  inlineAutocomplete?: boolean;
+  inputClass?: string | Record<string, any>;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
+  /** @default true */
+  isClearButton?: boolean;
+  isDataSimpleArray?: boolean;
+  isHide?: boolean;
+  /** @default true */
+  isRender?: boolean;
+  keyDisabled?: string;
+  keyGroup?: string;
+  /** @default "id" */
+  keyId?: string;
+  /** @default "label" */
+  keyLabel?: string;
+  keyLabelCallback?: ((...args: any[]) => any);
+  label?: string | number;
+  labelClass?: string | Record<string, any>;
+  labelDescription?: string;
+  labelScreenReader?: string | number;
+  /** @default 10 */
+  maxItems?: number;
+  /** @default 1 */
+  minLength?: number;
+  /** @default {} */
+  modelDependencies?: Record<string, any>;
+  /** @default "" */
+  modelUndefined?: string | number | Record<string, any> | any[] | boolean;
+  modelValue?: string | number;
+  /** @default false */
+  openOnFocus?: boolean;
+  placeholder?: string;
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
+  readonly?: boolean;
+  /** @default "" */
+  readonlyDefault?: string;
+  readonlyValueParentClass?: string | Record<string, any> | any[];
+  /** @default false */
+  required?: boolean;
+  /** @default "search" */
+  searchApiKey?: string;
+  /** @default 300 */
+  searchTimeout?: number;
+  /** @default {} */
+  texts?: Record<string, any>;
+  translateData?: boolean;
+  /** @default "combobox" */
+  type?: string;
+  url?: string;
+  urlParams?: Record<string, any>;
+  /** @default {} */
+  urlTemplateData?: Record<string, any>;
+  zIndex?: number | string;
+}
+export declare const ACombobox: DefineComponent<AComboboxProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("select" | "update:modelValue")[]>;
+
+export interface ADateInputProps {
+  alwaysTranslate?: boolean;
+  autoFormat?: boolean;
+  change?: ((...args: any[]) => any);
+  clearable?: boolean;
+  defaultTime?: string | any[];
+  dependencies?: any[] | Record<string, any>;
+  disabled?: boolean;
+  errors?: string | any[];
+  errorsClass?: string | Record<string, any>;
+  /** @default [] */
+  excludeRenderAttributes?: any[];
+  extra?: Record<string, any>;
+  firstDayOfWeek?: number;
+  helpText?: string;
+  htmlId?: string;
+  /** @default "a_date_input_8" */
+  id?: string | number;
+  idPrefix?: string;
+  /** @default {} */
+  inputAttributes?: Record<string, any>;
+  inputClass?: string | Record<string, any>;
+  /** @default true */
+  inBody?: boolean;
+  inline?: boolean;
+  isDateDisabled?: ((...args: any[]) => any);
+  isTimeDisabled?: ((...args: any[]) => any);
+  isHide?: boolean;
+  isLabelFloat?: boolean;
+  /** @default true */
+  isRender?: boolean;
+  label?: string | number;
+  labelClass?: string | Record<string, any>;
+  labelDescription?: string;
+  labelPosition?: string;
+  labelScreenReader?: string | number;
+  locale?: string;
+  max?: string;
+  maxDays?: number;
+  maxTime?: string;
+  min?: string;
+  minDays?: number;
+  minTime?: string;
+  /** @default 1 */
+  minuteStep?: number;
+  /** @default "date" */
+  mode?: string;
+  /** @default {} */
+  modelDependencies?: Record<string, any>;
+  /** @default "iso" */
+  modelFormat?: string;
+  /** @default null */
+  modelUndefined?: any[] | Record<string, any> | string;
+  modelValue?: string | any[] | number | Date;
+  /** @default 1 */
+  months?: number;
+  placeholder?: string;
+  /** @default "a_date_input_container" */
+  popperContainerId?: string;
+  range?: boolean;
+  readonly?: boolean;
+  /** @default "" */
+  readonlyDefault?: string;
+  readonlyValueParentClass?: string | Record<string, any> | any[];
+  /** @default false */
+  required?: boolean;
+  /** @default [] */
+  shortcuts?: any[];
+  showTimeList?: boolean;
+  showToday?: boolean;
+  showWeekNumbers?: boolean;
+  /** @default "dateInput" */
+  type?: string;
+  utc?: boolean;
+  withSeconds?: boolean;
+}
+export declare const ADateInput: DefineComponent<ADateInputProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("close" | "open" | "update:modelValue")[]>;
+
 export interface ADatepickerProps {
   alwaysTranslate?: boolean;
   /** @default false */
@@ -597,7 +782,7 @@ export interface ADatepickerRangeProps {
   helpText?: string;
   htmlId?: string;
   iconDay?: number | string;
-  /** @default "a_datepicker_range_7" */
+  /** @default "a_datepicker_range_9" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -679,11 +864,12 @@ export interface ADisclosureProps {
   disabled?: boolean;
   htmlLess?: string;
   htmlMore?: string;
-  /** @default "a_disclosure_8" */
+  /** @default "a_disclosure_10" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
   isOpenDefault?: boolean;
+  modelValue?: boolean;
   safeHtmlLess?: string;
   safeHtmlMore?: string;
   /** @default true */
@@ -693,7 +879,83 @@ export interface ADisclosureProps {
   textLess?: string;
   textMore?: string;
 }
-export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const ADisclosure: DefineComponent<ADisclosureProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
+
+export interface ADrawerProps {
+  ariaLabel?: string;
+  alwaysTranslate?: boolean;
+  backdropZIndex?: number;
+  /** @default "" */
+  bodyHtml?: string;
+  bodyHtmlClass?: string | any[] | Record<string, any>;
+  /** @default "a_modal_class_extra" */
+  classExtra?: string | Record<string, any>;
+  close: ((...args: any[]) => any);
+  /** @default {} */
+  closeButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_secondary" */
+  closeButtonClass?: string | any[] | Record<string, any>;
+  closeButtonId?: string;
+  /** @default false */
+  closeOnBackdrop?: boolean;
+  /** @default "_A_MODAL_BTN_CANCEL_" */
+  closeButtonText?: string;
+  closeButtonTextScreenReaderFooter?: string;
+  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
+  closeButtonTextScreenReaderHeader?: string;
+  /** @default false */
+  disabled?: boolean;
+  /** @default false */
+  disabledSave?: boolean;
+  extra?: Record<string, any>;
+  focusStartId?: string;
+  /** @default "h2" */
+  headerTag?: string;
+  headerText?: string;
+  hideFooter?: boolean;
+  hideHeader?: boolean;
+  /** @default "a_modal_11" */
+  id?: string;
+  /** @default false */
+  isCloseButtonHide?: boolean;
+  isConfirm?: boolean;
+  /** @default false */
+  isFooterSticky?: boolean;
+  /** @default false */
+  isModalHidden?: boolean;
+  /** @default false */
+  isSaveButtonHide?: boolean;
+  loading?: boolean;
+  modalClass?: string | Record<string, any>;
+  modalStyle?: string | Record<string, any>;
+  save?: ((...args: any[]) => any);
+  /** @default {} */
+  saveButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  saveButtonClass?: string | any[] | Record<string, any>;
+  saveButtonId?: string;
+  /** @default "_A_MODAL_BTN_SAVE_" */
+  saveButtonText?: string;
+  saveButtonTextScreenReader?: string;
+  selectorClose?: string | any[];
+  selectorCloseIds?: string | any[];
+  /** @default true */
+  showCloseButtonHeader?: boolean;
+  size?: string;
+  stop?: boolean;
+  /** @default "body" */
+  teleportSelector?: string;
+  /** @default true */
+  useEscape?: boolean;
+  /** @default true */
+  useFocusOnStart?: boolean;
+  /** @default true */
+  useInert?: boolean;
+  zIndex?: number;
+  /** @default "right" */
+  placement?: string;
+}
+export declare const ADrawer: DefineComponent<ADrawerProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface ADropdownProps {
   /** @default [] */
@@ -748,7 +1010,7 @@ export interface ADropdownProps {
   floatingShift?: Record<string, any>;
   /** @default true */
   hasCaret?: boolean;
-  /** @default "a_dropdown_9" */
+  /** @default "a_dropdown_12" */
   id?: string;
   /** @default false */
   inBody?: boolean;
@@ -811,7 +1073,7 @@ export interface AElementProps {
   iconLeft?: string | Record<string, any>;
   iconRight?: string | Record<string, any>;
   iconTag?: string;
-  /** @default "a_element_10" */
+  /** @default "a_element_13" */
   id?: string;
   isSwitch?: boolean;
   isTitleHtml?: boolean;
@@ -851,6 +1113,17 @@ export interface AElementProps {
   type: string;
 }
 export declare const AElement: DefineComponent<AElementProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("click")[]>;
+
+export interface AEmptyStateProps {
+  alwaysTranslate?: boolean;
+  extra?: Record<string, any>;
+  /** @default "p" */
+  headerTag?: string;
+  headerText?: string;
+  icon?: string;
+  text?: string;
+}
+export declare const AEmptyState: DefineComponent<AEmptyStateProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface AErrorsProps {
   alwaysTranslate?: boolean;
@@ -907,7 +1180,7 @@ export interface AFieldsetProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_fieldset_11" */
+  /** @default "a_fieldset_14" */
   id?: string | number;
   idPrefix?: string;
   isCollapsed?: boolean;
@@ -989,7 +1262,7 @@ export interface AFiltersProps {
   filters?: any[];
   /** @default [] */
   filtersSaved?: any[];
-  /** @default "a_filters_12" */
+  /** @default "a_filters_15" */
   id?: string;
   mainModel?: Record<string, any>;
   /** @default true */
@@ -1074,7 +1347,7 @@ export interface AFormProps {
   /** @default false */
   useHtmlIdAsKey?: boolean;
 }
-export declare const AForm: DefineComponent<AFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:modelValue" | "change")[]>;
+export declare const AForm: DefineComponent<AFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:modelValue" | "change" | "submit")[]>;
 
 export interface AFormElementProps {
   alwaysTranslate?: boolean;
@@ -1207,7 +1480,7 @@ export interface AGroupProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_group_13" */
+  /** @default "a_group_16" */
   id?: string | number;
   idPrefix?: string;
   inputClass?: string | Record<string, any>;
@@ -1304,7 +1577,7 @@ export interface AInputProps {
   htmlId?: string;
   iconAppend?: string;
   iconPrepend?: string;
-  /** @default "a_input_14" */
+  /** @default "a_input_17" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1372,7 +1645,7 @@ export interface AInputCurrencyProps {
   helpText?: string;
   htmlId?: string;
   iconPrepend?: string;
-  /** @default "a_input_currency_15" */
+  /** @default "a_input_currency_18" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1505,7 +1778,7 @@ export interface AInputNumberRangeProps {
   helpText?: string;
   htmlId?: string;
   iconPrepend?: string;
-  /** @default "a_input_number_range_16" */
+  /** @default "a_input_number_range_19" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1573,7 +1846,7 @@ export interface AInputOtpProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_input_otp_17" */
+  /** @default "a_input_otp_20" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1617,6 +1890,118 @@ export interface AInputOtpProps {
 }
 export declare const AInputOtp: DefineComponent<AInputOtpProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "finish" | "focus" | "update:modelValue")[]>;
 
+export interface AInputTagsProps {
+  /** @default true */
+  addOnBlur?: boolean;
+  allowDuplicates?: boolean;
+  alwaysTranslate?: boolean;
+  change?: ((...args: any[]) => any);
+  /** @default [] */
+  data?: any[];
+  dependencies?: any[] | Record<string, any>;
+  disabled?: boolean;
+  errors?: string | any[];
+  errorIcon?: string | Record<string, any>;
+  errorsClass?: string | Record<string, any>;
+  /** @default [] */
+  excludeRenderAttributes?: any[];
+  extra?: Record<string, any>;
+  filterCallback?: ((...args: any[]) => any);
+  /** @default "contains" */
+  filterMode?: string;
+  helpText?: string;
+  htmlId?: string;
+  /** @default "a_input_tags_21" */
+  id?: string | number;
+  idPrefix?: string;
+  iconAppend?: string;
+  iconPrepend?: string;
+  /** @default true */
+  ignoreDiacritics?: boolean;
+  /** @default true */
+  inBody?: boolean;
+  /** @default false */
+  inlineAutocomplete?: boolean;
+  /** @default {} */
+  inputAttributes?: Record<string, any>;
+  inputClass?: string | Record<string, any>;
+  /** @default false */
+  isAddAll?: boolean;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
+  /** @default true */
+  isClearButton?: boolean;
+  isDataSimpleArray?: boolean;
+  isHide?: boolean;
+  isLabelFloat?: boolean;
+  isOnlyFromList?: boolean;
+  /** @default false */
+  isRemoveAll?: boolean;
+  /** @default true */
+  isRender?: boolean;
+  /** @default false */
+  isSortable?: boolean;
+  keyDisabled?: string;
+  keyGroup?: string;
+  /** @default "id" */
+  keyId?: string;
+  /** @default "label" */
+  keyLabel?: string;
+  keyLabelCallback?: ((...args: any[]) => any);
+  label?: string | number;
+  labelClass?: string | Record<string, any>;
+  labelDescription?: string;
+  labelPosition?: string;
+  labelScreenReader?: string | number;
+  /** @default 10 */
+  maxItems?: number;
+  maxTags?: number;
+  maxlength?: number;
+  maxVisibleTags?: number;
+  /** @default 1 */
+  minLength?: number;
+  /** @default {} */
+  modelDependencies?: Record<string, any>;
+  modelKey?: string;
+  /** @default [] */
+  modelUndefined?: any[] | Record<string, any> | string;
+  modelValue?: any[];
+  /** @default false */
+  openOnFocus?: boolean;
+  placeholder?: string;
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
+  readonly?: boolean;
+  /** @default "" */
+  readonlyDefault?: string;
+  readonlyValueParentClass?: string | Record<string, any> | any[];
+  /** @default false */
+  required?: boolean;
+  /** @default "search" */
+  searchApiKey?: string;
+  /** @default "medium" */
+  size?: string;
+  tagClass?: string | Record<string, any> | any[] | ((...args: any[]) => any);
+  /** @default 300 */
+  searchTimeout?: number;
+  /** @default ["Enter",","] */
+  separators?: any[];
+  /** @default {} */
+  texts?: Record<string, any>;
+  transform?: ((...args: any[]) => any);
+  translateData?: boolean;
+  /** @default "tags" */
+  type?: string;
+  url?: string;
+  urlParams?: Record<string, any>;
+  urlRetrieve?: string;
+  /** @default {} */
+  urlTemplateData?: Record<string, any>;
+  validator?: ((...args: any[]) => any);
+  zIndex?: number | string;
+}
+export declare const AInputTags: DefineComponent<AInputTagsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("select" | "update:modelValue")[]>;
+
 export interface AJsonProps {
   alwaysTranslate?: boolean;
   change?: ((...args: any[]) => any);
@@ -1631,7 +2016,7 @@ export interface AJsonProps {
   heightCss?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_json_18" */
+  /** @default "a_json_22" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -1655,6 +2040,190 @@ export interface AJsonProps {
   required?: boolean;
 }
 export declare const AJson: DefineComponent<AJsonProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "focus" | "update:modelValue")[]>;
+
+export interface AJsonEditorProps {
+  /** @default false */
+  alwaysTranslate?: boolean;
+  change?: ((...args: any[]) => any);
+  dependencies?: any[] | Record<string, any>;
+  /** @default false */
+  disabled?: boolean;
+  errors?: string | any[];
+  errorsClass?: string | Record<string, any>;
+  /** @default [] */
+  excludeRenderAttributes?: any[];
+  extra?: Record<string, any>;
+  helpText?: string;
+  htmlId?: string;
+  /** @default "a_json_editor_23" */
+  id?: string | number;
+  idPrefix?: string;
+  /** @default false */
+  isHide?: boolean;
+  /** @default true */
+  isRender?: boolean;
+  label?: string | number;
+  labelClass?: string | Record<string, any>;
+  labelDescription?: string;
+  labelScreenReader?: string | number;
+  /** @default {} */
+  modelDependencies?: Record<string, any>;
+  /** @default null */
+  modelUndefined?: any[] | Record<string, any> | string | number | boolean;
+  modelValue?: any;
+  /** @default false */
+  readonly?: boolean;
+  /** @default false */
+  required?: boolean;
+  /** @default "jsonEditor" */
+  type?: string;
+  /** @default "object" */
+  modelType?: string;
+  resetValue?: any;
+  /** @default "_A_JSON_EDITOR_ROOT_" */
+  rootName?: string;
+  /** @default "tree" */
+  mode?: string;
+  /** @default ["tree","code","split"] */
+  modes?: any[];
+  /** @default "warn" */
+  bigNumbers?: string;
+  /** @default 100 */
+  arrayPageSize?: number;
+  /** @default "normal" */
+  density?: string;
+  /** @default {} */
+  displayFormatters?: Record<string, any>;
+  /** @default 1 */
+  expandLevel?: number;
+  /** @default [] */
+  expandedPaths?: any[];
+  height?: string;
+  /** @default "32rem" */
+  maxHeight?: string;
+  /** @default "dot" */
+  pathFormat?: string;
+  /** @default 32 */
+  rowHeight?: number;
+  /** @default true */
+  allowFullscreen?: boolean;
+  /** @default true */
+  multilineStrings?: boolean;
+  /** @default 8 */
+  multilineMaxRows?: number;
+  /** @default true */
+  selectable?: boolean;
+  /** @default true */
+  showCounts?: boolean;
+  /** @default true */
+  showGuides?: boolean;
+  /** @default true */
+  showHistory?: boolean;
+  /** @default true */
+  showIndexes?: boolean;
+  /** @default true */
+  showStatusBar?: boolean;
+  /** @default true */
+  showToolbar?: boolean;
+  /** @default true */
+  showTypes?: boolean;
+  /** @default 120 */
+  stringMaxLength?: number;
+  /** @default 300 */
+  virtualThreshold?: number;
+  /** @default true */
+  allowAdd?: boolean;
+  /** @default true */
+  allowMove?: boolean;
+  /** @default true */
+  allowRemove?: boolean;
+  /** @default true */
+  allowRename?: boolean;
+  /** @default true */
+  allowTypeChange?: boolean;
+  allowedTypes?: any[];
+  /** @default false */
+  confirmRemove?: boolean | string;
+  /** @default [] */
+  hiddenPaths?: any[];
+  /** @default [] */
+  lockedKeys?: any[];
+  maxDepth?: number;
+  /** @default [] */
+  readonlyPaths?: any[];
+  /** @default 100 */
+  undoLimit?: number;
+  /** @default true */
+  searchable?: boolean;
+  /** @default true */
+  allowReplace?: boolean;
+  /** @default false */
+  searchCaseSensitive?: boolean;
+  /** @default 200 */
+  searchDebounce?: number;
+  /** @default false */
+  searchFilter?: boolean;
+  /** @default "both" */
+  searchIn?: string;
+  /** @default false */
+  searchRegex?: boolean;
+  /** @default false */
+  allowUnknownVariables?: boolean;
+  /** @default false */
+  showResolved?: boolean;
+  variablePattern?: Record<string, any>;
+  variableValues?: Record<string, any>;
+  variables?: any[] | ((...args: any[]) => any);
+  /** @default true */
+  blockInvalidSave?: boolean;
+  /** @default "top" */
+  errorSummaryPosition?: string;
+  maxErrors?: number;
+  rules?: Record<string, any>;
+  schema?: Record<string, any>;
+  /** @default true */
+  showErrorSummary?: boolean;
+  /** @default "change" */
+  validateOn?: string;
+  emptyContainers?: string;
+  escapeSlashes?: boolean;
+  escapeUnicode?: boolean;
+  /** @default "none" */
+  formatOn?: string;
+  /** @default {} */
+  formatOptions?: Record<string, any>;
+  indent?: number | string;
+  inlineArrays?: boolean | number;
+  inlineObjects?: boolean | number;
+  lineEnding?: string;
+  maxLineLength?: number;
+  minify?: boolean;
+  numberFormat?: ((...args: any[]) => any);
+  sortKeys?: boolean | string | ((...args: any[]) => any);
+  spaceAfterColon?: boolean;
+  trailingNewline?: boolean;
+  afterChange?: ((...args: any[]) => any);
+  beforeAdd?: ((...args: any[]) => any);
+  beforeChange?: ((...args: any[]) => any);
+  beforeMove?: ((...args: any[]) => any);
+  beforeRemove?: ((...args: any[]) => any);
+  beforeRename?: ((...args: any[]) => any);
+  beforeSet?: ((...args: any[]) => any);
+  beforeTypeChange?: ((...args: any[]) => any);
+  getNodeActions?: ((...args: any[]) => any);
+  getValueType?: ((...args: any[]) => any);
+  loadChildren?: ((...args: any[]) => any);
+  onSelect?: ((...args: any[]) => any);
+  parse?: ((...args: any[]) => any);
+  stringify?: ((...args: any[]) => any);
+  validateDocument?: ((...args: any[]) => any);
+  validateNode?: ((...args: any[]) => any);
+  /** @default [] */
+  plugins?: any[];
+  /** @default "_A_JSON_EDITOR_KEYBOARD_HINT_" */
+  keyboardHint?: string;
+}
+export declare const AJsonEditor: DefineComponent<AJsonEditorProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("collapse" | "expand" | "fullscreen" | "selectionChange" | "modeChange" | "search" | "select" | "update:modelValue" | "validate")[]>;
 
 export interface ALabelProps {
   alwaysTranslate?: boolean;
@@ -1711,7 +2280,7 @@ export interface ALinkProps {
   iconLeft?: string | Record<string, any>;
   iconRight?: string | Record<string, any>;
   iconTag?: string;
-  /** @default "a_link_19" */
+  /** @default "a_link_24" */
   id?: string;
   isTitleHtml?: boolean;
   /** @default false */
@@ -1854,7 +2423,7 @@ export interface AMenuProps {
   /** @default "parent" */
   keyParent?: string;
   keySlot?: string;
-  /** @default "a_menu_20" */
+  /** @default "a_menu_25" */
   menuId?: string;
   /** @default false */
   onlyMobile?: boolean;
@@ -1888,6 +2457,7 @@ export interface AMenuButtonToggleProps {
 export declare const AMenuButtonToggle: DefineComponent<AMenuButtonToggleProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
 export interface AModalProps {
+  ariaLabel?: string;
   alwaysTranslate?: boolean;
   backdropZIndex?: number;
   /** @default "" */
@@ -1901,9 +2471,10 @@ export interface AModalProps {
   /** @default "a_btn a_btn_secondary" */
   closeButtonClass?: string | any[] | Record<string, any>;
   closeButtonId?: string;
+  /** @default false */
+  closeOnBackdrop?: boolean;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -1918,7 +2489,7 @@ export interface AModalProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_21" */
+  /** @default "a_modal_26" */
   id?: string;
   /** @default false */
   isCloseButtonHide?: boolean;
@@ -1940,7 +2511,6 @@ export interface AModalProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -1954,6 +2524,8 @@ export interface AModalProps {
   useEscape?: boolean;
   /** @default true */
   useFocusOnStart?: boolean;
+  /** @default true */
+  useInert?: boolean;
   zIndex?: number;
 }
 export declare const AModal: DefineComponent<AModalProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
@@ -1978,7 +2550,6 @@ export interface AModalFormProps {
   closeButtonId?: string;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -1997,7 +2568,7 @@ export interface AModalFormProps {
   headerText?: string;
   hideFooter?: boolean;
   hideHeader?: boolean;
-  /** @default "a_modal_form_22" */
+  /** @default "a_modal_form_27" */
   id?: string;
   idPrefix?: string;
   /** @default false */
@@ -2025,7 +2596,6 @@ export interface AModalFormProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -2064,7 +2634,6 @@ export interface AModalWizardProps {
   closeButtonId?: string;
   /** @default "_A_MODAL_BTN_CANCEL_" */
   closeButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_" */
   closeButtonTextScreenReaderFooter?: string;
   /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_" */
   closeButtonTextScreenReaderHeader?: string;
@@ -2083,6 +2652,8 @@ export interface AModalWizardProps {
   /** @default false */
   isFooterSticky?: boolean;
   /** @default false */
+  isSaveButtonLastStepOnly?: boolean;
+  /** @default false */
   isSaveButtonHide?: boolean;
   loading?: boolean;
   modalClass?: string | Record<string, any>;
@@ -2095,7 +2666,6 @@ export interface AModalWizardProps {
   saveButtonId?: string;
   /** @default "_A_MODAL_BTN_SAVE_" */
   saveButtonText?: string;
-  /** @default "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_" */
   saveButtonTextScreenReader?: string;
   selectorClose?: string | any[];
   selectorCloseIds?: string | any[];
@@ -2108,7 +2678,7 @@ export interface AModalWizardProps {
   /** @default true */
   useFocusOnStart?: boolean;
   zIndex?: number;
-  /** @default "_A_WIZARD_ARIA_LABEL_" */
+  /** @default "" */
   ariaLabel?: string;
   /** @default "_A_WIZARD_STEPS_ARIA_LABEL_" */
   ariaLabelSteps?: string;
@@ -2120,6 +2690,7 @@ export interface AModalWizardProps {
   backButtonIconRight?: string;
   /** @default "_A_WIZARD_PREVIOUS_" */
   backButtonText?: string;
+  beforeStepChange?: ((...args: any[]) => any);
   /** @default "_A_WIZARD_PREVIOUS_TITLE_" */
   backButtonTitle?: string;
   /** @default {} */
@@ -2130,11 +2701,16 @@ export interface AModalWizardProps {
   forwardButtonIconRight?: string;
   /** @default "_A_WIZARD_NEXT_" */
   forwardButtonText?: string;
+  /** @default {} */
+  finishButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  finishButtonClass?: string | any[] | Record<string, any>;
+  finishButtonText?: string;
   /** @default "_A_WIZARD_NEXT_TITLE_" */
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_modal_wizard_23" */
+  /** @default "a_modal_wizard_28" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -2162,6 +2738,9 @@ export interface AModalWizardProps {
   scrollToTopOnStepChange?: boolean;
   /** @default true */
   showOnlyActiveStepMobile?: boolean;
+  isStepHeadingVisible?: boolean;
+  /** @default "h3" */
+  stepHeadingTag?: string;
   stepActive?: number;
   /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-circle-fill\" viewBox=\"0 0 16 16\">\n  <path d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z\"/>\n</svg>" */
   stepIconError?: string;
@@ -2180,7 +2759,7 @@ export interface AModalWizardProps {
   /** @default "basic" */
   type?: string;
 }
-export declare const AModalWizard: DefineComponent<AModalWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "goStepBack" | "goStepForward")[]>;
+export declare const AModalWizard: DefineComponent<AModalWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "finish" | "goStepBack" | "goStepForward")[]>;
 
 export interface AMultiselectOrderedProps {
   alwaysTranslate?: boolean;
@@ -2223,7 +2802,7 @@ export interface AMultiselectOrderedProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_m_select_ordered_24" */
+  /** @default "a_m_select_ordered_29" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -2324,7 +2903,50 @@ export interface AMultiselectOrderedProps {
 }
 export declare const AMultiselectOrdered: DefineComponent<AMultiselectOrderedProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "focus" | "onSearchOutside" | "open" | "update:modelValue" | "updateData")[]>;
 
+export interface ANavbarProps {
+  alwaysTranslate?: boolean;
+  /** @default 200 */
+  closeDelay?: number;
+  /** @default [] */
+  data?: any[];
+  /** @default "left" */
+  drawerPlacement?: string;
+  extra?: Record<string, any>;
+  /** @default "a_navbar_30" */
+  id?: string;
+  /** @default false */
+  isEndInDrawer?: boolean;
+  /** @default true */
+  isMobileMenu?: boolean;
+  /** @default false */
+  isSticky?: boolean;
+  /** @default "children" */
+  keyChildren?: string;
+  /** @default "id" */
+  keyId?: string;
+  /** @default "label" */
+  keyLabel?: string;
+  label?: string;
+  /** @default 100 */
+  openDelay?: number;
+  /** @default "more" */
+  overflow?: string;
+  /** @default {} */
+  texts?: Record<string, any>;
+  /** @default "click" */
+  trigger?: string;
+}
+export declare const ANavbar: DefineComponent<ANavbarProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("navigate")[]>;
+
 export interface ANotificationProps {
+  /** @default false */
+  hasProgress?: boolean;
+  name?: string;
+  max?: number;
+  /** @default "top-center" */
+  placement?: string;
+  size?: string;
+  width?: number | string;
 }
 export declare const ANotification: DefineComponent<ANotificationProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
@@ -2341,7 +2963,7 @@ export interface AOneCheckboxProps {
   falseValue?: boolean | string | number;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_one_checkbox_25" */
+  /** @default "a_one_checkbox_31" */
   id?: string | number;
   idPrefix?: string;
   indeterminate?: boolean;
@@ -2391,7 +3013,7 @@ export interface APaginationProps {
   modes?: Record<string, any>;
   offset: number;
   rowsLength: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesJumperButton":"_A_PAGINATION_JUMPER_BUTTON_","pagesJumperError":"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_","pagesJumperLabel":"_A_PAGINATION_JUMPER_LABEL_","pagesJumperOf":"_A_PAGINATION_JUMPER_OF_{{allPages}}_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_","countFromTo":"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","countPerPage":"_A_COUNT_PER_PAGE_","countPerPageItem":"_A_COUNT_PER_PAGE_ITEM_{{count}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
@@ -2399,17 +3021,88 @@ export declare const APagination: DefineComponent<APaginationProps, {}, {}, {}, 
 
 export interface APaginationPagesProps {
   disabled?: boolean;
+  hideOnSinglePage?: boolean;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-double-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n  <path fill-rule=\"evenodd\" d=\"M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
+  iconFirst?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-double-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708\"/>\n  <path fill-rule=\"evenodd\" d=\"M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
+  iconLast?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-right\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\"/>\n</svg>" */
+  iconNext?: string | Record<string, any>;
+  /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
+  iconPrevious?: string | Record<string, any>;
+  /** @default "a_pagination_pages_32" */
+  id?: string;
   limit: number;
   /** @default 5 */
   maxPages?: number;
   /** @default "normal" */
   mode?: string;
-  offset: number;
-  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
+  /** @default 0 */
+  offset?: number;
+  page?: number;
+  showEdges?: boolean;
+  showJumper?: boolean;
+  /** @default "medium" */
+  size?: string;
+  /** @default {"pagesFirstPage":"_A_PAGINATION_FIRST_PAGE_","pagesJumperButton":"_A_PAGINATION_JUMPER_BUTTON_","pagesJumperError":"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_","pagesJumperLabel":"_A_PAGINATION_JUMPER_LABEL_","pagesJumperOf":"_A_PAGINATION_JUMPER_OF_{{allPages}}_","pagesLastPage":"_A_PAGINATION_LAST_PAGE_","pagesLoadMore":"_A_PAGINATION_LOAD_MORE_","pagesMobile":"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","pagesNavigation":"_A_PAGINATION_NAVIGATION_","pagesNextPage":"_A_PAGINATION_NEXT_PAGE_","pagesPreviousPage":"_A_PAGINATION_PREVIOUS_PAGE_","pagesToPage":"_A_PAGINATION_TO_PAGE_{{page}}_"} */
   texts?: Record<string, any>;
   totalCount: number;
 }
-export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:offset")[]>;
+export declare const APaginationPages: DefineComponent<APaginationPagesProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "update:limit" | "update:offset" | "update:page")[]>;
+
+export interface APopoverProps {
+  alwaysTranslate?: boolean;
+  /** @default {} */
+  buttonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_secondary" */
+  buttonClass?: string | Record<string, any> | any[];
+  buttonIconLeft?: string | Record<string, any>;
+  buttonIconRight?: string | Record<string, any>;
+  buttonText?: string | number;
+  buttonTextScreenReader?: string | number;
+  buttonTitle?: string | number;
+  /** @default 200 */
+  closeDelay?: number;
+  /** @default true */
+  closeOnClickOutside?: boolean;
+  /** @default true */
+  closeOnFocusOut?: boolean;
+  disabled?: boolean;
+  extra?: Record<string, any>;
+  /** @default "first" */
+  focusOnOpen?: string;
+  /** @default true */
+  hasArrow?: boolean;
+  /** @default true */
+  hasCloseButton?: boolean;
+  header?: string | number;
+  /** @default "div" */
+  headerTag?: string;
+  /** @default "a_popover_33" */
+  id?: string;
+  /** @default true */
+  inBody?: boolean;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
+  modelValue?: boolean;
+  /** @default 8 */
+  offset?: number;
+  /** @default 100 */
+  openDelay?: number;
+  /** @default "bottom" */
+  placement?: string;
+  /** @default {} */
+  popoverAttributes?: Record<string, any>;
+  popoverClass?: string | Record<string, any> | any[];
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
+  /** @default "click" */
+  trigger?: string;
+  /** @default true */
+  useEscape?: boolean;
+  zIndex?: number | string;
+}
+export declare const APopover: DefineComponent<APopoverProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("close" | "open" | "update:modelValue")[]>;
 
 export interface AProgressProps {
   /** @default "_A_PROGRESS_ARIA_LABEL_" */
@@ -2490,7 +3183,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_26" */
+  /** @default "a_radio_34" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -2573,7 +3266,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_27" */
+  /** @default "a_rate_35" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -2663,7 +3356,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_28" */
+  /** @default "a_router_link_config_36" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -2792,7 +3485,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_29" */
+  /** @default "a_ui_37" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -2921,7 +3614,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_30" */
+  /** @default "a_select_icon_38" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3026,7 +3719,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_31" */
+  /** @default "a_select_styles_39" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3123,18 +3816,19 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_32" */
+  /** @default "a_show_more_40" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
   isOpenDefault?: boolean;
+  modelValue?: boolean;
   safeHtml?: string;
   /** @default true */
   showLess?: boolean;
   text?: string;
   textLength?: number;
 }
-export declare const AShowMore: DefineComponent<AShowMoreProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle")[]>;
+export declare const AShowMore: DefineComponent<AShowMoreProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("toggle" | "update:modelValue")[]>;
 
 export interface ASkeletonProps {
   /** @default true */
@@ -3168,6 +3862,16 @@ export interface ASkeletonItemProps {
 }
 export declare const ASkeletonItem: DefineComponent<ASkeletonItemProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
 
+export interface ASkipLinkProps {
+  alwaysTranslate?: boolean;
+  extra?: Record<string, any>;
+  /** @default "main" */
+  targetId?: string;
+  /** @default "_A_SKIP_LINK_TEXT_" */
+  text?: string;
+}
+export declare const ASkipLink: DefineComponent<ASkipLinkProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
+
 export interface ASliderProps {
   alwaysTranslate?: boolean;
   change?: ((...args: any[]) => any);
@@ -3183,7 +3887,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_33" */
+  /** @default "a_slider_41" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3267,7 +3971,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_34" */
+  /** @default "a_switch_42" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3340,7 +4044,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table35" */
+  /** @default "a_table43" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -3458,7 +4162,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_36" */
+  /** @default "a_table_form_44" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -3499,10 +4203,14 @@ export interface ATableFormProps {
 export declare const ATableForm: DefineComponent<ATableFormProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("deleteRow" | "moveRow" | "updateRows")[]>;
 
 export interface ATabsProps {
+  /** @default "auto" */
+  activation?: string;
+  ariaLabel?: string;
+  ariaLabelledby?: string;
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_37" */
+  /** @default "a_tabs_45" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -3518,10 +4226,12 @@ export interface ATabsProps {
   keyLabel?: string;
   /** @default "title" */
   keyTitle?: string;
+  /** @default "all" */
+  renderContent?: string;
   /** @default "top" */
   titlePlacement?: string;
 }
-export declare const ATabs: DefineComponent<ATabsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change")[]>;
+export declare const ATabs: DefineComponent<ATabsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("change" | "update:activeTabId")[]>;
 
 export interface ATemplateProps {
   alwaysTranslate?: boolean;
@@ -3569,7 +4279,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_38" */
+  /** @default "a_textarea_46" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -3608,11 +4318,11 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_39" */
+  /** @default "a_tooltip_47" */
   id?: string;
   isHide?: boolean;
-  maxWidth?: number;
-  minWidth?: number;
+  maxWidth?: number | string;
+  minWidth?: number | string;
   /** @default 6 */
   offsetDistance?: number;
   /** @default 0 */
@@ -3621,13 +4331,17 @@ export interface ATooltipProps {
   placement?: string;
   /** @default "a_tooltip_container" */
   popperContainerId?: string;
+  /** @default "always" */
+  renderDescription?: string;
   /** @default true */
   showArrow?: boolean;
   /** @default "span" */
   tag?: string;
+  /** @default 0 */
+  timeOpen?: number;
   /** @default 100 */
   timeClose?: number;
-  width?: number;
+  width?: number | string;
   withoutAriaDescribedby?: boolean;
 }
 export declare const ATooltip: DefineComponent<ATooltipProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, (never)[]>;
@@ -3662,7 +4376,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_40" */
+  /** @default "a_tree_48" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -3715,7 +4429,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_41" */
+  /** @default "a_validated_json_49" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3785,8 +4499,14 @@ export interface AWizardProps {
   backButtonText?: string;
   /** @default "_A_WIZARD_PREVIOUS_TITLE_" */
   backButtonTitle?: string;
+  beforeStepChange?: ((...args: any[]) => any);
   /** @default {} */
   extra?: Record<string, any>;
+  /** @default {} */
+  finishButtonAttributes?: Record<string, any>;
+  /** @default "a_btn a_btn_primary" */
+  finishButtonClass?: string | any[] | Record<string, any>;
+  finishButtonText?: string;
   /** @default {} */
   forwardButtonAttributes?: Record<string, any>;
   /** @default "a_btn a_btn_secondary" */
@@ -3799,7 +4519,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_42" */
+  /** @default "a_wizard_50" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -3818,6 +4538,7 @@ export interface AWizardProps {
   isForwardStepButtonDisabled?: boolean;
   /** @default false */
   isMobile?: boolean;
+  isStepHeadingVisible?: boolean;
   /** @default true */
   isStepNumberVisible?: boolean;
   /** @default true */
@@ -3830,6 +4551,8 @@ export interface AWizardProps {
   /** @default true */
   showOnlyActiveStepMobile?: boolean;
   stepActive?: number;
+  /** @default "h3" */
+  stepHeadingTag?: string;
   /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-x-circle-fill\" viewBox=\"0 0 16 16\">\n  <path d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z\"/>\n</svg>" */
   stepIconError?: string;
   /** @default "_A_WIZARD_STEP_ERROR_" */
@@ -3848,7 +4571,7 @@ export interface AWizardProps {
   /** @default "basic" */
   type?: string;
 }
-export declare const AWizard: DefineComponent<AWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "goStepBack" | "goStepForward")[]>;
+export declare const AWizard: DefineComponent<AWizardProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("changeStep" | "finish" | "goStepBack" | "goStepForward")[]>;
 
 // shortcut: functions, plugins and constants are not typed yet, upgrade when JSDoc types exist in src/
 export declare const AAlertI18n: any;
@@ -3858,6 +4581,7 @@ export declare const ACarouselI18n: any;
 export declare const ACheckboxI18n: any;
 export declare const ACloakI18n: any;
 export declare const AColorPickerI18n: any;
+export declare const AComboboxI18n: any;
 export declare const AComponentsPlugin: any;
 export declare const AConfirmAPI: any;
 export declare const AConfirmAPI_changeConfirmOptions: any;
@@ -3868,6 +4592,7 @@ export declare const AConfirmAPI_openConfirm: any;
 export declare const ADataRetrievePlugin: any;
 export declare const ADataRetrievePlugin_defaultRetrieve: any;
 export declare const ADataRetrievePluginOptions: any;
+export declare const ADateInputI18n: any;
 export declare const ADatepickerI18n: any;
 export declare const ADatepickerRangeI18n: any;
 export declare const addCalendarException: any;
@@ -3904,6 +4629,7 @@ export declare const AHttpAPI_setUrlForArray: any;
 export declare const AHttpAPI_setUrlWithParams: any;
 export declare const AHttpPlugin: any;
 export declare const AI18nPlugin: any;
+export declare const AIconCalendar: any;
 export declare const AIconClose: any;
 export declare const AIconPlugin: any;
 export declare const AInputCurrencyI18n: any;
@@ -3912,6 +4638,16 @@ export declare const AInputI18n: any;
 export declare const AInputNumberI18n: any;
 export declare const AInputNumberRangeI18n: any;
 export declare const AInputOtpI18n: any;
+export declare const AInputTagsI18n: any;
+export declare const AJsonEditorColorPlugin: any;
+export declare const AJsonEditorDatePlugin: any;
+export declare const AJsonEditorI18n: any;
+export declare const AJsonEditorImagePlugin: any;
+export declare const AJsonEditorPlugin: any;
+export declare const AJsonEditorPluginOptions: any;
+export declare const AJsonEditorPlugins: any;
+export declare const AJsonEditorSwitchPlugin: any;
+export declare const AJsonEditorUrlPlugin: any;
 export declare const AJsonI18n: any;
 export declare const AKeyChildren: any;
 export declare const AKeyHide: any;
@@ -3936,8 +4672,11 @@ export declare const AMobileAPI_setIsMobileWidth: any;
 export declare const AMobilePlugin: any;
 export declare const AModalI18n: any;
 export declare const AMultiselectOrderedI18n: any;
+export declare const ANavbarI18n: any;
 export declare const ANotificationAPI: any;
 export declare const ANotificationAPI_addNotification: any;
+export declare const ANotificationAPI_clearNotifications: any;
+export declare const ANotificationAPI_removeNotification: any;
 export declare const ANotificationAPI_setNotificationTimeout: any;
 export declare const AOnHooks: any;
 export declare const aOrderBy: any;
@@ -3946,6 +4685,7 @@ export declare const APageTabTitleAPI_setBaseTitle: any;
 export declare const APageTabTitlePlugin: any;
 export declare const APaginationI18n: any;
 export declare const APlacements: any;
+export declare const APopoverI18n: any;
 export declare const APopupAPI: any;
 export declare const APopupAPI_closePopup: any;
 export declare const APopupAPI_isCurrentPopupOpen: any;
@@ -3965,6 +4705,7 @@ export declare const ASelectI18n: any;
 export declare const ASelectStyleI18n: any;
 export declare const AShowMoreI18n: any;
 export declare const ASkeletonI18n: any;
+export declare const ASkipLinkI18n: any;
 export declare const ASliderI18n: any;
 export declare const aSortBy: any;
 export declare const ASpinnerI18n: any;
@@ -4020,6 +4761,7 @@ export declare const filterUpperCase: any;
 export declare const filterValueByCondition: any;
 export declare const focusableList: any;
 export declare const focusableSelector: any;
+export declare const formatJson: any;
 export declare const getCalendarIcs: any;
 export declare const getComponentOption: any;
 export declare const getPropDefault: any;
@@ -4074,13 +4816,18 @@ export declare const isString: any;
 export declare const isSymbol: any;
 export declare const isTranslate: any;
 export declare const isUndefined: any;
+export declare const isUnsafeNumber: any;
 export declare const isWeakMap: any;
 export declare const isWeakSet: any;
+export declare const minifyJson: any;
 export declare const mixBlack: any;
 export declare const mixColor: any;
 export declare const mixWhite: any;
 export declare const moveCalendarSeries: any;
 export declare const parseCalendarIcs: any;
+export declare const parseJson: any;
+export declare const repairJson: any;
+export declare const resolveVariables: any;
 export declare const rgbToHex: any;
 export declare const sanitize: any;
 export declare const sanitizeLocal: any;
@@ -4130,11 +4877,15 @@ declare module "vue" {
     ACheckboxRadioGroups: typeof ACheckboxRadioGroups;
     ACloak: typeof ACloak;
     AColorPicker: typeof AColorPicker;
+    ACombobox: typeof ACombobox;
+    ADateInput: typeof ADateInput;
     ADatepicker: typeof ADatepicker;
     ADatepickerRange: typeof ADatepickerRange;
     ADisclosure: typeof ADisclosure;
+    ADrawer: typeof ADrawer;
     ADropdown: typeof ADropdown;
     AElement: typeof AElement;
+    AEmptyState: typeof AEmptyState;
     AErrors: typeof AErrors;
     AErrorsText: typeof AErrorsText;
     AFieldset: typeof AFieldset;
@@ -4159,7 +4910,9 @@ declare module "vue" {
     AInputNumber: typeof AInputNumber;
     AInputNumberRange: typeof AInputNumberRange;
     AInputOtp: typeof AInputOtp;
+    AInputTags: typeof AInputTags;
     AJson: typeof AJson;
+    AJsonEditor: typeof AJsonEditor;
     ALabel: typeof ALabel;
     ALink: typeof ALink;
     ALinkCopy: typeof ALinkCopy;
@@ -4172,11 +4925,13 @@ declare module "vue" {
     AModalForm: typeof AModalForm;
     AModalWizard: typeof AModalWizard;
     AMultiselectOrdered: typeof AMultiselectOrdered;
+    ANavbar: typeof ANavbar;
     ANotification: typeof ANotification;
     AOneCheckbox: typeof AOneCheckbox;
     APageTabTitle: typeof APageTabTitle;
     APagination: typeof APagination;
     APaginationPages: typeof APaginationPages;
+    APopover: typeof APopover;
     AProgress: typeof AProgress;
     AProgressCircle: typeof AProgressCircle;
     ARadio: typeof ARadio;
@@ -4191,6 +4946,7 @@ declare module "vue" {
     AShowMore: typeof AShowMore;
     ASkeleton: typeof ASkeleton;
     ASkeletonItem: typeof ASkeletonItem;
+    ASkipLink: typeof ASkipLink;
     ASlider: typeof ASlider;
     ASpinner: typeof ASpinner;
     ASwitch: typeof ASwitch;

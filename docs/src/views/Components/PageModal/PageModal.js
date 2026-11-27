@@ -1,9 +1,13 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
+import PageModalAriaLabel from "./PageModalAriaLabel/PageModalAriaLabel.vue";
 import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
 import PageModalBodyHtml from "./PageModalBodyHtml/PageModalBodyHtml.vue";
 import PageModalCloseButton from "./PageModalCloseButton/PageModalCloseButton.vue";
+import PageModalCloseOnBackdrop from "./PageModalCloseOnBackdrop/PageModalCloseOnBackdrop.vue";
+import PageModalFocusReturn from "./PageModalFocusReturn/PageModalFocusReturn.vue";
+import PageModalFocusStart from "./PageModalFocusStart/PageModalFocusStart.vue";
 import PageModalFooterSticky from "./PageModalFooterSticky/PageModalFooterSticky.vue";
 import PageModalInModal from "./PageModalInModal/PageModalInModal.vue";
 import PageModalSaveButton from "./PageModalSaveButton/PageModalSaveButton.vue";
@@ -24,6 +28,10 @@ import TranslateAPI from "./compositionAPI/TranslateAPI";
 export default {
   name: "PageModal",
   components: {
+    PageModalFocusStart,
+    PageModalFocusReturn,
+    PageModalCloseOnBackdrop,
+    PageModalAriaLabel,
     AlohaPage,
     AlohaTableProps,
     AlohaTableTranslate,

@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Emplacements",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Le contenu du composant peut être défini sous forme de texte brut.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Texte",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "La longueur représente le nombre maximal de caractères après lesquels le reste du texte est masqué.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Nombre maximal de caractères après lequel le reste du texte est masqué. Le texte est coupé à la fin d'un mot et reçoit des points de suspension (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Longueur du texte",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Afficher moins Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Afficher plus Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Contenu à afficher à l'intérieur du composant.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Manipulation du composant en utilisant l'indicateur \"isOpen\".",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Manipulation du composant en utilisant le bouton \"Afficher plus\".",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Se déclenche lorsque le bouton est pressé, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Se déclenche lorsque le bouton est pressé, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Avec <code>text-length</code>, le reste du texte n'est pas dans la page : le bouton a <code>aria-expanded</code> et <code>aria-controls</code>. Avec <code>height</code>, tout le contenu est dans la page et un lecteur d'écran le lit de toute façon : le bouton indique qu'il peut être ignoré. Un lien ou un bouton dans la partie coupée ouvre le contenu quand il reçoit le focus. Après le clic, le focus reste sur le bouton ; seulement si le bouton disparaît (<code>show-less=\"false\"</code>), il va au contenu.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> indique si le contenu est ouvert et l'ouvre ou le ferme aussi depuis l'extérieur. L'événement <code>toggle</code> arrive toujours.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Liens dans la partie coupée",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Parcourez les liens avec Tab : quand un lien de la partie coupée reçoit le focus, le contenu s'ouvre, le focus est donc toujours visible (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Ouvrir / fermer depuis l'extérieur",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Ouvert ou fermé (<code>v-model</code>). Sans elle, <code>is-open-default</code> définit le départ.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Ouvert ou fermé a changé (<code>v-model</code>). Arrive avec <code>toggle</code>."
 }

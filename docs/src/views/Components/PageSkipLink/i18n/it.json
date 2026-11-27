@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Link di salto",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> è il primo link della pagina: <em>Vai al contenuto principale</em>. È nascosto finché non riceve il focus da tastiera, poi appare in alto a sinistra. Gli utenti di tastiera e screen reader saltano l'intestazione e la navigazione con un tasto (WCAG 2.4.1). Il link sposta da solo il focus sulla destinazione, quindi funziona anche con un router hash e con un elemento come <code>&lt;main&gt;</code> che non può ricevere il focus.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Mettete <code>a-skip-link</code> come primo elemento della pagina e date al contenuto principale <code>&lt;main id=\"main\"&gt;</code>. Provatelo su questa pagina: ricaricatela e premete <kbd>Tab</kbd>. L'esempio qui sotto salta al riquadro sottostante.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> dell'elemento che riceve il focus, ad es. <code>&lt;main id=\"main\"&gt;</code>. Se l'elemento non esiste, il link funziona come un link normale.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Testo del link. Accetta una chiave di traduzione.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Destinazione del link di salto in questo esempio. Dopo un clic sul link il focus è qui."
+}

@@ -8,6 +8,10 @@ import ATabsContent from "./ATabsContent/ATabsContent";
 import ATabsTab from "./ATabsTab/ATabsTab";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
+import KeyboardAPI from "./compositionAPI/KeyboardAPI";
+import {
+  getTranslatedAttributes,
+} from "../ATranslation/compositionAPI/UtilsAPI";
 
 import placements from "../const/placements";
 import {
@@ -17,6 +21,27 @@ import {
 export default {
   name: "ATabs",
   props: {
+    /*
+     * name of the tab list for screen readers, e.g. when the page has several tabs
+     * auto: the arrows open the focused tab at once; manual: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long
+     */
+    activation: {
+      type: String,
+      required: false,
+      default: "auto",
+      validator: value => ["auto", "manual"].indexOf(value) !== -1,
+    },
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    ariaLabelledby: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    // v-model:active-tab-id
     activeTabId: {
       type: [String, Number],
       required: false,
@@ -86,6 +111,13 @@ export default {
       required: false,
       default: "title",
     },
+    // all: every content is rendered (hidden with CSS); active: only the active content; once: a content is rendered when its tab is opened first and then kept
+    renderContent: {
+      type: String,
+      required: false,
+      default: "all",
+      validator: value => ["all", "active", "once"].indexOf(value) !== -1,
+    },
     titlePlacement: {
       type: String,
       required: false,
@@ -95,16 +127,25 @@ export default {
   },
   emits: [
     "change",
+    "update:activeTabId",
   ],
   setup(props, context) {
     const activeTabId = toRef(props, "activeTabId");
 
     const {
-      activeTabIdLocal,
+      activeTabIdShown,
       changeTab,
       initActiveTabIdLocal,
       setActiveTabIdLocal,
+      tabs,
     } = ActiveAPI(props, context);
+
+    const {
+      onKeydownTablist,
+    } = KeyboardAPI(props, {
+      changeTab,
+      tabs,
+    });
 
     initActiveTabIdLocal();
 
@@ -113,8 +154,10 @@ export default {
     });
 
     return {
-      activeTabIdLocal,
+      activeTabIdShown,
       changeTab,
+      onKeydownTablist,
+      tabs,
     };
   },
   render() {
@@ -131,11 +174,15 @@ export default {
         h("ul", {
           class: "a_tabs__list",
           role: "tablist",
+          "aria-orientation": this.isVertical ? "vertical" : undefined,
+          "aria-labelledby": this.ariaLabelledby,
+          ...getTranslatedAttributes({ attr: "aria-label", placeholder: this.ariaLabel }),
+          onKeydown: this.onKeydownTablist,
         }, [
           this.data.map((tab, tabIndex) => {
             return h(ATabsTab, {
-              key: tabIndex,
-              activeTabIdLocal: this.activeTabIdLocal,
+              key: this.tabs[tabIndex].tabId,
+              activeTabIdLocal: this.activeTabIdShown,
               disabled: this.disabled,
               index: tabIndex,
               isTitleHtml: this.isTitleHtml,
@@ -156,12 +203,13 @@ export default {
       }, [
         this.data.map((tab, tabIndex) => {
           return h(ATabsContent, {
-            key: tabIndex,
-            activeTabIdLocal: this.activeTabIdLocal,
+            key: this.tabs[tabIndex].tabId,
+            activeTabIdLocal: this.activeTabIdShown,
             index: tabIndex,
             keyContent: this.keyContent,
             keyId: this.keyId,
             parentId: this.id,
+            renderContent: this.renderContent,
             tab,
           }, this.$slots);
         }),

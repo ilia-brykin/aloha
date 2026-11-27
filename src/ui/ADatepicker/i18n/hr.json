@@ -54,5 +54,6 @@
   "_A_DATEPICKER_HOURS_": "Sati",
   "_A_DATEPICKER_MINUTES_": "Minute",
   "_A_DATEPICKER_SECONDS_": "Sekunde",
-  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} do {{ lastYear }}"
+  "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} do {{ lastYear }}",
+  "_A_DATEPICKER_DIALOG_LABEL_": "Odaberite datum"
 }

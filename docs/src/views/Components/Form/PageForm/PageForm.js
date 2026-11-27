@@ -4,6 +4,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import PageFormBasic from "./PageFormBasic/PageFormBasic.vue";
 import PageFormDependencies from "./PageFormDependencies/PageFormDependencies.vue";
 import PageFormEventsSlots from "./PageFormEventsSlots/PageFormEventsSlots.vue";
+import PageFormSubmit from "./PageFormSubmit/PageFormSubmit.vue";
 import PageFormValidationReadonly from "./PageFormValidationReadonly/PageFormValidationReadonly.vue";
 import {
   ATranslation,
@@ -17,6 +18,7 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageForm",
   components: {
+    PageFormSubmit,
     AlohaFormTypes,
     AlohaPage,
     AlohaTableProps,

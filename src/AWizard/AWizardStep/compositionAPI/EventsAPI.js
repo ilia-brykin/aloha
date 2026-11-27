@@ -3,15 +3,14 @@ import {
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../const/AKeysCode";
-
 export default function EventsAPI(props, { emit }, {
   isStepDisabled = computed(() => false),
 }) {
   const step = toRef(props, "step");
   const stepIndex = toRef(props, "stepIndex");
 
-  const onClick = ({ $event }) => {
+  // a native button: Enter and Space work without own keys
+  const onClick = $event => {
     if (isStepDisabled.value) {
       return;
     }
@@ -22,17 +21,7 @@ export default function EventsAPI(props, { emit }, {
     });
   };
 
-  const onKeydown = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
-      onClick({ $event });
-      $event.preventDefault();
-      $event.stopPropagation();
-    }
-  };
-
   return {
     onClick,
-    onKeydown,
   };
 }

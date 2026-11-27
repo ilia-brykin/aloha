@@ -31,7 +31,8 @@ export default function ObserverAPI(props) {
   };
 
   const startObserver = () => {
-    if (disabled.value) {
+    // before the mount there is no observer and no sentinel
+    if (disabled.value || !intersectionObserver || !sentinelRef.value) {
       return;
     }
     intersectionObserver.observe(sentinelRef.value);
@@ -43,11 +44,12 @@ export default function ObserverAPI(props) {
     }
   };
 
+  // disabled: no more loading; enabled again: the sentinel is observed again
   watch(disabled, newValue => {
-    if (newValue === true) {
-      startObserver();
-    } else {
+    if (newValue) {
       disconnectObserver();
+    } else {
+      startObserver();
     }
   });
 

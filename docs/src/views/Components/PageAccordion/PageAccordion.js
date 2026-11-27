@@ -1,102 +1,57 @@
+import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import PageAccordionAlwaysOpen from "./PageAccordionAlwaysOpen/PageAccordionAlwaysOpen.vue";
+import PageAccordionBasic from "./PageAccordionBasic/PageAccordionBasic.vue";
+import PageAccordionChildren from "./PageAccordionChildren/PageAccordionChildren.vue";
+import PageAccordionDisabled from "./PageAccordionDisabled/PageAccordionDisabled.vue";
+import PageAccordionOneItemAlwaysOpen from "./PageAccordionOneItemAlwaysOpen/PageAccordionOneItemAlwaysOpen.vue";
+import PageAccordionSlots from "./PageAccordionSlots/PageAccordionSlots.vue";
+import PageAccordionVModel from "./PageAccordionVModel/PageAccordionVModel.vue";
 import {
-  AAccordion,
+  ATranslation,
 } from "aloha-vue";
+
+import EventsAPI from "./compositionAPI/EventsAPI";
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
+import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageAccordion",
   components: {
-    AAccordion,
+    AlohaPage,
+    AlohaTableProps,
+    ATranslation,
+    PageAccordionBasic,
+    PageAccordionAlwaysOpen,
+    PageAccordionOneItemAlwaysOpen,
+    PageAccordionVModel,
+    PageAccordionChildren,
+    PageAccordionSlots,
+    PageAccordionDisabled,
   },
-  data() {
-    return {
-      items: [
-        {
-          label: "label labellabe llabellabellabellab ellabellabel1 labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabelabellabellabellabellabellabe llabellabellabel",
-          content: "content 1",
-          slotContent: "aloha",
-          keyIsRenderBodyByFirstOpen: true,
-          id: "aloha_1",
-          children: [
-            {
-              label: "label 1.1",
-              content: "content 1.1",
-              keyIsRenderBodyByFirstOpen: true,
-              id: "aloha_1",
-              children: [
-                {
-                  label: "label 1.1.1",
-                  content: "content 1.1.1",
-                  id: "aloha_1",
-                },
-                {
-                  label: "label 1.1.2",
-                  content: "content 1.1.2",
-                  id: "aloha_2",
-                },
-                {
-                  label: "label 1.1.3",
-                  content: "content 1.1.3",
-                  readonly: true,
-                  isCaret: false,
-                  id: "aloha_3",
-                },
-              ],
-            },
-            {
-              label: "label 1.2",
-              content: "content 1.2",
-              id: "aloha_2",
-            },
-            {
-              label: "label 1.3",
-              content: "content 1.3",
-              id: "aloha_3",
-              children: [
-                {
-                  label: "label 1.3.1",
-                  content: "content 1.3.1",
-                  id: "aloha_1",
-                },
-                {
-                  label: "label 1.3.2",
-                  content: "content 1.3.2",
-                  id: "aloha_2",
-                },
-                {
-                  label: "label 1.3.3",
-                  content: "content 1.3.3",
-                  id: "aloha_3",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: "level 2",
-          content: "content 2",
-          id: "aloha_2",
-        },
-        {
-          label: "level 3",
-          content: "content 3",
-          id: "aloha_3",
-        },
-      ],
-      indexesForOpenDefault: ["0", "0.0", "0.1", "1"],
-    };
-  },
-  mounted() {
-    this.closeFirstItem();
-  },
-  methods: {
-    closeFirstItem() {
-      setTimeout(() => {
-        this.items.shift();
-      }, 2000);
-    },
+  setup() {
+    const {
+      pageTitle,
+    } = PageTitleAPI();
 
-    toggleAccordion(arg) {
-      console.log("arg", arg);
-    },
+    const {
+      dataProps,
+    } = PropsAPI();
+
+    const {
+      dataSlots,
+    } = SlotsAPI();
+
+    const {
+      dataEvents,
+    } = EventsAPI();
+
+    return {
+      dataEvents,
+      dataProps,
+      dataSlots,
+      pageTitle,
+    };
   },
 };

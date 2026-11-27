@@ -24,6 +24,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     icon: {
       type: String,
       required: false,
@@ -62,8 +67,9 @@ export default {
         "a_carousel__arrow",
         this.btnClass,
       ],
-      ariaDisabled: this.ariaDisabled,
+      "aria-disabled": this.ariaDisabled,
       disabled: this.disabled,
+      extra: this.extra,
       iconLeft: this.icon,
       title: this.btnTitle,
       textScreenReader: this.btnTitle,

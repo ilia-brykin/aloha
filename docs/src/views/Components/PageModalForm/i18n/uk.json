@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "Завдання видалено.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "Завдання збережено.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Слот, який відображається в тілі після форми.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Слот, який відображається в тілі перед текстом (<code>body-html</code>) і формою."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Слот, який відображається в тілі перед текстом (<code>body-html</code>) і формою.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Збереження за Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter у полі форми викликає <code>save</code>, як кнопка збереження, але не коли збереження вимкнено, приховано або йде завантаження.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Назва"
 }

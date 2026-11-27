@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_NAVBAR_GROUP_SLOT_ITEM_HEADER_"
+  description="_A_NAVBAR_GROUP_SLOT_ITEM_DESCRIPTION_"
+)
+  a-navbar(
+    :data="data"
+  )
+    template(
+      v-slot:item="{ item }"
+    )
+      span {{ item.label }}
+      span(
+        v-if="item.count"
+        class="a_badge a_badge_danger a_ms_2"
+      ) {{ item.count }}

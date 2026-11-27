@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  description="_A_DATE_INPUT_BASIC_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    label="_A_DATE_INPUT_EXAMPLE_BIRTHDAY_"
+    help-text="_A_DATE_INPUT_EXAMPLE_BIRTHDAY_HELP_"
+    max="2025-12-31"
+  )
+  pre.a_mt_3 {{ model }}

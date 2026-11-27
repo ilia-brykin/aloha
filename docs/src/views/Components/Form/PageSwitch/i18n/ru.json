@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Если установлено в <strong lang=\"en\">true</strong>, переключатель занимает всю доступную ширину.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Используется для переключателя с тремя состояниями: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> и <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Метка, отображаемая, когда переключатель находится в состоянии <strong lang=\"en\">true</strong>.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Значение, которое присваивается модели, когда переключатель находится в состоянии <strong lang=\"en\">true</strong>."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Значение, которое присваивается модели, когда переключатель находится в состоянии <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_ACCESSIBILITY_": "Доступность: поле — нативный <strong lang=\"en\">checkbox</strong> с <strong lang=\"en\">role=\"switch\"</strong>, скринридер объявляет состояние «вкл.» или «выкл.». Имя — это <strong lang=\"en\">label</strong>, а не меняющийся текст состояния. Пробел и <strong lang=\"en\">Enter</strong> переключают. С <strong lang=\"en\">is-three-state</strong> поле остаётся <strong lang=\"en\">checkbox</strong> с состоянием «смешанное» для пустого значения."
 }

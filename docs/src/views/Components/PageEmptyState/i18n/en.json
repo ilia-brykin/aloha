@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Empty state",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> shows that there is no data: an icon, a title, a text and buttons. Use it in tables, lists and trees, e.g. \"No entries yet\" or \"Nothing found\".",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Tag of the title. <code>p</code> by default, so the heading structure of the page stays correct. Set a heading level (e.g. <code>h2</code>, <code>h3</code>) if the empty state is a section of its own. The default can be changed for the whole app with <code>AComponentsPlugin</code>.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Title. Accepts a translation key.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Icon above the title, a name registered with <code>AIconPlugin</code>. It is decorative and hidden from screen readers.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Text below the title. Accepts a translation key.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Buttons or links below the text, e.g. to create the first entry or to reset the filters.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Own content instead of the prop <code>icon</code>, e.g. an illustration. It is hidden from screen readers.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "An empty list with a button for the first entry. <code>header-tag</code> makes the title a heading of the right level. The class <code>a_tile</code> adds a frame.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "No entries yet",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Create the first entry to see it here.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Create entry",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Nothing found",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "The empty state appears when the search has no results. It is inside an element with <code>role=\"status\"</code> that is always in the page, so a screen reader announces it. An element with <code>role=\"status\"</code> that is added together with its content is often not announced. The placeholder <code>{{ search }}</code> comes from <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Search for a city",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Nothing found for \"{{ search }}\"",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Check the spelling or try a shorter term.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Clear the search"
+}

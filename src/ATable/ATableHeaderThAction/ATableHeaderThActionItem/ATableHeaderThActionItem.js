@@ -148,7 +148,7 @@ export default {
             }),
             this.column.title && h(ATranslation, {
               title: this.column.title,
-              ariaHidden: true,
+              "aria-hidden": true,
               tag: "span",
               class: "a_position_absolute_all",
             }),

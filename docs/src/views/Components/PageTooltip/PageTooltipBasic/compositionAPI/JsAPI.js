@@ -1,12 +1,15 @@
 export default function JsAPI() {
-  const codeJs = `import { 
+  const codeJs = `import {
+  AButton,
   ATooltip,
+  ATranslation,
 } from "aloha-vue";
-    
+
 export default {
-  name: "PageTooltipBasic",
   components: {
+    AButton,
     ATooltip,
+    ATranslation,
   },
 };`;
 

@@ -134,7 +134,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 
 ### Components
 
-- [Accordion](llms/components/accordion.md)
+- [Accordion](llms/components/accordion.md) — **AAccordion** shows sections that can be opened and closed, e.g.
 - [Alert](llms/components/alert.md) — Displays important alert messages.
 - [Avatar](llms/components/avatar.md) — The **AAvatar** component shows a person or an organization as a picture, as initials or as an icon.
 - [Breadcrumb](llms/components/breadcrumb.md) — **ABreadcrumb** shows the path to the current page in a navigation landmark with an ordered list.
@@ -146,11 +146,15 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Disclosure](llms/components/disclosure.md) — The component allows users to show or hide text content by clicking on a button.
 - [filters](llms/components/filters.md) — Allows filtering data by various criteria.
 - [filtersRight](llms/components/filters-right.md) — With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
+- [Drawer](llms/components/drawer.md) — **ADrawer** is a panel at the left or the right edge of the window, e.g.
 - [Dropdown](llms/components/dropdown.md) — The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](llms/components/element.md) — The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
+- [Empty state](llms/components/empty-state.md) — **AEmptyState** shows that there is no data: an icon, a title, a text and buttons.
 - **Form**
   - [Checkbox](llms/components/checkbox.md) — The **ACheckbox** component provides an interface for creating a group of checkboxes, allowing users to select multiple options from a list.
   - [Color picker](llms/components/color-picker.md) — The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors.
+  - [Combobox](llms/components/combobox.md) — **ACombobox** is a text field with suggestions: the text is free, a suggestion fills it.
+  - [Date input](llms/components/date-input.md) — **ADateInput** is a text field for a date, a date with time or a time, also as a range (from – to).
   - [Datepicker](llms/components/datepicker.md) — Allows interactive selection of a date and, depending on the configuration, also time.
   - [DatepickerRange](llms/components/datepicker-range.md) — Allows interactive selection of a date range by providing two date fields to define 'From' and 'To' values.
 - **Fieldset**
@@ -166,7 +170,9 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Input number range](llms/components/input-number-range.md) — The **AInputNumberRange** component consists of two number fields "from" and "to".
   - [Input file](llms/components/input-file.md) — The **AInputFile** component chooses files with a button or a dropzone, checks the type, the size and the number of the files, shows them in a list and shows the upload status of every file.
   - [Input OTP](llms/components/input-otp.md) — The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
+  - [Input tags](llms/components/input-tags.md) — **AInputTags** enters several free values in one field, e.g.
   - [JSON](llms/components/json.md) — **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
+  - [JSON editor](llms/components/json-editor.md) — **AJsonEditor** edits JSON as a tree and as text: keys and values in place, types, adding, removing, moving, search, history with undo, redo and reset, own variables, rules and JSON Schema, formatting by props, hooks and plugins.
   - [Multiselect ordered](llms/components/multiselect-ordered.md) — The component allows selecting multiple items with the ability to set their order.
   - [One checkbox](llms/components/one-checkbox.md) — The **AOneCheckbox** component represents a single checkbox with the ability to bind to a data model.
   - [Radio](llms/components/radio.md) — The **ARadio** component represents a set of radio buttons, where the user can select only one item from the given options.
@@ -190,15 +196,18 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - **Modal**
   - [Modal](llms/components/modal.md) — AModal is a component that enables the implementation of modal windows.
   - [Modal form](llms/components/modal-form.md) — **AModalForm** is a modal window ([AModal](llms/components/modal.md)) with a form ([AForm](llms/components/form.md)) in the body.
-- [Notification](llms/components/notification.md)
+- [Navbar](llms/components/navbar.md) — **ANavbar** is a horizontal navigation: links, submenus with any number of levels, a logo and buttons in the slots.
+- [Notification](llms/components/notification.md) — **ANotification** shows short messages at the edge of the window, e.g.
 - **Progress**
   - [Progress bar](llms/components/progress.md) — AProgress component is a customisable progress bar for Vue.js applications.
   - [Progress circle](llms/components/progress-circle.md) — The **AProgressCircle** component displays progress as a circular indicator.
 - [Show more](llms/components/show-more.md) — The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.
 - [Skeleton](llms/components/skeleton.md) — The **ASkeleton** component shows gray placeholders in the shape of the content while it is loading.
+- [Skip link](llms/components/skip-link.md) — **ASkipLink** is the first link of the page: *Skip to main content*.
 - [Spinner](llms/components/spinner.md) — The **ASpinner** component is used to display a loading indicator.
 - [Pagination](llms/components/pagination.md) — The **APagination** component renders navigation for large data sets.
 - [Pagination pages](llms/components/pagination-pages.md) — The **APaginationPages** component renders page navigation only.
+- [Popover](llms/components/popover.md) — **APopover** shows a small window at a button with own content: text, links, fields and buttons.
 - **Tables**
   - [Table complex](llms/components/table-complex.md) — The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
   - [Table pagination](llms/components/table-pagination.md)

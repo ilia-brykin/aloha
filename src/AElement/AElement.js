@@ -402,7 +402,7 @@ export default {
       type: this.typeAttribut,
       tabindex: this.tabindex,
       disabled: this.disabledLocal,
-      ariaDisabled: this.ariaDisabled,
+      "aria-disabled": this.ariaDisabled,
       "aria-pressed": this.isSwitchActive,
       isAllRowsSelected: undefined, // TODO: ATable
       onClick: this.onClick,
@@ -415,7 +415,7 @@ export default {
           h(ATranslation, {
             tag: "span",
             alwaysTranslate: this.alwaysTranslate,
-            ariaHidden: true,
+            "aria-hidden": true,
             class: [
               "a_position_absolute_all",
               this.classDefaultHidden,
@@ -480,7 +480,7 @@ export default {
         this.isTextOrHtmlVisible ?
           h(ATranslation, {
             alwaysTranslate: this.alwaysTranslate,
-            ariaHidden: this.textAriaHidden,
+            "aria-hidden": this.textAriaHidden,
             class: this.textClass,
             extra: this.extra,
             html: this.html,

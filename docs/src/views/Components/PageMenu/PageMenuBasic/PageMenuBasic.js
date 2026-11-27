@@ -6,6 +6,7 @@ import PageMenuCustomKeys from "./PageMenuCustomKeys/PageMenuCustomKeys.vue";
 import PageMenuGroups from "./PageMenuGroups/PageMenuGroups.vue";
 import PageMenuOnlyMobile from "./PageMenuOnlyMobile/PageMenuOnlyMobile.vue";
 import PageMenuSearchInDom from "./PageMenuSearchInDom/PageMenuSearchInDom.vue";
+import PageMenuSplit from "./PageMenuSplit/PageMenuSplit.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -28,6 +29,7 @@ export default {
     PageMenuGroups,
     PageMenuOnlyMobile,
     PageMenuSearchInDom,
+    PageMenuSplit,
   },
   setup() {
     const {

@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> acepta una ruta o un objeto de ruta y usa <strong>ALink</strong>. Solo el último elemento se marca como página actual. <code>label</code> y <code>aria-label</code> aceptan claves de traducción y se actualizan al cambiar el idioma.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Nombre accesible de la navegación. Acepta una clave de traducción; use nombres distintos para varias rutas de navegación.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Elementos ordenados desde la raíz hasta la página actual. Los campos se describen abajo.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Separador decorativo entre elementos. Una cadena vacía oculta su texto.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Separador decorativo entre los elementos, oculto para los lectores de pantalla. Una cadena vacía no muestra separador.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL de una página superior. Se ignora en el último elemento.",
   "_A_BREADCRUMB_PROPS_ID_": "Clave estable opcional. Si se omite, se usa el índice del elemento.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Texto visible o clave de traducción compatible con ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "Destino de Vue Router de una página superior. Tiene prioridad sobre href; se ignora en el último elemento."
+  "_A_BREADCRUMB_PROPS_TO_": "Destino de Vue Router de una página superior. Tiene prioridad sobre href; se ignora en el último elemento.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Número máximo de elementos visibles (al menos 2). Una ruta más larga muestra el primer elemento, un botón <code>…</code> y los últimos <code>max-items - 1</code> elementos. El botón muestra todos los elementos y mueve el foco al primer elemento oculto. Un nuevo array <code>items</code> se vuelve a contraer.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Valores para los marcadores de este <code>label</code>. Sobrescribe la prop <code>extra</code> del componente.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Icono delante del texto, un nombre registrado con <code>AIconPlugin</code>. Es decorativo y está oculto para los lectores de pantalla.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Iconos y marcadores",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> muestra un icono delante de un elemento, p. ej. una casa para la página de inicio. <code>label</code> puede contener marcadores como <code>{{ number }}</code>; los valores vienen de la prop <code>extra</code> o de <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Ruta larga",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Con <code>max-items</code> una ruta profunda se acorta al primer elemento, un botón <code>…</code> y los últimos elementos. El botón tiene un texto para lectores de pantalla con el número de niveles ocultos. Tras un clic se muestran todos los elementos y el foco pasa al primer elemento oculto.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Inicio",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Pedidos",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Pedido {{ number }}"
 }

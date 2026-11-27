@@ -1,6 +1,5 @@
 {
   "_A_WIZARD_ARIA_LABEL_": "Wizard",
-  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Stap {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "Volgende",
   "_A_WIZARD_NEXT_TITLE_": "Volgende stap",
   "_A_WIZARD_PREVIOUS_": "Vorige",
@@ -12,5 +11,7 @@
   "_A_WIZARD_STEP_VISITED_": "Bezochte stap",
   "_A_WIZARD_STEP_WARNING_": "Stap met waarschuwing",
   "_A_WIZARD_STEPS_ARIA_LABEL_": "Wizardstappen",
-  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Stap {{ stepActive }} van {{ stepsCount }}"
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Stap {{ stepActive }} van {{ stepsCount }}",
+  "_A_WIZARD_FINISH_": "Voltooien",
+  "_A_WIZARD_STEP_HEADING_{{stepNumber}}_{{stepsCount}}_{{label}}_": "Stap {{ stepNumber }} van {{ stepsCount }}: {{ label }}"
 }

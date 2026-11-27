@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Indien ingesteld op <strong lang=\"en\">true</strong>, neemt de schakelaar de volledige beschikbare breedte in beslag.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Wordt gebruikt voor een schakelaar met drie statussen: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> en <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Het label dat wordt weergegeven wanneer de schakelaar in de status <strong lang=\"en\">true</strong> staat.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "De waarde die aan het model wordt toegekend wanneer de schakelaar in de status <strong lang=\"en\">true</strong> staat."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "De waarde die aan het model wordt toegekend wanneer de schakelaar in de status <strong lang=\"en\">true</strong> staat.",
+  "_A_SWITCH_ACCESSIBILITY_": "Toegankelijkheid: het veld is een native <strong lang=\"en\">checkbox</strong> met <strong lang=\"en\">role=\"switch\"</strong>, de schermlezer meldt de status „aan” of „uit”. De naam is het <strong lang=\"en\">label</strong>, niet de wisselende tekst van de status. Spatie en <strong lang=\"en\">Enter</strong> schakelen om. Met <strong lang=\"en\">is-three-state</strong> blijft het veld een <strong lang=\"en\">checkbox</strong> met de status „gemengd” voor de lege waarde."
 }

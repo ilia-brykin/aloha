@@ -41,6 +41,43 @@ export default function ActionsAPI(props) {
     return keyGroupArray.value.length > 0;
   });
 
+  /**
+   * type "header": a heading for the following actions, until the next header or divider.
+   * They become a group (role="group" with aria-labelledby), like the groups of key-group.
+   * A header without actions after it is not shown.
+   */
+  const groupByHeaders = actionsLocal => {
+    const RESULT = [];
+    let group;
+    forEach(actionsLocal, (action, actionIndex) => {
+      if (action.type === "header") {
+        group = {
+          __isDropdownGroup: true,
+          children: [],
+          groupKey: `header_${ actionIndex }`,
+          groupLabel: action.text,
+          groupExtra: action.extra,
+          groupClass: action.class,
+        };
+        RESULT.push(group);
+        return;
+      }
+      if (action.type === "divider") {
+        group = undefined;
+        RESULT.push(action);
+        return;
+      }
+      if (group) {
+        group.children.push(action);
+      } else {
+        RESULT.push(action);
+      }
+    });
+    return filterActionsDivider({
+      actions: RESULT.filter(action => !action.__isDropdownGroup || action.children.length),
+    });
+  };
+
   const actionsVisible = computed(() => {
     return filter(actions.value, action => !action.isHidden);
   });
@@ -51,9 +88,9 @@ export default function ActionsAPI(props) {
     parentGroups = [],
   }) => {
     if (levelIndex >= keyGroupArray.value.length) {
-      return filterActionsDivider({
+      return groupByHeaders(filterActionsDivider({
         actions: actionsLocal,
-      });
+      }));
     }
 
     const ACTIONS_WITHOUT_GROUP = [];
@@ -129,9 +166,17 @@ export default function ActionsAPI(props) {
       });
     }
 
-    return filterActionsHiddenAndDivider({
+    return groupByHeaders(filterActionsHiddenAndDivider({
       actions: actionsVisible.value,
+    }));
+  });
+
+  // own content (type "template") can not be a menu item: then the dropdown is not a menu
+  const hasTemplateActions = computed(() => {
+    const HAS_TEMPLATE = items => items.some(item => {
+      return item.__isDropdownGroup ? HAS_TEMPLATE(item.children) : item.type === "template";
     });
+    return HAS_TEMPLATE(actionsFiltered.value);
   });
 
   const hasActions = computed(() => {
@@ -141,6 +186,7 @@ export default function ActionsAPI(props) {
   return {
     actionsFiltered,
     hasActions,
+    hasTemplateActions,
     hasKeyGroup,
     keyGroupArray,
   };

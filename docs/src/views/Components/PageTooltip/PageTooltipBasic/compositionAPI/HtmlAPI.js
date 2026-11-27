@@ -1,11 +1,14 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-tooltip>
-  <span>Aloha</span>
-  
-  <template
-    v-slot:title
-  >
-    <div>Aloha</div>
+  <a-button
+    class="a_btn a_btn_primary"
+    text="_A_TOOLTIP_EXAMPLE_SAVE_"
+  />
+
+  <template v-slot:title>
+    <a-translation
+      text="_A_TOOLTIP_EXAMPLE_SAVE_TITLE_"
+    />
   </template>
 </a-tooltip>`;
 

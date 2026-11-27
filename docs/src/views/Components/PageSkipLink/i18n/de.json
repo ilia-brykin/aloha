@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Sprunglink",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> ist der erste Link der Seite: <em>Zum Hauptinhalt springen</em>. Er ist ausgeblendet, bis er den Tastaturfokus bekommt, dann erscheint er oben links. Tastatur- und Screenreader-Nutzer überspringen Kopfbereich und Navigation mit einer Taste (WCAG 2.4.1). Der Link setzt den Fokus selbst auf das Ziel, daher funktioniert er auch mit einem Hash-Router und mit einem Element wie <code>&lt;main&gt;</code>, das keinen Fokus bekommen kann.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Setzen Sie <code>a-skip-link</code> als erstes Element der Seite und geben Sie dem Hauptinhalt <code>&lt;main id=\"main\"&gt;</code>. Probieren Sie es auf dieser Seite aus: Laden Sie sie neu und drücken Sie <kbd>Tab</kbd>. Das Beispiel unten springt zur Box darunter.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> des Elements, das den Fokus bekommt, z. B. <code>&lt;main id=\"main\"&gt;</code>. Wenn es das Element nicht gibt, funktioniert der Link wie ein normaler Link.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Text des Links. Akzeptiert einen Übersetzungsschlüssel.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Ziel des Sprunglinks in diesem Beispiel. Nach einem Klick auf den Link liegt der Fokus hier."
+}

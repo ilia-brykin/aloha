@@ -154,6 +154,7 @@ describe("ABreadcrumb", () => {
     expect(wrapper.find("img").exists()).toBe(false);
     expect(wrapper.get("li").text()).toBe("<img src=x onerror=alert(1)>");
     expect(wrapper.get("[aria-current=\"page\"]").text()).toBe("0");
-    expect(wrapper.get(".a_breadcrumb__separator").text()).toBe("");
+    // an empty separator renders no element, so there is no double gap
+    expect(wrapper.find(".a_breadcrumb__separator").exists()).toBe(false);
   });
 });

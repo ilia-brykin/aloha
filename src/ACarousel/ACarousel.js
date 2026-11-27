@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   onBeforeUnmount,
   onMounted,
@@ -12,10 +13,14 @@ import ACarouselItem from "./ACarouselItem/ACarouselItem";
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import ArrowsAPI from "./compositionAPI/ArrowsAPI";
+import AutoplayAPI from "./compositionAPI/AutoplayAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import IndicatorsAPI from "./compositionAPI/IndicatorsAPI";
-import TextsAPI from "./compositionAPI/TextsAPI";
+import KeyboardAPI from "./compositionAPI/KeyboardAPI";
+import TextsAPI, {
+  CAROUSEL_TEXTS_DEFAULT,
+} from "./compositionAPI/TextsAPI";
 
 import {
   AKeyId,
@@ -26,13 +31,6 @@ import {
   isArray,
   uniqueId,
 } from "lodash-es";
-
-const ChevronLeft = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-</svg>`;
-const ChevronRight = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-</svg>`;
 
 export default {
   name: "ACarousel",
@@ -53,7 +51,7 @@ export default {
     arrowNextIcon: {
       type: String,
       required: false,
-      default: ChevronRight,
+      default: undefined,
     },
     arrowPreviousAttributes: {
       type: Object,
@@ -63,24 +61,15 @@ export default {
     arrowPreviousIcon: {
       type: String,
       required: false,
-      default: ChevronLeft,
+      default: undefined,
     },
     arrowsPlacement: {
       type: String,
-      default: "sides-center", // positioned at the sides, vertically centered
+      default: "sides-center",
       validator: value => [
-        "sides-center", // arrows on the left and right sides, vertically centered (default)
-        /*
-         * "sides-top", // arrows on the sides at the top
-         * "sides-bottom", // arrows on the sides at the bottom
-         * "with-indicators-before", // arrows before the indicator panel
-         * "with-indicators-after", // arrows after the indicator panel
-         * "with-indicators-sides", // arrows on the left and right of the indicator panel
-         * "top-left", // absolutely positioned in the top-left corner
-         * "top-right", // absolutely positioned in the top-right corner
-         * "bottom-left", // absolutely positioned in the bottom-left corner
-         * "bottom-right", // absolutely positioned in the bottom-right corner
-         */
+        "sides-center", // arrows on the sides, the whole height (default)
+        "sides-top", // round arrows on the sides at the top
+        "sides-bottom", // round arrows on the sides at the bottom
       ].includes(value),
     },
     arrowsShow: {
@@ -102,6 +91,11 @@ export default {
       required: false,
       default: 5000,
     },
+    autoplayPauseOnHover: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     autoplayShow: {
       type: Boolean,
       required: false,
@@ -112,10 +106,22 @@ export default {
       required: false,
       default: false,
     },
+    cardScale: {
+      type: Number,
+      required: false,
+      default: 0.83,
+      validator: value => value > 0 && value <= 1,
+    },
     data: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    direction: {
+      type: String,
+      required: false,
+      default: "horizontal",
+      validator: value => ["horizontal", "vertical"].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -123,6 +129,11 @@ export default {
     },
     extra: {
       type: Object,
+      required: false,
+      default: undefined,
+    },
+    height: {
+      type: String,
       required: false,
       default: undefined,
     },
@@ -158,7 +169,8 @@ export default {
         "bottom",
         "bottom-start",
         "bottom-end",
-      ].indexOf(value) !== -1,
+        "outside",
+      ].includes(value),
     },
     indicatorsShow: {
       type: Boolean,
@@ -169,7 +181,7 @@ export default {
       type: String,
       required: false,
       default: "dots",
-      validator: value => ["dots", "squares"].indexOf(value) !== -1,
+      validator: value => ["dots", "squares", "labels"].includes(value),
     },
     indicatorWidth: {
       type: Number,
@@ -182,23 +194,42 @@ export default {
       required: false,
       default: undefined,
     },
+    keyLabel: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    loop: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     modelValue: {
       type: [Number, String],
       required: false,
       default: undefined,
     },
+    motionBlur: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     texts: {
       type: Object,
       required: false,
-      default: () => ({
-        nextSlide: "_A_CAROUSEL_NEXT_SLIDE_",
-        previousSlide: "_A_CAROUSEL_PREVIOUS_SLIDE_",
-        controlsSlide: "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_",
-        controlsSlides: "_A_CAROUSEL_CONTROLS_SLIDES_",
-        controlsStart: "_A_CAROUSEL_CONTROLS_START_",
-        controlsStop: "_A_CAROUSEL_CONTROLS_STOP_",
-        itemAriaLabel: "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_",
-      }),
+      default: () => ({ ...CAROUSEL_TEXTS_DEFAULT }),
+    },
+    transition: {
+      type: String,
+      required: false,
+      default: "slide",
+      validator: value => ["slide", "fade", "none"].includes(value),
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "default",
+      validator: value => ["default", "card"].includes(value),
     },
   },
   emits: [
@@ -209,6 +240,10 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const isDisabledLocal = computed(() => {
+      return props.disabled || props.ariaDisabled;
+    });
+
     const {
       textsLocal,
     } = TextsAPI(props);
@@ -218,12 +253,7 @@ export default {
     } = AriaLabelAPI(props);
 
     const {
-      arrowsPlacementClass,
-      arrowsTriggerClass,
-      indicatorsPlacementClass,
-    } = ClassAPI(props);
-
-    const {
+      count,
       dataLocal,
     } = DataAPI(props);
 
@@ -238,20 +268,94 @@ export default {
     });
 
     const {
+      arrowNextIconLocal,
+      arrowPreviousIconLocal,
       arrowsShowLocal,
-    } = ArrowsAPI(props);
+    } = ArrowsAPI(props, {
+      count,
+    });
 
     const {
       activeId,
+      activeIndex,
+      canGoNext,
+      canGoPrevious,
       changeActiveId,
-      hasActiveItem,
+      clearLeaving,
       initActiveId,
+      leavingId,
+      setActiveItem,
+      slideDirection,
       toFirstSlide,
+      toLastSlide,
       toNextSlide,
       toPreviousSlide,
     } = ActiveAPI(props, context, {
+      count,
       dataLocal,
+      isDisabledLocal,
     });
+
+    const {
+      carouselClass,
+      itemsStyle,
+    } = ClassAPI(props, {
+      slideDirection,
+    });
+
+    const {
+      ariaLive,
+      isAutoplayAvailable,
+      isPlaying,
+      onFocusin,
+      onMouseenter,
+      onMouseleave,
+      play,
+      stop,
+      toggleAutoplay,
+    } = AutoplayAPI(props, context, {
+      activeIndex,
+      count,
+      isDisabledLocal,
+      toNextSlide,
+    });
+
+    const {
+      onKeydownTablist,
+    } = KeyboardAPI(props, {
+      isDisabledLocal,
+      toFirstSlide,
+      toLastSlide,
+      toNextSlide,
+      toPreviousSlide,
+    });
+
+    // tabs only with more than one slide, otherwise every slide is a named group
+    const hasTabs = computed(() => {
+      return props.indicatorsShow && count.value > 1;
+    });
+
+    // position of the slide relative to the active slide in the mode card (-1 left, 0 active, 1 right)
+    const getCardOffset = index => {
+      let offset = index - activeIndex.value;
+      if (props.loop && count.value > 2) {
+        if (offset > count.value / 2) {
+          offset -= count.value;
+        } else if (offset < -count.value / 2) {
+          offset += count.value;
+        }
+      }
+      return offset;
+    };
+
+    const onClickCard = ({ index }) => {
+      const OFFSET = getCardOffset(index);
+      if (OFFSET === 1) {
+        toNextSlide();
+      } else if (OFFSET === -1) {
+        toPreviousSlide();
+      }
+    };
 
     initActiveId();
 
@@ -263,101 +367,142 @@ export default {
       }
     });
 
-    watch(hasActiveItem, newValue => {
-      if (!newValue) {
-        toFirstSlide();
-      }
-    });
-
     onMounted(() => {
       initObserver();
     });
 
     onBeforeUnmount(() => {
       removeObserver();
+      clearLeaving();
+    });
+
+    context.expose({
+      activeId,
+      activeIndex,
+      isPlaying,
+      next: toNextSlide,
+      play,
+      previous: toPreviousSlide,
+      setActiveItem,
+      stop,
     });
 
     return {
       activeId,
       ariaLabelAttributes,
-      arrowsPlacementClass,
+      ariaLive,
+      arrowNextIconLocal,
+      arrowPreviousIconLocal,
       arrowsShowLocal,
-      arrowsTriggerClass,
+      canGoNext,
+      canGoPrevious,
+      carouselClass,
       carouselRef,
       changeActiveId,
+      clearLeaving,
+      count,
       dataLocal,
+      getCardOffset,
+      hasTabs,
       indicatorsData,
-      indicatorsPlacementClass,
+      isAutoplayAvailable,
+      isDisabledLocal,
+      isPlaying,
+      itemsStyle,
+      leavingId,
+      onClickCard,
+      onFocusin,
+      onKeydownTablist,
+      onMouseenter,
+      onMouseleave,
       textsLocal,
+      toggleAutoplay,
       toNextSlide,
       toPreviousSlide,
     };
   },
   render() {
+    const IS_CARD = this.type === "card";
+
     return h("section", {
       id: this.id,
       "aria-roledescription": "carousel",
-      class: [
-        "a_carousel",
-        this.indicatorsPlacementClass,
-        this.arrowsPlacementClass,
-        this.arrowsTriggerClass,
-      ],
+      class: this.carouselClass,
       ...this.ariaLabelAttributes,
+      onFocusin: this.onFocusin,
+      onMouseenter: this.onMouseenter,
+      onMouseleave: this.onMouseleave,
     }, [
       h("div", {
         ref: "carouselRef",
         class: "a_carousel__inner",
       }, [
-        this.arrowsShowLocal ?
-          h(ACarouselBtn, {
-            btnAttributes: this.arrowPreviousAttributes,
-            disabled: this.disabled,
-            icon: this.arrowPreviousIcon,
-            texts: this.textsLocal,
-            type: "previous",
-            onToSlide: this.toPreviousSlide,
-          }) :
-          undefined,
+        // WAI-ARIA: the button of the rotation is the first element in the order of the focus
         h(ACarouselControls, {
           activeId: this.activeId,
-          autoplayInterval: this.autoplayInterval,
-          autoplayShow: this.autoplayShow,
+          "aria-disabled": this.ariaDisabled,
           data: this.indicatorsData,
+          direction: this.direction,
           disabled: this.disabled,
           extra: this.extra,
-          parentId: this.id,
-          indicatorsShow: this.indicatorsShow,
+          indicatorsShow: this.hasTabs,
           indicatorsType: this.indicatorsType,
-          texts: this.texts,
+          isAutoplayAvailable: this.isAutoplayAvailable,
+          isPlaying: this.isPlaying,
+          parentId: this.id,
+          texts: this.textsLocal,
           onChangeActiveId: this.changeActiveId,
-          onToNextSlide: this.toNextSlide,
-          onToPreviousSlide: this.toPreviousSlide,
+          onKeydownTablist: this.onKeydownTablist,
+          onToggleAutoplay: this.toggleAutoplay,
         }),
+        this.arrowsShowLocal ?
+          h(ACarouselBtn, {
+            "aria-disabled": this.ariaDisabled || !this.canGoPrevious,
+            btnAttributes: this.arrowPreviousAttributes,
+            disabled: this.disabled,
+            extra: this.extra,
+            icon: this.arrowPreviousIconLocal,
+            texts: this.textsLocal,
+            type: "previous",
+            onToSlide: () => this.toPreviousSlide(),
+          }) :
+          undefined,
         h("div", {
-          "aria-live": "polite",
+          "aria-live": this.ariaLive,
           class: "a_carousel__items",
+          style: this.itemsStyle,
         }, [
           ...this.dataLocal.map((item, index) => {
+            const ITEM_ID = item[AKeyId];
             return h(ACarouselItem, {
-              key: item[AKeyId],
+              key: ITEM_ID,
               activeId: this.activeId,
-              dataCount: this.dataLocal.length,
+              cardOffset: IS_CARD ? this.getCardOffset(index) : undefined,
+              cardScale: this.cardScale,
+              dataCount: this.count,
+              direction: this.direction,
+              hasTab: this.hasTabs,
+              isLeaving: this.leavingId !== undefined && ITEM_ID === this.leavingId,
+              isEntering: this.leavingId !== undefined && ITEM_ID === this.activeId,
               item,
               itemIndex: index,
               parentId: this.id,
               texts: this.textsLocal,
+              onAnimationEnd: this.clearLeaving,
+              onClickCard: this.onClickCard,
             }, this.$slots);
           }),
         ]),
         this.arrowsShowLocal ?
           h(ACarouselBtn, {
+            "aria-disabled": this.ariaDisabled || !this.canGoNext,
             btnAttributes: this.arrowNextAttributes,
             disabled: this.disabled,
-            icon: this.arrowNextIcon,
+            extra: this.extra,
+            icon: this.arrowNextIconLocal,
             texts: this.textsLocal,
             type: "next",
-            onToSlide: this.toNextSlide,
+            onToSlide: () => this.toNextSlide(),
           }) :
           undefined,
       ]),

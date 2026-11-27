@@ -3,3 +3,10 @@
   word-wrap: break-word;
   font-size: 1rem;
 }
+
+// the summary is a list (ul / li), it looks like before
+.a_errors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

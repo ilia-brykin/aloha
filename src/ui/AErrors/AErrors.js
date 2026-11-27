@@ -73,6 +73,7 @@ export default {
   ],
   setup(props, context) {
     const {
+      errorsCount,
       hasErrors,
     } = ErrorsAPI(props);
 
@@ -91,9 +92,10 @@ export default {
       close,
     } = CloseAPI(context);
 
-    watch(hasErrors, () => {
+    // every new errors (also a second submit with errors) move the focus to the summary
+    watch(() => props.errors, () => {
       setFocusToElement();
-    });
+    }, { deep: true });
 
     onMounted(() => {
       setFocusToElement();
@@ -102,17 +104,18 @@ export default {
     return {
       close,
       elRef,
+      errorsCount,
       hasErrors,
       labelsLocal,
     };
   },
   render() {
+    // with auto-focus the screen reader reads the summary because of the focus: no role alert, else it is read twice
     return h(AAlert, {
       ref: "elRef",
       alwaysTranslate: this.alwaysTranslate,
       tabindex: -1,
-      role: "alert",
-      "aria-atomic": true,
+      announce: this.autoFocus ? "none" : "alert",
       isVisible: this.hasErrors,
       closable: this.closable,
       onClose: this.close,
@@ -124,11 +127,13 @@ export default {
           class: "a_errors__header",
         }, [
           h(ATranslation, {
-            tag: "strong",
+            alwaysTranslate: this.alwaysTranslate,
+            extra: { count: this.errorsCount },
             html: this.textErrorHeader,
+            tag: "strong",
           }),
         ]),
-        h("div", {
+        h("ul", {
           class: "a_errors__list",
         }, [
           ...Object.keys(this.errors).map(key => {

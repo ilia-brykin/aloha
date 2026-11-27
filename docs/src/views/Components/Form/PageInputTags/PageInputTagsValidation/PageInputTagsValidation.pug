@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_TAGS_VALIDATION_HEADER_"
+  description="_A_INPUT_TAGS_VALIDATION_DESCRIPTION_"
+)
+  a-input-tags(
+    v-model="model"
+    :maxlength="40"
+    :separators="['Enter', ',', ';', ' ']"
+    :transform="transform"
+    :validator="validator"
+    label="_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_"
+  )
+  pre.a_mt_3 {{ model }}

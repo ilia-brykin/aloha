@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Panel lateral",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> es un panel en el borde izquierdo o derecho de la ventana, p. ej. para los detalles de una fila de tabla, filtros o ajustes. Es un diálogo modal: tiene todas las props y slots de <a href=\"/#/modal\">AModal</a> (cabecera, pie con botones, <code>save</code>, <code>selector-close-ids</code>…), retiene el foco, se cierra con <kbd>Escape</kbd> y devuelve el foco al botón que lo abrió.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Borde de la ventana: <code>right</code> o <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> define el borde. <code>selector-close-ids</code> devuelve el foco al botón que abrió el panel. En una ventana estrecha el panel ocupa todo el ancho. El panel se desliza, sin animación si el usuario prefiere movimiento reducido.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Abrir a la derecha",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Abrir a la izquierda",
+  "_A_DRAWER_EXAMPLE_BODY_": "El panel es un diálogo modal: la página detrás no es accesible hasta que se cierra.",
+  "_A_DRAWER_SIZES_HEADER_": "Ancho",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "La prop <code>size</code> de <a href=\"/#/modal\">AModal</a> define el ancho: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, sin <code>size</code> 400px. Los anchos son variables CSS.",
+  "_A_DRAWER_FORM_HEADER_": "Editar en un panel lateral",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Un formulario en el panel con los botones Guardar y Cancelar. Con <code>is-footer-sticky</code> los botones siguen visibles mientras el formulario se desplaza. El formulario edita una copia del modelo, por eso Cancelar no cambia los datos.",
+  "_A_DRAWER_BTN_EDIT_": "Editar"
+}

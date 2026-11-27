@@ -1,0 +1,14 @@
+{
+  "_A_DRAWER_COMPONENT_NAME_": "Seitenleiste",
+  "_A_DRAWER_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ADrawer</strong> ist eine Leiste am linken oder rechten Fensterrand, z. B. für die Details einer Tabellenzeile, Filter oder Einstellungen. Sie ist ein modaler Dialog: Sie hat alle Props und Slots von <a href=\"/#/modal\">AModal</a> (Kopfbereich, Fußbereich mit Buttons, <code>save</code>, <code>selector-close-ids</code>…), hält den Fokus fest, schließt mit <kbd>Escape</kbd> und gibt den Fokus an den Button zurück, der sie geöffnet hat.",
+  "_A_DRAWER_PROPS_PLACEMENT_DESCRIPTION_": "Fensterrand: <code>right</code> oder <code>left</code>.",
+  "_A_DRAWER_BASIC_DESCRIPTION_": "<code>placement</code> legt den Rand fest. <code>selector-close-ids</code> gibt den Fokus an den Button zurück, der die Leiste geöffnet hat. In einem schmalen Fenster nimmt die Leiste die ganze Breite ein. Die Leiste fährt herein, ohne Animation, wenn der Nutzer reduzierte Bewegung bevorzugt.",
+  "_A_DRAWER_BTN_OPEN_RIGHT_": "Rechts öffnen",
+  "_A_DRAWER_BTN_OPEN_LEFT_": "Links öffnen",
+  "_A_DRAWER_EXAMPLE_BODY_": "Die Leiste ist ein modaler Dialog: Die Seite dahinter ist erst nach dem Schließen wieder erreichbar.",
+  "_A_DRAWER_SIZES_HEADER_": "Breite",
+  "_A_DRAWER_SIZES_DESCRIPTION_": "Die Prop <code>size</code> von <a href=\"/#/modal\">AModal</a> legt die Breite fest: <code>small</code> 300px, <code>large</code> 600px, <code>xl</code> 900px, ohne <code>size</code> 400px. Die Breiten sind CSS-Variablen.",
+  "_A_DRAWER_FORM_HEADER_": "In einer Seitenleiste bearbeiten",
+  "_A_DRAWER_FORM_DESCRIPTION_": "Ein Formular in der Leiste mit den Buttons Speichern und Abbrechen. Mit <code>is-footer-sticky</code> bleiben die Buttons sichtbar, während das Formular scrollt. Das Formular bearbeitet eine Kopie des Modells, daher ändert Abbrechen die Daten nicht.",
+  "_A_DRAWER_BTN_EDIT_": "Bearbeiten"
+}

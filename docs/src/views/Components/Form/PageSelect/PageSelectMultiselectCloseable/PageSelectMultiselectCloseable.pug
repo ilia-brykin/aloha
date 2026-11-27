@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_"
+  description="_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_"
+  :props="['type', 'is-selection-closeable', 'is-select-all', 'is-deselect-all', 'search']"
+)
+  a-select(
+    v-model="model"
+    :data="data"
+    :is-select-all="true"
+    :is-deselect-all="true"
+    :search="true"
+    label="_A_SELECT_EXAMPLE_CITIES_"
+    type="multiselect"
+  )
+  div.a_mt_2 model: {{ model }}

@@ -16,6 +16,11 @@ export default function AttributesAPI(props, {
     return `${ htmlIdLocal.value }_list`;
   });
 
+  // only the options are in the listbox (not the search and the buttons)
+  const idForListbox = computed(() => {
+    return `${ htmlIdLocal.value }_listbox`;
+  });
+
   const ariaLabelledby = computed(() => {
     return `${ htmlIdLocal.value }_label`;
   });
@@ -28,6 +33,7 @@ export default function AttributesAPI(props, {
     ariaLabelledby,
     containerId,
     idForList,
+    idForListbox,
     tabindex,
   };
 }

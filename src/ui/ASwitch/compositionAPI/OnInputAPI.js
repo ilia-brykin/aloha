@@ -3,8 +3,6 @@ import {
   toRef,
 } from "vue";
 
-import AKeysCode from "../../../const/AKeysCode";
-
 export default function OnInputAPI(props, {
   changeModel = () => {},
   isModelFalse = computed(() => false),
@@ -35,9 +33,9 @@ export default function OnInputAPI(props, {
     });
   };
 
+  // Space is the native click of the checkbox (onInput), Enter is extra (WAI-ARIA switch)
   const onKeydown = $event => {
-    if ($event.keyCode === AKeysCode.enter ||
-      $event.keyCode === AKeysCode.space) {
+    if ($event.key === "Enter") {
       onInput($event);
       $event.stopPropagation();
       $event.preventDefault();

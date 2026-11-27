@@ -63,5 +63,21 @@
   "_A_TABS_TAB_1_": "Tab 1",
   "_A_TABS_TAB_2_": "Tab 2",
   "_A_TABS_TAB_3_": "Tab 3",
-  "_A_TABS_TAB_4_": "Tab 4"
+  "_A_TABS_TAB_4_": "Tab 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "The tabs follow the WAI-ARIA pattern: Tab goes to the active tab, the arrows (↑ and ↓ in vertical tabs), Home and End move between the tabs and open them, disabled tabs are skipped. The next Tab goes into the content.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Name of the tab list",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (a translation key) or <code>aria-labelledby</code> (the id of a heading) names the tab list for screen readers. It is needed when the page has several tab lists.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> contains the id of the active tab and also changes it from outside. The event <code>change</code> still comes.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Render the content",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (default) renders every content and hides the inactive ones, <code>active</code> renders only the active content, <code>once</code> renders a content when its tab is opened first and keeps it. <code>active</code> and <code>once</code> help with heavy content, e.g. tables.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Profile settings",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Open tab 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Name of the tab list for screen readers. Accepts a translation key.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "Id of the element that names the tab list, e.g. a heading.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: every content is rendered, the inactive ones are hidden. <code>active</code>: only the active content is rendered. <code>once</code>: a content is rendered when its tab is opened first and then kept.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "Id of the new active tab (<code>v-model:active-tab-id</code>). Comes together with <code>change</code>, also with <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Open with Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "With <code>activation</code>=\"manual\" the arrows only move the focus, Enter or Space opens the tab. Use it when the content of a tab loads long, e.g. from the server, so it is not loaded for every tab on the way.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: the arrows open the focused tab at once. <code>manual</code>: the arrows only move the focus, Enter or Space opens the tab (WAI-ARIA), e.g. for content that loads long."
 }

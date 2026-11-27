@@ -16,5 +16,6 @@
   "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Wenn auf <strong lang=\"en\">true</strong> gesetzt, nimmt der Schalter die volle verfügbare Breite ein.",
   "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Wird für einen Drei-Zustand-Schalter verwendet: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> und <strong lang=\"en\">defaultValue</strong>.",
   "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Die Beschriftung, die angezeigt wird, wenn sich der Schalter im Zustand <strong lang=\"en\">true</strong> befindet.",
-  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Der Wert, der dem Modell zugewiesen wird, wenn sich der Schalter im Zustand <strong lang=\"en\">true</strong> befindet."
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Der Wert, der dem Modell zugewiesen wird, wenn sich der Schalter im Zustand <strong lang=\"en\">true</strong> befindet.",
+  "_A_SWITCH_ACCESSIBILITY_": "Barrierefreiheit: Das Feld ist eine native <strong lang=\"en\">checkbox</strong> mit <strong lang=\"en\">role=\"switch\"</strong>, der Screenreader sagt den Zustand „ein“ oder „aus“. Der Name ist das <strong lang=\"en\">label</strong>, nicht der wechselnde Text des Zustands. Leertaste und <strong lang=\"en\">Enter</strong> schalten um. Mit <strong lang=\"en\">is-three-state</strong> bleibt das Feld eine <strong lang=\"en\">checkbox</strong> mit dem Zustand „gemischt“ für den leeren Wert."
 }

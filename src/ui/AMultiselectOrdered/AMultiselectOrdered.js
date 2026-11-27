@@ -825,7 +825,7 @@ export default {
                 this.validOrderedItems.length ?
                   h("div", {
                     class: "a_divider",
-                    ariaHidden: true,
+                    "aria-hidden": true,
                   }) :
                   "",
                 h(ATranslation, {
@@ -879,14 +879,14 @@ export default {
                   "",
 
                 h(ATranslation, {
-                  ariaLabel: this.textGroupAllAriaLabel,
+                  "aria-label": this.textGroupAllAriaLabel,
                   role: "group",
                   class: "a_btn_group",
                   tag: "div",
                 }, () => [
                   this.isSelectAll ?
                     h(AElement, {
-                      ariaDisabled: this.disabledSelectAll,
+                      "aria-disabled": this.disabledSelectAll,
                       type: "button",
                       text: this.textSelectAll,
                       onClick: this.selectAll,
@@ -901,7 +901,7 @@ export default {
                     "",
                   this.isDeselectAll ?
                     h(AElement, {
-                      ariaDisabled: this.disabledDeselectAll,
+                      "aria-disabled": this.disabledDeselectAll,
                       type: "button",
                       text: this.textDeselectAll,
                       onClick: this.deselectAll,

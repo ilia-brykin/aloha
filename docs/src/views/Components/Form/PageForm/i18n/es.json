@@ -6,7 +6,7 @@
   "_A_FORM_DEPENDENCIES_HEADER_": "Campos condicionales",
   "_A_FORM_DEPENDENCIES_DESCRIPTION_": "Un campo puede declarar una condición como objeto <strong lang=\"en\">dependencies</strong> o varias como matriz. <strong lang=\"en\">AForm</strong> proporciona automáticamente el modelo actual a todos los componentes UI.",
   "_A_FORM_VALIDATION_READONLY_HEADER_": "Errores y solo lectura",
-  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "El objeto <strong lang=\"en\">errors</strong> usa los ID de campo como claves. El resumen de errores y el aviso de campos obligatorios se configuran por separado; <strong lang=\"en\">readonly</strong> activa solo lectura en todos los campos.",
+  "_A_FORM_VALIDATION_READONLY_DESCRIPTION_": "El objeto <code>errors</code> usa como clave el ID del campo. El resumen sobre el formulario muestra el número de campos con errores y enlaces a ellos; tras cada validación con errores el foco va a él. La información de campos obligatorios se configura por separado, y <code>readonly</code> cambia cada campo a su vista de solo lectura.",
   "_A_FORM_EVENTS_SLOTS_HEADER_": "Eventos y slots",
   "_A_FORM_EVENTS_SLOTS_DESCRIPTION_": "<strong lang=\"en\">update:modelValue</strong> entrega el modelo completo y <strong lang=\"en\">change</strong> los detalles del campo modificado. Los slots insertan contenido en posiciones definidas.",
   "_A_FORM_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_": "Clase CSS predeterminada para campos sin <strong lang=\"en\">classColumn</strong> propio.",
@@ -44,7 +44,7 @@
   "_A_FORM_EXAMPLE_CLEAR_ERRORS_": "Borrar errores",
   "_A_FORM_EXAMPLE_EDIT_": "Editar",
   "_A_FORM_EXAMPLE_READONLY_": "Solo lectura",
-  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Corrija los siguientes campos",
+  "_A_FORM_EXAMPLE_ERROR_HEADER_": "Corrija los siguientes campos ({{ count }})",
   "_A_FORM_EXAMPLE_REQUIRED_TEXT_": "Los campos obligatorios están marcados",
   "_A_FORM_EXAMPLE_REQUIRED_ERROR_": "Este campo es obligatorio.",
   "_A_FORM_EXAMPLE_TITLE_": "Título",
@@ -52,5 +52,10 @@
   "_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_": "Contenido después del aviso obligatorio",
   "_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_": "Contenido antes de los campos",
   "_A_FORM_EXAMPLE_SLOT_DATA_APPEND_": "Contenido después de los campos",
-  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Contenido después del formulario"
+  "_A_FORM_EXAMPLE_SLOT_FORM_APPEND_": "Contenido después del formulario",
+  "_A_FORM_A11Y_DESCRIPTION_": "Errores: el resumen sobre el formulario muestra el número de campos con errores (<code>{{ count }}</code>) y una lista con enlaces a los campos. Tras cada envío con errores el foco va al resumen, así un lector de pantalla lo lee una vez (sin <code>auto-focus</code> es una alerta, <code>role=\"alert\"</code>). Los errores de un campo están conectados con él (aria-describedby). Intro en un campo emite <code>submit</code> en lugar de recargar la página.",
+  "_A_FORM_SUBMIT_HEADER_": "Intro en un campo",
+  "_A_FORM_SUBMIT_DESCRIPTION_": "Escriba un texto y pulse Intro: el formulario emite <code>submit</code> (con el evento, <code>preventDefault()</code> ya se ha llamado) y la página no se recarga.",
+  "_A_FORM_EXAMPLE_SEARCH_": "Buscar",
+  "_A_FORM_EVENTS_SUBMIT_DESCRIPTION_": "Se emite al enviar el formulario, p. ej. con Intro en un campo de texto. El argumento es el evento nativo; la página no se recarga."
 }

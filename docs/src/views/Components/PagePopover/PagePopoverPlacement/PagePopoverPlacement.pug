@@ -1,0 +1,27 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_POPOVER_GROUP_PLACEMENT_HEADER_"
+  description="_A_POPOVER_GROUP_PLACEMENT_DESCRIPTION_"
+)
+  .a_columns.a_columns_count_12.a_mb_3
+    .a_column.a_column_6.a_column_12_touch
+      a-select(
+        v-model="placement"
+        :data="placements"
+        :deselectable="false"
+        key-id="id"
+        key-label="id"
+        label="placement"
+        type="select"
+      )
+  .a_text_center.a_py_5
+    a-popover(
+      :placement="placement"
+      button-text="_A_POPOVER_EXAMPLE_BUTTON_"
+    )
+      a-translation(
+        class="a_mb_0"
+        tag="p"
+        text="_A_POPOVER_EXAMPLE_TEXT_"
+      )

@@ -233,7 +233,7 @@ export default {
           this.canMove ?
             h(AElement, {
               id: this.btnMoveUpId,
-              ariaDisabled: this.disabledMoveUp,
+              "aria-disabled": this.disabledMoveUp,
               class: "a_btn a_btn_secondary test_move_up",
               iconLeft: ChevronUp,
               title: "_A_VALIDATED_JSON_MOVE_UP_",
@@ -245,7 +245,7 @@ export default {
           this.canMove ?
             h(AElement, {
               id: this.btnMoveDownId,
-              ariaDisabled: this.disabledMoveDown,
+              "aria-disabled": this.disabledMoveDown,
               class: "a_btn a_btn_secondary test_move_down",
               iconLeft: ChevronDown,
               title: "_A_VALIDATED_JSON_MOVE_DOWN_",

@@ -30,6 +30,7 @@ export default function HtmlAPI() {
   :limit="limit"
   :offset="offset"
   :total-count="totalCount"
+  @update:limit="updateLimit"
   @update:offset="updateOffset"
 ></a-pagination-pages>`;
 

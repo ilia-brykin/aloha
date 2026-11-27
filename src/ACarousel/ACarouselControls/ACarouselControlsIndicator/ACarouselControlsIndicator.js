@@ -2,22 +2,29 @@ import {
   h,
   resolveComponent,
 } from "vue";
-import {
-  AElement,
-  AKeyChildren,
-} from "../../../index";
+
+import AElement from "../../../AElement/AElement";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
-import EventsAPI from "./compositionAPI/EventsAPI";
 import IconAPI from "./compositionAPI/IconAPI";
+
+import {
+  AKeyChildren,
+  AKeyId,
+} from "../../../const/AKeys";
 
 export default {
   name: "ACarouselControlsIndicator",
   props: {
     activeId: {
       type: [String, Number],
-      required: true,
+      required: false,
+      default: undefined,
+    },
+    ariaDisabled: {
+      type: Boolean,
+      required: false,
     },
     data: {
       type: Object,
@@ -27,6 +34,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     hide: {
       type: Boolean,
       required: false,
@@ -35,7 +47,6 @@ export default {
       type: String,
       required: false,
       default: "dots",
-      validator: value => ["dots", "squares"].indexOf(value) !== -1,
     },
     parentId: {
       type: String,
@@ -48,10 +59,8 @@ export default {
   },
   emits: [
     "changeActiveId",
-    "toNextSlide",
-    "toPreviousSlide",
   ],
-  setup(props, context) {
+  setup(props) {
     const {
       indicatorIcon,
     } = IconAPI(props);
@@ -62,59 +71,54 @@ export default {
     } = ActiveAPI(props);
 
     const {
-      changeActiveId,
-      onPressBtn,
-    } = EventsAPI(context);
-
-    const {
       ariaControls,
+      extraLocal,
       id,
-      number,
       tabindex,
+      tabText,
     } = AttributesAPI(props, {
       isActive,
     });
 
     return {
       ariaControls,
-      changeActiveId,
+      extraLocal,
       id,
       indicatorIcon,
       isActive,
       isActiveInChildren,
-      number,
-      onPressBtn,
       tabindex,
+      tabText,
     };
   },
   render() {
+    const IS_LABELS = this.indicatorsType === "labels";
+
     return h("div", {
       class: "a_carousel__tabs__btn__wrapper",
     }, [
       h(AElement, {
         id: this.id,
-        "aria-selected": false,
+        "aria-selected": this.isActive ? "true" : "false",
         "aria-controls": this.ariaControls,
+        "aria-disabled": this.ariaDisabled,
         class: [
           "a_carousel__tabs__btn",
           {
             a_carousel__tabs__btn_active: this.isActive,
-            // "a_carousel__tabs__btn_hide a_sr_only_focusable": item[AKeyHide],
             a_carousel__tabs__btn_hide: this.hide,
           },
         ],
-        iconLeft: this.indicatorIcon,
         disabled: this.disabled,
-        type: "button",
-        tabindex: this.tabindex,
+        extra: this.extraLocal,
+        iconLeft: IS_LABELS ? undefined : this.indicatorIcon,
         role: "tab",
-        title: this.texts.controlsSlide,
-        textScreenReader: this.texts.controlsSlide,
-        extra: {
-          number: this.number,
-        },
-        onClick: () => this.changeActiveId({ item: this.data }),
-        onKeydown: this.onPressBtn,
+        tabindex: this.tabindex,
+        text: IS_LABELS ? this.tabText : undefined,
+        textScreenReader: IS_LABELS ? undefined : this.tabText,
+        title: IS_LABELS ? undefined : this.tabText,
+        type: "button",
+        onClick: () => this.$emit("changeActiveId", { id: this.data[AKeyId] }),
       }),
       this.data?.[AKeyChildren]?.length ?
         h("div", {
@@ -127,20 +131,21 @@ export default {
         }, [
           this.data[AKeyChildren].map(item => {
             return h(resolveComponent("ACarouselControlsIndicator"), {
+              key: item[AKeyId],
               activeId: this.activeId,
+              "aria-disabled": this.ariaDisabled,
               data: item,
               disabled: this.disabled,
+              extra: this.extra,
               hide: true,
               indicatorsType: this.indicatorsType,
               parentId: this.parentId,
               texts: this.texts,
               onChangeActiveId: arg => this.$emit("changeActiveId", arg),
-              onToNextSlide: arg => this.$emit("toNextSlide", arg),
-              onToPreviousSlide: arg => this.$emit("toPreviousSlide", arg),
             });
           }),
         ]) :
-        "",
+        undefined,
     ]);
   },
 };

@@ -4,14 +4,18 @@
 @forward "ASelect";
 @forward "AErrors";
 @forward "AInputFile";
+@forward "ADateInput";
 @forward "ADatepicker";
 @forward "ACheckbox";
 @forward "ARadio";
 @forward "AJson";
+@forward "AJsonEditor";
 @forward "AMultiselectOrdered";
 @forward "ASlider";
 @forward "AColorPicker";
 @forward "AInputOtp";
+@forward "AInputTags";
+@forward "ACombobox";
 @forward "ARate";
 
 @use "../../utils/focus";

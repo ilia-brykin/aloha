@@ -12,9 +12,11 @@ import {
 
 import {
   forEach,
+  omit,
 } from "lodash-es";
 
 export default function ComponentsAPI(props, {
+  slots = {},
   updateLimit = () => {},
   updateOffset = () => {},
 }) {
@@ -57,7 +59,9 @@ export default function ComponentsAPI(props, {
           "onUpdate:limit": updateLimit,
         }));
       } else if (item.component === "pagination") {
+        // the other options of modes.pagination are props: showEdges, showJumper, hideOnSinglePage, size, icons
         LIST.push(h(APaginationPages, {
+          ...omit(item, ["component", "position"]),
           disabled: disabled.value,
           limit: limit.value,
           maxPages: maxPages.value,
@@ -65,8 +69,9 @@ export default function ComponentsAPI(props, {
           offset: offset.value,
           texts: texts.value,
           totalCount: totalCount.value,
+          "onUpdate:limit": updateLimit,
           "onUpdate:offset": updateOffset,
-        }));
+        }, slots));
       }
     });
 

@@ -6,6 +6,11 @@ export default function EventsAPI() {
       type: "Function",
     },
     {
+      name: "finish",
+      description: "_A_WIZARD_EVENTS_FINISH_DESCRIPTION_",
+      type: "Function",
+    },
+    {
       name: "go-step-back",
       description: "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_",
       type: "Function",

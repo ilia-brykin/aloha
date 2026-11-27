@@ -168,7 +168,7 @@ export default {
       }, [
         h(AElement, {
           id: this.idBtnUp,
-          ariaDisabled: this.disabled || this.isFirstItem,
+          "aria-disabled": this.disabled || this.isFirstItem,
           class: [
             this.btnUpClass,
             {
@@ -183,7 +183,7 @@ export default {
         }),
         h(AElement, {
           id: this.idBtnDown,
-          ariaDisabled: this.disabled || this.isLastItem,
+          "aria-disabled": this.disabled || this.isLastItem,
           class: [
             this.btnDownClass,
             {
@@ -198,7 +198,7 @@ export default {
         }),
         h(AElement, {
           id: this.idBtnDelete,
-          ariaDisabled: this.disabled,
+          "aria-disabled": this.disabled,
           class: [
             this.btnDeleteClass,
             {

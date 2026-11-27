@@ -1,0 +1,42 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_MODEL_HEADER_"
+  description="_A_CAROUSEL_GROUP_MODEL_DESCRIPTION_"
+  props="model-value"
+  emits="update:modelValue"
+  :exposes="['next', 'previous', 'setActiveItem']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      .a_d_flex.a_gap_2.a_mb_3.a_flex_wrap
+        a-button(
+          class="a_btn a_btn_secondary"
+          text="_A_CAROUSEL_COMPONENT_MODEL_PREVIOUS_"
+          @click="toPrevious"
+        )
+        a-button(
+          class="a_btn a_btn_secondary"
+          text="_A_CAROUSEL_COMPONENT_MODEL_NEXT_"
+          @click="toNext"
+        )
+        a-button(
+          class="a_btn a_btn_secondary"
+          text="_A_CAROUSEL_COMPONENT_MODEL_LAST_"
+          @click="toLast"
+        )
+      p model: {{ model }}
+      a-carousel(
+        ref="carouselRef"
+        v-model="model"
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

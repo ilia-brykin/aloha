@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "De taak is verwijderd.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "De taak is opgeslagen.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Een slot dat in de inhoud na het formulier wordt getoond.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Een slot dat in de inhoud vóór de tekst (<code>body-html</code>) en het formulier wordt getoond."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Een slot dat in de inhoud vóór de tekst (<code>body-html</code>) en het formulier wordt getoond.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Opslaan met Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter in een veld van het formulier roept <code>save</code> aan, zoals de opslaanknop, maar niet als opslaan uitgeschakeld, verborgen of aan het laden is.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Titel"
 }

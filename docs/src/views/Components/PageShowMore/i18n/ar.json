@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "الفتحات",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "يمكن تحديد محتوى المكون كنص عادي.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "نص",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "الطول يمثل الحد الأقصى لعدد الأحرف بعد التي يتم فيها إخفاء بقية النص.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "الحد الأقصى لعدد الأحرف الذي يُخفى بعده باقي النص. يُقطع النص عند نهاية كلمة ويحصل على علامة حذف (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "طول النص",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "عرض أقل ألوها",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "عرض أكثر ألوها",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "المحتوى الذي يتم عرضه داخل المكون.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "التلاعب بالمكون باستخدام مؤشر 'isOpen'.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "التلاعب بالمكون باستخدام زر 'عرض أكثر'.",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "يتم التنشيط عند الضغط على الزر، ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "يتم التنشيط عند الضغط على الزر، ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "مع <code>text-length</code> لا يكون باقي النص في الصفحة: للزر <code>aria-expanded</code> و<code>aria-controls</code>. مع <code>height</code> يكون كل المحتوى في الصفحة ويقرؤه قارئ الشاشة على أي حال: يعلن الزر أنه يمكن تجاوزه. يفتح الرابط أو الزر في الجزء المقطوع المحتوى عندما يتلقى التركيز. بعد النقر يبقى التركيز على الزر؛ فقط إذا اختفى الزر (<code>show-less=\"false\"</code>) ينتقل إلى المحتوى.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "يحتوي <code>v-model</code> على ما إذا كان المحتوى مفتوحًا، ويفتحه أو يغلقه أيضًا من الخارج. يظل الحدث <code>toggle</code> يصل.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "روابط في الجزء المقطوع",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "تنقّل بين الروابط بـ Tab: عندما يتلقى رابط في الجزء المقطوع التركيز يُفتح المحتوى، فيبقى التركيز مرئيًا دائمًا (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "فتح / إغلاق من الخارج",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "مفتوح أو مغلق (<code>v-model</code>). بدونها يحدد <code>is-open-default</code> البداية.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "تغيّر المفتوح/المغلق (<code>v-model</code>). يصل مع <code>toggle</code>."
 }

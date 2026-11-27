@@ -1,6 +1,7 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageModalWizardBasic from "./PageModalWizardBasic/PageModalWizardBasic.vue";
+import PageModalWizardLastStep from "./PageModalWizardLastStep/PageModalWizardLastStep.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -18,6 +19,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageModalWizardBasic,
+    PageModalWizardLastStep,
   },
   setup() {
     const {

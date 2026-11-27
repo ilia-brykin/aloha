@@ -15,14 +15,14 @@ import {
   shift,
 } from "@floating-ui/vue";
 
-import AKeysCode from "../../const/AKeysCode";
 import EventBus from "../../utils/EventBus";
 import {
+  isFunction,
   isNil,
 } from "lodash-es";
 
 export default function PopperAPI(props) {
-  const id = toRef(props, "id");
+  const arrowPadding = toRef(props, "arrowPadding");
   const offsetDistance = toRef(props, "offsetDistance");
   const offsetSkidding = toRef(props, "offsetSkidding");
   const placement = toRef(props, "placement");
@@ -35,9 +35,28 @@ export default function PopperAPI(props) {
   const titleArrowRef = ref(undefined);
   const titleRef = ref(undefined);
 
-  const element = computed(() => {
-    return document.getElementById(id.value);
-  });
+  // the element itself (componentRef), not a lookup by id that is cached and gets old after a new render
+  const getElement = () => {
+    return componentRef.value?.$el || componentRef.value;
+  };
+
+  // arrow-padding: a number or a function ({ popper, reference, placement }) => number (the names of Popper.js)
+  const getArrowOptions = () => {
+    if (isFunction(arrowPadding.value)) {
+      return state => ({
+        element: titleArrowRef.value,
+        padding: arrowPadding.value({
+          popper: state.rects.floating,
+          reference: state.rects.reference,
+          placement: state.placement,
+        }),
+      });
+    }
+    return {
+      element: titleArrowRef.value,
+      padding: isNil(arrowPadding.value) ? 5 : arrowPadding.value,
+    };
+  };
 
   const isAutoPlacement = computed(() => {
     return placement.value && placement.value.includes("auto");
@@ -52,26 +71,24 @@ export default function PopperAPI(props) {
       }),
       isAutoPlacement.value ? autoPlacement() : flip(),
       shift({ limiter: limitShift() }),
-      titleArrowRef.value && arrow({
-        element: titleArrowRef.value,
-        padding: 5,
-      }),
+      titleArrowRef.value && arrow(getArrowOptions()),
     ];
   });
 
+  // WCAG 1.4.13: Escape closes only the tooltip, not also e.g. the modal around it (capture phase, stopPropagation)
   const pressEscapeButton = $event => {
-    if ($event.keyCode === AKeysCode.escape) {
+    if ($event.key === "Escape" && isTitleVisible.value) {
+      $event.stopPropagation();
       closeTitle();
     }
   };
 
   const setListenerForPressEscapeButton = () => {
-    document.addEventListener("keydown", pressEscapeButton);
+    document.addEventListener("keydown", pressEscapeButton, true);
   };
 
-
   const removeListenerForPressEscapeButton = () => {
-    document.removeEventListener("keydown", pressEscapeButton);
+    document.removeEventListener("keydown", pressEscapeButton, true);
   };
 
   const setEventBusCloseTitle = () => {
@@ -104,25 +121,29 @@ export default function PopperAPI(props) {
   };
 
   const startPopper = () => {
+    const ELEMENT = getElement();
     if (cleanupPopper.value ||
-      !element.value ||
+      !ELEMENT ||
       !titleRef.value) {
       return;
     }
-    cleanupPopper.value = autoUpdate(element.value, titleRef.value, () => {
-      if (!element.value ||
-        !titleRef.value) {
+    cleanupPopper.value = autoUpdate(ELEMENT, titleRef.value, () => {
+      if (!titleRef.value) {
         return;
       }
 
       computePosition(
-        element.value,
+        ELEMENT,
         titleRef.value,
         {
           placement: placement.value,
           middleware: floatingUiMiddleware.value,
         },
       ).then(({ x, y, middlewareData, placement }) => {
+        // the tooltip can be closed while the position is computed
+        if (!titleRef.value) {
+          return;
+        }
         Object.assign(titleRef.value.style, {
           left: `${ x }px`,
           top: `${ y }px`,
@@ -134,7 +155,7 @@ export default function PopperAPI(props) {
           bottom: "top",
           left: "right",
         }[side];
-        if (middlewareData.arrow) {
+        if (middlewareData.arrow && titleArrowRef.value) {
           const { x, y } = middlewareData.arrow;
           Object.assign(titleArrowRef.value.style, {
             left: !isNil(x) ? `${ x }px` : "",

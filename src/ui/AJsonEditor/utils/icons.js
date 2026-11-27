@@ -1,0 +1,25 @@
+const svg = path => `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 16 16" aria-hidden="true">${ path }</svg>`;
+
+export const IconUndo = svg("<path d=\"M5.5 3 2.5 6l3 3\"/><path d=\"M2.5 6h7a4 4 0 0 1 0 8H7\"/>");
+export const IconRedo = svg("<path d=\"M10.5 3l3 3-3 3\"/><path d=\"M13.5 6h-7a4 4 0 0 0 0 8H9\"/>");
+export const IconReset = svg("<path d=\"M2.5 8a5.5 5.5 0 1 0 1.6-3.9\"/><path d=\"M2.5 2.5v3h3\"/>");
+export const IconHistory = svg("<circle cx=\"8\" cy=\"8\" r=\"5.5\"/><path d=\"M8 5v3l2 1.5\"/>");
+export const IconExpandAll = svg("<path d=\"M4 6l4 4 4-4\"/><path d=\"M4 2.5l4 4 4-4\"/>");
+export const IconCollapseAll = svg("<path d=\"M4 10l4-4 4 4\"/><path d=\"M4 13.5l4-4 4 4\"/>");
+export const IconSearch = svg("<circle cx=\"7\" cy=\"7\" r=\"4.5\"/><path d=\"M10.5 10.5 14 14\"/>");
+export const IconPrev = svg("<path d=\"M4 10l4-4 4 4\"/>");
+export const IconNext = svg("<path d=\"M4 6l4 4 4-4\"/>");
+export const IconChevron = svg("<path d=\"M6 4l4 4-4 4\"/>");
+export const IconDots = svg("<circle cx=\"3.5\" cy=\"8\" r=\".75\" fill=\"currentColor\"/><circle cx=\"8\" cy=\"8\" r=\".75\" fill=\"currentColor\"/><circle cx=\"12.5\" cy=\"8\" r=\".75\" fill=\"currentColor\"/>");
+export const IconTree = svg("<path d=\"M3 3h4M5 3v9h3M5 7.5h3\"/><rect x=\"9\" y=\"6\" width=\"4\" height=\"3\" rx=\".75\"/><rect x=\"9\" y=\"10.5\" width=\"4\" height=\"3\" rx=\".75\"/>");
+export const IconCode = svg("<path d=\"M5.5 4.5 2 8l3.5 3.5M10.5 4.5 14 8l-3.5 3.5\"/>");
+export const IconSplit = svg("<rect x=\"2\" y=\"3\" width=\"12\" height=\"10\" rx=\"1.5\"/><path d=\"M8 3v10\"/>");
+export const IconEye = svg("<path d=\"M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8Z\"/><circle cx=\"8\" cy=\"8\" r=\"2\"/>");
+export const IconBraces = svg("<path d=\"M6 2.5c-1.5 0-2 .7-2 2v1.5c0 1-.6 2-1.5 2 .9 0 1.5 1 1.5 2v1.5c0 1.3.5 2 2 2M10 2.5c1.5 0 2 .7 2 2v1.5c0 1 .6 2 1.5 2-.9 0-1.5 1-1.5 2v1.5c0 1.3-.5 2-2 2\"/>");
+export const IconFormat = svg("<path d=\"M2.5 4h11M5 8h8.5M5 12h8.5M2.5 8h0M2.5 12h0\"/>");
+export const IconMinify = svg("<path d=\"M2.5 6.5h11M2.5 9.5h7\"/>");
+export const IconError = svg("<circle cx=\"8\" cy=\"8\" r=\"6\"/><path d=\"M8 5v3.5M8 11h0\"/>");
+export const IconFullscreen = svg("<path d=\"M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10\"/>");
+export const IconRepair = svg("<path d=\"M9.5 2.5a3 3 0 0 0-2.9 3.8L2.5 10.4a1.4 1.4 0 0 0 2 2l4.1-4.1a3 3 0 0 0 3.8-2.9l-1.7 1.1-1.5-.4-.4-1.5 1.1-1.7Z\"/>");
+export const IconReplace = svg("<path d=\"M2.5 5h8M8.5 2.5 11 5 8.5 7.5\"/><path d=\"M13.5 11h-8M7.5 8.5 5 11l2.5 2.5\"/>");
+export const IconFullscreenExit = svg("<path d=\"M6 2.5V6H2.5M13.5 6H10V2.5M10 13.5V10h3.5M2.5 10H6v3.5\"/>");

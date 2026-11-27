@@ -19,7 +19,7 @@
   "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Отключение по ключу",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Загружает базовый список и retrieve-кандидаты из локальных JSON-файлов без backend. Отсутствующие выбранные значения подтягиваются через retrieve callback и помечаются как недопустимые записи, если их нет в базовом списке.",
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve из локального JSON",
-  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Значения вариантов в выпадающем списке можно фильтровать по поисковому запросу. Это полезно для компонентов с длинным списком вариантов, так как пользователям проще найти и выбрать нужный вариант.",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Значения вариантов в выпадающем списке можно фильтровать по поисковому запросу. Это полезно для компонентов с длинным списком вариантов, так как пользователям проще найти и выбрать нужный вариант. Скринридер слышит, сколько вариантов нашёл поиск («Найдено: 3» / «Ничего не найдено»); Enter в поле поиска не отправляет форму вокруг.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Поиск",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "При включённом <strong lang=\"en\">show-selected-first</strong> выбранные элементы отображаются сразу под поиском и кнопками действий. При группировке сохраняются их группы, от остальных элементов их отделяет одна линия, а в основном списке они не дублируются.",
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Выбранные элементы в начале",
@@ -37,7 +37,7 @@
   "_A_SELECT_PROPS_IN_BODY_DESCRIPTION_": "Список рендерится в контейнер popper-container-id в конце body, иначе сразу после кнопки.",
   "_A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_": "Закрывает список после выбора элемента. По умолчанию: да для select, нет для multiselect.",
   "_A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Устарело, используйте label-position. true → \"float\", false → \"top\".",
-  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: все выбранные элементы показываются в кнопке. При false, если их больше count-multiselect, показывается только количество.",
+  "_A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_": "Multiselect: все выбранные элементы показываются в кнопке. При false, если их больше count-multiselect, показывается только количество. Значения стоят рядом с полем (а не в нём), до кнопок удаления можно дойти клавишей Tab.",
   "_A_SELECT_PROPS_LABEL_DESCRIPTION_": "Подпись поля (текст или ключ перевода).",
   "_A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_": "Дополнительный CSS-класс подписи.",
   "_A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_": "Подпись, которую зачитывают только скринридеры.",
@@ -55,5 +55,9 @@
   "_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_": "Если в модели есть значение, которого нет в <code>data</code>, вместо него показывается текст <code>label-not-found</code> (с <code>show-not-found</code>).",
   "_TXT_POSITIVE_": "Положительно",
   "_TXT_NEGATIVE_": "Отрицательно",
-  "_TXT_NEUTRAL_": "Нейтрально"
+  "_TXT_NEUTRAL_": "Нейтрально",
+  "_A_SELECT_A11Y_DESCRIPTION_": "Поле — <code>role=\"combobox\"</code> с <code>aria-controls</code> на <code>role=\"listbox\"</code>; в списке только варианты (и группы), поиск и «Выбрать все» стоят над ним. Клавиатура: Enter, пробел или стрелка вниз открывают список, стрелки идут по кругу, Home и End переходят к первому и последнему варианту, буква — к следующему варианту, который с неё начинается, Escape закрывает список и возвращает фокус на поле. Поиск сообщает скринридеру, сколько вариантов найдено. С <code>type=\"multiselect\"</code> у списка есть <code>aria-multiselectable=\"true\"</code>.",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_HEADER_": "Множественный выбор с удаляемыми значениями",
+  "_A_SELECT_GROUP_MULTISELECT_CLOSEABLE_DESCRIPTION_": "Выбранные значения — кнопки рядом с полем: до них можно дойти клавишей Tab, а их название говорит, какое значение удаляется («Удалить Берлин»). Само поле сообщает скринридеру, сколько значений выбрано.",
+  "_A_SELECT_EXAMPLE_CITIES_": "Города"
 }

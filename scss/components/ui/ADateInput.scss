@@ -1,0 +1,347 @@
+@use "../../utils/focus";
+
+.a_date_input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--a_date_input_gap);
+}
+
+.a_date_input__format {
+  margin-bottom: var(--a_space_xs);
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+}
+
+.a_date_input__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.a_date_input__field_date {
+  width: var(--a_date_input_date_width);
+}
+
+.a_date_input__field_time {
+  width: var(--a_date_input_time_width);
+}
+
+.a_date_input__sub_label {
+  font-size: var(--a_font_size_sm);
+}
+
+// The box looks like an input (.a_form_control); the focus is on the inner input or button, so the ring is drawn with :focus-within.
+.a_date_input__control {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+
+  &:focus-within {
+    border-color: var(--a_form_control_focus_border_color);
+    @include focus.focus-ring;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_date_input__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  outline: 0;
+
+  &::placeholder {
+    color: var(--a_form_control_placeholder_color);
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_date_input__toggle,
+.a_date_input__clear,
+.a_date_input__nav {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: .25rem;
+  color: var(--a_date_input_icon_color);
+  background: none;
+  border: 0;
+  border-radius: var(--a_border_radius_small);
+  cursor: pointer;
+  @include focus.focus-visible;
+
+  &:hover:not(:disabled) {
+    color: var(--a_date_input_hover_color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_date_input__toggle__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.a_date_input__dialog {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: calc(var(--a_z_index_popup) + 1);
+  margin-top: var(--a_space_xs);
+  padding: var(--a_space_sm);
+  color: var(--a_color_text);
+  background-color: var(--a_date_input_dialog_bg);
+  border: var(--a_border_width) solid var(--a_date_input_dialog_border_color);
+  border-radius: var(--a_date_input_dialog_border_radius);
+  box-shadow: var(--a_date_input_dialog_box_shadow);
+}
+
+.a_date_input__header {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+  margin-bottom: var(--a_space_xs);
+}
+
+.a_date_input__nav {
+  min-width: 2rem;
+  min-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.a_date_input__heading {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  gap: var(--a_space_xs);
+}
+
+.a_date_input__view {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+}
+
+.a_date_input__view__icon {
+  width: .75rem;
+  height: .75rem;
+}
+
+.a_date_input__title {
+  margin: 0;
+  font-size: var(--a_body_font_size);
+  font-weight: 600;
+  text-align: center;
+}
+
+.a_date_input__grid {
+  border-collapse: separate;
+  border-spacing: 2px;
+
+  th {
+    padding: .25rem 0;
+    color: var(--a_color_text_muted);
+    font-size: var(--a_font_size_sm);
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.a_date_input__day {
+  width: 2.25rem;
+  height: 2.25rem;
+  text-align: center;
+  border-radius: var(--a_date_input_day_border_radius);
+  cursor: pointer;
+  @include focus.focus-visible;
+
+  &:hover {
+    background-color: var(--a_date_input_day_hover_bg);
+  }
+
+  &[aria-disabled="true"] {
+    color: var(--a_date_input_day_disabled_color);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+}
+
+.a_date_input__day_other_month {
+  color: var(--a_date_input_other_month_color);
+}
+
+.a_date_input__day_today {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.a_date_input__day_in_range {
+  color: var(--a_date_input_day_in_range_color);
+  background-color: var(--a_date_input_day_in_range_bg);
+}
+
+.a_date_input__day_selected,
+.a_date_input__day_selected:hover {
+  color: var(--a_date_input_day_selected_color);
+  background-color: var(--a_date_input_day_selected_bg);
+}
+
+// months and years: 3 wider cells in a row
+.a_date_input__dialog_month,
+.a_date_input__dialog_year {
+  .a_date_input__day {
+    width: 5.375rem;
+  }
+}
+
+// range: the period under the mouse before the click
+.a_date_input__day_in_preview:not(.a_date_input__day_selected) {
+  background-color: var(--a_date_input_day_preview_bg);
+  box-shadow: inset 0 0 0 1px var(--a_date_input_day_preview_border_color);
+}
+
+.a_date_input__grids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--a_space_md);
+}
+
+.a_date_input__caption {
+  padding-bottom: var(--a_space_xs);
+  font-weight: 600;
+  text-align: center;
+}
+
+.a_date_input__week {
+  color: var(--a_color_text_muted);
+  font-size: var(--a_font_size_sm);
+  font-weight: 400;
+  text-align: center;
+}
+
+// in-body: in the container in body, floating-ui sets left and top
+.a_date_input__popup_in_body {
+  inset: auto;
+  margin: 0;
+}
+
+// inline: the calendar in the page, under the fields
+.a_date_input__inline {
+  margin-top: var(--a_space_sm);
+}
+
+.a_date_input__dialog_inline {
+  position: static;
+  display: inline-block;
+  box-shadow: none;
+}
+
+// quarters: 2 cells in a row
+.a_date_input__dialog_quarter .a_date_input__day {
+  width: 8.125rem;
+}
+
+.a_date_input__time_list {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: calc(var(--a_z_index_popup) + 1);
+  margin-top: var(--a_space_xs);
+  background-color: var(--a_date_input_dialog_bg);
+  border: var(--a_border_width) solid var(--a_date_input_dialog_border_color);
+  border-radius: var(--a_date_input_dialog_border_radius);
+  box-shadow: var(--a_date_input_dialog_box_shadow);
+}
+
+.a_date_input__time_list__ul {
+  max-height: var(--a_date_input_time_list_max_height);
+  min-width: 6rem;
+  margin: 0;
+  padding: var(--a_space_xs) 0;
+  overflow-y: auto;
+  list-style: none;
+  border-radius: inherit;
+  @include focus.focus-visible;
+}
+
+.a_date_input__time_list__option {
+  padding: .25rem var(--a_space_sm);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--a_date_input_day_hover_bg);
+  }
+
+  &[aria-disabled="true"] {
+    color: var(--a_date_input_day_disabled_color);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+}
+
+// the active option has the outline, the selected one the color
+.a_date_input__time_list__option_active {
+  outline: 2px solid var(--a_color_primary);
+  outline-offset: -2px;
+}
+
+.a_date_input__time_list__option_selected {
+  color: var(--a_date_input_day_selected_color);
+  background-color: var(--a_date_input_day_selected_bg);
+}
+
+.a_date_input__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--a_space_xs);
+  margin-top: var(--a_space_xs);
+}
+
+.a_date_input__shortcuts {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: var(--a_space_xs);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_date_input, .a_date_input__dialog, .a_date_input__time_list) {
+  --a_date_input_gap: var(--a_space_sm); // Space between the fields (date, time, from, to).
+  --a_date_input_date_width: 11rem; // Width of a date field.
+  --a_date_input_time_width: 7rem; // Width of a time field.
+  --a_date_input_icon_color: var(--a_color_text_muted); // Color of the calendar button and the buttons of the month.
+  --a_date_input_hover_color: var(--a_color_link_hover); // Color of these buttons on hover.
+  --a_date_input_dialog_bg: var(--a_color_surface_raised); // Background of the calendar.
+  --a_date_input_dialog_border_color: var(--a_border_color); // Border color of the calendar.
+  --a_date_input_dialog_border_radius: var(--a_border_radius_large); // Corner radius of the calendar.
+  --a_date_input_dialog_box_shadow: var(--a_shadow_md); // Shadow of the calendar.
+  --a_date_input_day_border_radius: var(--a_border_radius_small); // Corner radius of a day.
+  --a_date_input_day_hover_bg: var(--a_color_gray_100); // Background of a day on hover.
+  --a_date_input_day_selected_color: var(--a_color_primary_contrast); // Text color of the selected day.
+  --a_date_input_day_selected_bg: var(--a_color_primary); // Background of the selected day.
+  --a_date_input_day_in_range_color: var(--a_color_primary_text_emphasis); // Text color of the days of the range.
+  --a_date_input_day_in_range_bg: var(--a_color_primary_bg_subtle); // Background of the days of the range.
+  --a_date_input_day_disabled_color: var(--a_color_text_muted); // Text color of a day that cannot be chosen.
+  --a_date_input_other_month_color: var(--a_color_text_muted); // Text color of the days of the months before and after.
+  --a_date_input_day_preview_bg: var(--a_color_primary_bg_subtle); // Background of the days of the period under the mouse (range).
+  --a_date_input_day_preview_border_color: var(--a_color_primary_border_subtle); // Border of these days.
+  --a_date_input_time_list_max_height: 15rem; // Maximum height of the list of times.
+}

@@ -1,0 +1,8 @@
+{
+  "_A_SKIP_LINK_COMPONENT_NAME_": "Poveznica za preskakanje",
+  "_A_SKIP_LINK_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">ASkipLink</strong> je prva poveznica stranice: <em>Prijeđi na glavni sadržaj</em>. Skrivena je dok ne dobije fokus s tipkovnice, a tada se pojavi u gornjem lijevom kutu. Korisnici tipkovnice i čitača zaslona jednom tipkom preskaču zaglavlje i navigaciju (WCAG 2.4.1). Poveznica sama premješta fokus na cilj, pa radi i s hash routerom i s elementom poput <code>&lt;main&gt;</code> koji ne može dobiti fokus.",
+  "_A_SKIP_LINK_BASIC_DESCRIPTION_": "Postavite <code>a-skip-link</code> kao prvi element stranice, a glavnom sadržaju dajte <code>&lt;main id=\"main\"&gt;</code>. Isprobajte na ovoj stranici: ponovno je učitajte i pritisnite <kbd>Tab</kbd>. Primjer ispod skače na okvir ispod njega.",
+  "_A_SKIP_LINK_PROPS_TARGET_ID_DESCRIPTION_": "<code>id</code> elementa koji dobiva fokus, npr. <code>&lt;main id=\"main\"&gt;</code>. Ako element ne postoji, poveznica radi kao obična poveznica.",
+  "_A_SKIP_LINK_PROPS_TEXT_DESCRIPTION_": "Tekst poveznice. Prihvaća ključ prijevoda.",
+  "_A_SKIP_LINK_EXAMPLE_CONTENT_": "Cilj poveznice za preskakanje u ovom primjeru. Nakon klika na poveznicu fokus je ovdje."
+}

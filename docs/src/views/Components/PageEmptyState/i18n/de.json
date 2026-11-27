@@ -1,0 +1,20 @@
+{
+  "_A_EMPTY_STATE_COMPONENT_NAME_": "Leerer Zustand",
+  "_A_EMPTY_STATE_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AEmptyState</strong> zeigt, dass es keine Daten gibt: ein Icon, ein Titel, ein Text und Buttons. Verwenden Sie ihn in Tabellen, Listen und Bäumen, z. B. „Noch keine Einträge“ oder „Nichts gefunden“.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TAG_DESCRIPTION_": "Tag des Titels. Standardmäßig <code>p</code>, damit die Überschriftenstruktur der Seite korrekt bleibt. Setzen Sie eine Überschriftenebene (z. B. <code>h2</code>, <code>h3</code>), wenn der leere Zustand ein eigener Abschnitt ist. Der Standard kann mit <code>AComponentsPlugin</code> für die ganze App geändert werden.",
+  "_A_EMPTY_STATE_PROPS_HEADER_TEXT_DESCRIPTION_": "Titel. Akzeptiert einen Übersetzungsschlüssel.",
+  "_A_EMPTY_STATE_PROPS_ICON_DESCRIPTION_": "Icon über dem Titel, ein mit <code>AIconPlugin</code> registrierter Name. Es ist dekorativ und für Screenreader ausgeblendet.",
+  "_A_EMPTY_STATE_PROPS_TEXT_DESCRIPTION_": "Text unter dem Titel. Akzeptiert einen Übersetzungsschlüssel.",
+  "_A_EMPTY_STATE_SLOTS_DEFAULT_DESCRIPTION_": "Buttons oder Links unter dem Text, z. B. um den ersten Eintrag anzulegen oder die Filter zurückzusetzen.",
+  "_A_EMPTY_STATE_SLOTS_ICON_DESCRIPTION_": "Eigener Inhalt statt der Prop <code>icon</code>, z. B. eine Illustration. Er ist für Screenreader ausgeblendet.",
+  "_A_EMPTY_STATE_BASIC_DESCRIPTION_": "Eine leere Liste mit einem Button für den ersten Eintrag. <code>header-tag</code> macht den Titel zu einer Überschrift der passenden Ebene. Die Klasse <code>a_tile</code> fügt einen Rahmen hinzu.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_HEADER_": "Noch keine Einträge",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_TEXT_": "Legen Sie den ersten Eintrag an, um ihn hier zu sehen.",
+  "_A_EMPTY_STATE_EXAMPLE_BASIC_BTN_": "Eintrag anlegen",
+  "_A_EMPTY_STATE_SEARCH_HEADER_": "Nichts gefunden",
+  "_A_EMPTY_STATE_SEARCH_DESCRIPTION_": "Der leere Zustand erscheint, wenn die Suche keine Ergebnisse hat. Er liegt in einem Element mit <code>role=\"status\"</code>, das immer in der Seite ist, daher kündigt ein Screenreader ihn an. Ein Element mit <code>role=\"status\"</code>, das zusammen mit seinem Inhalt eingefügt wird, wird oft nicht angekündigt. Der Platzhalter <code>{{ search }}</code> kommt aus <code>extra</code>.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_LABEL_": "Nach einer Stadt suchen",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_HEADER_": "Nichts gefunden für „{{ search }}“",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_TEXT_": "Prüfen Sie die Schreibweise oder versuchen Sie einen kürzeren Begriff.",
+  "_A_EMPTY_STATE_EXAMPLE_SEARCH_BTN_": "Suche leeren"
+}

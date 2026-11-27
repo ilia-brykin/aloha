@@ -1,0 +1,24 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_POPOVER_GROUP_MODEL_HEADER_"
+  description="_A_POPOVER_GROUP_MODEL_DESCRIPTION_"
+)
+  a-button.a_mr_3(
+    class="a_btn a_btn_outline_primary"
+    text="_A_POPOVER_EXAMPLE_TOGGLE_"
+    @click="isOpen = !isOpen"
+  )
+  a-popover(
+    v-model="isOpen"
+    :close-on-click-outside="false"
+    button-text="_A_POPOVER_EXAMPLE_BUTTON_"
+    @close="lastEvent = { close: $event }"
+    @open="lastEvent = { open: $event }"
+  )
+    a-translation(
+      class="a_mb_0"
+      tag="p"
+      text="_A_POPOVER_EXAMPLE_TEXT_"
+    )
+  pre.a_mt_3 v-model: {{ isOpen }}, {{ lastEvent }}

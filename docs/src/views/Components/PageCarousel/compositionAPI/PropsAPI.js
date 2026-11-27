@@ -25,7 +25,7 @@ export default function PropsAPI() {
       name: "arrow-previous-icon",
       description: "_A_CAROUSEL_PROPS_ARROW_PREVIOUS_ICON_DESCRIPTION_",
       type: "String",
-      default: "ChevronLeft",
+      default: undefined,
       required: false,
     },
     {
@@ -39,7 +39,7 @@ export default function PropsAPI() {
       name: "arrow-next-icon",
       description: "_A_CAROUSEL_PROPS_ARROW_NEXT_ICON_DESCRIPTION_",
       type: "String",
-      default: "ChevronRight",
+      default: undefined,
       required: false,
     },
     {
@@ -71,6 +71,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "autoplay-pause-on-hover",
+      description: "_A_CAROUSEL_PROPS_AUTOPLAY_PAUSE_ON_HOVER_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "autoplay-show",
       description: "_A_CAROUSEL_PROPS_AUTOPLAY_SHOW_DESCRIPTION_",
       type: "Boolean",
@@ -85,10 +92,24 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "card-scale",
+      description: "_A_CAROUSEL_PROPS_CARD_SCALE_DESCRIPTION_",
+      type: "Number",
+      default: 0.83,
+      required: false,
+    },
+    {
       name: "data",
       description: "_A_CAROUSEL_PROPS_DATA_DESCRIPTION_",
       type: "Array",
       default: "() => []",
+      required: false,
+    },
+    {
+      name: "direction",
+      description: "_A_CAROUSEL_PROPS_DIRECTION_DESCRIPTION_",
+      type: "String",
+      default: "horizontal",
       required: false,
     },
     {
@@ -102,6 +123,13 @@ export default function PropsAPI() {
       name: "extra",
       description: "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "height",
+      description: "_A_CAROUSEL_PROPS_HEIGHT_DESCRIPTION_",
+      type: "String",
       default: undefined,
       required: false,
     },
@@ -162,10 +190,31 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "key-label",
+      description: "_A_CAROUSEL_PROPS_KEY_LABEL_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "loop",
+      description: "_A_CAROUSEL_PROPS_LOOP_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "model-value",
       description: "_A_CAROUSEL_PROPS_MODEL_VALUE_DESCRIPTION_",
       type: "Number / String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "motion-blur",
+      description: "_A_CAROUSEL_PROPS_MOTION_BLUR_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
       required: false,
     },
     {
@@ -181,6 +230,20 @@ export default function PropsAPI() {
         "        controlsStop: \"_A_CAROUSEL_CONTROLS_STOP_\",\n" +
         "        itemAriaLabel: \"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_\",\n" +
         "      }",
+      required: false,
+    },
+    {
+      name: "transition",
+      description: "_A_CAROUSEL_PROPS_TRANSITION_DESCRIPTION_",
+      type: "String",
+      default: "slide",
+      required: false,
+    },
+    {
+      name: "type",
+      description: "_A_CAROUSEL_PROPS_TYPE_DESCRIPTION_",
+      type: "String",
+      default: "default",
       required: false,
     },
   ];

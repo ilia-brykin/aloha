@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_SIZE_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_SIZE_DESCRIPTION_"
+)
+  a-pagination-pages(
+    v-for="size in sizes"
+    :key="size"
+    v-model:page="page"
+    class="a_mb_3"
+    :limit="10"
+    :size="size"
+    :total-count="87"
+  )

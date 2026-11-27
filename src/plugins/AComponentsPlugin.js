@@ -1,4 +1,7 @@
 import {
+  isDev,
+} from "../utils/isDev";
+import {
   forEach,
   isPlainObject,
 } from "lodash-es";
@@ -64,7 +67,9 @@ export default {
   install: (app, components = {}) => {
     forEach(components, (options, componentName) => {
       if (!isPlainObject(options)) {
-        console.warn(`AComponentsPlugin: the settings of ${ componentName } must be an object`);
+        if (isDev()) {
+          console.warn(`AComponentsPlugin: the settings of ${ componentName } must be an object`);
+        }
         return;
       }
       const CURRENT = componentsPluginOptions[componentName] || {};

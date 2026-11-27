@@ -1,0 +1,33 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DRAWER_SIZES_HEADER_"
+  description="_A_DRAWER_SIZES_DESCRIPTION_"
+  :props="['size']"
+)
+  .a_btn_group(
+    role="group"
+  )
+    a-button(
+      v-for="value in sizes"
+      :id="`btn_drawer_size_${ value }`"
+      :key="value"
+      class="a_btn a_btn_outline_secondary"
+      :text="value"
+      @click="openDrawer(value)"
+    )
+
+  a-drawer(
+    v-if="size"
+    :size="size === 'default' ? undefined : size"
+    :selector-close-ids="`btn_drawer_size_${ size }`"
+    :close="closeDrawer"
+    :header-text="`size: ${ size }`"
+  )
+    template(
+      v-slot:modalBody
+    )
+      a-translation(
+        tag="p"
+        text="_A_DRAWER_EXAMPLE_BODY_"
+      )

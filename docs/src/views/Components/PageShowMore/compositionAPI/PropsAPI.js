@@ -141,6 +141,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "model-value",
+      description: "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "safe-html",
       description: "_A_SHOW_MORE_PROPS_SAFE_HTML_DESCRIPTION_",
       type: "String",

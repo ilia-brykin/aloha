@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_INFINITE_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_INFINITE_DESCRIPTION_"
+)
+  aloha-pagination-items(
+    :length="Math.min(limit, totalCount)"
+    :offset="0"
+  )
+  a-pagination-pages(
+    :limit="limit"
+    :total-count="totalCount"
+    mode="infinite"
+    @update:limit="updateLimit"
+  )

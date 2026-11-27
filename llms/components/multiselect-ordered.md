@@ -917,7 +917,7 @@ export default {
 | select-in-body | Boolean | true |  | The list is rendered in the container popper-container-id at the end of the body, otherwise directly after the button. |
 | select-is-close-by-click | Boolean | false |  | Closes the list after an item is chosen. By default: yes for select, no for multiselect. |
 | select-is-label-float | Boolean | true |  | Deprecated, use label-position. true → "float", false → "top". |
-| select-is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. |
+| select-is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. The values are next to the field (not in it), their remove buttons can be reached with Tab. |
 | select-label | String / Number | _A_MULTISELECT_ORDERED_LABEL_SELECT_ |  | Label of the field (text or translation key). |
 | select-label-class | String / Object |  |  | Additional CSS class of the label. |
 | select-label-screenreader | String |  |  | Label that is read only by screen readers. |

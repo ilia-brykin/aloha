@@ -6,9 +6,19 @@
   "_A_BREADCRUMB_ROUTER_DESCRIPTION_": "<code>to</code> accetta un percorso o un oggetto rotta e usa <strong>ALink</strong>. Solo l’ultimo elemento è contrassegnato come pagina corrente. <code>label</code> e <code>aria-label</code> accettano chiavi di traduzione e seguono i cambi di lingua.",
   "_A_BREADCRUMB_PROPS_ARIA_LABEL_": "Nome accessibile della navigazione. Accetta una chiave di traduzione; usare nomi distinti per più percorsi di navigazione.",
   "_A_BREADCRUMB_PROPS_ITEMS_": "Elementi dalla radice alla pagina corrente. I campi sono descritti sotto.",
-  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Separatore decorativo tra gli elementi. Una stringa vuota ne nasconde il testo.",
+  "_A_BREADCRUMB_PROPS_SEPARATOR_": "Separatore decorativo tra gli elementi, nascosto agli screen reader. Una stringa vuota non mostra alcun separatore.",
   "_A_BREADCRUMB_PROPS_HREF_": "URL di una pagina superiore. Ignorato nell’ultimo elemento.",
   "_A_BREADCRUMB_PROPS_ID_": "Chiave stabile facoltativa. Se omessa, viene usato l’indice.",
   "_A_BREADCRUMB_PROPS_LABEL_": "Testo visibile o chiave di traduzione supportata da ATranslation.",
-  "_A_BREADCRUMB_PROPS_TO_": "Destinazione Vue Router di una pagina superiore. Ha priorità su href; ignorata nell’ultimo elemento."
+  "_A_BREADCRUMB_PROPS_TO_": "Destinazione Vue Router di una pagina superiore. Ha priorità su href; ignorata nell’ultimo elemento.",
+  "_A_BREADCRUMB_PROPS_MAX_ITEMS_": "Numero massimo di elementi visibili (almeno 2). Un percorso più lungo mostra il primo elemento, un pulsante <code>…</code> e gli ultimi <code>max-items - 1</code> elementi. Il pulsante mostra tutti gli elementi e sposta il focus sul primo elemento nascosto. Un nuovo array <code>items</code> viene di nuovo compresso.",
+  "_A_BREADCRUMB_PROPS_ITEM_EXTRA_": "Valori per i segnaposto di questo <code>label</code>. Sovrascrive la prop <code>extra</code> del componente.",
+  "_A_BREADCRUMB_PROPS_ICON_": "Icona davanti al testo, un nome registrato con <code>AIconPlugin</code>. È decorativa e nascosta agli screen reader.",
+  "_A_BREADCRUMB_ICONS_HEADER_": "Icone e segnaposto",
+  "_A_BREADCRUMB_ICONS_DESCRIPTION_": "<code>icon</code> mostra un'icona davanti a un elemento, ad es. una casa per la pagina iniziale. <code>label</code> può contenere segnaposto come <code>{{ number }}</code>; i valori vengono dalla prop <code>extra</code> o da <code>item.extra</code>.",
+  "_A_BREADCRUMB_COLLAPSE_HEADER_": "Percorso lungo",
+  "_A_BREADCRUMB_COLLAPSE_DESCRIPTION_": "Con <code>max-items</code> un percorso profondo viene ridotto al primo elemento, a un pulsante <code>…</code> e agli ultimi elementi. Il pulsante ha un testo per gli screen reader con il numero di livelli nascosti. Dopo un clic vengono mostrati tutti gli elementi e il focus passa al primo elemento nascosto.",
+  "_A_BREADCRUMB_EXAMPLE_HOME_": "Home",
+  "_A_BREADCRUMB_EXAMPLE_ORDERS_": "Ordini",
+  "_A_BREADCRUMB_EXAMPLE_ORDER_": "Ordine {{ number }}"
 }

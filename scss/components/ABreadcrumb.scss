@@ -25,6 +25,17 @@
   text-decoration: underline;
 }
 
+.a_breadcrumb__text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_breadcrumb_icon_gap);
+}
+
+.a_breadcrumb__more {
+  padding: 0 var(--a_breadcrumb_more_padding_x);
+  line-height: inherit;
+}
+
 .a_breadcrumb__current {
   color: var(--a_breadcrumb_current_color);
   font-weight: var(--a_font_weight_semibold);
@@ -34,4 +45,6 @@
   --a_breadcrumb_gap: .5rem; // Gap between items and around separators.
   --a_breadcrumb_separator_color: var(--a_color_text_muted); // Color of the decorative separators.
   --a_breadcrumb_current_color: var(--a_color_text); // Color of the current page.
+  --a_breadcrumb_icon_gap: .375rem; // Gap between the icon and the text of an item.
+  --a_breadcrumb_more_padding_x: .25rem; // Horizontal padding of the "…" button of a collapsed trail.
 }

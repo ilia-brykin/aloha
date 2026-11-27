@@ -48,7 +48,7 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "El contenido del componente se puede definir como texto sin formato.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Texto",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "La longitud representa el número máximo de caracteres después de los cuales el resto del texto se oculta.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Número máximo de caracteres tras el cual se oculta el resto del texto. El texto se corta al final de una palabra y recibe puntos suspensivos (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Longitud del texto",
   "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Mostrar menos Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Mostrar más Aloha",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Contenido que se mostrará dentro del componente.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Manipulación del componente utilizando el indicador 'isOpen'.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Manipulación del componente utilizando el botón 'Mostrar más'.",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Se activa cuando se presiona un botón, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Se activa cuando se presiona un botón, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Con <code>text-length</code> el resto del texto no está en la página: el botón tiene <code>aria-expanded</code> y <code>aria-controls</code>. Con <code>height</code> todo el contenido está en la página y un lector de pantalla lo lee de todos modos: el botón indica que se puede ignorar. Un enlace o botón en la parte recortada abre el contenido al recibir el foco. Tras el clic el foco se queda en el botón; solo si el botón desaparece (<code>show-less=\"false\"</code>), pasa al contenido.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> indica si el contenido está abierto y también lo abre o cierra desde fuera. El evento <code>toggle</code> sigue llegando.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Enlaces en la parte recortada",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Recorra los enlaces con Tab: cuando un enlace de la parte recortada recibe el foco, el contenido se abre, así el foco siempre es visible (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Abrir / cerrar desde fuera",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Abierto o cerrado (<code>v-model</code>). Sin ella, <code>is-open-default</code> define el inicio.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Cambió abierto o cerrado (<code>v-model</code>). Llega junto con <code>toggle</code>."
 }

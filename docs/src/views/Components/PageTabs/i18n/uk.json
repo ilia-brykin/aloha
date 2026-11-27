@@ -63,5 +63,21 @@
   "_A_TABS_TAB_1_": "Вкладка 1",
   "_A_TABS_TAB_2_": "Вкладка 2",
   "_A_TABS_TAB_3_": "Вкладка 3",
-  "_A_TABS_TAB_4_": "Вкладка 4"
+  "_A_TABS_TAB_4_": "Вкладка 4",
+  "_A_TABS_BASIC_DESCRIPTION_": "Вкладки працюють за патерном WAI-ARIA: Tab переходить на активну вкладку, стрілки (↑ і ↓ у вертикальних вкладках), Home і End перемикають вкладки й одразу їх відкривають, неактивні вкладки пропускаються. Наступний Tab переходить у вміст.",
+  "_A_TABS_GROUP_ARIA_LABEL_HEADER_": "Ім'я списку вкладок",
+  "_A_TABS_GROUP_ARIA_LABEL_DESCRIPTION_": "<code>aria-label</code> (ключ перекладу) або <code>aria-labelledby</code> (id заголовка) задає ім'я списку вкладок для скринрідера. Це потрібно, якщо на сторінці кілька наборів вкладок.",
+  "_A_TABS_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_TABS_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model:active-tab-id</code> містить id активної вкладки й дозволяє змінювати її ззовні. Подія <code>change</code> і далі надходить.",
+  "_A_TABS_GROUP_RENDER_CONTENT_HEADER_": "Відмальовування вмісту",
+  "_A_TABS_GROUP_RENDER_CONTENT_DESCRIPTION_": "<code>render-content</code>: <code>all</code> (за замовчуванням) відмальовує весь вміст і приховує неактивний, <code>active</code> відмальовує лише вміст активної вкладки, <code>once</code> відмальовує вміст під час першого відкриття вкладки й далі його тримає. <code>active</code> і <code>once</code> допомагають із важким вмістом, наприклад таблицями.",
+  "_A_TABS_EXAMPLE_ARIA_LABEL_": "Налаштування профілю",
+  "_A_TABS_EXAMPLE_OPEN_TAB_3_": "Відкрити вкладку 3",
+  "_A_TABS_PROPS_ARIA_LABEL_DESCRIPTION_": "Ім'я списку вкладок для скринрідера. Приймає ключ перекладу.",
+  "_A_TABS_PROPS_ARIA_LABELLEDBY_DESCRIPTION_": "id елемента, що дає ім'я списку вкладок, наприклад заголовка.",
+  "_A_TABS_PROPS_RENDER_CONTENT_DESCRIPTION_": "<code>all</code>: відмальовується весь вміст, неактивний приховано. <code>active</code>: відмальовується лише вміст активної вкладки. <code>once</code>: вміст відмальовується під час першого відкриття вкладки й далі залишається.",
+  "_A_TABS_EVENTS_UPDATE_ACTIVE_TAB_ID_DESCRIPTION_": "id нової активної вкладки (<code>v-model:active-tab-id</code>). Надходить разом із <code>change</code>, зокрема при <code>is-change-outside</code>.",
+  "_A_TABS_GROUP_ACTIVATION_HEADER_": "Відкриття за Enter",
+  "_A_TABS_GROUP_ACTIVATION_DESCRIPTION_": "З <code>activation</code>=\"manual\" стрілки лише переносять фокус, вкладку відкриває Enter або пробіл. Використовуйте, якщо вміст вкладки довго завантажується, наприклад із сервера, щоб він не завантажувався для кожної вкладки дорогою.",
+  "_A_TABS_PROPS_ACTIVATION_DESCRIPTION_": "<code>auto</code>: стрілки одразу відкривають вкладку з фокусом. <code>manual</code>: стрілки лише переносять фокус, вкладку відкриває Enter або пробіл (WAI-ARIA), наприклад для вмісту, що довго завантажується."
 }

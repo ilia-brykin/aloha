@@ -1,5 +1,6 @@
 import {
   h,
+  mergeProps,
   onBeforeUnmount,
   onMounted,
   onUnmounted,
@@ -13,18 +14,21 @@ import ALoading from "../ALoading/ALoading";
 import ATranslation from "../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import BackdropAPI from "./compositionAPI/BackdropAPI";
 import BodyHtmlAPI from "./compositionAPI/BodyHtmlAPI";
 import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EscapeAPI from "./compositionAPI/EscapeAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import FocusByDestroyAPI from "../compositionAPI/FocusByDestroyAPI";
-import HideModalAPI from "./compositionAPI/HideModalAPI";
 import KeydownAPI from "./compositionAPI/KeydownAPI";
 import ShowModalAPI from "./compositionAPI/ShowModalAPI";
 import SizeAPI from "./compositionAPI/SizeAPI";
 import WrapperAPI from "./compositionAPI/WrapperAPI";
 import ZIndexAPI from "./compositionAPI/ZIndexAPI";
+import {
+  getTranslatedAttributes,
+} from "../ATranslation/compositionAPI/UtilsAPI";
 
 import Close from "../AIcon/Icons/Close";
 import {
@@ -39,6 +43,12 @@ export default {
   name: "AModal",
   inheritAttrs: false,
   props: {
+    // name of the dialog when it has no header (hide-header) or the header is not a good name
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     alwaysTranslate: {
       type: Boolean,
       required: false,
@@ -82,15 +92,22 @@ export default {
       required: false,
       default: undefined,
     },
+    // a click outside of the dialog closes the modal
+    closeOnBackdrop: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("AModal", "closeOnBackdrop", false),
+    },
     closeButtonText: {
       type: String,
       required: false,
       default: () => getPropDefault("AModal", "closeButtonText", "_A_MODAL_BTN_CANCEL_"),
     },
+    // only when set: the name of the button for screen readers instead of its visible text (WCAG 2.5.3: the name contains the visible text)
     closeButtonTextScreenReaderFooter: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModal", "closeButtonTextScreenReaderFooter", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_"),
+      default: () => getPropDefault("AModal", "closeButtonTextScreenReaderFooter"),
     },
     closeButtonTextScreenReaderHeader: {
       type: String,
@@ -206,7 +223,7 @@ export default {
     saveButtonTextScreenReader: {
       type: String,
       required: false,
-      default: () => getPropDefault("AModal", "saveButtonTextScreenReader", "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_"),
+      default: () => getPropDefault("AModal", "saveButtonTextScreenReader"),
     },
     selectorClose: {
       type: [String, Array],
@@ -247,6 +264,12 @@ export default {
       required: false,
       default: true,
     },
+    // the rest of the page gets inert while the modal is open: not reachable with the mouse or the virtual cursor of a screen reader
+    useInert: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("AModal", "useInert", true),
+    },
     zIndex: {
       type: Number,
       required: false,
@@ -255,12 +278,15 @@ export default {
   },
   setup(props) {
     const isModalHidden = toRef(props, "isModalHidden");
+    // key in the stack of the open modals
+    const modalKey = Symbol("AModal");
 
     const {
-      checkOpenedModals,
       stylesBackdrop,
       stylesZIndexModal,
-    } = ZIndexAPI(props);
+    } = ZIndexAPI(props, {
+      modalKey,
+    });
 
     const {
       bodyHtmlId,
@@ -302,23 +328,29 @@ export default {
       setListenerForKeydown,
       removeListenerForKeydown,
     } = KeydownAPI({
+      modalKey,
       pressEscape,
       trapFocus,
     });
 
     const {
+      hideModal,
       showModal,
     } = ShowModalAPI(props, {
-      checkOpenedModals,
+      modalKey,
+      modalWrapperRef,
+      removeListenerForKeydown,
+      setFocusByDestroy,
       setFocusByShowModal,
       setListenerForKeydown,
     });
 
     const {
-      hideModal,
-    } = HideModalAPI({
-      removeListenerForKeydown,
-      setFocusByDestroy,
+      onClickModal,
+      onMousedownModal,
+    } = BackdropAPI(props, {
+      disabledLocal,
+      modalRef,
     });
 
     const {
@@ -354,6 +386,8 @@ export default {
       headerId,
       modalRef,
       modalWrapperRef,
+      onClickModal,
+      onMousedownModal,
       sizeClass,
       stylesBackdrop,
       stylesZIndexModal,
@@ -385,7 +419,7 @@ export default {
               disabled: this.disabledLocal || this.disabledSave,
               extra: this.extra,
               html: this.saveButtonText,
-              textAriaHidden: true,
+              textAriaHidden: !!this.saveButtonTextScreenReader,
               textScreenReader: this.saveButtonTextScreenReader,
               type: "button",
               ...this.saveButtonAttributes,
@@ -398,7 +432,7 @@ export default {
               disabled: this.disabledLocal,
               extra: this.extra,
               html: this.closeButtonText,
-              textAriaHidden: true,
+              textAriaHidden: !!this.closeButtonTextScreenReaderFooter,
               textScreenReader: this.closeButtonTextScreenReaderFooter,
               type: "button",
               ...this.closeButtonAttributes,
@@ -418,7 +452,7 @@ export default {
         ref: "modalWrapperRef",
         ...this.clickWrapperStoppPropagationEventMap,
       }, [
-        h("div", {
+        h("div", mergeProps({
           ref: "modalRef",
           id: this.id,
           class: [
@@ -431,15 +465,17 @@ export default {
             },
           ],
           role: "dialog",
-          ariaModal: true,
+          "aria-modal": "true",
           "aria-labelledby": this.headerId,
           "aria-describedby": this.bodyHtmlId,
+          ...getTranslatedAttributes({ attr: "aria-label", placeholder: this.ariaLabel, extra: this.extra }),
           style: [
             this.modalStyle,
             this.stylesZIndexModal,
           ],
-          ...this.$attrs,
-        }, [
+          onMousedown: this.onMousedownModal,
+          onClick: this.onClickModal,
+        }, this.$attrs), [
           h("div", {
             class: ["a_modal_dialog a_modal_dialog_scrollable", this.sizeClass],
           }, [
@@ -495,7 +531,7 @@ export default {
                 class: "a_modal_body",
               }, [
                 h("div", {
-                  ref: "modal_body",
+                  ref: "modal_body_content",
                   class: "a_modal_body__content",
                 }, [
                   this.bodyHtml && h(ATranslation, {

@@ -8,5 +8,8 @@
   "_A_SELECT_SELECTED_{{count}}_": "Вибрано: {{count}}",
   "_A_SELECT_DESELECT_ALL_": "Скасувати вибір усіх",
   "_A_SELECT_SELECT_ALL_": "Вибрати все",
-  "_A_SELECT_REMOVE_": "Видалити"
+  "_A_SELECT_REMOVE_": "Видалити",
+  "_A_SELECT_REMOVE_{{label}}_": "Видалити {{label}}",
+  "_A_SELECT_SEARCH_RESULTS_{{count}}_": "Знайдено: {{count}}",
+  "_A_SELECT_SEARCH_NO_RESULTS_": "Нічого не знайдено"
 }

@@ -9,6 +9,9 @@ import {
   isUndefined,
 } from "lodash-es";
 
+// more panels than this get no role="region", so the page does not get too many landmarks (WAI-ARIA)
+const MAX_REGIONS = 6;
+
 export default function AttributesAPI(props, {
   classButtonLocal = computed(() => undefined),
   isOpen = computed(() => false),
@@ -16,10 +19,13 @@ export default function AttributesAPI(props, {
   currentId = computed(() => ""),
 }) {
   const item = toRef(props, "item");
+  const itemsCount = toRef(props, "itemsCount");
+  const parentsIds = toRef(props, "parentsIds");
 
   const alwaysOpen = inject("alwaysOpen");
   const classButton = inject("classButton");
   const disabled = inject("disabled");
+  const headerTag = inject("headerTag");
   const id = inject("id");
   const isCaret = inject("isCaret");
   const keyContent = inject("keyContent");
@@ -43,6 +49,7 @@ export default function AttributesAPI(props, {
     return readonly.value || item.value.readonly;
   });
 
+  // the open item can not be closed: it stays a focusable button with aria-disabled
   const isDisabledByOneItemAlwaysOpen = computed(() => {
     return !alwaysOpen.value && oneItemAlwaysOpen.value && isOpen.value;
   });
@@ -51,8 +58,22 @@ export default function AttributesAPI(props, {
     return `${ id.value }_${ currentId.value }`;
   });
 
+  const idForButton = computed(() => {
+    return item.value.id || `${ idForCollapse.value }_button`;
+  });
+
+  // h3 for the first level, h4 for the nested items … (at most h6); other tags stay as they are
+  const headerTagLocal = computed(() => {
+    const MATCH = /^h([1-6])$/i.exec(headerTag.value || "");
+    if (!MATCH) {
+      return headerTag.value || "div";
+    }
+    const LEVEL = Math.min(6, +MATCH[1] + parentsIds.value.length);
+    return `h${ LEVEL }`;
+  });
+
   const buttonTag = computed(() => {
-    return readonlyLocal.value || isDisabledByOneItemAlwaysOpen.value ? "div" : "a";
+    return readonlyLocal.value ? "div" : "button";
   });
 
   const buttonAttributes = computed(() => {
@@ -64,23 +85,35 @@ export default function AttributesAPI(props, {
         a_accordion__button_with_gap: withGap.value,
         readonly: readonlyLocal.value,
       }],
-      id: item.value.id,
+      id: idForButton.value,
     };
 
     if (!readonlyLocal.value) {
-      ATTRIBUTES["aria-expanded"] = isOpen.value;
+      ATTRIBUTES.type = "button";
+      ATTRIBUTES["aria-expanded"] = isOpen.value ? "true" : "false";
       ATTRIBUTES["aria-controls"] = idForCollapse.value;
-      ATTRIBUTES.role = "button";
+      ATTRIBUTES.disabled = disabledLocal.value;
 
       if (isDisabledByOneItemAlwaysOpen.value) {
-        ATTRIBUTES["aria-disabled"] = true;
+        ATTRIBUTES["aria-disabled"] = "true";
       } else {
-        ATTRIBUTES.tabindex = 0;
-        ATTRIBUTES.disabled = disabledLocal.value;
         ATTRIBUTES.onClick = toggleLocal;
       }
     }
 
+    return ATTRIBUTES;
+  });
+
+  const collapseAttributes = computed(() => {
+    const ATTRIBUTES = {
+      id: idForCollapse.value,
+    };
+    if (!readonlyLocal.value) {
+      ATTRIBUTES["aria-labelledby"] = idForButton.value;
+      if (itemsCount.value <= MAX_REGIONS) {
+        ATTRIBUTES.role = "region";
+      }
+    }
     return ATTRIBUTES;
   });
 
@@ -101,7 +134,9 @@ export default function AttributesAPI(props, {
   return {
     buttonAttributes,
     buttonTag,
+    collapseAttributes,
     contentLocal,
+    headerTagLocal,
     idForCollapse,
     isCaretLocal,
     labelLocal,

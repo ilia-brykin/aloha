@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "framework": "vue",
   "name": "aloha-vue",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "js-types-syntax": "typescript",
   "description-markup": "markdown",
   "contributions": {
@@ -22,6 +22,10 @@
               "default": "false"
             },
             {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
               "name": "classBody",
               "type": "string | Record<string, any>",
               "default": "\"\""
@@ -38,6 +42,15 @@
             {
               "name": "disabled",
               "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"h3\""
             },
             {
               "name": "id",
@@ -109,6 +122,10 @@
               "default": "\"children\""
             },
             {
+              "name": "modelValue",
+              "type": "any[]"
+            },
+            {
               "name": "prevent",
               "type": "boolean"
             },
@@ -134,6 +151,9 @@
             "events": [
               {
                 "name": "toggle"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
           }
@@ -364,14 +384,26 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
               "name": "ariaLabel",
               "type": "string",
               "default": "\"_A_BREADCRUMB_ARIA_LABEL_\""
             },
             {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
               "name": "items",
               "type": "any[]",
               "default": "[]"
+            },
+            {
+              "name": "maxItems",
+              "type": "number"
             },
             {
               "name": "separator",
@@ -823,8 +855,7 @@
             },
             {
               "name": "arrowNextIcon",
-              "type": "string",
-              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+              "type": "string"
             },
             {
               "name": "arrowPreviousAttributes",
@@ -833,8 +864,7 @@
             },
             {
               "name": "arrowPreviousIcon",
-              "type": "string",
-              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+              "type": "string"
             },
             {
               "name": "arrowsPlacement",
@@ -857,6 +887,11 @@
               "default": "5000"
             },
             {
+              "name": "autoplayPauseOnHover",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "autoplayShow",
               "type": "boolean",
               "default": "false"
@@ -867,9 +902,19 @@
               "default": "false"
             },
             {
+              "name": "cardScale",
+              "type": "number",
+              "default": "0.83"
+            },
+            {
               "name": "data",
               "type": "any[]",
               "default": "[]"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "default": "\"horizontal\""
             },
             {
               "name": "disabled",
@@ -878,6 +923,10 @@
             {
               "name": "extra",
               "type": "Record<string, any>"
+            },
+            {
+              "name": "height",
+              "type": "string"
             },
             {
               "name": "id",
@@ -923,13 +972,37 @@
               "type": "string"
             },
             {
+              "name": "keyLabel",
+              "type": "string"
+            },
+            {
+              "name": "loop",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "modelValue",
               "type": "number | string"
+            },
+            {
+              "name": "motionBlur",
+              "type": "boolean",
+              "default": "false"
             },
             {
               "name": "texts",
               "type": "Record<string, any>",
               "default": "{\"nextSlide\":\"_A_CAROUSEL_NEXT_SLIDE_\",\"previousSlide\":\"_A_CAROUSEL_PREVIOUS_SLIDE_\",\"controlsSlide\":\"_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_\",\"controlsSlides\":\"_A_CAROUSEL_CONTROLS_SLIDES_\",\"controlsStart\":\"_A_CAROUSEL_CONTROLS_START_\",\"controlsStop\":\"_A_CAROUSEL_CONTROLS_STOP_\",\"itemAriaLabel\":\"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_\"}"
+            },
+            {
+              "name": "transition",
+              "type": "string",
+              "default": "\"slide\""
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"default\""
             }
           ],
           "js": {
@@ -1686,6 +1759,543 @@
           }
         },
         {
+          "name": "ACombobox",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ACombobox"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "filterCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "filterMode",
+              "type": "string",
+              "default": "\"contains\""
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_combobox_7\""
+            },
+            {
+              "name": "ignoreDiacritics",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "inputAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inlineAutocomplete",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "inputClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isClearButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isDataSimpleArray",
+              "type": "boolean"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "keyDisabled",
+              "type": "string"
+            },
+            {
+              "name": "keyGroup",
+              "type": "string"
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "keyLabelCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "maxItems",
+              "type": "number",
+              "default": "10"
+            },
+            {
+              "name": "minLength",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelUndefined",
+              "type": "string | number | Record<string, any> | any[] | boolean",
+              "default": "\"\""
+            },
+            {
+              "name": "modelValue",
+              "type": "string | number"
+            },
+            {
+              "name": "openOnFocus",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "placeholder",
+              "type": "string"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
+            },
+            {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
+              "name": "readonlyDefault",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "readonlyValueParentClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchApiKey",
+              "type": "string",
+              "default": "\"search\""
+            },
+            {
+              "name": "searchTimeout",
+              "type": "number",
+              "default": "300"
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "translateData",
+              "type": "boolean"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"combobox\""
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "urlParams",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "urlTemplateData",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "zIndex",
+              "type": "number | string"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ADateInput",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ADateInput"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "autoFormat",
+              "type": "boolean"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "clearable",
+              "type": "boolean"
+            },
+            {
+              "name": "defaultTime",
+              "type": "string | any[]"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "firstDayOfWeek",
+              "type": "number"
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_date_input_8\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "inputAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "inputClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inline",
+              "type": "boolean"
+            },
+            {
+              "name": "isDateDisabled",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "isTimeDisabled",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isLabelFloat",
+              "type": "boolean"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "locale",
+              "type": "string"
+            },
+            {
+              "name": "max",
+              "type": "string"
+            },
+            {
+              "name": "maxDays",
+              "type": "number"
+            },
+            {
+              "name": "maxTime",
+              "type": "string"
+            },
+            {
+              "name": "min",
+              "type": "string"
+            },
+            {
+              "name": "minDays",
+              "type": "number"
+            },
+            {
+              "name": "minTime",
+              "type": "string"
+            },
+            {
+              "name": "minuteStep",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "mode",
+              "type": "string",
+              "default": "\"date\""
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelFormat",
+              "type": "string",
+              "default": "\"iso\""
+            },
+            {
+              "name": "modelUndefined",
+              "type": "any[] | Record<string, any> | string",
+              "default": "null"
+            },
+            {
+              "name": "modelValue",
+              "type": "string | any[] | number | Date"
+            },
+            {
+              "name": "months",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "placeholder",
+              "type": "string"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_date_input_container\""
+            },
+            {
+              "name": "range",
+              "type": "boolean"
+            },
+            {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
+              "name": "readonlyDefault",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "readonlyValueParentClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "shortcuts",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "showTimeList",
+              "type": "boolean"
+            },
+            {
+              "name": "showToday",
+              "type": "boolean"
+            },
+            {
+              "name": "showWeekNumbers",
+              "type": "boolean"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"dateInput\""
+            },
+            {
+              "name": "utc",
+              "type": "boolean"
+            },
+            {
+              "name": "withSeconds",
+              "type": "boolean"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "close"
+              },
+              {
+                "name": "open"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
           "name": "ADatepicker",
           "source": {
             "module": "aloha-vue",
@@ -2003,7 +2613,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_datepicker_range_7\""
+              "default": "\"a_datepicker_range_9\""
             },
             {
               "name": "idPrefix",
@@ -2247,7 +2857,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_disclosure_8\""
+              "default": "\"a_disclosure_10\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -2257,6 +2867,10 @@
               "name": "isOpenDefault",
               "type": "boolean",
               "default": "false"
+            },
+            {
+              "name": "modelValue",
+              "type": "boolean"
             },
             {
               "name": "safeHtmlLess",
@@ -2289,8 +2903,241 @@
             "events": [
               {
                 "name": "toggle"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
+          }
+        },
+        {
+          "name": "ADrawer",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ADrawer"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "backdropZIndex",
+              "type": "number"
+            },
+            {
+              "name": "bodyHtml",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "bodyHtmlClass",
+              "type": "string | any[] | Record<string, any>"
+            },
+            {
+              "name": "classExtra",
+              "type": "string | Record<string, any>",
+              "default": "\"a_modal_class_extra\""
+            },
+            {
+              "name": "close",
+              "type": "((...args: any[]) => any)",
+              "required": true
+            },
+            {
+              "name": "closeButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "closeButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_secondary\""
+            },
+            {
+              "name": "closeButtonId",
+              "type": "string"
+            },
+            {
+              "name": "closeOnBackdrop",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "closeButtonText",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_CANCEL_\""
+            },
+            {
+              "name": "closeButtonTextScreenReaderFooter",
+              "type": "string"
+            },
+            {
+              "name": "closeButtonTextScreenReaderHeader",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_\""
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "disabledSave",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "focusStartId",
+              "type": "string"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"h2\""
+            },
+            {
+              "name": "headerText",
+              "type": "string"
+            },
+            {
+              "name": "hideFooter",
+              "type": "boolean"
+            },
+            {
+              "name": "hideHeader",
+              "type": "boolean"
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_modal_11\""
+            },
+            {
+              "name": "isCloseButtonHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isConfirm",
+              "type": "boolean"
+            },
+            {
+              "name": "isFooterSticky",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isModalHidden",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isSaveButtonHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "loading",
+              "type": "boolean"
+            },
+            {
+              "name": "modalClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "modalStyle",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "save",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "saveButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "saveButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "saveButtonId",
+              "type": "string"
+            },
+            {
+              "name": "saveButtonText",
+              "type": "string",
+              "default": "\"_A_MODAL_BTN_SAVE_\""
+            },
+            {
+              "name": "saveButtonTextScreenReader",
+              "type": "string"
+            },
+            {
+              "name": "selectorClose",
+              "type": "string | any[]"
+            },
+            {
+              "name": "selectorCloseIds",
+              "type": "string | any[]"
+            },
+            {
+              "name": "showCloseButtonHeader",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "size",
+              "type": "string"
+            },
+            {
+              "name": "stop",
+              "type": "boolean"
+            },
+            {
+              "name": "teleportSelector",
+              "type": "string",
+              "default": "\"body\""
+            },
+            {
+              "name": "useEscape",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useFocusOnStart",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useInert",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "zIndex",
+              "type": "number"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"right\""
+            }
+          ],
+          "js": {
+            "events": []
           }
         },
         {
@@ -2464,7 +3311,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_dropdown_9\""
+              "default": "\"a_dropdown_12\""
             },
             {
               "name": "inBody",
@@ -2657,7 +3504,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_element_10\""
+              "default": "\"a_element_13\""
             },
             {
               "name": "isSwitch",
@@ -2784,6 +3631,44 @@
                 "name": "click"
               }
             ]
+          }
+        },
+        {
+          "name": "AEmptyState",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "AEmptyState"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"p\""
+            },
+            {
+              "name": "headerText",
+              "type": "string"
+            },
+            {
+              "name": "icon",
+              "type": "string"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "js": {
+            "events": []
           }
         },
         {
@@ -2970,7 +3855,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_fieldset_11\""
+              "default": "\"a_fieldset_14\""
             },
             {
               "name": "idPrefix",
@@ -3235,7 +4120,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_filters_12\""
+              "default": "\"a_filters_15\""
             },
             {
               "name": "mainModel",
@@ -3543,6 +4428,9 @@
               },
               {
                 "name": "change"
+              },
+              {
+                "name": "submit"
               }
             ]
           }
@@ -4007,7 +4895,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_group_13\""
+              "default": "\"a_group_16\""
             },
             {
               "name": "idPrefix",
@@ -4323,7 +5211,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_14\""
+              "default": "\"a_input_17\""
             },
             {
               "name": "idPrefix",
@@ -4548,7 +5436,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_currency_15\""
+              "default": "\"a_input_currency_18\""
             },
             {
               "name": "idPrefix",
@@ -4998,7 +5886,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_number_range_16\""
+              "default": "\"a_input_number_range_19\""
             },
             {
               "name": "idPrefix",
@@ -5214,7 +6102,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_otp_17\""
+              "default": "\"a_input_otp_20\""
             },
             {
               "name": "idPrefix",
@@ -5355,6 +6243,362 @@
           }
         },
         {
+          "name": "AInputTags",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "AInputTags"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "addOnBlur",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowDuplicates",
+              "type": "boolean"
+            },
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorIcon",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "filterCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "filterMode",
+              "type": "string",
+              "default": "\"contains\""
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_input_tags_21\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "iconAppend",
+              "type": "string"
+            },
+            {
+              "name": "iconPrepend",
+              "type": "string"
+            },
+            {
+              "name": "ignoreDiacritics",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inlineAutocomplete",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "inputAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "inputClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "isAddAll",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isClearButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isDataSimpleArray",
+              "type": "boolean"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isLabelFloat",
+              "type": "boolean"
+            },
+            {
+              "name": "isOnlyFromList",
+              "type": "boolean"
+            },
+            {
+              "name": "isRemoveAll",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isSortable",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "keyDisabled",
+              "type": "string"
+            },
+            {
+              "name": "keyGroup",
+              "type": "string"
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "keyLabelCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelPosition",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "maxItems",
+              "type": "number",
+              "default": "10"
+            },
+            {
+              "name": "maxTags",
+              "type": "number"
+            },
+            {
+              "name": "maxlength",
+              "type": "number"
+            },
+            {
+              "name": "maxVisibleTags",
+              "type": "number"
+            },
+            {
+              "name": "minLength",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelKey",
+              "type": "string"
+            },
+            {
+              "name": "modelUndefined",
+              "type": "any[] | Record<string, any> | string",
+              "default": "[]"
+            },
+            {
+              "name": "modelValue",
+              "type": "any[]"
+            },
+            {
+              "name": "openOnFocus",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "placeholder",
+              "type": "string"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
+            },
+            {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
+              "name": "readonlyDefault",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "readonlyValueParentClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchApiKey",
+              "type": "string",
+              "default": "\"search\""
+            },
+            {
+              "name": "size",
+              "type": "string",
+              "default": "\"medium\""
+            },
+            {
+              "name": "tagClass",
+              "type": "string | Record<string, any> | any[] | ((...args: any[]) => any)"
+            },
+            {
+              "name": "searchTimeout",
+              "type": "number",
+              "default": "300"
+            },
+            {
+              "name": "separators",
+              "type": "any[]",
+              "default": "[\"Enter\",\",\"]"
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "transform",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "translateData",
+              "type": "boolean"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"tags\""
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "urlParams",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "urlRetrieve",
+              "type": "string"
+            },
+            {
+              "name": "urlTemplateData",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "validator",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "zIndex",
+              "type": "number | string"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
           "name": "AJson",
           "source": {
             "module": "aloha-vue",
@@ -5411,7 +6655,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_json_18\""
+              "default": "\"a_json_22\""
             },
             {
               "name": "idPrefix",
@@ -5492,6 +6736,575 @@
               },
               {
                 "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AJsonEditor",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "AJsonEditor"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_json_editor_23\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelUndefined",
+              "type": "any[] | Record<string, any> | string | number | boolean",
+              "default": "null"
+            },
+            {
+              "name": "modelValue",
+              "type": "any"
+            },
+            {
+              "name": "readonly",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"jsonEditor\""
+            },
+            {
+              "name": "modelType",
+              "type": "string",
+              "default": "\"object\""
+            },
+            {
+              "name": "resetValue",
+              "type": "any"
+            },
+            {
+              "name": "rootName",
+              "type": "string",
+              "default": "\"_A_JSON_EDITOR_ROOT_\""
+            },
+            {
+              "name": "mode",
+              "type": "string",
+              "default": "\"tree\""
+            },
+            {
+              "name": "modes",
+              "type": "any[]",
+              "default": "[\"tree\",\"code\",\"split\"]"
+            },
+            {
+              "name": "bigNumbers",
+              "type": "string",
+              "default": "\"warn\""
+            },
+            {
+              "name": "arrayPageSize",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "density",
+              "type": "string",
+              "default": "\"normal\""
+            },
+            {
+              "name": "displayFormatters",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "expandLevel",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "expandedPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "height",
+              "type": "string"
+            },
+            {
+              "name": "maxHeight",
+              "type": "string",
+              "default": "\"32rem\""
+            },
+            {
+              "name": "pathFormat",
+              "type": "string",
+              "default": "\"dot\""
+            },
+            {
+              "name": "rowHeight",
+              "type": "number",
+              "default": "32"
+            },
+            {
+              "name": "allowFullscreen",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "multilineStrings",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "multilineMaxRows",
+              "type": "number",
+              "default": "8"
+            },
+            {
+              "name": "selectable",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showCounts",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showGuides",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showHistory",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showIndexes",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showStatusBar",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showToolbar",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "showTypes",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "stringMaxLength",
+              "type": "number",
+              "default": "120"
+            },
+            {
+              "name": "virtualThreshold",
+              "type": "number",
+              "default": "300"
+            },
+            {
+              "name": "allowAdd",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowMove",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowRemove",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowRename",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowTypeChange",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowedTypes",
+              "type": "any[]"
+            },
+            {
+              "name": "confirmRemove",
+              "type": "boolean | string",
+              "default": "false"
+            },
+            {
+              "name": "hiddenPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "lockedKeys",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "maxDepth",
+              "type": "number"
+            },
+            {
+              "name": "readonlyPaths",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "undoLimit",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "searchable",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "allowReplace",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "searchCaseSensitive",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchDebounce",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "searchFilter",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchIn",
+              "type": "string",
+              "default": "\"both\""
+            },
+            {
+              "name": "searchRegex",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "allowUnknownVariables",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "showResolved",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "variablePattern",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "variableValues",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "variables",
+              "type": "any[] | ((...args: any[]) => any)"
+            },
+            {
+              "name": "blockInvalidSave",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "errorSummaryPosition",
+              "type": "string",
+              "default": "\"top\""
+            },
+            {
+              "name": "maxErrors",
+              "type": "number"
+            },
+            {
+              "name": "rules",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "schema",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "showErrorSummary",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "validateOn",
+              "type": "string",
+              "default": "\"change\""
+            },
+            {
+              "name": "emptyContainers",
+              "type": "string"
+            },
+            {
+              "name": "escapeSlashes",
+              "type": "boolean"
+            },
+            {
+              "name": "escapeUnicode",
+              "type": "boolean"
+            },
+            {
+              "name": "formatOn",
+              "type": "string",
+              "default": "\"none\""
+            },
+            {
+              "name": "formatOptions",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "indent",
+              "type": "number | string"
+            },
+            {
+              "name": "inlineArrays",
+              "type": "boolean | number"
+            },
+            {
+              "name": "inlineObjects",
+              "type": "boolean | number"
+            },
+            {
+              "name": "lineEnding",
+              "type": "string"
+            },
+            {
+              "name": "maxLineLength",
+              "type": "number"
+            },
+            {
+              "name": "minify",
+              "type": "boolean"
+            },
+            {
+              "name": "numberFormat",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "sortKeys",
+              "type": "boolean | string | ((...args: any[]) => any)"
+            },
+            {
+              "name": "spaceAfterColon",
+              "type": "boolean"
+            },
+            {
+              "name": "trailingNewline",
+              "type": "boolean"
+            },
+            {
+              "name": "afterChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeAdd",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeMove",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeRemove",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeRename",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeSet",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "beforeTypeChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "getNodeActions",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "getValueType",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "loadChildren",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "onSelect",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "parse",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "stringify",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "validateDocument",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "validateNode",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "plugins",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "keyboardHint",
+              "type": "string",
+              "default": "\"_A_JSON_EDITOR_KEYBOARD_HINT_\""
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "collapse"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "fullscreen"
+              },
+              {
+                "name": "selectionChange"
+              },
+              {
+                "name": "modeChange"
+              },
+              {
+                "name": "search"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "update:modelValue"
+              },
+              {
+                "name": "validate"
               }
             ]
           }
@@ -5688,7 +7501,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_link_19\""
+              "default": "\"a_link_24\""
             },
             {
               "name": "isTitleHtml",
@@ -6114,7 +7927,7 @@
             {
               "name": "menuId",
               "type": "string",
-              "default": "\"a_menu_20\""
+              "default": "\"a_menu_25\""
             },
             {
               "name": "onlyMobile",
@@ -6213,6 +8026,10 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
               "name": "alwaysTranslate",
               "type": "boolean"
             },
@@ -6254,14 +8071,18 @@
               "type": "string"
             },
             {
+              "name": "closeOnBackdrop",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "closeButtonText",
               "type": "string",
               "default": "\"_A_MODAL_BTN_CANCEL_\""
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -6306,7 +8127,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_21\""
+              "default": "\"a_modal_26\""
             },
             {
               "name": "isCloseButtonHide",
@@ -6369,8 +8190,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -6405,6 +8225,11 @@
             },
             {
               "name": "useFocusOnStart",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "useInert",
               "type": "boolean",
               "default": "true"
             },
@@ -6488,8 +8313,7 @@
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -6544,7 +8368,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_form_22\""
+              "default": "\"a_modal_form_27\""
             },
             {
               "name": "idPrefix",
@@ -6625,8 +8449,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -6750,8 +8573,7 @@
             },
             {
               "name": "closeButtonTextScreenReaderFooter",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_\""
+              "type": "string"
             },
             {
               "name": "closeButtonTextScreenReaderHeader",
@@ -6800,6 +8622,11 @@
               "default": "false"
             },
             {
+              "name": "isSaveButtonLastStepOnly",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "isSaveButtonHide",
               "type": "boolean",
               "default": "false"
@@ -6841,8 +8668,7 @@
             },
             {
               "name": "saveButtonTextScreenReader",
-              "type": "string",
-              "default": "\"_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_\""
+              "type": "string"
             },
             {
               "name": "selectorClose",
@@ -6882,7 +8708,7 @@
             {
               "name": "ariaLabel",
               "type": "string",
-              "default": "\"_A_WIZARD_ARIA_LABEL_\""
+              "default": "\"\""
             },
             {
               "name": "ariaLabelSteps",
@@ -6913,6 +8739,10 @@
               "default": "\"_A_WIZARD_PREVIOUS_\""
             },
             {
+              "name": "beforeStepChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
               "name": "backButtonTitle",
               "type": "string",
               "default": "\"_A_WIZARD_PREVIOUS_TITLE_\""
@@ -6941,6 +8771,20 @@
               "default": "\"_A_WIZARD_NEXT_\""
             },
             {
+              "name": "finishButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "finishButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "finishButtonText",
+              "type": "string"
+            },
+            {
               "name": "forwardButtonTitle",
               "type": "string",
               "default": "\"_A_WIZARD_NEXT_TITLE_\""
@@ -6953,7 +8797,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_wizard_23\""
+              "default": "\"a_modal_wizard_28\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -7030,6 +8874,15 @@
               "default": "true"
             },
             {
+              "name": "isStepHeadingVisible",
+              "type": "boolean"
+            },
+            {
+              "name": "stepHeadingTag",
+              "type": "string",
+              "default": "\"h3\""
+            },
+            {
               "name": "stepActive",
               "type": "number"
             },
@@ -7081,6 +8934,9 @@
             "events": [
               {
                 "name": "changeStep"
+              },
+              {
+                "name": "finish"
               },
               {
                 "name": "goStepBack"
@@ -7220,7 +9076,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_m_select_ordered_24\""
+              "default": "\"a_m_select_ordered_29\""
             },
             {
               "name": "idPrefix",
@@ -7529,13 +9385,139 @@
           }
         },
         {
+          "name": "ANavbar",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ANavbar"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "closeDelay",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "drawerPlacement",
+              "type": "string",
+              "default": "\"left\""
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_navbar_30\""
+            },
+            {
+              "name": "isEndInDrawer",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isMobileMenu",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isSticky",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "keyChildren",
+              "type": "string",
+              "default": "\"children\""
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "label",
+              "type": "string"
+            },
+            {
+              "name": "openDelay",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "overflow",
+              "type": "string",
+              "default": "\"more\""
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "trigger",
+              "type": "string",
+              "default": "\"click\""
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "navigate"
+              }
+            ]
+          }
+        },
+        {
           "name": "ANotification",
           "source": {
             "module": "aloha-vue",
             "symbol": "ANotification"
           },
           "doc-url": "https://ilia-brykin.github.io/aloha/",
-          "props": [],
+          "props": [
+            {
+              "name": "hasProgress",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "max",
+              "type": "number"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"top-center\""
+            },
+            {
+              "name": "size",
+              "type": "string"
+            },
+            {
+              "name": "width",
+              "type": "number | string"
+            }
+          ],
           "js": {
             "events": []
           }
@@ -7596,7 +9578,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_25\""
+              "default": "\"a_one_checkbox_31\""
             },
             {
               "name": "idPrefix",
@@ -7771,7 +9753,7 @@
             {
               "name": "texts",
               "type": "Record<string, any>",
-              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\",\"countFromTo\":\"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_\",\"countPerPage\":\"_A_COUNT_PER_PAGE_\",\"countPerPageItem\":\"_A_COUNT_PER_PAGE_ITEM_{{count}}_\"}"
+              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesJumperButton\":\"_A_PAGINATION_JUMPER_BUTTON_\",\"pagesJumperError\":\"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_\",\"pagesJumperLabel\":\"_A_PAGINATION_JUMPER_LABEL_\",\"pagesJumperOf\":\"_A_PAGINATION_JUMPER_OF_{{allPages}}_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\",\"countFromTo\":\"_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_\",\"countPerPage\":\"_A_COUNT_PER_PAGE_\",\"countPerPageItem\":\"_A_COUNT_PER_PAGE_ITEM_{{count}}_\"}"
             },
             {
               "name": "totalCount",
@@ -7803,6 +9785,35 @@
               "type": "boolean"
             },
             {
+              "name": "hideOnSinglePage",
+              "type": "boolean"
+            },
+            {
+              "name": "iconFirst",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-double-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconLast",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-double-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconNext",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-right\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "iconPrevious",
+              "type": "string | Record<string, any>",
+              "default": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi bi-chevron-left\\\" viewBox=\\\"0 0 16 16\\\">\\n  <path fill-rule=\\\"evenodd\\\" d=\\\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\\\"/>\\n</svg>\""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_pagination_pages_32\""
+            },
+            {
               "name": "limit",
               "type": "number",
               "required": true
@@ -7820,12 +9831,29 @@
             {
               "name": "offset",
               "type": "number",
-              "required": true
+              "default": "0"
+            },
+            {
+              "name": "page",
+              "type": "number"
+            },
+            {
+              "name": "showEdges",
+              "type": "boolean"
+            },
+            {
+              "name": "showJumper",
+              "type": "boolean"
+            },
+            {
+              "name": "size",
+              "type": "string",
+              "default": "\"medium\""
             },
             {
               "name": "texts",
               "type": "Record<string, any>",
-              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\"}"
+              "default": "{\"pagesFirstPage\":\"_A_PAGINATION_FIRST_PAGE_\",\"pagesJumperButton\":\"_A_PAGINATION_JUMPER_BUTTON_\",\"pagesJumperError\":\"_A_PAGINATION_JUMPER_ERROR_{{allPages}}_\",\"pagesJumperLabel\":\"_A_PAGINATION_JUMPER_LABEL_\",\"pagesJumperOf\":\"_A_PAGINATION_JUMPER_OF_{{allPages}}_\",\"pagesLastPage\":\"_A_PAGINATION_LAST_PAGE_\",\"pagesLoadMore\":\"_A_PAGINATION_LOAD_MORE_\",\"pagesMobile\":\"_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_\",\"pagesNavigation\":\"_A_PAGINATION_NAVIGATION_\",\"pagesNextPage\":\"_A_PAGINATION_NEXT_PAGE_\",\"pagesPreviousPage\":\"_A_PAGINATION_PREVIOUS_PAGE_\",\"pagesToPage\":\"_A_PAGINATION_TO_PAGE_{{page}}_\"}"
             },
             {
               "name": "totalCount",
@@ -7836,7 +9864,182 @@
           "js": {
             "events": [
               {
+                "name": "change"
+              },
+              {
+                "name": "update:limit"
+              },
+              {
                 "name": "update:offset"
+              },
+              {
+                "name": "update:page"
+              }
+            ]
+          }
+        },
+        {
+          "name": "APopover",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "APopover"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "buttonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "buttonClass",
+              "type": "string | Record<string, any> | any[]",
+              "default": "\"a_btn a_btn_secondary\""
+            },
+            {
+              "name": "buttonIconLeft",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "buttonIconRight",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "buttonText",
+              "type": "string | number"
+            },
+            {
+              "name": "buttonTextScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "buttonTitle",
+              "type": "string | number"
+            },
+            {
+              "name": "closeDelay",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "closeOnClickOutside",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "closeOnFocusOut",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "focusOnOpen",
+              "type": "string",
+              "default": "\"first\""
+            },
+            {
+              "name": "hasArrow",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "hasCloseButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "header",
+              "type": "string | number"
+            },
+            {
+              "name": "headerTag",
+              "type": "string",
+              "default": "\"div\""
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_popover_33\""
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "modelValue",
+              "type": "boolean"
+            },
+            {
+              "name": "offset",
+              "type": "number",
+              "default": "8"
+            },
+            {
+              "name": "openDelay",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "placement",
+              "type": "string",
+              "default": "\"bottom\""
+            },
+            {
+              "name": "popoverAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "popoverClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
+            },
+            {
+              "name": "trigger",
+              "type": "string",
+              "default": "\"click\""
+            },
+            {
+              "name": "useEscape",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "zIndex",
+              "type": "number | string"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "close"
+              },
+              {
+                "name": "open"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
           }
@@ -8080,7 +10283,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_26\""
+              "default": "\"a_radio_34\""
             },
             {
               "name": "idPrefix",
@@ -8386,7 +10589,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_27\""
+              "default": "\"a_rate_35\""
             },
             {
               "name": "idPrefix",
@@ -8689,7 +10892,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_28\""
+              "default": "\"a_router_link_config_36\""
             },
             {
               "name": "idPrefix",
@@ -9077,7 +11280,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_29\""
+              "default": "\"a_ui_37\""
             },
             {
               "name": "idPrefix",
@@ -9486,7 +11689,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_30\""
+              "default": "\"a_select_icon_38\""
             },
             {
               "name": "idPrefix",
@@ -9817,7 +12020,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_31\""
+              "default": "\"a_select_styles_39\""
             },
             {
               "name": "idPrefix",
@@ -10122,7 +12325,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_32\""
+              "default": "\"a_show_more_40\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -10132,6 +12335,10 @@
               "name": "isOpenDefault",
               "type": "boolean",
               "default": "false"
+            },
+            {
+              "name": "modelValue",
+              "type": "boolean"
             },
             {
               "name": "safeHtml",
@@ -10155,6 +12362,9 @@
             "events": [
               {
                 "name": "toggle"
+              },
+              {
+                "name": "update:modelValue"
               }
             ]
           }
@@ -10252,6 +12462,37 @@
           }
         },
         {
+          "name": "ASkipLink",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ASkipLink"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "targetId",
+              "type": "string",
+              "default": "\"main\""
+            },
+            {
+              "name": "text",
+              "type": "string",
+              "default": "\"_A_SKIP_LINK_TEXT_\""
+            }
+          ],
+          "js": {
+            "events": []
+          }
+        },
+        {
           "name": "ASlider",
           "source": {
             "module": "aloha-vue",
@@ -10315,7 +12556,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_33\""
+              "default": "\"a_slider_41\""
             },
             {
               "name": "idPrefix",
@@ -10586,7 +12827,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_34\""
+              "default": "\"a_switch_42\""
             },
             {
               "name": "idPrefix",
@@ -10823,7 +13064,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table35\""
+              "default": "\"a_table43\""
             },
             {
               "name": "isActionColumnVisible",
@@ -11195,7 +13436,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_36\""
+              "default": "\"a_table_form_44\""
             },
             {
               "name": "isActionsSticky",
@@ -11316,6 +13557,19 @@
           "doc-url": "https://ilia-brykin.github.io/aloha/",
           "props": [
             {
+              "name": "activation",
+              "type": "string",
+              "default": "\"auto\""
+            },
+            {
+              "name": "ariaLabel",
+              "type": "string"
+            },
+            {
+              "name": "ariaLabelledby",
+              "type": "string"
+            },
+            {
               "name": "activeTabId",
               "type": "string | number"
             },
@@ -11331,7 +13585,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_37\""
+              "default": "\"a_tabs_45\""
             },
             {
               "name": "isBoxed",
@@ -11378,6 +13632,11 @@
               "default": "\"title\""
             },
             {
+              "name": "renderContent",
+              "type": "string",
+              "default": "\"all\""
+            },
+            {
               "name": "titlePlacement",
               "type": "string",
               "default": "\"top\""
@@ -11387,6 +13646,9 @@
             "events": [
               {
                 "name": "change"
+              },
+              {
+                "name": "update:activeTabId"
               }
             ]
           }
@@ -11564,7 +13826,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_38\""
+              "default": "\"a_textarea_46\""
             },
             {
               "name": "idPrefix",
@@ -11700,7 +13962,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_39\""
+              "default": "\"a_tooltip_47\""
             },
             {
               "name": "isHide",
@@ -11708,11 +13970,11 @@
             },
             {
               "name": "maxWidth",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "minWidth",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "offsetDistance",
@@ -11735,6 +13997,11 @@
               "default": "\"a_tooltip_container\""
             },
             {
+              "name": "renderDescription",
+              "type": "string",
+              "default": "\"always\""
+            },
+            {
               "name": "showArrow",
               "type": "boolean",
               "default": "true"
@@ -11745,13 +14012,18 @@
               "default": "\"span\""
             },
             {
+              "name": "timeOpen",
+              "type": "number",
+              "default": "0"
+            },
+            {
               "name": "timeClose",
               "type": "number",
               "default": "100"
             },
             {
               "name": "width",
-              "type": "number"
+              "type": "number | string"
             },
             {
               "name": "withoutAriaDescribedby",
@@ -11868,7 +14140,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_40\""
+              "default": "\"a_tree_48\""
             },
             {
               "name": "indent",
@@ -12063,7 +14335,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_41\""
+              "default": "\"a_validated_json_49\""
             },
             {
               "name": "idPrefix",
@@ -12270,9 +14542,27 @@
               "default": "\"_A_WIZARD_PREVIOUS_TITLE_\""
             },
             {
+              "name": "beforeStepChange",
+              "type": "((...args: any[]) => any)"
+            },
+            {
               "name": "extra",
               "type": "Record<string, any>",
               "default": "{}"
+            },
+            {
+              "name": "finishButtonAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "finishButtonClass",
+              "type": "string | any[] | Record<string, any>",
+              "default": "\"a_btn a_btn_primary\""
+            },
+            {
+              "name": "finishButtonText",
+              "type": "string"
             },
             {
               "name": "forwardButtonAttributes",
@@ -12310,7 +14600,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_42\""
+              "default": "\"a_wizard_50\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -12363,6 +14653,10 @@
               "default": "false"
             },
             {
+              "name": "isStepHeadingVisible",
+              "type": "boolean"
+            },
+            {
               "name": "isStepNumberVisible",
               "type": "boolean",
               "default": "true"
@@ -12394,6 +14688,11 @@
             {
               "name": "stepActive",
               "type": "number"
+            },
+            {
+              "name": "stepHeadingTag",
+              "type": "string",
+              "default": "\"h3\""
             },
             {
               "name": "stepIconError",
@@ -12447,6 +14746,9 @@
             "events": [
               {
                 "name": "changeStep"
+              },
+              {
+                "name": "finish"
               },
               {
                 "name": "goStepBack"

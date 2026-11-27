@@ -4,9 +4,14 @@
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} من {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "إلى الصفحة الأولى",
   "_A_PAGINATION_LAST_PAGE_": "إلى الصفحة الأخيرة",
+  "_A_PAGINATION_LOAD_MORE_": "تحميل المزيد",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} من {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "التنقل بين الصفحات",
   "_A_PAGINATION_NEXT_PAGE_": "إلى الصفحة التالية",
   "_A_PAGINATION_PREVIOUS_PAGE_": "إلى الصفحة السابقة",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "إلى الصفحة رقم {{ page }}"
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "إلى الصفحة رقم {{ page }}",
+  "_A_PAGINATION_JUMPER_BUTTON_": "انتقال",
+  "_A_PAGINATION_JUMPER_ERROR_{{allPages}}_": "أدخل صفحة من 1 إلى {{ allPages }}.",
+  "_A_PAGINATION_JUMPER_LABEL_": "الانتقال إلى الصفحة",
+  "_A_PAGINATION_JUMPER_OF_{{allPages}}_": "من {{ allPages }}"
 }

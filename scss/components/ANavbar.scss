@@ -1,0 +1,194 @@
+@use "../utils/focus";
+
+// WAI-ARIA disclosure navigation: links and buttons with aria-expanded, submenus without menu roles
+.a_navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--a_navbar_gap);
+  min-height: var(--a_navbar_min_height);
+  padding: var(--a_navbar_padding_y) var(--a_navbar_padding_x);
+  color: var(--a_navbar_color);
+  background-color: var(--a_navbar_bg);
+  border-bottom: var(--a_navbar_border_width) solid var(--a_navbar_border_color);
+}
+.a_navbar_sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--a_navbar_z_index);
+}
+.a_navbar__start,
+.a_navbar__end {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--a_navbar_gap);
+}
+.a_navbar__end {
+  margin-inline-start: auto;
+}
+
+.a_navbar__list {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--a_navbar_items_gap);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a_navbar_overflow_wrap .a_navbar__list {
+  flex-wrap: wrap;
+}
+.a_navbar_overflow_scroll .a_navbar__list {
+  overflow-x: auto;
+}
+
+.a_navbar__item {
+  position: relative;
+  margin: 0;
+}
+.a_navbar__item_split {
+  display: flex;
+  align-items: stretch;
+}
+
+.a_navbar__link,
+.a_navbar__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+  width: 100%;
+  padding: var(--a_navbar_link_padding_y) var(--a_navbar_link_padding_x);
+  font: inherit;
+  color: var(--a_navbar_link_color);
+  text-decoration: none;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-radius: var(--a_navbar_link_border_radius);
+  cursor: pointer;
+  @include focus.focus-visible;
+  &:hover {
+    color: var(--a_navbar_link_hover_color);
+    background-color: var(--a_navbar_link_hover_bg);
+  }
+  &:disabled,
+  &[aria-disabled="true"],
+  &:is(a):not([href]) {
+    color: var(--a_color_text_muted);
+    background: none;
+    cursor: not-allowed;
+  }
+}
+.a_navbar__toggle {
+  width: auto;
+  padding-inline: var(--a_space_xs);
+}
+
+// the current page and the way to it
+.a_navbar__link[aria-current="page"],
+.a_navbar__item_active_parent > .a_navbar__control {
+  color: var(--a_navbar_link_active_color);
+  font-weight: var(--a_navbar_link_active_font_weight);
+}
+// the line under the current page only in the bar, not in the drawer
+.a_navbar > .a_navbar__list > .a_navbar__item_level_0 > .a_navbar__link[aria-current="page"],
+.a_navbar > .a_navbar__list > .a_navbar__item_level_0.a_navbar__item_active_parent > .a_navbar__control {
+  box-shadow: inset 0 calc(var(--a_navbar_active_border_width) * -1) 0 var(--a_navbar_link_active_color);
+}
+
+.a_navbar__item_level_0 > .a_navbar__button .a_button__icon_right {
+  transition: transform .15s;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+.a_navbar__item_level_0.a_navbar__item_open > .a_navbar__button .a_button__icon_right {
+  transform: rotate(180deg);
+}
+
+// the submenus in the bar: under the first level, at the side of the deeper levels (floating-ui)
+.a_navbar__submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a_navbar__submenu_floating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--a_navbar_submenu_z_index);
+  min-width: var(--a_navbar_submenu_min_width);
+  padding: var(--a_navbar_submenu_padding);
+  color: var(--a_navbar_color);
+  background-color: var(--a_navbar_submenu_bg);
+  border: var(--a_border_width) solid var(--a_navbar_border_color);
+  border-radius: var(--a_navbar_submenu_border_radius);
+  box-shadow: var(--a_navbar_submenu_box_shadow);
+  .a_navbar__link,
+  .a_navbar__button {
+    justify-content: space-between;
+  }
+}
+// overflow "scroll": the list scrolls, a submenu must not be cut by it
+.a_navbar_overflow_scroll .a_navbar__submenu_floating {
+  position: fixed;
+}
+// the arrow to the side points to the other side in right-to-left
+[dir="rtl"] .a_navbar__submenu_floating .a_button__icon_right {
+  transform: scaleX(-1);
+}
+
+// mobile: the button in the bar, the navigation as accordion in the drawer
+.a_navbar__list_accordion {
+  flex-direction: column;
+  align-items: stretch;
+}
+.a_navbar__submenu_accordion {
+  padding-inline-start: var(--a_navbar_accordion_indent);
+}
+.a_navbar__list_accordion .a_navbar__link,
+.a_navbar__list_accordion .a_navbar__button {
+  justify-content: space-between;
+  white-space: normal;
+}
+.a_navbar__list_accordion .a_navbar__item_open > .a_navbar__button .a_button__icon_right {
+  transform: rotate(180deg);
+}
+.a_navbar__toggle_mobile {
+  flex: none;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_navbar, .a_navbar__drawer) {
+  --a_navbar_bg: var(--a_color_surface); // Background of the bar.
+  --a_navbar_color: var(--a_color_text); // Text color of the bar and the submenus.
+  --a_navbar_border_color: var(--a_border_color); // Border under the bar and of the submenus.
+  --a_navbar_border_width: var(--a_border_width); // Width of the border under the bar.
+  --a_navbar_gap: var(--a_space_md); // Space between start, the list and end.
+  --a_navbar_items_gap: var(--a_space_xs); // Space between the items of the bar.
+  --a_navbar_min_height: 3.5rem; // Minimum height of the bar.
+  --a_navbar_padding_x: var(--a_space_md); // Horizontal padding of the bar.
+  --a_navbar_padding_y: var(--a_space_xs); // Vertical padding of the bar.
+  --a_navbar_z_index: var(--a_z_index_fixed); // Stack order of the sticky bar.
+  --a_navbar_link_color: var(--a_color_text); // Text color of a link or a button.
+  --a_navbar_link_hover_color: var(--a_color_link_hover); // Text color of a hovered link.
+  --a_navbar_link_hover_bg: var(--a_color_gray_100); // Background of a hovered link.
+  --a_navbar_link_active_color: var(--a_color_primary_text_emphasis); // Color of the current page and the way to it.
+  --a_navbar_link_active_font_weight: var(--a_font_weight_bold); // Font weight of the current page.
+  --a_navbar_active_border_width: .1875rem; // Line under the current page in the bar.
+  --a_navbar_link_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of a link.
+  --a_navbar_link_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a link.
+  --a_navbar_link_border_radius: var(--a_border_radius); // Corner radius of a link.
+  --a_navbar_submenu_bg: var(--a_color_surface_raised); // Background of a submenu.
+  --a_navbar_submenu_min_width: 12rem; // Minimum width of a submenu.
+  --a_navbar_submenu_padding: var(--a_space_xs); // Padding of a submenu.
+  --a_navbar_submenu_border_radius: var(--a_border_radius_large); // Corner radius of a submenu.
+  --a_navbar_submenu_box_shadow: var(--a_shadow_md); // Shadow of a submenu.
+  --a_navbar_submenu_z_index: calc(var(--a_z_index_fixed) + 1); // Stack order of a submenu.
+  --a_navbar_accordion_indent: var(--a_space_md); // Indent of a level in the drawer.
+}

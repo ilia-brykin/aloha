@@ -27,5 +27,8 @@
   "_A_MODAL_FORM_EXAMPLE_STATUS_DELETED_": "Zadanie zostało usunięte.",
   "_A_MODAL_FORM_EXAMPLE_STATUS_SAVED_": "Zadanie zostało zapisane.",
   "_A_MODAL_FORM_SLOTS_MODAL_BODY_APPEND_DESCRIPTION_": "Slot wyświetlany w treści po formularzu.",
-  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot wyświetlany w treści przed tekstem (<code>body-html</code>) i formularzem."
+  "_A_MODAL_FORM_SLOTS_MODAL_BODY_PREPEND_DESCRIPTION_": "Slot wyświetlany w treści przed tekstem (<code>body-html</code>) i formularzem.",
+  "_A_MODAL_FORM_ENTER_HEADER_": "Zapisywanie klawiszem Enter",
+  "_A_MODAL_FORM_ENTER_DESCRIPTION_": "Enter w polu formularza wywołuje <code>save</code>, jak przycisk zapisu, ale nie gdy zapis jest wyłączony, ukryty lub trwa ładowanie.",
+  "_A_MODAL_FORM_ENTER_FIELD_": "Tytuł"
 }

@@ -48,9 +48,9 @@
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Der Inhalt der Komponente kann als Klartext definiert werden.",
   "_A_SHOW_MORE_GROUP_TEXT_HEADER_": "Text",
-  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Die Textlänge stellt die maximale Anzahl von Zeichen dar, nach der der Rest des Textes ausgeblendet wird.",
+  "_A_SHOW_MORE_GROUP_TEXT_LENGTH_DESCRIPTION_": "Die maximale Anzahl Zeichen, nach der der Rest des Textes ausgeblendet wird. Der Text wird am Ende eines Wortes abgeschnitten und bekommt eine Ellipse (…).",
   "_A_SHOW_MORE_GROUP_TEXT_LENGTH_HEADER_": "Textlänge",
-    "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Weniger anzeigen Aloha",
+  "_A_SHOW_MORE_GROUP_TITLE_LESS_": "Weniger anzeigen Aloha",
   "_A_SHOW_MORE_GROUP_TITLE_MORE_": "Mehr anzeigen Aloha",
   "_A_SHOW_MORE_HEIGHT_DESCRIPTION_": "Die Höhe des HTML-Blocks, wenn diese Höhe überschritten wird, wird eine Schaltfläche angezeigt.",
   "_A_SHOW_MORE_HTML_DESCRIPTION_": "HTML, das innerhalb der Komponente angezeigt werden soll.",
@@ -66,5 +66,13 @@
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Inhalt, der innerhalb der Komponente angezeigt werden soll.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_": "Steuerung der Komponente über den „isOpen“-Indikator.",
   "_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Steuern der Komponente über die Schaltfläche „Mehr anzeigen“.",
-  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wird ausgelöst, wenn eine Taste gedrückt wird, ({ isOpen }) => {}."
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wird ausgelöst, wenn eine Taste gedrückt wird, ({ isOpen }) => {}.",
+  "_A_SHOW_MORE_A11Y_DESCRIPTION_": "Mit <code>text-length</code> ist der Rest des Textes nicht in der Seite: Der Button hat <code>aria-expanded</code> und <code>aria-controls</code>. Mit <code>height</code> ist der ganze Inhalt in der Seite, und ein Screenreader liest ihn trotzdem: Der Button sagt, dass er übersprungen werden kann. Ein Link oder Button im abgeschnittenen Teil öffnet den Inhalt, wenn er den Fokus bekommt. Nach dem Klick bleibt der Fokus auf dem Button; nur wenn der Button verschwindet (<code>show-less=\"false\"</code>), geht er zum Inhalt.",
+  "_A_SHOW_MORE_GROUP_V_MODEL_HEADER_": "v-model",
+  "_A_SHOW_MORE_GROUP_V_MODEL_DESCRIPTION_": "<code>v-model</code> enthält, ob der Inhalt geöffnet ist, und öffnet oder schließt ihn auch von außen. Das Event <code>toggle</code> kommt weiterhin.",
+  "_A_SHOW_MORE_GROUP_LINKS_HEADER_": "Links im abgeschnittenen Teil",
+  "_A_SHOW_MORE_GROUP_LINKS_DESCRIPTION_": "Mit Tab durch die Links gehen: Bekommt ein Link im abgeschnittenen Teil den Fokus, öffnet sich der Inhalt, damit der Fokus immer sichtbar ist (WCAG 2.4.11).",
+  "_A_SHOW_MORE_EXAMPLE_TOGGLE_": "Von außen öffnen / schließen",
+  "_A_SHOW_MORE_PROPS_MODEL_VALUE_DESCRIPTION_": "Geöffnet oder geschlossen (<code>v-model</code>). Ohne dieses Prop setzt <code>is-open-default</code> den Anfang.",
+  "_A_SHOW_MORE_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Geöffnet oder geschlossen hat sich geändert (<code>v-model</code>). Kommt zusammen mit <code>toggle</code>."
 }

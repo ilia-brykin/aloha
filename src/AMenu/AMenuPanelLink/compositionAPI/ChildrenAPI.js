@@ -10,10 +10,12 @@ export default function ChildrenAPI(props, {
   const item = toRef(props, "item");
 
   const countChildren = computed(() => {
-    if (item.value.to) {
+    const CHILDREN = dataProParentChildren.value[id.value];
+    // a link with children is a split item (link + toggle)
+    if (item.value.to && !CHILDREN?.length) {
       return 0;
     }
-    return dataProParentChildren.value[id.value] && dataProParentChildren.value[id.value].length;
+    return CHILDREN && CHILDREN.length;
   });
 
   return {

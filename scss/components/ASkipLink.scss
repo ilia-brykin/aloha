@@ -1,0 +1,47 @@
+@use "../utils/focus";
+
+// Hidden until it gets the keyboard focus, then shown above everything in the top left corner.
+// Not display: none / visibility: hidden, otherwise it could not be focused.
+.a_skip_link {
+  position: fixed;
+  top: var(--a_skip_link_offset);
+  left: var(--a_skip_link_offset);
+  z-index: var(--a_skip_link_z_index);
+  padding: var(--a_skip_link_padding_y) var(--a_skip_link_padding_x);
+  color: var(--a_skip_link_color);
+  font-weight: var(--a_skip_link_font_weight);
+  background-color: var(--a_skip_link_bg);
+  border-radius: var(--a_skip_link_border_radius);
+  box-shadow: var(--a_skip_link_shadow);
+  text-decoration: underline;
+  transform: translateY(calc(-100% - var(--a_skip_link_offset) - 1rem));
+  @include focus.focus-visible;
+
+  &:focus,
+  &:focus-visible {
+    transform: none;
+  }
+
+  &:hover {
+    color: var(--a_skip_link_color);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform var(--a_duration_fast) ease-out;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_skip_link) {
+  --a_skip_link_offset: var(--a_space_sm); // Distance from the top and the left edge of the window.
+  --a_skip_link_padding_x: var(--a_space_md); // Horizontal padding.
+  --a_skip_link_padding_y: var(--a_space_sm); // Vertical padding.
+  --a_skip_link_color: var(--a_color_primary_contrast); // Text color.
+  --a_skip_link_bg: var(--a_color_primary); // Background.
+  --a_skip_link_font_weight: var(--a_font_weight_semibold); // Font weight.
+  --a_skip_link_border_radius: var(--a_border_radius); // Corner radius.
+  --a_skip_link_shadow: var(--a_shadow_md); // Shadow.
+  --a_skip_link_z_index: var(--a_z_index_popup); // Stack order, above modals and popups.
+}

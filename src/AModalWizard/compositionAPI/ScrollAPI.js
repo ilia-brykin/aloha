@@ -13,7 +13,7 @@ export default function ScrollAPI(props) {
       return;
     }
 
-    modalBodyRef.value?.modalRef?.querySelector(".a_modal_body")?.scrollTo({
+    modalBodyRef.value?.modalRef?.querySelector(".a_modal_body")?.scrollTo?.({
       top: 0,
       behavior: "auto",
     });

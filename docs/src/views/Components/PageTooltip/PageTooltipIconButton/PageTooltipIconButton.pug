@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TOOLTIP_GROUP_ICON_BUTTON_HEADER_"
+  description="_A_TOOLTIP_GROUP_ICON_BUTTON_DESCRIPTION_"
+  :props="['without-aria-describedby']"
+)
+  a-tooltip(
+    :without-aria-describedby="true"
+  )
+    a-button(
+      aria-label="_A_TOOLTIP_EXAMPLE_SETTINGS_"
+      class="a_btn a_btn_secondary"
+      icon-left="Gear"
+    )
+
+    template(
+      v-slot:title
+    )
+      a-translation(
+        text="_A_TOOLTIP_EXAMPLE_SETTINGS_"
+      )

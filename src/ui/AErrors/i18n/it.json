@@ -1,3 +1,3 @@
 {
-  "_A_ERRORS_TEXT_HEADER_": "Si prega di controllare i dati inseriti."
+  "_A_ERRORS_TEXT_HEADER_": "Si prega di controllare i dati inseriti. Errori: {{ count }}"
 }

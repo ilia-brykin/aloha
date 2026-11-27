@@ -108,6 +108,16 @@ const ROUTES = [
     component: () => import("../views/Components/PagePagination/PagePagination.vue"),
   },
   {
+    path: "/navbar",
+    name: "PageNavbar",
+    component: () => import("../views/Components/PageNavbar/PageNavbar.vue"),
+  },
+  {
+    path: "/popover",
+    name: "PagePopover",
+    component: () => import("../views/Components/PagePopover/PagePopover.vue"),
+  },
+  {
     path: "/pagination-pages",
     name: "PagePaginationPages",
     component: () => import("../views/Components/PagePaginationPages/PagePaginationPages.vue"),
@@ -138,9 +148,19 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageInput/PageInput.vue"),
   },
   {
+    path: "/json-editor",
+    name: "PageJsonEditor",
+    component: () => import("../views/Components/Form/PageJsonEditor/PageJsonEditor.vue"),
+  },
+  {
     path: "/json",
     name: "PageJson",
     component: () => import("../views/Components/Form/PageJson/PageJson.vue"),
+  },
+  {
+    path: "/combobox",
+    name: "PageCombobox",
+    component: () => import("../views/Components/Form/PageCombobox/PageCombobox.vue"),
   },
   {
     path: "/color-picker",
@@ -268,6 +288,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageFormElement/PageFormElement.vue"),
   },
   {
+    path: "/drawer",
+    name: "PageDrawer",
+    component: () => import("../views/Components/PageDrawer/PageDrawer.vue"),
+  },
+  {
     path: "/dropdown",
     name: "PageDropdown",
     component: () => import("../views/Components/PageDropdown/PageDropdown.vue"),
@@ -276,6 +301,11 @@ const ROUTES = [
     path: "/element",
     name: "PageElement",
     component: () => import("../views/Components/PageElement/PageElement.vue"),
+  },
+  {
+    path: "/empty-state",
+    name: "PageEmptyState",
+    component: () => import("../views/Components/PageEmptyState/PageEmptyState.vue"),
   },
   {
     path: "/tabs",
@@ -296,6 +326,11 @@ const ROUTES = [
     path: "/list",
     name: "PageList",
     component: () => import("../views/Components/PageList/PageList.vue"),
+  },
+  {
+    path: "/date-input",
+    name: "PageDateInput",
+    component: () => import("../views/Components/Form/PageDateInput/PageDateInput.vue"),
   },
   {
     path: "/datepicker",
@@ -366,6 +401,11 @@ const ROUTES = [
     path: "/skeleton",
     name: "PageSkeleton",
     component: () => import("../views/Components/PageSkeleton/PageSkeleton.vue"),
+  },
+  {
+    path: "/skip-link",
+    name: "PageSkipLink",
+    component: () => import("../views/Components/PageSkipLink/PageSkipLink.vue"),
   },
   {
     path: "/api",
@@ -491,6 +531,11 @@ const ROUTES = [
     path: "/input-otp",
     name: "PageInputOtp",
     component: () => import("../views/Components/Form/PageInputOtp/PageInputOtp.vue"),
+  },
+  {
+    path: "/input-tags",
+    name: "PageInputTags",
+    component: () => import("../views/Components/Form/PageInputTags/PageInputTags.vue"),
   },
   {
     path: "/filters",

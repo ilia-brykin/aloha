@@ -1,0 +1,94 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_JSON_EDITOR_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_JSON_EDITOR_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_JSON_EDITOR_KEYBOARD_DESCRIPTION_"
+    )
+
+    page-json-editor-basic
+
+    page-json-editor-history
+
+    page-json-editor-search
+
+    page-json-editor-replace
+
+    page-json-editor-selection
+
+    page-json-editor-multiline
+
+    page-json-editor-fullscreen
+
+    page-json-editor-variables
+
+    page-json-editor-rules
+
+    page-json-editor-schema
+
+    page-json-editor-format
+
+    page-json-editor-repair
+
+    page-json-editor-model-string
+
+    page-json-editor-hooks
+
+    page-json-editor-plugin
+
+    page-json-editor-ready-plugins
+
+    page-json-editor-rights
+
+    page-json-editor-readonly
+
+    page-json-editor-big
+
+    page-json-editor-big-numbers
+
+    page-json-editor-form
+
+    page-json-editor-slots
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Methods"
+      :data="dataMethods"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ui/AJsonEditor"
+    )

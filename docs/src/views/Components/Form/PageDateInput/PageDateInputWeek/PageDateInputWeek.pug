@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATE_INPUT_WEEK_HEADER_"
+  description="_A_DATE_INPUT_WEEK_DESCRIPTION_"
+)
+  a-date-input(
+    v-model="model"
+    mode="week"
+    label="_A_DATE_INPUT_EXAMPLE_WEEK_"
+    show-today
+  )
+  pre.a_mt_3 {{ model }}
