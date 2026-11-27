@@ -6,6 +6,7 @@ import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import AColorPickerI18n from "../ui/AColorPicker/i18n/AColorPickerI18n";
+import AComboboxI18n from "../ui/ACombobox/i18n/AComboboxI18n";
 import ADateInputI18n from "../ui/ADateInput/i18n/ADateInputI18n";
 import ADatepickerI18n from "../ui/ADatepicker/i18n/ADatepickerI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
@@ -89,6 +90,7 @@ export const ar = {
   ...AInputNumberRangeI18n.ar,
   ...AInputOtpI18n.ar,
   ...AInputTagsI18n.ar,
+  ...AComboboxI18n.ar,
   ...ARateI18n.ar,
   ...AJsonI18n.ar,
   ...AJsonEditorI18n.ar,
@@ -145,6 +147,7 @@ export const de = {
   ...AInputNumberRangeI18n.de,
   ...AInputOtpI18n.de,
   ...AInputTagsI18n.de,
+  ...AComboboxI18n.de,
   ...ARateI18n.de,
   ...AJsonI18n.de,
   ...AJsonEditorI18n.de,
@@ -201,6 +204,7 @@ export const en = {
   ...AInputNumberRangeI18n.en,
   ...AInputOtpI18n.en,
   ...AInputTagsI18n.en,
+  ...AComboboxI18n.en,
   ...ARateI18n.en,
   ...AJsonI18n.en,
   ...AJsonEditorI18n.en,
@@ -257,6 +261,7 @@ export const es = {
   ...AInputNumberRangeI18n.es,
   ...AInputOtpI18n.es,
   ...AInputTagsI18n.es,
+  ...AComboboxI18n.es,
   ...ARateI18n.es,
   ...AJsonI18n.es,
   ...AJsonEditorI18n.es,
@@ -313,6 +318,7 @@ export const fr = {
   ...AInputNumberRangeI18n.fr,
   ...AInputOtpI18n.fr,
   ...AInputTagsI18n.fr,
+  ...AComboboxI18n.fr,
   ...ARateI18n.fr,
   ...AJsonI18n.fr,
   ...AJsonEditorI18n.fr,
@@ -369,6 +375,7 @@ export const hr = {
   ...AInputNumberRangeI18n.hr,
   ...AInputOtpI18n.hr,
   ...AInputTagsI18n.hr,
+  ...AComboboxI18n.hr,
   ...ARateI18n.hr,
   ...AJsonI18n.hr,
   ...AJsonEditorI18n.hr,
@@ -425,6 +432,7 @@ export const it = {
   ...AInputNumberRangeI18n.it,
   ...AInputOtpI18n.it,
   ...AInputTagsI18n.it,
+  ...AComboboxI18n.it,
   ...ARateI18n.it,
   ...AJsonI18n.it,
   ...AJsonEditorI18n.it,
@@ -481,6 +489,7 @@ export const nl = {
   ...AInputNumberRangeI18n.nl,
   ...AInputOtpI18n.nl,
   ...AInputTagsI18n.nl,
+  ...AComboboxI18n.nl,
   ...ARateI18n.nl,
   ...AJsonI18n.nl,
   ...AJsonEditorI18n.nl,
@@ -537,6 +546,7 @@ export const pl = {
   ...AInputNumberRangeI18n.pl,
   ...AInputOtpI18n.pl,
   ...AInputTagsI18n.pl,
+  ...AComboboxI18n.pl,
   ...ARateI18n.pl,
   ...AJsonI18n.pl,
   ...AJsonEditorI18n.pl,
@@ -593,6 +603,7 @@ export const ru = {
   ...AInputNumberRangeI18n.ru,
   ...AInputOtpI18n.ru,
   ...AInputTagsI18n.ru,
+  ...AComboboxI18n.ru,
   ...ARateI18n.ru,
   ...AJsonI18n.ru,
   ...AJsonEditorI18n.ru,
@@ -649,6 +660,7 @@ export const uk = {
   ...AInputNumberRangeI18n.uk,
   ...AInputOtpI18n.uk,
   ...AInputTagsI18n.uk,
+  ...AComboboxI18n.uk,
   ...ARateI18n.uk,
   ...AJsonI18n.uk,
   ...AJsonEditorI18n.uk,

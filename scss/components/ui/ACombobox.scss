@@ -1,0 +1,76 @@
+// The list is under the field (position absolute in .a_combobox), the focus stays in the input.
+.a_combobox {
+  position: relative;
+}
+.a_combobox__input_clear {
+  padding-inline-end: 2.5rem;
+}
+.a_combobox__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+}
+.a_combobox__listbox,
+.a_combobox__empty {
+  position: absolute;
+  top: calc(100% + var(--a_space_xs));
+  inset-inline: 0;
+  z-index: var(--a_combobox_z_index);
+  margin: 0;
+  padding: var(--a_combobox_padding);
+  font-size: var(--a_combobox_font_size);
+  color: var(--a_combobox_color);
+  background-color: var(--a_combobox_bg);
+  border: var(--a_combobox_border_width) solid var(--a_combobox_border_color);
+  border-radius: var(--a_combobox_border_radius);
+  box-shadow: var(--a_combobox_box_shadow);
+}
+.a_combobox__listbox {
+  max-height: var(--a_combobox_max_height);
+  overflow-y: auto;
+  list-style: none;
+  &[hidden] {
+    display: none;
+  }
+}
+.a_combobox__option {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  border-radius: var(--a_combobox_option_border_radius);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--a_combobox_option_hover_bg);
+  }
+}
+// the active option is not focused (aria-activedescendant): it needs a visible mark, also in forced colors
+.a_combobox__option_active {
+  color: var(--a_combobox_option_active_color);
+  background-color: var(--a_combobox_option_active_bg);
+  outline: var(--a_border_width) solid var(--a_combobox_option_active_color);
+  outline-offset: calc(var(--a_border_width) * -1);
+}
+.a_combobox__empty {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  color: var(--a_color_text_muted);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_combobox) {
+  --a_combobox_z_index: var(--a_z_index_popup); // Stack order of the list.
+  --a_combobox_max_height: 18rem; // Maximum height of the list. Longer lists scroll.
+  --a_combobox_padding: var(--a_space_xs); // Padding inside the list.
+  --a_combobox_font_size: var(--a_body_font_size); // Font size of the list.
+  --a_combobox_color: var(--a_color_text); // Text color of the list.
+  --a_combobox_bg: var(--a_color_surface_raised); // Background of the list.
+  --a_combobox_border_width: var(--a_border_width); // Border width of the list.
+  --a_combobox_border_color: var(--a_border_color); // Border color of the list.
+  --a_combobox_border_radius: var(--a_border_radius_large); // Corner radius of the list.
+  --a_combobox_box_shadow: var(--a_shadow_md); // Shadow of the list.
+  --a_combobox_option_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of an option.
+  --a_combobox_option_padding_y: calc(.375rem * var(--a_density)); // Vertical padding of an option.
+  --a_combobox_option_border_radius: var(--a_border_radius); // Corner radius of an option.
+  --a_combobox_option_hover_bg: var(--a_color_gray_100); // Background of a hovered option.
+  --a_combobox_option_active_color: var(--a_color_primary_text_emphasis); // Text color of the active option (arrow keys).
+  --a_combobox_option_active_bg: var(--a_color_primary_bg_subtle); // Background of the active option (arrow keys).
+}

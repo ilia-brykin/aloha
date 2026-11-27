@@ -25,6 +25,7 @@ import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageColorPickerI18n from "./views/Components/Form/PageColorPicker/i18n/PageColorPickerI18n";
+import PageComboboxI18n from "./views/Components/Form/PageCombobox/i18n/PageComboboxI18n";
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageComponentsPluginI18n from "./views/Plugins/PageComponentsPlugin/i18n/PageComponentsPluginI18n";
@@ -288,6 +289,7 @@ export const mainTranslation = {
     ...PageStartI18n.ar,
     ...PageSwitchI18n.ar,
     ...PageColorPickerI18n.ar,
+    ...PageComboboxI18n.ar,
     ...PageTableI18n.ar,
     ...PageTableFiltersI18n.ar,
     ...PageTablePaginationI18n.ar,
@@ -434,6 +436,7 @@ export const mainTranslation = {
     ...PageStartI18n.de,
     ...PageSwitchI18n.de,
     ...PageColorPickerI18n.de,
+    ...PageComboboxI18n.de,
     ...PageTableI18n.de,
     ...PageTableFiltersI18n.de,
     ...PageTablePaginationI18n.de,
@@ -580,6 +583,7 @@ export const mainTranslation = {
     ...PageStartI18n.en,
     ...PageSwitchI18n.en,
     ...PageColorPickerI18n.en,
+    ...PageComboboxI18n.en,
     ...PageTableI18n.en,
     ...PageTableFiltersI18n.en,
     ...PageTablePaginationI18n.en,
@@ -726,6 +730,7 @@ export const mainTranslation = {
     ...PageStartI18n.es,
     ...PageSwitchI18n.es,
     ...PageColorPickerI18n.es,
+    ...PageComboboxI18n.es,
     ...PageTableI18n.es,
     ...PageTableFiltersI18n.es,
     ...PageTablePaginationI18n.es,
@@ -872,6 +877,7 @@ export const mainTranslation = {
     ...PageStartI18n.fr,
     ...PageSwitchI18n.fr,
     ...PageColorPickerI18n.fr,
+    ...PageComboboxI18n.fr,
     ...PageTableI18n.fr,
     ...PageTableFiltersI18n.fr,
     ...PageTablePaginationI18n.fr,
@@ -1018,6 +1024,7 @@ export const mainTranslation = {
     ...PageStartI18n.hr,
     ...PageSwitchI18n.hr,
     ...PageColorPickerI18n.hr,
+    ...PageComboboxI18n.hr,
     ...PageTableI18n.hr,
     ...PageTableFiltersI18n.hr,
     ...PageTablePaginationI18n.hr,
@@ -1164,6 +1171,7 @@ export const mainTranslation = {
     ...PageStartI18n.it,
     ...PageSwitchI18n.it,
     ...PageColorPickerI18n.it,
+    ...PageComboboxI18n.it,
     ...PageTableI18n.it,
     ...PageTableFiltersI18n.it,
     ...PageTablePaginationI18n.it,
@@ -1310,6 +1318,7 @@ export const mainTranslation = {
     ...PageStartI18n.nl,
     ...PageSwitchI18n.nl,
     ...PageColorPickerI18n.nl,
+    ...PageComboboxI18n.nl,
     ...PageTableI18n.nl,
     ...PageTableFiltersI18n.nl,
     ...PageTablePaginationI18n.nl,
@@ -1456,6 +1465,7 @@ export const mainTranslation = {
     ...PageStartI18n.pl,
     ...PageSwitchI18n.pl,
     ...PageColorPickerI18n.pl,
+    ...PageComboboxI18n.pl,
     ...PageTableI18n.pl,
     ...PageTableFiltersI18n.pl,
     ...PageTablePaginationI18n.pl,
@@ -1602,6 +1612,7 @@ export const mainTranslation = {
     ...PageStartI18n.ru,
     ...PageSwitchI18n.ru,
     ...PageColorPickerI18n.ru,
+    ...PageComboboxI18n.ru,
     ...PageTableI18n.ru,
     ...PageTableFiltersI18n.ru,
     ...PageTablePaginationI18n.ru,
@@ -1748,6 +1759,7 @@ export const mainTranslation = {
     ...PageStartI18n.uk,
     ...PageSwitchI18n.uk,
     ...PageColorPickerI18n.uk,
+    ...PageComboboxI18n.uk,
     ...PageTableI18n.uk,
     ...PageTableFiltersI18n.uk,
     ...PageTablePaginationI18n.uk,

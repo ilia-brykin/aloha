@@ -1759,6 +1759,221 @@
           }
         },
         {
+          "name": "ACombobox",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ACombobox"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "change",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "dependencies",
+              "type": "any[] | Record<string, any>"
+            },
+            {
+              "name": "disabled",
+              "type": "boolean"
+            },
+            {
+              "name": "errors",
+              "type": "string | any[]"
+            },
+            {
+              "name": "errorsClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "excludeRenderAttributes",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "helpText",
+              "type": "string"
+            },
+            {
+              "name": "htmlId",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "type": "string | number",
+              "default": "\"a_combobox_7\""
+            },
+            {
+              "name": "idPrefix",
+              "type": "string"
+            },
+            {
+              "name": "inputAttributes",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "inputClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "isClearButton",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isDataSimpleArray",
+              "type": "boolean"
+            },
+            {
+              "name": "isHide",
+              "type": "boolean"
+            },
+            {
+              "name": "isRender",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "keyLabelCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "label",
+              "type": "string | number"
+            },
+            {
+              "name": "labelClass",
+              "type": "string | Record<string, any>"
+            },
+            {
+              "name": "labelDescription",
+              "type": "string"
+            },
+            {
+              "name": "labelScreenReader",
+              "type": "string | number"
+            },
+            {
+              "name": "maxItems",
+              "type": "number",
+              "default": "10"
+            },
+            {
+              "name": "minLength",
+              "type": "number",
+              "default": "1"
+            },
+            {
+              "name": "modelDependencies",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "modelUndefined",
+              "type": "string | number | Record<string, any> | any[] | boolean",
+              "default": "\"\""
+            },
+            {
+              "name": "modelValue",
+              "type": "string | number"
+            },
+            {
+              "name": "openOnFocus",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "placeholder",
+              "type": "string"
+            },
+            {
+              "name": "readonly",
+              "type": "boolean"
+            },
+            {
+              "name": "readonlyDefault",
+              "type": "string",
+              "default": "\"\""
+            },
+            {
+              "name": "readonlyValueParentClass",
+              "type": "string | Record<string, any> | any[]"
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "searchApiKey",
+              "type": "string",
+              "default": "\"search\""
+            },
+            {
+              "name": "searchTimeout",
+              "type": "number",
+              "default": "300"
+            },
+            {
+              "name": "translateData",
+              "type": "boolean"
+            },
+            {
+              "name": "type",
+              "type": "string",
+              "default": "\"combobox\""
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "urlParams",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "urlTemplateData",
+              "type": "Record<string, any>",
+              "default": "{}"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "select"
+              },
+              {
+                "name": "update:modelValue"
+              }
+            ]
+          }
+        },
+        {
           "name": "ADateInput",
           "source": {
             "module": "aloha-vue",
@@ -1826,7 +2041,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_date_input_7\""
+              "default": "\"a_date_input_8\""
             },
             {
               "name": "idPrefix",
@@ -2347,7 +2562,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_datepicker_range_8\""
+              "default": "\"a_datepicker_range_9\""
             },
             {
               "name": "idPrefix",
@@ -2591,7 +2806,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_disclosure_9\""
+              "default": "\"a_disclosure_10\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -2754,7 +2969,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_10\""
+              "default": "\"a_modal_11\""
             },
             {
               "name": "isCloseButtonHide",
@@ -3045,7 +3260,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_dropdown_11\""
+              "default": "\"a_dropdown_12\""
             },
             {
               "name": "inBody",
@@ -3238,7 +3453,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_element_12\""
+              "default": "\"a_element_13\""
             },
             {
               "name": "isSwitch",
@@ -3589,7 +3804,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_fieldset_13\""
+              "default": "\"a_fieldset_14\""
             },
             {
               "name": "idPrefix",
@@ -3854,7 +4069,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_filters_14\""
+              "default": "\"a_filters_15\""
             },
             {
               "name": "mainModel",
@@ -4629,7 +4844,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_group_15\""
+              "default": "\"a_group_16\""
             },
             {
               "name": "idPrefix",
@@ -4945,7 +5160,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_16\""
+              "default": "\"a_input_17\""
             },
             {
               "name": "idPrefix",
@@ -5170,7 +5385,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_currency_17\""
+              "default": "\"a_input_currency_18\""
             },
             {
               "name": "idPrefix",
@@ -5620,7 +5835,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_number_range_18\""
+              "default": "\"a_input_number_range_19\""
             },
             {
               "name": "idPrefix",
@@ -5836,7 +6051,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_otp_19\""
+              "default": "\"a_input_otp_20\""
             },
             {
               "name": "idPrefix",
@@ -6032,7 +6247,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_input_tags_20\""
+              "default": "\"a_input_tags_21\""
             },
             {
               "name": "idPrefix",
@@ -6192,7 +6407,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_json_21\""
+              "default": "\"a_json_22\""
             },
             {
               "name": "idPrefix",
@@ -6331,7 +6546,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_json_editor_22\""
+              "default": "\"a_json_editor_23\""
             },
             {
               "name": "idPrefix",
@@ -7038,7 +7253,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_link_23\""
+              "default": "\"a_link_24\""
             },
             {
               "name": "isTitleHtml",
@@ -7464,7 +7679,7 @@
             {
               "name": "menuId",
               "type": "string",
-              "default": "\"a_menu_24\""
+              "default": "\"a_menu_25\""
             },
             {
               "name": "onlyMobile",
@@ -7664,7 +7879,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_25\""
+              "default": "\"a_modal_26\""
             },
             {
               "name": "isCloseButtonHide",
@@ -7905,7 +8120,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_form_26\""
+              "default": "\"a_modal_form_27\""
             },
             {
               "name": "idPrefix",
@@ -8334,7 +8549,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_modal_wizard_27\""
+              "default": "\"a_modal_wizard_28\""
             },
             {
               "name": "isBackButtonDisabled",
@@ -8613,7 +8828,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_m_select_ordered_28\""
+              "default": "\"a_m_select_ordered_29\""
             },
             {
               "name": "idPrefix",
@@ -9016,7 +9231,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_29\""
+              "default": "\"a_one_checkbox_30\""
             },
             {
               "name": "idPrefix",
@@ -9249,7 +9464,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_pagination_pages_30\""
+              "default": "\"a_pagination_pages_31\""
             },
             {
               "name": "limit",
@@ -9408,7 +9623,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_popover_31\""
+              "default": "\"a_popover_32\""
             },
             {
               "name": "inBody",
@@ -9721,7 +9936,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_32\""
+              "default": "\"a_radio_33\""
             },
             {
               "name": "idPrefix",
@@ -10027,7 +10242,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_33\""
+              "default": "\"a_rate_34\""
             },
             {
               "name": "idPrefix",
@@ -10330,7 +10545,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_34\""
+              "default": "\"a_router_link_config_35\""
             },
             {
               "name": "idPrefix",
@@ -10718,7 +10933,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_35\""
+              "default": "\"a_ui_36\""
             },
             {
               "name": "idPrefix",
@@ -11127,7 +11342,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_36\""
+              "default": "\"a_select_icon_37\""
             },
             {
               "name": "idPrefix",
@@ -11458,7 +11673,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_37\""
+              "default": "\"a_select_styles_38\""
             },
             {
               "name": "idPrefix",
@@ -11763,7 +11978,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_38\""
+              "default": "\"a_show_more_39\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -11994,7 +12209,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_39\""
+              "default": "\"a_slider_40\""
             },
             {
               "name": "idPrefix",
@@ -12265,7 +12480,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_40\""
+              "default": "\"a_switch_41\""
             },
             {
               "name": "idPrefix",
@@ -12502,7 +12717,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table41\""
+              "default": "\"a_table42\""
             },
             {
               "name": "isActionColumnVisible",
@@ -12874,7 +13089,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_42\""
+              "default": "\"a_table_form_43\""
             },
             {
               "name": "isActionsSticky",
@@ -13023,7 +13238,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_43\""
+              "default": "\"a_tabs_44\""
             },
             {
               "name": "isBoxed",
@@ -13264,7 +13479,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_44\""
+              "default": "\"a_textarea_45\""
             },
             {
               "name": "idPrefix",
@@ -13400,7 +13615,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_45\""
+              "default": "\"a_tooltip_46\""
             },
             {
               "name": "isHide",
@@ -13578,7 +13793,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_46\""
+              "default": "\"a_tree_47\""
             },
             {
               "name": "indent",
@@ -13773,7 +13988,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_47\""
+              "default": "\"a_validated_json_48\""
             },
             {
               "name": "idPrefix",
@@ -14038,7 +14253,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_48\""
+              "default": "\"a_wizard_49\""
             },
             {
               "name": "isBackButtonDisabled",

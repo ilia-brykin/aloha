@@ -155,6 +155,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageCombobox",
+            label: "Combobox",
+            class: "test_menu_combobox",
+            to: {
+              name: "PageCombobox",
+            },
+          },
+          {
             id: "date-input",
             to: {
               name: "PageDateInput",

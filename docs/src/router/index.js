@@ -153,6 +153,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageJson/PageJson.vue"),
   },
   {
+    path: "/combobox",
+    name: "PageCombobox",
+    component: () => import("../views/Components/Form/PageCombobox/PageCombobox.vue"),
+  },
+  {
     path: "/color-picker",
     name: "PageColorPicker",
     component: () => import("../views/Components/Form/PageColorPicker/PageColorPicker.vue"),
