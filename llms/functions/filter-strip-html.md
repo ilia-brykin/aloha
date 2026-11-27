@@ -1,6 +1,6 @@
 # filterStripHtml
 
-The function **filterStripHtml** removes HTML tags from a string and returns its text, e.g. for previews or the `title` attribute. The contents of `` and `` are removed too. Use **filterEscapeHtml** to show HTML as text.
+The function **filterStripHtml** removes HTML tags from a string and returns its text, e.g. for previews or the `title` attribute. The contents of `<script>` and `<style>` are removed too. Use **filterEscapeHtml** to show HTML as text.
 
 ## Import as Function
 

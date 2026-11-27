@@ -379,7 +379,7 @@ export default {
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
 | is-select-all | Boolean | false |  | Display the button. Clicking it will automatically select all items from the list. |
-| is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. |
+| is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. The values are next to the field (not in it), their remove buttons can be reached with Tab. |
 | key-disabled | String |  |  | Specifies the key in the data object that determines whether the item will be disabled (unselectable). |
 | key-disabled-callback | Function |  |  | A function to determine whether an item should be disabled. Returns `true` to disable a specific item. Accepts an object with item data: `{ item }`. |
 | key-group | String / Number / Array | () => ["groupName", "subGroupName"] |  | A key or array of keys used to group data by specific categories. This property allows grouping items into groups. |

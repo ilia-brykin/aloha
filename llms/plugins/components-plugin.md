@@ -89,6 +89,8 @@ app.mount("#app");
 
  `routes`, `excludedPathRoutes`  `ARouterLinkConfig`  Routes of the router for the select of the route (only routes with a name, without the excluded paths).
 
+ `scrollbarCompensation`  `AModal`, `ADrawer`, `APopover` (bottom sheet)  Space of the scrollbar while a modal is open (the page does not move). `"auto"` (default): measured, 0 without a scrollbar (macOS, iOS, Android, overlay scrollbars); a number (px) or a CSS length: fixed; `false`: none.
+
  `extends`  all  Parent for the prop defaults (see below).
 
 ## Inheritance

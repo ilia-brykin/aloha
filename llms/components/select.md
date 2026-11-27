@@ -2,6 +2,8 @@
 
 ASelect is a component that allows users to make one or more choices from a predefined list of options.
 
+The field is a `role="combobox"` with `aria-controls` to the `role="listbox"`; in the listbox are only the options (and groups), the search and "Select all" are above it. Keyboard: Enter, Space or ArrowDown open the list, the arrows go round, Home and End go to the first and last option, a letter to the next option that starts with it, Escape closes and gives the focus back to the field. The search tells a screen reader how many options it found. With `type="multiselect"` the list has `aria-multiselectable="true"`.
+
 ## Basic usage
 
 *props: `model-value`, `data`, `key-id`, `key-label`, `label`, `type`*
@@ -363,7 +365,7 @@ export default {
 
 ## Search
 
-Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option.
+Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option. A screen reader hears how many options the search found ("Results: 3" / "No results"); Enter in the search field does not submit the form around.
 
 *props: `search`*
 
@@ -468,6 +470,56 @@ export default {
       },
     ];
     const model = ref(undefined);
+
+    return {
+      data,
+      model,
+    };
+  },
+};
+```
+
+## Multiple selection with removable values
+
+The selected values are buttons next to the field: they can be reached with Tab, and their name says which value is removed ("Remove Berlin"). The field itself tells a screen reader how many values are selected.
+
+*props: `type`, `is-selection-closeable`, `is-select-all`, `is-deselect-all`, `search`*
+
+```html
+<a-select
+  v-model="model"
+  :data="data"
+  :is-select-all="true"
+  :is-deselect-all="true"
+  :search="true"
+  label="_A_SELECT_EXAMPLE_CITIES_"
+  type="multiselect"
+/>
+<div class="a_mt_2">model: {{ model }}</div>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  ASelect,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ASelect,
+  },
+  setup() {
+    const data = [
+      { value: "berlin", label: "Berlin" },
+      { value: "hamburg", label: "Hamburg" },
+      { value: "munich", label: "München" },
+      { value: "cologne", label: "Köln" },
+      { value: "frankfurt", label: "Frankfurt" },
+    ];
+    const model = ref(["berlin", "cologne"]);
 
     return {
       data,

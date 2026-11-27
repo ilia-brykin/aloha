@@ -2,6 +2,8 @@
 
 The component allows users to show or hide text content by clicking on a button. The button toggles between "Show More" and "Show Less," depending on whether the full text content is already displayed or not.
 
+The button has `aria-expanded` and `aria-controls`: a screen reader tells whether the content is open. After the click the focus stays on the button; only if the button disappears (`show-less="false"`), it goes to the content.
+
 ## Basic usage
 
 *props: `text-less`, `text-more`*
@@ -521,6 +523,55 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 };
 ```
 
+## v-model
+
+`v-model` contains whether the content is open and also opens or closes it from outside. The event `toggle` still comes.
+
+*props: `model-value`*
+
+```html
+<a-disclosure
+  v-model="isOpen"
+  :text-less="textLess"
+  :text-more="textMore"
+/>
+<p class="a_my_3">v-model: {{ isOpen }}</p>
+<a-button
+  class="a_btn a_btn_secondary"
+  text="_A_DISCLOSURE_EXAMPLE_TOGGLE_"
+  @click="isOpen = !isOpen"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  ADisclosure,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    ADisclosure,
+  },
+  setup() {
+    const isOpen = ref(false);
+    const textLess = "Lorem ipsum dolor sit amet.";
+    const textMore = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis.";
+
+    return {
+      isOpen,
+      textLess,
+      textMore,
+    };
+  },
+};
+```
+
 ## Using Slots for Custom Styling
 
 This example demonstrates how to use slots to individually style the different parts of the component. It utilizes three slots: **button**, **less**, and **more** to customize the button and the underlying text sections.
@@ -730,6 +781,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 | id | String |  |  | ID for the component. |
 | is-btn-title-html | Boolean |  |  | A boolean value indicating whether the provided button titles should be interpreted and rendered as HTML. |
 | is-open-default | Boolean | false |  | A boolean value indicating whether the extended text content **(text-more)** should be displayed by default. |
+| model-value | Boolean |  |  | Open or closed (`v-model`). Without it `is-open-default` sets the start. |
 | safe-html-less | String |  |  | A string containing the shorter HTML-formatted text content to be displayed when the user clicks "Show Less." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
 | safe-html-more | String |  |  | A string containing the longer HTML-formatted text content to be displayed when the user clicks "Show More." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
 | show-less | Boolean | true |  | A boolean value indicating whether the "Show Less" button should be displayed. |
@@ -750,6 +802,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
 | name | type | description |
 | --- | --- | --- |
 | toggle | Function | This event is triggered when the user clicks the "Show More/Show Less" button. It returns an object containing information about the current state of the component, including **isOpen**. |
+| update:modelValue | Function | Open or closed changed (`v-model`). Comes together with `toggle`. |
 
 ## Exposes
 

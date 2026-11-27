@@ -2,12 +2,15 @@
 
 AModal is a component that enables the implementation of modal windows. It provides a multitude of customization options, including various parameters for content, button behavior, visibility controls, and size adjustments. With customizable slots for header, body, and footer, it allows for flexible styling of modal windows for various use cases.
 
+The modal has `role="dialog"` and `aria-modal="true"`, its name is the header. When it opens, the focus goes to the first element (or to `focus-start-id`), Tab stays in the modal and the rest of the page is `inert`: not reachable with the mouse or the virtual cursor of a screen reader. Escape closes the top modal. After closing, the focus goes back to the element that opened the modal (or to `selector-close-ids`).
+
 ## Basic usage
 
 *props: `close`, `header-text`*
 
 ```html
 <a-button
+  id="btn_modal_basic"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -15,6 +18,7 @@ AModal is a component that enables the implementation of modal windows. It provi
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_basic"
   header-text="Aloha"
   :close="closeModal"
 ></a-modal>
@@ -56,96 +60,6 @@ export default {
 };
 ```
 
-## AModalForm: form columns
-
-The `class-columns` and `class-column-default` props are passed to the inner `AForm`. In this example, the name and email fields occupy half the width and stack on touch devices. The notes field defines its own `classColumn` and spans the full width. If these props are omitted, the defaults from `AForm` apply.
-
-*props: `class-columns`, `class-column-default`*
-
-```html
-<a-button
-  class="a_btn a_btn_primary"
-  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
-  @click="openModal"
-/>
-
-<a-modal-form
-  v-if="isModalVisible"
-  v-model="model"
-  :data-form="dataForm"
-  :close="closeModal"
-  :is-save-button-hide="true"
-  header-text="_A_MODAL_FORM_COLUMNS_HEADER_"
-  size="large"
-  class-columns="a_columns a_columns_count_12 a_columns_gap_3"
-  class-column-default="a_column a_column_6 a_column_12_touch"
-/>
-<pre>{{ model }}</pre>
-```
-
-```js
-import {
-  ref,
-} from "vue";
-
-import {
-  AButton,
-  AModalForm,
-} from "aloha-vue";
-
-export default {
-  components: {
-    AButton,
-    AModalForm,
-  },
-  setup() {
-    const model = ref({ name: "Aloha", email: "aloha@example.com", notes: "" });
-    const dataForm = [
-      {
-        type: "text",
-        id: "name",
-        label: "_A_FORM_EXAMPLE_NAME_",
-      },
-      {
-        type: "email",
-        id: "email",
-        label: "_A_FORM_EXAMPLE_EMAIL_",
-      },
-      {
-        type: "textarea",
-        id: "notes",
-        label: "_A_FORM_EXAMPLE_NOTES_",
-        classColumn: "a_column a_column_12",
-      },
-    ];
-    const isModalVisible = ref(false);
-
-    const openModal = () => {
-      isModalVisible.value = true;
-    };
-
-    const closeModal = () => {
-      isModalVisible.value = false;
-    };
-
-    return {
-      closeModal,
-      dataForm,
-      isModalVisible,
-      model,
-      openModal,
-    };
-  },
-};
-```
-
-## AModalForm
-
-| name | type | default | required | description |
-| --- | --- | --- | --- | --- |
-| class-column-default | String / Object |  |  | Default CSS class applied to each configured field when the item does not define its own **classColumn**. |
-| class-columns | String / Object |  |  | CSS classes applied to the container that holds all fields from **data**. |
-
 ## Using **body-html**
 
 The **body-html** prop is used to display custom HTML content in the modal window.
@@ -154,6 +68,7 @@ The **body-html** prop is used to display custom HTML content in the modal windo
 
 ```html
 <a-button
+  id="btn_modal_body_html"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -161,6 +76,7 @@ The **body-html** prop is used to display custom HTML content in the modal windo
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_body_html"
   header-text="Aloha"
   :body-html="bodyHtml"
   :close="closeModal"
@@ -219,6 +135,7 @@ Here, the props **close-button-attributes**, **close-button-class**, **close-but
 
 ```html
 <a-button
+  id="btn_modal_close_button"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -226,6 +143,7 @@ Here, the props **close-button-attributes**, **close-button-class**, **close-but
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_close_button"
   header-text="Aloha"
   :close="closeModal"
   :close-button-attributes="{ textTag: 'strong' }"
@@ -279,6 +197,7 @@ Example of a modal window with a footer fixed at the bottom that remains in plac
 
 ```html
 <a-button
+  id="btn_modal_footer_sticky"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -286,6 +205,7 @@ Example of a modal window with a footer fixed at the bottom that remains in plac
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_footer_sticky"
   :body-html="bodyHtml"
   :close="closeModal"
   :is-footer-sticky="true"
@@ -382,6 +302,7 @@ Here, the props **save**, **save-button-attributes**, **save-button-class**, and
 
 ```html
 <a-button
+  id="btn_modal_save_button"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -389,6 +310,7 @@ Here, the props **save**, **save-button-attributes**, **save-button-class**, and
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_save_button"
   header-text="Aloha"
   :close="closeModal"
   :save="saveModal"
@@ -435,6 +357,138 @@ export default {
       isModalVisible,
       openModal,
       saveModal,
+    };
+  },
+};
+```
+
+## Focus after closing
+
+Without `selector-close-ids` the focus goes back to the button that opened the modal. `selector-close-ids` is only needed when the focus should go to another element, e.g. because the button is gone after the action.
+
+*props: `selector-close-ids`*
+
+```html
+<a-button
+  id="btn_modal_focus_return"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  body-html="_A_MODAL_EXAMPLE_FOCUS_RETURN_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
+## Focus at the start
+
+`focus-start-id` puts the focus on an element of the modal when it opens, here on "Continue". `use-focus-on-start` false does not move the focus.
+
+*props: `focus-start-id`, `use-focus-on-start`*
+
+```html
+<a-button
+  id="btn_modal_focus_start"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  focus-start-id="btn_modal_focus_start_continue"
+>
+  <template v-slot:modalBody>
+    <a-translation
+      tag="p"
+      text="_A_MODAL_EXAMPLE_FOCUS_START_BODY_"
+    />
+    <a-button
+      class="a_btn a_btn_secondary a_mr_2"
+      text="_A_MODAL_EXAMPLE_BACK_"
+    />
+    <a-button
+      id="btn_modal_focus_start_continue"
+      class="a_btn a_btn_primary"
+      text="_A_MODAL_EXAMPLE_CONTINUE_"
+    />
+  </template>
+</a-modal>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+  ATranslation,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+    ATranslation,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
     };
   },
 };
@@ -574,30 +628,35 @@ The modal size is based on options such as 'small', 'large', 'xl', 'xxl', and 'f
   role="group"
 >
   <a-button
+    id="btn_modal_size_small"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (small)"
     @click="openModal('small')"
   ></a-button>
   <a-button
+    id="btn_modal_size_large"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (large)"
     @click="openModal('large')"
   ></a-button>
   <a-button
+    id="btn_modal_size_xl"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (xl)"
     @click="openModal('xl')"
   ></a-button>
   <a-button
+    id="btn_modal_size_xxl"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (xxl)"
     @click="openModal('xxl')"
   ></a-button>
   <a-button
+    id="btn_modal_size_fullscreen"
     class="a_btn a_btn_outline_secondary"
     text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
     text-after=" (fullscreen)"
@@ -607,6 +666,7 @@ The modal size is based on options such as 'small', 'large', 'xl', 'xxl', and 'f
 
 <a-modal
   v-if="isModalVisible"
+  :selector-close-ids="`btn_modal_size_${ sizeModal }`"
   header-text="Aloha"
   :close="closeModal"
   :size="sizeModal"
@@ -660,6 +720,7 @@ This example demonstrates the use of various slots for customizing the content i
 
 ```html
 <a-button
+  id="btn_modal_slots"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -667,6 +728,7 @@ This example demonstrates the use of various slots for customizing the content i
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_slots"
   :close="closeModal"
 >
   <template
@@ -739,10 +801,11 @@ export default {
 
 ## Modal inside a modal
 
-This example demonstrates the ability to open one modal window inside another. All modals can be correctly stacked by **z-index** and function independently of each other.
+A modal can open another modal. The second one is on top, Escape closes only it and the first one is `inert` until it is closed. The class of the page and the z-index follow the stack of the open modals.
 
 ```html
 <a-button
+  id="btn_modal_in_modal"
   class="a_btn a_btn_primary"
   text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
   @click="openModal"
@@ -750,38 +813,29 @@ This example demonstrates the ability to open one modal window inside another. A
 
 <a-modal
   v-if="isModalVisible"
+  selector-close-ids="btn_modal_in_modal"
   :close="closeModal"
+  header-text="Modal 1"
+  size="xl"
 >
-  <template
-    v-slot:modalHeader
-  >
-    <span>Aloha</span>
-  </template>
-  
   <template
     v-slot:modalBody
   >
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-  </template>
-  
-  <template
-    v-slot:modalFooterPrepend
-  >
     <a-button
+      id="btn_modal_in_modal_2"
       class="a_btn a_btn_primary"
-      icon-left="ChevronLeft"
-    ></a-button>
-  </template>
-  
-  <template
-    v-slot:modalFooterAppend
-  >
-    <a-button
-      class="a_btn a_btn_primary"
-      text="Aloha"
+      text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+      @click="openModal2"
     ></a-button>
   </template>
 </a-modal>
+
+<a-modal
+  v-if="isModal2Visible"
+  selector-close-ids="btn_modal_in_modal_2"
+  :close="closeModal2"
+  header-text="Modal 2"
+></a-modal>
 ```
 
 ```js
@@ -789,20 +843,147 @@ import {
   ref,
 } from "vue";
 
-import { 
+import {
   AButton,
   AModal,
 } from "aloha-vue";
-    
+
 export default {
-  name: "PageModalSlots",
   components: {
     AButton,
     AModal,
   },
   setup() {
     const isModalVisible = ref(undefined);
-    
+    const isModal2Visible = ref(undefined);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const openModal2 = () => {
+      isModal2Visible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    const closeModal2 = () => {
+      isModal2Visible.value = false;
+    };
+
+    return {
+      closeModal,
+      closeModal2,
+      isModal2Visible,
+      isModalVisible,
+      openModal,
+      openModal2,
+    };
+  },
+};
+```
+
+## Modal without header
+
+With `hide-header` the modal has no visible title. `aria-label` gives it a name, so a screen reader still announces what the modal is about.
+
+*props: `hide-header`, `aria-label`*
+
+```html
+<a-button
+  id="btn_modal_aria_label"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  :hide-header="true"
+  aria-label="_A_MODAL_EXAMPLE_ARIA_LABEL_"
+  body-html="_A_MODAL_EXAMPLE_ARIA_LABEL_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
+    const openModal = () => {
+      isModalVisible.value = true;
+    };
+
+    const closeModal = () => {
+      isModalVisible.value = false;
+    };
+
+    return {
+      closeModal,
+      isModalVisible,
+      openModal,
+    };
+  },
+};
+```
+
+## Close with a click outside
+
+With `close-on-backdrop` a click outside of the dialog closes the modal. Selecting text in the modal and releasing the mouse outside does not close it. The modal can still be closed with Escape and the buttons.
+
+*props: `close-on-backdrop`*
+
+```html
+<a-button
+  id="btn_modal_close_on_backdrop"
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal
+  v-if="isModalVisible"
+  :close="closeModal"
+  header-text="Aloha"
+  :close-on-backdrop="true"
+  body-html="_A_MODAL_EXAMPLE_CLOSE_ON_BACKDROP_BODY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AButton,
+  AModal,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AButton,
+    AModal,
+  },
+  setup() {
+    const isModalVisible = ref(false);
+
     const openModal = () => {
       isModalVisible.value = true;
     };
@@ -824,18 +1005,20 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
+| aria-label | String |  |  | Name of the modal for screen readers, e.g. with `hide-header`. Accepts a translation key. |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
 | backdrop-z-index | Number |  |  | If set, this prop specifies the CSS z-index for the modal window's backdrop. |
 | body-html | Object | "" |  | The HTML content of the modal window. |
 | body-html-class | String / Array / Object |  |  | Adds a **CSS** class to the **HTML** that can be used in the modal window. **body-html** |
 | class-extra | String / Object | a_modal_class_extra |  | Additional **CSS** class for the modal window, which can be used for automated tests or as an additional selector. |
 | close | Function |  | yes | The function that enables closing the modal. |
+| close-on-backdrop | Boolean | false |  | A click outside of the dialog closes the modal. |
 | close-button-attributes | Object | () => ({}) |  | Attributes for the modal's close button. [(AButton)](button.md) |
 | close-button-class | String / Array / Object | a_btn a_btn_secondary |  | The class or classes of the close button. [(AButton)](button.md) |
 | close-button-id | String |  |  | The ID of the close button. |
 | close-button-text | String | _A_MODAL_BTN_CANCEL_ |  | The text on the close button. |
-| close-button-text-screen-reader-footer | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_ |  | Adds screen reader text for the 'Close modal window' button in the footer. |
-| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Adds screen reader text for the 'Close modal window' button in the header. |
+| close-button-text-screen-reader-footer | String |  |  | Name of the close button in the footer for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| close-button-text-screen-reader-header | String | _A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_ |  | Name of the close button with the icon in the header for screen readers. |
 | disabled | Boolean | false |  | Specifies whether the modal is disabled. |
 | disabled-save | Boolean | false |  | Specifies whether the save button in the modal is disabled. |
 | extra | Object |  |  | An object with parameters for translations. [(ATranslation)](translation.md) |
@@ -858,14 +1041,16 @@ export default {
 | save-button-class | String / Array / Object | a_btn a_btn_primary |  | The class or classes of the save button. [(AButton)](button.md) |
 | save-button-id | String |  |  | The ID of the save button. |
 | save-button-text | String | _A_MODAL_BTN_SAVE_ |  | The text on the save button. |
-| save-button-text-screen-reader | String | _A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_ |  | Adds screen reader text for the 'Save' button in the modal window. |
-| selector-close | String / Array |  |  | The focus selector to ensure that focus is not lost in the browser when the modal is closed. |
-| selector-close-ids | String / Array |  |  | The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed. |
+| save-button-text-screen-reader | String |  |  | Name of the save button for screen readers, only when set; without it the visible text is the name (WCAG 2.5.3). |
+| selector-close | String / Array |  |  | Focus selector after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
+| selector-close-ids | String / Array |  |  | ID or IDs for the focus after closing the modal. If no element is found, the focus goes back to the element that opened the modal. |
 | show-close-button-header | Boolean | true |  | Determines whether to display the close button ("x") in the header of the modal window. |
 | size | String |  |  | The size of the modal (small, large, xl, xxl, fullscreen). |
 | stop | Boolean |  |  | Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further. |
+| teleport-selector | String | body |  | CSS selector of the element the modal window is moved to (Vue `Teleport`). Default: `body`. |
 | use-escape | Boolean | true |  | Specifies whether the Escape key can close the modal. |
 | use-focus-on-start | Boolean | true |  | If set to **true** and no **focus-start-id** is set, focus is placed on the first focusable element in the modal window. |
+| use-inert | Boolean | true |  | While the modal is open, the rest of the page gets `inert`. Popups (dropdowns, tooltips, datepicker), notifications, live regions and elements with `data-a-not-inert` stay usable. |
 | z-index | Number |  |  | Specifies the CSS z-index for the modal window itself. |
 
 ## Slots

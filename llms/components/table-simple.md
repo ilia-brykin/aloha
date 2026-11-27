@@ -80,9 +80,7 @@ export default {
 
 ## Simple HTML table
 
-`is-simple-table` renders a native `
-
-` without the toolbar and the extra features of **ATable**.
+`is-simple-table` renders a native `<table>` without the toolbar and the extra features of **ATable**.
 
 *props: `is-simple-table`*
 
@@ -505,6 +503,7 @@ export default {
 | `--a_table_dnd_th_bg` |  | Color of the drop indicator when a column is dragged onto a header cell. |
 | `--a_table_dnd_th_width` |  | Width of the drop indicator when a column is dragged onto a header cell. |
 | `--a_table_tree_level_padding_left` |  | Indent of a nested row per tree level. |
+| `--a_table_between_actions_margin` |  | Space between an icon and the text in the column dropdown. Set here too: the dropdown is rendered in body, outside .a_table__parent. |
 | `--a_table_dnd_dropdown_li_bg` |  | Color of the drop indicator when a column is dragged in the column dropdown. |
 | `--a_table_draggable_li_height` |  | Height of the drop indicator in the column dropdown. |
 | `--a_resizer_width` |  | Thickness of the resizer line. |

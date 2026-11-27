@@ -655,7 +655,7 @@ export default {
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
-| actions | Array | () => [] |  | A list of actions to choose from. |
+| actions | Array | () => [] |  | A list of actions. `type`: `button`, `link`, `divider`, `header`, `template`. `type: "header"` starts a group with a heading. |
 | actions-classes | Array | () => ["a_btn a_btn_primary", "a_btn a_btn_secondary"] |  | An array of CSS classes applied to inline actions by position. |
 | actions-ids | Array | () => [] |  | An array of IDs assigned to actions by position when the action itself does not define an `id`. |
 | btn-group-class | String / Array / Object | a_btn_group |  | CSS classes for the wrapper that groups inline buttons and links. |

@@ -1,6 +1,6 @@
 # AColorPicker (Color picker)
 
-The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors. The field looks like an input that is filled with the selected color; the text color is chosen automatically for the best contrast. The model is changed only with **OK**. In **AForm** the component is used with `type: "colorPicker"`; `type: "color"` stays the native ``.
+The **AColorPicker** component selects a color in a dialog: saturation and brightness area, hue and opacity sliders, a text field for any color format and predefined colors. The field looks like an input that is filled with the selected color; the text color is chosen automatically for the best contrast. The model is changed only with **OK**. In **AForm** the component is used with `type: "colorPicker"`; `type: "color"` stays the native `<input type="color">`.
 
 Accessibility: the field is a button with `aria-haspopup="dialog"`, its name contains the label and the current value. The dialog has `role="dialog"`, the focus stays inside and goes back to the field after closing.
 

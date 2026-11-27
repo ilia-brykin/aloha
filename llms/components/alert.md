@@ -240,6 +240,82 @@ export default {
 };
 ```
 
+## Screen reader announcement
+
+The prop `announce` sets how the alert is announced when it appears. Click the button: with a screen reader the red alert is read at once, the green one after the current sentence, the blue one not at all. The live region is always in the page, only the content appears, so the announcement also works when the alert is shown later.
+
+*props: `announce`, `role`, `aria-atomic`*
+
+```html
+<a-button
+  class="a_btn a_btn_primary"
+  :text="isAlertVisible ? '_A_ALERT_GROUP_ANNOUNCE_BTN_HIDE_' : '_A_ALERT_GROUP_ANNOUNCE_BTN_SHOW_'"
+  @click="toggleAlerts"
+/>
+
+<!-- default announce="alert": role="alert" aria-atomic="true" -->
+<a-alert
+  :is-visible="isAlertVisible"
+  type="danger"
+  text="_A_ALERT_GROUP_ANNOUNCE_TEXT_ALERT_"
+/>
+
+<!-- role="status" aria-atomic="true" -->
+<a-alert
+  :is-visible="isAlertVisible"
+  announce="status"
+  type="success"
+  text="_A_ALERT_GROUP_ANNOUNCE_TEXT_STATUS_"
+/>
+
+<!-- no role and no aria-atomic -->
+<a-alert
+  :is-visible="isAlertVisible"
+  announce="none"
+  type="info"
+  text="_A_ALERT_GROUP_ANNOUNCE_TEXT_NONE_"
+/>
+
+<!-- role and aria-atomic win over announce: role="status" aria-atomic="false" -->
+<a-alert
+  :is-visible="isAlertVisible"
+  announce="alert"
+  role="status"
+  :aria-atomic="false"
+  text="..."
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  AAlert,
+  AButton,
+} from "aloha-vue";
+
+export default {
+  components: {
+    AAlert,
+    AButton,
+  },
+  setup() {
+    const isAlertVisible = ref(false);
+
+    const toggleAlerts = () => {
+      isAlertVisible.value = !isAlertVisible.value;
+    };
+
+    return {
+      isAlertVisible,
+      toggleAlerts,
+    };
+  },
+};
+```
+
 ## Closing component with external control
 
 The parameter **:closable-from-outside="true"** allows you to control the closing of the component from the outside.
@@ -546,7 +622,8 @@ export default {
 | alert-class | String / Object |  |  | Additional CSS class |
 | alert-content-class | String / Object |  |  | Additional CSS class for content |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
-| aria-atomic | Boolean | true |  | Specifies whether the entire alert region should be announced by assistive technologies when its content changes. |
+| announce | String | alert |  | How a screen reader announces the alert when it appears: `alert`, `alert-changes`, `status`, `status-changes`, `none`. `alert` reads it at once (`role="alert"`), `status` after the current sentence (`role="status"`). Without the suffix the whole alert is read (`aria-atomic="true"`), with `-changes` only the changed part (`aria-atomic="false"`). `none` sets neither. The props or attributes `role` and `aria-atomic` win over `announce`. |
+| aria-atomic | Boolean / String |  |  | Whether a screen reader reads the whole alert (`true`) or only the changed part (`false`) when the content changes. Without a value it is set by `announce`; a value wins over `announce`. |
 | btn-close-attributes | Object | {} |  | An object that defines the properties of the close button. |
 | btn-close-icon | String | XLg |  | Icon of the close button. |
 | closable | Boolean | false |  | Whether alert can be dismissed |
@@ -556,7 +633,7 @@ export default {
 | icon-class | String |  |  | Additional CSS class for the icon |
 | is-visible | Boolean | false |  | Whether the component is shown |
 | removeAlertOnClose | Boolean | false |  | Controlling the closure of an alert from outside a component |
-| role | String | alert |  | Defines the ARIA role of the alert component. |
+| role | String |  |  | ARIA role of the live region, e.g. `alert` or `status`. Without a value it is set by `announce`; a value wins over `announce`. |
 | safe-html | String |  |  | Safe HTML to be shown inside the component |
 | show-icon | Boolean | false |  | Whether a type icon is displayed |
 | text | String |  |  | Plain Text to be shown inside the component |
