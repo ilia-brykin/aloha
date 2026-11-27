@@ -238,9 +238,15 @@ describe("AModal", () => {
   });
 
   describe("inert", () => {
-    it("makes the page inert while open, but not popup containers", async() => {
+    it.each([
+      "a_popup_container",
+      "a_select_container",
+      "a_notification_parent",
+      "a_datepicker__popup",
+      "a_color_picker__popup",
+    ])("makes the page inert while open, but not %s", async className => {
       const POPUP = document.createElement("div");
-      POPUP.className = "a_popup_container";
+      POPUP.className = className;
       document.body.appendChild(POPUP);
       const { wrapper, isOpen } = mountPage();
       const PAGE_ROOT = wrapper.element.parentElement === document.body ? wrapper.element : wrapper.element.parentElement;
