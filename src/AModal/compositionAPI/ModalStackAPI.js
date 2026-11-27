@@ -12,6 +12,7 @@ import {
 // containers outside of the modal that must stay usable: popups (dropdown, select, tooltip, datepicker…), notifications, live regions
 const SELECTOR_NOT_INERT = [
   ".a_popup_container",
+  ".a_select_container",
   ".a_notification_parent",
   ".a_datepicker__popup",
   ".a_color_picker__popup",
