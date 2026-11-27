@@ -16704,6 +16704,8 @@ export default {
 
 Accessibility (WAI-ARIA combobox): the input has `role="combobox"` and the focus stays in it, `aria-activedescendant` shows the active suggestion. ArrowDown and ArrowUp move in the list, Alt+ArrowDown opens it, Enter takes the active suggestion, Escape closes the list and then clears the text, Tab leaves the field. The number of suggestions is read in a live region, the found text is marked.
 
+With an active suggestion Home and End go to the first and the last suggestion (without one they move the caret), PageDown and PageUp go 10 suggestions further. Disabled suggestions (key-disabled) have `aria-disabled` and are skipped. A group has a header, the screen reader reads it with the suggestion. With inline-autocomplete the field has `aria-autocomplete="both"`: the added text is selected, typing replaces it, Backspace removes it, Enter or Tab takes it.
+
 ## Basic usage
 
 The data are filtered by the text (also in the middle of a word). **select** gets the chosen suggestion with id, label and item; an own text is also allowed.
@@ -16892,6 +16894,157 @@ export default {
 };
 ```
 
+## Groups and disabled suggestions
+
+key-group puts the suggestions into groups with a header (WAI-ARIA grouped listbox), the suggestions of a group stay together. key-disabled shows a suggestion that can not be chosen.
+
+```html
+<a-combobox
+  v-model="model"
+  :data="stations"
+  :min-length="0"
+  :open-on-focus="true"
+  key-disabled="isClosed"
+  key-group="line"
+  label="_A_COMBOBOX_EXAMPLE_STATION_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  ACombobox,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ACombobox,
+  },
+  setup() {
+    const model = ref("");
+    // options of a group stay together; a disabled option is shown, the arrows skip it
+    const stations = [
+      { id: 1, label: "Alexanderplatz", line: "U2" },
+      { id: 2, label: "Hauptbahnhof", line: "S5" },
+      { id: 3, label: "Potsdamer Platz", line: "U2" },
+      { id: 4, label: "Ostkreuz", line: "S5", isClosed: true },
+      { id: 5, label: "Zoologischer Garten", line: "U2" },
+    ];
+
+    return {
+      model,
+      stations,
+    };
+  },
+};
+```
+
+## Filter and inline autocomplete
+
+filter-mode startsWith finds only the start of a suggestion, ignore-diacritics (default) finds Zürich with zur. inline-autocomplete completes the text with the first suggestion, the added part is selected. filter-callback is an own filter.
+
+```html
+<a-combobox
+  v-model="model"
+  :data="cities"
+  :inline-autocomplete="true"
+  filter-mode="startsWith"
+  label="_A_COMBOBOX_EXAMPLE_CITY_"
+/>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  ACombobox,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ACombobox,
+  },
+  setup() {
+    const model = ref("");
+    // "zur" finds "Zürich" (ignore-diacritics), the first suggestion completes the text
+    const cities = [
+      { id: "berlin", label: "Berlin" },
+      { id: "bern", label: "Bern" },
+      { id: "bremen", label: "Bremen" },
+      { id: "hamburg", label: "Hamburg" },
+      { id: "hannover", label: "Hannover" },
+      { id: "munich", label: "München" },
+      { id: "vienna", label: "Wien" },
+      { id: "zurich", label: "Zürich" },
+    ];
+
+    return {
+      cities,
+      model,
+    };
+  },
+};
+```
+
+## Own content and texts
+
+The slot option shows own content of a suggestion, highlight is the text with the marked match. texts changes the texts of the status, a missing key keeps its default.
+
+```html
+<a-combobox
+  v-model="model"
+  :data="people"
+  :texts="texts"
+  label="_A_COMBOBOX_EXAMPLE_PERSON_"
+>
+  <template #option="{ item, highlight }">
+    <span class="a_d_block">
+      <component :is="() => highlight" />
+    </span>
+    <small class="a_text_muted">{{ item.email }}</small>
+  </template>
+</a-combobox>
+```
+
+```js
+import {
+  ref,
+} from "vue";
+
+import {
+  ACombobox,
+} from "aloha-vue";
+
+export default {
+  components: {
+    ACombobox,
+  },
+  setup() {
+    const model = ref("");
+    const people = [
+      { id: 1, label: "Anna Schmidt", email: "anna@example.com" },
+      { id: 2, label: "Andreas Wolf", email: "andreas@example.com" },
+      { id: 3, label: "Maria Anders", email: "maria@example.com" },
+    ];
+    // own texts of the status; a missing key keeps its default
+    const texts = {
+      noResults: "_A_COMBOBOX_EXAMPLE_NO_PERSON_",
+    };
+
+    return {
+      model,
+      people,
+      texts,
+    };
+  },
+};
+```
+
 ## Props
 
 | name | type | default | required | description |
@@ -16904,11 +17057,15 @@ export default {
 | errors | String / Array |  |  | Contains text or an array of errors that should be displayed to the user. If there are errors, they are displayed below the component. |
 | exclude-render-attributes | Array | [] |  | Array of attributes that should not be rendered for this component. Useful for excluding unnecessary attributes from the final **DOM**. |
 | extra | Object |  |  | Variables for translations. |
+| filter-callback | Function |  |  | Own filter of the local data: **({ item, label, search }) => boolean**. |
+| filter-mode | String | "contains" |  | contains: the text in any place, startsWith: only at the start. |
 | help-text | String |  |  | Help text displayed below the component. Provides the user with additional information or instruction. |
 | html-id | String |  |  | Sets the **HTML ID** of the element. Can be used to uniquely identify the component on the page. |
 | id | String / Number | uniqueId("a_combobox_") |  | The identifier of the component, which can be used to track or refer to the component in the code. |
 | id-prefix | String |  |  | Prefix for the component's **ID**. Used to create a unique identifier based on the specified prefix. |
+| ignore-diacritics | Boolean | true |  | The search ignores diacritics: munchen finds München, the mark covers the original chars. |
 | in-body | Boolean | true |  | The list is in a container in body and placed at the field (floating-ui): a parent with overflow: hidden (table, modal) does not cut it. |
+| inline-autocomplete | Boolean | false |  | The first suggestion completes the text in the field, the added part is selected (`aria-autocomplete="both"`). |
 | input-attributes | Object | {} |  | An object of attributes applied directly to the input element. Allows adding or customizing additional input attributes. |
 | input-class | String / Object |  |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (AMobilePlugin) the list is a panel at the bottom of the window, above the virtual keyboard (visualViewport). The focus stays in the field. |
@@ -16916,6 +17073,8 @@ export default {
 | is-data-simple-array | Boolean |  |  | The data are an array of strings or numbers. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
+| key-disabled | String |  |  | Key in the data: a true value shows the suggestion as disabled, it can not be chosen. |
+| key-group | String |  |  | Key of the group in the data: the suggestions of a group stay together under a header. |
 | key-id | String | "id" |  | Key of the id in the data. |
 | key-label | String | "label" |  | Key of the text of a suggestion in the data. |
 | key-label-callback | Function |  |  | Text of a suggestion from a function: **({ item }) => …**. |
@@ -16936,6 +17095,7 @@ export default {
 | required | Boolean | false |  | Indicates whether the component is required. If set to **true**, the component requires user input. |
 | search-api-key | String | "search" |  | Name of the parameter of the text for the server. |
 | search-timeout | Number | 300 |  | Pause in ms before the request to the server. |
+| texts | Object | { loading, noResults, results } |  | Texts of the status: **loading**, **noResults**, **results** ({{ count }}). Every missing key keeps its default, the defaults can be set with **AComponentsPlugin**. |
 | translate-data | Boolean |  |  | The texts of the data are translation keys. |
 | type | String | "combobox" |  | Type for **AForm**. |
 | url | String |  |  | Address of the server for the suggestions (it filters by the text). |
@@ -16949,6 +17109,12 @@ export default {
 | --- | --- | --- |
 | select | Function | A suggestion was taken (Enter or click): **{ id, label, item }**. |
 | update:modelValue | Function | The new text (v-model). |
+
+## Slots
+
+| name | description |
+| --- | --- |
+| option | Own content of a suggestion. Props: **{ item, label, parts, highlight, isActive, isDisabled, index }**. |
 
 ## Translations
 
@@ -16979,6 +17145,9 @@ export default {
 | `--a_combobox_option_hover_bg` |  | Background of a hovered option. |
 | `--a_combobox_option_active_color` |  | Text color of the active option (arrow keys). |
 | `--a_combobox_option_active_bg` |  | Background of the active option (arrow keys). |
+| `--a_combobox_group_color` |  | Text color of the header of a group. |
+| `--a_combobox_group_font_size` |  | Font size of the header of a group. |
+| `--a_combobox_group_font_weight` |  | Font weight of the header of a group. |
 
 
 ---

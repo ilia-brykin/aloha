@@ -69,6 +69,24 @@
   outline: var(--a_border_width) solid var(--a_combobox_option_active_color);
   outline-offset: calc(var(--a_border_width) * -1);
 }
+.a_combobox__option_disabled {
+  color: var(--a_color_text_muted);
+  cursor: not-allowed;
+  &:hover {
+    background-color: transparent;
+  }
+}
+.a_combobox__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.a_combobox__group__label {
+  padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
+  font-size: var(--a_combobox_group_font_size);
+  font-weight: var(--a_combobox_group_font_weight);
+  color: var(--a_combobox_group_color);
+}
 .a_combobox__empty {
   padding: var(--a_combobox_option_padding_y) var(--a_combobox_option_padding_x);
   color: var(--a_color_text_muted);
@@ -95,4 +113,7 @@
   --a_combobox_option_hover_bg: var(--a_color_gray_100); // Background of a hovered option.
   --a_combobox_option_active_color: var(--a_color_primary_text_emphasis); // Text color of the active option (arrow keys).
   --a_combobox_option_active_bg: var(--a_color_primary_bg_subtle); // Background of the active option (arrow keys).
+  --a_combobox_group_color: var(--a_color_text_muted); // Text color of the header of a group.
+  --a_combobox_group_font_size: var(--a_font_size_sm); // Font size of the header of a group.
+  --a_combobox_group_font_weight: var(--a_font_weight_bold); // Font weight of the header of a group.
 }

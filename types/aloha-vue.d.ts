@@ -537,15 +537,22 @@ export interface AComboboxProps {
   /** @default [] */
   excludeRenderAttributes?: any[];
   extra?: Record<string, any>;
+  filterCallback?: ((...args: any[]) => any);
+  /** @default "contains" */
+  filterMode?: string;
   helpText?: string;
   htmlId?: string;
   /** @default "a_combobox_7" */
   id?: string | number;
+  /** @default true */
+  ignoreDiacritics?: boolean;
   idPrefix?: string;
   /** @default {} */
   inputAttributes?: Record<string, any>;
   /** @default true */
   inBody?: boolean;
+  /** @default false */
+  inlineAutocomplete?: boolean;
   inputClass?: string | Record<string, any>;
   /** @default true */
   isBottomSheetOnMobile?: boolean;
@@ -555,6 +562,8 @@ export interface AComboboxProps {
   isHide?: boolean;
   /** @default true */
   isRender?: boolean;
+  keyDisabled?: string;
+  keyGroup?: string;
   /** @default "id" */
   keyId?: string;
   /** @default "label" */
@@ -588,6 +597,8 @@ export interface AComboboxProps {
   searchApiKey?: string;
   /** @default 300 */
   searchTimeout?: number;
+  /** @default {} */
+  texts?: Record<string, any>;
   translateData?: boolean;
   /** @default "combobox" */
   type?: string;

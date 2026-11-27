@@ -14,6 +14,11 @@ aloha-page(
       html="_A_COMBOBOX_ACCESSIBILITY_DESCRIPTION_"
     )
 
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_COMBOBOX_ACCESSIBILITY_MORE_DESCRIPTION_"
+    )
+
     page-combobox-basic
 
     page-combobox-options
@@ -21,6 +26,12 @@ aloha-page(
     page-combobox-server
 
     page-combobox-form
+
+    page-combobox-groups
+
+    page-combobox-filter
+
+    page-combobox-slot
 
     aloha-table-props(
       :data="dataProps"
@@ -30,6 +41,12 @@ aloha-page(
       table-label="Events"
       :data="dataEvents"
       :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
     )
 
     aloha-table-translate(

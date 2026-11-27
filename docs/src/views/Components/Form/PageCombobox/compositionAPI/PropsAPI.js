@@ -29,6 +29,13 @@ const SHARED = [
 
 const OWN = [
   ["data", "_A_COMBOBOX_PROPS_DATA_DESCRIPTION_", "Array", "[]"],
+  ["filter-callback", "_A_COMBOBOX_PROPS_FILTER_CALLBACK_DESCRIPTION_", "Function", undefined],
+  ["filter-mode", "_A_COMBOBOX_PROPS_FILTER_MODE_DESCRIPTION_", "String", "\"contains\""],
+  ["ignore-diacritics", "_A_COMBOBOX_PROPS_IGNORE_DIACRITICS_DESCRIPTION_", "Boolean", "true"],
+  ["inline-autocomplete", "_A_COMBOBOX_PROPS_INLINE_AUTOCOMPLETE_DESCRIPTION_", "Boolean", "false"],
+  ["key-disabled", "_A_COMBOBOX_PROPS_KEY_DISABLED_DESCRIPTION_", "String", undefined],
+  ["key-group", "_A_COMBOBOX_PROPS_KEY_GROUP_DESCRIPTION_", "String", undefined],
+  ["texts", "_A_COMBOBOX_PROPS_TEXTS_DESCRIPTION_", "Object", "{ loading, noResults, results }"],
   ["in-body", "_A_COMBOBOX_PROPS_IN_BODY_DESCRIPTION_", "Boolean", "true"],
   ["is-bottom-sheet-on-mobile", "_A_COMBOBOX_PROPS_IS_BOTTOM_SHEET_ON_MOBILE_DESCRIPTION_", "Boolean", "true"],
   ["is-clear-button", "_A_COMBOBOX_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_", "Boolean", "true"],
@@ -67,6 +74,10 @@ export default function PropsAPI() {
     { name: "update:modelValue", type: "Function", description: "_A_COMBOBOX_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_" },
   ];
 
+  const dataSlots = [
+    { name: "option", description: "_A_COMBOBOX_SLOTS_OPTION_DESCRIPTION_" },
+  ];
+
   const dataTranslate = [
     "_A_COMBOBOX_LOADING_",
     "_A_COMBOBOX_NO_RESULTS_",
@@ -76,6 +87,7 @@ export default function PropsAPI() {
   return {
     dataEvents,
     dataProps,
+    dataSlots,
     dataTranslate,
   };
 }

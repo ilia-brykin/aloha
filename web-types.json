@@ -1805,6 +1805,15 @@
               "type": "Record<string, any>"
             },
             {
+              "name": "filterCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "filterMode",
+              "type": "string",
+              "default": "\"contains\""
+            },
+            {
               "name": "helpText",
               "type": "string"
             },
@@ -1816,6 +1825,11 @@
               "name": "id",
               "type": "string | number",
               "default": "\"a_combobox_7\""
+            },
+            {
+              "name": "ignoreDiacritics",
+              "type": "boolean",
+              "default": "true"
             },
             {
               "name": "idPrefix",
@@ -1830,6 +1844,11 @@
               "name": "inBody",
               "type": "boolean",
               "default": "true"
+            },
+            {
+              "name": "inlineAutocomplete",
+              "type": "boolean",
+              "default": "false"
             },
             {
               "name": "inputClass",
@@ -1857,6 +1876,14 @@
               "name": "isRender",
               "type": "boolean",
               "default": "true"
+            },
+            {
+              "name": "keyDisabled",
+              "type": "string"
+            },
+            {
+              "name": "keyGroup",
+              "type": "string"
             },
             {
               "name": "keyId",
@@ -1953,6 +1980,11 @@
               "name": "searchTimeout",
               "type": "number",
               "default": "300"
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
             },
             {
               "name": "translateData",

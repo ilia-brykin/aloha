@@ -24,7 +24,7 @@ import ListboxAPI from "./compositionAPI/ListboxAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
 import PopupAPI from "./compositionAPI/PopupAPI";
 import SuggestionsAPI from "./compositionAPI/SuggestionsAPI";
-import {
+import UtilsAPI, {
   getTranslatedText,
 } from "../../ATranslation/compositionAPI/UtilsAPI";
 
@@ -33,14 +33,17 @@ import {
   AKeyLabel,
 } from "../../const/AKeys";
 import {
+  getHighlightParts,
+} from "./utils/text";
+import {
   getPropDefault,
 } from "../../plugins/AComponentsPlugin";
 import {
   isBrowser,
 } from "../../utils/isBrowser";
 import {
+  get,
   isNil,
-  toLower,
   toString,
   uniqueId,
 } from "lodash-es";
@@ -52,32 +55,16 @@ const plugin = (type, name, defaultValue) => ({
   default: () => getPropDefault("ACombobox", name, defaultValue),
 });
 
-/**
- * The parts of the label with the found text as <mark>: nodes, no HTML of the data (no XSS).
- */
-export function getHighlightParts(label, search) {
-  const TEXT = toString(label);
-  const SEARCH = toLower(search);
-  if (!SEARCH) {
-    return [{ text: TEXT, isMatch: false }];
-  }
-  const PARTS = [];
-  const LOWER = toLower(TEXT);
-  let start = 0;
-  let index = LOWER.indexOf(SEARCH);
-  while (index !== -1) {
-    if (index > start) {
-      PARTS.push({ text: TEXT.slice(start, index), isMatch: false });
-    }
-    PARTS.push({ text: TEXT.slice(index, index + SEARCH.length), isMatch: true });
-    start = index + SEARCH.length;
-    index = LOWER.indexOf(SEARCH, start);
-  }
-  if (start < TEXT.length) {
-    PARTS.push({ text: TEXT.slice(start), isMatch: false });
-  }
-  return PARTS;
-}
+// the texts of the screen reader, every key falls back to its default
+export const TEXTS_DEFAULT = {
+  loading: "_A_COMBOBOX_LOADING_",
+  noResults: "_A_COMBOBOX_NO_RESULTS_",
+  results: "_A_COMBOBOX_RESULTS_{{count}}_",
+};
+
+export {
+  getHighlightParts,
+} from "./utils/text";
 
 export default {
   name: "ACombobox",
@@ -126,6 +113,18 @@ export default {
       required: false,
       default: undefined,
     },
+    // own filter of the local data: ({ item, label, search }) => boolean
+    filterCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
+    filterMode: {
+      type: String,
+      required: false,
+      default: () => getPropDefault("ACombobox", "filterMode", "contains"),
+      validator: value => ["contains", "startsWith"].indexOf(value) !== -1,
+    },
     helpText: {
       type: String,
       required: false,
@@ -141,6 +140,8 @@ export default {
       required: false,
       default: () => uniqueId("a_combobox_"),
     },
+    // "München" is found with "munchen"
+    ignoreDiacritics: plugin(Boolean, "ignoreDiacritics", true),
     idPrefix: {
       type: String,
       required: false,
@@ -152,6 +153,8 @@ export default {
       default: () => ({}),
     },
     inBody: plugin(Boolean, "inBody", true),
+    // the first suggestion completes the text, the added part is selected (aria-autocomplete="both")
+    inlineAutocomplete: plugin(Boolean, "inlineAutocomplete", false),
     inputClass: {
       type: [String, Object],
       required: false,
@@ -171,6 +174,16 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyGroup: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     keyId: {
       type: String,
@@ -256,6 +269,7 @@ export default {
     },
     searchApiKey: plugin(String, "searchApiKey", "search"),
     searchTimeout: plugin(Number, "searchTimeout", 300),
+    texts: plugin(Object, "texts", {}),
     translateData: {
       type: Boolean,
       required: false,
@@ -319,6 +333,7 @@ export default {
     });
 
     const {
+      getOriginalItem,
       loading,
       search,
       searchText,
@@ -326,11 +341,15 @@ export default {
       suggestions,
     } = SuggestionsAPI(props);
 
+    const inputRef = ref(undefined);
+
     const {
       activeId,
       activeIndex,
       close,
       getOptionId,
+      inputValue,
+      isItemDisabled,
       isListVisible,
       isOpen,
       onBlur,
@@ -341,6 +360,8 @@ export default {
       selectOption,
     } = ListboxAPI(props, context, {
       changeModel,
+      getInputElement: () => inputRef.value,
+      getOriginalItem,
       htmlIdLocal,
       loading,
       search,
@@ -348,22 +369,46 @@ export default {
       suggestions,
     });
 
+    const {
+      replaceText,
+    } = UtilsAPI();
+
+    const textsLocal = computed(() => ({ ...TEXTS_DEFAULT, ...props.texts }));
+
     // read by the screen reader after every change of the list
     const statusText = computed(() => {
       if (!isOpen.value) {
         return "";
       }
+      let key = "results";
       if (loading.value) {
-        return getTranslatedText({ placeholder: "_A_COMBOBOX_LOADING_", alwaysTranslate: props.alwaysTranslate });
+        key = "loading";
+      } else if (!suggestions.value.length) {
+        key = "noResults";
       }
-      if (!suggestions.value.length) {
-        return getTranslatedText({ placeholder: "_A_COMBOBOX_NO_RESULTS_", alwaysTranslate: props.alwaysTranslate });
-      }
-      return getTranslatedText({
-        placeholder: "_A_COMBOBOX_RESULTS_{{count}}_",
-        extra: { count: suggestions.value.length },
+      const EXTRA = { count: suggestions.value.length };
+      const TEXT = getTranslatedText({
+        placeholder: textsLocal.value[key] || TEXTS_DEFAULT[key],
+        extra: EXTRA,
         alwaysTranslate: props.alwaysTranslate,
       });
+      // an own text without a translation key: {{ count }} too
+      return replaceText({ text: TEXT, object: EXTRA });
+    });
+
+    // the options with their index in the list, in groups (key-group): options without a group first, no header
+    const optionGroups = computed(() => {
+      const GROUPS = [];
+      suggestions.value.forEach((item, index) => {
+        const GROUP = props.keyGroup ? get(item, props.keyGroup) : undefined;
+        let last = GROUPS[GROUPS.length - 1];
+        if (!last || last.group !== GROUP) {
+          last = { group: GROUP, options: [] };
+          GROUPS.push(last);
+        }
+        last.options.push({ item, index });
+      });
+      return GROUPS;
     });
 
     const clear = () => {
@@ -371,7 +416,6 @@ export default {
       close();
     };
 
-    const inputRef = ref(undefined);
     const popupRef = ref(undefined);
     const isMounted = ref(false);
 
@@ -427,8 +471,11 @@ export default {
       getOptionId,
       helpTextId,
       htmlIdLocal,
+      getOriginalItem,
       inputRef,
+      inputValue,
       isClearButtonLocal,
+      isItemDisabled,
       isEmptyVisible,
       isErrors,
       isListVisible,
@@ -443,6 +490,7 @@ export default {
       onInput,
       onKeydown,
       onOptionMousedown,
+      optionGroups,
       popperContainerIdSelector,
       popupRef,
       popupStyle,
@@ -454,19 +502,69 @@ export default {
     };
   },
   methods: {
-    renderOptions() {
-      return this.suggestions.map((item, index) => h("li", {
+    renderOption({ item, index }) {
+      const IS_ACTIVE = index === this.activeIndex;
+      const IS_DISABLED = this.isItemDisabled(item);
+      const PARTS = getHighlightParts(item[AKeyLabel], this.searchText, {
+        filterMode: this.filterMode,
+        ignoreDiacritics: this.ignoreDiacritics,
+      });
+      const HIGHLIGHT = PARTS.map(part => {
+        return part.isMatch ? h("mark", { class: "a_search_highlight" }, part.text) : part.text;
+      });
+
+      return h("li", {
         key: `${ index }_${ toString(item[AKeyId]) }`,
         id: this.getOptionId(index),
         role: "option",
-        "aria-selected": index === this.activeIndex ? "true" : "false",
+        "aria-disabled": IS_DISABLED ? "true" : undefined,
+        "aria-selected": IS_ACTIVE ? "true" : "false",
         class: ["a_combobox__option", {
-          a_combobox__option_active: index === this.activeIndex,
+          a_combobox__option_active: IS_ACTIVE,
+          a_combobox__option_disabled: IS_DISABLED,
         }],
         onClick: () => this.selectOption(index),
-      }, getHighlightParts(item[AKeyLabel], this.searchText).map(part => {
-        return part.isMatch ? h("mark", { class: "a_search_highlight" }, part.text) : part.text;
-      })));
+      }, this.$slots.option ?
+        this.$slots.option({
+          highlight: HIGHLIGHT,
+          index,
+          isActive: IS_ACTIVE,
+          isDisabled: IS_DISABLED,
+          item: this.getOriginalItem(item),
+          label: item[AKeyLabel],
+          parts: PARTS,
+        }) :
+        HIGHLIGHT);
+    },
+
+    // WAI-ARIA grouped listbox: <li role="none"><ul role="group" aria-labelledby> header + options
+    renderOptions() {
+      return this.optionGroups.map((group, groupIndex) => {
+        if (isNil(group.group)) {
+          return group.options.map(option => this.renderOption(option));
+        }
+        const HEADER_ID = `${ this.htmlIdLocal }_group_${ groupIndex }`;
+        const LABEL = toString(group.group);
+        return h("li", {
+          key: `group_${ groupIndex }_${ LABEL }`,
+          role: "none",
+        }, [
+          h("ul", {
+            class: "a_combobox__group",
+            role: "group",
+            "aria-labelledby": HEADER_ID,
+          }, [
+            h("li", {
+              id: HEADER_ID,
+              class: "a_combobox__group__label",
+              role: "presentation",
+            }, this.translateData ?
+              getTranslatedText({ placeholder: LABEL, alwaysTranslate: this.alwaysTranslate }) :
+              LABEL),
+            ...group.options.map(option => this.renderOption(option)),
+          ]),
+        ]);
+      });
     },
   },
   render() {
@@ -539,12 +637,12 @@ export default {
               },
               this.inputClass,
             ],
-            value: this.modelValue ?? "",
+            value: this.inputValue,
             placeholder: this.placeholder,
             disabled: this.disabledAttribut,
             autocomplete: "off",
             "aria-activedescendant": this.activeId,
-            "aria-autocomplete": "list",
+            "aria-autocomplete": this.inlineAutocomplete ? "both" : "list",
             "aria-controls": LISTBOX_ID,
             "aria-describedby": this.ariaDescribedbyLocal,
             "aria-expanded": this.isListVisible ? "true" : "false",

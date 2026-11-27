@@ -10,17 +10,29 @@ import UiDataWithKeyIdAndLabelAPI from "../../compositionApi/UiDataWithKeyIdAndL
 import UiUrlAPI from "../../compositionApi/UiUrlAPI";
 
 import {
+  AKeyId,
   AKeyLabel,
 } from "../../../const/AKeys";
 import {
-  toLower,
-  toString,
+  isMatch,
+} from "../utils/text";
+import {
+  get,
+  isFunction,
+  isNil,
+  isPlainObject,
+  omit,
 } from "lodash-es";
 
 /**
  * The suggestions: the local data filtered by the text, or the answer of the server (url + searchApiKey).
  */
 export default function SuggestionsAPI(props) {
+  const filterCallback = toRef(props, "filterCallback");
+  const filterMode = toRef(props, "filterMode");
+  const ignoreDiacritics = toRef(props, "ignoreDiacritics");
+  const isDataSimpleArray = toRef(props, "isDataSimpleArray");
+  const keyGroup = toRef(props, "keyGroup");
   const maxItems = toRef(props, "maxItems");
   const searchApiKey = toRef(props, "searchApiKey");
   const searchTimeout = toRef(props, "searchTimeout");
@@ -46,13 +58,47 @@ export default function SuggestionsAPI(props) {
 
   const isServer = computed(() => !!urlLocal.value);
 
+  // the item of the data, without the keys of the component
+  const getOriginalItem = item => {
+    return isPlainObject(item) && !isDataSimpleArray.value ? omit(item, [AKeyId, AKeyLabel]) : item[AKeyId];
+  };
+
+  const filterItem = item => {
+    if (isFunction(filterCallback.value)) {
+      return filterCallback.value({
+        item: getOriginalItem(item),
+        label: item[AKeyLabel],
+        search: searchText.value,
+      });
+    }
+    return isMatch(item[AKeyLabel], searchText.value, {
+      filterMode: filterMode.value,
+      ignoreDiacritics: ignoreDiacritics.value,
+    });
+  };
+
+  // the options of a group stay together (the order of the first item of the group), so the arrows go as they look
+  const sortByGroup = items => {
+    if (!keyGroup.value) {
+      return items;
+    }
+    const ORDER = [];
+    items.forEach(item => {
+      const GROUP = get(item, keyGroup.value);
+      if (ORDER.indexOf(GROUP) === -1) {
+        ORDER.push(GROUP);
+      }
+    });
+    // without a group first
+    const RANK = group => (isNil(group) ? -1 : ORDER.indexOf(group));
+    return [...items].sort((a, b) => RANK(get(a, keyGroup.value)) - RANK(get(b, keyGroup.value)));
+  };
+
   const suggestions = computed(() => {
     const ITEMS = isServer.value ?
       dataLocal.value :
-      dataLocal.value.filter(item => {
-        return toLower(toString(item[AKeyLabel])).includes(toLower(searchText.value));
-      });
-    return ITEMS.slice(0, maxItems.value);
+      dataLocal.value.filter(filterItem);
+    return sortByGroup(ITEMS.slice(0, maxItems.value));
   });
 
   const loadFromServer = text => {
@@ -99,6 +145,7 @@ export default function SuggestionsAPI(props) {
   onBeforeUnmount(() => clearTimeout(timer));
 
   return {
+    getOriginalItem,
     isServer,
     loading,
     search,
