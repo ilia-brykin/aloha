@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 3.0.0-alpha.5
+
+- fix(AAlert, ANotification): the close button gets the padding of the alert again (the tokens are also on .a_alert__parent, the button is next to .a_alert), no gray box on hover in an alert; no horizontal scrollbar under the notifications (overflow-x hidden)
+
 ## 3.0.0-alpha.4
 
 Changes since 3.0.0-alpha.3. Migration notes: docs page **Migration 2.x → 3.0**. Most breaking changes are accessibility fixes (WAI-ARIA roles, native buttons, keyboard): the props stay, the markup changes.

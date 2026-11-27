@@ -3649,7 +3649,7 @@ function rm(e, { hasTextAfter: t = i(() => !1), hasTextBefore: n = i(() => !1), 
 		hasHtml: b,
 		hasSafeHtml: v,
 		htmlLocalOptions: C,
-		htmlLocalWithBeforeAndAfter: i(() => `${x.value}${C.value.safeHtml || C.value.html}${S.value}`)
+		htmlLocalWithBeforeAndAfter: i(() => `${x.value}${C.value.safeHtml || C.value.html || ""}${S.value}`)
 	};
 }
 //#endregion
@@ -19968,6 +19968,7 @@ function Tw(e) {
 //#region src/AModal/compositionAPI/ModalStackAPI.js
 var Ew = [
 	".a_popup_container",
+	".a_select_container",
 	".a_notification_parent",
 	".a_datepicker__popup",
 	".a_color_picker__popup",

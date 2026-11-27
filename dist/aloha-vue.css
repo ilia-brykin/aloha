@@ -1892,6 +1892,7 @@
     padding-right: calc(var(--a_alert_padding_x) * 3);
   }
   .a_alert__parent_closable .a_btn_close {
+    --a_btn_close_hover_bg: transparent;
     position: absolute;
     top: 0;
     right: 0;
@@ -1955,7 +1956,7 @@
     --a_alert_border_color: var(--a_color_dark_border_subtle);
     --a_alert_link_color: var(--a_color_dark_text_emphasis);
   }
-  :where(.a_alert) {
+  :where(.a_alert, .a_alert__parent) {
     --a_alert_bg: transparent;
     --a_alert_padding_x: var(--a_space_md);
     --a_alert_padding_y: var(--a_space_md);
@@ -2170,6 +2171,7 @@
     text-align: var(--a_notification_text_align);
     max-height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   @media (min-width: 1023px) {
     .a_notification_parent {
