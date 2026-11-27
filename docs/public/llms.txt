@@ -79,6 +79,7 @@ Start with [AGENTS.md](https://ilia-brykin.github.io/aloha/AGENTS.md): setup in 
 - [Menu: Menu basic](https://ilia-brykin.github.io/aloha/llms/components/menu-basic.md): AMenu provides navigation with nested panels, search, groups and disabled links.
 - [Modal: Modal](https://ilia-brykin.github.io/aloha/llms/components/modal.md): AModal is a component that enables the implementation of modal windows.
 - [Modal: Modal form](https://ilia-brykin.github.io/aloha/llms/components/modal-form.md): **AModalForm** is a modal window (AModal) with a form (AForm) in the body.
+- [Navbar](https://ilia-brykin.github.io/aloha/llms/components/navbar.md): **ANavbar** is a horizontal navigation: links, submenus with any number of levels, a logo and buttons in the slots.
 - [Notification](https://ilia-brykin.github.io/aloha/llms/components/notification.md): **ANotification** shows short messages at the edge of the window, e.g.
 - [Progress: Progress bar](https://ilia-brykin.github.io/aloha/llms/components/progress.md): AProgress component is a customisable progress bar for Vue.js applications.
 - [Progress: Progress circle](https://ilia-brykin.github.io/aloha/llms/components/progress-circle.md): The **AProgressCircle** component displays progress as a circular indicator.

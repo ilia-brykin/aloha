@@ -108,6 +108,11 @@ const ROUTES = [
     component: () => import("../views/Components/PagePagination/PagePagination.vue"),
   },
   {
+    path: "/navbar",
+    name: "PageNavbar",
+    component: () => import("../views/Components/PageNavbar/PageNavbar.vue"),
+  },
+  {
     path: "/popover",
     name: "PagePopover",
     component: () => import("../views/Components/PagePopover/PagePopover.vue"),

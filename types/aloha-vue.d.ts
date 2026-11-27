@@ -2903,6 +2903,41 @@ export interface AMultiselectOrderedProps {
 }
 export declare const AMultiselectOrdered: DefineComponent<AMultiselectOrderedProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("blur" | "focus" | "onSearchOutside" | "open" | "update:modelValue" | "updateData")[]>;
 
+export interface ANavbarProps {
+  alwaysTranslate?: boolean;
+  /** @default 200 */
+  closeDelay?: number;
+  /** @default [] */
+  data?: any[];
+  /** @default "left" */
+  drawerPlacement?: string;
+  extra?: Record<string, any>;
+  /** @default "a_navbar_30" */
+  id?: string;
+  /** @default false */
+  isEndInDrawer?: boolean;
+  /** @default true */
+  isMobileMenu?: boolean;
+  /** @default false */
+  isSticky?: boolean;
+  /** @default "children" */
+  keyChildren?: string;
+  /** @default "id" */
+  keyId?: string;
+  /** @default "label" */
+  keyLabel?: string;
+  label?: string;
+  /** @default 100 */
+  openDelay?: number;
+  /** @default "more" */
+  overflow?: string;
+  /** @default {} */
+  texts?: Record<string, any>;
+  /** @default "click" */
+  trigger?: string;
+}
+export declare const ANavbar: DefineComponent<ANavbarProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("navigate")[]>;
+
 export interface ANotificationProps {
   /** @default false */
   hasProgress?: boolean;
@@ -2928,7 +2963,7 @@ export interface AOneCheckboxProps {
   falseValue?: boolean | string | number;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_one_checkbox_30" */
+  /** @default "a_one_checkbox_31" */
   id?: string | number;
   idPrefix?: string;
   indeterminate?: boolean;
@@ -2995,7 +3030,7 @@ export interface APaginationPagesProps {
   iconNext?: string | Record<string, any>;
   /** @default "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-chevron-left\" viewBox=\"0 0 16 16\">\n  <path fill-rule=\"evenodd\" d=\"M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0\"/>\n</svg>" */
   iconPrevious?: string | Record<string, any>;
-  /** @default "a_pagination_pages_31" */
+  /** @default "a_pagination_pages_32" */
   id?: string;
   limit: number;
   /** @default 5 */
@@ -3043,7 +3078,7 @@ export interface APopoverProps {
   header?: string | number;
   /** @default "div" */
   headerTag?: string;
-  /** @default "a_popover_32" */
+  /** @default "a_popover_33" */
   id?: string;
   /** @default true */
   inBody?: boolean;
@@ -3148,7 +3183,7 @@ export interface ARadioProps {
   hasBorder?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_radio_33" */
+  /** @default "a_radio_34" */
   id?: string | number;
   idPrefix?: string;
   inline?: boolean;
@@ -3231,7 +3266,7 @@ export interface ARateProps {
   highThreshold?: number;
   htmlId?: string;
   icons?: string | any[] | Record<string, any>;
-  /** @default "a_rate_34" */
+  /** @default "a_rate_35" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3321,7 +3356,7 @@ export interface ARouterLinkConfigProps {
   /** @default "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_" */
   helpTextTarget?: string;
   htmlId?: string;
-  /** @default "a_router_link_config_35" */
+  /** @default "a_router_link_config_36" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -3450,7 +3485,7 @@ export interface ASelectProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_ui_36" */
+  /** @default "a_ui_37" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3579,7 +3614,7 @@ export interface ASelectIconProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_icon_37" */
+  /** @default "a_select_icon_38" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3684,7 +3719,7 @@ export interface ASelectStyleProps {
   hasCaret?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_select_styles_38" */
+  /** @default "a_select_styles_39" */
   id?: string | number;
   idPrefix?: string;
   /** @default true */
@@ -3781,7 +3816,7 @@ export interface AShowMoreProps {
   /** @default 200 */
   height?: number;
   html?: string;
-  /** @default "a_show_more_39" */
+  /** @default "a_show_more_40" */
   id?: string;
   isBtnTitleHtml?: boolean;
   /** @default false */
@@ -3852,7 +3887,7 @@ export interface ASliderProps {
   height?: string;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_slider_40" */
+  /** @default "a_slider_41" */
   id?: string | number;
   idPrefix?: string;
   isDataSimpleArray?: boolean;
@@ -3936,7 +3971,7 @@ export interface ASwitchProps {
   fullWidth?: boolean;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_switch_41" */
+  /** @default "a_switch_42" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -4009,7 +4044,7 @@ export interface ATableProps {
   hasMobile?: boolean;
   /** @default true */
   hasScrollClass?: boolean;
-  /** @default "a_table42" */
+  /** @default "a_table43" */
   id?: string;
   /** @default false */
   isActionColumnVisible?: boolean;
@@ -4127,7 +4162,7 @@ export interface ATableFormProps {
   fullWidthRowCallback?: ((...args: any[]) => any);
   /** @default {} */
   icons?: Record<string, any>;
-  /** @default "a_table_form_43" */
+  /** @default "a_table_form_44" */
   id?: string;
   /** @default false */
   isActionsSticky?: boolean;
@@ -4175,7 +4210,7 @@ export interface ATabsProps {
   activeTabId?: string | number;
   data: any[];
   disabled?: boolean;
-  /** @default "a_tabs_44" */
+  /** @default "a_tabs_45" */
   id?: string;
   isBoxed?: boolean;
   isChangeOutside?: boolean;
@@ -4244,7 +4279,7 @@ export interface ATextareaProps {
   extra?: Record<string, any>;
   helpText?: string;
   htmlId?: string;
-  /** @default "a_textarea_45" */
+  /** @default "a_textarea_46" */
   id?: string | number;
   idPrefix?: string;
   /** @default {} */
@@ -4283,7 +4318,7 @@ export declare const ATextarea: DefineComponent<ATextareaProps, {}, {}, {}, {}, 
 
 export interface ATooltipProps {
   arrowPadding?: number | ((...args: any[]) => any);
-  /** @default "a_tooltip_46" */
+  /** @default "a_tooltip_47" */
   id?: string;
   isHide?: boolean;
   maxWidth?: number | string;
@@ -4341,7 +4376,7 @@ export interface ATreeProps {
   emptyText?: string;
   expanded?: any[];
   filterMethod?: ((...args: any[]) => any);
-  /** @default "a_tree_47" */
+  /** @default "a_tree_48" */
   id?: string;
   indent?: number | string;
   isAccordion?: boolean;
@@ -4394,7 +4429,7 @@ export interface AValidatedJsonProps {
   htmlId?: string;
   keyId?: string;
   sortId?: string;
-  /** @default "a_validated_json_48" */
+  /** @default "a_validated_json_49" */
   id?: string | number;
   idPrefix?: string;
   isHide?: boolean;
@@ -4484,7 +4519,7 @@ export interface AWizardProps {
   forwardButtonTitle?: string;
   /** @default true */
   hasFocusJump?: boolean;
-  /** @default "a_wizard_49" */
+  /** @default "a_wizard_50" */
   id?: string;
   /** @default false */
   isBackButtonDisabled?: boolean;
@@ -4637,6 +4672,7 @@ export declare const AMobileAPI_setIsMobileWidth: any;
 export declare const AMobilePlugin: any;
 export declare const AModalI18n: any;
 export declare const AMultiselectOrderedI18n: any;
+export declare const ANavbarI18n: any;
 export declare const ANotificationAPI: any;
 export declare const ANotificationAPI_addNotification: any;
 export declare const ANotificationAPI_clearNotifications: any;
@@ -4889,6 +4925,7 @@ declare module "vue" {
     AModalForm: typeof AModalForm;
     AModalWizard: typeof AModalWizard;
     AMultiselectOrdered: typeof AMultiselectOrdered;
+    ANavbar: typeof ANavbar;
     ANotification: typeof ANotification;
     AOneCheckbox: typeof AOneCheckbox;
     APageTabTitle: typeof APageTabTitle;

@@ -489,6 +489,14 @@ export default function ComponentItemsAPI() {
         ],
       },
       {
+        id: "navbar",
+        label: "Navbar",
+        class: "test_menu_navbar",
+        to: {
+          name: "PageNavbar",
+        },
+      },
+      {
         id: "notification",
         label: "Notification",
         class: "test_menu_notification",

@@ -30,6 +30,7 @@ import ALoadingI18n from "../ALoading/i18n/ALoadingI18n";
 import AMenu2I18n from "../AMenu/i18n/AMenu2I18n";
 import AModalI18n from "../AModal/i18n/AModalI18n";
 import AMultiselectOrderedI18n from "../ui/AMultiselectOrdered/i18n/AMultiselectOrderedI18n";
+import ANavbarI18n from "../ANavbar/i18n/ANavbarI18n";
 import APaginationI18n from "../APagination/i18n/APaginationI18n.js";
 import APopoverI18n from "../APopover/i18n/APopoverI18n";
 import AProgressI18n from "../AProgress/i18n/AProgressI18n";
@@ -98,6 +99,7 @@ export const ar = {
   ...ALoadingI18n.ar,
   ...AMenu2I18n.ar,
   ...AModalI18n.ar,
+  ...ANavbarI18n.ar,
   ...AMultiselectOrderedI18n.ar,
   ...APaginationI18n.ar,
   ...APopoverI18n.ar,
@@ -155,6 +157,7 @@ export const de = {
   ...ALoadingI18n.de,
   ...AMenu2I18n.de,
   ...AModalI18n.de,
+  ...ANavbarI18n.de,
   ...AMultiselectOrderedI18n.de,
   ...APaginationI18n.de,
   ...APopoverI18n.de,
@@ -212,6 +215,7 @@ export const en = {
   ...ALoadingI18n.en,
   ...AMenu2I18n.en,
   ...AModalI18n.en,
+  ...ANavbarI18n.en,
   ...AMultiselectOrderedI18n.en,
   ...APaginationI18n.en,
   ...APopoverI18n.en,
@@ -269,6 +273,7 @@ export const es = {
   ...ALoadingI18n.es,
   ...AMenu2I18n.es,
   ...AModalI18n.es,
+  ...ANavbarI18n.es,
   ...AMultiselectOrderedI18n.es,
   ...APaginationI18n.es,
   ...APopoverI18n.es,
@@ -326,6 +331,7 @@ export const fr = {
   ...ALoadingI18n.fr,
   ...AMenu2I18n.fr,
   ...AModalI18n.fr,
+  ...ANavbarI18n.fr,
   ...AMultiselectOrderedI18n.fr,
   ...APaginationI18n.fr,
   ...APopoverI18n.fr,
@@ -383,6 +389,7 @@ export const hr = {
   ...ALoadingI18n.hr,
   ...AMenu2I18n.hr,
   ...AModalI18n.hr,
+  ...ANavbarI18n.hr,
   ...AMultiselectOrderedI18n.hr,
   ...APaginationI18n.hr,
   ...APopoverI18n.hr,
@@ -440,6 +447,7 @@ export const it = {
   ...ALoadingI18n.it,
   ...AMenu2I18n.it,
   ...AModalI18n.it,
+  ...ANavbarI18n.it,
   ...AMultiselectOrderedI18n.it,
   ...APaginationI18n.it,
   ...APopoverI18n.it,
@@ -497,6 +505,7 @@ export const nl = {
   ...ALoadingI18n.nl,
   ...AMenu2I18n.nl,
   ...AModalI18n.nl,
+  ...ANavbarI18n.nl,
   ...AMultiselectOrderedI18n.nl,
   ...APaginationI18n.nl,
   ...APopoverI18n.nl,
@@ -554,6 +563,7 @@ export const pl = {
   ...ALoadingI18n.pl,
   ...AMenu2I18n.pl,
   ...AModalI18n.pl,
+  ...ANavbarI18n.pl,
   ...AMultiselectOrderedI18n.pl,
   ...APaginationI18n.pl,
   ...APopoverI18n.pl,
@@ -611,6 +621,7 @@ export const ru = {
   ...ALoadingI18n.ru,
   ...AMenu2I18n.ru,
   ...AModalI18n.ru,
+  ...ANavbarI18n.ru,
   ...AMultiselectOrderedI18n.ru,
   ...APaginationI18n.ru,
   ...APopoverI18n.ru,
@@ -668,6 +679,7 @@ export const uk = {
   ...ALoadingI18n.uk,
   ...AMenu2I18n.uk,
   ...AModalI18n.uk,
+  ...ANavbarI18n.uk,
   ...AMultiselectOrderedI18n.uk,
   ...APaginationI18n.uk,
   ...APopoverI18n.uk,

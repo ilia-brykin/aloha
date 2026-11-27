@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_NAVBAR_GROUP_OVERFLOW_HEADER_"
+  description="_A_NAVBAR_GROUP_OVERFLOW_DESCRIPTION_"
+)
+  a-radio(
+    v-model="overflow"
+    :data="dataOverflow"
+    :is-inline="true"
+    label="overflow"
+  )
+  div(
+    class="a_mt_3"
+    style="max-width: 30rem;"
+  )
+    a-navbar(
+      :data="data"
+      :overflow="overflow"
+    )

@@ -9385,6 +9385,105 @@
           }
         },
         {
+          "name": "ANavbar",
+          "source": {
+            "module": "aloha-vue",
+            "symbol": "ANavbar"
+          },
+          "doc-url": "https://ilia-brykin.github.io/aloha/",
+          "props": [
+            {
+              "name": "alwaysTranslate",
+              "type": "boolean"
+            },
+            {
+              "name": "closeDelay",
+              "type": "number",
+              "default": "200"
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
+              "name": "drawerPlacement",
+              "type": "string",
+              "default": "\"left\""
+            },
+            {
+              "name": "extra",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "default": "\"a_navbar_30\""
+            },
+            {
+              "name": "isEndInDrawer",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isMobileMenu",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isSticky",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "keyChildren",
+              "type": "string",
+              "default": "\"children\""
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "label",
+              "type": "string"
+            },
+            {
+              "name": "openDelay",
+              "type": "number",
+              "default": "100"
+            },
+            {
+              "name": "overflow",
+              "type": "string",
+              "default": "\"more\""
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "trigger",
+              "type": "string",
+              "default": "\"click\""
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "navigate"
+              }
+            ]
+          }
+        },
+        {
           "name": "ANotification",
           "source": {
             "module": "aloha-vue",
@@ -9479,7 +9578,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_one_checkbox_30\""
+              "default": "\"a_one_checkbox_31\""
             },
             {
               "name": "idPrefix",
@@ -9712,7 +9811,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_pagination_pages_31\""
+              "default": "\"a_pagination_pages_32\""
             },
             {
               "name": "limit",
@@ -9871,7 +9970,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_popover_32\""
+              "default": "\"a_popover_33\""
             },
             {
               "name": "inBody",
@@ -10184,7 +10283,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_radio_33\""
+              "default": "\"a_radio_34\""
             },
             {
               "name": "idPrefix",
@@ -10490,7 +10589,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_rate_34\""
+              "default": "\"a_rate_35\""
             },
             {
               "name": "idPrefix",
@@ -10793,7 +10892,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_router_link_config_35\""
+              "default": "\"a_router_link_config_36\""
             },
             {
               "name": "idPrefix",
@@ -11181,7 +11280,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_ui_36\""
+              "default": "\"a_ui_37\""
             },
             {
               "name": "idPrefix",
@@ -11590,7 +11689,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_icon_37\""
+              "default": "\"a_select_icon_38\""
             },
             {
               "name": "idPrefix",
@@ -11921,7 +12020,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_select_styles_38\""
+              "default": "\"a_select_styles_39\""
             },
             {
               "name": "idPrefix",
@@ -12226,7 +12325,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_show_more_39\""
+              "default": "\"a_show_more_40\""
             },
             {
               "name": "isBtnTitleHtml",
@@ -12457,7 +12556,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_slider_40\""
+              "default": "\"a_slider_41\""
             },
             {
               "name": "idPrefix",
@@ -12728,7 +12827,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_switch_41\""
+              "default": "\"a_switch_42\""
             },
             {
               "name": "idPrefix",
@@ -12965,7 +13064,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table42\""
+              "default": "\"a_table43\""
             },
             {
               "name": "isActionColumnVisible",
@@ -13337,7 +13436,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_table_form_43\""
+              "default": "\"a_table_form_44\""
             },
             {
               "name": "isActionsSticky",
@@ -13486,7 +13585,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tabs_44\""
+              "default": "\"a_tabs_45\""
             },
             {
               "name": "isBoxed",
@@ -13727,7 +13826,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_textarea_45\""
+              "default": "\"a_textarea_46\""
             },
             {
               "name": "idPrefix",
@@ -13863,7 +13962,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tooltip_46\""
+              "default": "\"a_tooltip_47\""
             },
             {
               "name": "isHide",
@@ -14041,7 +14140,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_tree_47\""
+              "default": "\"a_tree_48\""
             },
             {
               "name": "indent",
@@ -14236,7 +14335,7 @@
             {
               "name": "id",
               "type": "string | number",
-              "default": "\"a_validated_json_48\""
+              "default": "\"a_validated_json_49\""
             },
             {
               "name": "idPrefix",
@@ -14501,7 +14600,7 @@
             {
               "name": "id",
               "type": "string",
-              "default": "\"a_wizard_49\""
+              "default": "\"a_wizard_50\""
             },
             {
               "name": "isBackButtonDisabled",
