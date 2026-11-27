@@ -124,6 +124,10 @@ Big style refactoring. The JavaScript API of the components stays compatible, on
 
 - docs: page Theming with theme generator, theme switch in the docs, migration guide 2.x → 3.0, CSS variables table for every component, `AMenu` example with only-mobile.
 
+## 2.87.2
+
+- fix(ATranslation): avoid rendering undefined HTML
+
 ## 2.87.1
 
 - fix(color-picker): default cleared model to undefined
