@@ -1894,6 +1894,8 @@ export interface AInputTagsProps {
   allowDuplicates?: boolean;
   alwaysTranslate?: boolean;
   change?: ((...args: any[]) => any);
+  /** @default [] */
+  data?: any[];
   dependencies?: any[] | Record<string, any>;
   disabled?: boolean;
   errors?: string | any[];
@@ -1901,41 +1903,86 @@ export interface AInputTagsProps {
   /** @default [] */
   excludeRenderAttributes?: any[];
   extra?: Record<string, any>;
+  filterCallback?: ((...args: any[]) => any);
+  /** @default "contains" */
+  filterMode?: string;
   helpText?: string;
   htmlId?: string;
   /** @default "a_input_tags_21" */
   id?: string | number;
   idPrefix?: string;
+  /** @default true */
+  ignoreDiacritics?: boolean;
+  /** @default true */
+  inBody?: boolean;
+  /** @default false */
+  inlineAutocomplete?: boolean;
   /** @default {} */
   inputAttributes?: Record<string, any>;
   inputClass?: string | Record<string, any>;
+  /** @default false */
+  isAddAll?: boolean;
+  /** @default true */
+  isBottomSheetOnMobile?: boolean;
+  isDataSimpleArray?: boolean;
   isHide?: boolean;
+  isOnlyFromList?: boolean;
+  /** @default false */
+  isRemoveAll?: boolean;
   /** @default true */
   isRender?: boolean;
+  keyDisabled?: string;
+  keyGroup?: string;
+  /** @default "id" */
+  keyId?: string;
+  /** @default "label" */
+  keyLabel?: string;
+  keyLabelCallback?: ((...args: any[]) => any);
   label?: string | number;
   labelClass?: string | Record<string, any>;
   labelDescription?: string;
   labelScreenReader?: string | number;
+  /** @default 10 */
+  maxItems?: number;
   maxTags?: number;
+  maxVisibleTags?: number;
+  /** @default 1 */
+  minLength?: number;
   /** @default {} */
   modelDependencies?: Record<string, any>;
   /** @default [] */
   modelUndefined?: any[] | Record<string, any> | string;
   modelValue?: any[];
+  /** @default false */
+  openOnFocus?: boolean;
   placeholder?: string;
+  /** @default "a_tooltip_container" */
+  popperContainerId?: string;
   readonly?: boolean;
   /** @default "" */
   readonlyDefault?: string;
   readonlyValueParentClass?: string | Record<string, any> | any[];
   /** @default false */
   required?: boolean;
+  /** @default "search" */
+  searchApiKey?: string;
+  /** @default 300 */
+  searchTimeout?: number;
   /** @default ["Enter",","] */
   separators?: any[];
+  /** @default {} */
+  texts?: Record<string, any>;
+  translateData?: boolean;
   /** @default "tags" */
   type?: string;
+  url?: string;
+  urlParams?: Record<string, any>;
+  /** @default {} */
+  urlTemplateData?: Record<string, any>;
   validator?: ((...args: any[]) => any);
+  zIndex?: number | string;
 }
-export declare const AInputTags: DefineComponent<AInputTagsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("update:modelValue")[]>;
+export declare const AInputTags: DefineComponent<AInputTagsProps, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, ("select" | "update:modelValue")[]>;
 
 export interface AJsonProps {
   alwaysTranslate?: boolean;

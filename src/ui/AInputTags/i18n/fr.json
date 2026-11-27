@@ -4,5 +4,13 @@
   "_A_INPUT_TAGS_REMOVED_": "Retiré : {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} est déjà dans la liste",
   "_A_INPUT_TAGS_MAX_": "Pas plus de {{ max }} valeurs",
-  "_A_INPUT_TAGS_HINT_": "Entrée ou une virgule ajoute une valeur, Retour arrière dans le champ vide retire la dernière."
+  "_A_INPUT_TAGS_HINT_": "Entrée ou virgule ajoute une valeur, Retour arrière dans le champ vide supprime la dernière. Flèche gauche au début va aux valeurs, Suppr supprime la valeur.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Tout supprimer",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "Toutes les valeurs supprimées ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "Afficher {{ count }} valeurs de plus",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Afficher moins de valeurs",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} sur {{ max }} valeurs",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} n'est pas dans la liste",
+  "_A_INPUT_TAGS_ADD_ALL_": "Tout ajouter ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Entrée ajoute toutes les suggestions."
 }

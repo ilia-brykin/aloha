@@ -4,6 +4,8 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageInputTagsBasic from "./PageInputTagsBasic/PageInputTagsBasic.vue";
 import PageInputTagsEmails from "./PageInputTagsEmails/PageInputTagsEmails.vue";
 import PageInputTagsForm from "./PageInputTagsForm/PageInputTagsForm.vue";
+import PageInputTagsLimits from "./PageInputTagsLimits/PageInputTagsLimits.vue";
+import PageInputTagsSuggestions from "./PageInputTagsSuggestions/PageInputTagsSuggestions.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -21,6 +23,8 @@ export default {
     PageInputTagsBasic,
     PageInputTagsEmails,
     PageInputTagsForm,
+    PageInputTagsLimits,
+    PageInputTagsSuggestions,
   },
   setup() {
     const {
@@ -28,14 +32,18 @@ export default {
     } = PageTitleAPI();
 
     const {
+      dataEvents,
       dataMethods,
       dataProps,
+      dataSlots,
       dataTranslate,
     } = PropsAPI();
 
     return {
+      dataEvents,
       dataMethods,
       dataProps,
+      dataSlots,
       dataTranslate,
       pageTitle,
     };

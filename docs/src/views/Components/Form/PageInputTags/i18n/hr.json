@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Primatelji",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Najviše 5 primatelja.",
   "_A_INPUT_TAGS_FORM_HEADER_": "U obrascu",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "U <code>AForm</code> element ima vrstu <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "U <code>AForm</code> element ima vrstu <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Tipkovnica na vrijednostima: strelica lijevo na početku polja ide na vrijednosti, strelice se pomiču između njih, Home / End na prvu / zadnju, Delete ili Backspace uklanja vrijednost i fokus ostaje na vrijednostima, strelica desno nakon zadnje vraća u polje. S data ili url polje je combobox kao <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, prijedlozi u listboxu). „+N” (max-visible-tags) ima aria-expanded, njegov naziv sadrži vidljivi tekst. Brojač max-tags čita se s poljem.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Prijedlozi",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "S data (ili url) polje prikazuje prijedloge kao <strong lang=\"en\">ACombobox</strong>: grupe, onemogućeni prijedlozi, filtar, in-body i ploča na dnu. Enter ili klik dodaje prijedlog, odabrane vrijednosti nisu prijedlozi. is-add-all dodaje sve pronađene prijedloge (gumb ispod popisa ili Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Samo s popisa i ograničenja",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list prihvaća samo vrijednosti iz prijedloga. max-tags ograničava broj i prikazuje brojač, max-visible-tags skriva ostale vrijednosti iza „+N”, is-remove-all prikazuje gumb koji uklanja sve vrijednosti.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Vještine",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Jezici",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Prikazuje gumb „dodaj sve” ispod prijedloga, Ctrl+Enter radi isto; onemogućeni prijedlozi i max-tags se poštuju.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Samo vrijednosti iz prijedloga (i upisane ili zalijepljene, bez velikih slova i dijakritičkih znakova); drugi tekst se najavljuje i ne dodaje.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Prikazuje ispod polja gumb koji uklanja sve vrijednosti; uklanjanje se najavljuje, fokus prelazi u polje.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Broj vidljivih vrijednosti; ostale su iza gumba „+N” (aria-expanded) koji ih prikazuje.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Svi tekstovi polja: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Svaki ključ koji nedostaje zadržava zadanu vrijednost, zadane se postavljaju s <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Nove vrijednosti (v-model), niz nizova znakova."
 }

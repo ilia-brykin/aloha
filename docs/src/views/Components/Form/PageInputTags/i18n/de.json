@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Empfänger",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Höchstens 5 Empfänger.",
   "_A_INPUT_TAGS_FORM_HEADER_": "In einem Formular",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> hat das Element den Typ <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> hat das Element den Typ <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Tastatur auf den Werten: Pfeil links am Anfang des Feldes geht zu den Werten, die Pfeile gehen zwischen ihnen, Pos1 / Ende zum ersten / letzten, Entf oder Rücktaste entfernt den Wert und der Fokus bleibt auf den Werten, Pfeil rechts nach dem letzten geht zurück ins Feld. Mit data oder url ist das Feld eine Combobox wie <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, die Vorschläge in einer Listbox). \"+N\" (max-visible-tags) hat aria-expanded, sein Name enthält den sichtbaren Text. Der Zähler von max-tags wird mit dem Feld vorgelesen.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Vorschläge",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "Mit data (oder url) zeigt das Feld Vorschläge wie <strong lang=\"en\">ACombobox</strong>: Gruppen, deaktivierte Vorschläge, Filter, in-body und das Bottom Sheet. Enter oder ein Klick fügt den Vorschlag hinzu, gewählte Werte sind keine Vorschläge. is-add-all fügt alle gefundenen Vorschläge hinzu (Button unter der Liste oder Strg+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Nur aus der Liste und Grenzen",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list nimmt nur Werte der Vorschläge an. max-tags begrenzt die Anzahl und zeigt einen Zähler, max-visible-tags versteckt weitere Werte hinter „+N“, is-remove-all zeigt einen Button, der alle Werte entfernt.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Kenntnisse",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Sprachen",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Zeigt einen Button „alle hinzufügen“ unter den Vorschlägen, Strg+Enter macht dasselbe; deaktivierte Vorschläge und max-tags werden beachtet.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Nur Werte der Vorschläge (auch getippt oder eingefügt, ohne Groß-/Kleinschreibung und diakritische Zeichen); ein anderer Text wird angesagt und nicht hinzugefügt.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Zeigt einen Button unter dem Feld, der alle Werte entfernt; das Entfernen wird angesagt, der Fokus geht ins Feld.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Anzahl der sichtbaren Werte; die anderen sind hinter einem Button „+N“ (aria-expanded), der sie zeigt.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Alle Texte des Feldes: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Jeder fehlende Schlüssel behält seinen Standard, die Standards können mit <strong lang=\"en\">AComponentsPlugin</strong> gesetzt werden.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Die neuen Werte (v-model), ein Array von Strings."
 }

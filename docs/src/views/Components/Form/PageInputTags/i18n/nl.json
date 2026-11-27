@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Ontvangers",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Maximaal 5 ontvangers.",
   "_A_INPUT_TAGS_FORM_HEADER_": "In een formulier",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> heeft het element het type <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> heeft het element het type <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Toetsenbord op de waarden: pijl links aan het begin van het veld gaat naar de waarden, de pijlen gaan ertussen, Home / End naar de eerste / laatste, Delete of Backspace verwijdert de waarde en de focus blijft op de waarden, pijl rechts na de laatste gaat terug naar het veld. Met data of url is het veld een combobox zoals <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, de suggesties in een listbox). „+N” (max-visible-tags) heeft aria-expanded, de naam bevat de zichtbare tekst. De teller van max-tags wordt met het veld voorgelezen.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Suggesties",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "Met data (of url) toont het veld suggesties zoals <strong lang=\"en\">ACombobox</strong>: groepen, uitgeschakelde suggesties, filter, in-body en het paneel onderaan. Enter of een klik voegt de suggestie toe, gekozen waarden zijn geen suggesties. is-add-all voegt alle gevonden suggesties toe (knop onder de lijst of Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Alleen uit de lijst en grenzen",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list accepteert alleen waarden uit de suggesties. max-tags beperkt het aantal en toont een teller, max-visible-tags verbergt meer waarden achter „+N”, is-remove-all toont een knop die alle waarden verwijdert.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Vaardigheden",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Talen",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Toont een knop „alles toevoegen” onder de suggesties, Ctrl+Enter doet hetzelfde; uitgeschakelde suggesties en max-tags worden gerespecteerd.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Alleen waarden uit de suggesties (ook getypt of geplakt, zonder hoofdletters en diakritische tekens); andere tekst wordt gemeld en niet toegevoegd.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Toont een knop onder het veld die alle waarden verwijdert; het verwijderen wordt gemeld, de focus gaat naar het veld.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Aantal zichtbare waarden; de andere staan achter een knop „+N” (aria-expanded) die ze toont.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Alle teksten van het veld: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Elke ontbrekende sleutel houdt zijn standaard, de standaarden worden met <strong lang=\"en\">AComponentsPlugin</strong> ingesteld.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "De nieuwe waarden (v-model), een array van strings."
 }

@@ -30,16 +30,19 @@ export default function ListboxAPI(props, { emit }, {
   getOriginalItem = item => item,
   htmlIdLocal = computed(() => ""),
   loading = ref(false),
+  // AInputTags: the text of the input is not the model, the option adds a tag
+  onSelectOption = undefined,
   search = () => {},
+  setText = undefined,
   stopSearch = () => {},
   suggestions = computed(() => []),
+  text = undefined,
 }) {
   const disabled = toRef(props, "disabled");
   const ignoreDiacritics = toRef(props, "ignoreDiacritics");
   const inlineAutocomplete = toRef(props, "inlineAutocomplete");
   const keyDisabled = toRef(props, "keyDisabled");
   const minLength = toRef(props, "minLength");
-  const modelValue = toRef(props, "modelValue");
   const openOnFocus = toRef(props, "openOnFocus");
 
   const isOpen = ref(false);
@@ -48,8 +51,9 @@ export default function ListboxAPI(props, { emit }, {
   const completion = ref(null);
   let isInsert = false;
 
-  const text = computed(() => toString(modelValue.value));
-  const inputValue = computed(() => completion.value ?? modelValue.value ?? "");
+  const modelValue = toRef(props, "modelValue");
+  const textLocal = text || computed(() => toString(modelValue.value));
+  const inputValue = computed(() => completion.value ?? textLocal.value ?? "");
   const getOptionId = index => `${ htmlIdLocal.value }_option_${ index }`;
   const activeId = computed(() => {
     return isOpen.value && activeIndex.value !== -1 ? getOptionId(activeIndex.value) : undefined;
@@ -58,11 +62,11 @@ export default function ListboxAPI(props, { emit }, {
   const isItemDisabled = item => !!(keyDisabled.value && get(item, keyDisabled.value));
 
   const open = () => {
-    if (disabled.value || text.value.length < minLength.value) {
+    if (disabled.value || textLocal.value.length < minLength.value) {
       return;
     }
     if (!isOpen.value) {
-      search(text.value);
+      search(textLocal.value);
     }
     isOpen.value = true;
   };
@@ -74,16 +78,16 @@ export default function ListboxAPI(props, { emit }, {
     stopSearch();
   };
 
-  const setText = value => {
+  const setTextLocal = setText || (value => {
     changeModel({ model: value });
-  };
+  });
 
   const onInput = $event => {
     const VALUE = $event.target.value;
     // Backspace and Delete remove the completion, they do not add a new one
     isInsert = !toString($event.inputType).startsWith("delete");
     completion.value = null;
-    setText(VALUE);
+    setTextLocal(VALUE);
     activeIndex.value = -1;
     if (VALUE.length < minLength.value) {
       close();
@@ -99,13 +103,18 @@ export default function ListboxAPI(props, { emit }, {
       return;
     }
     const LABEL = toString(ITEM[AKeyLabel]);
-    completion.value = null;
-    setText(LABEL);
-    emit("select", {
+    const SELECTED = {
       id: ITEM[AKeyId],
       label: LABEL,
       item: getOriginalItem(ITEM),
-    });
+    };
+    completion.value = null;
+    if (onSelectOption) {
+      onSelectOption(SELECTED);
+    } else {
+      setTextLocal(LABEL);
+    }
+    emit("select", SELECTED);
     close();
   };
 
@@ -181,10 +190,10 @@ export default function ListboxAPI(props, { emit }, {
         $event.preventDefault();
         $event.stopPropagation();
         close();
-      } else if (text.value) {
+      } else if (textLocal.value) {
         $event.preventDefault();
         $event.stopPropagation();
-        setText("");
+        setTextLocal("");
       }
     } else if (KEY === "Tab") {
       // Tab takes the inline completion, the focus goes on
@@ -216,10 +225,10 @@ export default function ListboxAPI(props, { emit }, {
 
   // inline autocomplete: the first suggestion that starts with the text completes it
   const setCompletion = () => {
-    if (!inlineAutocomplete.value || !isInsert || !isOpen.value || !text.value) {
+    if (!inlineAutocomplete.value || !isInsert || !isOpen.value || !textLocal.value) {
       return;
     }
-    const TEXT = foldText(text.value, { ignoreDiacritics: ignoreDiacritics.value }).folded;
+    const TEXT = foldText(textLocal.value, { ignoreDiacritics: ignoreDiacritics.value }).folded;
     const INDEX = suggestions.value.findIndex(item => {
       return !isItemDisabled(item) &&
         foldText(item[AKeyLabel], { ignoreDiacritics: ignoreDiacritics.value }).folded.startsWith(TEXT);
@@ -229,10 +238,10 @@ export default function ListboxAPI(props, { emit }, {
     }
     const LABEL = toString(suggestions.value[INDEX][AKeyLabel]);
     // the typed chars stay as typed, the rest comes from the label
-    completion.value = `${ text.value }${ LABEL.slice(text.value.length) }`;
+    completion.value = `${ textLocal.value }${ LABEL.slice(textLocal.value.length) }`;
     activeIndex.value = INDEX;
     nextTick(() => {
-      getInputElement()?.setSelectionRange?.(text.value.length, completion.value?.length ?? 0);
+      getInputElement()?.setSelectionRange?.(textLocal.value.length, completion.value?.length ?? 0);
     });
   };
 

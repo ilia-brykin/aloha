@@ -4,5 +4,13 @@
   "_A_INPUT_TAGS_REMOVED_": "Uklonjeno: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} je već na popisu",
   "_A_INPUT_TAGS_MAX_": "Najviše {{ max }} vrijednosti",
-  "_A_INPUT_TAGS_HINT_": "Enter ili zarez dodaje vrijednost, Backspace u praznom polju uklanja posljednju."
+  "_A_INPUT_TAGS_HINT_": "Enter ili zarez dodaje vrijednost, Backspace u praznom polju uklanja zadnju. Strelica lijevo na početku ide na vrijednosti, Delete uklanja vrijednost.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Ukloni sve",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "Sve vrijednosti uklonjene ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "Prikaži još {{ count }}",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Prikaži manje",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} od {{ max }} vrijednosti",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} nije na popisu",
+  "_A_INPUT_TAGS_ADD_ALL_": "Dodaj sve ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter dodaje sve prijedloge."
 }

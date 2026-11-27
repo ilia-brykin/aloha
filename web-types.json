@@ -6263,6 +6263,11 @@
               "type": "((...args: any[]) => any)"
             },
             {
+              "name": "data",
+              "type": "any[]",
+              "default": "[]"
+            },
+            {
               "name": "dependencies",
               "type": "any[] | Record<string, any>"
             },
@@ -6288,6 +6293,15 @@
               "type": "Record<string, any>"
             },
             {
+              "name": "filterCallback",
+              "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "filterMode",
+              "type": "string",
+              "default": "\"contains\""
+            },
+            {
               "name": "helpText",
               "type": "string"
             },
@@ -6305,6 +6319,21 @@
               "type": "string"
             },
             {
+              "name": "ignoreDiacritics",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "inlineAutocomplete",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "inputAttributes",
               "type": "Record<string, any>",
               "default": "{}"
@@ -6314,13 +6343,58 @@
               "type": "string | Record<string, any>"
             },
             {
+              "name": "isAddAll",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
+              "name": "isBottomSheetOnMobile",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isDataSimpleArray",
+              "type": "boolean"
+            },
+            {
               "name": "isHide",
               "type": "boolean"
+            },
+            {
+              "name": "isOnlyFromList",
+              "type": "boolean"
+            },
+            {
+              "name": "isRemoveAll",
+              "type": "boolean",
+              "default": "false"
             },
             {
               "name": "isRender",
               "type": "boolean",
               "default": "true"
+            },
+            {
+              "name": "keyDisabled",
+              "type": "string"
+            },
+            {
+              "name": "keyGroup",
+              "type": "string"
+            },
+            {
+              "name": "keyId",
+              "type": "string",
+              "default": "\"id\""
+            },
+            {
+              "name": "keyLabel",
+              "type": "string",
+              "default": "\"label\""
+            },
+            {
+              "name": "keyLabelCallback",
+              "type": "((...args: any[]) => any)"
             },
             {
               "name": "label",
@@ -6339,8 +6413,22 @@
               "type": "string | number"
             },
             {
+              "name": "maxItems",
+              "type": "number",
+              "default": "10"
+            },
+            {
               "name": "maxTags",
               "type": "number"
+            },
+            {
+              "name": "maxVisibleTags",
+              "type": "number"
+            },
+            {
+              "name": "minLength",
+              "type": "number",
+              "default": "1"
             },
             {
               "name": "modelDependencies",
@@ -6357,8 +6445,18 @@
               "type": "any[]"
             },
             {
+              "name": "openOnFocus",
+              "type": "boolean",
+              "default": "false"
+            },
+            {
               "name": "placeholder",
               "type": "string"
+            },
+            {
+              "name": "popperContainerId",
+              "type": "string",
+              "default": "\"a_tooltip_container\""
             },
             {
               "name": "readonly",
@@ -6379,9 +6477,28 @@
               "default": "false"
             },
             {
+              "name": "searchApiKey",
+              "type": "string",
+              "default": "\"search\""
+            },
+            {
+              "name": "searchTimeout",
+              "type": "number",
+              "default": "300"
+            },
+            {
               "name": "separators",
               "type": "any[]",
               "default": "[\"Enter\",\",\"]"
+            },
+            {
+              "name": "texts",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
+              "name": "translateData",
+              "type": "boolean"
             },
             {
               "name": "type",
@@ -6389,12 +6506,32 @@
               "default": "\"tags\""
             },
             {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "urlParams",
+              "type": "Record<string, any>"
+            },
+            {
+              "name": "urlTemplateData",
+              "type": "Record<string, any>",
+              "default": "{}"
+            },
+            {
               "name": "validator",
               "type": "((...args: any[]) => any)"
+            },
+            {
+              "name": "zIndex",
+              "type": "number | string"
             }
           ],
           "js": {
             "events": [
+              {
+                "name": "select"
+              },
               {
                 "name": "update:modelValue"
               }

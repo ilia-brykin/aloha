@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Odbiorcy",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Najwyżej 5 odbiorców.",
   "_A_INPUT_TAGS_FORM_HEADER_": "W formularzu",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "W <code>AForm</code> element ma typ <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "W <code>AForm</code> element ma typ <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Klawiatura na wartościach: strzałka w lewo na początku pola przechodzi do wartości, strzałki poruszają się między nimi, Home / End do pierwszej / ostatniej, Delete lub Backspace usuwa wartość, a fokus zostaje na wartościach, strzałka w prawo po ostatniej wraca do pola. Z data lub url pole jest comboboxem jak <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, podpowiedzi w listbox). „+N” (max-visible-tags) ma aria-expanded, jego nazwa zawiera widoczny tekst. Licznik max-tags jest odczytywany razem z polem.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Podpowiedzi",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "Z data (lub url) pole pokazuje podpowiedzi jak <strong lang=\"en\">ACombobox</strong>: grupy, nieaktywne podpowiedzi, filtr, in-body i panel u dołu. Enter lub kliknięcie dodaje podpowiedź, wybrane wartości nie są podpowiedziami. is-add-all dodaje wszystkie znalezione podpowiedzi (przycisk pod listą lub Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Tylko z listy i limity",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list przyjmuje tylko wartości z podpowiedzi. max-tags ogranicza liczbę i pokazuje licznik, max-visible-tags ukrywa kolejne wartości za „+N”, is-remove-all pokazuje przycisk usuwający wszystkie wartości.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Umiejętności",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Języki",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Pokazuje przycisk „dodaj wszystkie” pod podpowiedziami, Ctrl+Enter robi to samo; nieaktywne podpowiedzi i max-tags są uwzględniane.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Tylko wartości z podpowiedzi (także wpisane lub wklejone, bez wielkości liter i znaków diakrytycznych); inny tekst jest ogłaszany i nie jest dodawany.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Pokazuje pod polem przycisk usuwający wszystkie wartości; usunięcie jest ogłaszane, fokus przechodzi do pola.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Liczba widocznych wartości; pozostałe są za przyciskiem „+N” (aria-expanded), który je pokazuje.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Wszystkie teksty pola: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Każdy brakujący klucz zachowuje wartość domyślną, domyślne ustawia się przez <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Nowe wartości (v-model), tablica ciągów."
 }

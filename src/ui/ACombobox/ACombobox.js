@@ -1,9 +1,7 @@
 import {
   computed,
   h,
-  onMounted,
   ref,
-  Teleport,
 } from "vue";
 import {
   AErrorsText,
@@ -20,31 +18,18 @@ import {
   UiStyleHideAPI,
 } from "../../index";
 
-import ListboxAPI from "./compositionAPI/ListboxAPI";
-import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
-import PopupAPI from "./compositionAPI/PopupAPI";
-import SuggestionsAPI from "./compositionAPI/SuggestionsAPI";
-import UtilsAPI, {
-  getTranslatedText,
-} from "../../ATranslation/compositionAPI/UtilsAPI";
+import ComboboxAPI, {
+  TEXTS_SUGGESTIONS_DEFAULT,
+} from "./compositionAPI/ComboboxAPI";
 
-import {
-  AKeyId,
-  AKeyLabel,
-} from "../../const/AKeys";
-import {
-  getHighlightParts,
-} from "./utils/text";
 import {
   getPropDefault,
 } from "../../plugins/AComponentsPlugin";
 import {
-  isBrowser,
-} from "../../utils/isBrowser";
+  renderListboxPopup,
+  renderListboxStatus,
+} from "./utils/render";
 import {
-  get,
-  isNil,
-  toString,
   uniqueId,
 } from "lodash-es";
 
@@ -56,11 +41,7 @@ const plugin = (type, name, defaultValue) => ({
 });
 
 // the texts of the screen reader, every key falls back to its default
-export const TEXTS_DEFAULT = {
-  loading: "_A_COMBOBOX_LOADING_",
-  noResults: "_A_COMBOBOX_NO_RESULTS_",
-  results: "_A_COMBOBOX_RESULTS_{{count}}_",
-};
+export const TEXTS_DEFAULT = TEXTS_SUGGESTIONS_DEFAULT;
 
 export {
   getHighlightParts,
@@ -332,240 +313,36 @@ export default {
       isModel,
     });
 
-    const {
-      getOriginalItem,
-      loading,
-      search,
-      searchText,
-      stopSearch,
-      suggestions,
-    } = SuggestionsAPI(props);
-
     const inputRef = ref(undefined);
-
-    const {
-      activeId,
-      activeIndex,
-      close,
-      getOptionId,
-      inputValue,
-      isItemDisabled,
-      isListVisible,
-      isOpen,
-      onBlur,
-      onFocus,
-      onInput,
-      onKeydown,
-      onOptionMousedown,
-      selectOption,
-    } = ListboxAPI(props, context, {
-      changeModel,
-      getInputElement: () => inputRef.value,
-      getOriginalItem,
-      htmlIdLocal,
-      loading,
-      search,
-      stopSearch,
-      suggestions,
-    });
-
-    const {
-      replaceText,
-    } = UtilsAPI();
-
     const textsLocal = computed(() => ({ ...TEXTS_DEFAULT, ...props.texts }));
 
-    // read by the screen reader after every change of the list
-    const statusText = computed(() => {
-      if (!isOpen.value) {
-        return "";
-      }
-      let key = "results";
-      if (loading.value) {
-        key = "loading";
-      } else if (!suggestions.value.length) {
-        key = "noResults";
-      }
-      const EXTRA = { count: suggestions.value.length };
-      const TEXT = getTranslatedText({
-        placeholder: textsLocal.value[key] || TEXTS_DEFAULT[key],
-        extra: EXTRA,
-        alwaysTranslate: props.alwaysTranslate,
-      });
-      // an own text without a translation key: {{ count }} too
-      return replaceText({ text: TEXT, object: EXTRA });
-    });
-
-    // the options with their index in the list, in groups (key-group): options without a group first, no header
-    const optionGroups = computed(() => {
-      const GROUPS = [];
-      suggestions.value.forEach((item, index) => {
-        const GROUP = props.keyGroup ? get(item, props.keyGroup) : undefined;
-        let last = GROUPS[GROUPS.length - 1];
-        if (!last || last.group !== GROUP) {
-          last = { group: GROUP, options: [] };
-          GROUPS.push(last);
-        }
-        last.options.push({ item, index });
-      });
-      return GROUPS;
+    const combobox = ComboboxAPI(props, context, {
+      changeModel,
+      htmlIdLocal,
+      inputRef,
+      textsLocal,
     });
 
     const clear = () => {
       clearModel();
-      close();
+      combobox.close();
     };
 
-    const popupRef = ref(undefined);
-    const isMounted = ref(false);
-
-    const isEmptyVisible = computed(() => {
-      return isOpen.value && !loading.value && !suggestions.value.length;
-    });
-    const isPopupVisible = computed(() => isListVisible.value || isEmptyVisible.value);
-
-    const {
-      addPopperContainerInBody,
-      popperContainerIdSelector,
-    } = PopperContainerAPI(props);
-
-    const {
-      isSheet,
-      isTeleported,
-      sheetBottom,
-    } = PopupAPI(props, {
-      inputRef,
-      isMounted,
-      isPopupVisible,
-      popupRef,
-    });
-
-    /*
-     * before the first render: Teleport finds its target only at the mount
-     * a_popup_container: not inert behind an open AModal
-     */
-    if (isBrowser()) {
-      addPopperContainerInBody({ className: "a_popup_container" });
-    }
-    onMounted(() => {
-      isMounted.value = true;
-    });
-
-    // the prop sets the token, the sheet gets its bottom above the virtual keyboard
-    const popupStyle = computed(() => {
-      return {
-        bottom: isSheet.value ? `${ sheetBottom.value }px` : undefined,
-        "--a_combobox_z_index": isNil(props.zIndex) ? undefined : props.zIndex,
-      };
-    });
-
     return {
-      activeId,
-      activeIndex,
+      ...combobox,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       clear,
       componentStyleHide,
       disabledAttribut,
       errorsId,
-      getOptionId,
       helpTextId,
       htmlIdLocal,
-      getOriginalItem,
       inputRef,
-      inputValue,
       isClearButtonLocal,
-      isItemDisabled,
-      isEmptyVisible,
       isErrors,
-      isListVisible,
-      isOpen,
-      isPopupVisible,
-      isSheet,
-      isTeleported,
       labelDescriptionId,
-      loading,
-      onBlur,
-      onFocus,
-      onInput,
-      onKeydown,
-      onOptionMousedown,
-      optionGroups,
-      popperContainerIdSelector,
-      popupRef,
-      popupStyle,
-      searchText,
-      selectOption,
-      sheetBottom,
-      statusText,
-      suggestions,
     };
-  },
-  methods: {
-    renderOption({ item, index }) {
-      const IS_ACTIVE = index === this.activeIndex;
-      const IS_DISABLED = this.isItemDisabled(item);
-      const PARTS = getHighlightParts(item[AKeyLabel], this.searchText, {
-        filterMode: this.filterMode,
-        ignoreDiacritics: this.ignoreDiacritics,
-      });
-      const HIGHLIGHT = PARTS.map(part => {
-        return part.isMatch ? h("mark", { class: "a_search_highlight" }, part.text) : part.text;
-      });
-
-      return h("li", {
-        key: `${ index }_${ toString(item[AKeyId]) }`,
-        id: this.getOptionId(index),
-        role: "option",
-        "aria-disabled": IS_DISABLED ? "true" : undefined,
-        "aria-selected": IS_ACTIVE ? "true" : "false",
-        class: ["a_combobox__option", {
-          a_combobox__option_active: IS_ACTIVE,
-          a_combobox__option_disabled: IS_DISABLED,
-        }],
-        onClick: () => this.selectOption(index),
-      }, this.$slots.option ?
-        this.$slots.option({
-          highlight: HIGHLIGHT,
-          index,
-          isActive: IS_ACTIVE,
-          isDisabled: IS_DISABLED,
-          item: this.getOriginalItem(item),
-          label: item[AKeyLabel],
-          parts: PARTS,
-        }) :
-        HIGHLIGHT);
-    },
-
-    // WAI-ARIA grouped listbox: <li role="none"><ul role="group" aria-labelledby> header + options
-    renderOptions() {
-      return this.optionGroups.map((group, groupIndex) => {
-        if (isNil(group.group)) {
-          return group.options.map(option => this.renderOption(option));
-        }
-        const HEADER_ID = `${ this.htmlIdLocal }_group_${ groupIndex }`;
-        const LABEL = toString(group.group);
-        return h("li", {
-          key: `group_${ groupIndex }_${ LABEL }`,
-          role: "none",
-        }, [
-          h("ul", {
-            class: "a_combobox__group",
-            role: "group",
-            "aria-labelledby": HEADER_ID,
-          }, [
-            h("li", {
-              id: HEADER_ID,
-              class: "a_combobox__group__label",
-              role: "presentation",
-            }, this.translateData ?
-              getTranslatedText({ placeholder: LABEL, alwaysTranslate: this.alwaysTranslate }) :
-              LABEL),
-            ...group.options.map(option => this.renderOption(option)),
-          ]),
-        ]);
-      });
-    },
   },
   render() {
     if (!this.isRender) {
@@ -667,41 +444,8 @@ export default {
               onClear: this.clear,
             }),
           ]),
-          // in the page all the time (aria-controls of the listbox), hidden while closed
-          h(Teleport, {
-            to: this.popperContainerIdSelector,
-            disabled: !this.isTeleported,
-          }, [
-            h("div", {
-              ref: "popupRef",
-              class: ["a_combobox__popup", {
-                a_combobox__popup_in_body: this.isTeleported && !this.isSheet,
-                a_combobox__popup_sheet: this.isSheet,
-              }],
-              "data-owner": this.htmlIdLocal,
-              hidden: !this.isPopupVisible,
-              style: this.popupStyle,
-              // a click in the list keeps the focus in the input
-              onMousedown: this.onOptionMousedown,
-            }, [
-              h("ul", {
-                id: LISTBOX_ID,
-                role: "listbox",
-                "aria-labelledby": HAS_LABEL ? `${ this.htmlIdLocal }_label` : undefined,
-                class: "a_combobox__listbox",
-                hidden: !this.isListVisible,
-              }, this.isListVisible ? this.renderOptions() : []),
-              this.isEmptyVisible && h("div", {
-                "aria-hidden": "true",
-                class: "a_combobox__empty",
-              }, this.statusText),
-            ]),
-          ]),
-          // the live region is always in the page, only its text changes
-          h("span", {
-            class: "a_sr_only a_combobox__status",
-            role: "status",
-          }, this.statusText),
+          renderListboxPopup(this, { listboxId: LISTBOX_ID, hasLabel: HAS_LABEL }),
+          renderListboxStatus(this),
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,

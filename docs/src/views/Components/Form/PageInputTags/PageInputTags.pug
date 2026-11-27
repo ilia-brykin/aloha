@@ -14,14 +14,35 @@ aloha-page(
       html="_A_INPUT_TAGS_ACCESSIBILITY_DESCRIPTION_"
     )
 
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_"
+    )
+
     page-input-tags-basic
 
     page-input-tags-emails
+
+    page-input-tags-suggestions
+
+    page-input-tags-limits
 
     page-input-tags-form
 
     aloha-table-props(
       :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
     )
 
     aloha-table-props(

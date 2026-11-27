@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Destinatarios",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Como máximo 5 destinatarios.",
   "_A_INPUT_TAGS_FORM_HEADER_": "En un formulario",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "En <code>AForm</code> el elemento tiene el tipo <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "En <code>AForm</code> el elemento tiene el tipo <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Teclado en los valores: flecha izquierda al inicio del campo va a los valores, las flechas se mueven entre ellos, Inicio / Fin al primero / último, Supr o Retroceso elimina el valor y el foco sigue en los valores, flecha derecha tras el último vuelve al campo. Con data o url el campo es un combobox como <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, las sugerencias en un listbox). «+N» (max-visible-tags) tiene aria-expanded y su nombre contiene el texto visible. El contador de max-tags se lee con el campo.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Sugerencias",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "Con data (o url) el campo muestra sugerencias como <strong lang=\"en\">ACombobox</strong>: grupos, sugerencias desactivadas, filtro, in-body y el panel inferior. Enter o un clic añade la sugerencia; los valores elegidos no aparecen como sugerencias. is-add-all añade todas las sugerencias encontradas (botón bajo la lista o Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Solo de la lista y límites",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list acepta solo valores de las sugerencias. max-tags limita el número y muestra un contador, max-visible-tags oculta más valores tras «+N», is-remove-all muestra un botón que elimina todos los valores.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Habilidades",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Idiomas",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Muestra un botón «añadir todo» bajo las sugerencias; Ctrl+Enter hace lo mismo; se respetan las sugerencias desactivadas y max-tags.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Solo valores de las sugerencias (también escritos o pegados, sin mayúsculas ni diacríticos); otro texto se anuncia y no se añade.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Muestra un botón bajo el campo que elimina todos los valores; se anuncia y el foco va al campo.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Número de valores visibles; los demás están tras un botón «+N» (aria-expanded) que los muestra.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Todos los textos del campo: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Cada clave que falta conserva su valor por defecto; los valores por defecto se fijan con <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Los nuevos valores (v-model), un array de cadenas."
 }

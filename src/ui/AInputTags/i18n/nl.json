@@ -4,5 +4,13 @@
   "_A_INPUT_TAGS_REMOVED_": "Verwijderd: {{ tag }}",
   "_A_INPUT_TAGS_DUPLICATE_": "{{ tag }} staat al in de lijst",
   "_A_INPUT_TAGS_MAX_": "Niet meer dan {{ max }} waarden",
-  "_A_INPUT_TAGS_HINT_": "Enter of een komma voegt een waarde toe, Backspace in het lege veld verwijdert de laatste."
+  "_A_INPUT_TAGS_HINT_": "Enter of komma voegt een waarde toe, Backspace in het lege veld verwijdert de laatste. Pijl links aan het begin gaat naar de waarden, Delete verwijdert de waarde.",
+  "_A_INPUT_TAGS_REMOVE_ALL_": "Alles verwijderen",
+  "_A_INPUT_TAGS_REMOVED_ALL_": "Alle waarden verwijderd ({{ count }})",
+  "_A_INPUT_TAGS_SHOW_MORE_": "Nog {{ count }} waarden tonen",
+  "_A_INPUT_TAGS_SHOW_LESS_": "Minder waarden tonen",
+  "_A_INPUT_TAGS_COUNTER_": "{{ count }} van {{ max }} waarden",
+  "_A_INPUT_TAGS_ONLY_FROM_LIST_": "{{ tag }} staat niet in de lijst",
+  "_A_INPUT_TAGS_ADD_ALL_": "Alles toevoegen ({{ count }})",
+  "_A_INPUT_TAGS_HINT_ADD_ALL_": "Ctrl+Enter voegt alle suggesties toe."
 }

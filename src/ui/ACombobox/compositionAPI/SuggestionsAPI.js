@@ -27,7 +27,10 @@ import {
 /**
  * The suggestions: the local data filtered by the text, or the answer of the server (url + searchApiKey).
  */
-export default function SuggestionsAPI(props) {
+export default function SuggestionsAPI(props, {
+  // AInputTags: the tags that are already chosen are no suggestions
+  isExcluded = () => false,
+} = {}) {
   const filterCallback = toRef(props, "filterCallback");
   const filterMode = toRef(props, "filterMode");
   const ignoreDiacritics = toRef(props, "ignoreDiacritics");
@@ -95,9 +98,9 @@ export default function SuggestionsAPI(props) {
   };
 
   const suggestions = computed(() => {
-    const ITEMS = isServer.value ?
+    const ITEMS = (isServer.value ?
       dataLocal.value :
-      dataLocal.value.filter(filterItem);
+      dataLocal.value.filter(filterItem)).filter(item => !isExcluded(item));
     return sortByGroup(ITEMS.slice(0, maxItems.value));
   });
 
@@ -145,6 +148,7 @@ export default function SuggestionsAPI(props) {
   onBeforeUnmount(() => clearTimeout(timer));
 
   return {
+    dataLocal,
     getOriginalItem,
     isServer,
     loading,

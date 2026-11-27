@@ -5,7 +5,7 @@ import {
   toRef,
 } from "vue";
 
-import {
+import UtilsAPI, {
   getTranslatedText,
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
@@ -16,19 +16,28 @@ import {
 
 export default function TagsAPI(props, {
   changeModel = () => {},
+  // is-only-from-list: the value is a suggestion (local data or the last answer of the server)
+  isInData = () => true,
+  textsLocal = computed(() => ({})),
 }) {
   const allowDuplicates = toRef(props, "allowDuplicates");
   const alwaysTranslate = toRef(props, "alwaysTranslate");
   const disabled = toRef(props, "disabled");
+  const isOnlyFromList = toRef(props, "isOnlyFromList");
   const maxTags = toRef(props, "maxTags");
   const modelUndefined = toRef(props, "modelUndefined");
   const modelValue = toRef(props, "modelValue");
   const separators = toRef(props, "separators");
 
   const inputRef = ref(undefined);
+  const listRef = ref(undefined);
   const inputValue = ref("");
   // text of the live region: added, removed, duplicate, limit
   const announcement = ref("");
+
+  const {
+    replaceText,
+  } = UtilsAPI();
 
   const tags = computed(() => {
     return isArray(modelValue.value) ? modelValue.value : [];
@@ -44,12 +53,14 @@ export default function TagsAPI(props, {
     return new RegExp(`[${ CHARS.join("") }\\r\\n]`);
   });
 
-  const translate = (placeholder, extra) => {
-    return getTranslatedText({
-      placeholder,
+  // a key of texts (own text or translation key), {{ … }} also in an own text
+  const translate = (key, extra) => {
+    const TEXT = getTranslatedText({
+      placeholder: textsLocal.value[key],
       extra,
       alwaysTranslate: alwaysTranslate.value,
     });
+    return extra ? replaceText({ text: TEXT, object: extra }) : TEXT;
   };
 
   const announce = async text => {
@@ -71,7 +82,7 @@ export default function TagsAPI(props, {
   };
 
   /**
-   * Adds the values that are not empty, not duplicate and within max-tags.
+   * Adds the values that are not empty, not duplicate, within max-tags (and from the list with is-only-from-list).
    * Returns true if the input can be cleared (something was added or was a duplicate).
    */
   const addTags = values => {
@@ -81,10 +92,15 @@ export default function TagsAPI(props, {
     const MODEL = [...tags.value];
     const ADDED = [];
     let duplicate;
+    let notInList;
     let isLimit = false;
     values.forEach(item => {
       const VALUE = String(item).trim();
       if (!VALUE) {
+        return;
+      }
+      if (isOnlyFromList.value && !isInData(VALUE)) {
+        notInList = VALUE;
         return;
       }
       if (!allowDuplicates.value && isDuplicate(VALUE, MODEL)) {
@@ -103,11 +119,13 @@ export default function TagsAPI(props, {
       setModel(MODEL);
     }
     if (isLimit) {
-      announce(translate("_A_INPUT_TAGS_MAX_", { max: maxTags.value }));
+      announce(translate("max", { max: maxTags.value }));
     } else if (ADDED.length) {
-      announce(translate("_A_INPUT_TAGS_ADDED_", { tag: ADDED.join(", ") }));
+      announce(translate("added", { tag: ADDED.join(", ") }));
     } else if (duplicate) {
-      announce(translate("_A_INPUT_TAGS_DUPLICATE_", { tag: duplicate }));
+      announce(translate("duplicate", { tag: duplicate }));
+    } else if (notInList) {
+      announce(translate("onlyFromList", { tag: notInList }));
     }
 
     return !isLimit && (ADDED.length > 0 || !!duplicate);
@@ -119,14 +137,39 @@ export default function TagsAPI(props, {
     }
   };
 
-  const removeTag = index => {
+  const getRemoveButtons = () => {
+    return listRef.value ? Array.from(listRef.value.querySelectorAll(".a_input_tags__remove")) : [];
+  };
+
+  const focusRemoveButton = index => {
+    getRemoveButtons()[index]?.focus();
+  };
+
+  // focusIndex: the remove button that gets the focus after the remove (keyboard on the tags), else the input
+  const removeTag = (index, { focusIndex } = {}) => {
     if (disabled.value) {
       return;
     }
     const TAG = tags.value[index];
     setModel(tags.value.filter((_, itemIndex) => itemIndex !== index));
-    announce(translate("_A_INPUT_TAGS_REMOVED_", { tag: TAG }));
-    // the remove button is gone: the focus goes back to the input
+    announce(translate("removed", { tag: TAG }));
+    nextTick(() => {
+      if (focusIndex !== undefined && getRemoveButtons()[focusIndex]) {
+        focusRemoveButton(focusIndex);
+      } else {
+        // the remove button is gone: the focus goes back to the input
+        inputRef.value?.focus();
+      }
+    });
+  };
+
+  const removeAll = () => {
+    if (disabled.value || !tags.value.length) {
+      return;
+    }
+    const COUNT = tags.value.length;
+    setModel([]);
+    announce(translate("removedAll", { count: COUNT }));
     inputRef.value?.focus();
   };
 
@@ -147,6 +190,40 @@ export default function TagsAPI(props, {
     }
     if ($event.key === "Backspace" && !inputValue.value && tags.value.length) {
       removeTag(tags.value.length - 1);
+      return;
+    }
+    // ArrowLeft at the start of the input goes to the tags
+    const INPUT = $event.target;
+    if ($event.key === "ArrowLeft" &&
+      INPUT.selectionEnd === 0 &&
+      getRemoveButtons().length) {
+      $event.preventDefault();
+      focusRemoveButton(getRemoveButtons().length - 1);
+    }
+  };
+
+  /**
+   * The keyboard on the remove buttons of the tags: arrows between them (ArrowRight after the last one: the input),
+   * Home / End, Backspace / Delete remove the tag and keep the focus on the tags.
+   */
+  const onTagKeydown = ($event, index) => {
+    const COUNT = getRemoveButtons().length;
+    if ($event.key === "ArrowLeft") {
+      $event.preventDefault();
+      focusRemoveButton(Math.max(index - 1, 0));
+    } else if ($event.key === "ArrowRight") {
+      $event.preventDefault();
+      if (index + 1 < COUNT) {
+        focusRemoveButton(index + 1);
+      } else {
+        inputRef.value?.focus();
+      }
+    } else if ($event.key === "Home" || $event.key === "End") {
+      $event.preventDefault();
+      focusRemoveButton($event.key === "Home" ? 0 : COUNT - 1);
+    } else if ($event.key === "Backspace" || $event.key === "Delete") {
+      $event.preventDefault();
+      removeTag(index, { focusIndex: index > 0 ? index - 1 : 0 });
     }
   };
 
@@ -178,11 +255,15 @@ export default function TagsAPI(props, {
     inputRef,
     inputValue,
     isMaxReached,
+    listRef,
     onBlur,
     onInput,
     onKeydown,
     onPaste,
+    onTagKeydown,
+    removeAll,
     removeTag,
     tags,
+    translate,
   };
 }

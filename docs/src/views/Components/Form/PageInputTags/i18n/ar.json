@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "المستلمون",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "5 مستلمين على الأكثر.",
   "_A_INPUT_TAGS_FORM_HEADER_": "في نموذج",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "في <code>AForm</code> نوع العنصر هو <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "في <code>AForm</code> نوع العنصر هو <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>لوحة المفاتيح على القيم: ينتقل السهم الأيسر في بداية الحقل إلى القيم، وتتنقل الأسهم بينها، وHome / End إلى الأولى / الأخيرة، ويزيل Delete أو Backspace القيمة ويبقى التركيز على القيم، ويعيد السهم الأيمن بعد الأخيرة إلى الحقل. مع data أو url يصبح الحقل combobox مثل <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>، والاقتراحات في listbox). لـ «+N» (max-visible-tags) السمة aria-expanded، ويحتوي اسمه على النص المرئي. يُقرأ عداد max-tags مع الحقل.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "الاقتراحات",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "مع data (أو url) يعرض الحقل اقتراحات مثل <strong lang=\"en\">ACombobox</strong>: مجموعات واقتراحات معطلة وتصفية وin-body واللوحة السفلية. يضيف Enter أو النقر الاقتراح، والقيم المختارة لا تظهر كاقتراحات. يضيف is-add-all كل الاقتراحات الموجودة (زر تحت القائمة أو Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "من القائمة فقط والحدود",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "يقبل is-only-from-list قيم الاقتراحات فقط. يحدّ max-tags العدد ويعرض عدادًا، ويخفي max-visible-tags القيم الإضافية خلف «+N»، ويعرض is-remove-all زرًا يزيل كل القيم.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "المهارات",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "اللغات",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "يعرض زر «إضافة الكل» تحت الاقتراحات، ويفعل Ctrl+Enter الشيء نفسه؛ مع مراعاة الاقتراحات المعطلة وmax-tags.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "قيم الاقتراحات فقط (حتى المكتوبة أو الملصقة، دون مراعاة حالة الأحرف والتشكيل)؛ يُعلن عن أي نص آخر ولا يُضاف.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "يعرض تحت الحقل زرًا يزيل كل القيم؛ يُعلن عن الإزالة وينتقل التركيز إلى الحقل.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "عدد القيم المرئية؛ والبقية خلف زر «+N» (aria-expanded) يعرضها.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "كل نصوص الحقل: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. يحتفظ كل مفتاح مفقود بقيمته الافتراضية، وتُضبط القيم الافتراضية عبر <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "القيم الجديدة (v-model)، مصفوفة من النصوص."
 }

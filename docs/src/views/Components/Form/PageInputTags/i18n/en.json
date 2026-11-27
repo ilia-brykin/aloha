@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Recipients",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "At most 5 recipients.",
   "_A_INPUT_TAGS_FORM_HEADER_": "In a form",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> the element has the type <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "In <code>AForm</code> the element has the type <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Keyboard on the values: ArrowLeft at the start of the field goes to the values, the arrows go between them, Home / End to the first / last one, Delete or Backspace removes the value and the focus stays on the values, ArrowRight after the last one goes back to the field. With data or url the field is a combobox like <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, the suggestions in a listbox). \"+N\" (max-visible-tags) has aria-expanded, its name contains the visible text. The counter of max-tags is read with the field.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Suggestions",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "With data (or url) the field shows suggestions like <strong lang=\"en\">ACombobox</strong>: groups, disabled suggestions, filter, in-body and the bottom sheet. Enter or a click adds the suggestion, chosen values are no suggestions. is-add-all adds all found suggestions (button under the list or Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Only from the list and limits",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list accepts only values of the suggestions. max-tags limits the number and shows a counter, max-visible-tags hides more values behind \"+N\", is-remove-all shows a button that removes all values.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Skills",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Languages",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Shows a button \"add all\" under the suggestions, Ctrl+Enter does the same; disabled suggestions and max-tags are respected.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Only values of the suggestions (also typed or pasted, without the case and diacritics); another text is announced and not added.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Shows a button under the field that removes all values; the removal is announced, the focus goes to the field.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Number of visible values; the others are behind a button \"+N\" (aria-expanded) that shows them.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "All texts of the field: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Every missing key keeps its default, the defaults can be set with <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "The new values (v-model), an array of strings."
 }

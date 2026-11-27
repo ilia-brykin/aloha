@@ -16,5 +16,18 @@
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_": "Получатели",
   "_A_INPUT_TAGS_EXAMPLE_RECIPIENTS_HELP_": "Не больше 5 получателей.",
   "_A_INPUT_TAGS_FORM_HEADER_": "В форме",
-  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "В <code>AForm</code> у элемента тип <code>tags</code>."
+  "_A_INPUT_TAGS_FORM_DESCRIPTION_": "В <code>AForm</code> у элемента тип <code>tags</code>.",
+  "_A_INPUT_TAGS_ACCESSIBILITY_MORE_DESCRIPTION_": "<p>Клавиатура на значениях: стрелка влево в начале поля переходит к значениям, стрелки ходят между ними, Home / End — к первому / последнему, Delete или Backspace удаляет значение, фокус остаётся на значениях, стрелка вправо после последнего возвращает в поле. С data или url поле — combobox, как <strong lang=\"en\">ACombobox</strong> (<code lang=\"en\">role=\"combobox\"</code>, подсказки в listbox). «+N» (max-visible-tags) имеет aria-expanded, его имя содержит видимый текст. Счётчик max-tags читается вместе с полем.</p>",
+  "_A_INPUT_TAGS_SUGGESTIONS_HEADER_": "Подсказки",
+  "_A_INPUT_TAGS_SUGGESTIONS_DESCRIPTION_": "С data (или url) поле показывает подсказки, как <strong lang=\"en\">ACombobox</strong>: группы, недоступные подсказки, фильтр, in-body и панель снизу. Enter или клик добавляет подсказку, выбранные значения в подсказках не показываются. is-add-all добавляет все найденные подсказки (кнопка под списком или Ctrl+Enter).",
+  "_A_INPUT_TAGS_LIMITS_HEADER_": "Только из списка и ограничения",
+  "_A_INPUT_TAGS_LIMITS_DESCRIPTION_": "is-only-from-list принимает только значения из подсказок. max-tags ограничивает количество и показывает счётчик, max-visible-tags прячет остальные значения за «+N», is-remove-all показывает кнопку, которая удаляет все значения.",
+  "_A_INPUT_TAGS_EXAMPLE_SKILLS_": "Навыки",
+  "_A_INPUT_TAGS_EXAMPLE_LANGUAGES_": "Языки",
+  "_A_INPUT_TAGS_PROPS_IS_ADD_ALL_DESCRIPTION_": "Показывает кнопку «добавить все» под подсказками, Ctrl+Enter делает то же; недоступные подсказки и max-tags учитываются.",
+  "_A_INPUT_TAGS_PROPS_IS_ONLY_FROM_LIST_DESCRIPTION_": "Только значения из подсказок (и набранные или вставленные, без учёта регистра и диакритики); другой текст объявляется и не добавляется.",
+  "_A_INPUT_TAGS_PROPS_IS_REMOVE_ALL_DESCRIPTION_": "Показывает под полем кнопку, которая удаляет все значения; удаление объявляется, фокус переходит в поле.",
+  "_A_INPUT_TAGS_PROPS_MAX_VISIBLE_TAGS_DESCRIPTION_": "Количество видимых значений; остальные скрыты за кнопкой «+N» (aria-expanded), которая их показывает.",
+  "_A_INPUT_TAGS_PROPS_TEXTS_DESCRIPTION_": "Все тексты поля: <strong lang=\"en\">added</strong>, <strong lang=\"en\">removed</strong>, <strong lang=\"en\">duplicate</strong>, <strong lang=\"en\">max</strong>, <strong lang=\"en\">remove</strong>, <strong lang=\"en\">hint</strong>, <strong lang=\"en\">removeAll</strong>, <strong lang=\"en\">removedAll</strong>, <strong lang=\"en\">showMore</strong>, <strong lang=\"en\">showLess</strong>, <strong lang=\"en\">counter</strong>, <strong lang=\"en\">onlyFromList</strong>, <strong lang=\"en\">addAll</strong>, <strong lang=\"en\">hintAddAll</strong>, <strong lang=\"en\">loading</strong>, <strong lang=\"en\">noResults</strong>, <strong lang=\"en\">results</strong>. Каждый отсутствующий ключ берёт значение по умолчанию, их можно задать через <strong lang=\"en\">AComponentsPlugin</strong>.",
+  "_A_INPUT_TAGS_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_": "Новые значения (v-model), массив строк."
 }
