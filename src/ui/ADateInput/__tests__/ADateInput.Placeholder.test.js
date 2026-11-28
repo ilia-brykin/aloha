@@ -46,4 +46,16 @@ describe("ADateInput: placeholder and float label", () => {
     expect(STYLE).toContain("--a_date_input_label_width: var(--a_date_input_date_width)");
     wrapper.unmount();
   });
+
+  it("float label: up while the calendar is open, down again when it closes and the field is empty", async() => {
+    const wrapper = mount(ADateInput, { props: { id: "d", label: "Date", labelPosition: "float", inBody: false }, attachTo: document.body });
+    await nextTick();
+    const PARENT = () => wrapper.find(".a_date_input__parent").classes();
+    expect(PARENT()).not.toContain("a_form_element__parent_not_empty");
+    await wrapper.find(".a_date_input__toggle").trigger("click");
+    expect(PARENT()).toContain("a_form_element__parent_not_empty");
+    await wrapper.find(".a_date_input__toggle").trigger("click");
+    expect(PARENT()).not.toContain("a_form_element__parent_not_empty");
+    wrapper.unmount();
+  });
 });

@@ -555,6 +555,14 @@ export default {
     // several fields: the label is always above them
     const isGroup = computed(() => fields.value.length > 1);
     const isLabelFloatEffective = computed(() => isLabelFloatLocal.value && !isGroup.value);
+
+    // the float label is up: a value, or the calendar / the time list is open (the field is active, no jump down and up)
+    const isLabelUp = computed(() => {
+      return !isLabelFloatEffective.value ||
+        fields.value.some(field => texts.value[field.key]) ||
+        openIndex.value !== null ||
+        !!openTimeKey.value;
+    });
     const isLabelInsetEffective = computed(() => isLabelInset.value && !isGroup.value);
 
     // own list: UiAPI knows neither the local errors nor the group (label description with a float label)
@@ -627,6 +635,7 @@ export default {
       ariaDescribedbyInput,
       isGroup,
       isLabelFloatEffective,
+      isLabelUp,
       isLabelInsetEffective,
       clearFieldAndFocus,
       formatSelected,
@@ -878,7 +887,7 @@ export default {
         class: ["a_form_element__parent a_date_input__parent", {
           a_form_element__parent_float: IS_FLOAT,
           a_form_element__parent_inset: this.isLabelInsetEffective,
-          a_form_element__parent_not_empty: !IS_FLOAT || this.fields.some(field => this.texts[field.key]),
+          a_form_element__parent_not_empty: this.isLabelUp,
         }],
         // the float label is over the first field: as wide as it, without its buttons (clear, calendar, time list)
         style: IS_FLOAT ? this.labelSpaceStyle : undefined,
