@@ -135,6 +135,8 @@ export default {
       default: () => ({}),
     },
     inBody: plugin(Boolean, "inBody", true),
+    // the popup closes when the button / the field is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: plugin(Boolean, "isCloseByButtonInvisibleInViewport", true),
     // the first suggestion completes the text, the added part is selected (aria-autocomplete="both")
     inlineAutocomplete: plugin(Boolean, "inlineAutocomplete", false),
     inputClass: {

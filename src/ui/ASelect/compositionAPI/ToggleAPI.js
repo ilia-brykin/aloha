@@ -15,6 +15,10 @@ import {
 
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
 
+import {
+  isReferenceHidden,
+} from "../../../utils/isReferenceHidden";
+
 
 const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled]):not([data-hide])";
 
@@ -26,6 +30,7 @@ export default function ToggleAPI(props, {
   openPopup = () => {},
 }) {
   const disabled = toRef(props, "disabled");
+  const isCloseByButtonInvisibleInViewport = toRef(props, "isCloseByButtonInvisibleInViewport");
   const menuWidthType = toRef(props, "menuWidthType");
 
   const buttonRef = ref(undefined);
@@ -211,6 +216,15 @@ export default function ToggleAPI(props, {
             },
           ).then(({ x, y }) => {
             if (!menuRef.value) {
+              return;
+            }
+            if (isCloseByButtonInvisibleInViewport.value && isReferenceHidden(getReferenceElement(), menuRef.value)) {
+              const IS_FOCUS_INSIDE = menuRef.value.contains(document.activeElement);
+              closePopover();
+              // the focus back to the select, without a scroll of the page to it
+              if (IS_FOCUS_INSIDE) {
+                buttonRef.value?.focus({ preventScroll: true });
+              }
               return;
             }
             if (!getReferenceElement()?.clientWidth) { // if button hide

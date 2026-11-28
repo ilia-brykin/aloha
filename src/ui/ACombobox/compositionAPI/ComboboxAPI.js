@@ -129,6 +129,8 @@ export default function ComboboxAPI(props, context, {
     inputRef: referenceRef || inputRef,
     isMounted,
     isPopupVisible,
+    // the focus stays in the input, only the list closes
+    onReferenceHidden: () => listbox.close(),
     popupRef,
   });
 

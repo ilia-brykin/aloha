@@ -14,6 +14,10 @@ import {
   shift,
 } from "@floating-ui/vue";
 
+import {
+  isReferenceHidden,
+} from "../../utils/isReferenceHidden";
+
 const ARROW_SIDES = {
   top: "bottom",
   right: "left",
@@ -28,9 +32,11 @@ export default function FloatingAPI(props, {
   arrowRef = ref(undefined),
   getButtonElement = () => undefined,
   isSheet = computed(() => false),
+  onReferenceHidden = () => {},
   popoverRef = ref(undefined),
 }) {
   const hasArrow = toRef(props, "hasArrow");
+  const isCloseByButtonInvisibleInViewport = toRef(props, "isCloseByButtonInvisibleInViewport");
   const offsetDistance = toRef(props, "offset");
   const placement = toRef(props, "placement");
 
@@ -62,6 +68,10 @@ export default function FloatingAPI(props, {
     }).then(({ x, y, placement: placementComputed, middlewareData }) => {
       // the popover can be closed while the position is computed
       if (!popoverRef.value) {
+        return;
+      }
+      if (isCloseByButtonInvisibleInViewport.value && isReferenceHidden(BUTTON, popoverRef.value)) {
+        onReferenceHidden();
         return;
       }
       placementCurrent.value = placementComputed;

@@ -187,6 +187,12 @@ export default {
       required: false,
       default: "#ff0000",
     },
+    // the popup closes when the button is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     placement: {
       type: String,
       required: false,

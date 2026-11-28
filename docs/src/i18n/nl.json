@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Licht",
   "_A_DOCS_THEME_DARK_": "Donker",
   "_A_DOCS_THEME_AUTO_": "Systeem",
-  "_A_DOCS_LANGUAGE_": "Taal"
+  "_A_DOCS_LANGUAGE_": "Taal",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "De popup sluit wanneer de knop / het veld uit beeld wordt gescrold (het venster of een scrollende ouder). Een popup die het veld op een klein scherm bedekt of hoger is dan het venster blijft open."
 }

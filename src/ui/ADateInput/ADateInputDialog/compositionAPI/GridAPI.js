@@ -111,7 +111,8 @@ export default function GridAPI(props, { emit }, {
 
   const focusCell = () => {
     nextTick(() => {
-      gridRef.value?.querySelector(`[data-date="${ getCellIso(focusDate.value) }"]`)?.focus();
+      // the popup gets its position later (floating-ui is async): no scroll of the page to its first place
+      gridRef.value?.querySelector(`[data-date="${ getCellIso(focusDate.value) }"]`)?.focus({ preventScroll: true });
     });
   };
 

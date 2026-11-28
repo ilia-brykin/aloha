@@ -18,6 +18,10 @@ import {
 
 import AMobileAPI from "../../../compositionAPI/AMobileAPI";
 
+import {
+  isReferenceHidden,
+} from "../../../utils/isReferenceHidden";
+
 /**
  * Where the list is:
  * - in the field (CSS under the input);
@@ -28,9 +32,11 @@ export default function PopupAPI(props, {
   inputRef = ref(undefined),
   isMounted = ref(false),
   isPopupVisible = computed(() => false),
+  onReferenceHidden = () => {},
   popupRef = ref(undefined),
 }) {
   const inBody = toRef(props, "inBody");
+  const isCloseByButtonInvisibleInViewport = toRef(props, "isCloseByButtonInvisibleInViewport");
   const isBottomSheetOnMobile = toRef(props, "isBottomSheetOnMobile");
 
   const {
@@ -119,6 +125,10 @@ export default function PopupAPI(props, {
       }).then(({ x, y }) => {
         // the list can be closed while the position is computed
         if (!popupRef.value) {
+          return;
+        }
+        if (isCloseByButtonInvisibleInViewport.value && isReferenceHidden(INPUT, POPUP)) {
+          onReferenceHidden();
           return;
         }
         Object.assign(popupRef.value.style, {

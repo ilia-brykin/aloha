@@ -27,6 +27,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+    },
     label: {
       type: String,
       required: true,
@@ -58,6 +62,7 @@ export default {
 
     FloatingAPI(props, {
       floatingRef: rootRef,
+      onReferenceHidden: () => emit("close", { focusButton: true, preventScroll: true }),
     });
 
     const firstEnabled = () => props.options.findIndex(option => !option.disabled);
@@ -117,7 +122,8 @@ export default {
     };
 
     onMounted(() => {
-      listRef.value?.focus();
+      // the popup gets its position later (floating-ui is async): no scroll of the page to its first place
+      listRef.value?.focus({ preventScroll: true });
       scrollToActive();
     });
 

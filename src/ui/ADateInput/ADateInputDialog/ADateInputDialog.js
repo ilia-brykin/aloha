@@ -72,6 +72,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+    },
     // always visible in the page: a group instead of a modal dialog, no focus trap, no close button
     inline: {
       type: Boolean,
@@ -196,6 +200,7 @@ export default {
 
     FloatingAPI(props, {
       floatingRef: rootRef,
+      onReferenceHidden: () => context.emit("close", { focusButton: true, preventScroll: true }),
     });
 
     const isInRange = date => {

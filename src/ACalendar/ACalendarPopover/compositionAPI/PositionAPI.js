@@ -13,10 +13,16 @@ import {
   shift,
 } from "@floating-ui/vue";
 
+import {
+  isReferenceHidden,
+} from "../../../utils/isReferenceHidden";
+
 /**
  * The popover lies at the clicked event and moves with it (scrolling, resizing).
  */
-export default function PositionAPI(props) {
+export default function PositionAPI(props, {
+  onReferenceHidden = () => {},
+} = {}) {
   const anchor = toRef(props, "anchor");
 
   const popoverRef = ref(undefined);
@@ -30,8 +36,13 @@ export default function PositionAPI(props) {
     const { x, y } = await computePosition(anchor.value, popoverRef.value, {
       placement: "bottom-start",
       strategy: "absolute",
+      // the event is scrolled out of the view (e.g. in the scroll of the week): close the popover
       middleware: [offset(6), flip(), shift({ padding: 8 })],
     });
+    if (isReferenceHidden(anchor.value, popoverRef.value)) {
+      onReferenceHidden();
+      return;
+    }
     position.value = { left: `${ x }px`, top: `${ y }px` };
   };
 

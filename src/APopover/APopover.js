@@ -112,6 +112,8 @@ export default {
       default: () => uniqueId("a_popover_"),
     },
     inBody: plugin(Boolean, "inBody", true),
+    // the popup closes when the button / the field is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: plugin(Boolean, "isCloseByButtonInvisibleInViewport", true),
     isBottomSheetOnMobile: plugin(Boolean, "isBottomSheetOnMobile", true),
     modelValue: {
       type: Boolean,
@@ -189,6 +191,7 @@ export default {
       arrowRef,
       getButtonElement,
       isSheet,
+      onReferenceHidden: () => closeByReferenceHidden(),
       popoverRef,
     });
 
@@ -226,6 +229,15 @@ export default {
     });
 
     const closeByButton = () => close({ trigger: "close" });
+
+    // the button is scrolled out of the view: close, the focus back to the button without a scroll of the page
+    function closeByReferenceHidden() {
+      const IS_FOCUS_INSIDE = !!popoverRef.value?.contains(document.activeElement);
+      close({ trigger: "referenceHidden" });
+      if (IS_FOCUS_INSIDE) {
+        getButtonElement()?.focus?.({ preventScroll: true });
+      }
+    }
 
     // nested popovers: the focus and the clicks in a child popover count as inside
     const parent = inject("aPopover", undefined);

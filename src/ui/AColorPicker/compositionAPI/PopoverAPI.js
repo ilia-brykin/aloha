@@ -21,6 +21,10 @@ import {
   openPopup,
 } from "../../../compositionAPI/APopupAPI";
 
+import {
+  isReferenceHidden,
+} from "../../../utils/isReferenceHidden";
+
 const FOCUSABLE = "button:not([disabled]), input:not([disabled]), [tabindex='0']";
 
 export default function PopoverAPI(props, { emit }, {
@@ -62,6 +66,15 @@ export default function PopoverAPI(props, { emit }, {
         ],
       }).then(({ x, y }) => {
         if (!popupRef.value) {
+          return;
+        }
+        if (props.isCloseByButtonInvisibleInViewport && isReferenceHidden(toggleRef.value, popupRef.value)) {
+          const IS_FOCUS_INSIDE = popupRef.value.contains(document.activeElement);
+          closePopover();
+          // the focus back to the button, without a scroll of the page to it
+          if (IS_FOCUS_INSIDE) {
+            toggleRef.value?.focus({ preventScroll: true });
+          }
           return;
         }
         Object.assign(popupRef.value.style, {

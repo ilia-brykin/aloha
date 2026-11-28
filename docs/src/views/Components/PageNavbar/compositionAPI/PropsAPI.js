@@ -43,6 +43,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-close-by-button-invisible-in-viewport",
+      description: "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_",
+      type: "Boolean",
+      default: "true",
+      required: false,
+    },
+    {
       name: "is-end-in-drawer",
       description: "_A_NAVBAR_PROPS_IS_END_IN_DRAWER_DESCRIPTION_",
       type: "Boolean",

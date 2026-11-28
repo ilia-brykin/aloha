@@ -149,6 +149,12 @@ export default {
       required: false,
       default: () => getPropDefault("ADateInput", "inBody", true),
     },
+    // in-body: the calendar and the time list close when the field is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("ADateInput", "isCloseByButtonInvisibleInViewport", true),
+    },
     // the calendar is always visible under the fields
     inline: {
       type: Boolean,
@@ -740,10 +746,11 @@ export default {
         id: DIALOG_ID,
         label: BUTTON_LABEL,
         inBody: this.inBody,
+        isCloseByButtonInvisibleInViewport: this.isCloseByButtonInvisibleInViewport,
         getReference: () => this.controlRefs[field.key],
         selected: SELECTED,
         onSelect: date => this.selectDate(field.index, date),
-        onClose: () => this.closeDialog(),
+        onClose: options => this.closeDialog(options),
       }, CALENDAR_SLOTS));
     };
 
@@ -810,10 +817,11 @@ export default {
         options: this.getTimeOptions(field.index),
         selected: this.texts[field.key],
         inBody: this.inBody,
+        isCloseByButtonInvisibleInViewport: this.isCloseByButtonInvisibleInViewport,
         getReference: () => this.controlRefs[field.key],
         ownerId: this.htmlIdLocal,
         onSelect: option => this.selectTime(field, option),
-        onClose: ({ focusButton } = {}) => this.closeTimeList({ focusButton }),
+        onClose: options => this.closeTimeList(options),
       }));
     };
 

@@ -35,7 +35,8 @@ export default function FocusAPI(props, {
       const ELEMENTS = getFocusableElements();
       target = ELEMENTS.find(element => !element.closest(".a_popover__header")) || ELEMENTS[0];
     }
-    (target || popoverRef.value).focus();
+    // the popover gets its position later (floating-ui is async): no scroll of the page to its first place
+    (target || popoverRef.value).focus({ preventScroll: true });
   };
 
   const setFocusToButton = () => {

@@ -32,6 +32,7 @@ const OWN = [
   ["auto-format", "_A_DATE_INPUT_PROPS_AUTO_FORMAT_DESCRIPTION_", "Boolean", "false"],
   ["in-body", "_A_DATE_INPUT_PROPS_IN_BODY_DESCRIPTION_", "Boolean", "true"],
   ["inline", "_A_DATE_INPUT_PROPS_INLINE_DESCRIPTION_", "Boolean", "false"],
+  ["is-close-by-button-invisible-in-viewport", "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_", "Boolean", "true"],
   ["is-time-disabled", "_A_DATE_INPUT_PROPS_IS_TIME_DISABLED_DESCRIPTION_", "Function", undefined],
   ["popper-container-id", "_A_DATE_INPUT_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_", "String", "\"a_date_input_container\""],
   ["show-time-list", "_A_DATE_INPUT_PROPS_SHOW_TIME_LIST_DESCRIPTION_", "Boolean", "false"],

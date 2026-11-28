@@ -215,11 +215,20 @@ export default function ListboxAPI(props, { emit }, {
 
   const onBlur = () => close();
 
-  // the active option stays visible in a long list
+  // the active option stays visible: only the list scrolls (scrollIntoView also scrolled the page before floating-ui placed the popup)
   watch(activeId, async id => {
     await nextTick();
-    if (id) {
-      document.getElementById(id)?.scrollIntoView?.({ block: "nearest" });
+    const OPTION = id && document.getElementById(id);
+    const LIST = OPTION?.closest(".a_combobox__popup");
+    if (!LIST) {
+      return;
+    }
+    const LIST_RECT = LIST.getBoundingClientRect();
+    const OPTION_RECT = OPTION.getBoundingClientRect();
+    if (OPTION_RECT.top < LIST_RECT.top) {
+      LIST.scrollTop -= LIST_RECT.top - OPTION_RECT.top;
+    } else if (OPTION_RECT.bottom > LIST_RECT.bottom) {
+      LIST.scrollTop += OPTION_RECT.bottom - LIST_RECT.bottom;
     }
   });
 

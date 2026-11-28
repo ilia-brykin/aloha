@@ -51,7 +51,9 @@ export default {
     const {
       popoverRef,
       position,
-    } = PositionAPI(props);
+    } = PositionAPI(props, {
+      onReferenceHidden: () => closeByReferenceHidden(),
+    });
 
     const {
       close,
@@ -60,6 +62,15 @@ export default {
       emit,
       popoverRef,
     });
+
+    // the focus back to the event, without a scroll to it
+    function closeByReferenceHidden() {
+      const IS_FOCUS_INSIDE = !!popoverRef.value?.contains(document.activeElement);
+      close({ isFocusAnchor: false });
+      if (IS_FOCUS_INSIDE) {
+        props.anchor?.focus?.({ preventScroll: true });
+      }
+    }
 
     return {
       close,

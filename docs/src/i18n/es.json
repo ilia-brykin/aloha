@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Claro",
   "_A_DOCS_THEME_DARK_": "Oscuro",
   "_A_DOCS_THEME_AUTO_": "Sistema",
-  "_A_DOCS_LANGUAGE_": "Idioma"
+  "_A_DOCS_LANGUAGE_": "Idioma",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "La ventana emergente se cierra cuando el botón / el campo se desplaza fuera de la vista (la ventana o un padre con desplazamiento). Una ventana que tapa el campo en una pantalla pequeña o es más alta que la ventana permanece abierta."
 }

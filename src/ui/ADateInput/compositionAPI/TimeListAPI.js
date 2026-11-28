@@ -14,11 +14,11 @@ export default function TimeListAPI({
   const openTimeKey = ref(null);
   const timeButtonRefs = {};
 
-  const closeTimeList = ({ focusButton = true } = {}) => {
+  const closeTimeList = ({ focusButton = true, preventScroll = false } = {}) => {
     const KEY = openTimeKey.value;
     openTimeKey.value = null;
     if (focusButton && KEY) {
-      timeButtonRefs[KEY]?.focus();
+      timeButtonRefs[KEY]?.focus({ preventScroll });
     }
   };
 

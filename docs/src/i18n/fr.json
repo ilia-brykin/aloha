@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Clair",
   "_A_DOCS_THEME_DARK_": "Sombre",
   "_A_DOCS_THEME_AUTO_": "Système",
-  "_A_DOCS_LANGUAGE_": "Langue"
+  "_A_DOCS_LANGUAGE_": "Langue",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "La fenêtre contextuelle se ferme quand le bouton / le champ sort de la zone visible par défilement (la fenêtre ou un parent qui défile). Une fenêtre qui couvre le champ sur un petit écran ou qui est plus haute que la fenêtre reste ouverte."
 }

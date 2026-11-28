@@ -227,6 +227,12 @@ export default {
       required: false,
       default: () => getPropDefault("ASelect", "inBody", true),
     },
+    // the popup closes when the button / the field is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+      default: () => getPropDefault("ASelect", "isCloseByButtonInvisibleInViewport", true),
+    },
     isCloseByClick: {
       type: Boolean,
       required: false,

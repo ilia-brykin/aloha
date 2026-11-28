@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Svijetla",
   "_A_DOCS_THEME_DARK_": "Tamna",
   "_A_DOCS_THEME_AUTO_": "Sustav",
-  "_A_DOCS_LANGUAGE_": "Jezik"
+  "_A_DOCS_LANGUAGE_": "Jezik",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Skočni prozor se zatvara kada se gumb / polje pomakne izvan vidljivog područja (prozor ili roditelj koji se pomiče). Prozor koji na malom zaslonu prekriva polje ili je viši od prozora preglednika ostaje otvoren."
 }

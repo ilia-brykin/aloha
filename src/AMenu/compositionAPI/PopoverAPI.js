@@ -72,7 +72,7 @@ export default function PopoverAPI(props, {
       delete cleanupPopper.value[key];
       const PANEL_ELEMENT = getElementPanel({ id: key });
       // the panel can be gone already (unmount, new data)
-      PANEL_ELEMENT?.style.removeProperty("left");
+      PANEL_ELEMENT?.style.removeProperty("left");
       PANEL_ELEMENT?.style.removeProperty("top");
     }
   };

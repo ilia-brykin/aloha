@@ -18,6 +18,9 @@ import {
 } from "@floating-ui/vue";
 
 import {
+  isReferenceHidden,
+} from "../utils/isReferenceHidden";
+import {
   get,
 } from "lodash-es";
 
@@ -107,6 +110,15 @@ const ANavbarItem = {
             shift({ padding: 8 }),
           ],
         }).then(({ x, y }) => {
+          // the item is scrolled out of the view: its submenu closes
+          if (navbar.isCloseByButtonInvisibleInViewport.value && isReferenceHidden(REFERENCE, FLOATING)) {
+            const IS_FOCUS_INSIDE = !!submenuRef.value?.contains(document.activeElement);
+            navbar.close(props.path);
+            if (IS_FOCUS_INSIDE) {
+              document.getElementById(buttonId.value)?.focus({ preventScroll: true });
+            }
+            return;
+          }
           if (!submenuRef.value) {
             return;
           }

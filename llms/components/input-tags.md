@@ -398,6 +398,7 @@ export default {
 | is-add-all | Boolean | false |  | Shows a button "add all" under the suggestions, Ctrl+Enter does the same; disabled suggestions and max-tags are respected. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (AMobilePlugin) the list is a panel at the bottom of the window, above the virtual keyboard (visualViewport). The focus stays in the field. |
 | is-clear-button | Boolean | true |  | A button that clears the typed text (not the values), shown while there is text. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-data-simple-array | Boolean |  |  | The data are an array of strings or numbers. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |

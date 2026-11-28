@@ -15,7 +15,7 @@ export default function DialogAPI({ emit }, {
   const buttonRefs = {};
   const fieldRefs = {};
 
-  const closeDialog = ({ focusButton = true } = {}) => {
+  const closeDialog = ({ focusButton = true, preventScroll = false } = {}) => {
     const INDEX = openIndex.value;
     if (INDEX === null) {
       return;
@@ -23,7 +23,7 @@ export default function DialogAPI({ emit }, {
     openIndex.value = null;
     emit("close", { index: INDEX });
     if (focusButton) {
-      buttonRefs[INDEX]?.focus();
+      buttonRefs[INDEX]?.focus({ preventScroll });
     }
   };
 

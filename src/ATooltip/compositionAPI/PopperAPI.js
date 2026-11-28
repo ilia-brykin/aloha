@@ -17,6 +17,9 @@ import {
 
 import EventBus from "../../utils/EventBus";
 import {
+  isReferenceHidden,
+} from "../../utils/isReferenceHidden";
+import {
   isFunction,
   isNil,
 } from "lodash-es";
@@ -142,6 +145,10 @@ export default function PopperAPI(props) {
       ).then(({ x, y, middlewareData, placement }) => {
         // the tooltip can be closed while the position is computed
         if (!titleRef.value) {
+          return;
+        }
+        if (isReferenceHidden(ELEMENT, titleRef.value)) {
+          closeTitle();
           return;
         }
         Object.assign(titleRef.value.style, {

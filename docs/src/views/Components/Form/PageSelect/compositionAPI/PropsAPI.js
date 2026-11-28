@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "is-close-by-button-invisible-in-viewport",
+      description: "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_",
+      type: "Boolean",
+      default: "true",
+      required: false,
+    },
+    {
       name: "label-position",
       description: "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_",
       type: "\"float\" / \"inset\" / \"top\"",

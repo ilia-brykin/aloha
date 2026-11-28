@@ -77,6 +77,8 @@ export default {
     isEndInDrawer: plugin(Boolean, "isEndInDrawer", false),
     // mobile (AMobilePlugin): a button opens the navigation in a drawer
     isMobileMenu: plugin(Boolean, "isMobileMenu", true),
+    // a submenu closes when its item is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: plugin(Boolean, "isCloseByButtonInvisibleInViewport", true),
     isSticky: plugin(Boolean, "isSticky", false),
     keyChildren: {
       type: String,
@@ -188,6 +190,7 @@ export default {
 
     provide("aNavbar", {
       alwaysTranslate: toRef(props, "alwaysTranslate"),
+      isCloseByButtonInvisibleInViewport: toRef(props, "isCloseByButtonInvisibleInViewport"),
       close: openApi.close,
       closeLater: openApi.closeLater,
       extra: toRef(props, "extra"),

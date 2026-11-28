@@ -1701,6 +1701,11 @@
               "default": "\"#ff0000\""
             },
             {
+              "name": "isCloseByButtonInvisibleInViewport",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "placement",
               "type": "string",
               "default": "\"bottom-start\""
@@ -1842,6 +1847,11 @@
             },
             {
               "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isCloseByButtonInvisibleInViewport",
               "type": "boolean",
               "default": "true"
             },
@@ -2109,6 +2119,11 @@
             },
             {
               "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isCloseByButtonInvisibleInViewport",
               "type": "boolean",
               "default": "true"
             },
@@ -2432,6 +2447,11 @@
               "name": "placeholdersDefault",
               "type": "Record<string, any>",
               "default": "{\"date\":\"_A_DATEPICKER_PLACEHOLDER_DATE_\",\"dateRange\":\"_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_\",\"timeHour\":\"_A_DATEPICKER_PLACEHOLDER_TIME_HOUR_\",\"timeMinute\":\"_A_DATEPICKER_PLACEHOLDER_TIME_MINUTE_\",\"timeSecond\":\"_A_DATEPICKER_PLACEHOLDER_TIME_SECOND_\",\"datetimeHour\":\"_A_DATEPICKER_PLACEHOLDER_DATETIME_HOUR_\",\"datetimeMinute\":\"_A_DATEPICKER_PLACEHOLDER_DATETIME_MINUTE_\",\"datetimeSecond\":\"_A_DATEPICKER_PLACEHOLDER_DATETIME_SECOND_\"}"
+            },
+            {
+              "name": "isCloseByButtonInvisibleInViewport",
+              "type": "boolean",
+              "default": "true"
             },
             {
               "name": "placement",
@@ -6346,6 +6366,11 @@
               "default": "true"
             },
             {
+              "name": "isCloseByButtonInvisibleInViewport",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "inlineAutocomplete",
               "type": "boolean",
               "default": "false"
@@ -9431,6 +9456,11 @@
               "default": "true"
             },
             {
+              "name": "isCloseByButtonInvisibleInViewport",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
               "name": "isSticky",
               "type": "boolean",
               "default": "false"
@@ -9974,6 +10004,11 @@
             },
             {
               "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isCloseByButtonInvisibleInViewport",
               "type": "boolean",
               "default": "true"
             },
@@ -11288,6 +11323,11 @@
             },
             {
               "name": "inBody",
+              "type": "boolean",
+              "default": "true"
+            },
+            {
+              "name": "isCloseByButtonInvisibleInViewport",
               "type": "boolean",
               "default": "true"
             },

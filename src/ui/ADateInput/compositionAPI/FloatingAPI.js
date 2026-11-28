@@ -14,15 +14,21 @@ import {
   shift,
 } from "@floating-ui/vue";
 
+import {
+  isReferenceHidden,
+} from "../../../utils/isReferenceHidden";
+
 /**
  * A popup in the container in body (in-body): placed under the field with floating-ui,
  * so it is not cut by a parent with overflow: hidden. Without in-body the CSS places it.
  */
 export default function FloatingAPI(props, {
   floatingRef = ref(undefined),
+  onReferenceHidden = () => {},
 }) {
   const getReference = toRef(props, "getReference");
   const inBody = toRef(props, "inBody");
+  const isCloseByButtonInvisibleInViewport = toRef(props, "isCloseByButtonInvisibleInViewport");
 
   let cleanup;
 
@@ -45,6 +51,10 @@ export default function FloatingAPI(props, {
       }).then(({ x, y }) => {
         // the popup can be closed while the position is computed
         if (!floatingRef.value) {
+          return;
+        }
+        if (isCloseByButtonInvisibleInViewport.value && isReferenceHidden(REFERENCE, floatingRef.value)) {
+          onReferenceHidden();
           return;
         }
         Object.assign(floatingRef.value.style, {

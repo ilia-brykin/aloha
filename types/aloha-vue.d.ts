@@ -509,6 +509,8 @@ export interface AColorPickerProps {
   modelValue?: string;
   /** @default "#ff0000" */
   panelDefaultColor?: string;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default "bottom-start" */
   placement?: string;
   /** @default [] */
@@ -551,6 +553,8 @@ export interface AComboboxProps {
   inputAttributes?: Record<string, any>;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default false */
   inlineAutocomplete?: boolean;
   inputClass?: string | Record<string, any>;
@@ -634,6 +638,8 @@ export interface ADateInputProps {
   inputClass?: string | Record<string, any>;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   inline?: boolean;
   isDateDisabled?: ((...args: any[]) => any);
   isTimeDisabled?: ((...args: any[]) => any);
@@ -732,6 +738,8 @@ export interface ADatepickerProps {
   placeholder?: string;
   /** @default {"date":"_A_DATEPICKER_PLACEHOLDER_DATE_","dateRange":"_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_","timeHour":"_A_DATEPICKER_PLACEHOLDER_TIME_HOUR_","timeMinute":"_A_DATEPICKER_PLACEHOLDER_TIME_MINUTE_","timeSecond":"_A_DATEPICKER_PLACEHOLDER_TIME_SECOND_","datetimeHour":"_A_DATEPICKER_PLACEHOLDER_DATETIME_HOUR_","datetimeMinute":"_A_DATEPICKER_PLACEHOLDER_DATETIME_MINUTE_","datetimeSecond":"_A_DATEPICKER_PLACEHOLDER_DATETIME_SECOND_"} */
   placeholdersDefault?: Record<string, any>;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default "bottom-start" */
   placement?: string;
   /** @default {} */
@@ -1920,6 +1928,8 @@ export interface AInputTagsProps {
   ignoreDiacritics?: boolean;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default false */
   inlineAutocomplete?: boolean;
   /** @default {} */
@@ -2918,6 +2928,8 @@ export interface ANavbarProps {
   isEndInDrawer?: boolean;
   /** @default true */
   isMobileMenu?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default false */
   isSticky?: boolean;
   /** @default "children" */
@@ -3082,6 +3094,8 @@ export interface APopoverProps {
   id?: string;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   /** @default true */
   isBottomSheetOnMobile?: boolean;
   modelValue?: boolean;
@@ -3490,6 +3504,8 @@ export interface ASelectProps {
   idPrefix?: string;
   /** @default true */
   inBody?: boolean;
+  /** @default true */
+  isCloseByButtonInvisibleInViewport?: boolean;
   isCloseByClick?: boolean;
   /** @default false */
   isDataSimpleArray?: boolean;

@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Light",
   "_A_DOCS_THEME_DARK_": "Dark",
   "_A_DOCS_THEME_AUTO_": "System",
-  "_A_DOCS_LANGUAGE_": "Language"
+  "_A_DOCS_LANGUAGE_": "Language",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open."
 }

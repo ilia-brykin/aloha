@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "فاتح",
   "_A_DOCS_THEME_DARK_": "داكن",
   "_A_DOCS_THEME_AUTO_": "النظام",
-  "_A_DOCS_LANGUAGE_": "اللغة"
+  "_A_DOCS_LANGUAGE_": "اللغة",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "تُغلق النافذة المنبثقة عندما يُمرَّر الزر / الحقل خارج المنطقة المرئية (النافذة أو عنصر أب قابل للتمرير). النافذة التي تغطي الحقل على شاشة صغيرة أو أطول من نافذة المتصفح تبقى مفتوحة."
 }

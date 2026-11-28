@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Chiaro",
   "_A_DOCS_THEME_DARK_": "Scuro",
   "_A_DOCS_THEME_AUTO_": "Sistema",
-  "_A_DOCS_LANGUAGE_": "Lingua"
+  "_A_DOCS_LANGUAGE_": "Lingua",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Il popup si chiude quando il pulsante / il campo esce dalla vista scorrendo (la finestra o un genitore che scorre). Un popup che copre il campo su uno schermo piccolo o è più alto della finestra resta aperto."
 }

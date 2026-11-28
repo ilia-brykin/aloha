@@ -8,9 +8,12 @@ import {
   autoUpdate,
   computePosition,
   flip,
-  hide,
   shift,
 } from "@floating-ui/vue";
+
+import {
+  isReferenceHidden,
+} from "../../utils/isReferenceHidden";
 
 export default function PopoverAPI(props, {
   dropdownButtonRef = ref(undefined),
@@ -34,13 +37,6 @@ export default function PopoverAPI(props, {
     if (floatingShift.value?.use) {
       MIDDLEWARE.push(
         shift(floatingShift.value),
-      );
-    }
-    if (isCloseByButtonInvisibleInViewport.value) {
-      MIDDLEWARE.push(
-        hide({
-          strategy: "referenceHidden",
-        }),
       );
     }
 
@@ -67,8 +63,8 @@ export default function PopoverAPI(props, {
               placement: placement.value,
               middleware: middleware.value,
             },
-          ).then(({ middlewareData, x, y }) => {
-            if (middlewareData.hide?.referenceHidden) {
+          ).then(({ x, y }) => {
+            if (isCloseByButtonInvisibleInViewport.value && isReferenceHidden(dropdownButtonRef.value.$el, dropdownRef.value)) {
               onReferenceHidden();
               return;
             }

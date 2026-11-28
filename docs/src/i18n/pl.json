@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Jasny",
   "_A_DOCS_THEME_DARK_": "Ciemny",
   "_A_DOCS_THEME_AUTO_": "Systemowy",
-  "_A_DOCS_LANGUAGE_": "Język"
+  "_A_DOCS_LANGUAGE_": "Język",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Okno wyskakujące zamyka się, gdy przycisk / pole zostanie przewinięte poza widoczny obszar (okno lub przewijany rodzic). Okno, które na małym ekranie zasłania pole lub jest wyższe niż okno przeglądarki, pozostaje otwarte."
 }

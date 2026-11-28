@@ -55,5 +55,6 @@
   "_A_DOCS_THEME_LIGHT_": "Hell",
   "_A_DOCS_THEME_DARK_": "Dunkel",
   "_A_DOCS_THEME_AUTO_": "System",
-  "_A_DOCS_LANGUAGE_": "Sprache"
+  "_A_DOCS_LANGUAGE_": "Sprache",
+  "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Das Popup schließt sich, wenn der Button / das Feld aus dem sichtbaren Bereich gescrollt wird (Fenster oder scrollender Elternbereich). Ein Popup, das das Feld auf einem kleinen Bildschirm verdeckt oder höher als das Fenster ist, bleibt offen."
 }

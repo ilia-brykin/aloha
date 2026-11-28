@@ -300,6 +300,7 @@ export default {
 | drawer-placement | String | "left" |  | Side of the drawer on mobile: left or right. |
 | extra | Object |  |  | An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like **"_WELCOME_{{foo}}_{{bar}}_"**, which is translated as **"Welcome {{ foo }}: {{ bar }}"**, you can pass an object like **{ foo: "abc", bar: "123" }**, and the result will be the translation **"Welcome abc: 123"**. |
 | id | String | () => uniqueId("a_navbar_") |  | Id of the navigation. The buttons and submenus get ids from it. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-end-in-drawer | Boolean | false |  | Mobile: the slot end is shown in the drawer instead of the bar. |
 | is-mobile-menu | Boolean | true |  | Mobile (AMobilePlugin): a button opens the navigation in a drawer. False: the bar on every screen. |
 | is-sticky | Boolean | false |  | The bar stays at the top while the page scrolls. |

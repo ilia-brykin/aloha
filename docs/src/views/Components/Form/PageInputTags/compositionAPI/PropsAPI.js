@@ -29,6 +29,7 @@ const SHARED = [
 ];
 
 const OWN = [
+  ["is-close-by-button-invisible-in-viewport", "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_", "Boolean", "true"],
   ["validator", "_A_INPUT_TAGS_PROPS_VALIDATOR_DESCRIPTION_", "Function", undefined],
   ["url-retrieve", "_A_INPUT_TAGS_PROPS_URL_RETRIEVE_DESCRIPTION_", "String", undefined],
   ["transform", "_A_INPUT_TAGS_PROPS_TRANSFORM_DESCRIPTION_", "Function", undefined],

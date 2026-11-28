@@ -33,6 +33,7 @@ const OWN = [
   ["filter-mode", "_A_COMBOBOX_PROPS_FILTER_MODE_DESCRIPTION_", "String", "\"contains\""],
   ["ignore-diacritics", "_A_COMBOBOX_PROPS_IGNORE_DIACRITICS_DESCRIPTION_", "Boolean", "true"],
   ["inline-autocomplete", "_A_COMBOBOX_PROPS_INLINE_AUTOCOMPLETE_DESCRIPTION_", "Boolean", "false"],
+  ["is-close-by-button-invisible-in-viewport", "_A_GLOBAL_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_", "Boolean", "true"],
   ["key-disabled", "_A_COMBOBOX_PROPS_KEY_DISABLED_DESCRIPTION_", "String", undefined],
   ["key-group", "_A_COMBOBOX_PROPS_KEY_GROUP_DESCRIPTION_", "String", undefined],
   ["texts", "_A_COMBOBOX_PROPS_TEXTS_DESCRIPTION_", "Object", "{ loading, noResults, results }"],

@@ -182,6 +182,8 @@ export default {
     },
     ignoreDiacritics: plugin(Boolean, "ignoreDiacritics", true),
     inBody: plugin(Boolean, "inBody", true),
+    // the popup closes when the button / the field is scrolled out of the view
+    isCloseByButtonInvisibleInViewport: plugin(Boolean, "isCloseByButtonInvisibleInViewport", true),
     inlineAutocomplete: plugin(Boolean, "inlineAutocomplete", false),
     inputAttributes: {
       type: Object,
