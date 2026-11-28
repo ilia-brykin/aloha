@@ -24,6 +24,7 @@ import AHttpAPI from "../../compositionAPI/AHttpAPI";
 import ComboboxAPI, {
   TEXTS_SUGGESTIONS_DEFAULT,
 } from "../ACombobox/compositionAPI/ComboboxAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import TagsAPI from "./compositionAPI/TagsAPI";
 import UiUrlAPI from "../compositionApi/UiUrlAPI";
 
@@ -417,6 +418,10 @@ export default {
     } = UiDisabledAPI(props);
 
     const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -636,6 +641,7 @@ export default {
 
     return {
       ...combobox,
+      placeholderAttributes,
       addableSuggestions,
       addAllFound,
       announcement: tagsApi.announcement,
@@ -851,7 +857,7 @@ export default {
               type: "text",
               class: ["a_input_tags__input", this.inputClass],
               value: this.hasSuggestions ? this.inputValue : this.inputValueTags,
-              placeholder: this.isMaxReached ? undefined : this.placeholder,
+              ...(this.isMaxReached ? {} : this.placeholderAttributes),
               disabled: this.disabledAttribut,
               autocomplete: "off",
               "aria-required": this.required ? "true" : undefined,

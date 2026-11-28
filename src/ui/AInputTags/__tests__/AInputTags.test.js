@@ -59,7 +59,7 @@ const press = async(wrapper, key) => {
 
 describe("AInputTags", () => {
   beforeEach(async() => {
-    setI18n({ en: { ...i18nEN } });
+    setI18n({ en: { ...i18nEN, _MY_PLACEHOLDER_: "Add a tag" } });
     setLanguage("en");
     updateTranslation();
     await nextTick();
@@ -71,6 +71,14 @@ describe("AInputTags", () => {
     setLanguage("de");
     updateTranslation();
     await nextTick();
+  });
+
+  it("translates the placeholder (key of the dictionary), no placeholder when max-tags is reached", async() => {
+    const wrapper = mountTags({ placeholder: "_MY_PLACEHOLDER_", maxTags: 1 });
+    await nextTick();
+    expect(wrapper.get("input").attributes("placeholder")).toBe("Add a tag");
+    await wrapper.setProps({ modelValue: ["vue"] });
+    expect(wrapper.get("input").attributes("placeholder")).toBeUndefined();
   });
 
   it("links the label to the input and shows the tags of the model", () => {

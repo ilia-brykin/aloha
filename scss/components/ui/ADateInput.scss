@@ -55,6 +55,8 @@
   background: transparent;
   border: 0;
   outline: 0;
+  // the ring is on the whole box (:focus-within), not a second one around the inner input
+  box-shadow: none;
 
   &::placeholder {
     color: var(--a_form_control_placeholder_color);

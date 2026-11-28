@@ -21,6 +21,7 @@ import {
 import ComboboxAPI, {
   TEXTS_SUGGESTIONS_DEFAULT,
 } from "./compositionAPI/ComboboxAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 
 import {
   getPropDefault,
@@ -288,6 +289,10 @@ export default {
     } = UiDisabledAPI(props);
 
     const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -329,6 +334,7 @@ export default {
     };
 
     return {
+      placeholderAttributes,
       ...combobox,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
@@ -415,7 +421,7 @@ export default {
               this.inputClass,
             ],
             value: this.inputValue,
-            placeholder: this.placeholder,
+            ...this.placeholderAttributes,
             disabled: this.disabledAttribut,
             autocomplete: "off",
             "aria-activedescendant": this.activeId,

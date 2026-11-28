@@ -17,6 +17,12 @@ import {
   ACombobox,
 } from "../../../index";
 
+import {
+  setI18n,
+  setLanguage,
+  updateTranslation,
+} from "../../../ATranslation/compositionAPI/ATranslationAPI";
+
 import AUiComponents from "../../AUiComponents";
 import {
   getHighlightParts,
@@ -258,6 +264,20 @@ describe("ACombobox: WAI-ARIA combobox", () => {
 
   it("AForm: the type combobox", () => {
     expect(AUiComponents.combobox).toBe(ACombobox);
+  });
+});
+
+describe("ACombobox: placeholder", () => {
+  it("translates the placeholder (key of the dictionary)", async() => {
+    setI18n({ de: { _MY_PLACEHOLDER_: "Stadt suchen" } });
+    setLanguage("de");
+    updateTranslation();
+    const wrapper = mountCombobox({ placeholder: "_MY_PLACEHOLDER_" });
+    await flushPromises();
+    expect(getInput(wrapper).attributes("placeholder")).toBe("Stadt suchen");
+    wrapper.unmount();
+    setI18n({});
+    updateTranslation();
   });
 });
 
