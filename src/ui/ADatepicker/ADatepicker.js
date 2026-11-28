@@ -24,6 +24,7 @@ import {
 
 import ADatepickerCalendarPanel from "./ADatepickerCalendarPanel/ADatepickerCalendarPanel";
 import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
+import Close from "../../AIcon/Icons/Close";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -678,8 +679,10 @@ export default {
                 "aria-hidden": true,
                 onMousedown: this.clearDate,
               }, [
-                h("i", {
-                  class: "a_datepicker__input__icon a_datepicker__input__clear_icon",
+                // the icon of the library (the character ✖ was an emoji in many fonts: big and colored)
+                h(AIcon, {
+                  class: "a_datepicker__input__clear_icon",
+                  icon: Close,
                 }),
               ]),
               h("span", {

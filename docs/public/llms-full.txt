@@ -18944,6 +18944,7 @@ export default {
 | `--a_datepicker_min_width` |  | Minimum width of the date field. |
 | `--a_datepicker_color` |  | Text color of the field and of the calendar popup. |
 | `--a_datepicker_icon_color` |  | Color of the calendar and clear icons. |
+| `--a_datepicker_clear_icon_size` |  | Size of the clear icon. |
 | `--a_datepicker_hover_color` |  | Color of icons and header buttons on hover. |
 | `--a_datepicker_divider_color` |  | Color of the lines between the parts of the popup (shortcuts, footer, time list). |
 | `--a_datepicker_popup_bg` |  | Background of the calendar popup. |

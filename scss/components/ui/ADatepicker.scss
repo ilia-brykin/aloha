@@ -29,7 +29,7 @@
   position: relative;
   &:hover {
     .a_datepicker__input_wrapper__clear_wrapper {
-      display: block;
+      display: flex;
     }
     .a_datepicker__input_wrapper__clear_wrapper + .a_datepicker__input_wrapper__append {
       display: none;
@@ -51,7 +51,8 @@
   z-index: 1;
 }
 
-.a_datepicker__input_wrapper__clear_wrapper {
+// hidden until hover (also the class __append, which is display: flex)
+.a_datepicker__input_wrapper__append.a_datepicker__input_wrapper__clear_wrapper {
   display: none;
 }
 
@@ -59,6 +60,10 @@
   position: absolute;
   top: 0;
   right: 0;
+  // the calendar and the clear icon in the same place, both centered: no jump when they change on hover
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 1.875rem;
   height: 100%;
   padding: .375rem;
@@ -80,6 +85,8 @@
 }
 
 .a_datepicker__calendar_icon {
+  // block: no space of the text line under the svg (it was 3px lower than the clear icon)
+  display: block;
   width: 100%;
   height: 100%;
   max-height: 1.5625rem;
@@ -90,17 +97,12 @@
 }
 
 .a_datepicker__input__clear_icon {
-  &::before {
-    display: inline-block;
-    content: "\2716";
-    vertical-align: middle;
-  }
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 0;
-    height: 100%;
-    vertical-align: middle;
+  width: var(--a_datepicker_clear_icon_size);
+  height: var(--a_datepicker_clear_icon_size);
+  color: var(--a_datepicker_icon_color);
+  cursor: pointer;
+  &:hover {
+    color: var(--a_datepicker_hover_color);
   }
 }
 
@@ -352,6 +354,7 @@
   --a_datepicker_min_width: 7.5rem; // Minimum width of the date field.
   --a_datepicker_color: var(--a_color_text); // Text color of the field and of the calendar popup.
   --a_datepicker_icon_color: var(--a_color_text_muted); // Color of the calendar and clear icons.
+  --a_datepicker_clear_icon_size: 1rem; // Size of the clear icon.
   --a_datepicker_hover_color: var(--a_color_link_hover); // Color of icons and header buttons on hover.
   --a_datepicker_divider_color: var(--a_border_color); // Color of the lines between the parts of the popup (shortcuts, footer, time list).
   // popup
