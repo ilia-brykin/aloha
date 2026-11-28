@@ -16627,6 +16627,7 @@ export default {
 | id | String / Number | () => uniqueId("a_input_") |  | The identifier of the component, which can be used to track or refer to the component in the code. |
 | id-prefix | String |  |  | Prefix for the component's **ID**. Used to create a unique identifier based on the specified prefix. |
 | is-clear-button | Boolean | true |  | Determines whether the clear button should be displayed. If **true**, a button will be shown next to the text field, allowing the user to clear its content. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
@@ -17071,6 +17072,7 @@ export default {
 | input-class | String / Object |  |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (AMobilePlugin) the list is a panel at the bottom of the window, above the virtual keyboard (visualViewport). The focus stays in the field. |
 | is-clear-button | Boolean | true |  | Shows a button that clears the text. The default can be set with **AComponentsPlugin**. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-data-simple-array | Boolean |  |  | The data are an array of strings or numbers. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
@@ -18027,6 +18029,7 @@ export default {
 | inline | Boolean | false |  | The calendar is always visible under the fields: a group in the page instead of a dialog. In a range the first click chooses the start, the second the end. |
 | input-attributes | Object | {} |  | An object of attributes applied directly to the input element. Allows adding or customizing additional input attributes. |
 | input-class | String / Object |  |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-date-disabled | Function |  |  | Function `(isoDate) => Boolean`: days that cannot be chosen, e.g. weekends. The date is `"YYYY-MM-DD"`. With `"month"` it gets `"YYYY-MM"`, with `"year"` `"YYYY"`. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
@@ -18901,6 +18904,7 @@ export default {
 | input-attr | Object | () => ({}) |  | Attributes applied directly to the internal input element of the datepicker. |
 | input-class | String / Number / Boolean / Array / Object / Date / Function / Symbol | "a_datepicker__input" |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
 | input-name | String | "date" |  | Name attribute of the internal input element. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
@@ -21650,7 +21654,7 @@ export default {
 | `_A_INPUT_SHOW_PASSWORD_` | Show password |
 | `_A_INPUT_HIDE_PASSWORD_` | Hide password |
 
-## CSS variables (`scss/components/ui/ui.scss`)
+## CSS variables (`scss/components/ui/_form_control.scss`)
 
 | name | value | description |
 | --- | --- | --- |
@@ -25021,6 +25025,7 @@ export default {
 | is-add-all | Boolean | false |  | Shows a button "add all" under the suggestions, Ctrl+Enter does the same; disabled suggestions and max-tags are respected. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (AMobilePlugin) the list is a panel at the bottom of the window, above the virtual keyboard (visualViewport). The focus stays in the field. |
 | is-clear-button | Boolean | true |  | A button that clears the typed text (not the values), shown while there is text. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-data-simple-array | Boolean |  |  | The data are an array of strings or numbers. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
@@ -43243,6 +43248,7 @@ export default {
 | drawer-placement | String | "left" |  | Side of the drawer on mobile: left or right. |
 | extra | Object |  |  | An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like **"_WELCOME_{{foo}}_{{bar}}_"**, which is translated as **"Welcome {{ foo }}: {{ bar }}"**, you can pass an object like **{ foo: "abc", bar: "123" }**, and the result will be the translation **"Welcome abc: 123"**. |
 | id | String | () => uniqueId("a_navbar_") |  | Id of the navigation. The buttons and submenus get ids from it. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-end-in-drawer | Boolean | false |  | Mobile: the slot end is shown in the drawer instead of the bar. |
 | is-mobile-menu | Boolean | true |  | Mobile (AMobilePlugin): a button opens the navigation in a drawer. False: the bar on every screen. |
 | is-sticky | Boolean | false |  | The bar stays at the top while the page scrolls. |
@@ -47842,6 +47848,7 @@ A popover in a popover: the focus and the clicks in the inner one keep the outer
 | id | String | uniqueId("a_popover_") |  | Unique identifier for the component |
 | in-body | Boolean | true |  | The popover is in a container in body, so a parent with overflow: hidden does not cut it. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (**AMobilePlugin**) the popover is a panel at the bottom of the window with a backdrop, without the arrow. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | model-value | Boolean |  |  | Open state for v-model. Without it the popover has its own state. |
 | offset | Number | 8 |  | Distance to the button in px. |
 | open-delay | Number | 100 |  | trigger hover: delay in ms before opening. |

@@ -1,0 +1,1 @@
+import{Wt as e,an as t}from"./chunk.vendor.SEynj6EJ.js";import{t as n}from"./bundle.index.DikcaTJ9.js";var r={};function i(n,r){return t(),e(`div`,null,`NOT FOUND`)}var a=n(r,[[`render`,i]]);export{a as default};

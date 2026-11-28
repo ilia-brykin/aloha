@@ -370,6 +370,7 @@ export default {
 | input-class | String / Object |  |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (AMobilePlugin) the list is a panel at the bottom of the window, above the virtual keyboard (visualViewport). The focus stays in the field. |
 | is-clear-button | Boolean | true |  | Shows a button that clears the text. The default can be set with **AComponentsPlugin**. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-data-simple-array | Boolean |  |  | The data are an array of strings or numbers. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |

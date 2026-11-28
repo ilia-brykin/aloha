@@ -558,7 +558,7 @@ export default {
 | `_A_INPUT_SHOW_PASSWORD_` | Show password |
 | `_A_INPUT_HIDE_PASSWORD_` | Hide password |
 
-## CSS variables (`scss/components/ui/ui.scss`)
+## CSS variables (`scss/components/ui/_form_control.scss`)
 
 | name | value | description |
 | --- | --- | --- |

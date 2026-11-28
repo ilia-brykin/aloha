@@ -315,6 +315,7 @@ A popover in a popover: the focus and the clicks in the inner one keep the outer
 | id | String | uniqueId("a_popover_") |  | Unique identifier for the component |
 | in-body | Boolean | true |  | The popover is in a container in body, so a parent with overflow: hidden does not cut it. |
 | is-bottom-sheet-on-mobile | Boolean | true |  | On a small screen (**AMobilePlugin**) the popover is a panel at the bottom of the window with a backdrop, without the arrow. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | model-value | Boolean |  |  | Open state for v-model. Without it the popover has its own state. |
 | offset | Number | 8 |  | Distance to the button in px. |
 | open-delay | Number | 100 |  | trigger hover: delay in ms before opening. |

@@ -870,6 +870,7 @@ export default {
 | inline | Boolean | false |  | The calendar is always visible under the fields: a group in the page instead of a dialog. In a range the first click chooses the start, the second the end. |
 | input-attributes | Object | {} |  | An object of attributes applied directly to the input element. Allows adding or customizing additional input attributes. |
 | input-class | String / Object |  |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-date-disabled | Function |  |  | Function `(isoDate) => Boolean`: days that cannot be chosen, e.g. weekends. The date is `"YYYY-MM-DD"`. With `"month"` it gets `"YYYY-MM"`, with `"year"` `"YYYY"`. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |

@@ -749,6 +749,7 @@ export default {
 | input-attr | Object | () => ({}) |  | Attributes applied directly to the internal input element of the datepicker. |
 | input-class | String / Number / Boolean / Array / Object / Date / Function / Symbol | "a_datepicker__input" |  | **CSS** class(es) applied to the input element. Allows styling the component according to your requirements. |
 | input-name | String | "date" |  | Name attribute of the internal input element. |
+| is-close-by-button-invisible-in-viewport | Boolean | true |  | The popup closes when the button / the field is scrolled out of the view (the window or a parent that scrolls). A popup that covers the field on a small screen or is higher than the window stays open. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
