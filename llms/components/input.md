@@ -568,7 +568,7 @@ export default {
 | `--a_form_element_label_float_active_color` |  | Color of a float label after it moved to the border (field focused or filled). |
 | `--a_form_element_label_float_bg` |  | Background behind a float label on the border. Set it to the background of the surrounding area. |
 | `--a_form_element_label_inset_space` |  | Extra height of the field for an inset label (labelPosition "inset"). |
-| `--a_form_element_label_inset_top` |  | Top position of an inset label when the field is focused or filled. |
+| `--a_form_element_label_inset_top` |  | Top position of an inset label (it does not move). |
 | `--a_form_element_help_text_color` |  | Color of the help text below the field. |
 | `--a_form_element_error_color` |  | Color of error texts, error labels and the error icon of form elements. |
 | `--a_form_control_height` |  | Minimum height of the field. |
