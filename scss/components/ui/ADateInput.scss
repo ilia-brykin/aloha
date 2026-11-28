@@ -92,6 +92,14 @@
   }
 }
 
+// the float label lies over the first field: it ends before the buttons of the field (clear, calendar, time list)
+.a_date_input__parent.a_form_element__parent_float > .a_form_element_label {
+  max-width: calc(
+    min(100%, var(--a_date_input_label_width, 100%)) - 1.25rem -
+    var(--a_date_input_label_buttons, 0) * (1.5rem + var(--a_space_xs))
+  );
+}
+
 .a_date_input__toggle__icon {
   width: 1rem;
   height: 1rem;
@@ -325,7 +333,7 @@
 // ---------------------------------------------------------------------------
 // Component tokens
 // ---------------------------------------------------------------------------
-:where(.a_date_input, .a_date_input__dialog, .a_date_input__time_list) {
+:where(.a_date_input__parent, .a_date_input, .a_date_input__dialog, .a_date_input__time_list) {
   --a_date_input_gap: var(--a_space_sm); // Space between the fields (date, time, from, to).
   --a_date_input_date_width: 11rem; // Width of a date field.
   --a_date_input_time_width: 7rem; // Width of a time field.

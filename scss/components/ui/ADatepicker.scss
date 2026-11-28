@@ -64,6 +64,11 @@
   padding: .375rem;
 }
 
+// the float label in the empty field ends before the calendar icon (.a_datepicker__input_wrapper__append)
+.a_datepicker__parent.a_form_element__parent_float > .a_form_element_label {
+  max-width: calc(100% - 1.25rem - 1.875rem);
+}
+
 .a_datepicker__input__icon {
   display: inline-block;
   width: 100%;

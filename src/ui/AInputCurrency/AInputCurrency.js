@@ -505,7 +505,7 @@ export default {
             a_form_element__parent_invalid: this.isErrors,
           }],
         }, [
-          ((this.label || this.labelScreenReader) && !this.isLabelFloatLocalLocal) ?
+          ((this.label || this.labelScreenReader) && !this.isLabelFloatLocal) ?
             h(ALabel, {
               id: this.htmlIdLocal,
               extra: this.extra,

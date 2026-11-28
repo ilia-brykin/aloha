@@ -24,6 +24,7 @@ import ADateInputTimeList from "./ADateInputTimeList/ADateInputTimeList";
 import DialogAPI from "./compositionAPI/DialogAPI";
 import FieldsAPI from "./compositionAPI/FieldsAPI";
 import LocaleAPI from "./compositionAPI/LocaleAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
 import TimeListAPI from "./compositionAPI/TimeListAPI";
 import {
@@ -375,6 +376,10 @@ export default {
     } = UiDisabledAPI(props);
 
     const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -589,8 +594,25 @@ export default {
       open,
     });
 
+    // the buttons of the first field: the float label ends before them
+    const labelSpaceStyle = computed(() => {
+      const FIELD = fields.value[0];
+      if (!FIELD) {
+        return undefined;
+      }
+      const BUTTONS = (props.clearable && !props.disabled && texts.value[FIELD.key] ? 1 : 0) +
+        (FIELD.kind === "date" && !props.inline ? 1 : 0) +
+        (props.showTimeList && FIELD.kind === "time" ? 1 : 0);
+      return {
+        "--a_date_input_label_buttons": BUTTONS,
+        "--a_date_input_label_width": `var(--a_date_input_${ FIELD.kind }_width)`,
+      };
+    });
+
     return {
       announcement,
+      labelSpaceStyle,
+      placeholderAttributes,
       closeTimeList,
       controlRefs,
       firstDayOfWeekLocal,
@@ -853,11 +875,13 @@ export default {
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
-        class: ["a_form_element__parent", {
+        class: ["a_form_element__parent a_date_input__parent", {
           a_form_element__parent_float: IS_FLOAT,
           a_form_element__parent_inset: this.isLabelInsetEffective,
           a_form_element__parent_not_empty: !IS_FLOAT || this.fields.some(field => this.texts[field.key]),
         }],
+        // the float label is over the first field: as wide as it, without its buttons (clear, calendar, time list)
+        style: IS_FLOAT ? this.labelSpaceStyle : undefined,
       }, [
         (this.label || this.labelScreenReader) && h(ALabel, {
           id: this.htmlIdLocal,
@@ -912,7 +936,7 @@ export default {
               type: "text",
               class: ["a_date_input__input", this.inputClass],
               value: this.texts[field.key],
-              placeholder: this.placeholder,
+              ...this.placeholderAttributes,
               disabled: this.disabledAttribut,
               autocomplete: "off",
               spellcheck: "false",

@@ -595,7 +595,7 @@ export default {
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
-        class: ["a_form_element__parent", {
+        class: ["a_form_element__parent a_datepicker__parent", {
           a_form_element__parent_float: this.isLabelFloatLocal,
           a_form_element__parent_inset: this.isLabelInset,
           a_form_element__parent_float_has_error_icon: this.hasErrorIcon,

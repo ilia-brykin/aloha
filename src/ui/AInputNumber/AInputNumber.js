@@ -384,7 +384,7 @@ export default {
             a_form_element__parent_invalid: this.isErrors,
           }],
         }, [
-          this.label && !this.isLabelFloatLocalLocal && h(ALabel, {
+          this.label && !this.isLabelFloatLocal && h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
             extra: this.extra,
