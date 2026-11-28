@@ -42,7 +42,7 @@
     }
   }
 }
-// labelPosition "inset": the label stays inside the field, small above the value
+// labelPosition "inset": the label stays inside the field, small above the value, it never moves
 // (the parent has a_form_element__parent_float as well, so icons and placeholders work the same)
 .a_form_element__parent_inset {
   .a_form_control {
@@ -50,11 +50,9 @@
     padding-top: calc(var(--a_form_control_padding_y) + var(--a_form_element_label_inset_space) * .75);
     padding-bottom: calc(var(--a_form_control_padding_y) + var(--a_form_element_label_inset_space) * .25);
   }
-  .a_form_element_label {
-    // --a_form_control_height is set on the control itself, the label uses the global token
-    top: calc((var(--a_control_height) + var(--a_form_element_label_inset_space)) / 2);
-    background: transparent;
-  }
+  // the label does not move: always small at the top of the field (empty, with focus, with a value);
+  // the same selectors as the float label (also :focus-within / not empty), so these win
+  &,
   &:focus-within,
   &.a_form_element__parent_not_empty {
     .a_form_element_label {
@@ -62,6 +60,13 @@
       transform: none;
       font-size: var(--a_font_size_sm);
       line-height: 1.25;
+      color: var(--a_form_element_label_float_active_color);
+      background: transparent;
+      transition: none;
+
+      &_error {
+        color: var(--a_form_element_error_color);
+      }
     }
   }
 }

@@ -19,6 +19,20 @@
   }
 }
 
+// labelPosition "inset": the label stays at the top left, also with the error icon (no move on focus)
+.a_form_element__parent_inset.a_select__parent_has_error_icon {
+  &,
+  &:focus-within,
+  &.a_form_element__parent_not_empty {
+    > .a_form_element_label,
+    > .a_form_element_label.a_form_element_label_float,
+    > .a_form_element_label.a_form_element_label_error {
+      left: 0.625rem;
+      max-width: calc(100% - 1.25rem);
+    }
+  }
+}
+
 .a_select {
   position: relative;
 }
