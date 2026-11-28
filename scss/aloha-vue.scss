@@ -17,6 +17,7 @@
 @layer aloha.base {
   @include meta.load-css("utils/global");
   @include meta.load-css("base");
+  @include meta.load-css("text/headings");
 }
 
 @layer aloha.components {

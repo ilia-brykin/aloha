@@ -1,0 +1,4 @@
+// h1-h6 in the layer base: a component (e.g. the header of AAccordion in h3) can change them
+@use "font_sizes";
+
+@include font_sizes.rules($tags: true);
