@@ -1,0 +1,1 @@
+import{Gt as e,on as t}from"./chunk.vendor.DL09mhUf.js";import{t as n}from"./bundle.index.DbRNiyxs.js";var r={};function i(n,r){return t(),e(`div`,null,`NOT FOUND`)}var a=n(r,[[`render`,i]]);export{a as default};
