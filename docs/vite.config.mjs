@@ -1,6 +1,7 @@
 import vue from "@vitejs/plugin-vue";
 
 import eslintPlugin from "vite-plugin-eslint2";
+import fs from "fs";
 import path from "path";
 import {
   defineConfig,
@@ -17,6 +18,15 @@ export default defineConfig({
   base: isDevelopment ? "/" : "/aloha/",
   plugins: [
     vue(),
+    // GitHub Pages answers an unknown path (/aloha/input-tags) with 404.html: the same app opens the page (after the build, static copy is too early)
+    {
+      name: "aloha-docs-404",
+      apply: "build",
+      closeBundle() {
+        const DIST = path.resolve(docsRoot, "dist");
+        fs.copyFileSync(path.join(DIST, "index.html"), path.join(DIST, "404.html"));
+      },
+    },
     eslintPlugin({
       cache: false,
       include: [
@@ -27,11 +37,6 @@ export default defineConfig({
     }),
     viteStaticCopy({
       targets: [
-        {
-          src: "dist/index.html", // исходный файл
-          dest: "./", // директория назначения
-          rename: "404.html", // переименование файла
-        },
         {
           src: "assets",
           dest: "./",
