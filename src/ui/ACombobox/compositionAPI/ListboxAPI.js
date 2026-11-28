@@ -14,6 +14,9 @@ import {
   foldText,
 } from "../utils/text";
 import {
+  scrollIntoList,
+} from "../../../utils/scrollIntoList";
+import {
   get,
   toString,
 } from "lodash-es";
@@ -218,18 +221,8 @@ export default function ListboxAPI(props, { emit }, {
   // the active option stays visible: only the list scrolls (scrollIntoView also scrolled the page before floating-ui placed the popup)
   watch(activeId, async id => {
     await nextTick();
-    const OPTION = id && document.getElementById(id);
-    const LIST = OPTION?.closest(".a_combobox__popup");
-    if (!LIST) {
-      return;
-    }
-    const LIST_RECT = LIST.getBoundingClientRect();
-    const OPTION_RECT = OPTION.getBoundingClientRect();
-    if (OPTION_RECT.top < LIST_RECT.top) {
-      LIST.scrollTop -= LIST_RECT.top - OPTION_RECT.top;
-    } else if (OPTION_RECT.bottom > LIST_RECT.bottom) {
-      LIST.scrollTop += OPTION_RECT.bottom - LIST_RECT.bottom;
-    }
+    const OPTION = id ? document.getElementById(id) : null;
+    scrollIntoList(OPTION, OPTION?.closest(".a_combobox__popup"));
   });
 
   // inline autocomplete: the first suggestion that starts with the text completes it

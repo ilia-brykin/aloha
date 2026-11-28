@@ -8,6 +8,10 @@ import {
 
 import FloatingAPI from "../compositionAPI/FloatingAPI";
 
+import {
+  scrollIntoList,
+} from "../../../utils/scrollIntoList";
+
 /**
  * List of times (WAI-ARIA listbox): the focus is on the list, the active option is aria-activedescendant.
  */
@@ -73,7 +77,8 @@ export default {
 
     const scrollToActive = () => {
       nextTick(() => {
-        document.getElementById(getOptionId(activeIndex.value))?.scrollIntoView?.({ block: "nearest" });
+        // only the list scrolls, not the page (the popup is placed later by floating-ui)
+        scrollIntoList(document.getElementById(getOptionId(activeIndex.value)), listRef.value);
       });
     };
 
