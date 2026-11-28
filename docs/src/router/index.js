@@ -755,6 +755,20 @@ const ROUTES = [
 const ROUTER = createRouter({
   history: createWebHistory("/aloha/"),
   routes: ROUTES,
+  // back / forward: the old position; a link with #id: to the element; a new page: to the top
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // the examples have links like #navbar_home without an element: no warning, no jump
+    if (to.hash && document.getElementById(decodeURIComponent(to.hash.slice(1)))) {
+      return { el: to.hash };
+    }
+    if (to.path !== from.path) {
+      return { top: 0 };
+    }
+    return false;
+  },
 });
 
 export default ROUTER;
